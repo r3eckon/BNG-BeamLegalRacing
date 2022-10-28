@@ -92,9 +92,11 @@ Model name is the name of the zip file for that vehicle
 Config files are found in the zip files for each vehicle.
 
 
-Values separated by commas are interpreted as random ranges. 
+Values separated by commas are interpreted as random ranges or choices.
 
-Works with wager, rep, laps and enemyRisk.
+Works with wager, rep, laps and enemyRisk, enemyModel and enemyConfig.
+
+This is used to create randomized races that still use the same path. Used to make the endless "hero" race league more interesting.
 
 ### UI Modding
 Part Images can be added to enhance the UX of the part shop.
