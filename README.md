@@ -11,6 +11,8 @@ Perform missions, races and challenges to earn money to buy vehicles and parts. 
 * Unpack the zip
 * Copy or merge contents to your BeamNG user folder
 
+If you are experiencing issues with the mod using the player install, try modder install before making a bug report. Since the mod relies heavily on data persistence some files may fail to load properly when zipped as a mod.
+
 
 ## Before Playing
 BeamLR relies on a UI app that you must add to your "Scenario" UI layout in order to access features such as:
@@ -20,6 +22,8 @@ BeamLR relies on a UI app that you must add to your "Scenario" UI layout in orde
 * Tuning Menu
 * Paint Edit Menu
 
+The UI app is best placed at the top center of the screen with a size of at least **500x500**.
+
 First time players: the imgui unit detection feature may fail to properly register your unit setting. 
 
 Toggling back and forth between metric and imperial fixes this issue. The UI will then show correct units.
@@ -28,6 +32,28 @@ Toggling back and forth between metric and imperial fixes this issue. The UI wil
 Remember to save the **userfolder/beamLR** folder if you want to backup your career!
 
 The scenario has no autosave feature. Game crashes or hard quit may result in lost progress.
+
+## Getting started
+Spawn on Utah at the Auto Repair Zone. The mission marker near the parking lot garage is used to play your BeamLR career.
+
+![mission marker](https://i.imgur.com/uSx4849.png)
+
+The scenario will load your last used vehicle and spawn traffic. Be patient while the scenario is loading especially if using lots of traffic.
+
+Once in the scenario floating markers indicate interactive areas for the player garage, repair shop, gas stations, race clubs, etc.
+
+![part shop marker](https://i.imgur.com/84A5emi.png)
+
+Before you can race, you need some money to wager. The first thing to do is delivery missions.
+
+There are 3 race clubs implemented: Highway Race Club, Offroad Racing Club and Pure Drag Race Club.
+
+![race clubs](https://i.imgur.com/yPLsjIc.png)
+
+You must complete every race in a league to progress to the next league. Opponent vehicle performance increases with leagues.
+
+You can spend money on part upgrades or new vehicles by visiting the various shops.
+
 
 ## WIP Notice
 This mod is a work in progress. At this stage it is a decent vertical slice of the gameplay the project is trying to achieve with some bugs and quirks remaining that should get better as BeamNG and the mod are updated. 
