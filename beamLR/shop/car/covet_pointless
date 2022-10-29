@@ -1,0 +1,8 @@
+name=Ibishu Covet
+type=covet
+config=vehicles/covet/pointless.pc
+baseprice=600,800
+odometer=200000000,250000000
+scrapval=80
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

@@ -1,0 +1,8 @@
+name=Ibishu Covet (13S, Manual)
+type=covet
+config=vehicles/covet/13s_M.pc
+baseprice=2000,4000
+odometer=100000000,170000000
+scrapval=300
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

@@ -1,0 +1,8 @@
+name=Civetta Scintilla (GTs Spyder, DCT)
+type=scintilla
+config=vehicles/scintilla/gts_spider.pc
+baseprice=220000
+odometer=0
+scrapval=10500
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

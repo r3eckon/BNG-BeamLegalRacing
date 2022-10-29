@@ -1,0 +1,8 @@
+name=ETK I-Series (3000ix, Manual)
+type=etki
+config=vehicles/etki/3000ix_M.pc
+baseprice=10000,13000
+odometer=20000000,50000000
+scrapval=800
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

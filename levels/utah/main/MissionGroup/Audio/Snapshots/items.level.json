@@ -1,0 +1,7 @@
+{"name":"level_buildings","class":"SimGroup","persistentId":"6b35d6c3-b3c3-4224-b631-0879dc807852","__parent":"Snapshots","locked":true}
+{"name":"mine_centre","class":"SimGroup","persistentId":"ffa3c492-fcd1-4a91-8b84-1d0371ec0d56","__parent":"Snapshots","locked":true}
+{"name":"mine_east","class":"SimGroup","persistentId":"dbcddfa7-45ad-4c27-a71d-24c604ea1734","__parent":"Snapshots","locked":true}
+{"name":"mine_north","class":"SimGroup","persistentId":"c553139a-5b0c-42f1-94a3-66a6448623f5","__parent":"Snapshots","locked":true}
+{"name":"mine_northwest","class":"SimGroup","persistentId":"b0939108-b3ae-4b9a-8d30-e260a676988f","__parent":"Snapshots","locked":true}
+{"name":"mine_west","class":"SimGroup","persistentId":"054929c1-b25d-4f39-9d8b-a35970a28707","__parent":"Snapshots","locked":true}
+{"name":"tunnel","class":"SimGroup","persistentId":"209ec030-854f-4e68-a306-fd040ecc3c91","__parent":"Snapshots","locked":true}

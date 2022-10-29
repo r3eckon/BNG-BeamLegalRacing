@@ -1,0 +1,8 @@
+name=Hirochi SBR4 (RWD Base, Manual)
+type=sbr
+config=vehicles/sbr/base_RWD_M.pc
+baseprice=80000
+odometer=0
+scrapval=5000
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

@@ -1,0 +1,6 @@
+desc=Jump over the road!
+wager=100,300
+triggers=BeamLRTrigger_JumpTarget
+type=jump
+rep=10,40
+gmwp=blrwp_cgm_jump

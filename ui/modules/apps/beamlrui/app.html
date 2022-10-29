@@ -1,0 +1,489 @@
+<div style="height: 100%; background-color:rgba(1.0,1.0,1.0,0.0);" class="bngApp beamlrui">
+
+<img ng-if="showMenu == false" src="/ui/modules/apps/beamlrui/background.png" width=100% height=8% style="z-index:-1;"/>
+<img ng-if="showMenu == true" src="/ui/modules/apps/beamlrui/background.png" width=100% height=100% style="z-index:-1;"/>
+
+<pre style="display:block;">
+<button ng-click="showMenuClick()" ng-if="showMenu" style="position:absolute; left:1%; top:1%;" >▲</button>
+<button ng-click="showMenuClick()" ng-if="showMenu==false" style="position:absolute; left:1%; top:1%;" >▼</button>
+<h1 ng-if="beamlrData['waitmsg'] != true" width=100% height=100% style="line-height:10px; position:absolute; left:50%; top:0%; transform: translate(-50%,0%)">BeamLR Main Menu</h1>
+<h1 ng-if="beamlrData['waitmsg'] == true" width=100% height=100% style="line-height:10px; position:absolute; left:50%; top:0%; transform: translate(-50%,0%)">Loading. Please Wait.</h1>
+</pre>
+
+
+<div style="position:absolute; left:50%; top:10%; max-height=110px; transform: translate(-50%, 0%);" ng-if="showMenu" >
+
+<table style="margin-left:auto; margin-right:auto;">
+<tr>
+<td style="line-height:0px;" ng-repeat="button in menuButtons">
+<p><img ng-click="menuClick(button.id)" ng-attr-src="/ui/modules/apps/beamlrui/{{button.svg}}" width=90px height=90px /></p>
+<p style="text-align:center;">{{button.name}}</p>
+</td>
+</tr>
+</table>
+
+<div ng-if="menuPage==0">
+<h3 style="text-align:center; line-height:0px;"> Main Menu </h3>
+
+<div style="z-index: 99; overflow:scroll; overflow-y:scroll; max-height:250px; max-width:500px; background-color:rgba(0,0,0,0.5)" >
+
+<h2 style="text-align:center;">
+Welcome to BeamLR<br>
+</h2>
+
+<p style="margin-left:10px; margin-right:10px; text-align:center;">
+Remember that this is a work in progress mod. Always back up the BeamLR folder before updating to a new version of the mod.
+</p>
+
+<p style="margin-left:10px; margin-right:10px; text-align:center;">
+Feedback and suggestion are appreciated.<br><br> Thank you for testing this mod!
+</p>
+
+<h2 style="text-align:center;">
+How to play<br>
+</h2>
+
+<p style="margin-left:10px; margin-right:10px; text-align:center;">
+BeamLR brings gameplay through interactive areas added to the map, each area allowing for various actions.<br><br>
+
+Interactive areas are shown using floating "collectible" markers. Here are the currently implemented areas:
+</p>
+
+<ul>
+<li>Player Garage</li>
+<li>Gas Station</li>
+<li>Repair Shop</li>
+<li>Car Shop</li>
+<li>Mission Giver / Part Shop</li>
+<li>Race Clubs</li>
+<li>Daredevil Challenges</li>
+</ul>
+
+
+<h3 style="text-align:center;">
+Player Garage<br>
+</h3>
+
+<p style="margin-left:10px; margin-right:10px; text-align:center;">
+The player garage is where your vehicles are stored.<br>
+Purchased or won vehicles are sent to your garage.<br><br> 
+You can call a mechanic for on site repairs at a higher cost.<br>
+Destroyed vehicles can be scrapped for money.<br>
+Towing will place your vehicle at the garage.<br><br>
+
+From the player garage you can also perform part edits, tuning and painting using the BeamLR Menu.<br>
+Vehicle must be fully repaired. <br>
+</p>
+
+<h3 style="text-align:center;">
+Gas Station<br>
+</h3>
+
+<p style="margin-left:10px; margin-right:10px; text-align:center;">
+Gas stations are used to refuel your vehicle. <br><br>
+Gas price can be different for each station. It will also fluctuate daily.<br><br>
+Newly purchased vehicles have empty gas tanks.<br><br>
+Be careful not to run out of gas!
+</p>
+
+<h3 style="text-align:center;">
+Repair Shop<br>
+</h3>
+
+<p style="margin-left:10px; margin-right:10px; text-align:center;">
+Repair shops allow you to repair your vehicles at a cheaper cost than on site repairs. Repair cost depends on extent of external and mechanical damage.<br><br>
+You can also perform part edits, tuning and painting using the BeamLR menu. Vehicle must be fully repaired.<br>
+
+</p>
+
+<h3 style="text-align:center;">
+Car Shop<br>
+</h3>
+
+<p style="margin-left:10px; margin-right:10px; text-align:center;">
+Car shops offer a daily restocked selection of vehicles for you to purchase. Sleep until next day to renew the selection.
+Different shops may offer different stock and only sell some types of vehicles like used or new cars.<br><br>
+
+Used vehicles have price values that follow the odometer value of the vehicle. Higher odometer means cheaper price.<br><br>
+
+It is also possible to sell your vehicles at the shop. This mechanic is not fully implemented so current prices may not be fair.<br><br>
+
+</p>
+
+<h3 style="text-align:center;">
+Mission Giver / Part Shop<br>
+</h3>
+
+<p style="margin-left:10px; margin-right:10px; text-align:center;">
+The mission giver area is used to earn risk free money with simple delivery missions. This is where you can first earn money.<br><br>
+The area doubles as a part shop. Parts for your current vehicle can be purchased using the BeamLR menu.<br>
+Purchased parts are sent to your part inventory and become available in the part edit menu.
+</p>
+
+<h3 style="text-align:center;">
+Race Clubs<br>
+</h3>
+
+<p style="margin-left:10px; margin-right:10px; text-align:center;">
+Race clubs deliver the main gameplay for this mod. This is where you find race events.
+Different race clubs give different styles of races such as drag and dirt/offroad races.<br><br>
+
+Race leagues provide a degree of progression to race clubs. Bronze league has slow opponents while Gold league has race configs.
+Wagers and rep rewards increase with opponent difficulty as you progress through leagues.<br>
+The final league for a club is called the "Hero" league. This league is endless and has no progression, with randomized opponents to make races replayable.<br><br>
+
+Some races will deactivate traffic while others leave it on. Races with traffic are generally more risky and random.<br><br>
+
+Some races will allow you to wager your vehicle "pink slips". After losing you will have to walk home or pay for a bus ride. Won vehicles are sent to your garage.<br><br>
+</p>
+
+<h3 style="text-align:center;">
+Daredevil Challenges<br>
+</h3>
+
+<p style="margin-left:10px; margin-right:10px; text-align:center;">
+Daredevil Challenges area is used to wager money on various risky challenges.<br><br>
+Currently implemented: Speed Trap and Jump challenges.<br><br>
+</p>
+
+<h2 style="text-align:center;">
+Police, Tickets and Impounding<br>
+</h2>
+
+<p style="margin-left:10px; margin-right:10px; text-align:center;">
+Police vehicles can chase after and arrest you for various offenses. Each offense adds cost to your ticket. 
+If you are caught and can't pay your ticket, your vehicle will be "impounded".<br><br>
+
+Currently the impound mechanic works using the player garage. Impounded vehicles will be unavailable until you pay the outstanding ticket cost.<br><br>
+
+
+Drive carefully!<br><br>
+</p>
+
+<h2 style="text-align:center;">
+Health and Fatal Crashes<br>
+</h2>
+
+<p style="margin-left:10px; margin-right:10px; text-align:center;">
+Hard crashes (above 10G) will injure the player. Very hard crashes can be instantly fatal.<br><br>
+Player Health is indicated in the stats UI.<br>If health drops to 0% your career will be reset.<br><br>
+To restore health use the "Sleep/Heal" button in the stats UI. This will also advance the time by 8 hours.<br><br>
+Career can also be reset using the Options menu.<br><br>
+
+Drive carefully!<br><br>
+</p>
+
+
+<h2 style="text-align:center;">
+Various Tips<br>
+</h2>
+
+<p style="margin-left:10px; margin-right:10px; text-align:center;">
+If you see "Loading. Please Wait." on the BeamLR Menu, do not spam buttons. Some actions take a bit of time to process.<br><br>
+Don't like available shop vehicles?<br> Sleep until the next day to get new stock.<br><br>
+BeamLR menu having issues?<br> Hit CTRL+F5 to refresh the UI.<br><br>
+Input fields may stop registering keystrokes if the mouse cursor isn't hovering.<br><br>
+You can rename vehicles using the Options menu<br><br>
+On 0.26.2 the Covet has beamstate issues with "advanced couplers" for doors and hood hinges.<br> Repair after spawn to fix the issue.<br><br>
+Vehicle stuck upside down?<br> Nodegrabber is enabled with restricted force for this purpose.<br><br>
+Bad performance with lots of traffic?<br> Use the Options menu to change traffic density.<br><br>
+Options menu can be used to change the random seed for the next career. Current seed can be changed by editing the "options" file.<br><br>
+You can save/restore the BeamLR folder to backup or share your current career.<br><br>
+There is currently no autosave mechanic. If you forcefully quit the game some progress may be lost.<br><br>
+</p>
+
+<h2 style="text-align:center;">
+Known Issues<br>
+</h2>
+
+<p style="margin-left:10px; margin-right:10px; text-align:center;">
+Here are some known issues with this mod, please refer to this list before reporting problems.
+
+<ul>
+<li>
+Covet beamstate saving breaks advanced coupler beams, doors won't close, hood won't open. 
+Current best workaround is to simply repair the vehicle.
+</li>
+<li>
+Towing mechanic may repair your vehicle. This is due to problems with a teleport function that shouldn't cause a reset yet sometimes does.
+</li>
+<li>
+Game freeze upon loading into the scenario, with vehicle disappearing. 
+Still investigating this problem.
+Doesn't happen all the time so the best workaround is to try again.
+</li>
+<li>
+Some tuning configurations can cause unfair damage when a vehicle is loaded. A workaround is implemented but may fail to work in certain situations.
+</li>
+<li>
+Various UI problems, input fields stop registering keystrokes, whole UI can refuse to work. Workaround is to keep cursor above input fields. CTRL+F5 to fix the frozen UI.
+</li>
+<li>
+Race checkpoints sometimes fail to trigger properly. Still investigating this problem.
+</li>
+
+
+</ul>
+
+</p>
+
+
+</div>
+
+</div>
+
+<div ng-if="menuPage==1">
+<h3 style="text-align:center; line-height:0px;"> Options </h3>
+
+<div style="z-index: 99; margin-left: 5px; margin-right: 5px; overflow:scroll; overflow-y:scroll; max-height:250px; max-width:500px; background-color:rgba(0,0,0,0.5)">
+
+<h3 style="text-align:center;">&nbsp General </h3>
+
+<p style="text-align:center;"> 
+Player Name : 
+<input type="text" ng-model="inputData.name" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
+<button ng-click="setNameClick()">Set Name</button>
+</p>
+
+<p style="text-align:center;"> 
+Vehicle Name : 
+<input type="text" ng-model="inputData.vehname" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
+<button ng-click="setVehNameClick()">Set Name</button>
+</p>
+
+<h3 style="text-align:center;"> Traffic </h3>
+
+<p style="text-align:center;"> (Requires scenario restart to take effect) </p>
+
+<p style="text-align:center;"> 
+Traffic Density : 
+<button ng-click="setTrafficDensity(0)">Off</button>
+<button ng-click="setTrafficDensity(3)">Light</button>
+<button ng-click="setTrafficDensity(6)">Medium</button>
+<button ng-click="setTrafficDensity(10)">Heavy</button>
+<button ng-click="setTrafficDensity(18)">Max</button>
+</p>
+
+<p style="text-align:center;"> 
+Police Density : 
+<button ng-click="setPoliceDensity(0)">Off</button>
+<button ng-click="setPoliceDensity(1)">Light</button>
+<button ng-click="setPoliceDensity(2)">Medium</button>
+<button ng-click="setPoliceDensity(3)">Heavy</button>
+<button ng-click="setPoliceDensity(4)">Max</button>
+</p>
+
+<p style="text-align:center;"> 
+Truck Density : 
+<button ng-click="setTruckDensity(0)">Off</button>
+<button ng-click="setTruckDensity(1)">Light</button>
+<button ng-click="setTruckDensity(2)">Medium</button>
+<button ng-click="setTruckDensity(3)">Heavy</button>
+<button ng-click="setTruckDensity(4)">Max</button>
+</p>
+
+<h3 style="text-align:center;"> Career </h3>
+
+<p style="text-align:center;"> (New seed takes effect after career reset) </p>
+
+<p style="text-align:center;"> 
+Current Career Seed: {{beamlrData['seed']}}
+</p>
+
+<p style="text-align:center;"> 
+Next Seed:
+<input type="text" maxlength=10 size=11 ng-model="inputData.seed" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
+<button ng-click="setSeed()">Set</button>
+<button ng-click="setRandomSeed()">Random</button>
+</p>
+
+<br>
+
+<p style="text-align:center; color:yellow;"> 
+Reset Career (WARNING: PERMANENT)
+<button ng-click="resetCareer()">Reset Career</button>
+</p>
+
+
+</div>
+
+
+</div>
+
+<div ng-if="menuPage==2">
+<h3 style="text-align:center; line-height:0px;"> Buy Parts </h3>
+
+<div ng-if="beamlrData['triggerState'] == 1">
+
+<div style="text-align:center; transform:translate(30px, -5px);" >
+<button ng-click="filter(0,'all')">All</button> 
+<button ng-click="filter(0,'body')">Body</button> 
+<button ng-click="filter(0,'engine')">Engine</button> 
+<button ng-click="filter(0,'misc')">Misc</button> 
+<button ng-click="search(0)">Search</button>
+<input style="width:75px" type="text" ng-model="inputData.searchFilter" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
+</div>
+
+<div style="z-index: 99; overflow:scroll; overflow-y:scroll; max-height:220px; max-width:500px; background-color:black;" >
+<div ng-repeat="(key,value) in beamlrData['availParts']">
+<h3 style="text-align:center; color: green;"> {{key}} </h3>
+
+<div style="margin-left:5px; line-height:100px" ng-repeat="part in value"> 
+
+<span style="float:left; height:90px; transform:translate(0px, 5px);">
+<img ng-if="beamlrData['partpreview'][part] != null" ng-attr-src="/ui/modules/apps/beamlrui/partimg/{{beamlrData['partpreview'][part]}}" width=90px height=90px />
+<img ng-if="beamlrData['partpreview'][part] == null" src="/ui/modules/apps/beamlrui/partimg/none.png" width=90px height=90px />
+</span>
+
+<span style="display:inline-block; text-align:center; line-height:20px; width: 200px; margin-left:20px; vertical-align:middle; overflow-wrap:break-word;">{{part}}</span>
+
+<span style="float:right; margin-right:5px; vertical-align:middle;"> Price : 
+
+<span ng-if="beamlrData['partPrices'][part] == null">{{beamlrData['partPrices']['default']}} $ </span>
+<span ng-if="beamlrData['partPrices'][part] != null">{{beamlrData['partPrices'][part]}} $ </span>
+
+<button ng-click="shopPartClick(part)">Buy</button>
+
+</span>
+</div>
+</div>
+</div>
+</div>
+
+<div ng-if="beamlrData['triggerState'] != 1">
+<h2 style="text-align:center;" > Get to a Shop! </h2>
+</div>
+</div>
+
+<div ng-if="menuPage==3">
+<h3 ng-if="editMode == 0" style="text-align:center; line-height:0px;"> Edit Car Parts </h3>
+<h3 ng-if="editMode == 1" style="text-align:center; line-height:0px;"> Edit Car Paint </h3>
+<div ng-if="beamlrData['triggerState'] == 2 && beamlrData['playerDamage'] == 0 && beamlrData['playerWalking'] == 0" >
+
+<div style="text-align:center; transform:translate(0, -5px);" >
+<button ng-if="editMode == 0" ng-click="setEditMode(1)" style="background-color:#11CC44FF; width:55px; border-radius:5px; ">Paint</button> 
+<button ng-if="editMode == 1" ng-click="setEditMode(0)" style="background-color:#CCCC22FF; width:55px; border-radius:5px; ">Parts</button> 
+
+
+<button ng-click="filter(1,'all')">All</button> 
+<button ng-click="filter(1,'body')">Body</button> 
+<button ng-click="filter(1,'engine')">Engine</button> 
+<button ng-click="filter(1,'misc')">Misc</button> 
+<button ng-click="search(1)">Search</button>
+<input style="width:75px" type="text" ng-model="inputData.searchFilter" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
+</div>
+
+<div ng-if="editMode == 0" style="z-index: 99; margin-left: 20px; margin-right: 20px; overflow:scroll; overflow-y:scroll; max-height:200px; background-color:rgba(0,0,0,0.5)">
+<div ng-repeat="(key,value) in beamlrData['garageData']">
+<h3 style="color:green;text-align:center;">{{key}}</h3>
+<p style="text-align:center;"><button ng-click="garagePartClick(key,'')">Remove Part</button></p>
+<div>
+<div style="text-align:center; line-height:100px;" ng-repeat="item in value" >
+<span style="float:left; margin-left:20px; transform:translate(0,5px); height:90px; vertical-align:middle;">
+<img ng-if="beamlrData['partpreview'][item] != null" ng-attr-src="/ui/modules/apps/beamlrui/partimg/{{beamlrData['partpreview'][item]}}" width=90px height=90px />
+<img ng-if="beamlrData['partpreview'][item] == null" src="/ui/modules/apps/beamlrui/partimg/none.png" width=90px height=90px />
+</span>
+<span style="display:inline-block; width: 150px; line-height:20px; vertical-align:middle; overflow-wrap:break-word;">{{item}}</span>
+<span style="float:right; margin-right:20px; vertical-align:middle;">
+<button style="width:90px;" ng-click="garagePartClick(key,item)">Use</button>
+</span>
+</div>
+
+</div>
+</div>
+</div>
+
+<div ng-if="editMode ==1" style="z-index: 99; margin-left: 20px; margin-right: 20px; overflow:scroll; overflow-y:scroll; min-height:200px; max-height:200px; background-color:rgba(0,0,0,0.5)">
+<div style="text-align:center; margin:auto; width: 50%; height:50%; ">
+<br>
+<button ng-click="applyPaint()">Apply Paint</button>
+<button ng-click="reloadPaint()">Reload Paint</button>
+<br>
+</div>
+<br>
+<div style="text-align:center; margin:auto; width: 50%; height:50%; ">
+<ng-color ng-model="beamlrData['paint']['paintA']" presets-editable="false" show-preview="false" paint-number="1"></ng-color>
+</div>
+<div style="text-align:center; margin:auto; width: 50%; height:50%; ">
+<ng-color ng-model="beamlrData['paint']['paintB']" presets-editable="false" show-preview="false" paint-number="2"></ng-color>
+</div>
+<div style="text-align:center; margin:auto; width: 50%; height:50%; ">
+<ng-color ng-model="beamlrData['paint']['paintC']" presets-editable="false" show-preview="false" paint-number="3"></ng-color>
+</div>
+</div>
+
+
+</div>
+
+<div ng-if="beamlrData['playerWalking'] != 0">
+<h2 style="text-align:center;" > Cannot use while walking. </h2>
+</div>
+
+<div ng-if="beamlrData['playerWalking'] == 0">
+<div ng-if="beamlrData['triggerState'] != 2">
+<h2 style="text-align:center;" > Get to a Garage! </h2>
+</div>
+
+<div ng-if="beamlrData['playerDamage'] != 0">
+<h2 style="text-align:center;" > Vehicle must be fully repaired. </h2>
+</div>
+</div>
+
+</div>
+
+<div ng-if="menuPage==4">
+
+<h3 style="text-align:center; line-height:0px;"> Tuning </h3>
+
+<div ng-if="beamlrData['triggerState'] == 2 && beamlrData['playerDamage'] == 0 && beamlrData['playerWalking'] == 0">
+<div style="z-index: 99; overflow:scroll; overflow-y:scroll; max-height:220px; max-width:500px; background-color:black;" >
+<div ng-repeat="(key,value) in beamlrData['tuningData']">
+<span style="float:left; transform:translate(5px, 20px)">{{value["title"]}} &nbsp </span>
+<span>
+<md-slider flex style="width:100px; transform: translate(200px, 10px); " min="{{value['minDis']}}" max="{{value['maxDis']}}" step="{{value['stepDis']}}" ng-change="tuneChanged(key)" ng-model="beamlrData['tuningValues'][key]" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()">
+</md-slider>
+</span>
+<span style="float:right; transform:translate(-5px, -25px)">{{getTuneData(key)}} &nbsp {{value['unit']}}</span>
+</div>
+</div>
+
+<div>
+<span>
+<button style="float:left; margin-left:50px; transform:translate(0px, 10px)" ng-click="resetTune()"> Reset </button>
+<button style="float:right; margin-right:50px; transform:translate(0px, 10px)" ng-click="applyTune()"> Apply </button>
+</span>
+</div>
+
+
+</div>
+
+<div ng-if="beamlrData['playerWalking'] != 0">
+<h2 style="text-align:center;" > Cannot use while walking. </h2>
+</div>
+
+<div ng-if="beamlrData['playerWalking'] == 0">
+<div ng-if="beamlrData['triggerState'] != 2">
+<h2 style="text-align:center;" > Get to a Garage! </h2>
+</div>
+
+<div ng-if="beamlrData['playerDamage'] != 0">
+<h2 style="text-align:center;" > Vehicle must be fully repaired. </h2>
+</div>
+</div>
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+<div ng-if="!showMenu">
+
+
+</div>
+</div>

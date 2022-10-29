@@ -1,0 +1,8 @@
+name=Soliad Wendover (3300, Automatic)
+type=wendover
+config=vehicles/wendover/base_v6_A.pc
+baseprice=2000,4000
+odometer=80000000,180000000
+scrapval=200
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

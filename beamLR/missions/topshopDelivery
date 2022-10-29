@@ -1,0 +1,4 @@
+dest=BeamNGTrigger_TopShopFinish
+desc=Deliver some parts to the shops at the top of the canyon
+reward=100
+gmwp=blrwp_topshops

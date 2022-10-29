@@ -1,0 +1,8 @@
+name=Bruckell Bastion (Battlehawk, Manual)
+type=bastion
+config=vehicles/bastion/battlehawk_M.pc
+baseprice=50000
+odometer=0
+scrapval=100
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

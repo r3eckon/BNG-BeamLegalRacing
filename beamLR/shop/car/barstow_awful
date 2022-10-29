@@ -1,0 +1,8 @@
+name=Gravil Barstow
+type=barstow
+config=vehicles/barstow/awful.pc
+baseprice=600,800
+odometer=200000000,250000000
+scrapval=100
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

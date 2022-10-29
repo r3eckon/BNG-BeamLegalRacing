@@ -1,0 +1,8 @@
+name=Ibishu Covet (Type LS, Manual)
+type=covet
+config=vehicles/covet/type_LS_M.pc
+baseprice=6000,8000
+odometer=60000000,90000000
+scrapval=800
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

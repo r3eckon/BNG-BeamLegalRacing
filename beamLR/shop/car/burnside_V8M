@@ -1,0 +1,8 @@
+name=Burnside Special (V8, Manual)
+type=burnside
+config=vehicles/burnside/v8m.pc
+baseprice=800,3500
+odometer=80000000,280000000
+scrapval=200
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

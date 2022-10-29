@@ -1,0 +1,8 @@
+name=Gravil H-Series (H15 Vanster, Automatic)
+type=van
+config=vehicles/van/h15_vanster.pc
+baseprice=2000,4000
+odometer=70000000,120000000
+scrapval=300
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

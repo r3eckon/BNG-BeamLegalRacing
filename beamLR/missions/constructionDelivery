@@ -1,0 +1,4 @@
+dest=BeamLRTrigger_ConstructionZone
+desc=Deliver materials to the construction zone
+reward=200
+gmwp=blrwp_mgm_construction

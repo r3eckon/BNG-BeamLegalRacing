@@ -1,0 +1,8 @@
+name=Ibishu Pessima (1.8DX, Manual)
+type=pessima
+config=vehicles/pessima/DX_M.pc
+baseprice=3000,5000
+odometer=100000000,170000000
+scrapval=300
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

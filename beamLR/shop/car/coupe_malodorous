@@ -1,0 +1,8 @@
+name=Ibishu 200BX
+type=coupe
+config=vehicles/coupe/malodorous.pc
+baseprice=700,900
+odometer=170000000,230000000
+scrapval=100
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

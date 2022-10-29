@@ -1,0 +1,1 @@
+{"name":"theTerrain","class":"TerrainBlock","persistentId":"e024f0c7-ebf1-44b1-90c0-afb75d8b3ae6","__parent":"terrain","position":[-1024,-1024,100.207001],"baseTexSize":2048,"materialTextureSet":"UtahTerrainTextureSet","maxHeight":200,"terrainFile":"/levels/Utah/theTerrain.ter"}

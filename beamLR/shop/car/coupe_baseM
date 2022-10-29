@@ -1,0 +1,8 @@
+name=Ibishu 200BX (Base Model, Manual)
+type=coupe
+config=vehicles/coupe/base_M.pc
+baseprice=5000,7000
+odometer=50000000,100000000
+scrapval=500
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

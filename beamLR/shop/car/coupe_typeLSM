@@ -1,0 +1,8 @@
+name=Ibishu 200BX (Type LS, Manual)
+type=coupe
+config=vehicles/coupe/type-ls_M.pc
+baseprice=10000,12000
+odometer=30000000,50000000
+scrapval=900
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

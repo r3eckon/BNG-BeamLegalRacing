@@ -1,0 +1,11 @@
+BeamNGTrigger_GasStation=station,gasStation1
+BeamNGTrigger_RepairShop=repair
+BeamNGTrigger_CarStore=carshop,usedShop1
+BeamNGTrigger_MissionGiver=partshop,partShop1
+BeamNGTrigger_PlayerGarage=garage
+BeamNGTrigger_HighwayRaceClub=race,highwayRace
+BeamLRTrigger_TopGasStation=station,gasStation2
+BeamLRTrigger_NewCarShop=carshop,newShop1
+BeamLRTrigger_OffroadRaceClub=race,offroadRace
+BeamLRTrigger_ChallengeArea=dare,challenges1
+BeamLRTrigger_PureDragClub=race,dragRace

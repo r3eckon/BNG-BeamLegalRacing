@@ -1,0 +1,8 @@
+name=Ibishu Pessima
+type=pessima
+config=vehicles/pessima/derby.pc
+baseprice=600,800
+odometer=250000000,300000000
+scrapval=80
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

@@ -1,0 +1,8 @@
+name=Hirochi Sunburst (1.8, Manual)
+type=sunburst
+config=vehicles/sunburst/base_M.pc
+baseprice=2000,5000
+odometer=30000000,150000000
+scrapval=200
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

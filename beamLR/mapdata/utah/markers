@@ -1,0 +1,11 @@
+PartShop=Marker_PartShop
+GasStation=Marker_GasStation
+RepairShop=Marker_RepairShop
+UsedCar=Marker_CarShop
+Garage=Marker_Garage
+HighwayRace=Marker_HighwayDrag
+TopGas=BeamLRTrigger_TopGasStation
+NewCars=BeamLRTrigger_NewCarShop
+OffroadRace=BeamLRTrigger_OffroadRaceClub
+Challenges=BeamLRTrigger_ChallengeArea
+DragRace=BeamLRTrigger_PureDragClub

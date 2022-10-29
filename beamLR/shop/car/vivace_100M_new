@@ -1,0 +1,8 @@
+name=Cherrier FCV (Vivace 110, Manual)
+type=vivace
+config=vehicles/vivace/vivace_110_M.pc
+baseprice=15000
+odometer=0
+scrapval=1200
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

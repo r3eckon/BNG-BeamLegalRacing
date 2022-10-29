@@ -1,0 +1,8 @@
+name=Ibishu Miramar (Base, Manual)
+type=miramar
+config=vehicles/miramar/base_M.pc
+baseprice=4000,7000
+odometer=40000000,70000000
+scrapval=300
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

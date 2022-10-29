@@ -1,0 +1,7 @@
+desc=Pass the speed trap while going over the target speed
+wager=100,300
+triggers=BeamNGTrigger_HighwayDragFinish
+type=speed
+targetspd=40,50
+rep=10,40
+gmwp=blrwp_raceend

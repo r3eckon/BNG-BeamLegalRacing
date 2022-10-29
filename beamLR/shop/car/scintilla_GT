@@ -1,0 +1,8 @@
+name=Civetta Scintilla (GT, DCT)
+type=scintilla
+config=vehicles/scintilla/gt.pc
+baseprice=200000
+odometer=0
+scrapval=10000
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

@@ -1,0 +1,8 @@
+name=Ibishu Pigeon
+type=pigeon
+config=vehicles/pigeon/base.pc
+baseprice=300,500
+odometer=150000000,200000000
+scrapval=20
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

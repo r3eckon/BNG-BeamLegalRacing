@@ -1,0 +1,8 @@
+name=Gravil Grand Marshal
+type=fullsize
+config=vehicles/fullsize/miserable.pc
+baseprice=500,700
+odometer=270000000,310000000
+scrapval=50
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

@@ -1,0 +1,8 @@
+name=Gravil Grand Marshal (V8, Automatic)
+type=fullsize
+config=vehicles/fullsize/stock.pc
+baseprice=4000,6000
+odometer=70000000,120000000
+scrapval=500
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

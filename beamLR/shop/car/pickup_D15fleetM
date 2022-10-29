@@ -1,0 +1,8 @@
+name=Gravil D-Series (D15 Fleet, Manual)
+type=pickup
+config=vehicles/pickup/d15_fleet_M_facelift.pc
+baseprice=1000,2000
+odometer=100000000,150000000
+scrapval=100
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

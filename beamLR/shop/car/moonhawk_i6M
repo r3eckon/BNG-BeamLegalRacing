@@ -1,0 +1,8 @@
+name=Bruckell Moonhawk (I6, Manual)
+type=moonhawk
+config=vehicles/moonhawk/i6m.pc
+baseprice=5000,8000
+odometer=70000000,15000000
+scrapval=600
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

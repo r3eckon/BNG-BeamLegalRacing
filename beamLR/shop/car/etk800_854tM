@@ -1,0 +1,8 @@
+name=ETK 800-Series (854t, Manual)
+type=etk800
+config=vehicles/etk800/etk854t_M.pc
+baseprice=41000
+odometer=0
+scrapval=2000
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

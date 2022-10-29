@@ -1,0 +1,40 @@
+{
+  "additionalAttributes":{},
+  "customAdditionalAttributes":{},
+  "description":"Beam Legal Racing Career",
+  "devNotes":{
+    "devMission":false,
+    "mode":"silent",
+    "text":""
+  },
+  "grouping":{
+    "id":"",
+    "label":""
+  },
+  "missionType":"flowgraph",
+  "missionTypeData":{},
+  "name":"BeamLR Career",
+  "retryBehaviour":"infiniteRetries",
+  "startCondition":{
+    "type":"always"
+  },
+  "startTrigger":{
+    "level":"utah",
+    "pos":[
+      763.410447,
+      -149.205066,
+      144.304901
+    ],
+    "radius":3,
+    "rot":[
+      0,
+      0,
+      0,
+      1
+    ],
+    "type":"coordinates"
+  },
+  "visibleCondition":{
+    "type":"automatic"
+  }
+}
