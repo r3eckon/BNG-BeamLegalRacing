@@ -14,7 +14,7 @@ Perform missions, races and challenges to earn money to buy vehicles and parts. 
 If you are experiencing issues with the mod using the player install, try modder install before making a bug report. Since the mod relies heavily on data persistence some files may fail to load properly when zipped as a mod.
 
 
-## Before Playing
+## Read Before Playing
 BeamLR relies on a UI app that you must add to your "Scenario" UI layout in order to access features such as:
 * Options Menu
 * Part Edit Menu
@@ -52,7 +52,11 @@ There are 3 race clubs implemented: Highway Race Club, Offroad Racing Club and P
 
 You must complete every race in a league to progress to the next league. Opponent vehicle performance increases with leagues.
 
-You can spend money on part upgrades or new vehicles by visiting the various shops.
+You can spend money on part upgrades or new vehicles by visiting the various shops. 
+
+Use the top menu to access part shop & part edit UIs.
+
+You can reset your career at any time using the options menu.
 
 
 ## WIP Notice
