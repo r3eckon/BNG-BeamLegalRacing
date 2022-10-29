@@ -8,7 +8,7 @@ Perform missions, races and challenges to earn money to buy vehicles and parts. 
 ### Player install (Allows career data cheating)
 * Drop the zip in your mods folder. 
 ### Modder install (Allows further tweaking, adding races, shop vehicles & more)
-* Unpack the zip
+* Unpack the zip or clone the repo
 * Copy or merge contents to your BeamNG user folder
 
 If you are experiencing issues with the mod using the player install, try modder install before making a bug report. Since the mod relies heavily on data persistence some files may fail to load properly when zipped as a mod.
