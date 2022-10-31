@@ -7,9 +7,20 @@ Perform missions, races and challenges to earn money to buy vehicles and parts. 
 
 ### Player install (Allows career data cheating)
 * Drop the zip in your mods folder. 
+
 ### Modder install (Allows further tweaking, adding races, shop vehicles & more)
 * Unpack the zip or clone the repo
 * Copy or merge contents to your BeamNG user folder
+
+### Update Instructions
+* Back up your userdata/beamLR folder to keep your career (if you care, just to be safe)
+* Player install: Replace mod zip file with update zip. Done.
+* Modder install: Replace all mod files with update files except userdata/beamLR folder
+
+    (Drag and drop mod folders into the userfolder to merge/replace worked on my end)
+
+
+### Other install information
 
 If you are experiencing issues with the mod using the player install, try modder install before making a bug report. Since the mod relies heavily on data persistence some files may fail to load properly when zipped as a mod.
 
@@ -63,6 +74,8 @@ You can reset your career at any time using the options menu.
 This mod is a work in progress. At this stage it is a decent vertical slice of the gameplay the project is trying to achieve with some bugs and quirks remaining that should get better as BeamNG and the mod are updated. 
 
 That being said a lot of content is missing and unbalanced, for instance part prices are set to a default value. This means you can build top performance vehicles for cheap. Still, a decent amount of unique races have been added to try and keep this initial version as entertaining as possible.
+
+Due to the nature of BeamNG some features available to players may break the experience when playing BeamLR, such as the circular menu, world editor and other UI apps. If playing seriously (not actively trying to break stuff) try  avoiding features that aren't directly offered in UI menus from the mod. While I still appreciate bug reports related to said features, some of them simply can't be disabled and related issues won't be prioritized.
 
 ## Modding & Cheating
 It is easy to change or add to the mod since BeamLR relies on plaintext files to define things such as:
@@ -176,13 +189,24 @@ Thank you for playing BeamLR!
 
 * Covet beamstate saving breaks advanced coupler beams, doors won't close, hood won't open. Current best workaround is to simply repair the vehicle.
 * Towing mechanic may repair your vehicle. This is due to problems with a teleport function that shouldn't cause a reset yet sometimes does.
-* Game may freeze upon loading into the scenario, with vehicle disappearing. Still investigating this problem.
 * Some tuning configurations can cause unfair damage when a vehicle is loaded. A workaround is implemented but may fail to work in certain situations.
 * Various UI problems, input fields stop registering keystrokes, whole UI can refuse to work. Workaround is to keep cursor above input fields. CTRL+F5 to fix the frozen UI.
-* Race checkpoints sometimes fail to trigger properly. Still investigating this problem.
+* Race checkpoints sometimes fail to trigger properly. Fix has been implemented but this may still be a problem. 
 
 
 ## Changelog
 
 ### 1.0 
 * Initial Release
+
+### 1.1
+* Potential fix for checkpoint triggers not working in some situations 	
+* Fixed game freeze upon scenario loading			
+* Fixed "Call Mechanic" button not checking player money before repair
+* Fixed car shop UI letting players sell non existent car while walking
+* Fixed walk mode problem causing player to be stuck in place after selling car
+* Added proper monetary value display to car shop sell menu
+* Fixed walk mode integration for various UI menus
+* Starting new race no longer allowed while police chase is active
+
+
