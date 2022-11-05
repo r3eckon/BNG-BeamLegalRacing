@@ -1,4 +1,5 @@
-# Beam Legal Racing 1.1
+
+# Beam Legal Racing 1.2
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -12,18 +13,24 @@ Perform missions, races and challenges to earn money to buy vehicles and parts. 
 * Unpack the zip or clone the repo
 * Copy or merge contents to your BeamNG user folder
 
-### Update Instructions
-* Back up your userdata/beamLR folder to keep your career (if you care, just to be safe)
-* Player install: Replace mod zip file with update zip. Done.
-* Modder install: Replace all mod files with update files except userdata/beamLR folder
+## Update Instructions
+BEFORE UPDATING:  Back up your userdata/beamLR folder to save your career
 
-    (Drag and drop mod folders into the userfolder to merge/replace worked on my end)
+### Player install
+* Replace mod zip file with updated zip. 
+* Done.
 
+### Modder install
+* Copy updated mod folders to userfolder. 
+* Tell OS to replace existing files when asked. This applies the update.
+* To restore your career, copy your saved beamLR folder to the userfolder.
+* Tell OS to replace existing files again to apply your backup to the new version.
+
+(Drag and drop mod folders into the userfolder to merge/replace worked on my end)
 
 ### Other install information
 
 If you are experiencing issues with the mod using the player install, try modder install before making a bug report. Since the mod relies heavily on data persistence some files may fail to load properly when zipped as a mod.
-
 
 ## Read Before Playing
 BeamLR relies on a UI app that you must add to your "Scenario" UI layout in order to access features such as:
