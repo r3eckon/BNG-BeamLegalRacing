@@ -26,8 +26,6 @@ BEFORE UPDATING:  Back up your userdata/beamLR folder to save your career
 * To restore your career, copy your saved beamLR folder to the userfolder.
 * Tell OS to replace existing files again to apply your backup to the new version.
 
-(Drag and drop mod folders into the userfolder to merge/replace worked on my end)
-
 ### Other install information
 
 If you are experiencing issues with the mod using the player install, try modder install before making a bug report. Since the mod relies heavily on data persistence some files may fail to load properly when zipped as a mod.
