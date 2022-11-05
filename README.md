@@ -97,7 +97,9 @@ With the player install only career files can be changed, everything else is sto
 
 Want easy money to play around with expensive cars without grinding? 
 
-Just add a bunch of 0s to your money value and restart the scenario for changes to take effect! 
+Open beamLR/mainData with notepad and add a bunch of 0s to your money value. 
+
+Restart the scenario for changes to take effect! 
 
 
 With modder install almost everything about the mod can be quickly changed.
