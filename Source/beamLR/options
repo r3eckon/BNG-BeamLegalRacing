@@ -1,6 +1,8 @@
-crazytraffic=0
-sseed=1234
-trucks=1
-police=1
-nseed=1234
 traffic=6
+police=1
+trucks=1
+sseed=1234
+copstrict=0.08
+crazytraffic=0
+nseed=1234
+trisk=0.5

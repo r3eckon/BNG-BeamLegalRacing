@@ -181,6 +181,30 @@ dtable["nseed"] = math.random(1,9999999999)
 extensions.blrutils.updateDataTable("beamLR/options", dtable)
 end
 
+ftable["backupCareer"] = function(p)
+extensions.blrutils.backupCareer()
+end
+
+ftable["restoreBackup"] = function(p)
+extensions.blrutils.restoreBackup()
+end
+
+ftable["setTrafficRisk"] = function(p)
+local dtable = {}
+if tonumber(p) ~= nil and tonumber(p) >= 0 and tonumber(p) <= 1 then 
+dtable["trisk"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+end
+end
+
+ftable["setPoliceStrictness"] = function(p)
+local dtable = {}
+if tonumber(p) ~= nil and tonumber(p) >= 0 and tonumber(p) <= 1 then 
+dtable["copstrict"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+end
+end
+
 
 
 local ptable = {}

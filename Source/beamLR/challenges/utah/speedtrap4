@@ -1,0 +1,7 @@
+desc=Speed trap challenge near the auto repair zone
+wager=150,300
+triggers=BeamLRTrigger_RepairZoneST
+type=speed
+targetspd=40,60
+rep=20,40
+gmwp=cliffJuncWp2

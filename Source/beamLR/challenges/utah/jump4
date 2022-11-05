@@ -1,0 +1,6 @@
+desc=Crazy jump from wooden structure!
+wager=300,500
+triggers=BeamLRTrigger_CrazyJump
+type=jump
+rep=40,80
+gmwp=blrwp_cgm_crazyjump

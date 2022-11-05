@@ -1,4 +1,4 @@
-{"name":"zoning","class":"SimGroup","persistentId":"2b453ba5-42a2-4f5c-9293-6c82579675f4","__parent":"under_tourism"}
+{"name":"Zoning","class":"SimGroup","persistentId":"2b453ba5-42a2-4f5c-9293-6c82579675f4","__parent":"under_tourism"}
 {"name":"objects","class":"SimGroup","persistentId":"fb123691-8098-4791-9f62-c9d458f73314","__parent":"under_tourism"}
 {"class":"TSStatic","persistentId":"197f5b61-92c9-4643-baf1-e574fd594d34","__parent":"under_tourism","position":[-722.305908,280.878571,268.277924],"decalType":"None","isRenderEnabled":false,"rotationMatrix":[-0.431189656,0.901987672,0.0222033672,-0.898010671,-0.426643223,-0.107472144,-0.0874656662,-0.0662796944,0.993959963],"shapeName":"/levels/utah/art/shapes/buildings/utah_mines_tracks.dae"}
 {"class":"TSStatic","persistentId":"400f2f3a-1005-4ea8-a08a-af5516cb64e1","__parent":"under_tourism","position":[-499.49881,274.3172,284.444336],"decalType":"None","isRenderEnabled":false,"rotationMatrix":[0.211728856,-0.97729516,-0.00806596875,0.974627316,0.210523814,0.0760197639,-0.072595641,-0.0239569787,0.997072637],"shapeName":"/levels/utah/art/shapes/buildings/utah_mines_tracks.dae"}

@@ -209,4 +209,12 @@ Thank you for playing BeamLR!
 * Fixed walk mode integration for various UI menus
 * Starting new race no longer allowed while police chase is active
 
-
+### 1.2
+* Added new jump and speed trap challenges
+* Added new delivery missions
+* Added career backup system with UI buttons to save and load
+* Added traffic risk and police strictness options
+* Fixed groundmarker system staying active after career reset
+* Fixed problem with towing flowgraph staying active after tow
+* Fixed car shop randomly placing player in traffic vehicles
+* Improved challenge & mission loading process for easier modding

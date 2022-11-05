@@ -282,6 +282,18 @@ Truck Density :
 <button ng-click="setTruckDensity(4)">Max</button>
 </p>
 
+<p style="text-align:center;"> 
+Traffic Risk 
+<input type="number" min=0 max=1 step=0.01 maxlength=10 size=5 ng-model="inputData.trisk" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
+<button ng-click="setTrafficRisk(inputData.trisk)">Set</button>
+</p>
+
+<p style="text-align:center;"> 
+Police Strictness
+<input type="number" min=0 max=1 step=0.01 size=5 ng-model="inputData.copstrict" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
+<button ng-click="setPoliceStrictness(inputData.copstrict)">Set</button>
+</p>
+
 <h3 style="text-align:center;"> Career </h3>
 
 <p style="text-align:center;"> (New seed takes effect after career reset) </p>
@@ -296,6 +308,14 @@ Next Seed:
 <button ng-click="setSeed()">Set</button>
 <button ng-click="setRandomSeed()">Random</button>
 </p>
+
+<p style="text-align:center;"> 
+Career Backup:
+<button ng-click="backupCareer()">Save</button>&nbsp &nbsp &nbsp &nbsp
+<button ng-click="restoreBackup()">Load</button>
+</p>
+
+
 
 <br>
 

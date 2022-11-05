@@ -1,0 +1,4 @@
+dest=BeamLRTrigger_CurvyRoadLot
+desc=Deliver parts to the observation area parking lot
+reward=125
+gmwp=blrwp_curvyroadlot

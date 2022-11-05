@@ -185,6 +185,27 @@ angular.module('beamng.apps')
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setRandomSeed")`)
 	  }
 	  
+	  scope.backupCareer = function(d)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("backupCareer")`)
+	  }
+	  
+	  scope.restoreBackup = function(d)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("restoreBackup")`)
+	  }
+	  
+	  scope.setTrafficRisk= function(d)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("risk", "${d}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setTrafficRisk", "risk")`)
+	  }
+	  
+	  scope.setPoliceStrictness= function(d)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("copstrict", "${d}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setPoliceStrictness", "copstrict")`)
+	  }
 	  
     }
   }

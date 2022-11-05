@@ -1,0 +1,4 @@
+dest=BeamLRTrigger_RangerCabin
+desc=Deliver parts to the ranger cabin
+reward=75
+gmwp=blrwp_rangercabin

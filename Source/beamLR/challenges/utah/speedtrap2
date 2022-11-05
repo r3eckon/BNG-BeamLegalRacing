@@ -1,0 +1,7 @@
+desc=Speed trap challenge near the highway exit bridge
+wager=100,200
+triggers=BeamLRTrigger_ExitBridgeST
+type=speed
+targetspd=40,50
+rep=10,30
+gmwp=ut_wp_9

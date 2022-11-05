@@ -1,0 +1,6 @@
+desc=Jump over a canyon
+wager=100,300
+triggers=BeamLRTrigger_CanyonJump
+type=jump
+rep=10,30
+gmwp=blrwp_cgm_canyonjump

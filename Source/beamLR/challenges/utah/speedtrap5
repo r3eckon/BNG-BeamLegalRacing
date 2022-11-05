@@ -1,0 +1,7 @@
+desc=Speed trap challenge on the edge of a cliff
+wager=150,300
+triggers=BeamLRTrigger_CliffsideST
+type=speed
+targetspd=40,60
+rep=20,40
+gmwp=blrwp_cgm_cliffsideST

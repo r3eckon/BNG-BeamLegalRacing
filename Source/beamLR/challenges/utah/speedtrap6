@@ -1,0 +1,7 @@
+desc=Speed trap challenge near a canyon bridge
+wager=100,300
+triggers=BeamLRTrigger_ConstructionRoadCP5
+type=speed
+targetspd=40,56
+rep=10,40
+gmwp=ut_wp_43

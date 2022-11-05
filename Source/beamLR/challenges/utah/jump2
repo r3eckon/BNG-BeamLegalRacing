@@ -1,0 +1,6 @@
+desc=Sketchy jump through a cave
+wager=100,300
+triggers=BeamLRTrigger_CaveJump
+type=jump
+rep=10,40
+gmwp=blrwp_cgm_cave

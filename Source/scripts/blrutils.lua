@@ -5,6 +5,7 @@
 local M = {}
 
 local json = require("json")
+local extensions = require("extensions")
 
 local dailySeedOffset = 1000	-- Seed offset for daily seed should be bigger value than total amount of needed rolls in flowgraph.
 local startSeed = 1234			-- in order to avoid repeating random values. Without this value the paint colors in shop
@@ -556,10 +557,12 @@ updateDataTable("beamLR/options", dtable)
 end
 
 
-local function resetCareer(count)
+local function resetCareer() 
 
 deleteFile("beamLR/mainData")
 deleteFile("beamLR/partInv")
+
+local count = #FS:findFiles("beamLR/garage/", "*", 0)
 
 for i=0,count-1 do -- Clear out garage 
 deleteFile("beamLR/garage/car" .. i)
@@ -588,9 +591,89 @@ copyFile("beamLR/init/beamstate/mech/car0" , "beamLR/beamstate/mech/car0")
 copyFile("beamLR/init/beamstate/integrity/car0" , "beamLR/beamstate/integrity/car0")
 end
 
+local function backupCareer()
+-- Root folder data
+copyFile("beamLR/mainData", "beamLR/backup/mainData")
+copyFile("beamLR/partInv", "beamLR/backup/partInv")
+copyFile("beamLR/options", "beamLR/backup/options")
+
+-- Garage data
+local count = #FS:findFiles("beamLR/garage/", "*", 0)
+for i=0,count-1 do 
+copyFile("beamLR/garage/car" .. i, "beamLR/backup/garage/car" .. i)
+copyFile("beamLR/garage/config/car" .. i,"beamLR/backup/garage/config/car" .. i)
+copyFile("beamLR/beamstate/car" .. i .. ".save.json","beamLR/backup/beamstate/car" .. i .. ".save.json")
+copyFile("beamLR/beamstate/mech/car" .. i,"beamLR/backup/beamstate/mech/car" .. i)
+copyFile("beamLR/beamstate/integrity/car" .. i,"beamLR/backup/beamstate/integrity/car" .. i)
+end
+
+-- Race progress data
+local dest = ""
+for _,v in pairs(FS:directoryList("beamLR/races")) do	
+if v ~= "/beamLR/races/integrity" then
+dest = v:gsub("beamLR", "beamLR/backup")				
+copyFile(v .. "/progress", dest .. "/progress")
+end
+end
+
+-- Daily data
+local dayfiles = FS:findFiles("beamLR/shop/daydata", "*", 0)
+local dest = ""
+for _,v in pairs(dayfiles) do
+dest = v:gsub("beamLR", "beamLR/backup")	
+copyFile(v,dest)
+end
+
+
+end
+
+local function restoreBackup()
+if #FS:findFiles("beamLR/backup", "*", 0) > 0 then -- Check if a backup exists before loading
+
+-- Clear out existing data with career reset
+resetCareer()
+
+-- Root folder data
+copyFile("beamLR/backup/mainData","beamLR/mainData")
+copyFile("beamLR/backup/partInv","beamLR/partInv")
+copyFile("beamLR/backup/options","beamLR/options")
+
+-- Garage data
+local count = #FS:findFiles("beamLR/backup/garage/", "*", 0)
+for i=0,count-1 do 
+copyFile("beamLR/backup/garage/car" .. i,"beamLR/garage/car" .. i)
+copyFile("beamLR/backup/garage/config/car" .. i,"beamLR/garage/config/car" .. i)
+copyFile("beamLR/backup/beamstate/car" .. i .. ".save.json", "beamLR/beamstate/car" .. i .. ".save.json")
+copyFile("beamLR/backup/beamstate/mech/car" .. i,"beamLR/beamstate/mech/car" .. i)
+copyFile("beamLR/backup/beamstate/integrity/car" .. i,"beamLR/beamstate/integrity/car" .. i)
+end
+
+-- Race progress data
+local dest = ""
+for _,v in pairs(FS:directoryList("beamLR/backup/races")) do	
+if v ~= "/beamLR/backup/races/integrity" then
+dest = v:gsub("beamLR/backup", "beamLR")				
+copyFile(v .. "/progress", dest .. "/progress")
+end
+end
+
+-- Daily data
+local dayfiles = FS:findFiles("beamLR/backup/shop/daydata", "*", 0)
+local dest = ""
+for _,v in pairs(dayfiles) do
+dest = v:gsub("beamLR/backup", "beamLR")	
+copyFile(v,dest)
+end
+
+extensions.blrglobals.blrFlagSet("restartQueued", true) -- Queue restart for flowgraph
+
+end
+end
 
 
 
+M.restoreBackup = restoreBackup
+M.backupCareer = backupCareer
 M.setNextCareerSeed = setNextCareerSeed
 M.cycleCareerSeed = cycleCareerSeed
 M.getNextCareerSeed = getNextCareerSeed

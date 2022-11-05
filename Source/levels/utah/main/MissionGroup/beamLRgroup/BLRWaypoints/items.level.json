@@ -1,3 +1,4 @@
+{"name":"blrwp_cgm_cave","class":"BeamNGWaypoint","persistentId":"76e42988-237d-4d10-8c01-84649e2472ec","__parent":"BLRWaypoints","position":[477.616364,-128.324829,129.74353],"scale":[2.11191416,2.11191416,2.11191416]}
 {"name":"blrwp_topshopintersect","class":"BeamNGWaypoint","persistentId":"ea2c76ac-d392-469a-b8e5-a8d66e1d9840","__parent":"BLRWaypoints","position":[-748.750732,-41.8596344,297.125244],"scale":[3.63242197,3.63242197,3.63242197]}
 {"name":"blrwp_offroad2cp5","class":"BeamNGWaypoint","persistentId":"89ed8f53-0566-4284-aa60-14676ebae267","__parent":"BLRWaypoints","position":[-112.347649,-706.544983,112.622833],"scale":[1.82792974,1.82792974,1.82792974]}
 {"name":"blrwp_offroad2A2cp4","class":"BeamNGWaypoint","persistentId":"118069e1-61da-46f6-9b85-7232f7deae05","__parent":"BLRWaypoints","position":[458.922882,-835.040039,136.988754],"scale":[2.55683613,2.55683613,2.55683613]}
@@ -35,3 +36,12 @@
 {"name":"blrwp_constructioncp3","class":"BeamNGWaypoint","persistentId":"5e3f1d39-f0f3-44ba-a3b4-23e7a19a51b9","__parent":"BLRWaypoints","position":[77.3330536,681.514709,261.078857],"scale":[2.43730474,2.43730474,2.43730474]}
 {"name":"blrwp_constructioncp4","class":"BeamNGWaypoint","persistentId":"371346c8-cf6a-41f6-b357-1d53ab869086","__parent":"BLRWaypoints","position":[774.023071,955.825806,259.896637],"scale":[2.62309575,2.62309575,2.62309575]}
 {"name":"blrwp_constructioncp6","class":"BeamNGWaypoint","persistentId":"6a4033af-623f-4d22-b69f-5942dd61c923","__parent":"BLRWaypoints","position":[410.958923,427.828827,177.377289],"scale":[2.62426758,2.62426758,2.62426758]}
+{"name":"blrwp_cgm_farjump","class":"BeamNGWaypoint","persistentId":"ab8b39f4-f841-4e21-aa21-8ae8a05c8036","__parent":"BLRWaypoints","position":[-672.096802,562.872742,239.867661],"scale":[1.9445312,1.9445312,1.9445312]}
+{"name":"blrwp_cgm_crazyjump","class":"BeamNGWaypoint","persistentId":"2405678c-8163-4ec2-af76-e8e8f4af3851","__parent":"BLRWaypoints","position":[279.581909,714.441284,186.918671]}
+{"name":"blrwp_cgm_impossiblejump","class":"BeamNGWaypoint","persistentId":"de77754a-936b-41a3-8d8a-ea664ab2929e","__parent":"BLRWaypoints","position":[-718.773193,282.346893,268.715668]}
+{"name":"blrwp_cgm_caravanST","class":"BeamNGWaypoint","persistentId":"84f1d918-ecec-4135-99c3-f561b04580f5","__parent":"BLRWaypoints","position":[285.583618,-608.197632,126.08976]}
+{"name":"blrwp_cgm_cliffsideST","class":"BeamNGWaypoint","persistentId":"e33a3293-4b8a-4fb4-8fef-c355677673e2","__parent":"BLRWaypoints","position":[659.83429,939.200806,257.319305]}
+{"name":"blrwp_cgm_tunnelSTA","class":"BeamNGWaypoint","persistentId":"6bbc8bbe-d9b6-4abe-b381-f16b10d989a0","__parent":"BLRWaypoints","position":[108.378677,-1159.98474,149.751968]}
+{"name":"blrwp_cgm_busstopST","class":"BeamNGWaypoint","persistentId":"04d15a7f-5583-429b-9e99-c4b9c6bf9623","__parent":"BLRWaypoints","position":[-258.559875,-359.663086,135.032272]}
+{"name":"blrwp_cgm_canyonjump","class":"BeamNGWaypoint","persistentId":"fa0e80b5-d253-4098-afbc-a5d00e7c8066","__parent":"BLRWaypoints","position":[277.80484,400.531219,179.014648],"scale":[1.84870601,1.84870601,1.84870601]}
+{"name":"blrwp_curvyroadlot","class":"BeamNGWaypoint","persistentId":"3d37a283-0f8c-4c38-8c19-53b939c545f1","__parent":"BLRWaypoints","position":[915.251221,775.193542,236.049896],"scale":[2.62258339,2.62258339,2.62258339]}

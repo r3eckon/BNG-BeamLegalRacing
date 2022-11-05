@@ -1,0 +1,6 @@
+desc=Jump up the building under construction
+wager=200,400
+triggers=BeamLRTrigger_ConstructionJump
+type=jump
+rep=20,60
+gmwp=blrwp_mgm_construction

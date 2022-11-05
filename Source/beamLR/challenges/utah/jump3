@@ -1,0 +1,6 @@
+desc=Jump from one dirt road to another
+wager=150,325
+triggers=BeamLRTrigger_FarJump
+type=jump
+rep=20,50
+gmwp=blrwp_cgm_farjump
