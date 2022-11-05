@@ -23,8 +23,12 @@ BEFORE UPDATING:  Back up your userdata/beamLR folder to save your career
 ### Modder install
 * Copy updated mod folders to userfolder. 
 * Tell OS to replace existing files when asked. This applies the update.
-* To restore your career, copy your saved beamLR folder to the userfolder.
-* Tell OS to replace existing files again to apply your backup to the new version.
+* To restore your career data, replace the following files/folders using your backed up beamLR folder:
+* beamLR/beamstate                                    (External and mechanical damage)
+* beamLR/garage                                       (Garage vehicle data & config)
+* beamLR/mainData                                     (Main career data file for money,rep,etc)
+* beamLR/shop/daydata                                 (Vehicle shop daily data, aka bought slots)
+* beamLR/races/INSERT RACE CLUB/progress              (Race club progress, repeat for each club)
 
 ### Other install information
 
