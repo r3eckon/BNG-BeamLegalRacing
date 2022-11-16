@@ -1,5 +1,5 @@
 desc=Very long endurance race around Utah
-wager=200,400
+wager=300,1000
 slips=0
 enemyModel=vivace,etki,autobello
 enemyConfig=vehicles/vivace/vivace_S_310_M.pc,vehicles/etki/3000i_M.pc,vehicles/autobello/street.pc

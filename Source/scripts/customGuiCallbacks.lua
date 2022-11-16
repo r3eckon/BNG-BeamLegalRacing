@@ -47,15 +47,27 @@ ftable["partUISearch"] = function(p)
 local list = {}
 searching = true -- Filter used as search term
 if p == 0 then
-list = extensions.betterpartmgmt.getAvailablePartList()
+list = extensions.betterpartmgmt.getPartShopList()
 list = extensions.betterpartmgmt.searchFilter(list, true)
 extensions.customGuiStream.sendDataToUI("availParts", list)
-list = extensions.betterpartmgmt.getPartPriceLibrary()
+list = extensions.betterpartmgmt.getFullPartPrices()
 extensions.customGuiStream.sendDataToUI("partPrices", list)
+list = extensions.betterpartmgmt.getPartNameLibrary()
+extensions.customGuiStream.sendDataToUI("partNames", list)
+list = extensions.betterpartmgmt.getVehicleParts()
+extensions.customGuiStream.sendDataToUI("usedParts", list)
+list = extensions.betterpartmgmt.getSlotNameLibrary()
+extensions.customGuiStream.sendDataToUI("slotNames", list)
 elseif p == 1 then
 list = extensions.betterpartmgmt.getGarageUIData()
 list = extensions.betterpartmgmt.searchFilter(list, true)
 extensions.customGuiStream.sendDataToUI("garageData", list)
+list = extensions.betterpartmgmt.getPartNameLibrary()
+extensions.customGuiStream.sendDataToUI("partNames", list)
+list = extensions.betterpartmgmt.getVehicleParts()
+extensions.customGuiStream.sendDataToUI("usedParts", list)
+list = extensions.betterpartmgmt.getSlotNameLibrary()
+extensions.customGuiStream.sendDataToUI("slotNames", list)
 end
 end		
 
@@ -64,15 +76,27 @@ ftable["partUICategory"] = function(p)
 local list = {}
 searching = false -- Filter not used as search term
 if p == 0 then
-list = extensions.betterpartmgmt.getAvailablePartList()
+list = extensions.betterpartmgmt.getPartShopList()
 list = extensions.betterpartmgmt.categoryFilter(list, true)
 extensions.customGuiStream.sendDataToUI("availParts", list)
-list = extensions.betterpartmgmt.getPartPriceLibrary()
+list = extensions.betterpartmgmt.getFullPartPrices()
 extensions.customGuiStream.sendDataToUI("partPrices", list)
+list = extensions.betterpartmgmt.getPartNameLibrary()
+extensions.customGuiStream.sendDataToUI("partNames", list)
+list = extensions.betterpartmgmt.getVehicleParts()
+extensions.customGuiStream.sendDataToUI("usedParts", list)
+list = extensions.betterpartmgmt.getSlotNameLibrary()
+extensions.customGuiStream.sendDataToUI("slotNames", list)
 elseif p == 1 then
 list = extensions.betterpartmgmt.getGarageUIData()
 list = extensions.betterpartmgmt.categoryFilter(list, true)
 extensions.customGuiStream.sendDataToUI("garageData", list)
+list = extensions.betterpartmgmt.getPartNameLibrary()
+extensions.customGuiStream.sendDataToUI("partNames", list)
+list = extensions.betterpartmgmt.getVehicleParts()
+extensions.customGuiStream.sendDataToUI("usedParts", list)
+list = extensions.betterpartmgmt.getSlotNameLibrary()
+extensions.customGuiStream.sendDataToUI("slotNames", list)
 end
 end																											  
 
@@ -85,6 +109,10 @@ else
 list = extensions.betterpartmgmt.categoryFilter(list, true)
 end
 extensions.customGuiStream.sendDataToUI("garageData", list)
+list = extensions.betterpartmgmt.getPartNameLibrary()
+extensions.customGuiStream.sendDataToUI("partNames", list)
+list = extensions.betterpartmgmt.getSlotNameLibrary()
+extensions.customGuiStream.sendDataToUI("slotNames", list) -- Used parts list sent from FG as post edit action
 end
 
 ftable["uiinit"] = function(p)
@@ -202,6 +230,15 @@ local dtable = {}
 if tonumber(p) ~= nil and tonumber(p) >= 0 and tonumber(p) <= 1 then 
 dtable["copstrict"] = p
 extensions.blrutils.updateDataTable("beamLR/options", dtable)
+end
+end
+
+ftable["setSleepDuration"] = function(p)
+local dtable = {}
+if tonumber(p) ~= nil and tonumber(p) >= 0 and tonumber(p) <= 24 then 
+dtable["sleeptime"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+extensions.blrglobals.blrFlagSet("reloadOptions", true)	-- Force reload options for immediate change
 end
 end
 

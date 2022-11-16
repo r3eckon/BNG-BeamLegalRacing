@@ -1,5 +1,5 @@
 desc=Race to the ranger cabin
-wager=200,500
+wager=500,1000
 slips=0
 enemyModel=roamer
 enemyConfig=vehicles/roamer/offroad.pc

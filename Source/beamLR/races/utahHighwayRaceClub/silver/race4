@@ -1,5 +1,5 @@
 desc=Long race through curvy roads
-wager=100,300
+wager=200,500
 slips=0
 enemyModel=coupe,barstow,sunburst
 enemyConfig=vehicles/coupe/custom.pc,vehicles/barstow/291m_sport.pc,vehicles/sunburst/sport_RS_M.pc

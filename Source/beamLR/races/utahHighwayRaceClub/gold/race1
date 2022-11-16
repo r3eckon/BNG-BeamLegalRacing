@@ -1,5 +1,5 @@
 desc=Race to the airfield
-wager=250,500
+wager=500,1000
 slips=0
 enemyModel=wendover,barstow,pessima,sbr
 enemyConfig=vehicles/wendover/super.pc,vehicles/barstow/tracksport.pc,vehicles/pessima/custom.pc,vehicles/sbr/TT_RWD_S_M.pc

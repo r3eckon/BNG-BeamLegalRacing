@@ -1,5 +1,5 @@
 desc=Multi lap race around Utah
-wager=100,300
+wager=200,500
 slips=0
 enemyModel=vivace,pickup,etk800
 enemyConfig=vehicles/vivace/vivace_S_310_M.pc,vehicles/pickup/d15_streettuned_M.pc,vehicles/etk800/etk856t_A.pc

@@ -1,5 +1,5 @@
 
-# Beam Legal Racing 1.2
+# Beam Legal Racing 1.3
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -21,9 +21,14 @@ BEFORE UPDATING:  Back up your userdata/beamLR folder to save your career
 * Done.
 
 ### Modder install
+* Use in game UI to back up your career
 * Copy updated mod folders to userfolder. 
 * Tell OS to replace existing files when asked. This applies the update.
-* To restore your career data, replace the following files/folders using your backed up beamLR folder:
+* Use in game UI to restore your backup
+
+If the in game backup system fails to work properly:
+
+* Replace the following files/folders using your backed up beamLR folder:
 * beamLR/beamstate                                    (External and mechanical damage)
 * beamLR/garage                                       (Garage vehicle data & config)
 * beamLR/mainData                                     (Main career data file for money,rep,etc)
@@ -52,6 +57,8 @@ Toggling back and forth between metric and imperial fixes this issue. The UI wil
 Remember to save the **userfolder/beamLR** folder if you want to backup your career!
 
 The scenario has no autosave feature. Game crashes or hard quit may result in lost progress.
+
+Further instructions and various tips on this mods' various features are listed in the BeamLR UI Main Menu.
 
 ## Getting started
 Spawn on Utah at the Auto Repair Zone. The mission marker near the parking lot garage is used to play your BeamLR career.
@@ -229,3 +236,20 @@ Thank you for playing BeamLR!
 * Fixed problem with towing flowgraph staying active after tow
 * Fixed car shop randomly placing player in traffic vehicles
 * Improved challenge & mission loading process for easier modding
+
+### 1.3
+* Added part prices from jbeam files to part shop
+* Added part names from jbeam files to part shop & garage
+* Added sleep & heal button time setting in options menu
+* Added and improved part shop & garage categories
+* Improved part shop and garage search function
+* Part shop now shows all parts for vehicle not just current slots
+* Fixed mission completion button staying active for next mission
+* Fixed stutters caused by triggers sending UI data when not needed
+* Part shop and garage UI now indicate currently installed part
+* Vehicle sell price now based on installed parts
+* Part shop indicates part compatibility with warning symbol and yellow slot name
+* Part shop now showing proper slot names
+* Garage UI updated to show current part & remove button seamlessly in list
+* Tweaked race and mission rewards to better fit new part prices
+

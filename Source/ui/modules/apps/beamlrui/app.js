@@ -15,6 +15,7 @@ angular.module('beamng.apps')
 	  scope.partPrice = 0
 	  scope.initDone = false
 	  scope.editMode = 0
+	  scope.slotNameMode = 0
 	  
 	  
 
@@ -156,6 +157,11 @@ angular.module('beamng.apps')
 		  scope.editMode = m
 	  }
 	  
+	  scope.setSlotNameMode = function(m)
+	  {
+		  scope.slotNameMode = m
+	  }
+	  
 	  scope.setTrafficDensity= function(d)
 	  {
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("traffic", "${d}")`)
@@ -205,6 +211,12 @@ angular.module('beamng.apps')
 	  {
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("copstrict", "${d}")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setPoliceStrictness", "copstrict")`)
+	  }
+	  
+	  scope.setSleepDuration= function(d)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("sleeptime", "${d}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setSleepDuration", "sleeptime")`)
 	  }
 	  
     }

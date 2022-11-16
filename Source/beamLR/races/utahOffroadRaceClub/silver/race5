@@ -1,5 +1,5 @@
 desc=Long dirt race to the highway bridge
-wager=100,200
+wager=200,500
 slips=0
 enemyModel=vivace
 enemyConfig=vehicles/vivace/vivace_S_310_M.pc

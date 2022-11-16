@@ -16,6 +16,10 @@ local chosen = vehManager.getPlayerVehicleData().chosenParts
 return chosen
 end
 
+local function ioCtx()
+return vehManager.getPlayerVehicleData().ioCtx
+end
+
 
 local function getActualSlots()
 local toRet = {}
@@ -32,16 +36,34 @@ local slotMap = jbeamIO.getAvailableSlotMap(playerVehicle.ioCtx)
 return slotMap
 end
 
+local function getMainPartName()
+return jbeamIO.getMainPartName(vehManager.getPlayerVehicleData().ioCtx)
+end
+
 local function getAvailablePartList()
 local toRet = {}
 local playerVehicle = vehManager.getPlayerVehicleData()
 local availParts = getSlotMap()
 local slots = vehManager.getPlayerVehicleData().chosenParts
 for k,v in pairs(slots) do		-- Loops over current vehicle slots to show parts available for current build
-toRet[k] = availParts[k]		
+if k~="main" then				-- Avoid adding "main" part to list
+toRet[k] = availParts[k]
+end		
 end 
 return toRet
 end
+
+local function getAllAvailableParts(vehSpecific)
+local toRet = {}
+if vehSpecific then
+local ioCtx = {preloadedDirs = {ioCtx()["preloadedDirs"][1]}}
+toRet = jbeamIO.getAvailableParts(ioCtx)
+else
+toRet = jbeamIO.getAvailableParts(ioCtx())
+end
+return toRet
+end
+
 
 local function getAvailablePartData(k)
 local playerVehicle = vehManager.getPlayerVehicleData()
@@ -167,14 +189,6 @@ end
 writeFile(file, filedata)
 end
 
-local function getPartPrice(part)
-if partPrice[part] == nil then
-return partPrice["default"]
-else
-return partPrice[part]
-end
-end
-
 local function loadPartPriceLibrary(file) -- Loading prices from file allows future features like
 partPrice = loadTableFromFile(file, true) -- different prices depending on shop, map, etc...
 end										  -- Could load all lib files on flowgraph start, send needed one to UI
@@ -208,7 +222,7 @@ cm = false													-- Reset current match flag
 if keyMode then part = k else part = v end
 
 for f,t in pairs(categoryData) do							-- To have universal filters, loop over universal part names to see if they match												-- with the current part in the list. Only add if matching the selected filter.
-	if string.match(part, f) and t == currentFilter then	-- Matchinf filter detected, adding to return table
+	if string.match(part, f) and t == currentFilter then	-- Matching filter detected, adding to return table
 		toRet[k] = v
 		cm = true
 	end
@@ -219,21 +233,6 @@ end
 end
 return toRet
 end
-
-local function searchFilter(source, keyMode)				-- Directly matches filter with part list for simple search function
-local toRet = {}
-local part = ""
-
-for k,v in pairs(source) do
-if keyMode then part = k else part = v end
-if string.match(part, currentFilter) then
-toRet[k] = v
-end
-end
-
-return toRet
-end
-
 
 
 
@@ -374,6 +373,167 @@ end
 return toRet
 end
 
+local function getPartJbeam(partName)
+return jbeamIO.getPart(ioCtx(), partName)
+end
+
+local function getPartPrice(part)				-- UPDATED TO WORK WITH OFFICIAL PART PRICES
+if partPrice[part] == nil then
+return getPartJbeam(part)["information"]["value"]
+else
+return partPrice[part]
+end
+end
+
+local function getPartName(part)
+return getPartJbeam(part)["information"]["name"]
+end
+
+
+local function getFullSlotMap()
+local allParts = getAllAvailableParts(true)
+local toRet = {}
+local cpart = {}
+for k,v in pairs(allParts) do
+cpart = getPartJbeam(k)
+if not string.match(cpart["slotType"], "simple_traffic") then
+if cpart["slotType"] ~= "main" then
+if not string.match(k, "simple_traffic") then
+if toRet[cpart["slotType"]] ~= nil then
+table.insert(toRet[cpart["slotType"]], k)
+else
+toRet[cpart["slotType"]] = {k}
+end
+end
+end
+end
+end
+return toRet
+end
+
+local function getMergedSlotMaps() -- Should give player access to all vehicle parts except wheels which are too numerous to give good UX
+local slotMap = getAvailablePartList()
+local fullMap = getFullSlotMap()
+local toRet = {}
+
+for k,v in pairs(slotMap) do
+if not string.match(k, "simple_traffic") then -- Remove simple traffic from this part list
+toRet[k] = v	
+end								
+end							
+
+for k,v in pairs(fullMap) do
+toRet[k] = v				
+end
+return toRet
+end
+
+local function getFullPartPrices() -- This is the new function to send part prices to UI
+local avail = getMergedSlotMaps()
+local customprices = partPrice
+local toRet = {}
+
+-- Loading official prices
+for k,v in pairs(avail) do
+for _,part in pairs(v) do
+toRet[part] = getPartPrice(part)
+end
+end
+
+-- Merging custom prices
+for k,v in pairs(customprices) do
+toRet[k] = v
+end
+
+return toRet
+end
+
+local function getPartNameLibrary()
+local avail = getMergedSlotMaps()
+local toRet = {}
+for k,v in pairs(avail) do
+for _,part in pairs(v) do
+toRet[part] = getPartName(part)
+end
+end
+return toRet
+end
+
+local function getVehiclePartCost()
+local parts = getVehicleParts()
+local total = 0
+local ccost = 0
+for k,v in pairs(parts) do
+if k ~= "main" then
+if v ~= "" then
+ccost = getPartPrice(v) or 0
+total = total + ccost
+end
+end
+end
+return total
+end
+
+local function getVehicleSalePrice(odometer, reputation, repairCost, scrapVal)
+local partcost = getVehiclePartCost()
+local odoscl = 0.9 - math.min(((odometer / 200000000.0) * 0.8), 0.8)
+local repscl = 0.1 + math.min(((reputation / 5000.0) * 0.8), 0.8)
+return math.max(((partcost * repscl) * odoscl) - repairCost , scrapVal)
+end
+
+
+local function getSlotNameLibrary()
+local toRet = {}
+local avail = getMergedSlotMaps()
+local cjbeam = {}
+local cslots = {}
+for k,v in pairs(avail) do
+for _,part in pairs(v) do
+cjbeam = getPartJbeam(part)
+if cjbeam ~= nil then
+cslots = cjbeam["slots"]
+if cslots ~= nil then
+for _,s in pairs(cslots) do
+toRet[s["type"]] = s["description"]
+end
+end
+end
+end
+end
+return toRet
+end
+
+local function searchFilter(source, keyMode)				-- Directly matches filter with part list for simple search function
+local toRet = {}
+local part = ""
+local cname = ""
+local nameLib = getSlotNameLibrary()
+
+for k,v in pairs(source) do
+if keyMode then part = k else part = v end
+cname = nameLib[part] or ""
+if string.match(part:upper(), currentFilter:upper()) or string.match(cname:upper(),currentFilter:upper()) then -- Updated to match proper slot name not just internal slot name
+toRet[k] = v
+end
+end
+
+return toRet
+end
+
+
+
+M.getSlotNameLibrary = getSlotNameLibrary
+M.getVehicleSalePrice = getVehicleSalePrice
+M.getVehiclePartCost = getVehiclePartCost
+M.getPartShopList = getMergedSlotMaps
+M.getMergedSlotMaps = getMergedSlotMaps
+M.getFullSlotMap = getFullSlotMap
+M.getAllAvailableParts = getAllAvailableParts
+M.getPartNameLibrary = getPartNameLibrary
+M.getFullPartPrices = getFullPartPrices
+M.ioCtx = ioCtx
+M.getPartJbeam = getPartJbeam
+M.getMainPartName = getMainPartName
 M.getPartPreviewImageTable = getPartPreviewImageTable
 M.getVehiclePaintData = getVehiclePaintData
 M.resetTuningData = resetTuningData

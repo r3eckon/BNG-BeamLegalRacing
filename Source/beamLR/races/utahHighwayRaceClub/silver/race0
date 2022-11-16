@@ -1,5 +1,5 @@
 desc=Drag race to the end of the highway
-wager=100,200
+wager=200,500
 slips=0
 enemyModel=roamer,moonhawk,van,fullsize
 enemyConfig=vehicles/roamer/street_tuned.pc,vehicles/moonhawk/v8special.pc,vehicles/van/street_tuned.pc,vehicles/fullsize/sport.pc

@@ -1,5 +1,5 @@
 desc=Race to the ranger cabin
-wager=200,500
+wager=500,1000
 slips=0
 enemyModel=roamer,sunburst,hopper,scintilla,moonhawk,pickup
 enemyConfig=vehicles/roamer/offroad.pc,vehicles/sunburst/rally_SQ.pc,vehicles/hopper/crawler.pc,vehicles/scintilla/offroad.pc,vehicles/moonhawk/drive.pc,vehicles/pickup/deserttruck_crawler_A.pc

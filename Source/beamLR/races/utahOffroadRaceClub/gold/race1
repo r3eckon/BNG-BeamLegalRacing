@@ -1,5 +1,5 @@
 desc=Long dirt race to the end of the highway
-wager=200,500
+wager=500,1000
 slips=0
 enemyModel=sunburst
 enemyConfig=vehicles/sunburst/rally_SQ.pc

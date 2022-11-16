@@ -1,5 +1,5 @@
 desc=Looping race through dirt and asphalt around utah
-wager=100,200
+wager=200,500
 slips=0
 enemyModel=pickup
 enemyConfig=vehicles/pickup/deserttruck_crawler_A.pc

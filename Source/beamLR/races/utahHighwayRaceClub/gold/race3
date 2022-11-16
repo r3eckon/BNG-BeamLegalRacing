@@ -1,5 +1,5 @@
 desc=Multi lap race around Utah
-wager=250,500
+wager=500,1000
 slips=0
 enemyModel=sbr,etk800,moonhawk,bastion
 enemyConfig=vehicles/sbr/TT_RWD_S_M.pc,vehicles/etk800/etk856tx_A_driving_experience.pc,vehicles/moonhawk/drive.pc,vehicles/bastion/street_tuned.pc

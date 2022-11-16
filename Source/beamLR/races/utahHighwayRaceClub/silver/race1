@@ -1,5 +1,5 @@
 desc=Race to the airfield
-wager=200
+wager=200,500
 slips=0
 enemyModel=etki,covet,miramar
 enemyConfig=vehicles/etki/3000i_M.pc,vehicles/covet/gtz.pc,vehicles/miramar/race.pc

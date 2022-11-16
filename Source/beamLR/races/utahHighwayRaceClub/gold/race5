@@ -1,5 +1,5 @@
 desc=Very long endurance race around Utah
-wager=400,700
+wager=1000,2000
 slips=0
 enemyModel=bolide,sbr,scintilla,etkc,sunburst
 enemyConfig=vehicles/bolide/350_us.pc,vehicles/sbr/TT_RWD_S_M.pc,vehicles/scintilla/gt.pc,vehicles/etkc/kc6tx_M.pc,vehicles/sunburst/hillclimb_SQ.pc

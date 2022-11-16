@@ -1,4 +1,4 @@
 dest=BeamNGTrigger_AirfieldFinish
 desc=Deliver some parts to the airfield
-reward=50
+reward=100
 gmwp=blrwp_airfield

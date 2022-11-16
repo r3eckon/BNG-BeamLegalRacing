@@ -1,5 +1,5 @@
 desc=Long race through curvy roads
-wager=250,500
+wager=500,1000
 slips=0
 enemyModel=etkc,pessima,wendover,etki,coupe
 enemyConfig=vehicles/etkc/kc6tx_M.pc,vehicles/pessima/custom.pc,vehicles/wendover/super.pc,vehicles/etki/cool.pc,vehicles/coupe/demon.pc

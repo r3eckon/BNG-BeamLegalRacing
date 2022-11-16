@@ -1,5 +1,5 @@
 desc=Long dirt race to the end of the highway
-wager=100,200
+wager=200,500
 slips=0
 enemyModel=roamer
 enemyConfig=vehicles/roamer/offroad.pc

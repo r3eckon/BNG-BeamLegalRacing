@@ -2,7 +2,7 @@
   "activeGraphId":3,
   "authors":"BeamLR",
   "currentGraphID":3,
-  "date":1668574499,
+  "date":1668574488,
   "debugEnabled":false,
   "description":"Beam Legal Racing Career",
   "difficulty":100,
@@ -66917,8 +66917,8 @@
   "isScenario":true,
   "macros":{},
   "name":"BeamLR Career",
-  "savedDir":"/gameplay/missions/BeamLegalRacing/",
-  "savedFilename":"project.flow.json",
+  "savedDir":"/beamLR/",
+  "savedFilename":"BETA-FLOWGRAPH-1.3.flow.json",
   "stateGraphId":3,
   "variables":{
     "customVariableOrder":[

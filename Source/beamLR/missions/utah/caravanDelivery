@@ -1,4 +1,4 @@
 dest=MissionTrigger_CaravanArea
 desc=Deliver some parts to the caravan area
-reward=25
+reward=50
 gmwp=blrwp_mgm_caravan

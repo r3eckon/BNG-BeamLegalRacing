@@ -1,5 +1,5 @@
 desc=Another long dirt race to the highway bridge
-wager=100,200
+wager=200,500
 slips=0
 enemyModel=barstow
 enemyConfig=vehicles/barstow/291m_sport.pc
