@@ -1,6 +1,4 @@
 name=Grandpa's Old Car
-mfile=beamLR/beamstate/mech/car0
-config=beamLR/garage/config/car0
 baseprice=1000
 partprice=0
 scrapval=100
@@ -8,8 +6,6 @@ type=legran
 paintA=0.65,0.65,0.65,1.2,0.9,0.6,1,0.07
 paintB=0.65,0.65,0.65,1.2,0.9,0.6,1,0.07
 paintC=0.65,0.65,0.65,1.2,0.9,0.6,1,0.07
-bsfile=beamLR/beamstate/car0.save.json
 gas=30
 impoundval=0
-ifile=beamLR/beamstate/integrity/car0
 damage=0

@@ -13,6 +13,6 @@ triggers=BeamLRTrigger_OffroadCP1,BeamLRTrigger_OffroadCP2,BeamLRTrigger_RangerC
 waypoints=blrwp_offroadcp1,blrwp_offroadcp2,blrwp_rangercabin
 laps=1
 ifile=beamLR/races/integrity/good
-traffic=1
+traffic=0
 parts=none
 rep=5,25

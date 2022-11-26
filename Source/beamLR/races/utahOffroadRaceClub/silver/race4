@@ -13,6 +13,6 @@ triggers=BeamLRTrigger_Offroad2CP1,BeamLRTrigger_Offroad2CP2,BeamLRTrigger_Offro
 waypoints=blrwp_offroad2cp1,blrwp_offroad2cp2,blrwp_offroad2Acp3,blrwp_offroad2Acp4,blrwp_offroadhighwayfinish
 laps=1
 ifile=beamLR/races/integrity/good
-traffic=1
+traffic=0
 parts=none
 rep=10,50

@@ -1,5 +1,5 @@
 
-# Beam Legal Racing 1.3
+# Beam Legal Racing 1.4
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -252,4 +252,11 @@ Thank you for playing BeamLR!
 * Part shop now showing proper slot names
 * Garage UI updated to show current part & remove button seamlessly in list
 * Tweaked race and mission rewards to better fit new part prices
+
+### 1.4
+* Added new races to the offroad race club
+* Tweaked existing offroad race club race files
+* Updated car file format to fix issue with selling & scrapping
+* Fixed walk mode issues with bus ride and garage
+* Updated fix for car shop and garage placing player in traffic
 

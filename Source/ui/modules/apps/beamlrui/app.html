@@ -337,7 +337,7 @@ Reset Career (WARNING: PERMANENT)
 <div ng-if="menuPage==2">
 <h3 style="text-align:center; line-height:0px;"> Buy Parts </h3>
 
-<div ng-if="beamlrData['triggerState'] == 1">
+<div ng-if="beamlrData['triggerState'] == 1 && beamlrData['playerWalking'] == 0">
 
 <div style="text-align:center; transform:translate(0, -5px);" >
 <button ng-click="filter(0,'all')">All</button> 
@@ -386,9 +386,17 @@ Reset Career (WARNING: PERMANENT)
 </div>
 </div>
 
+<div ng-if="beamlrData['playerWalking'] == 0">
 <div ng-if="beamlrData['triggerState'] != 1">
 <h2 style="text-align:center;" > Get to a Shop! </h2>
 </div>
+</div>
+
+<div ng-if="beamlrData['playerWalking'] != 0">
+<h2 style="text-align:center;" > Cannot use while walking. </h2>
+</div>
+
+
 </div>
 
 <div ng-if="menuPage==3">

@@ -671,10 +671,6 @@ end
 end
 
 
-
-
-
-
 M.restoreBackup = restoreBackup
 M.backupCareer = backupCareer
 M.setNextCareerSeed = setNextCareerSeed
