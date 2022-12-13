@@ -5,3 +5,4 @@ type=speed
 targetspd=40,50
 rep=10,30
 gmwp=ut_wp_9
+traffic=1

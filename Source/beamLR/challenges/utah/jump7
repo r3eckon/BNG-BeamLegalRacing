@@ -4,3 +4,4 @@ triggers=BeamLRTrigger_CanyonJump
 type=jump
 rep=10,30
 gmwp=blrwp_cgm_canyonjump
+traffic=1

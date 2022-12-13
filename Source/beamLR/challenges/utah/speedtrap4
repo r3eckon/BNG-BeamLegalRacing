@@ -5,3 +5,4 @@ type=speed
 targetspd=40,60
 rep=20,40
 gmwp=cliffJuncWp2
+traffic=1

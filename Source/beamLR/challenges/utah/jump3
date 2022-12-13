@@ -4,3 +4,4 @@ triggers=BeamLRTrigger_FarJump
 type=jump
 rep=20,50
 gmwp=blrwp_cgm_farjump
+traffic=1

@@ -5,3 +5,4 @@ type=speed
 targetspd=80,100
 rep=30,60
 gmwp=blrwp_cgm_tunnelSTA
+traffic=1

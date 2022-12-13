@@ -1,5 +1,5 @@
 desc=Looping race through the tunnel
-wager=75,150
+wager=100,200
 slips=0
 enemyModel=moonhawk
 enemyConfig=vehicles/moonhawk/v8m.pc

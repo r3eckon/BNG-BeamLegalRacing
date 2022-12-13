@@ -5,3 +5,4 @@ type=speed
 targetspd=50,90
 rep=10,40
 gmwp=blrwp_raceend
+traffic=1

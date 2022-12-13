@@ -1,5 +1,5 @@
 desc=Very long endurance race around Utah
-wager=75,150
+wager=100,200
 slips=0
 enemyModel=moonhawk
 enemyConfig=vehicles/moonhawk/v8m.pc

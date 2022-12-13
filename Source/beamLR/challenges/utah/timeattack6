@@ -1,0 +1,8 @@
+desc=Short length rally time attack to the end of the highway
+wager=200,400
+triggers=BeamLRTrigger_DirtAsphaltFourWayCP1,BeamLRTrigger_CurvyDirtRoadCP1,BeamLRTrigger_OffroadClubEnd,BeamLRTRigger_Offroad2CP1,BeamLRTrigger_Offroad2CP2,BeamLRTrigger_Offroad2ACP3,BeamLRTrigger_Offroad2ACP4,BeamLRTrigger_Offroad2CP5,BeamLRTrigger_Offroad2CP6,BeamLRTrigger_OffroadHighwayFarEnd
+type=time
+targettime=170000,210000
+rep=20,40
+gmwp=blrwp_dirtasphaltfourwaycp1
+traffic=0

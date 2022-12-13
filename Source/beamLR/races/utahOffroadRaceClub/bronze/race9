@@ -1,5 +1,5 @@
 desc=Another long looping dirt race
-wager=50,100
+wager=100,200
 slips=0
 enemyModel=pickup
 enemyConfig=vehicles/pickup/d15_A.pc

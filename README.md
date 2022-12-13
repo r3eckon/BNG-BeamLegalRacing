@@ -1,5 +1,4 @@
-
-# Beam Legal Racing 1.4
+# Beam Legal Racing 1.5
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -12,6 +11,10 @@ Perform missions, races and challenges to earn money to buy vehicles and parts. 
 ### Modder install (Allows further tweaking, adding races, shop vehicles & more)
 * Unpack the zip or clone the repo
 * Copy or merge contents to your BeamNG user folder
+
+### Player Install Notice
+
+If you are experiencing issues with the mod using the player install, try modder install before making a bug report. Since the mod relies heavily on data persistence some files may fail to load properly when zipped as a mod.
 
 ## Update Instructions
 BEFORE UPDATING:  Back up your userdata/beamLR folder to save your career
@@ -35,19 +38,15 @@ If the in game backup system fails to work properly:
 * beamLR/shop/daydata                                 (Vehicle shop daily data, aka bought slots)
 * beamLR/races/INSERT RACE CLUB/progress              (Race club progress, repeat for each club)
 
-### Other install information
-
-If you are experiencing issues with the mod using the player install, try modder install before making a bug report. Since the mod relies heavily on data persistence some files may fail to load properly when zipped as a mod.
-
 ## Read Before Playing
-BeamLR relies on a UI app that you must add to your "Scenario" UI layout in order to access features such as:
+BeamLR relies on a UI app and custom UI layout in order to access features such as:
 * Options Menu
 * Part Edit Menu
 * Part Shop Menu
 * Tuning Menu
 * Paint Edit Menu
 
-The UI app is best placed at the top center of the screen with a size of at least **500x500**.
+Since version 1.5 there is no setup required for the UI to work. The "BeamLR" ui layout should now be loaded on scenario start. Any changes made to this UI layout will be reflected when playing BeamLR in case the default layout doesn't fit on your screen.
 
 First time players: the imgui unit detection feature may fail to properly register your unit setting. 
 
@@ -259,4 +258,17 @@ Thank you for playing BeamLR!
 * Updated car file format to fix issue with selling & scrapping
 * Fixed walk mode issues with bus ride and garage
 * Updated fix for car shop and garage placing player in traffic
+
+### 1.5
+* Added time limit based daredevil challenges 
+* Added custom UI layout
+* Added new scrapyard vehicle shop
+* Added race and challenge UI app checkpoints, laps & time
+* Tweaked race rewards balance
+* Buying parts now possible from garages
+* Fixed buttons being clicked during time skip causing issues
+* Challenges can now toggle traffic on or off
+* Challenges can now use shared RNG roll for rewards & targets
+* Races and Challenges now show traffic parameter in description
+
 

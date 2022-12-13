@@ -1,5 +1,5 @@
 desc=Long looping dirt race
-wager=50,100
+wager=100,200
 slips=0
 enemyModel=burnside
 enemyConfig=vehicles/burnside/v8m.pc

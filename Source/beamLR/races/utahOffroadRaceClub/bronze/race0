@@ -1,5 +1,5 @@
 desc=Race to the ranger cabin
-wager=50,100
+wager=100,200
 slips=0
 enemyModel=hopper
 enemyConfig=vehicles/hopper/xt4_M.pc

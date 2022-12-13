@@ -1,0 +1,8 @@
+desc=Another short hotlap
+wager=150,300
+triggers=BeamNGTrigger_BridgeCarZoneIntersect,BeamNGTrigger_CaravanAreaEntrance,BeamNGTrigger_RoadToAirfield,BeamNGTrigger_AirfieldRoadIntersect,BeamLRTrigger_CurvyRoadCP1,BeamLRTrigger_CurvyRoadCP2,BeamLRTrigger_NearShopCP1,BeamNGTrigger_BridgeCarZoneIntersect
+type=time
+targettime=120000,150000
+rep=20,40
+gmwp=riverJuncWp1
+traffic=1

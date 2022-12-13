@@ -4,3 +4,4 @@ triggers=BeamLRTrigger_JumpTarget
 type=jump
 rep=10,40
 gmwp=blrwp_cgm_jump
+traffic=1

@@ -1,0 +1,8 @@
+name=Ibishu 200BX
+type=coupe
+config=vehicles/coupe/blr_scrapyard.pc
+baseprice=300
+odometer=0
+scrapval=80
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

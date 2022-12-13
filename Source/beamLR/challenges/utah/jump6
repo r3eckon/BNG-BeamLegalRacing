@@ -4,3 +4,4 @@ triggers=BeamLRTrigger_ImpossibleJump
 type=jump
 rep=200,300
 gmwp=blrwp_cgm_impossiblejump
+traffic=1

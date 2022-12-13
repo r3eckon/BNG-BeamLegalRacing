@@ -1,5 +1,5 @@
 desc=Another drag race
-wager=50,100
+wager=100,200
 slips=0
 enemyModel=midsize
 enemyConfig=vehicles/midsize/DX_A.pc

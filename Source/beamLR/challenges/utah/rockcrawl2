@@ -1,0 +1,8 @@
+desc=Difficult rock crawl challenge
+wager=500,1000
+triggers=BeamLRTrigger_RockCrawl2CP1,BeamLRTrigger_RockCrawl2CP2,BeamLRTrigger_RockCrawl2CP3,BeamLRTrigger_RockCrawl2CP4,BeamLRTrigger_RockCrawl2CP5,BeamLRTrigger_RockCrawl2CP6,BeamLRTrigger_RockCrawl2CP7,BeamLRTrigger_CurvyRoadCP1
+type=time
+targettime=120000,150000
+rep=20,40
+gmwp=blrwp_airfieldisB
+traffic=1

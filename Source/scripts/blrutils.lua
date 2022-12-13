@@ -13,7 +13,7 @@ local day = 0					-- are still showing up the next day, just offset by one vehic
 
 local markers = {}
 
-
+local blrtime = 0				-- Not time of day, used for race timers
 
 local function deleteFile(filename)
 if FS:fileExists(filename) then 
@@ -68,7 +68,15 @@ end
 return result
 end
 
-
+local function lerp(rel, minv, maxv, invert)
+local toRet = 0
+if invert then
+toRet = maxv - (maxv-minv) * rel
+else
+toRet = minv + (maxv-minv) * rel
+end
+return toRet
+end
 
 local function createPaint(paint)
 return createVehiclePaint({x = tonumber(paint[1]), y = tonumber(paint[2]), z = tonumber(paint[3]), w = tonumber(paint[4])}, {tonumber(paint[5]),tonumber(paint[6]),tonumber(paint[7]),tonumber(paint[8])})
@@ -353,43 +361,38 @@ local toRet = {}
 local wager = ssplit(cdata["wager"], ",")
 local targetspd = ssplit(cdata["targetspd"] or "", ",")
 local targettime = ssplit(cdata["targettime"] or "", ",")
-local timelimit = ssplit(cdata["timelimit"] or "", ",")
 local driftpts = ssplit(cdata["driftpts"] or "", ",")
 local reputation = ssplit(cdata["rep"] or "", ",")
+local rval = math.random()
+local cmin, cmax = 0,0
 
 
 if #wager > 1 then 
-toRet["wager"] = math.random(tonumber(wager[1]), tonumber(wager[2]))
+toRet["wager"] = math.floor(lerp(rval, tonumber(wager[1]), tonumber(wager[2]), false))
 else 
 toRet["wager"] = tonumber(wager[1])
 end
 
 if #targetspd > 1 then 
-toRet["targetspd"] = math.random(tonumber(targetspd[1]), tonumber(targetspd[2]))
+toRet["targetspd"] = lerp(rval,tonumber(targetspd[1]), tonumber(targetspd[2]), false)
 else 
 toRet["targetspd"] = tonumber(targetspd[1])
 end
 
 if #targettime > 1 then 
-toRet["targettime"] = math.random(tonumber(targettime[1]), tonumber(targettime[2]))
+toRet["targettime"] = lerp(rval,tonumber(targettime[1]), tonumber(targettime[2]), true)
 else 
 toRet["targettime"] = tonumber(targettime[1])
 end
 
-if #timelimit > 1 then 
-toRet["timelimit"] = math.random(tonumber(timelimit[1]), tonumber(timelimit[2]))
-else 
-toRet["timelimit"] = tonumber(timelimit[1])
-end
-
 if #driftpts > 1 then 
-toRet["driftpts"] = math.random(tonumber(driftpts[1]), tonumber(driftpts[2]))
+toRet["driftpts"] = lerp(rval,tonumber(driftpts[1]), tonumber(driftpts[2]), false)
 else 
 toRet["driftpts"] = tonumber(driftpts[1])
 end
 
 if #reputation > 1 then
-toRet["rep"] = math.random(tonumber(reputation[1]), tonumber(reputation[2]))
+toRet["rep"] = math.floor(lerp(rval,tonumber(reputation[1]), tonumber(reputation[2]), false))
 else 
 toRet["rep"] = tonumber(reputation[1])
 end
@@ -671,6 +674,33 @@ end
 end
 
 
+local function msTimeFormat(time)
+local toRet = {}
+toRet["hours"] = math.floor(time / 3600000)
+toRet["minutes"] = math.floor((time / 60000) - toRet["hours"] * 60)
+toRet["seconds"] = math.floor((time / 1000) - ((toRet["hours"] * 3600) + toRet["minutes"] * 60))
+toRet["milliseconds"] = time - (toRet["hours"] * 3600000 + toRet["minutes"] * 60000 + toRet["seconds"]*1000)
+return toRet
+end
+
+local function raceTimeString(time)
+return string.format("%02d:%02d.%03d", time["minutes"], time["seconds"], time["milliseconds"])
+end
+
+
+-- Used to keep track of race times with working pause function
+local function onPreRender(dtReal,dtSim,dtRaw)
+blrtime = blrtime + dtSim * 1000
+end
+
+local function getRaceTime()
+return blrtime
+end
+
+M.onPreRender = onPreRender
+M.getRaceTime = getRaceTime
+M.raceTimeString = raceTimeString
+M.msTimeFormat = msTimeFormat
 M.restoreBackup = restoreBackup
 M.backupCareer = backupCareer
 M.setNextCareerSeed = setNextCareerSeed

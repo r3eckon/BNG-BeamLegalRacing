@@ -5,3 +5,4 @@ type=speed
 targetspd=40,50
 rep=10,30
 gmwp=blrwp_cgm_caravanST
+traffic=1

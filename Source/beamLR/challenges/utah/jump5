@@ -4,3 +4,4 @@ triggers=BeamLRTrigger_ConstructionJump
 type=jump
 rep=20,60
 gmwp=blrwp_mgm_construction
+traffic=1
