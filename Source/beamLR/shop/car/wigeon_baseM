@@ -1,8 +1,8 @@
 name=Ibishu Wigeon (Base, Manual)
 type=wigeon
 config=vehicles/wigeon/base.pc
-baseprice=500,700
-odometer=70000000,150000000
+baseprice=500,1200
+odometer=50000000,150000000
 scrapval=70
 partprice=0
 paint=0,0,0,0,0.1,0.1,0.1,0.1

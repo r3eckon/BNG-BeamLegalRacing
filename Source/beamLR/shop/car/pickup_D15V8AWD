@@ -1,7 +1,7 @@
 name=Gravil D-Series (D15 V8 AWD, Automatic)
 type=pickup
 config=vehicles/pickup/d15_4wd_A.pc
-baseprice=2000,4000
+baseprice=3000,6000
 odometer=60000000,120000000
 scrapval=200
 partprice=0

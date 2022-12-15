@@ -1,4 +1,4 @@
-# Beam Legal Racing 1.5
+# Beam Legal Racing 1.5.1
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -17,7 +17,7 @@ Perform missions, races and challenges to earn money to buy vehicles and parts. 
 If you are experiencing issues with the mod using the player install, try modder install before making a bug report. Since the mod relies heavily on data persistence some files may fail to load properly when zipped as a mod.
 
 ## Update Instructions
-BEFORE UPDATING:  Back up your userdata/beamLR folder to save your career
+BEFORE UPDATING:  Back up your userfolder/beamLR folder to save your career
 
 ### Player install
 * Replace mod zip file with updated zip. 
@@ -37,6 +37,16 @@ If the in game backup system fails to work properly:
 * beamLR/mainData                                     (Main career data file for money,rep,etc)
 * beamLR/shop/daydata                                 (Vehicle shop daily data, aka bought slots)
 * beamLR/races/INSERT RACE CLUB/progress              (Race club progress, repeat for each club)
+
+## BeamNG Update Userfolder Migration Process
+
+With major updates to BeamNG a new userfolder is created. Not all BeamLR files are automatically migrated.
+
+It is recommended to do a fresh install of BeamLR in the new userfolder before moving your career files.
+
+To restore your career use the process for a normal mod update after installing in the new userfolder.
+
+The game will give you a chance to view the contents of your old userfolder containing career files on first launch after updating so don't worry about steam update deleting your save.
 
 ## Read Before Playing
 BeamLR relies on a UI app and custom UI layout in order to access features such as:
@@ -271,4 +281,9 @@ Thank you for playing BeamLR!
 * Challenges can now use shared RNG roll for rewards & targets
 * Races and Challenges now show traffic parameter in description
 
-
+### 1.5.1 (BeamNG Update 0.27 Hotfix)
+* Fixed sound effects not playing due to 0.27 update
+* Fixed police parameters not working due to 0.27 update
+* Fixed used cars with incorrect odometer ranges 
+* Slight changes to cost and odometer ranges for some shop cars
+* Increased injury G force threshold and tweaked injury scaling

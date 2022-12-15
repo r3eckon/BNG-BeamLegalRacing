@@ -1,9 +1,9 @@
-trucks=1
 nseed=1234
+copstrict=0.08
+police=1
 traffic=6
+sseed=1234
+sleeptime=24
 crazytraffic=0
 trisk=0.5
-sleeptime=24
-sseed=1234
-police=1
-copstrict=0.08
+trucks=1

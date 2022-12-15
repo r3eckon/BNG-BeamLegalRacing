@@ -1,8 +1,8 @@
 name=ETK I-Series (2400, Manual)
 type=etki
 config=vehicles/etki/2400_M.pc
-baseprice=6000,8000
-odometer=60000000,80000000
+baseprice=7000,12000
+odometer=30000000,80000000
 scrapval=700
 partprice=0
 paint=0,0,0,0,0.1,0.1,0.1,0.1
