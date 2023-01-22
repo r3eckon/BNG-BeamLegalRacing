@@ -697,6 +697,13 @@ local function getRaceTime()
 return blrtime
 end
 
+local function nitrousCheck(veid) -- To quickly check if a vehicle has bottle before calling VLUA related to N2O
+local parts = extensions.betterpartmgmt.getVehicleParts(veid)
+return not (parts["n2o_bottle"] == nil or parts["n2o_bottle"] == "")
+end
+
+
+M.nitrousCheck = nitrousCheck
 M.onPreRender = onPreRender
 M.getRaceTime = getRaceTime
 M.raceTimeString = raceTimeString

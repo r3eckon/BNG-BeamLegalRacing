@@ -1,5 +1,5 @@
 desc=Another drag race
-wager=75,175
+wager=200,400
 slips=0
 enemyModel=pickup
 enemyConfig=vehicles/pickup/d15_streettuned_M.pc

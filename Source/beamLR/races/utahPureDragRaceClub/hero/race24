@@ -1,5 +1,5 @@
 desc=Another drag race
-wager=300,700
+wager=500,1000
 slips=0
 enemyModel=sbr,sbr
 enemyConfig=vehicles/sbr/TT_AWD_S2_DCT.pc,vehicles/sbr/hillclimb_SQ.pc

@@ -114,7 +114,9 @@ ve:queueLuaCommand("damageTracker.setDamage('engine', 'catastrophicOverTorqueDam
 elseif dev == "oilpanLeak" then
 ve:queueLuaCommand("powertrain.getDevice('mainEngine').thermals.applyDeformGroupDamageOilpan(1)")
 elseif dev == "oilRadiatorLeak" then
-ve:queueLuaCommand("powertrain.getDevice('mainEngine').thermals.applyDeformGroupDamageOilRadiator(10)")
+ve:queueLuaCommand("powertrain.getDevice('mainEngine').thermals.applyDeformGroupDamageOilRadiator(1)")
+elseif dev == "radiatorLeak" then
+ve:queueLuaCommand("powertrain.getDevice('mainEngine').thermals.applyDeformGroupDamageRadiator(1)")		
 elseif dev == "headGasketDamaged" then
 ve:queueLuaCommand("powertrain.getDevice('mainEngine').thermals.headGasketBlown = true")
 ve:queueLuaCommand("powertrain.getDevice('mainEngine'):scaleOutputTorque(0.8)")							-- Might need to process this before output torque state value

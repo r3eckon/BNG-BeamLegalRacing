@@ -1,4 +1,4 @@
-# Beam Legal Racing 1.5.1
+# Beam Legal Racing 1.6
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -48,6 +48,7 @@ To restore your career use the process for a normal mod update after installing 
 
 The game will give you a chance to view the contents of your old userfolder containing career files on first launch after updating so don't worry about steam update deleting your save.
 
+
 ## Read Before Playing
 BeamLR relies on a UI app and custom UI layout in order to access features such as:
 * Options Menu
@@ -58,14 +59,11 @@ BeamLR relies on a UI app and custom UI layout in order to access features such 
 
 Since version 1.5 there is no setup required for the UI to work. The "BeamLR" ui layout should now be loaded on scenario start. Any changes made to this UI layout will be reflected when playing BeamLR in case the default layout doesn't fit on your screen.
 
-First time players: the imgui unit detection feature may fail to properly register your unit setting. 
+First time players: the imgui unit detection feature may fail to properly register your unit setting. Toggling back and forth between metric and imperial fixes this issue. The UI will then show correct units.
 
-Toggling back and forth between metric and imperial fixes this issue. The UI will then show correct units.
+Remember to save the **userfolder/beamLR** folder if you want to backup your career! The scenario has no autosave feature. Game crashes or hard quit may result in lost progress.
 
-
-Remember to save the **userfolder/beamLR** folder if you want to backup your career!
-
-The scenario has no autosave feature. Game crashes or hard quit may result in lost progress.
+Version 1.6 adds N2O tank persistence. Garage files from previous versions are missing this value and will default to empty N2O tanks. Nitrous tanks can be refilled at the repair shop.
 
 Further instructions and various tips on this mods' various features are listed in the BeamLR UI Main Menu.
 
@@ -74,7 +72,7 @@ Spawn on Utah at the Auto Repair Zone. The mission marker near the parking lot g
 
 ![mission marker](https://i.imgur.com/uSx4849.png)
 
-The scenario will load your last used vehicle and spawn traffic. Be patient while the scenario is loading especially if using lots of traffic.
+The scenario will load your last used vehicle and spawn traffic. Be patient while the scenario is loading especially if using lots of traffic. 
 
 Once in the scenario floating markers indicate interactive areas for the player garage, repair shop, gas stations, race clubs, etc.
 
@@ -96,11 +94,9 @@ You can reset your career at any time using the options menu.
 
 
 ## WIP Notice
-This mod is a work in progress. At this stage it is a decent vertical slice of the gameplay the project is trying to achieve with some bugs and quirks remaining that should get better as BeamNG and the mod are updated. 
+This mod is a work in progress. At this stage it is a decent vertical slice of the gameplay the project is trying to achieve with some bugs and quirks remaining that should get better as BeamNG and the mod are updated. That being said a lot of content is missing and reward values may be unbalanced relative to part prices.
 
-That being said a lot of content is missing and unbalanced, for instance part prices are set to a default value. This means you can build top performance vehicles for cheap. Still, a decent amount of unique races have been added to try and keep this initial version as entertaining as possible.
-
-Due to the nature of BeamNG some features available to players may break the experience when playing BeamLR, such as the circular menu, world editor and other UI apps. If playing seriously (not actively trying to break stuff) try  avoiding features that aren't directly offered in UI menus from the mod. While I still appreciate bug reports related to said features, some of them simply can't be disabled and related issues won't be prioritized.
+Due to the nature of BeamNG some features available to players may break the experience when playing BeamLR, such as the circular menu, world editor and other UI apps. If playing seriously (not actively trying to break stuff) try avoiding features that aren't directly offered in UI menus from the mod. While I still appreciate bug reports related to said features, some of them simply can't be disabled and related issues won't be prioritized.
 
 ## Modding & Cheating
 It is easy to change or add to the mod since BeamLR relies on plaintext files to define things such as:
@@ -218,7 +214,7 @@ Thank you for playing BeamLR!
 * Towing mechanic may repair your vehicle. This is due to problems with a teleport function that shouldn't cause a reset yet sometimes does.
 * Some tuning configurations can cause unfair damage when a vehicle is loaded. A workaround is implemented but may fail to work in certain situations.
 * Various UI problems, input fields stop registering keystrokes, whole UI can refuse to work. Workaround is to keep cursor above input fields. CTRL+F5 to fix the frozen UI.
-* Race checkpoints sometimes fail to trigger properly. Fix has been implemented but this may still be a problem. 
+* ~~Race checkpoints sometimes fail to trigger properly.~~ Should be fixed as of version 1.6
 
 
 ## Changelog
@@ -287,3 +283,19 @@ Thank you for playing BeamLR!
 * Fixed used cars with incorrect odometer ranges 
 * Slight changes to cost and odometer ranges for some shop cars
 * Increased injury G force threshold and tweaked injury scaling
+
+### 1.6
+* Added random paint option for race opponents
+* Added passive healing mechanic
+* Added reputation value to stats window
+* Added custom onBeamNGTrigger hook to fix trigger problems
+* Added missing device to mechanical damage loader
+* Added N2O persistence and refill game mechanics
+* Fixed shop menu bug with different slot counts
+* Updated pink slips system to work with random paints
+* Fixed race system occasionally showing incorrect league data
+* Increased route speed parameter for race opponents
+* Decreased remaining gas in career start vehicle
+* Further increased wagers for some races
+* Fixed integrity loading overwriting mechanical damage states
+

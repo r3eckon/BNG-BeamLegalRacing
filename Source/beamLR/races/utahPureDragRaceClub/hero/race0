@@ -1,5 +1,5 @@
 desc=Another drag race
-wager=300,700
+wager=500,1000
 slips=0
 enemyModel=sunburst
 enemyConfig=vehicles/sunburst/hillclimb_SQ.pc

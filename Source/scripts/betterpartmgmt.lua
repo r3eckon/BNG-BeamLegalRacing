@@ -11,8 +11,13 @@ local partPrice = {}
 local categoryData = {}
 local currentFilter = ""
 
-local function getVehicleParts()
-local chosen = vehManager.getPlayerVehicleData().chosenParts
+local function getVehicleParts(veid)
+local chosen = {}
+if not veid then
+chosen = vehManager.getPlayerVehicleData().chosenParts
+else
+chosen = vehManager.getVehicleData(veid).chosenParts
+end
 return chosen
 end
 

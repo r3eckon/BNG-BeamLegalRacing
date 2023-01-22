@@ -1,5 +1,5 @@
 desc=Another drag race
-wager=75,175
+wager=200,400
 slips=0
 enemyModel=etkc
 enemyConfig=vehicles/etkc/kc6_M.pc

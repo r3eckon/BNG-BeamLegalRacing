@@ -238,21 +238,27 @@ Race checkpoints could fail to trigger properly. Fix has been implemented.
 <h3 style="text-align:center;">&nbsp General </h3>
 
 <p style="text-align:center;"> 
-Player Name : 
+Player Name 
 <input type="text" ng-model="inputData.name" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
 <button ng-click="setNameClick()">Set</button>
 </p>
 
 <p style="text-align:center;"> 
-Vehicle Name : 
+Vehicle Name 
 <input type="text" ng-model="inputData.vehname" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
 <button ng-click="setVehNameClick()">Set</button>
 </p>
 
 <p style="text-align:center;"> 
-Sleep Duration (Hours) : 
+Sleep Duration (Hours)  
 <input type="number" max=24.0 min=0.5 step=0.5 size=5 maxlength=5 ng-model="inputData.sleepTime" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
 <button ng-click="setSleepDuration(inputData.sleepTime)">Set</button>
+</p>
+
+<p style="text-align:center;"> 
+Race Opponent Random Paint
+<button ng-click="setOpponentRandomPaint(1)">On</button>
+<button ng-click="setOpponentRandomPaint(0)">Off</button>
 </p>
 
 <h3 style="text-align:center;"> Traffic </h3>
@@ -260,7 +266,7 @@ Sleep Duration (Hours) :
 <p style="text-align:center;"> (Requires scenario restart to take effect) </p>
 
 <p style="text-align:center;"> 
-Traffic Density : 
+Traffic Density  
 <button ng-click="setTrafficDensity(0)">Off</button>
 <button ng-click="setTrafficDensity(3)">Light</button>
 <button ng-click="setTrafficDensity(6)">Medium</button>
@@ -269,7 +275,7 @@ Traffic Density :
 </p>
 
 <p style="text-align:center;"> 
-Police Density : 
+Police Density 
 <button ng-click="setPoliceDensity(0)">Off</button>
 <button ng-click="setPoliceDensity(1)">Light</button>
 <button ng-click="setPoliceDensity(2)">Medium</button>
@@ -278,7 +284,7 @@ Police Density :
 </p>
 
 <p style="text-align:center;"> 
-Truck Density : 
+Truck Density 
 <button ng-click="setTruckDensity(0)">Off</button>
 <button ng-click="setTruckDensity(1)">Light</button>
 <button ng-click="setTruckDensity(2)">Medium</button>
@@ -307,14 +313,14 @@ Current Career Seed: {{beamlrData['seed']}}
 </p>
 
 <p style="text-align:center;"> 
-Next Seed:
+Next Seed
 <input type="text" maxlength=10 size=11 ng-model="inputData.seed" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
 <button ng-click="setSeed()">Set</button>
 <button ng-click="setRandomSeed()">Random</button>
 </p>
 
 <p style="text-align:center;"> 
-Career Backup:
+Career Backup
 <button ng-click="backupCareer()">Save</button>&nbsp &nbsp &nbsp &nbsp
 <button ng-click="restoreBackup()">Load</button>
 </p>

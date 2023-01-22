@@ -20,6 +20,8 @@ end
 ftable["setPart"] = function(p)
 extensions.blrglobals.gmSetVal("pgas", extensions.blrglobals.gmGetVal("cgas")) 	-- Gets current gas value and stores it for after part edit
 extensions.blrglobals.gmSetVal("podo", extensions.blrglobals.gmGetVal("codo"))	-- Do same thing with odometer
+extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-- Do same thing with NOS
+extensions.blrglobals.blrFlagSet("hasNos", false) -- Setting hasNos to false to avoid vlua fetching bug before flag is set by N2O Check node
 extensions.blrhooks.linkHook("vehReset", "postedit")							-- Hooks post edit actions to the vehicle restored callback
 extensions.betterpartmgmt.setSlot(p["slot"], p["item"])							-- which restores proper camera and gas value
 end
@@ -124,6 +126,7 @@ ftable["setTune"] = function(p)
 local dtable = extensions.betterpartmgmt.tuningTableFromUIData(p, false)
 extensions.blrglobals.gmSetVal("pgas", extensions.blrglobals.gmGetVal("cgas")) 	-- Gets current gas value and stores it for after tune apply
 extensions.blrglobals.gmSetVal("podo", extensions.blrglobals.gmGetVal("codo"))	-- Do same thing with odometer
+extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-- Do same thing with NOS
 extensions.blrhooks.linkHook("vehReset", "postedit")							-- Link to post edit action hook, reuse the code for tune
 extensions.betterpartmgmt.applyTuningData(dtable)
 end
@@ -131,6 +134,7 @@ end
 ftable["resetTune"] = function(p)
 extensions.blrglobals.gmSetVal("pgas", extensions.blrglobals.gmGetVal("cgas")) 	-- Gets current gas value and stores it for after tune apply
 extensions.blrglobals.gmSetVal("podo", extensions.blrglobals.gmGetVal("codo"))	-- Do same thing with odometer
+extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-- Do same thing with NOS
 extensions.blrhooks.linkHook("vehReset", "postedit")							-- Link to post edit action hook, reuse the code for tune
 extensions.betterpartmgmt.resetTuningData()
 end
@@ -240,6 +244,13 @@ dtable["sleeptime"] = p
 extensions.blrutils.updateDataTable("beamLR/options", dtable)
 extensions.blrglobals.blrFlagSet("reloadOptions", true)	-- Force reload options for immediate change
 end
+end
+
+ftable["setOpponentRandomPaint"] = function(p)
+local dtable = {}
+dtable["raceRandPaint"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+extensions.blrglobals.blrFlagSet("reloadOptions", true)	-- Force reload options for immediate change
 end
 
 

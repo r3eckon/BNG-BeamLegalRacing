@@ -218,6 +218,12 @@ angular.module('beamng.apps')
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("sleeptime", "${d}")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setSleepDuration", "sleeptime")`)
 	  }
+
+	  scope.setOpponentRandomPaint = function(d)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("randpaint", "${d}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setOpponentRandomPaint", "randpaint")`)
+	  }
 	  
     }
   }

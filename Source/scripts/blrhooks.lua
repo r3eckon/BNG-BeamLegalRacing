@@ -62,6 +62,10 @@ print("BLRHOOK: VEHICLE SPAWNED")
 end
 end
 
+local onBeamNGTrigger = function(data) -- Hook for custom trigger function 
+extensions.blrtriggers.blrTrigger(data)
+end
+
 local setFilter = function(vid)
 vidfilter = vid
 end
@@ -80,6 +84,6 @@ M.loadBLRHooks = loadBLRHooks
 M.onVehicleLoaded = onVehicleLoaded
 M.onVehicleResetted = onVehicleResetted
 M.onVehicleSpawned = onVehicleSpawned
-
+M.onBeamNGTrigger = onBeamNGTrigger
 
 return M
