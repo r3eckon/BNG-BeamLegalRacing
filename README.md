@@ -32,9 +32,8 @@ BEFORE UPDATING:  Back up your userfolder/beamLR folder to save your career
 * Tell OS to replace existing files when asked. This applies the update.
 * Use in game UI to restore your backup
 
-If the in game backup system fails to work properly:
+If the in game backup system fails to work properly you can manually replace the following files/folders using your backed up beamLR folder:
 
-* Replace the following files/folders using your backed up beamLR folder:
 * beamLR/beamstate                                    (External and mechanical damage)
 * beamLR/garage                                       (Garage vehicle data & config)
 * beamLR/mainData                                     (Main career data file for money,rep,etc)
@@ -184,7 +183,7 @@ Works with wager, rep, laps and enemyRisk, enemyModel and enemyConfig.
 
 This is used to create randomized races that still use the same path. Used to make the endless "hero" race league more interesting.
 
-Since version 1.7 race files can contain a **wpspd** value list to set a target speed for the AI at a particular waypoint. This feature can be used to fix or refine AI behavior. For instance, adding break zones at a spot where the AI keeps crashing due to high speeds.
+Since version 1.7 race files can contain a **waypoint speed** value list to set a target speed for the AI at a particular waypoint. This feature can be used to fix or refine AI behavior. For instance, adding brake zones at a spot where the AI keeps crashing due to high speeds.
 
 Format for this list is **wpspd=WPNAME:SPEED,WPNAME:SPEED, ...** 
 
