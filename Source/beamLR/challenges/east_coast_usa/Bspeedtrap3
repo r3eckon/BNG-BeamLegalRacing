@@ -1,0 +1,8 @@
+desc=Dirt road intersection speed trap challenge
+wager=200,500
+triggers=BeamLRTrigger_FarmDirtRoadCP1
+type=speed
+targetspd=33,39
+rep=10,40
+gmwp=blrwp_farmdirtroadcp6
+traffic=1

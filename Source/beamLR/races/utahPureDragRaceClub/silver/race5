@@ -1,5 +1,5 @@
 desc=Another drag race
-wager=200,400
+wager=350,700
 slips=0
 enemyModel=wendover
 enemyConfig=vehicles/wendover/sport_se_v6_M.pc

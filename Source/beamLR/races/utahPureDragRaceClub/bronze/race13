@@ -1,5 +1,5 @@
 desc=Another drag race
-wager=100,200
+wager=150,300
 slips=0
 enemyModel=roamer
 enemyConfig=vehicles/roamer/v8_m.pc

@@ -1,0 +1,4 @@
+dest=BeamLRTrigger_FarPond
+desc=Deliver fishing equipment to the pond
+reward=100
+gmwp=blrwp_farpond

@@ -1,7 +1,10 @@
-# Beam Legal Racing 1.6
+# Beam Legal Racing 1.7
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
+
+## Quick Links
+### [Forum thread](https://www.beamng.com/threads/87394/) | [Utah Map](utahmap.md) | [East Coast Map](eastcoastmap.md)
 
 ## Install Instructions
 
@@ -38,6 +41,8 @@ If the in game backup system fails to work properly:
 * beamLR/shop/daydata                                 (Vehicle shop daily data, aka bought slots)
 * beamLR/races/INSERT RACE CLUB/progress              (Race club progress, repeat for each club)
 
+If you are experiencing issues after updating the mod, try a clean userfolder install and copy over your backup.
+
 ## BeamNG Update Userfolder Migration Process
 
 With major updates to BeamNG a new userfolder is created. Not all BeamLR files are automatically migrated.
@@ -61,42 +66,59 @@ Since version 1.5 there is no setup required for the UI to work. The "BeamLR" ui
 
 First time players: the imgui unit detection feature may fail to properly register your unit setting. Toggling back and forth between metric and imperial fixes this issue. The UI will then show correct units.
 
-Remember to save the **userfolder/beamLR** folder if you want to backup your career! The scenario has no autosave feature. Game crashes or hard quit may result in lost progress.
+Remember to save the **userfolder/beamLR** folder if you want to backup your career! The scenario has no autosave feature. Abandon the scenario and wait until you are back in freeroam before closing the game to ensure all progress is saved. Game crashes or hard quit may result in lost progress.
 
 Version 1.6 adds N2O tank persistence. Garage files from previous versions are missing this value and will default to empty N2O tanks. Nitrous tanks can be refilled at the repair shop.
 
 Further instructions and various tips on this mods' various features are listed in the BeamLR UI Main Menu.
 
 ## Getting started
-Spawn on Utah at the Auto Repair Zone. The mission marker near the parking lot garage is used to play your BeamLR career.
+BeamLR is loaded as a freeroam mission. Use the following spawn point depending on map choice:
+
+* Utah Spawn: **Auto Repair Zone**
+* East Coast Spawn: **Gas Station Parking Lot**
+
+Drive into the BeamLR Career mission marker and use the UI to start the mission.
 
 ![mission marker](https://i.imgur.com/uSx4849.png)
 
-The scenario will load your last used vehicle and spawn traffic. Be patient while the scenario is loading especially if using lots of traffic. 
+The scenario will load your last used vehicle and spawn traffic. 
 
-Once in the scenario floating markers indicate interactive areas for the player garage, repair shop, gas stations, race clubs, etc.
+**Be patient while the scenario is loading** especially if using lots of traffic. 
+
+Once in the scenario floating markers indicate interactive areas for the player garage, repair shop, gas stations, race clubs, etc. 
 
 ![part shop marker](https://i.imgur.com/84A5emi.png)
 
-Before you can race, you need some money to wager. The first thing to do is delivery missions.
+Purchased or won vehicles are sent to your player garage. You can also scrap vehicles for some money using the player garage menu.
 
-There are 3 race clubs implemented: Highway Race Club, Offroad Racing Club and Pure Drag Race Club.
+Before you can race or perform challenges, you need some money to wager. The first thing to do is delivery missions. Race clubs have distinct categories from generic races, dirt/gravel road races and drag races.
 
 ![race clubs](https://i.imgur.com/yPLsjIc.png)
 
-You must complete every race in a league to progress to the next league. Opponent vehicle performance increases with leagues.
+Race club opponents are sorted into performance leagues of **Bronze**, **Silver**, **Gold** and **Hero**. You must complete every race in a league to progress to the next league. Opponent vehicle performance and wager values will increase as you progress through leagues.
 
-You can spend money on part upgrades or new vehicles by visiting the various shops. 
+The **Hero** league has no progression and can be used for endless races against max performance opponents.
 
-Use the top menu to access part shop & part edit UIs.
+Some races have pink slips instead of monetary wagers. Some races have enabled traffic while others don't. Make sure to check race parameters before accepting to know what you're getting into.
 
-You can reset your career at any time using the options menu.
+You can spend money on part upgrades or new vehicles by visiting the various shops. Vehicles can also be sold at vehicle shops, sale price will depend on vehicle condition, added parts and player reputation.
+
+To repair your vehicle you must visit a repair garage or call a mechanic to your garage (+100% cost).
+
+The towing button will teleport your vehicle to the player garage for a cost (may repair vehicle due to bug). 
+
+Use the top menu to access part shop, part edit, painting and tuning interface.
+
+You can back up, restore and reset your career at any time using the options menu.
 
 
 ## WIP Notice
 This mod is a work in progress. At this stage it is a decent vertical slice of the gameplay the project is trying to achieve with some bugs and quirks remaining that should get better as BeamNG and the mod are updated. That being said a lot of content is missing and reward values may be unbalanced relative to part prices.
 
 Due to the nature of BeamNG some features available to players may break the experience when playing BeamLR, such as the circular menu, world editor and other UI apps. If playing seriously (not actively trying to break stuff) try avoiding features that aren't directly offered in UI menus from the mod. While I still appreciate bug reports related to said features, some of them simply can't be disabled and related issues won't be prioritized.
+
+Beamstate is a very experimental BeamNG feature being used by this project for damage saving. If a vehicle suddenly breaks after being stored in good condition, the beamstate file got corrupted. Flowgraph has been added to detect and fix this, however it may not always work properly. You can fix this two ways: move your vehicle using the F11 world editor (will force a vehicle reset) or delete the vehicle beamstate file before launching the scenario to force a fresh vehicle beamstate. Beamstate also breaks Covet "advanced hinges" and may cause game crashes with the Scintilla.
 
 ## Modding & Cheating
 It is easy to change or add to the mod since BeamLR relies on plaintext files to define things such as:
@@ -150,19 +172,21 @@ The easiest way to create a new race is to copy a race file and giving it the ne
 
 If the folder contains race0, race1 and race2 the copied file is renamed to **race3**.
 
-
 Then it is trivial to change the model and config. 
 
 Model name is the name of the zip file for that vehicle
 
 Config files are found in the zip files for each vehicle.
 
-
 Values separated by commas are interpreted as random ranges or choices.
 
 Works with wager, rep, laps and enemyRisk, enemyModel and enemyConfig.
 
 This is used to create randomized races that still use the same path. Used to make the endless "hero" race league more interesting.
+
+Since version 1.7 race files can contain a **wpspd** value list to set a target speed for the AI at a particular waypoint. This feature can be used to fix or refine AI behavior. For instance, adding break zones at a spot where the AI keeps crashing due to high speeds.
+
+Format for this list is **wpspd=WPNAME:SPEED,WPNAME:SPEED, ...** 
 
 ### UI Modding
 Part Images can be added to enhance the UX of the part shop.
@@ -210,11 +234,12 @@ Thank you for playing BeamLR!
 
 ## Known Issues 
 
-* Covet beamstate saving breaks advanced coupler beams, doors won't close, hood won't open. Current best workaround is to simply repair the vehicle.
+* Covet beamstate saving breaks advanced coupler beams, doors won't close, hood won't open. Current best workaround is to simply repair the vehicle. Scintilla beamstate can crash the game.
 * Towing mechanic may repair your vehicle. This is due to problems with a teleport function that shouldn't cause a reset yet sometimes does.
 * Some tuning configurations can cause unfair damage when a vehicle is loaded. A workaround is implemented but may fail to work in certain situations.
 * Various UI problems, input fields stop registering keystrokes, whole UI can refuse to work. Workaround is to keep cursor above input fields. CTRL+F5 to fix the frozen UI.
 * ~~Race checkpoints sometimes fail to trigger properly.~~ Should be fixed as of version 1.6
+* Beamstate file corruption breaking pristine vehicles. Workaround is implemented but may fail. Use world editor for repair or delete the corrupted beamstate file.
 
 
 ## Changelog
@@ -299,3 +324,10 @@ Thank you for playing BeamLR!
 * Further increased wagers for some races
 * Fixed integrity loading overwriting mechanical damage states
 
+### 1.7
+* Added East Coast map content
+* Added optional wpSpeeds parameter to race files to improve AI
+* Fixed node error when giving up race before AI spawned
+* Increased selection of race opponent for some leagues
+* Increased wager range for all races 
+* Stats UI damage val replaced with repair cost

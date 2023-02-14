@@ -1,0 +1,8 @@
+desc=Time attack through dense forest mountain road
+wager=220,1200
+triggers=BeamLRTrigger_TownGasStationST,BeamLRTrigger_HeavyForestRoadCP1,BeamLRTrigger_HeavyForestRoadCP2,BeamLRTrigger_DirtPathBIntersectCP1,BeamLRTrigger_WatchtowerroadCP2,BeamLRTrigger_MountainroadYjuncCP1,BeamLRTrigger_MountainRoadDirtIntersectCP4,BeamLRTrigger_MountainRoadDirtIntersectCP3,BeamLRTrigger_SawmillOverpassJuncCP3
+type=time
+targettime=95000,125000
+rep=20,40
+gmwp=blrwp_towngasstationst
+traffic=1

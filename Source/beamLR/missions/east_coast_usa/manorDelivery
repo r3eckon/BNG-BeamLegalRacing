@@ -1,0 +1,4 @@
+dest=BeamLRTrigger_Manor
+desc=Deliver electronics to the red manor
+reward=450
+gmwp=blrwp_manor

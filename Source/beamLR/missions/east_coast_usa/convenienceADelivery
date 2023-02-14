@@ -1,0 +1,4 @@
+dest=BeamLRTrigger_ConvenienceStoreA
+desc=Deliver wiper fluid to the town convenience store
+reward=550
+gmwp=blrwp_storeA

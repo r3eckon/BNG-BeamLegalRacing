@@ -1,0 +1,4 @@
+dest=BeamLRTrigger_Sawmill
+desc=Deliver parts to the sawmill
+reward=250
+gmwp=blrwp_sawmill

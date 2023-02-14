@@ -1,0 +1,7 @@
+desc=Crazy jump over the road!
+wager=600,800
+triggers=BeamLRTrigger_CrazyJump
+type=jump
+rep=20,40
+gmwp=blrwp_cgm_crazyjump
+traffic=1

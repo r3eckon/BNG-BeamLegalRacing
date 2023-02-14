@@ -1,0 +1,8 @@
+desc=Risky speed trap challenge at the gas station intersection
+wager=800,5000
+triggers=BeamLRTrigger_GasStationIntersectCP3
+type=speed
+targetspd=55,75
+rep=80,300
+gmwp=wp150
+traffic=1

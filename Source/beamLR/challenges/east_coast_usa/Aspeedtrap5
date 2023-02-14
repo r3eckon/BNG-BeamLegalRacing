@@ -1,0 +1,8 @@
+desc=Another seaside speed trap challenge
+wager=250,750
+triggers=BeamLRTrigger_MidRoadEndCP2
+type=speed
+targetspd=40,60
+rep=30,100
+gmwp=blrwp_midroadendcp2
+traffic=1

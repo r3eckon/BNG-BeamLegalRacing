@@ -1,0 +1,8 @@
+desc=Speed trap challenge near a river crossing bridge
+wager=200,700
+triggers=BeamLRTrigger_OverpassAYJuncBCP3
+type=speed
+targetspd=38,50
+rep=10,40
+gmwp=blrwp_overpassAyjuncBcp3
+traffic=1

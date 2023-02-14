@@ -702,7 +702,26 @@ local parts = extensions.betterpartmgmt.getVehicleParts(veid)
 return not (parts["n2o_bottle"] == nil or parts["n2o_bottle"] == "")
 end
 
+local function getMapSpawn()
+local toRet = {}
+local path = "beamLR/mapdata/" .. getLevelName() .. "/spawn"
+local dtable = loadDataTable(path)
+toRet["pos"] = ssplitnum(dtable["pos"], ",")
+toRet["rot"] = ssplitnum(dtable["rot"], ",")
+return toRet
+end
 
+local function getMapTowSpot()
+local toRet = {}
+local path = "beamLR/mapdata/" .. getLevelName() .. "/towing"
+local dtable = loadDataTable(path)
+toRet["pos"] = ssplitnum(dtable["pos"], ",")
+return toRet
+end
+
+
+M.getMapTowSpot = getMapTowSpot
+M.getMapSpawn = getMapSpawn
 M.nitrousCheck = nitrousCheck
 M.onPreRender = onPreRender
 M.getRaceTime = getRaceTime

@@ -1,0 +1,4 @@
+dest=BeamLRTrigger_Farmhouse
+desc=Deliver tools to the farm house
+reward=350
+gmwp=blrwp_farmhouse

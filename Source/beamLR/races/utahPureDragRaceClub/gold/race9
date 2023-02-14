@@ -1,5 +1,5 @@
 desc=Another drag race
-wager=500,1000
+wager=750,1250
 slips=0
 enemyModel=autobello
 enemyConfig=vehicles/autobello/150_track.pc

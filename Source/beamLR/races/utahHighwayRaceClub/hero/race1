@@ -1,8 +1,8 @@
 desc=Race to the airfield
 wager=500,1000
 slips=0
-enemyModel=sunburst,covet,legran,etki,pessima,wendover,midsize,fullsize,barstow,autobello,burnside,pickup,miramar,roamer,bluebuck,hopper,vivace,van,coupe,moonhawk,etk800,etkc,bastion,bolide,bolide,bolide,bolide,sbr,scintilla,scintilla,scintilla
-enemyConfig=vehicles/sunburst/hillclimb_SQ.pc,vehicles/covet/drag.pc,vehicles/legran/race.pc,vehicles/etki/cool.pc,vehicles/pessima/custom.pc,vehicles/wendover/super.pc,vehicles/midsize/drag.pc,vehicles/fullsize/drag.pc,vehicles/barstow/tracksport.pc,vehicles/autobello/150_track.pc,vehicles/burnside/drag.pc,vehicles/pickup/d15_longbed_drag_A.pc,vehicles/miramar/race.pc,vehicles/roamer/drag.pc,vehicles/bluebuck/drag.pc,vehicles/hopper/drag.pc,vehicles/vivace/vivace_S_410q_M.pc,vehicles/van/street_tuned.pc,vehicles/coupe/demon.pc,vehicles/moonhawk/drive.pc,vehicles/etk800/etk856ttsportplus_A.pc,vehicles/etkc/trackday_A.pc,vehicles/bastion/drag.pc,vehicles/bolide/notte.pc,vehicles/bolide/topspeed.pc,vehicles/bolide/race.pc,vehicles/bolide/rally_asphalt.pc,vehicles/sbr/hillclimb_SQ.pc,vehicles/scintilla/gts_corse.pc,vehicles/scintilla/race.pc,vehicles/scintilla/drag.pc
+enemyModel=sunburst,covet,legran,etki,pessima,wendover,barstow,autobello,miramar,vivace,van,coupe,moonhawk,etk800,etkc,bolide,bolide,bolide,bolide,sbr,scintilla,scintilla
+enemyConfig=vehicles/sunburst/hillclimb_SQ.pc,vehicles/covet/turbo_race.pc,vehicles/legran/race.pc,vehicles/etki/cool.pc,vehicles/pessima/custom.pc,vehicles/wendover/super.pc,vehicles/barstow/tracksport.pc,vehicles/autobello/150_track.pc,vehicles/miramar/race.pc,vehicles/vivace/hillclimb_SQ.pc,vehicles/van/street_tuned.pc,vehicles/coupe/demon.pc,vehicles/moonhawk/drive.pc,vehicles/etk800/etk856ttsportplus_A.pc,vehicles/etkc/trackday_A.pc,vehicles/bolide/notte.pc,vehicles/bolide/topspeed.pc,vehicles/bolide/race.pc,vehicles/bolide/rally_asphalt.pc,vehicles/sbr/hillclimb_SQ.pc,vehicles/scintilla/gts_corse.pc,vehicles/scintilla/race.pc
 enemyRisk=0.87
 enemyBasePrice=0
 enemyPartPrice=0
@@ -10,9 +10,21 @@ enemyScrapVal=0
 enemyPaint=0,0,0,0,0.1,0.1,0.1,0.1
 enemyAvoid=1
 triggers=BeamNGTrigger_HighwayExit,BeamNGTrigger_AirfieldFinish
-waypoints=blrwp_highwayexit,blrwp_airfield
+waypoints=blrwp_highwayexitaiwp1,blrwp_highwayexit,blrwp_airfield
 laps=1
 ifile=beamLR/races/integrity/good
 traffic=1
 parts=none
 rep=50,100
+wpspd=blrwp_highwayexitaiwp1:21
+
+
+
+
+
+
+
+
+
+
+

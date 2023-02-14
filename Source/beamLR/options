@@ -1,10 +1,10 @@
 copstrict=0.08
-traffic=6
-trucks=1
+raceRandPaint=1
 police=1
 crazytraffic=0
 trisk=0.5
 sleeptime=24
-sseed=1234
-raceRandPaint=1
+trucks=1
 nseed=1234
+traffic=6
+sseed=1234

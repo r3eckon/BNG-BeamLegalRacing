@@ -1,0 +1,4 @@
+dest=BeamLRTrigger_FirstResponderStation
+desc=Deliver coffee to the fire and police station
+reward=400
+gmwp=blrwp_firstresponderstation

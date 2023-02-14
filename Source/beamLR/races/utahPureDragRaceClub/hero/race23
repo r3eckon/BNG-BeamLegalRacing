@@ -1,5 +1,5 @@
 desc=Another drag race
-wager=500,1000
+wager=750,1250
 slips=0
 enemyModel=bolide,bolide,bolide,bolide
 enemyConfig=vehicles/bolide/notte.pc,vehicles/bolide/topspeed.pc,vehicles/bolide/race.pc,vehicles/bolide/rally_asphalt.pc

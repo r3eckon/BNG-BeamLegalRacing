@@ -1,0 +1,8 @@
+desc=Risky seaside speed trap challenge
+wager=400,1800
+triggers=BeamLRTrigger_SeasideLongRoadCP1
+type=speed
+targetspd=47,62
+rep=80,300
+gmwp=blrwp_seasidelongroadcp1
+traffic=1

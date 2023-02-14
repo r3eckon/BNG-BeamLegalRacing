@@ -1,0 +1,11 @@
+{"name":"Sky","class":"SimGroup","persistentId":"0b1f6224-3b80-4951-8545-2ef81e9a01cc","__parent":"Level_object"}
+{"name":"Light","class":"SimGroup","persistentId":"352ee074-413e-489b-8f0f-0f3354a9bad5","__parent":"Level_object"}
+{"name":"cloud","class":"SimGroup","persistentId":"4c032e30-b7fe-41a3-ace1-78a223deb45a","__parent":"Level_object"}
+{"name":"water","class":"SimGroup","persistentId":"787d27cd-b0d4-48d7-be8b-dd105e2e277a","__parent":"Level_object"}
+{"name":"infos","class":"SimGroup","persistentId":"81d4d0fb-94c4-413a-92b8-879c3b20d44e","__parent":"Level_object"}
+{"name":"sea","class":"SimGroup","persistentId":"93862e92-abc9-4659-a924-6aa2ae054dc2","__parent":"Level_object"}
+{"name":"rivers","class":"SimGroup","persistentId":"a0e1cf1a-f907-471e-9b13-1ed6ccef0759","__parent":"Level_object"}
+{"name":"rain","class":"SimGroup","persistentId":"aa971204-1ca0-482b-97a7-64eb638c02a6","__parent":"Level_object"}
+{"name":"vegetation","class":"SimGroup","persistentId":"b68026e8-c878-4d44-9ca5-3719a8fc795f","__parent":"Level_object"}
+{"name":"time","class":"SimGroup","persistentId":"c3e76ab6-aceb-4d0d-b72c-5b093378abe8","__parent":"Level_object"}
+{"name":"terrain","class":"SimGroup","persistentId":"f0ceb7d9-cf03-43ac-b36c-86f1719e147a","__parent":"Level_object"}

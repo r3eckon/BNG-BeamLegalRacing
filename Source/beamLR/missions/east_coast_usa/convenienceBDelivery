@@ -1,0 +1,4 @@
+dest=BeamLRTrigger_ConvenienceStoreB
+desc=Deliver motor oil to the out of town convenience store
+reward=550
+gmwp=wp136

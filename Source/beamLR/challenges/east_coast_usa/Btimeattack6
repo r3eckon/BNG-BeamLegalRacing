@@ -1,0 +1,8 @@
+desc=Long time attack challenge to the Firwood inn
+wager=350,1750
+triggers=BeamLRTrigger_FarmJuncCP3,BeamLRTrigger_FarmJuncCP4,BeamLRTrigger_CliffIntersectCP1,BeamLRTrigger_MidRoadCP1,BeamLRTrigger_MidRoadCP2,BeamLRTrigger_MidRoadEndCP3,BeamLRTrigger_SeasideVillageCP3,BeamLRTrigger_SeasideVillageCP4,BeamLRTrigger_SeasideBridgeJuncCP3,BeamLRTrigger_YJuncBCP2,BeamLRTrigger_RedmanorCP1,BeamLRTrigger_SawmillCP2,BeamLRTrigger_FirwoodInnEntranceCP
+type=time
+targettime=130000,190000
+rep=20,40
+gmwp=blrwp_farmjunccp3
+traffic=1

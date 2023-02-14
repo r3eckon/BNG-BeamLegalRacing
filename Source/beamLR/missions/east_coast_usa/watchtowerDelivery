@@ -1,0 +1,4 @@
+dest=BeamLRTrigger_Watchtower
+desc=Deliver food to the watch tower
+reward=200
+gmwp=blrwp_watchtower

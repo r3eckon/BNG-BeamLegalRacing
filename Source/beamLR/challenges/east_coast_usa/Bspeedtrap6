@@ -1,0 +1,8 @@
+desc=River side speed trap challenge
+wager=200,1000
+triggers=BeamLRTrigger_YJuncBCP1
+type=speed
+targetspd=43,56
+rep=30,90
+gmwp=blrwp_yjuncBcp1
+traffic=1

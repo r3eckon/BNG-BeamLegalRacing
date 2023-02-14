@@ -1,0 +1,8 @@
+desc=Short time attack challenge to the red manor
+wager=100,300
+triggers=BeamLRTrigger_FarmJuncCP2,BeamLRTrigger_FarmTurnCP1,BeamLRTrigger_RedmanorEntranceCP1
+type=time
+targettime=35000,37000
+rep=20,40
+gmwp=blrwp_farmjunccp2
+traffic=1

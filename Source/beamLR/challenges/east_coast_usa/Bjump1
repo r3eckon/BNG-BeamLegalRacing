@@ -1,0 +1,7 @@
+desc=Jump over the river!
+wager=100,300
+triggers=BeamLRTrigger_FarmJump
+type=jump
+rep=10,30
+gmwp=blrwp_cgm_farmjump
+traffic=1

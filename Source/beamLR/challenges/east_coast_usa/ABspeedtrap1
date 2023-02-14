@@ -1,0 +1,8 @@
+desc=High risk speed trap challenge
+wager=500,5000
+triggers=BeamLRTrigger_MidRoadCP1
+type=speed
+targetspd=65,83
+rep=10,40
+gmwp=blrwp_midroadcp1
+traffic=1

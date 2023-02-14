@@ -1,0 +1,4 @@
+dest=BeamLRTrigger_DockWarehouse
+desc=Deliver parts to the dock warehouse
+reward=350
+gmwp=blrwp_dock

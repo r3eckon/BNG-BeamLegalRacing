@@ -1,0 +1,16 @@
+GasStation=Marker_GasStation
+Garage=Marker_Garage
+GasStation2=Marker_GasStation2
+UsedShop=Marker_UsedShop
+Scrapyard=Marker_Scrapyard
+NewShop=Marker_NewShop
+RepairShop=Marker_Repair
+PartShop=Marker_PartShop
+RepairShop2=Marker_Repair2
+PartShop2=Marker_PartShop2
+RuralRace=Marker_RaceA
+TownDrag=Marker_RaceB
+DirtRace=Marker_RaceC
+ChallengeA=Marker_ChallengeA
+ChallengeB=Marker_ChallengeB
+SeasideDrag=Marker_RaceD

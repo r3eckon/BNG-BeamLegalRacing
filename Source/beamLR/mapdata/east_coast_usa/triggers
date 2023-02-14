@@ -1,0 +1,16 @@
+BeamLRTrigger_GasStation=station,gasStation1
+BeamLRTrigger_PlayerGarage=garage
+BeamLRTrigger_GasStation2=station,gasStation2
+BeamLRTrigger_UsedCarShop=carshop,usedShop1
+BeamLRTrigger_Scrapyard=carshop,scrapyard1
+BeamLRTrigger_NewCarShop=carshop,newShop1
+BeamLRTrigger_RepairShop=repair
+BeamLRTrigger_PartShop=partshop,partShop1
+BeamLRTrigger_RepairShop2=repair
+BeamLRTrigger_PartShop2=partshop,partShop2
+BeamLRTrigger_RaceClubA=race,ruralRace
+BeamLRTrigger_RaceClubB=race,townDragRace
+BeamLRTrigger_RaceClubC=race,dirtRace
+BeamLRTrigger_ConvenienceStoreAChallenges=dare,challenges1
+BeamLRTrigger_FarmChallenges=dare,challenges2
+BeamLRTrigger_RaceClubD=race,seasideDragRace

@@ -119,7 +119,7 @@ menuFilters[k] = true
 end
 end
 
-local function blrTriggerInit()
+local function blrTriggerInit(useMenuFilters)
 registeredNodes = {}
 triggerData = {}
 triggerStatus = {}
@@ -127,7 +127,9 @@ triggerDataState = {}
 menuTriggerData = {}
 menuTriggerStatus = {}
 menuTriggerDataState = {}
+if useMenuFilters then
 loadMenuFilters()
+end
 end
 
 local function registerNode(nid)

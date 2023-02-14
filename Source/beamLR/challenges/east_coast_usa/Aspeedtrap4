@@ -1,0 +1,8 @@
+desc=Town entrance bridge speed trap challenge
+wager=150,500
+triggers=BeamLRTrigger_TownEntranceBridgeCP1
+type=speed
+targetspd=33,44
+rep=100,300
+gmwp=wp58
+traffic=1
