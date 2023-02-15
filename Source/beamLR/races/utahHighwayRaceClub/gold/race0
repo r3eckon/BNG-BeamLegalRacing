@@ -1,5 +1,5 @@
 desc=Drag race to the end of the highway
-wager=500,1000
+wager=1000,2000
 slips=0
 enemyModel=sunburst,vivace,midsize,etki,bluebuck,moonhawk,pickup,wendover,barstow,pessima,sbr,etk800,legran,coupe,roamer,bastion,etkc,bolide,scintilla
 enemyConfig=vehicles/sunburst/hillclimb_SQ.pc,vehicles/vivace/hillclimb_SQ.pc,vehicles/midsize/drag.pc,vehicles/etki/cool.pc,vehicles/bluebuck/drag.pc,vehicles/moonhawk/drive.pc,vehicles/pickup/d15_longbed_drag_A.pc,vehicles/wendover/super.pc,vehicles/barstow/tracksport.pc,vehicles/pessima/custom.pc,vehicles/sbr/TT_RWD_S_M.pc,vehicles/etk800/etk856tx_A_driving_experience.pc,vehicles/legran/race.pc,vehicles/coupe/demon.pc,vehicles/roamer/drag.pc,vehicles/bastion/street_tuned.pc,vehicles/etkc/kc6tx_M.pc,vehicles/bolide/350_us.pc,vehicles/scintilla/gt.pc
