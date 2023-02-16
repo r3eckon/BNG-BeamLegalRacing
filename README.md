@@ -8,6 +8,7 @@ Perform missions, races and challenges to earn money to buy vehicles and parts. 
 
 ## Install Instructions
 **BeamLR cannot be installed like a normal mod due to data persistence issues when zipped**. 
+
 Carefully follow the instructions to ensure all features are working properly:
 * Download the latest zip file from the **Releases** folder.
 * Extract zip file contents directly to your [BeamNG userfolder](https://documentation.beamng.com/support/userfolder/).
