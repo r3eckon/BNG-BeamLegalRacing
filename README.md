@@ -7,32 +7,24 @@ Perform missions, races and challenges to earn money to buy vehicles and parts. 
 ### [Forum thread](https://www.beamng.com/threads/87394/) | [Utah Map](utahmap.md) | [East Coast Map](eastcoastmap.md)
 
 ## Install Instructions
+**BeamLR cannot be installed like a normal mod due to data persistence issues when zipped**. 
+Carefully follow the instructions to ensure all features are working properly:
+* Download the latest zip file from the **Releases** folder.
+* Extract zip file contents directly to your [BeamNG userfolder](https://documentation.beamng.com/support/userfolder/).
+* Tell your operating system to replace existing files if asked.
 
-### Player install (Allows career data cheating)
-* Drop the zip in your mods folder. 
-
-### Modder install (Allows further tweaking, adding races, shop vehicles & more)
-* Unpack the zip or clone the repo
-* Copy or merge contents to your BeamNG user folder
-
-### Player Install Notice
-
-If you are experiencing issues with the mod using the player install, try modder install before making a bug report. Since the mod relies heavily on data persistence some files may fail to load properly when zipped as a mod.
+**Installing BeamLR may overwrite custom changes made to levels.** 
+Modders should back up the userfolder before installing.
 
 ## Update Instructions
-BEFORE UPDATING:  Back up your userfolder/beamLR folder to save your career
+**BEFORE UPDATING**:  Back up your userfolder/beamLR folder to save your career
+* Download the latest zip file from the **Releases** folder.
+* Use the BeamLR options menu to back up your career.
+* Extract updated mod zip contents to the userfolder. 
+* Tell OS to replace existing files when asked. **This will apply the update.**
+* Use the BeamLR options menu to restore your backup.
 
-### Player install
-* Replace mod zip file with updated zip. 
-* Done.
-
-### Modder install
-* Use in game UI to back up your career
-* Copy updated mod folders to userfolder. 
-* Tell OS to replace existing files when asked. This applies the update.
-* Use in game UI to restore your backup
-
-If the in game backup system fails to work properly you can manually replace the following files/folders using your backed up beamLR folder:
+If the backup system fails to work properly you can manually replace the following files/folders using your backed up beamLR folder:
 
 * beamLR/beamstate                                    (External and mechanical damage)
 * beamLR/garage                                       (Garage vehicle data & config)
@@ -40,7 +32,7 @@ If the in game backup system fails to work properly you can manually replace the
 * beamLR/shop/daydata                                 (Vehicle shop daily data, aka bought slots)
 * beamLR/races/INSERT RACE CLUB/progress              (Race club progress, repeat for each club)
 
-If you are experiencing issues after updating the mod, try a clean userfolder install and copy over your backup.
+If you are experiencing issues after updating the mod, try a **clean** userfolder install and copy over your backup.
 
 ## BeamNG Update Userfolder Migration Process
 
@@ -61,9 +53,9 @@ BeamLR relies on a UI app and custom UI layout in order to access features such 
 * Tuning Menu
 * Paint Edit Menu
 
-Since version 1.5 there is no setup required for the UI to work. The "BeamLR" ui layout should now be loaded on scenario start. Any changes made to this UI layout will be reflected when playing BeamLR in case the default layout doesn't fit on your screen.
+Since version 1.5 there is no setup required for the UI to work. The "BeamLR" layout should now be loaded on scenario start. Any changes made to this UI layout will be reflected when playing BeamLR in case the default layout doesn't fit on your screen.
 
-First time players: the imgui unit detection feature may fail to properly register your unit setting. Toggling back and forth between metric and imperial fixes this issue. The UI will then show correct units.
+First time players: the imgui unit detection feature may fail to properly register your unit setting. Switching between metric and imperial fixes this issue. The UI will then show correct units.
 
 Remember to save the **userfolder/beamLR** folder if you want to backup your career! The scenario has no autosave feature. Abandon the scenario and wait until you are back in freeroam before closing the game to ensure all progress is saved. Game crashes or hard quit may result in lost progress.
 
@@ -130,22 +122,18 @@ It is easy to change or add to the mod since BeamLR relies on plaintext files to
 * Store Vehicle Availability (Which stores sell which vehicles)
 * Race Club Completion
 
-With the player install only career files can be changed, everything else is stored in the zip.
-
-Want easy money to play around with expensive cars without grinding? 
-
-Open beamLR/mainData with notepad and add a bunch of 0s to your money value. 
-
-Restart the scenario for changes to take effect! 
-
-
-With modder install almost everything about the mod can be quickly changed.
+### Money cheat
+* Open beamLR/mainData with notepad.
+* Add a bunch of 0s to your money value.
+*  Save the file.
+* Restart the scenario for changes to take effect.
 
 ### Adding new races
 
-Brand new races are created by adding triggers to the map where you want checkpoints.
-The AI uses waypoints, one waypoint per checkpoint some distance after the trigger.
-Race files also define opponent parameters like what vehicle and config to use.
+Brand new races are created by adding triggers to the map where you want checkpoints. The AI uses waypoints to define the race path, make sure waypoint path takes the AI through checkpoint triggers.
+
+Race files also define opponent parameters like what vehicle and config to use, risk value, wager amounts, etc.
+
 Here is an example from one of the included race files:
 ```
 desc=Drag race to the end of the highway
