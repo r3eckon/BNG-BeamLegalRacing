@@ -1,4 +1,4 @@
-name=Ibishu 200BX (Type LS, Manual)
+name=Ibishu 200BX (Type LS,Manual)
 type=coupe
 config=vehicles/coupe/type-ls_M.pc
 baseprice=10000,12000
@@ -6,3 +6,4 @@ odometer=30000000,50000000
 scrapval=900
 partprice=0
 paint=0,0,0,0,0.1,0.1,0.1,0.1
+randslots=coupe_taillight_L,coupe_taillight_R,coupe_towhitch,coupe_trunk,coupe_trunkpanel,coupe_windshield,coupe_interior_accessory,coupe_lip_F,coupe_fenderflare_FL,coupe_fenderflare_FR,coupe_backlight,coupe_bumper_F,coupe_bumper_R,coupe_trunk_accessory,coupe_door_L,coupe_door_R,coupe_doorglass_L,coupe_doorglass_R,coupe_doorpanel_L,coupe_doorpanel_R,coupe_fender_L,coupe_fender_R,coupe_fenderflare_R,coupe_headlight_L,coupe_headlight_R,coupe_hood,coupe_lettering_trunk,coupe_mirror_L,coupe_mirror_R,coupe_quarterglass_L,coupe_quarterglass_R,coupe_rollcage,coupe_seat_FR,coupe_seats_R,coupe_shiftlight,coupe_bumperbar_F,coupe_sideskirts,paint_design

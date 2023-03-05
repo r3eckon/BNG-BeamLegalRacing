@@ -1,4 +1,4 @@
-name=ETK 800-Series (854t, Manual)
+name=ETK 800-Series (854t,Manual)
 type=etk800
 config=vehicles/etk800/etk854t_M.pc
 baseprice=41000

@@ -16,13 +16,14 @@ angular.module('beamng.apps')
 	  scope.initDone = false
 	  scope.editMode = 0
 	  scope.slotNameMode = 0
-	  
+	  scope.visibleSlots = {}
 	  
 
 	  if(!scope.initDone)
 	  {
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("uiinit")`);
 		  scope.inputData.searchFilter = ""
+		  scope.inputData.targetWager = 100
 		  scope.initDone=true;
 	  }
 	  
@@ -50,15 +51,16 @@ angular.module('beamng.apps')
 		bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("garageEdit", "slot", "${slot}")`)
 		bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("garageEdit", "item", "${item}")`)
 		bngApi.engineLua(`extensions.customGuiCallbacks.exec("setPart", "garageEdit")`)
-		bngApi.engineLua(`extensions.customGuiCallbacks.exec("inventoryRefresh")`)
+		//bngApi.engineLua(`extensions.customGuiCallbacks.exec("inventoryRefresh")`) //Needs to be called in post edit process to work properly
 	  }
 	  
 	  scope.shopPartClick = function(item){
 		scope.partPrice = scope.beamlrData["partPrices"][item];
 		if(scope.partPrice == null)
 		{
-			scope.partPrice = scope.beamlrData["partPrices"]["default"];
+			scope.partPrice = scope.beamlrData["partPrices"]["default"] * scope.beamlrData['shopPriceScale'];
 		}
+		scope.partPrice = scope.beamlrData["partPrices"][item] * scope.beamlrData['shopPriceScale'];
 	    bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("shopPurchase", "item", "${item}")`)
 		bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("shopPurchase", "price", ${scope.partPrice})`)
 		bngApi.engineLua(`extensions.customGuiCallbacks.exec("buyPart", "shopPurchase")`)
@@ -186,9 +188,21 @@ angular.module('beamng.apps')
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setSeed", "seed")`)
 	  }
 	  
+	  scope.setAutoSeed = function(d)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("autoseed", "${d}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setAutoSeed", "autoseed")`)
+	  }
+	  
 	  scope.setRandomSeed = function(d)
 	  {
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setRandomSeed")`)
+	  }
+	  
+	  scope.setDifficulty = function(d)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("difficulty", "${d}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setDifficulty", "difficulty")`)
 	  }
 	  
 	  scope.backupCareer = function(d)
@@ -224,6 +238,19 @@ angular.module('beamng.apps')
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("randpaint", "${d}")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setOpponentRandomPaint", "randpaint")`)
 	  }
+	  
+	  scope.setTargetWager = function()
+	  {
+		  var wager = parseFloat(scope.inputData.targetWager)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("pwager", "${wager}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setRaceWager", "pwager")`)
+	  }
+	  
+	  scope.slotToggle = function(slot, toggle)
+	  {
+		  scope.visibleSlots[slot] = toggle
+	  }
+	  
 	  
     }
   }

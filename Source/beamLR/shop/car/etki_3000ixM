@@ -1,4 +1,4 @@
-name=ETK I-Series (3000ix, Manual)
+name=ETK I-Series (3000ix,Manual)
 type=etki
 config=vehicles/etki/3000ix_M.pc
 baseprice=10000,15000
@@ -6,3 +6,4 @@ odometer=20000000,50000000
 scrapval=800
 partprice=0
 paint=0,0,0,0,0.1,0.1,0.1,0.1
+randslots=etki_fender_R,etki_fenderflare_R,etki_headlight_L,etki_headlight_R,etki_headlightwiper,etki_hood,etki_lettering_grille,etki_lettering_trunk,etki_lettering_trunk_ttsport,etki_lip_F,etki_logo_trunk,etki_mirror_L,etki_mirror_R,etki_mudflap_FL,etki_mudflap_R,etki_rallylights,etki_roof_accessory,etki_seat_FR,etki_seats_R,etki_sideskirt,etki_taillight,etki_towhitch,etki_trim,etki_trunk,etki_backlight,etki_grille,etki_bumper_F,etki_bumper_R,etki_bumperbar_F,etki_bumperlight_F,etki_mudflap_FR,etki_fender_L,etki_door_FL,etki_door_FR,etki_door_RL,etki_door_RR,etki_doorglass_FL,etki_doorglass_FR,etki_doorglass_RL,etki_doorglass_RR,etki_doorpanel_FL,etki_doorpanel_FR,etki_doorpanel_RL,etki_doorpanel_RR,etki_fenderflare_FR,etki_windshield,etki_fenderflare_FL,paint_design

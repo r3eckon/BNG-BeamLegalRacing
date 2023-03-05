@@ -1,0 +1,12 @@
+name=Great-Grandma's Old Car
+baseprice=1000
+partprice=0
+scrapval=100
+type=burnside
+paintA=0.56,0.68,0.55,1.2,0,1,1,0.09
+paintB=0.08,0.18,0.1,1.2,0,1,1,0.09
+paintC=0.56,0.68,0.55,1.2,0,1,1,0.09
+gas=10
+impoundval=0
+damage=0
+nos=0

@@ -1,4 +1,4 @@
-name=Hirochi SBR4 (RWD Base, Manual)
+name=Hirochi SBR4 (RWD Base,Manual)
 type=sbr
 config=vehicles/sbr/base_RWD_M.pc
 baseprice=80000

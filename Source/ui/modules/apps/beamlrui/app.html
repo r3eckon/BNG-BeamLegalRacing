@@ -92,7 +92,9 @@ Repair Shop<br>
 
 <p style="margin-left:10px; margin-right:10px; text-align:center;">
 Repair shops allow you to repair your vehicles at a cheaper cost than on site repairs. Repair cost depends on extent of external and mechanical damage.<br><br>
-You can also perform part edits, tuning and painting using the BeamLR menu. Vehicle must be fully repaired.<br>
+You can also perform part edits, tuning and painting using the BeamLR menu. Vehicle must be fully repaired.<br><br>
+
+Nitrous oxide bottles can be refilled at repair shops for a static price.<br>
 
 </p>
 
@@ -115,12 +117,16 @@ Mission Giver / Part Shop<br>
 </h3>
 
 <p style="margin-left:10px; margin-right:10px; text-align:center;">
-The mission giver area is used to earn risk free money with simple delivery missions. This is where you can first earn money.<br><br>
+The mission giver area is used to earn risk free money with simple delivery missions. This is where you can earn easy money.<br><br>
 The area doubles as a part shop. Parts for your current vehicle can be purchased using the BeamLR menu.<br>
 Purchased parts are sent to your part inventory and become available in the part edit menu.<br><br>
 Note that all parts that potentially fit your vehicle are available for purchase.<br>Some parts may require other parts to be installed<br><br>
 &#9888; symbol and yellow slot name indicate parts that won't currently fit your vehicle (ex: i6 parts don't fit in a v8).<br><br>
-Click slot names to switch to internal name display. Internal names contain engine type (i6, v8, etc).<br>
+Click slot names to switch to internal name display. Internal names contain engine type (i6, v8, etc).<br><br>
+
+Part shops have specific daily price changes as a percentage paid relative to regular price.<br><br>
+Each shop can have a different daily price scale. Shops also have different range for this scale.<br><br>
+Buying parts outside part shops is considered a remote purchase which is 150% of regular price.<br><br>
 </p>
 
 
@@ -134,11 +140,18 @@ Different race clubs give different styles of races such as drag and dirt/offroa
 
 Race leagues provide a degree of progression to race clubs. Bronze league has slow opponents while Gold league has race configs.
 Wagers and rep rewards increase with opponent difficulty as you progress through leagues.<br><br>
+
+Reputation is currently only used for vehicle sell price scaling but will be used to unlock official races in a future version.<br><br>
+A small amount of reputation is lost every day. To keep your rep up you must perform races or challenges.<br><br>
+
 The final league for a club is called the "Hero" league. This league is endless and has no progression, with randomized opponents to make races replayable.<br><br>
 
 Some races will deactivate traffic while others leave it on. Races with traffic are generally more risky and random.<br><br>
 
 Some races will allow you to wager your vehicle "pink slips". After losing you will have to walk home or pay for a bus ride. Won vehicles are sent to your garage.<br><br>
+
+For money races you can set a target wager using the options menu.<br><br>
+If your bet is out of range for current opponent, race wager will be capped by opponent minimum and maximum.<br><br>
 </p>
 
 <h3 style="text-align:center;">
@@ -147,7 +160,8 @@ Daredevil Challenges<br>
 
 <p style="margin-left:10px; margin-right:10px; text-align:center;">
 Daredevil Challenges area is used to wager money on various risky challenges.<br><br>
-Currently implemented: Speed Trap and Jump challenges.<br><br>
+Challenges will award rep and money upon completion.<br><br>
+Pay attention to challenge parameters to make sure your vehicle is capable of completing the challenge!<br><br>
 </p>
 
 <h2 style="text-align:center;">
@@ -171,10 +185,27 @@ Health and Fatal Crashes<br>
 <p style="margin-left:10px; margin-right:10px; text-align:center;">
 Hard crashes (above 10G) will injure the player. Very hard crashes can be instantly fatal.<br><br>
 Player Health is indicated in the stats UI.<br>If health drops to 0% your career will be reset.<br><br>
+
 To restore health use the "Sleep/Heal" button in the stats UI. Sleep time can be set in the Options menu.<br><br>
+Health value will also undergo a slow passive regeneration.<br><br>
+
 Career can also be reset and backed up or restored using the Options menu.<br><br>
 
-Drive carefully!<br><br>
+Drive carefully and keep an eye out for your health value after crashing!<br><br>
+</p>
+
+<h2 style="text-align:center;">
+Career Parameters<br>
+</h2>
+
+<p style="margin-left:10px; margin-right:10px; text-align:center;">
+Career start difficulty and seed parameters can be changed from the options menu. All career related settings take effect after a career reset.<br><br>
+
+Difficulty setting changes starting money amount.<br><br>
+
+Career seed is used for the many RNG elements of the mod including starting vehicle, fluctuating prices and daily available shop vehicles.<br><br>
+
+Seed can be set to auto increment on career reset to constantly get a new seed. It can also be set manually.<br><br>
 </p>
 
 
@@ -185,10 +216,11 @@ Various Tips<br>
 <p style="margin-left:10px; margin-right:10px; text-align:center;">
 If you see "Loading. Please Wait." on the BeamLR Menu, do not spam buttons. Some actions take a bit of time to process.<br><br>
 Don't like available shop vehicles?<br> Sleep until the next day to get new stock.<br><br>
+Keep in mind you lose some amount of reputation every in game day. Perform races or challenges to keep your rep up!<br><br>
 BeamLR menu having issues?<br> Hit CTRL+F5 to refresh the UI.<br><br>
 Input fields may stop registering keystrokes if the mouse cursor isn't hovering.<br><br>
 You can rename vehicles using the Options menu<br><br>
-On 0.26.2 the Covet has beamstate issues with "advanced couplers" for doors and hood hinges.<br> Repair after spawn to fix the issue.<br><br>
+There may be beamstate issues with "advanced couplers" vehicles with animated doors and hood hinges.<br> Repair after spawn to fix the issue.<br><br>
 Vehicle stuck upside down?<br> Nodegrabber is enabled with restricted force for this purpose.<br><br>
 Bad performance with lots of traffic?<br> Use the Options menu to change traffic density.<br><br>
 Options menu can be used to change the random seed for the next career. Current seed can be changed by editing the "options" file.<br><br>
@@ -204,7 +236,7 @@ Here are some known issues with this mod, please refer to this list before repor
 
 <ul>
 <li>
-Covet beamstate saving breaks advanced coupler beams, doors won't close, hood won't open. 
+Beamstate saving breaks advanced coupler beams, doors won't close, hood won't open. 
 Current best workaround is to simply repair the vehicle.
 </li>
 <li>
@@ -255,7 +287,19 @@ Sleep Duration (Hours)
 <button ng-click="setSleepDuration(inputData.sleepTime)">Set</button>
 </p>
 
-<p style="text-align:center;"> 
+
+<span style="float:left; transform:translate(40px, 0px)">Target Wager &nbsp </span>
+<span>
+<md-slider flex style="width:130px; transform: translate(150px, -10px); " min="100" max="5000" step="1" ng-model="inputData.targetWager" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()">
+</md-slider>
+</span>
+<span style="float:right; transform:translate(-95px, -45px); width:50px">${{inputData.targetWager}}</span>
+<span style="float:right; transform:translate(0px, -45px)">
+<button ng-click="setTargetWager(inputData.targetWager)">Set</button>
+</span>
+
+
+<p style="text-align:center; transform:translate(40px,-20px); width:350px;"> 
 Race Opponent Random Paint
 <button ng-click="setOpponentRandomPaint(1)">On</button>
 <button ng-click="setOpponentRandomPaint(0)">Off</button>
@@ -263,7 +307,7 @@ Race Opponent Random Paint
 
 <h3 style="text-align:center;"> Traffic </h3>
 
-<p style="text-align:center;"> (Requires scenario restart to take effect) </p>
+<p style="text-align:center;"> Note: Requires scenario restart to take effect </p>
 
 <p style="text-align:center;"> 
 Traffic Density  
@@ -306,11 +350,11 @@ Police Strictness
 
 <h3 style="text-align:center;"> Career </h3>
 
-<p style="text-align:center;"> (New seed takes effect after career reset) </p>
-
 <p style="text-align:center;"> 
 Current Career Seed: {{beamlrData['seed']}}
 </p>
+
+<p style="text-align:center;"> Note: Next seed takes effect after career reset </p>
 
 <p style="text-align:center;"> 
 Next Seed
@@ -318,6 +362,25 @@ Next Seed
 <button ng-click="setSeed()">Set</button>
 <button ng-click="setRandomSeed()">Random</button>
 </p>
+
+<p style="text-align:center;"> 
+Auto Increment Seed 
+<button ng-click="setAutoSeed('true')">On</button>
+<button ng-click="setAutoSeed('false')">Off</button>
+</p>
+
+<br>
+
+<p style="text-align:center;"> Note: Difficulty takes effect after career reset </p>
+
+<p style="text-align:center;"> 
+Difficulty Level
+<button ng-click="setDifficulty('easy')">Easy</button>
+<button ng-click="setDifficulty('medium')">Medium</button>
+<button ng-click="setDifficulty('hard')">Hard</button>
+</p>
+
+<br>
 
 <p style="text-align:center;"> 
 Career Backup
@@ -341,7 +404,7 @@ Reset Career (WARNING: PERMANENT)
 </div>
 
 <div ng-if="menuPage==2">
-<h3 style="text-align:center; line-height:0px;"> Buy Parts </h3>
+<h3 style="text-align:center; line-height:0px;"> Buy Parts ({{beamlrData['shopPriceScale'] * 100.0 | number:0}}% Cost)</h3>
 
 <div ng-if="(beamlrData['triggerState'] == 1 || beamlrData['triggerState'] == 2) && beamlrData['playerWalking'] == 0">
 
@@ -355,35 +418,42 @@ Reset Career (WARNING: PERMANENT)
 <button ng-click="search(0)">&#x1F50D</button>
 </div>
 
-<div style="z-index: 99; overflow:scroll; overflow-y:scroll; max-height:220px; max-width:470px; min-width:470px; background-color:rgba(0,0,0,0.5);" >
+<div style="z-index: 99; overflow:scroll; overflow-y:scroll; max-height:220px; min-height:220px; max-width:470px; min-width:470px; background-color:rgba(0,0,0,0.5);" >
 <div ng-repeat="(key,value) in beamlrData['availParts']">
 
-<div ng-if="beamlrData['slotNames'][key] != null && slotNameMode != 1" ng-click="setSlotNameMode(1)">
-<h3 ng-if="beamlrData['usedParts'][key] != null" style="text-align:center;"> {{beamlrData['slotNames'][key]}} </h3>
-<h3 ng-if="beamlrData['usedParts'][key] == null" style="text-align:center; color:yellow;"> {{beamlrData['slotNames'][key]}} &nbsp &#9888;</h3>
+<div style="text-align:center; font-weight: bold; font-size:20px; width:463px; line-height:40px;" ng-if="beamlrData['slotNames'][key] != null && slotNameMode != 1">
+<span ng-if="visibleSlots[key] == null || visibleSlots[key] == false" style="float:left; text-align:center; width:40px;" ng-click="slotToggle(key, true)">+</span>
+<span ng-if="visibleSlots[key] == true" style="float:left; text-align:center; width:40px;" ng-click="slotToggle(key, false)">-</span>
+<span ng-if="beamlrData['usedParts'][key] != null" style="text-align:center; transform:translate(20px, 0px);" ng-click="setSlotNameMode(1)"> {{beamlrData['slotNames'][key]}} </span>
+<span ng-if="beamlrData['usedParts'][key] == null" style="text-align:center; transform:translate(20px, 0px); color:yellow;" ng-click="setSlotNameMode(1)"> {{beamlrData['slotNames'][key]}} &nbsp &#9888;</span>
+<span ng-if="visibleSlots[key] == null || visibleSlots[key] == false" style="float:right; text-align:center; width:40px;" ng-click="slotToggle(key, true)">+</span>
+<span ng-if="visibleSlots[key] == true" style="float:right; text-align:center; width:40px;" ng-click="slotToggle(key, false)">-</span>
 </div>
 
-<div ng-if="beamlrData['slotNames'][key] == null || slotNameMode == 1" ng-click="setSlotNameMode(0)">
-<h3 ng-if="beamlrData['usedParts'][key] != null" style="text-align:center;"> {{key}} </h3>
-<h3 ng-if="beamlrData['usedParts'][key] == null" style="text-align:center; color:yellow;"> {{key}} &nbsp &#9888;</h3>
+<div style="text-align:center; font-weight: bold; font-size:20px; width:463px; line-height:40px;" ng-if="beamlrData['slotNames'][key] == null || slotNameMode == 1">
+<span ng-if="visibleSlots[key] == null || visibleSlots[key] == false" style="float:left; text-align:center; width:40px;" ng-click="slotToggle(key, true)">+</span>
+<span ng-if="visibleSlots[key] == true" style="float:left; text-align:center; width:40px;" ng-click="slotToggle(key, false)">-</span>
+<span ng-if="beamlrData['usedParts'][key] != null" style="text-align:center; transform:translate(20px, 0px);" ng-click="setSlotNameMode(0)"> {{key}} </span>
+<span ng-if="beamlrData['usedParts'][key] == null" style="text-align:center; transform:translate(20px, 0px); color:yellow;" ng-click="setSlotNameMode(0)"> {{key}} &nbsp &#9888;</span>
+<span ng-if="visibleSlots[key] == null || visibleSlots[key] == false" style="float:right; text-align:center; width:40px;" ng-click="slotToggle(key, true)">+</span>
+<span ng-if="visibleSlots[key] == true" style="float:right; text-align:center; width:40px;" ng-click="slotToggle(key, false)">-</span>
 </div>
 
-
-<div style="margin-left:5px; line-height:100px" ng-repeat="part in value"> 
+<div ng-if="visibleSlots[key] == true" style="margin-left:5px; line-height:100px;" ng-repeat="part in value"> 
 
 <span style="float:left; height:90px; transform:translate(0px, 5px);">
 <img ng-if="beamlrData['partpreview'][part] != null" ng-attr-src="/ui/modules/apps/beamlrui/partimg/{{beamlrData['partpreview'][part]}}" width=90px height=90px />
 <img ng-if="beamlrData['partpreview'][part] == null" src="/ui/modules/apps/beamlrui/partimg/none.png" width=90px height=90px />
 </span>
 
-<span ng-if="beamlrData['usedParts'][key] != part" style="display:inline-block; text-align:center; line-height:20px; width: 200px; margin-left:20px; vertical-align:middle; overflow-wrap:break-word;">{{beamlrData['partNames'][part]}}</span>
-<span ng-if="beamlrData['usedParts'][key] == part" style="display:inline-block; text-align:center; line-height:20px; width: 200px; margin-left:20px; vertical-align:middle; overflow-wrap:break-word;">{{beamlrData['partNames'][part]}} (INSTALLED)</span>
-
+<span ng-if="beamlrData['usedParts'][key] != part && (beamlrData['ownedParts'][part] == null || beamlrData['ownedParts'][part] == 0)" style="transform:translate(20px, 0px); display:inline-block; text-align:center; line-height:20px; width: 200px; margin-left:20px; vertical-align:middle; overflow-wrap:break-word;">{{beamlrData['partNames'][part]}}</span>
+<span ng-if="beamlrData['usedParts'][key] != part && beamlrData['ownedParts'][part] > 0" style="transform:translate(20px, 0px); display:inline-block; text-align:center; line-height:20px; width: 200px; margin-left:20px; vertical-align:middle; overflow-wrap:break-word;">{{beamlrData['partNames'][part]}} (OWN {{beamlrData['ownedParts'][part]}})</span>
+<span ng-if="beamlrData['usedParts'][key] == part" style="transform:translate(20px, 0px); display:inline-block; text-align:center; line-height:20px; width: 200px; margin-left:20px; vertical-align:middle; overflow-wrap:break-word;">{{beamlrData['partNames'][part]}} (INSTALLED)</span>
 
 
 <span style="float:right; margin-right:5px; vertical-align:middle;">
-<span ng-if="beamlrData['partPrices'][part] == null">${{beamlrData['partPrices']['default']}}</span>
-<span ng-if="beamlrData['partPrices'][part] != null">${{beamlrData['partPrices'][part]}}</span>
+<span ng-if="beamlrData['partPrices'][part] == null">${{beamlrData['partPrices']['default'] * beamlrData['shopPriceScale'] | number:2}}</span>
+<span ng-if="beamlrData['partPrices'][part] != null">${{beamlrData['partPrices'][part] * beamlrData['shopPriceScale'] | number:2}}</span>
 <button ng-click="shopPartClick(part)">Buy</button>
 </span>
 
@@ -425,18 +495,26 @@ Reset Career (WARNING: PERMANENT)
 <button ng-click="search(1)">&#x1F50D</button>
 </div>
 
-<div ng-if="editMode == 0" style="z-index: 99; margin-left: 20px; margin-right: 20px; overflow:scroll; overflow-y:scroll; max-height:220px; background-color:rgba(0,0,0,0.5); max-width:470px; min-width:470px;">
+<div ng-if="editMode == 0" style="z-index: 99; margin-left: 20px; margin-right: 20px; overflow:scroll; overflow-y:scroll; min-height:220px; max-height:220px; background-color:rgba(0,0,0,0.5); max-width:470px; min-width:470px;">
 <div ng-repeat="(key,value) in beamlrData['garageData']">
 
-<div ng-if="beamlrData['slotNames'][key] != null && slotNameMode != 1" ng-click="setSlotNameMode(1)">
-<h3 style="text-align:center;">{{beamlrData['slotNames'][key]}}</h3>
+<div style="text-align:center; font-weight: bold; font-size:20px; width:463px; line-height:40px;" ng-if="beamlrData['slotNames'][key] != null && slotNameMode != 1">
+<span ng-if="visibleSlots[key] == null || visibleSlots[key] == false" style="float:left; text-align:center; width:40px;" ng-click="slotToggle(key, true)">+</span>
+<span ng-if="visibleSlots[key] == true" style="float:left; text-align:center; width:40px;" ng-click="slotToggle(key, false)">-</span>
+<span style="text-align:center; transform:translate(20px, 0px);" ng-click="setSlotNameMode(1)"> {{beamlrData['slotNames'][key]}} </span>
+<span ng-if="visibleSlots[key] == null || visibleSlots[key] == false" style="float:right; text-align:center; width:40px;" ng-click="slotToggle(key, true)">+</span>
+<span ng-if="visibleSlots[key] == true" style="float:right; text-align:center; width:40px;" ng-click="slotToggle(key, false)">-</span>
 </div>
 
-<div ng-if="beamlrData['slotNames'][key] == null || slotNameMode == 1" ng-click="setSlotNameMode(0)">
-<h3 style="text-align:center;">{{key}}</h3>
+<div style="text-align:center; font-weight: bold; font-size:20px; width:463px; line-height:40px;" ng-if="beamlrData['slotNames'][key] == null || slotNameMode == 1">
+<span ng-if="visibleSlots[key] == null || visibleSlots[key] == false" style="float:left; text-align:center; width:40px;" ng-click="slotToggle(key, true)">+</span>
+<span ng-if="visibleSlots[key] == true" style="float:left; text-align:center; width:40px;" ng-click="slotToggle(key, false)">-</span>
+<span style="text-align:center; transform:translate(20px, 0px);" ng-click="setSlotNameMode(0)"> {{key}} </span>
+<span ng-if="visibleSlots[key] == null || visibleSlots[key] == false" style="float:right; text-align:center; width:40px;" ng-click="slotToggle(key, true)">+</span>
+<span ng-if="visibleSlots[key] == true" style="float:right; text-align:center; width:40px;" ng-click="slotToggle(key, false)">-</span>
 </div>
 
-<div ng-if="beamlrData['usedParts'][key] != ''" style="text-align:center; line-height:100px;">
+<div ng-if="visibleSlots[key] == true && beamlrData['usedParts'][key] != ''" style="text-align:center; line-height:100px;">
 <span style="float:left; margin-left:20px; transform:translate(0,5px); height:90px; vertical-align:middle;">
 <img ng-if="beamlrData['partpreview'][beamlrData['usedParts'][key]] != null" ng-attr-src="/ui/modules/apps/beamlrui/partimg/{{beamlrData['partpreview'][beamlrData['usedParts'][key]]}}" width=90px height=90px />
 <img ng-if="beamlrData['partpreview'][beamlrData['usedParts'][key]] == null" src="/ui/modules/apps/beamlrui/partimg/none.png" width=90px height=90px />
@@ -447,7 +525,7 @@ Reset Career (WARNING: PERMANENT)
 </span>
 </div>
 
-<div>
+<div ng-if="visibleSlots[key] == true">
 <div ng-repeat="item in value" >
 <div ng-if="beamlrData['usedParts'][key] != item" style="text-align:center; line-height:100px;" >
 <span style="float:left; margin-left:20px; transform:translate(0,5px); height:90px; vertical-align:middle;">

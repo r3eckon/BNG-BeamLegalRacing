@@ -11,6 +11,9 @@ local dailySeedOffset = 1000	-- Seed offset for daily seed should be bigger valu
 local startSeed = 1234			-- in order to avoid repeating random values. Without this value the paint colors in shop
 local day = 0					-- are still showing up the next day, just offset by one vehicle. Increase as needed.
 
+local pwager = 5000				-- Player wager, start scenario with max wager but could add proper option val 
+local lastProcessedRace = {}	
+
 local markers = {}
 
 local blrtime = 0				-- Not time of day, used for race timers
@@ -353,6 +356,8 @@ else
 toRet["laps"] = tonumber(laps[1])
 end
 
+lastProcessedRace = toRet
+
 return toRet
 end
 
@@ -537,6 +542,7 @@ end
 return toRet
 end
 
+
 local function getCareerSeed()
 local dtable = loadDataTable("beamLR/options")
 return dtable["sseed"]
@@ -549,7 +555,15 @@ end
 
 local function cycleCareerSeed()
 local dtable = loadDataTable("beamLR/options")
-dtable["sseed"] = dtable["nseed"]
+local autoseed = dtable["autoseed"] or "false" -- Defaults to "false" for old versions
+if autoseed == "true" then -- New automatic seed increment feature
+if tonumber(dtable["sseed"]) > 0 and tonumber(dtable["sseed"]) < 9999999999 then
+dtable["nseed"] = tonumber(dtable["sseed"]) + 1 -- Current seed within range, just increment
+else
+dtable["nseed"] = 1 -- Loop back to seed 1 if set seed was out of incrementable range
+end
+end
+dtable["sseed"] = dtable["nseed"] -- Cycles the seed data
 updateDataTable("beamLR/options", dtable)
 end
 
@@ -559,8 +573,29 @@ dtable["nseed"] = seed
 updateDataTable("beamLR/options", dtable)
 end
 
+local function getDifficultyLevel() 
+local dtable = loadDataTable("beamLR/options")
+return dtable["difficulty"]
+end
+
+local function getStarterCarID(seed, count)
+math.randomseed(seed)
+return math.random(0,count-1)
+end
+
+local function getOptionsTable()
+return loadDataTable("beamLR/options")
+end
 
 local function resetCareer() 
+
+cycleCareerSeed()
+
+local options = getOptionsTable()
+local seed = tonumber(options["sseed"]) -- Career seed cycled before this line so auto increment feature can work
+local startCarCount = #FS:findFiles("beamLR/init/garage/", "*", 0) -- Automatically find amount of starter cars for easier modding
+local carid = getStarterCarID(seed, startCarCount)
+local difficulty = options["difficulty"] or "hard"	-- Default to hard difficulty if options file comes from older mod version
 
 deleteFile("beamLR/mainData")
 deleteFile("beamLR/partInv")
@@ -583,15 +618,18 @@ end
 end
 
 resetShopDailyData()
-cycleCareerSeed()
 
-copyFile("beamLR/init/mainData",  "beamLR/mainData")
+
+-- Difficulty setting based
+copyFile("beamLR/init/mainData_" .. difficulty ,  "beamLR/mainData")
+-- Just copy empty starter inventory no matter difficulty level
 copyFile("beamLR/init/partInv",  "beamLR/partInv")
-copyFile("beamLR/init/garage/car0" , "beamLR/garage/car0")
-copyFile("beamLR/init/garage/config/car0" , "beamLR/garage/config/car0")
-copyFile("beamLR/init/beamstate/car0.save.json" , "beamLR/beamstate/car0.save.json")
-copyFile("beamLR/init/beamstate/mech/car0" , "beamLR/beamstate/mech/car0")
-copyFile("beamLR/init/beamstate/integrity/car0" , "beamLR/beamstate/integrity/car0")
+-- Uses seed based random starter car ID out of available setups, not based on difficulty
+copyFile("beamLR/init/garage/car" .. carid , "beamLR/garage/car0")
+copyFile("beamLR/init/garage/config/car" .. carid , "beamLR/garage/config/car0")
+copyFile("beamLR/init/beamstate/car" .. carid .. ".save.json" , "beamLR/beamstate/car0.save.json")
+copyFile("beamLR/init/beamstate/mech/car" .. carid , "beamLR/beamstate/mech/car0")
+copyFile("beamLR/init/beamstate/integrity/car" .. carid , "beamLR/beamstate/integrity/car0")
 end
 
 local function backupCareer()
@@ -719,7 +757,78 @@ toRet["pos"] = ssplitnum(dtable["pos"], ",")
 return toRet
 end
 
+local function setWager(wager)
+pwager = wager
+end
 
+local function getWager()
+return pwager
+end
+
+local function cap(v,mn,mx)
+return math.min(math.max(mn,  v), mx)
+end
+
+local function getLastProcessedRace()
+return lastProcessedRace
+end
+
+local function testRandConfig(model, baseFile, randSlots, seed)
+local ioctx = extensions.betterpartmgmt.getCustomIOCTX(model)
+local slotMap = extensions.betterpartmgmt.getSlotMap(ioctx)
+local filteredMap = extensions.betterpartmgmt.getFilteredSlotMap(slotMap, randSlots)
+local randomConfig = extensions.betterpartmgmt.generateConfigVariant(baseFile, filteredMap, seed)
+blrSpawn(model, { config = randomConfig } )
+end
+
+local function getActualRotationEuler(vehid)
+local rot = quatFromDir(map.objects[vehid].dirVec, map.objects[vehid].dirVecUp)
+local fix = quat(rot.y, -rot.x, -rot.w, rot.z)
+local euler = fix:toEulerYXZ()
+return vec3(euler.x * 180.0 / math.pi, euler.y * 180.0 / math.pi, euler.z * 180.0 / math.pi)
+end
+
+local blrvars = {}
+
+local function blrvarSet(var, val)
+blrvars[var] = val
+end
+
+local function blrvarGet(var)
+return blrvars[var]
+end
+
+local function actualSlotDebug()
+local filedata = ""
+local slots = extensions.betterpartmgmt.getActualSlots()
+for k,v in pairs(slots) do
+filedata = filedata .. v .. "\n"
+end
+writeFile("beamLR/actualSlotsDebug", filedata)
+end
+
+local function getPartShopPriceScale(shopID, minVal, maxVal)
+local seed = getDailySeed() + shopID
+local range = maxVal - minVal
+math.randomseed(seed)
+local rand = math.random()
+local scale = minVal + (rand * range)
+return math.floor(scale * 100.0) / 100.0
+end
+
+M.getPartShopPriceScale = getPartShopPriceScale
+M.getStarterCarID = getStarterCarID 
+M.getOptionsTable = getOptionsTable
+M.getDifficultyLevel = getDifficultyLevel
+M.actualSlotDebug = actualSlotDebug
+M.blrvarSet = blrvarSet
+M.blrvarGet = blrvarGet
+M.getActualRotationEuler = getActualRotationEuler
+M.testRandConfig = testRandConfig
+M.getLastProcessedRace = getLastProcessedRace
+M.cap = cap
+M.getWager = getWager
+M.setWager = setWager
 M.getMapTowSpot = getMapTowSpot
 M.getMapSpawn = getMapSpawn
 M.nitrousCheck = nitrousCheck

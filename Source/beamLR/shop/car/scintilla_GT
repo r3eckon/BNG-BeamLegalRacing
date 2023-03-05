@@ -1,4 +1,4 @@
-name=Civetta Scintilla (GT, DCT)
+name=Civetta Scintilla (GT,DCT)
 type=scintilla
 config=vehicles/scintilla/gt.pc
 baseprice=200000

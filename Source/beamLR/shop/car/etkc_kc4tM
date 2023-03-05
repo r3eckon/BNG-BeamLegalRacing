@@ -1,4 +1,4 @@
-name=ETK K-Series (kc4t, Manual)
+name=ETK K-Series (kc4t,Manual)
 type=etkc
 config=vehicles/etkc/kc4t_M.pc
 baseprice=70000

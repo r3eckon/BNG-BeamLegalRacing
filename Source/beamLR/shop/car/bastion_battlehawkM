@@ -1,4 +1,4 @@
-name=Bruckell Bastion (Battlehawk, Manual)
+name=Bruckell Bastion (Battlehawk,Manual)
 type=bastion
 config=vehicles/bastion/battlehawk_M.pc
 baseprice=50000

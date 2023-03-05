@@ -1,4 +1,4 @@
-name=Gravil H-Series (H15 Vanster, Automatic)
+name=Gravil H-Series (H15 Vanster,Automatic)
 type=van
 config=vehicles/van/h15_vanster.pc
 baseprice=2000,4000
@@ -6,3 +6,4 @@ odometer=50000000,120000000
 scrapval=300
 partprice=0
 paint=0,0,0,0,0.1,0.1,0.1,0.1
+randslots=van_seat_FR,van_snorkel,van_taillight_L,van_taillight_R,van_taillightguard_L,van_taillightguard_R,van_tubs,van_valance_F,van_windshield,pickup_sparetire,paint_design,pickup_reversewarn,van_roof_accessory,van_mirror_R,van_headlight_L,van_headlight_R,van_doorpanel_FR,van_bumper_F_lip,van_bumper_accessory_F,van_bumpersignal_FL,van_bumpersignal_FR,van_bumper_R,van_door_FL,van_door_FR,van_doorglass_L,van_doorglass_R,van_doorpanel_FL,van_bumper_F,van_fascia_F,van_lightbar,van_fender_L,van_fender_R,van_fenderflare_FL,van_fenderflare_FR,van_fenderflare_RL,van_fenderflare_RR,pickup_towhitch,van_hood,van_lettering_doors_F,van_lettering_reardoor_L,van_lettering_reardoor_R,van_mirror_L,van_muffler,van_reardoor_L,van_reardoor_R,van_reardoorglass_L,van_reardoorglass_R,van_reardoorpanel_L,van_reardoorpanel_R,van_rollcage,van_runningboard

@@ -36,6 +36,15 @@ if money >= p["price"] then
 extensions.betterpartmgmt.addToInventory(p["item"])
 extensions.blrglobals.gmSetVal("playerMoney", money - p["price"])
 end
+local inventory = extensions.betterpartmgmt.getPartInventory()
+extensions.customGuiStream.sendDataToUI("ownedParts", inventory)
+local list = extensions.betterpartmgmt.getGarageUIData()
+if searching then
+list = extensions.betterpartmgmt.searchFilter(list, true, true)
+else
+list = extensions.betterpartmgmt.categoryFilter(list, true)
+end
+extensions.customGuiStream.sendDataToUI("garageData", list)
 end
 
 ftable["setFilter"] = function(p)
@@ -50,7 +59,7 @@ local list = {}
 searching = true -- Filter used as search term
 if p == 0 then
 list = extensions.betterpartmgmt.getPartShopList()
-list = extensions.betterpartmgmt.searchFilter(list, true)
+list = extensions.betterpartmgmt.searchFilter(list, true, true)
 extensions.customGuiStream.sendDataToUI("availParts", list)
 list = extensions.betterpartmgmt.getFullPartPrices()
 extensions.customGuiStream.sendDataToUI("partPrices", list)
@@ -60,9 +69,11 @@ list = extensions.betterpartmgmt.getVehicleParts()
 extensions.customGuiStream.sendDataToUI("usedParts", list)
 list = extensions.betterpartmgmt.getSlotNameLibrary()
 extensions.customGuiStream.sendDataToUI("slotNames", list)
+local inventory = extensions.betterpartmgmt.getPartInventory()
+extensions.customGuiStream.sendDataToUI("ownedParts", inventory)
 elseif p == 1 then
 list = extensions.betterpartmgmt.getGarageUIData()
-list = extensions.betterpartmgmt.searchFilter(list, true)
+list = extensions.betterpartmgmt.searchFilter(list, true, true)
 extensions.customGuiStream.sendDataToUI("garageData", list)
 list = extensions.betterpartmgmt.getPartNameLibrary()
 extensions.customGuiStream.sendDataToUI("partNames", list)
@@ -89,6 +100,8 @@ list = extensions.betterpartmgmt.getVehicleParts()
 extensions.customGuiStream.sendDataToUI("usedParts", list)
 list = extensions.betterpartmgmt.getSlotNameLibrary()
 extensions.customGuiStream.sendDataToUI("slotNames", list)
+local inventory = extensions.betterpartmgmt.getPartInventory()
+extensions.customGuiStream.sendDataToUI("ownedParts", inventory)
 elseif p == 1 then
 list = extensions.betterpartmgmt.getGarageUIData()
 list = extensions.betterpartmgmt.categoryFilter(list, true)
@@ -102,19 +115,23 @@ extensions.customGuiStream.sendDataToUI("slotNames", list)
 end
 end																											  
 
-ftable["inventoryRefresh"] = function(p)
+ftable["inventoryRefresh"] = function(p) -- This function is now called as post edit action to fix layout bug
 local list = {}
 list = extensions.betterpartmgmt.getGarageUIData()
 if searching then
-list = extensions.betterpartmgmt.searchFilter(list, true)
+list = extensions.betterpartmgmt.searchFilter(list, true, true)
 else
 list = extensions.betterpartmgmt.categoryFilter(list, true)
 end
 extensions.customGuiStream.sendDataToUI("garageData", list)
+list = extensions.betterpartmgmt.getVehicleParts()
+extensions.customGuiStream.sendDataToUI("usedParts", list) -- Used to be individual fg node
 list = extensions.betterpartmgmt.getPartNameLibrary()
 extensions.customGuiStream.sendDataToUI("partNames", list)
 list = extensions.betterpartmgmt.getSlotNameLibrary()
-extensions.customGuiStream.sendDataToUI("slotNames", list) -- Used parts list sent from FG as post edit action
+extensions.customGuiStream.sendDataToUI("slotNames", list)
+local inventory = extensions.betterpartmgmt.getPartInventory()
+extensions.customGuiStream.sendDataToUI("ownedParts", inventory)
 end
 
 ftable["uiinit"] = function(p)
@@ -202,14 +219,23 @@ ftable["setSeed"] = function(p)
 local dtable = {}
 if tonumber(p) ~= nil and tonumber(p) > 0 and tonumber(p) < 9999999999 then 
 dtable["nseed"] = p
+dtable["autoseed"] = "false"
 extensions.blrutils.updateDataTable("beamLR/options", dtable)
 end
 end
+
+ftable["setAutoSeed"] = function(p)
+local dtable = {}
+dtable["autoseed"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+end
+
 
 ftable["setRandomSeed"] = function(p)
 local dtable = {}
 math.randomseed(os.time())
 dtable["nseed"] = math.random(1,9999999999)
+dtable["autoseed"] = "false"
 extensions.blrutils.updateDataTable("beamLR/options", dtable)
 end
 
@@ -253,7 +279,16 @@ extensions.blrutils.updateDataTable("beamLR/options", dtable)
 extensions.blrglobals.blrFlagSet("reloadOptions", true)	-- Force reload options for immediate change
 end
 
+ftable["setRaceWager"] = function(p)
+extensions.blrutils.setWager(p)
+extensions.blrglobals.blrFlagSet("reloadRace", true)	-- Force reload of race parameters after wager change
+end
 
+ftable["setDifficulty"] = function(p)
+local dtable = { }
+dtable["difficulty"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+end
 
 local ptable = {}
 

@@ -1,4 +1,4 @@
-name=Gravil Roamer (I6, Manual)
+name=Gravil Roamer (I6,Manual)
 type=roamer
 config=vehicles/roamer/i6_m.pc
 baseprice=3000,5000
@@ -6,3 +6,4 @@ odometer=60000000,150000000
 scrapval=500
 partprice=0
 paint=0,0,0,0,0.1,0.1,0.1,0.1
+randslots=roamer_muffler,roamer_quarterglass_L,roamer_rollcage,roamer_runningboard,roamer_seat_FR,roamer_seats_R,roamer_snorkel,roamer_spoiler,roamer_spotlight_L,roamer_spotlight_R,roamer_tailgate,roamer_taillight_L,roamer_taillight_R,roamer_taillightguard_L,roamer_taillightguard_R,roamer_windshield,roamer_trim_bumper_F,roamer_trim_bumper_R,roamer_mirror_L,roamer_mirror_R,roamer_fascia,pickup_reversewarn,roamer_doorglass_FL,roamer_doorglass_RL,roamer_doorpanel_FR,roamer_doorpanel_RL,roamer_doorpanel_RR,roamer_fenderflare_FL,roamer_interior_accessory,roamer_fenderflare_FR,pickup_sparetire,roamer_headlight_L,roamer_signal_FL,roamer_signal_FR,roamer_tailgateglass,roamer_trim,roamer_lettering_fender,roamer_lightbar,paint_design,roamer_fascia_accessory,roamer_innerfender_L,roamer_fender_L,roamer_innerfender_R,pickup_towhitch,roamer_doorglass_RR,roamer_doorpanel_FL,roamer_doorglass_FR,roamer_door_FR,roamer_bumper_accessory_F,roamer_roofrack,roamer_quarterglass_R,roamer_headlight_R,roamer_bumper_F,roamer_bumper_R,roamer_door_FL,roamer_door_RL,roamer_door_RR,roamer_fender_R,roamer_fenderflare_RL,roamer_fenderflare_RR,roamer_hood

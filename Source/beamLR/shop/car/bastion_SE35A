@@ -1,4 +1,4 @@
-name=Bruckell Bastion (SE 3.5, Automatic)
+name=Bruckell Bastion (SE 3.5,Automatic)
 type=bastion
 config=vehicles/bastion/base_v6_A.pc
 baseprice=50000

@@ -1,4 +1,4 @@
-name=Gravil Grand Marshal (V8, Automatic)
+name=Gravil Grand Marshal (V8,Automatic)
 type=fullsize
 config=vehicles/fullsize/stock.pc
 baseprice=4000,6000
@@ -6,3 +6,4 @@ odometer=70000000,120000000
 scrapval=500
 partprice=0
 paint=0,0,0,0,0.1,0.1,0.1,0.1
+randslots=fullsize_backlight,fullsize_bumper_F,fullsize_bumper_R,fullsize_bumperbar_F,fullsize_dash_accessory,fullsize_door_FL,fullsize_door_FR,fullsize_door_RL,fullsize_door_RR,fullsize_fender_L,fullsize_fender_R,fullsize_hood,fullsize_innerfender_L,fullsize_innerfender_R,fullsize_lettering,fullsize_quarterglass_RL,fullsize_quarterglass_RR,fullsize_rollcage,fullsize_roof_accessory,fullsize_seat_FR,fullsize_seats_R,fullsize_spotlight_L,fullsize_spotlight_R,fullsize_taillight_L,fullsize_taillight_R,fullsize_towhitch,fullsize_trunk,fullsize_bumper_accessory_F,fullsize_doorglass_FL,fullsize_doorglass_FR,fullsize_doorglass_RL,fullsize_doorglass_RR,fullsize_doorpanel_FL,fullsize_doorpanel_FR,fullsize_doorpanel_RL,fullsize_doorpanel_RR,fullsize_grille,fullsize_headlight_L,fullsize_headlight_R,fullsize_lettering_grille,fullsize_lip_F,fullsize_mirror_L,fullsize_mirror_R,fullsize_signal_FL,fullsize_signal_FR,fullsize_trunk_accessory,fullsize_windshield,paint_design

@@ -1,4 +1,4 @@
-name=Ibishu Wigeon (Base, Manual)
+name=Ibishu Wigeon (Base,Manual)
 type=wigeon
 config=vehicles/wigeon/base.pc
 baseprice=500,1200

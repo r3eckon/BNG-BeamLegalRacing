@@ -1,4 +1,4 @@
-name=Civetta Bolide (350 USDM, Manual)
+name=Civetta Bolide (350 USDM,Manual)
 type=bolide
 config=vehicles/bolide/350_us.pc
 baseprice=100000

@@ -1,4 +1,4 @@
-name=Ibishu Covet (Type LS, Manual)
+name=Ibishu Covet (Type LS,Manual)
 type=covet
 config=vehicles/covet/type_LS_M.pc
 baseprice=6000,10000
@@ -6,3 +6,4 @@ odometer=30000000,90000000
 scrapval=800
 partprice=0
 paint=0,0,0,0,0.1,0.1,0.1,0.1
+randslots=covet_tailgate,covet_taillight_L,covet_taillight_R,covet_towhitch,covet_trim,covet_windshield,covet_bumper_grille_F,covet_doorglass_L,covet_doorglass_R,covet_doorpanel_L,covet_doordetent_L,covet_doordetent_R,covet_innerfender_FR,covet_fendersignal_FL,covet_fendersignal_FR,covet_grille_F,covet_lettering_fascia_R,covet_lip_F,covet_logo_F,covet_logo_F_grille,covet_mirror_L,covet_mirror_R,covet_mudflap_FL,covet_mudflap_FR,covet_mudflap_R,covet_lettering,covet_rallylights,covet_sunstrip,covet_tailgateglass,covet_boostgauge_rhd,covet_bumper_F,covet_bumper_R,covet_bumperbar_F,covet_door_L,covet_door_R,covet_fascia_F,covet_fascia_R,covet_fender_L,covet_fender_R,covet_headlight_L,covet_headlight_R,covet_hood,covet_doorpanel_R,covet_innerfender_FL,covet_quarterglass_L,covet_quarterglass_R,covet_rollcage,covet_roof_accessory,covet_seat_FL,covet_seats_R,covet_sideskirts,paint_design

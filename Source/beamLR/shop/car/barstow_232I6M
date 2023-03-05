@@ -1,4 +1,4 @@
-name=Gravil Barstow (232 I6, Manual)
+name=Gravil Barstow (232 I6,Manual)
 type=barstow
 config=vehicles/barstow/i6m.pc
 baseprice=6000,9000
@@ -6,3 +6,4 @@ odometer=45000000,65000000
 scrapval=600
 partprice=0
 paint=0,0,0,0,0.1,0.1,0.1,0.1
+randslots=barstow_doorglass_L,barstow_doorglass_R,barstow_doorpanel_L,barstow_doorpanel_R,barstow_lettering_hood,barstow_spoiler,barstow_bumper_F,barstow_bumper_R,barstow_door_L,barstow_door_R,barstow_fender_L,barstow_fender_R,barstow_glass_F,barstow_glass_R,barstow_hood,barstow_louvers,barstow_quarterglass_L,barstow_quarterglass_R,barstow_roof_accessory,barstow_seat_FR,barstow_seats_R,barstow_shiftlight,barstow_taillight_L,barstow_taillight_R,barstow_towhitch,barstow_grille,barstow_mirror_R,barstow_innerfender_FL,barstow_mirror_L,barstow_innerfender_FR,barstow_lettering,paint_design

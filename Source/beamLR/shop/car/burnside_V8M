@@ -1,4 +1,4 @@
-name=Burnside Special (V8, Manual)
+name=Burnside Special (V8,Manual)
 type=burnside
 config=vehicles/burnside/v8m.pc
 baseprice=800,3500
@@ -6,3 +6,4 @@ odometer=80000000,280000000
 scrapval=200
 partprice=0
 paint=0,0,0,0,0.1,0.1,0.1,0.1
+randslots=burnside_doorpanel_FL,burnside_mirror_L,burnside_fender_L,burnside_headlight_L,burnside_grille,burnside_innerfender_R,burnside_fender_R,burnside_taillight,burnside_wheelskirts_R,burnside_badge_hood,burnside_beaconlight,burnside_doortrim_FL,burnside_doortrim_FR,burnside_fenderlettering_L,burnside_fenderlettering_R,burnside_fendertrim_L,burnside_fendertrim_R,burnside_lettering_trunk,burnside_shiftlight,burnside_towhitch,burnside_doorglass_FR,burnside_doorglass_FL,burnside_doorglass_RR,burnside_eyelid_L,burnside_doorglass_RL,burnside_eyelid_R,burnside_roof_accessory,burnside_glass_R,burnside_doorpanel_RL,burnside_doorpanel_RR,burnside_sparetire,burnside_glass_F,burnside_interior_accessory,burnside_door_RL,burnside_innerfender_L,burnside_seats_R,burnside_hood,burnside_door_RR,burnside_bumper_F,burnside_door_FL,burnside_bumper_R,burnside_doorpanel_FR,burnside_trunk,burnside_mirror_R,burnside_headlight_R,burnside_door_FR,paint_design

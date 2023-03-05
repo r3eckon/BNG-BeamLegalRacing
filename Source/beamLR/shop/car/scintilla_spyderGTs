@@ -1,4 +1,4 @@
-name=Civetta Scintilla (GTs Spyder, DCT)
+name=Civetta Scintilla (GTs Spyder,DCT)
 type=scintilla
 config=vehicles/scintilla/gts_spider.pc
 baseprice=220000

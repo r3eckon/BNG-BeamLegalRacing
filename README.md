@@ -1,4 +1,4 @@
-# Beam Legal Racing 1.7
+# Beam Legal Racing 1.8
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -62,6 +62,8 @@ Remember to save the **userfolder/beamLR** folder if you want to backup your car
 
 Version 1.6 adds N2O tank persistence. Garage files from previous versions are missing this value and will default to empty N2O tanks. Nitrous tanks can be refilled at the repair shop.
 
+Version 1.8 adds difficulty settings and different start vehicles (randomly picked using seed), the default difficulty is medium ($1000 start money). 
+
 Further instructions and various tips on this mods' various features are listed in the BeamLR UI Main Menu.
 
 ## Getting started
@@ -78,13 +80,16 @@ The scenario will load your last used vehicle and spawn traffic.
 
 **Be patient while the scenario is loading** especially if using lots of traffic. 
 
-Once in the scenario floating markers indicate interactive areas for the player garage, repair shop, gas stations, race clubs, etc. 
+Once in the scenario floating markers indicate interactive areas for the player garage, repair shop, gas stations, race clubs, part shops, etc. 
 
 ![part shop marker](https://i.imgur.com/84A5emi.png)
 
 Purchased or won vehicles are sent to your player garage. You can also scrap vehicles for some money using the player garage menu.
 
-Before you can race or perform challenges, you need some money to wager. The first thing to do is delivery missions. Race clubs have distinct categories from generic races, dirt/gravel road races and drag races.
+Depending on your chosen difficulty setting (default is medium) you may need to perform delivery missions from part shops before you have enough money to wager in races or challenges. Amount of money depending on start difficulty goes as follows:
+* Easy: $5000
+* Medium: $1000
+* Hard: $20
 
 ![race clubs](https://i.imgur.com/yPLsjIc.png)
 
@@ -92,9 +97,13 @@ Race club opponents are sorted into performance leagues of **Bronze**, **Silver*
 
 The **Hero** league has no progression and can be used for endless races against max performance opponents.
 
-Some races have pink slips instead of monetary wagers. Some races have enabled traffic while others don't. Make sure to check race parameters before accepting to know what you're getting into.
+Some races have pink slips instead of monetary wagers. Some races have enabled traffic while others don't. Make sure to check race parameters before accepting to know what you're getting into. 
 
-You can spend money on part upgrades or new vehicles by visiting the various shops. Vehicles can also be sold at vehicle shops, sale price will depend on vehicle condition, added parts and player reputation.
+Since version 1.8 you can use the options menu to set a wager target for races. If your bet is outside of opponent range the final race wager will be capped to the opponent min/max.
+
+You can spend money on part upgrades or new vehicles by visiting the various shops. Vehicles can also be sold at vehicle shops, sale price will depend on vehicle condition, added parts and player reputation. 
+
+Since version 1.8 part shops offer different price scale percentages that changes daily. This percentage is indicated in the title for the part buying menu. Buying parts outside part shops (player & repair garages) is considered a remote purchase and has a 150% price scale applied, also indicated in the title. Different part shops can offer different ranges of price scales.
 
 To repair your vehicle you must visit a repair garage or call a mechanic to your garage (+100% cost).
 
@@ -103,6 +112,12 @@ The towing button will teleport your vehicle to the player garage for a cost (ma
 Use the top menu to access part shop, part edit, painting and tuning interface.
 
 You can back up, restore and reset your career at any time using the options menu.
+
+BeamLR relies on seeded RNG for various aspects of the mod such as selected start vehicle, available shop vehicles and price fluctuations. Since version 1.8 by default when your career is reset the seed value will be incremented by 1 to get a different career every time you reset. Current career seed is indicated in the options menu. If you want to replay the same seed you can turn off auto increment. Setting a custom or random seed also disables the increment feature. 
+
+Keep an eye out for you health value! There is a slow passive health regeneration but you can also restore your health by using the "Sleep / Heal" button. This fast forward function can also be used to skip ahead to next day which will get vehicle shops to spawn new vehicles, prices for gas stations and part shops will also change. 
+
+When the in game day changes since version 1.8 a small amount of reputation (25 points) is lost. For now reputation isn't used for anything except vehicle sell price scaling. It will be used in a future version to unlock official race track events and other unique events. Rep can easily be gained with races and challenges so this feature acts as a small daily cost to prevent skipping ahead a lot of days without racing. 
 
 
 ## WIP Notice
@@ -206,6 +221,8 @@ The UI is overall a heavy WIP and will need a ton of work to become more user fr
 
 ### Other modding
 Want to add your custom config to the vehicle store? That's also possible.
+
+Start money can be customized, check the **beamLR/init** folder for the various start difficulties.
 
 Mod vehicles *should* also work but beamstate loading is a very unstable feature so some may have issues. 
 
@@ -319,3 +336,27 @@ Thank you for playing BeamLR!
 * Increased selection of race opponent for some leagues
 * Increased wager range for all races 
 * Stats UI damage val replaced with repair cost
+
+### 1.8 
+* Added target wager slider option for races
+* Added part UI slot toggle buttons
+* Added randomized shop vehicle parts
+* Added parking markers based race start system
+* Added fuel capacity to stats display
+* Added career difficulty setting (changes starting money, default is medium)
+* Added different starting vehicles (randomly picked using seed)
+* Added part shop specific daily price scale
+* Added automatic seed increment option (adds 1 to seed value on career reset)
+* Shop vehicles now entered by player (able to rev engine, turn wheels, etc) 
+* Vehicle shops using game cam instead of static cam (defaults to orbit cam)
+* Vehicle shops now add cone in empty slots (for orbit cam implementation)
+* Improved part UI search function string matching process
+* Fixed part shop & part edit UI staying available outside triggers
+* Fixed missing scrapyard moonhawk car shop file
+* Improved fuel handling to work with multiple tanks (mainTank,auxTank)
+* Gas stations no longer charge for fuel that doesn't fit in vehicle
+* Visual damage based repair cost value capped between $10 and $100k
+* Fixed garage UI layout issues after part edit
+* Part shop now shows owned part indicator with count
+* Small amount of reputation is now lost daily
+* Fixed part edit UI inventory data only updating on search/category button

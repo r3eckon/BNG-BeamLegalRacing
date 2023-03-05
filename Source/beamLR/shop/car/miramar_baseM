@@ -1,4 +1,4 @@
-name=Ibishu Miramar (Base, Manual)
+name=Ibishu Miramar (Base,Manual)
 type=miramar
 config=vehicles/miramar/base_M.pc
 baseprice=4000,7000
@@ -6,3 +6,4 @@ odometer=40000000,70000000
 scrapval=300
 partprice=0
 paint=0,0,0,0,0.1,0.1,0.1,0.1
+randslots=miramar_lettering,miramar_seats_R,miramar_headlight_L,miramar_hood,miramar_mirror_R_fender,miramar_mirror_L_fender,miramar_taillight,miramar_fascia,miramar_grille,miramar_airdam,miramar_fenderflare_FL,miramar_fenderflare_R,miramar_bumper_F,miramar_fender_R,miramar_fenderflare_FR,miramar_headlight_R,miramar_door_RR,miramar_door_FL,miramar_bumper_R,miramar_fender_L,miramar_rollcage,miramar_door_FR,miramar_door_RL,miramar_seat_FL,paint_design,miramar_shiftlight,miramar_backlight,miramar_doorglass_FL,miramar_doorglass_FR,miramar_doorglass_RL,miramar_doorglass_RR,miramar_doorpanel_FL,miramar_doorpanel_FR,miramar_doorpanel_RL,miramar_doorpanel_RR,miramar_mirror_L_door,miramar_mirror_R_door,miramar_roof_accessory,miramar_towhitch,miramar_windshield,miramar_spoiler

@@ -1,4 +1,4 @@
-name=Ibishu Hopper (XT-4, Automatic)
+name=Ibishu Hopper (XT-4,Automatic)
 type=hopper
 config=vehicles/hopper/xt4_A.pc
 baseprice=3000,5000
@@ -6,3 +6,4 @@ odometer=70000000,150000000
 scrapval=400
 partprice=0
 paint=0,0,0,0,0.1,0.1,0.1,0.1
+randslots=hopper_fenderflare_FL,hopper_hood_accessory,hopper_mirror_L,hopper_snorkel,hopper_rollbar_F,hopper_fenderflare_FR,hopper_doorpanel_FL_half,hopper_doorpanel_FR_half,hopper_sparewheel,hopper_bumper_F,hopper_bumper_R,hopper_mirror_R,hopper_grille,hopper_door_FL,hopper_door_FR,hopper_fascia,hopper_fender_FL,hopper_fenderflare_RL,hopper_fenderflare_RR,hopper_hood,hopper_lettering_body,hopper_lettering_trim,hopper_rollbar,hopper_roof,hopper_runningboard,hopper_seat_FR,hopper_seats_R,hopper_skidplate,hopper_tailgate,hopper_taillight,hopper_trim,hopper_windshield,hopper_sparetire,hopper_rollbar_padding,hopper_chmsl,hopper_sparetireholder,hopper_windshieldglass,hopper_windshieldbar,hopper_spotlight_R,hopper_spotlight_L,hopper_valance,hopper_doorcover_FR,hopper_bumper_F_accessory,hopper_towhitch,hopper_logo_F,hopper_windshieldlatch,hopper_dashboard_accessory,hopper_doorcover_FL,hopper_fender_FR,hopper_sparecover,paint_design

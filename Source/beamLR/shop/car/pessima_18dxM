@@ -1,4 +1,4 @@
-name=Ibishu Pessima (1.8DX, Manual)
+name=Ibishu Pessima (1.8DX,Manual)
 type=pessima
 config=vehicles/pessima/DX_M.pc
 baseprice=3000,5000
@@ -6,3 +6,4 @@ odometer=100000000,170000000
 scrapval=300
 partprice=0
 paint=0,0,0,0,0.1,0.1,0.1,0.1
+randslots=pessima_backlight,pessima_bumper_F,pessima_bumper_R,pessima_bumperbar_F,pessima_door_FL,pessima_door_FR,pessima_door_RL,pessima_door_RR,pessima_fender_L,pessima_fender_R,pessima_fenderflare_R,pessima_grille,pessima_headlight_L,pessima_headlight_R,pessima_hood,pessima_quarterglass_L,pessima_quarterglass_R,pessima_roof_accessory,pessima_seat_FR,pessima_seats_R,pessima_skidplate,pessima_taillight,pessima_towhitch,pessima_windshield,pessima_mudflap_FR,pessima_mirror_R,pessima_logo_F_grille,pessima_trunklight,pessima_spoiler,pessima_doorpanel_RL,pessima_doorpanel_RR,pessima_mirror_L,pessima_doorglass_RR,pessima_doorpanel_FR,pessima_mudflap_R,pessima_lip_F,pessima_rallylights,pessima_lettering_trunk,pessima_doorglass_FR,pessima_doorglass_FL,pessima_mudflap_FL,pessima_doorpanel_FL,paint_design,pessima_doorglass_RL,pessima_logo_F,pessima_shiftlight,pessima_foglight

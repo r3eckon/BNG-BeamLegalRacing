@@ -35,9 +35,14 @@ end
 return toRet
 end
 
-local function getSlotMap()
+local function getSlotMap(customIO)
+local slotMap = {}
+if customIO then
+slotMap = jbeamIO.getAvailableSlotMap(customIO)
+else
 local playerVehicle = vehManager.getPlayerVehicleData()
-local slotMap = jbeamIO.getAvailableSlotMap(playerVehicle.ioCtx)
+slotMap = jbeamIO.getAvailableSlotMap(playerVehicle.ioCtx)
+end
 return slotMap
 end
 
@@ -508,25 +513,75 @@ end
 return toRet
 end
 
-local function searchFilter(source, keyMode)				-- Directly matches filter with part list for simple search function
-local toRet = {}
-local part = ""
+local function searchFilter(source, keyMode, deepSearch)	-- Directly matches filter with part list for simple search function
+local toRet = {}								
+local part = ""	
 local cname = ""
-local nameLib = getSlotNameLibrary()
+local snameLib = getSlotNameLibrary()
+local pnameLib = getPartNameLibrary()
 
 for k,v in pairs(source) do
 if keyMode then part = k else part = v end
-cname = nameLib[part] or ""
+cname = snameLib[part] or ""
 if string.match(part:upper(), currentFilter:upper()) or string.match(cname:upper(),currentFilter:upper()) then -- Updated to match proper slot name not just internal slot name
 toRet[k] = v
+elseif deepSearch then
+for i,p in pairs(v) do
+cname = pnameLib[p]
+if string.match(p:upper(), currentFilter:upper()) or string.match(cname:upper(),currentFilter:upper()) then
+if not toRet[k] then toRet[k] = {} end
+table.insert(toRet[k],p)
 end
 end
+end
+end
+
+
 
 return toRet
 end
 
 
+local function getCustomIOCTX(model)  -- Returns IOCTX based on model to use for car that hasn't spawned
+return {preloadedDirs = {"/vehicles/" .. model .. "/", "/vehicles/common/"}}
+end
 
+local function getFilteredSlotMap(fullmap, filters)	-- Returns slot map containing data only for specific slots
+local toRet = {}
+for k,v in pairs(filters) do
+toRet[v] = fullmap[v]
+end
+return toRet
+end
+
+local function generateConfigVariant(baseFile, fmap, seed)
+math.randomseed(seed)
+local toRet = {}
+local baseConfig = readJsonFile(baseFile)
+
+if not baseConfig["parts"] then -- Detected old config format, build format 2 config
+toRet["format"] = 2
+toRet["parts"] = baseConfig
+toRet["vars"] = {}
+else
+toRet = baseConfig	-- format 2 config, can use base config table
+end
+
+local cpick = 0		
+for k,v in pairs(fmap) do
+cpick = math.random(0,#fmap[k])	-- If random picks 0 the slot will be empty to allow removed part
+if cpick == 0 then 
+toRet["parts"][k] = ""
+else
+toRet["parts"][k] = fmap[k][cpick]
+end
+end
+return toRet
+end
+
+M.getFilteredSlotMap = getFilteredSlotMap
+M.generateConfigVariant = generateConfigVariant
+M.getCustomIOCTX = getCustomIOCTX
 M.getSlotNameLibrary = getSlotNameLibrary
 M.getVehicleSalePrice = getVehicleSalePrice
 M.getVehiclePartCost = getVehiclePartCost

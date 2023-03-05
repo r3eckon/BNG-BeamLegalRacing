@@ -1,4 +1,4 @@
-name=Cherrier FCV (Vivace 110, Manual)
+name=Cherrier FCV (Vivace 110,Manual)
 type=vivace
 config=vehicles/vivace/vivace_110_M.pc
 baseprice=15000

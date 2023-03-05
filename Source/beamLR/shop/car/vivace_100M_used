@@ -1,4 +1,4 @@
-name=Cherrier FCV (Vivace 110, Manual)
+name=Cherrier FCV (Vivace 110,Manual)
 type=vivace
 config=vehicles/vivace/vivace_110_M.pc
 baseprice=7000,12000
@@ -6,3 +6,4 @@ odometer=50000000,120000000
 scrapval=800
 partprice=0
 paint=0,0,0,0,0.1,0.1,0.1,0.1
+randslots=vivace_fender_FR,vivace_fenderflare_RR_race_door,vivace_fenderflare_FL,vivace_fenderflare_FR,vivace_fenderflare_RL,vivace_glass_F,vivace_undertray,vivace_headlight_L,vivace_headlight_R,vivace_hood,vivace_intercarpet_trunk,vivace_lightbar,vivace_mirror_L,vivace_mirror_R,vivace_roof_accessory,vivace_quarterglass_FL,vivace_quarterglass_FR,vivace_seat_FR,vivace_quarterglass_RL,vivace_quarterglass_RR,vivace_quarterpanels,vivace_lettering,vivace_screen_branding,vivace_rollcage,vivace_roof,vivace_roofrack,vivace_seats_R,vivace_shelf,vivace_shiftlight,vivace_fenderflare_RL_race_door,vivace_sideskirt_L,vivace_sideskirt_R,vivace_spoiler,vivace_door_RR,paint_design,vivace_door_FR,vivace_fenderflare_RR,vivace_bumper_F,vivace_tailgate,vivace_bumper_R,vivace_tailgateglass,vivace_taillight_L,vivace_taillight_R,vivace_towhitch,vivace_door_FL,vivace_door_RL,vivace_trim,vivace_doorglass_FR,vivace_doorglass_RL,vivace_doorglass_RR,vivace_doorglass_FL,vivace_doorpanel_FL,vivace_doorpanel_FR,vivace_doorpanel_RL,vivace_doorpanel_RR,vivace_fender_FL
