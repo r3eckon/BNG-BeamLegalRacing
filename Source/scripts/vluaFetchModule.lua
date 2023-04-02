@@ -14,7 +14,29 @@ local function getVal(id)
 return fetchTable[id]
 end
 
+local function exec(vehid, toFetch, fetchid, strFetch)
+local ve = scenetree.findObjectById(vehid)
+if ve ~= nil then
+local cmd = ""
+if strFetch then
+cmd = "obj:queueGameEngineLua(string.format('extensions.vluaFetchModule.fetch(%q,%q)', " .. toFetch .. ",'" .. fetchid .. "'))"
+else
+cmd = "obj:queueGameEngineLua(string.format('extensions.vluaFetchModule.fetch(%s,%q)', " .. toFetch .. ",'" .. fetchid .. "'))"
+end
+if ve.queueLuaCommand ~= nil then
+ve:queueLuaCommand(cmd)
+end
+end
+end
+
+local function getFetchTable()
+return fetchTable
+end
+
+M.exec = exec
 M.fetch = fetch
 M.getVal = getVal
+M.getFetchTable = getFetchTable
 
 return M
+

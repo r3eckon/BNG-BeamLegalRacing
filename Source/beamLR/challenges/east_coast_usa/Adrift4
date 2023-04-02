@@ -1,0 +1,9 @@
+desc=Short length looping drift challenge
+wager=500,1000
+triggers=BeamLRTrigger_TownCP1,BeamLRTrigger_TownCP6,BeamLRTrigger_TownCP7,BeamLRTrigger_FirstResponderStationST,BeamLRTrigger_DirtPathBCP11,BeamLRTrigger_CurveIntersectCP2,BeamLRTrigger_CurveIntersectBCP1,BeamLRTrigger_TownGasStationST
+type=drift
+targettime=180000,240000
+driftpts=10000,15000
+rep=50,100
+gmwp=wp121
+traffic=0

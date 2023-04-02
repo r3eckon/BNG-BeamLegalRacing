@@ -1,0 +1,9 @@
+desc=Long looping drift challenge
+wager=750,2000
+triggers=BeamLRTrigger_FarmJuncCP3,BeamLRTrigger_FarmJuncCP4,BeamLRTrigger_CliffIntersectCP1,BeamLRTrigger_MidRoadCP1,BeamLRTrigger_MidRoadCP2,BeamLRTrigger_MidRoadEndCP3,BeamLRTrigger_SeasideVillageCP3,BeamLRTrigger_SeasideVillageCP4,BeamLRTrigger_SeasideBridgeJuncCP3,BeamLRTrigger_YJuncBCP1,BeamLRTrigger_YJuncACP3,BeamLRTrigger_FarmJuncCP3
+type=drift
+targettime=240000,300000
+driftpts=10000,25000
+rep=50,100
+gmwp=blrwp_farmjunccp3
+traffic=0

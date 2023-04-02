@@ -15,6 +15,7 @@ local pwager = 5000				-- Player wager, start scenario with max wager but could 
 local lastProcessedRace = {}	
 
 local markers = {}
+local markersOriginPos = {}      -- To fix markers moving downwards, likely due to floating point error when using pos = pos + sin(os.clock())
 
 local blrtime = 0				-- Not time of day, used for race timers
 
@@ -139,6 +140,7 @@ marker:setPosition(getObjectPosName(v))
 marker.scale = vec3(2, 2, 2)
 marker:registerObject(mid .. "marker")
 markers[k] = marker
+markersOriginPos[k] = getObjectPosName(v) -- Store spawn position to use as center point of animation
 end
 end
 
@@ -154,9 +156,7 @@ local pos = {}
 local rot = {}
 
 for k,v in pairs(markers) do
-pos = v:getPosition()
-pos = pos + (vec3(0,0, math.sin(os.clock()) * 0.0015))
-v:setPosition(pos)
+v:setPosition(markersOriginPos[k] + (vec3(0,0, math.sin(os.clock()) * 0.1)))
 rot = quatFromEuler(0,0,(os.clock()*1.75)):toTorqueQuat()
 v:setField('rotation', 0, rot.x .. ' ' .. rot.y .. ' ' .. rot.z .. ' ' .. rot.w)
 end
@@ -391,7 +391,7 @@ toRet["targettime"] = tonumber(targettime[1])
 end
 
 if #driftpts > 1 then 
-toRet["driftpts"] = lerp(rval,tonumber(driftpts[1]), tonumber(driftpts[2]), false)
+toRet["driftpts"] = math.floor(lerp(rval,tonumber(driftpts[1]), tonumber(driftpts[2]), false))
 else 
 toRet["driftpts"] = tonumber(driftpts[1])
 end
@@ -816,6 +816,386 @@ local scale = minVal + (rand * range)
 return math.floor(scale * 100.0) / 100.0
 end
 
+local function resetTimeOfDay() -- For mission end cleanup
+core_environment.setTimeOfDay({time = 0, play = false, dayScale = 1.0, nightScale = 2.0 })
+end
+
+local driftScore = 0
+
+local function setDriftScore(score)
+driftScore = score
+end
+
+local function getDriftScore()
+return driftScore
+end
+
+local buttonConfirmState = {}
+
+local function cycleButtonConfirm(id)
+local cstate = buttonConfirmState[id] or false
+buttonConfirmState[id] = not cstate
+end
+
+local function getButtonConfirm(id)
+return buttonConfirmState[id] or false
+end
+
+local function resetButtonConfirm()
+buttonConfirmState = {}
+end
+
+local function getButtonStates()
+return buttonConfirmState
+end
+
+local function setButtonConfirm(id, state)
+buttonConfirmState[id] = state
+end
+
+local function getPerformanceClass(horsepower, torque, weight)
+local pvalue = ((torque / 3.0) + horsepower) / (weight / 2.0)
+local toRet = "ERROR"
+if pvalue < .3 then
+toRet = "E"
+elseif pvalue < .35 then
+toRet = "D"
+elseif pvalue < .5 then
+toRet = "C"
+elseif pvalue < .7 then
+toRet = "B"
+elseif pvalue < 0.85 then 
+toRet = "A"
+elseif pvalue <= 1.7 then 
+toRet = "S"
+elseif pvalue > 1.7 then 
+toRet = "X"
+end
+return toRet
+end
+
+local function createPerformanceFiles(officialModels, officialConfigs)
+local data = {}
+data["X"] = ""
+data["S"] = ""
+data["A"] = ""
+data["B"] = ""
+data["C"] = ""
+data["D"] = ""
+data["E"] = ""
+data["NA"] = "" -- When custom configs / models are allowed if unable to calculate class
+
+local models = extensions.core_vehicles.getModelList()["models"]
+local filteredModels = {}
+local filteredConfigs = {}
+local cconfigs = {}
+local ctype = ""
+local cauthor = ""
+local cpower = 0
+local ctorque = 0
+local cweight = 0
+local csource = ""
+local ccancalc = false
+local cclass = ""
+
+-- Filter models
+for k,v in pairs(models) do
+ctype = v["Type"]
+if ctype == "Car" or ctype == "Truck" then
+cauthor = v["Author"]
+if not officialModels then
+table.insert(filteredModels, k)
+elseif cauthor == "BeamNG" then
+table.insert(filteredModels, k)
+end
+end
+end
+
+-- Filter configs
+for k,v in pairs(filteredModels) do
+cconfigs = extensions.core_vehicles.getModel(v)["configs"]
+for cname,cdata in pairs(cconfigs) do
+if not string.match(cname, "simple_traffic") then
+csource = cdata["Source"]
+ccancalc = cdata["Power"] and cdata["Torque"] and cdata["Weight"]
+
+if not officialConfigs then
+if ccancalc then
+cpower = cdata["Power"]
+ctorque = cdata["Torque"]
+cweight = cdata["Weight"]
+cclass = getPerformanceClass(cpower,ctorque,cweight)
+data[cclass] = data[cclass] .. "/vehicles/" .. v .. "/" .. cname .. ".pc" .. "\n"
+else
+data["NA"] = data["NA"] .. "/vehicles/" .. v .. "/" .. cname .. ".pc" .. "\n"
+end
+
+elseif csource == "BeamNG - Official" then
+if ccancalc then
+cpower = cdata["Power"]
+ctorque = cdata["Torque"]
+cweight = cdata["Weight"]
+cclass = getPerformanceClass(cpower,ctorque,cweight)
+data[cclass] = data[cclass] .. "/vehicles/" .. v .. "/" .. cname .. ".pc" .. "\n"
+else
+data["NA"] = data["NA"] .. "/vehicles/" .. v .. "/" .. cname .. ".pc" .. "\n"
+end
+end
+end
+end
+end
+-- Write performance files
+for k,v in pairs(data) do
+writeFile("beamLR/performanceClass/" .. k, v)
+end
+end
+
+local function modelFromConfig(path)
+local offset = 0
+if string.sub(path, 1,1) == "/" then offset = 1 end -- Detects path starting with slash
+local split = ssplit(path, "/")
+local model = split[2+offset]
+return model
+end
+
+local function loadDataFile(path) -- For files not in table format, load each line as a table element
+local filedata = readFile(path)
+if string.sub(filedata, #filedata, #filedata) == "\n" then -- Remove last newline if it exists to prevent empty last element
+filedata = string.sub(filedata, 1, #filedata-1) 
+end
+local filesplit = ssplit(filedata, "\n")
+local toRet = {}
+for k,v in pairs(filesplit) do
+toRet[k] = v
+end
+return toRet
+end
+
+local function perfclassConfigLoader(configData) -- Creates config and model tables for race systems, works with class files and regular list
+local toRet = {}
+local csplit = {}
+local cconfig = ""
+local cmodel = ""
+local class = ""
+local classData = {}
+toRet["models"] = {}
+toRet["configs"] = {}
+if configData:match("class:") then
+csplit = extensions.blrutils.ssplit(configData, ":")
+class = csplit[2]
+classData = extensions.blrutils.loadDataFile("beamLR/performanceClass/" .. class)
+for k,v in pairs(classData) do
+cconfig = v
+cmodel = extensions.blrutils.modelFromConfig(cconfig)
+toRet["models"][k] = cmodel
+toRet["configs"][k] = cconfig
+end
+else
+csplit = extensions.blrutils.ssplit(configData, ",")
+for k,v in pairs(csplit) do
+cconfig = v
+cmodel = extensions.blrutils.modelFromConfig(cconfig)
+toRet["models"][k] = cmodel
+toRet["configs"][k] = cconfig
+end
+end
+return toRet
+end
+
+
+-- Cop Fix, after pursuit ended inactive police vehicles will stay on "follow" AI mode 
+-- and has to be forced back to "traffic" after pursuit (hopefully will get fixed soon)
+local lastTrafficData = {}
+local copTable = {}				-- Vehid KEY, TRUE val, non cop ids will return nil when checked
+local copfixReceived = {}		-- Vehid KEY, SENT as boolean val
+local copCount = 0				-- Fixes to send before stopping
+local copfixSent = 0			-- Sent fixes so far
+
+local aimodes = {}
+local rolestates = {}
+local roleFixQueued = {}
+
+local function updateTrafficData()
+lastTrafficData = extensions.gameplay_traffic.getTraffic()
+end
+
+local function forceSetAIMode(veid, mode)
+scenetree.findObjectById(veid):queueLuaCommand('ai.setMode("' .. mode .. '")')
+end
+
+local function updateCopTable()
+updateTrafficData()
+copTable = {}
+aimodes = {}
+rolestates = {}
+roleFixQueued = {}
+copCount = 0
+for k,v in pairs(lastTrafficData) do
+if v["autoRole"] == "police" then
+copTable[k] = true
+copCount = copCount + 1
+end
+end
+end
+
+local function copfixReset() -- Should be called before init pass
+copfixReceived = {}
+copfixSent = 0
+end
+
+local function copfixInit()	-- Initial copfix pass, sends fixes to all cops active when fix is triggered
+local cdata = {}
+updateTrafficData()
+
+for k,v in pairs(copTable) do
+cdata = lastTrafficData[k]
+
+if cdata["state"] == "active" then -- Found active cop
+forceSetAIMode(k, "traffic") -- Send fix
+copfixReceived[k] = true	-- Set fix received to true for vehid 
+copfixSent = copfixSent + 1 -- Increment sent copfix amount
+print("Should have fixed cop: " .. k)
+
+if copfixSent == copCount then -- Finished sending copfixes in init pass
+extensions.blrglobals.blrFlagSet("policeResetRequest", false) -- Turn off request flag
+print("Copfix finished in init pass, all cops were active to receive fix.")
+end
+
+else
+print("Inactive cop detected: " .. k)
+end
+
+end
+
+end
+
+local function copfixHook(veid) -- Called by blrhook for onVehicleActiveChanged only when request flag is true and state active state is true
+if copTable[veid] then -- Vehicle a cop
+if not copfixReceived[veid] then -- Cop has not received fix yet
+
+forceSetAIMode(veid, "traffic") -- Send fix
+copfixReceived[veid] = true	-- Set fix received to true for vehid 
+copfixSent = copfixSent + 1 -- Increment sent copfix amount
+print("Should have fixed cop: " .. veid)
+
+if copfixSent == copCount then -- Finished sending copfixes in init pass
+extensions.blrglobals.blrFlagSet("policeResetRequest", false) -- Turn off request flag
+print("Copfix finished on hook for last fix.")
+end
+end
+end
+end
+
+local function copfixIteration() -- do not use, better fix added
+updateTrafficData()
+local cdata = {}
+local complete = true
+for k,v in pairs(copTable) do -- Only loops over cop veids
+cdata = lastTrafficData[v]
+if cdata["state"] == "active" then -- Found active cop to fix
+forceSetAIMode(v, "traffic") -- Set AI mode to traffic to force cop to stop chasing player
+table.insert(copfixReceived, v) -- Add cop veid to table tracking received copfix
+print("Should have fixed cop: " .. v)
+if #copfixReceived == #copTable then -- Detects when the fix is completed
+extensions.blrglobals.blrFlagSet("policeResetRequest", false) -- Stops flowgraph from triggering iterations
+print("Cop Fix Complete!")
+end
+else 
+print("Inactive cop detected: " .. v)
+end
+end
+end
+
+local function getCopTable()
+return copTable
+end
+
+local function forceSetPolice(mode)
+gameplay_police.setPursuitMode(mode, nil, nil)
+end
+
+
+-- A different cop fix, problem caused by cops chasing random traffic getting
+-- stuck in "follow" ai.mode defaulting to player when traffic cycles
+local function fetchCopsAIModes() -- Execute this at regular interval for faster role fixing
+local toFetch = "ai.mode"
+for k,v in pairs(copTable) do
+extensions.vluaFetchModule.exec(k, "ai.mode", "aimode" .. k, true)
+aimodes[k] = extensions.vluaFetchModule.getVal("aimode" .. k)
+end
+end
+
+local function updateCopRoleState(id) --
+local cdata = {}
+updateTrafficData()
+cdata = lastTrafficData[id]
+rolestates[id] = cdata.role.state
+end
+
+local function checkCopModeConflict(id)
+if rolestates[id] == "none" then
+if aimodes[id] == "follow" or aimodes[id] == "chase" then --Detected conflict
+roleFixQueued[id] = true
+print("Detected police role state conflict with AI mode, queuing fix for id " .. id)
+end
+end
+end
+
+local function roleStateFixHook(id, active)
+if copTable[id] and not roleFixQueued[id] then
+updateCopRoleState(id)
+checkCopModeConflict(id)
+end
+if roleFixQueued[id] and active then
+forceSetAIMode(id, "traffic") -- Send fix
+roleFixQueued[id] = false
+print("Sent role fix for id " .. id)
+end
+end
+
+local function getAIModes()
+return aimodes
+end
+
+local function disableQuickAccess()
+if extensions.blrglobals.blrFlagGet("disableQuickAccess") and core_quickAccess.isEnabled() then
+core_quickAccess.setEnabled(false)
+end
+end
+
+local function getShopSeed(shopID)
+return getDailySeed()+(shopID*10) -- As long as shops have < 10 slots no roll collision happens
+end
+
+
+M.getShopSeed = getShopSeed
+M.disableQuickAccess = disableQuickAccess
+M.getAIModes = getAIModes
+M.roleStateFixHook = roleStateFixHook
+M.checkCopModeConflict = checkCopModeConflict
+M.updateCopRoleState = updateCopRoleState
+M.fetchCopsAIModes = fetchCopsAIModes
+M.perfclassConfigLoader = perfclassConfigLoader
+M.loadDataFile = loadDataFile
+M.modelFromConfig = modelFromConfig
+M.createPerformanceFiles = createPerformanceFiles
+M.copfixHook = copfixHook
+M.copfixInit = copfixInit
+M.copfixReset = copfixReset
+M.copfixIteration = copfixIteration
+M.getCopTable = getCopTable
+M.updateCopTable = updateCopTable
+M.updateTrafficData = updateTrafficData
+M.forceSetPolice = forceSetPolice
+M.forceSetAIMode = forceSetAIMode
+M.setButtonConfirm = setButtonConfirm
+M.getButtonStates = getButtonStates
+M.resetButtonConfirm = resetButtonConfirm
+M.getButtonConfirm = getButtonConfirm
+M.cycleButtonConfirm = cycleButtonConfirm
+M.getDriftScore = getDriftScore
+M.setDriftScore = setDriftScore
+M.resetTimeOfDay = resetTimeOfDay
 M.getPartShopPriceScale = getPartShopPriceScale
 M.getStarterCarID = getStarterCarID 
 M.getOptionsTable = getOptionsTable

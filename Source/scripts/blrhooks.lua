@@ -74,7 +74,24 @@ local getFilter = function(vid)
 return vidfilter
 end
 
+local onVehicleActiveChanged = function(veid, active)
+if extensions.blrglobals.blrFlagGet("policeResetRequest") then
+if active then
+extensions.blrutils.copfixHook(veid)
+end
+elseif extensions.blrglobals.blrFlagGet("roleFixToggle") then
+extensions.blrutils.roleStateFixHook(veid, active)
+end
+end
 
+local onMenuToggled = function(showMenu)
+print("BLRHOOK: Menu Toggled")
+extensions.blrglobals.blrFlagSet("disableQuickAccess", true)
+end
+
+
+M.onMenuToggled = onMenuToggled
+M.onVehicleActiveChanged = onVehicleActiveChanged
 M.getFilter = getFilter
 M.setFilter = setFilter
 M.getFunctionTable = ftable

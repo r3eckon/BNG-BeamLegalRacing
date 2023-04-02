@@ -24,6 +24,21 @@ local function getUIData(k)
 return uidata[k]
 end
 
+local function sendCurrentDrift(v)
+guihooks.trigger("beamlrCurrentDrift", v)
+end
+
+local function sendTotalDrift(v)
+guihooks.trigger("beamlrTotalDrift", v)
+end
+
+local function toggleDriftUI(t)
+guihooks.trigger("beamlrToggleDriftUI", t)
+end
+
+M.toggleDriftUI = toggleDriftUI
+M.sendTotalDrift = sendTotalDrift
+M.sendCurrentDrift = sendCurrentDrift
 M.sendDataToEngine = sendDataToEngine
 M.sendDataToUI = sendDataToUI
 M.getUIData = getUIData

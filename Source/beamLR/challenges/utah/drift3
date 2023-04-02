@@ -1,0 +1,9 @@
+desc=Another short drift challenge
+wager=500,1500
+triggers=BeamNGTrigger_BridgeCarZoneIntersect,BeamNGTrigger_CaravanAreaEntrance,BeamNGTrigger_RoadToAirfield,BeamNGTrigger_AirfieldRoadIntersect,BeamLRTrigger_CurvyRoadCP1,BeamLRTrigger_CurvyRoadCP2,BeamLRTrigger_NearShopCP1,BeamNGTrigger_BridgeCarZoneIntersect
+type=drift
+targettime=250000,280000
+driftpts=7500,17000
+rep=50,100
+gmwp=riverJuncWp1
+traffic=0

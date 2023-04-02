@@ -1,0 +1,9 @@
+desc=Drift challenge to the watchtower
+wager=300,700
+triggers=BeamLRTrigger_TownCP1,BeamLRTrigger_TownCP2,BeamLRTrigger_TownCP3,BeamLRTrigger_TownCP5,BeamLRTrigger_TownEntranceBridgeCP1,BeamLRTrigger_TownEntranceBridgeCP2,BeamLRTrigger_WatchtowerroadYjuncCP1,BeamLRTrigger_WatchtowerCP1,BeamLRTrigger_Watchtower
+type=drift
+targettime=120000,180000
+driftpts=5000,10000
+rep=50,100
+gmwp=wp121
+traffic=0

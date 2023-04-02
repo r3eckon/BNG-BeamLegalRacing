@@ -105,6 +105,53 @@ end
 return toRet
 end
 
+local function getPowertrainLayoutName(layout)
+local toRet = ""
+if layout[poweredWheelsFront] == 0 and layout[poweredWheelsRear] == 0 then
+toRet = "ERROR"
+elseif layout[poweredWheelsFront] == 0 then
+toRet = "RWD"
+elseif layout[poweredWheelsRear] == 0 then
+toRet = "FWD"
+else
+toRet = "AWD"
+end
+return toRet
+end
+
+local function getRawPerformanceValue()
+local cdata = extensions.vehicleCertifications.getCertifications()
+local horsepower = cdata["power"]
+local torque = cdata["torque"]
+local weight = cdata["weight"]
+return ((torque / 3.0) + horsepower) / (weight / 2.0)
+end
+
+
+local function getPerformanceClass()
+local pvalue = getRawPerformanceValue()
+local toRet = "ERROR"
+if pvalue < .3 then
+toRet = "E"
+elseif pvalue < .35 then
+toRet = "D"
+elseif pvalue < .5 then
+toRet = "C"
+elseif pvalue < .7 then
+toRet = "B"
+elseif pvalue < 0.85 then 
+toRet = "A"
+elseif pvalue <= 1.7 then 
+toRet = "S"
+elseif pvalue > 1.7 then 
+toRet = "X"
+end
+return toRet
+end
+
+M.getPowertrainLayoutName = getPowertrainLayoutName
+M.getRawPerformanceValue = getRawPerformanceValue
+M.getPerformanceClass = getPerformanceClass
 M.getFuelCapacityTotal = getFuelCapacityTotal
 M.getFuelTotal = getFuelTotal
 M.setFuel = setFuel

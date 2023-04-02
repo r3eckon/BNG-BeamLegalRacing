@@ -1,0 +1,9 @@
+desc=Risky drift challenge with traffic
+wager=2000,5000
+triggers=BeamLRTrigger_FarmJuncCP3,BeamLRTrigger_FarmJuncCP4,BeamLRTrigger_CliffIntersectCP1,BeamLRTrigger_MidRoadCP1,BeamLRTrigger_MidRoadCP2,BeamLRTrigger_MidRoadEndCP3,BeamLRTrigger_SeasideVillageCP3,BeamLRTrigger_SeasideVillageCP4,BeamLRTrigger_SeasideBridgeJuncCP3,BeamLRTrigger_YJuncBCP2,BeamLRTrigger_RedmanorCP1,BeamLRTrigger_SawmillCP2,BeamLRTrigger_FirwoodInnEntranceCP
+type=drift
+targettime=410000,470000
+driftpts=15000,30000
+rep=50,100
+gmwp=blrwp_farmjunccp3
+traffic=0

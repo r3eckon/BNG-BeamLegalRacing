@@ -1,0 +1,9 @@
+desc=Short rally drift challenge
+wager=400,800
+triggers=BeamLRTrigger_DirtAsphaltFourWayCP1,BeamLRTrigger_CurvyDirtRoadCP1,BeamLRTrigger_OffroadClubEnd,BeamLRTRigger_Offroad2CP1,BeamLRTrigger_Offroad2CP2,BeamLRTrigger_Offroad2ACP3,BeamLRTrigger_Offroad2ACP4,BeamLRTrigger_Offroad2CP5,BeamLRTrigger_Offroad2CP6,BeamLRTrigger_OffroadHighwayFarEnd
+type=drift
+targettime=250000,290000
+driftpts=10000,25000
+rep=50,100
+gmwp=blrwp_dirtasphaltfourwaycp1
+traffic=0

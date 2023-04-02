@@ -1,46 +1,8 @@
 {
   "format":2,
-  "licenseName":"H44 8ZZ",
+  "licenseName":"N62 5EE",
   "mainPartName":"moonhawk",
   "model":"moonhawk",
-  "paints":[
-    {
-      "baseColor":[
-        0.05,
-        0.5,
-        0.7,
-        1.2
-      ],
-      "clearcoat":1,
-      "clearcoatRoughness":0.09,
-      "metallic":0,
-      "roughness":1
-    },
-    {
-      "baseColor":[
-        0.05,
-        0.5,
-        0.7,
-        1.2
-      ],
-      "clearcoat":1,
-      "clearcoatRoughness":0.09,
-      "metallic":0,
-      "roughness":1
-    },
-    {
-      "baseColor":[
-        0.33,
-        0.33,
-        0.33,
-        1.2
-      ],
-      "clearcoat":1,
-      "clearcoatRoughness":0.09,
-      "metallic":0,
-      "roughness":1
-    }
-  ],
   "parts":{
     "brakepad_F":"brakepad_F",
     "brakepad_R":"brakepad_R",
@@ -101,8 +63,8 @@
     "paint_design":"moonhawk_skin_oldpaint",
     "skin_interior":"moonhawk_skin_interior",
     "soundscape_horn":"soundscape_horn_12",
-    "tire_F_14x5.5":"tire_F_175_65_14_standard",
-    "tire_R_14x5.5":"tire_R_175_65_14_standard",
+    "tire_F_14x5.5":"",
+    "tire_R_14x5.5":"",
     "wheel_F_5":"steelwheel_01a_14x5.5_F_alt",
     "wheel_R_5":"steelwheel_01a_14x5.5_R_alt"
   },

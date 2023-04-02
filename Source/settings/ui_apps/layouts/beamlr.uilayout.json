@@ -125,32 +125,6 @@
       }
     },
     {
-      "appName":"characterRealtimeDisplay",
-      "placement":{
-        "bottom":"65px",
-        "height":"160px",
-        "left":0,
-        "margin":"auto",
-        "position":"absolute",
-        "right":0,
-        "top":"",
-        "width":"400px"
-      }
-    },
-    {
-      "appName":"testapp",
-      "placement":{
-        "bottom":"",
-        "height":"500px",
-        "left":0,
-        "margin":"auto",
-        "position":"absolute",
-        "right":0,
-        "top":"0px",
-        "width":"500px"
-      }
-    },
-    {
       "appName":"beamlrui",
       "placement":{
         "bottom":"",
@@ -161,6 +135,19 @@
         "right":0,
         "top":"0px",
         "width":"500px"
+      }
+    },
+    {
+      "appName":"beamlrdriftui",
+      "placement":{
+        "bottom":"5px",
+        "height":"70px",
+        "left":0,
+        "margin":"auto",
+        "position":"absolute",
+        "right":0,
+        "top":"",
+        "width":"270px"
       }
     }
   ],

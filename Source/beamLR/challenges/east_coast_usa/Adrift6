@@ -1,0 +1,9 @@
+desc=Drift challenge to the red manor
+wager=500,1000
+triggers=BeamLRTrigger_TownCP1,BeamLRTrigger_TownCP2,BeamLRTrigger_TownCP3,BeamLRTrigger_TownCP5,BeamLRTrigger_TownEntranceBridgeCP1,BeamLRTrigger_TownEntranceBridgeCP3,BeamLRTrigger_TownEntranceYJuncCP2,BeamLRTrigger_FirwoodInnJuncCP1,BeamLRTrigger_FirwoodInnEntranceCP1,BeamLRTrigger_SawmillCP11,BeamLRTrigger_RedmanorEntranceCP2,BeamLRTrigger_Manor
+type=drift
+targettime=160000,220000
+driftpts=8000,12000
+rep=50,100
+gmwp=wp121
+traffic=0

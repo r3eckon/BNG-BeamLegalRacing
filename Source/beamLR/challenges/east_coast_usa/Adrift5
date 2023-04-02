@@ -1,0 +1,9 @@
+desc=Short drift challenge to the Firwood inn
+wager=400,800
+triggers=BeamLRTrigger_TownCP1,BeamLRTrigger_TownCP2,BeamLRTrigger_TownCP3,BeamLRTrigger_TownCP5,BeamLRTrigger_TownEntranceBridgeCP1,BeamLRTrigger_TownEntranceBridgeCP3,BeamLRTrigger_TownEntranceYJuncCP2,BeamLRTrigger_FirwoodInnJuncCP1,BeamLRTrigger_FirwoodInnEntranceCP
+type=drift
+targettime=90000,150000
+driftpts=5000,10000
+rep=50,100
+gmwp=wp121
+traffic=0

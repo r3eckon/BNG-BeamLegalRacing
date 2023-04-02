@@ -1,0 +1,9 @@
+desc=Risky downhill drift challenge with traffic
+wager=1500,3000
+triggers=BeamLRTrigger_TouristAreaDelivery,BeamLRTrigger_TopShopIntersect,BeamNGTrigger_BusStopIntersect,BeamLRTrigger_BusStopST,BeamLRTrigger_CurvyRoadCP1,BeamLRTrigger_CurvyRoadCP2,BeamLRTrigger_NearShopCP1,BeamLRTrigger_RepairZoneST
+type=drift
+targettime=350000,410000
+driftpts=10000,25000
+rep=50,100
+gmwp=ut_wp_125
+traffic=1

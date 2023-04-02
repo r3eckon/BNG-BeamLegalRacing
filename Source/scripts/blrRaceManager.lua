@@ -10,10 +10,20 @@ local ccptable = {} -- CONTAINS CURRENT CHECKPOINT INDICES USED BY THE raceCheck
 local claptable = {}
 local finishState = {}
 local leaderboard = {}
+local finishTime = {}
 local finishCount = 0
 
 local started = false
 local winner = -1
+local blrtime = 0
+local startTime = 0
+
+local function racerFinished(racer)
+finishCount = finishCount+1  -- increment finish counter (val init at 0, first id in table is 1 as expected)
+leaderboard[finishCount] = racer -- add racer to leaderboard
+finishState[racer] = true	 -- set racer finish state
+finishTime[racer] = blrtime - startTime  -- set finish time
+end
 
 
 local function onCheckpointReached(racer, checkpoint)
@@ -25,9 +35,7 @@ local ccp = raceCheckpoints[ccpid]
 if checkpoint == ccp then -- racer reached current checkpoint
 if ccpid == #raceCheckpoints then -- racer reached last checkpoint in path
 if clap == raceLaps then	 -- racer was on last lap
-finishCount = finishCount+1  -- increment finish counter (val init at 0, first id in table is 1 as expected)
-leaderboard[finishCount] = racer -- add racer to leaderboard
-finishState[racer] = true	 -- set racer finish state
+racerFinished(racer)
 if winner == -1 then		 -- no one finished before this racer
 winner = racer				-- set racer as winner
 end
@@ -62,6 +70,7 @@ raceVehicles = racers
 raceCheckpoints = checkpoints
 claptable = {}
 finishState = {}
+finishTime = {}
 ccptable = {}
 leaderboard = {}
 finishCount = 0
@@ -76,6 +85,9 @@ end
 
 local function setRaceRunning(running)
 started = running
+if started then 
+startTime = blrtime
+end
 end
 
 local function getWinner()
@@ -134,6 +146,53 @@ local function isRaceStarted()
 return started
 end
 
+-- Used to keep track of race times with working pause function
+local function onPreRender(dtReal,dtSim,dtRaw)
+blrtime = blrtime + dtSim * 1000
+end
+
+local function getTotalRaceTime()
+return blrtime - startTime
+end
+
+local function getRaceStartTime()
+return startTime
+end
+
+local function getRacerTime(racer)
+local toRet = getTotalRaceTime()
+if not started then
+toRet = 0
+elseif finishState[racer] then
+toRet = finishTime[racer]
+end
+return toRet
+end
+
+local function getTimes()
+return finishTime
+end
+
+local function msTimeFormat(time)
+local toRet = {}
+toRet["hours"] = math.floor(time / 3600000)
+toRet["minutes"] = math.floor((time / 60000) - toRet["hours"] * 60)
+toRet["seconds"] = math.floor((time / 1000) - ((toRet["hours"] * 3600) + toRet["minutes"] * 60))
+toRet["milliseconds"] = time - (toRet["hours"] * 3600000 + toRet["minutes"] * 60000 + toRet["seconds"]*1000)
+return toRet
+end
+
+local function raceTimeString(time)
+return string.format("%02d:%02d.%03d", time["minutes"], time["seconds"], time["milliseconds"])
+end
+
+M.raceTimeString = raceTimeString
+M.msTimeFormat = msTimeFormat
+M.getTimes = getTimes
+M.getRacerTime = getRacerTime
+M.getRaceStartTime = getRaceStartTime
+M.onPreRender = onPreRender
+M.getTotalRaceTime = getTotalRaceTime
 M.isRaceStarted = isRaceStarted
 M.getCCPID = getCCPID
 M.getRacerFinished = getRacerFinished
@@ -148,6 +207,5 @@ M.getWinner = getWinner
 M.setRaceRunning = setRaceRunning
 M.setRaceParams = setRaceParams
 M.onCheckpointReached = onCheckpointReached
-
 
 return M

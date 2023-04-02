@@ -290,6 +290,24 @@ dtable["difficulty"] = p
 extensions.blrutils.updateDataTable("beamLR/options", dtable)
 end
 
+ftable["forcedCopfix"] = function(p)
+extensions.blrglobals.blrFlagSet("policeResetRequest", true)
+extensions.blrutils.copfixReset()
+extensions.blrutils.copfixInit()
+end
+
+ftable["setAutoCopfix"] = function(p)
+local dtable = {}
+dtable["autoCopfix"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+if tonumber(p) == 1 then 
+extensions.blrglobals.blrFlagSet("roleFixToggle", true)
+else
+extensions.blrglobals.blrFlagSet("roleFixToggle", false)
+end
+end
+
+
 local ptable = {}
 
 local rtable = {}

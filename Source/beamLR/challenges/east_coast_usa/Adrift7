@@ -1,0 +1,9 @@
+desc=Drift challenge through dense forest mountain road
+wager=700,2000
+triggers=BeamLRTrigger_TownGasStationST,BeamLRTrigger_HeavyForestRoadCP1,BeamLRTrigger_HeavyForestRoadCP2,BeamLRTrigger_DirtPathBIntersectCP1,BeamLRTrigger_WatchtowerroadCP2,BeamLRTrigger_MountainroadYjuncCP1,BeamLRTrigger_MountainRoadDirtIntersectCP4,BeamLRTrigger_MountainRoadDirtIntersectCP3,BeamLRTrigger_SawmillOverpassJuncCP3
+type=drift
+targettime=220000,280000
+driftpts=10000,15000
+rep=50,100
+gmwp=blrwp_towngasstationst
+traffic=0

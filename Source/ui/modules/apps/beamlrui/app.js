@@ -17,7 +17,7 @@ angular.module('beamng.apps')
 	  scope.editMode = 0
 	  scope.slotNameMode = 0
 	  scope.visibleSlots = {}
-	  
+	  scope.resetConfirm = false
 
 	  if(!scope.initDone)
 	  {
@@ -38,6 +38,7 @@ angular.module('beamng.apps')
 	  
 	  scope.menuClick = function(id){
 		scope.menuPage = id
+		scope.resetConfirm = false
 	  }
 	  
 	  scope.filter = function(m, f){
@@ -86,6 +87,7 @@ angular.module('beamng.apps')
 	  
 	  scope.showMenuClick = function () {
 		  scope.showMenu = !scope.showMenu;
+		  scope.resetConfirm = false
 	  }
 	  
 	  scope.textboxHover = function(){
@@ -138,7 +140,14 @@ angular.module('beamng.apps')
 	  
 	  scope.resetCareer = function()
 	  {
-		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("uiResetCareer")`)
+		  if (scope.resetConfirm == true)
+		  {
+			bngApi.engineLua(`extensions.customGuiCallbacks.exec("uiResetCareer")`)
+		  }
+		  else
+		  {
+			  scope.resetConfirm = true
+		  }
 	  }
 	  
 	  scope.applyPaint = function()
@@ -237,6 +246,17 @@ angular.module('beamng.apps')
 	  {
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("randpaint", "${d}")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setOpponentRandomPaint", "randpaint")`)
+	  }
+	  
+	  scope.forcedCopfix = function(d)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("forcedCopfix")`)
+	  }
+	  
+	  scope.autoCopfix = function(d)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("copfixToggle", "${d}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setAutoCopfix", "copfixToggle")`)
 	  }
 	  
 	  scope.setTargetWager = function()

@@ -388,14 +388,36 @@ Career Backup
 <button ng-click="restoreBackup()">Load</button>
 </p>
 
-
-
 <br>
 
 <p style="text-align:center; color:yellow;"> 
 Reset Career (WARNING: PERMANENT)
-<button ng-click="resetCareer()">Reset Career</button>
+<button ng-if="resetConfirm == false" ng-click="resetCareer()">Reset Career</button>
+<button ng-if="resetConfirm == true" ng-click="resetCareer()">Confirm Reset?</button>
 </p>
+
+<br>
+
+<h3 style="text-align:center;"> Advanced </h3>
+
+<p style="text-align:center;"> Note: Use the "Fix Cops" button only if police chases player without pursuit UI showing. Do not use when pursuit UI is showing to avoid further bugs with police system.</p>
+
+<p style="text-align:center;"> 
+Manual Police Role Fix
+<button ng-click="forcedCopfix()">Fix Cops</button>
+</p>
+
+<p style="text-align:center;"> Note: Automatic fixing may impact performance with large amounts of police vehicles.</p>
+
+
+<p style="text-align:center;"> 
+Automatic Police Role Fix
+<button ng-click="autoCopfix(1)">On</button>
+<button ng-click="autoCopfix(0)">Off</button>
+</p>
+
+<br>
+
 
 
 </div>
