@@ -307,6 +307,23 @@ extensions.blrglobals.blrFlagSet("roleFixToggle", false)
 end
 end
 
+ftable["setBeamstateToggle"] = function(p)
+local dtable = {}
+dtable["bstoggle"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+if tonumber(p) == 1 then 
+extensions.blrglobals.blrFlagSet("beamstateToggle", true)
+else
+extensions.blrglobals.blrFlagSet("beamstateToggle", false)
+end
+end
+
+ftable["resetCouplers"] = function(p)
+local vehid = be:getPlayerVehicleID(0)
+local vobj = be:getObjectByID(vehid)
+vobj:queueLuaCommand("extensions.blrVehicleUtils.advancedCouplersFix()")
+end
+
 
 local ptable = {}
 

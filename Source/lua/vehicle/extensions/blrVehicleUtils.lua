@@ -149,6 +149,24 @@ end
 return toRet
 end
 
+local function advancedCouplersFix()
+local couplers = controller.getControllersByType("advancedCouplerControl")
+local lastid = -1
+for k,v in pairs(couplers) do
+if v.name ~= "hoodLatchCoupler" then
+v:reset()
+v:tryAttachGroupImpulse()
+else
+lastid = k
+end
+end
+if lastid ~= -1 then
+couplers[lastid]:reset()
+couplers[lastid]:tryAttachGroupImpulse()
+end
+end
+
+M.advancedCouplersFix = advancedCouplersFix
 M.getPowertrainLayoutName = getPowertrainLayoutName
 M.getRawPerformanceValue = getRawPerformanceValue
 M.getPerformanceClass = getPerformanceClass

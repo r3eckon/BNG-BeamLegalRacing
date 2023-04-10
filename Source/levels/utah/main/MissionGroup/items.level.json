@@ -3,7 +3,7 @@
 {"name":"auto_repair_zone","class":"SimGroup","persistentId":"0c6b4e07-b0d1-4594-808e-460643bb78af","__parent":"MissionGroup"}
 {"name":"construction_site","class":"SimGroup","persistentId":"11d3191c-2506-41ed-8296-97fbd8faa483","__parent":"MissionGroup"}
 {"name":"rockcrawlingtrails","class":"SimGroup","persistentId":"1639fdac-1e68-45d0-911c-ae0c0d66c116","__parent":"MissionGroup"}
-{"name":"roadsigns","class":"SimGroup","persistentId":"1e606bda-8708-4b13-ba99-0b7bc1f92990","__parent":"MissionGroup"}
+{"name":"road_signs","class":"SimGroup","persistentId":"1e606bda-8708-4b13-ba99-0b7bc1f92990","__parent":"MissionGroup"}
 {"name":"Level_objects","class":"SimGroup","persistentId":"240c9b96-2dc3-4720-9535-c7ea12bdc0b6","__parent":"MissionGroup"}
 {"name":"Clutters","class":"SimGroup","persistentId":"43ff113f-430c-4154-9ab6-e5cd3f5509b5","__parent":"MissionGroup"}
 {"name":"CameraBookmarks","class":"SimGroup","persistentId":"4b6169ec-48fb-4194-b7e6-cf770af8e65f","__parent":"MissionGroup"}
@@ -28,7 +28,7 @@
 {"name":"cliff_crawling_tracks","class":"SimGroup","persistentId":"fdc249f1-ec74-4f9d-8133-59f55dd2ca3a","__parent":"MissionGroup"}
 {"class":"TSStatic","persistentId":"8f3fed24-f7ab-4da7-9ed7-6802481a117a","__parent":"MissionGroup","position":[887.783691,760.014343,236.175156],"isRenderEnabled":false,"rotationMatrix":[0.298705339,0.954345822,0,-0.954345822,0.298705339,0,0,0,1],"shapeName":"/levels/utah/art/shapes/clutter/ut_sign_tourism_2.dae"}
 {"class":"TSStatic","persistentId":"241bdb75-5d7a-4688-8d1c-0151817dde1b","__parent":"MissionGroup","position":[-467.965393,168.230881,297.993408],"isRenderEnabled":false,"rotationMatrix":[-0.99992466,0.0123473601,0,-0.0123473601,-0.99992466,0,0,0,1],"shapeName":"/levels/utah/art/shapes/clutter/ut_sign_tourism_map.dae"}
-{"class":"TSStatic","persistentId":"45118a93-cffb-4303-ba5e-65aa916a5060","__parent":"MissionGroup","position":[879.733582,238.533997,219.227692],"isRenderEnabled":false,"rotationMatrix":[0.773171246,0.634197235,0,-0.628255725,0.765927672,0.136562899,0.0866078064,-0.105586506,0.990631521],"scale":[0.788329124,0.788329124,0.788329124],"shapeName":"/levels/Utah/art/shapes/rocks/utah_rock_big_2_b_top.dae"}
+{"class":"TSStatic","persistentId":"45118a93-cffb-4303-ba5e-65aa916a5060","__parent":"MissionGroup","position":[879.733582,238.533997,219.227692],"annotation":"ROCK","isRenderEnabled":false,"rotationMatrix":[0.773171246,0.634197235,0,-0.628255725,0.765927672,0.136562899,0.0866078064,-0.105586506,0.990631521],"scale":[0.788329124,0.788329124,0.788329124],"shapeName":"/levels/Utah/art/shapes/rocks/utah_rock_big_2_b_top.dae"}
 {"class":"TSStatic","persistentId":"81a24aa6-5aaa-4718-9066-9c8955b99ffb","__parent":"MissionGroup","position":[896.903381,742.008972,235.96521],"isRenderEnabled":false,"rotationMatrix":[-0.910829604,0.412782043,0,-0.412782043,-0.910829604,0,0,0,1],"shapeName":"/levels/utah/art/shapes/clutter/ut_sign_tourism_1.dae"}
 {"class":"TSStatic","persistentId":"c5d83ace-1c5d-4708-9316-dd412a2a19de","__parent":"MissionGroup","position":[888.930481,751.021118,236.032181],"isRenderEnabled":false,"rotationMatrix":[-0.421438485,0.906856894,0,-0.906856894,-0.421438485,0,0,0,1],"shapeName":"/levels/utah/art/shapes/clutter/ut_sign_tourism_3.dae"}
 {"name":"dealer_b","class":"SimGroup","persistentId":"09f6d5b9-6c50-4a6c-a9a7-cafa02832eb3","__parent":"MissionGroup"}

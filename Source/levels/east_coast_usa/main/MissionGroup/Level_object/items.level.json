@@ -1,5 +1,5 @@
 {"name":"Sky","class":"SimGroup","persistentId":"0b1f6224-3b80-4951-8545-2ef81e9a01cc","__parent":"Level_object"}
-{"name":"Light","class":"SimGroup","persistentId":"352ee074-413e-489b-8f0f-0f3354a9bad5","__parent":"Level_object"}
+{"name":"light","class":"SimGroup","persistentId":"352ee074-413e-489b-8f0f-0f3354a9bad5","__parent":"Level_object"}
 {"name":"cloud","class":"SimGroup","persistentId":"4c032e30-b7fe-41a3-ace1-78a223deb45a","__parent":"Level_object"}
 {"name":"water","class":"SimGroup","persistentId":"787d27cd-b0d4-48d7-be8b-dd105e2e277a","__parent":"Level_object"}
 {"name":"infos","class":"SimGroup","persistentId":"81d4d0fb-94c4-413a-92b8-879c3b20d44e","__parent":"Level_object"}

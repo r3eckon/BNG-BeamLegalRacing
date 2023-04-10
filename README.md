@@ -1,5 +1,5 @@
 
-# Beam Legal Racing 1.9
+# Beam Legal Racing 1.9.1
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -64,6 +64,10 @@ Remember to save the **userfolder/beamLR** folder if you want to backup your car
 Version 1.6 adds N2O tank persistence. Garage files from previous versions are missing this value and will default to empty N2O tanks. Nitrous tanks can be refilled at the repair shop.
 
 Version 1.8 adds difficulty settings and different start vehicles (randomly picked using seed), the default difficulty is medium ($1000 start money). 
+
+Version 1.9.1 temporarily disables beamstate loading (visual damage) due to issue with advanced couplers. It can be turned back on from the options menu.
+
+If you decide to use beamstates, advanced couplers can be fixed from the options menu. This is not a guaranteed fix and it may crash the game.
 
 Further instructions and various tips on this mods' various features are listed in the BeamLR UI Main Menu.
 
@@ -377,3 +381,9 @@ Thank you for playing BeamLR!
 * Fixed UI not resetting to freeroam after scenario end
 * Removed missing apps from custom UI layout
 * Improved car shop RNG seeding process
+
+### 1.9.1 (BeamNG Update 0.28 Hotfix)
+* Added beamstate loading toggle option (workaround for advanced coupler problem)
+* Added button to attempt to fix hinges after beamstate loading (may crash game)
+* Fixed traffic pooling amount calculation
+* Updated level files for new BeamNG version

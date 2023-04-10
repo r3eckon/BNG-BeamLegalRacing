@@ -259,6 +259,17 @@ angular.module('beamng.apps')
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setAutoCopfix", "copfixToggle")`)
 	  }
 	  
+	  scope.beamstateToggle = function(d)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("beamstateToggle", "${d}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setBeamstateToggle", "beamstateToggle")`)
+	  }
+	  
+	  scope.resetCouplers = function(d)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("resetCouplers")`)
+	  }
+	  
 	  scope.setTargetWager = function()
 	  {
 		  var wager = parseFloat(scope.inputData.targetWager)

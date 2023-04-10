@@ -2,7 +2,7 @@
   "activeGraphId":3,
   "authors":"BeamLR",
   "currentGraphID":3,
-  "date":1680407056,
+  "date":1680945707,
   "debugEnabled":false,
   "description":"Beam Legal Racing Career",
   "difficulty":100,
@@ -35,7 +35,7 @@
         ],
         [
           99,
-          "match_3",
+          "match_4",
           11,
           "flow",
           false
@@ -49,7 +49,7 @@
         ],
         [
           99,
-          "match_4",
+          "match_3",
           11,
           "flow",
           false
@@ -118,15 +118,15 @@
           false
         ],
         [
-          60,
-          "flow",
+          57,
+          "false",
           18,
           "flow",
           false
         ],
         [
-          57,
-          "false",
+          60,
+          "flow",
           18,
           "flow",
           false
@@ -252,14 +252,14 @@
         ],
         [
           4986,
-          "match_3",
+          "match_4",
           25,
           "flow",
           false
         ],
         [
           4986,
-          "match_4",
+          "match_3",
           25,
           "flow",
           false
@@ -307,15 +307,15 @@
           false
         ],
         [
-          494,
-          "flow",
+          979,
+          "completed",
           30,
           "flow",
           false
         ],
         [
-          979,
-          "completed",
+          494,
+          "flow",
           30,
           "flow",
           false
@@ -517,14 +517,14 @@
           false
         ],
         [
-          5008,
+          5009,
           "flow",
           47,
           "flow",
           false
         ],
         [
-          5009,
+          5008,
           "flow",
           47,
           "flow",
@@ -552,14 +552,14 @@
           false
         ],
         [
-          47,
+          27,
           "flow",
           50,
           "flow",
           false
         ],
         [
-          27,
+          47,
           "flow",
           50,
           "flow",
@@ -861,14 +861,14 @@
         ],
         [
           99,
-          "match_3",
+          "match_2",
           76,
           "flow_1",
           false
         ],
         [
           99,
-          "match_2",
+          "match_3",
           76,
           "flow_1",
           false
@@ -888,15 +888,15 @@
           false
         ],
         [
-          613,
-          "flow",
+          471,
+          "False",
           77,
           "flow",
           false
         ],
         [
-          471,
-          "False",
+          613,
+          "flow",
           77,
           "flow",
           false
@@ -1147,15 +1147,15 @@
           false
         ],
         [
-          109,
-          "flow",
+          943,
+          "true",
           95,
           "flow",
           false
         ],
         [
-          943,
-          "true",
+          109,
+          "flow",
           95,
           "flow",
           false
@@ -1343,8 +1343,8 @@
           false
         ],
         [
-          10130,
-          "flow",
+          18,
+          "false",
           109,
           "flow",
           false
@@ -1357,8 +1357,8 @@
           false
         ],
         [
-          18,
-          "false",
+          10130,
+          "flow",
           109,
           "flow",
           false
@@ -1588,13 +1588,6 @@
           false
         ],
         [
-          844,
-          "mflow",
-          119,
-          "flow_1",
-          false
-        ],
-        [
           10235,
           "flow",
           119,
@@ -1602,15 +1595,22 @@
           false
         ],
         [
-          1112,
-          "match_4",
+          844,
+          "mflow",
           119,
-          "flow_2",
+          "flow_1",
           false
         ],
         [
           844,
           "mflow",
+          119,
+          "flow_2",
+          false
+        ],
+        [
+          1112,
+          "match_4",
           119,
           "flow_2",
           false
@@ -1637,13 +1637,6 @@
           true
         ],
         [
-          9879,
-          "flow",
-          123,
-          "flow",
-          false
-        ],
-        [
           9885,
           "flow",
           123,
@@ -1652,6 +1645,13 @@
         ],
         [
           9884,
+          "flow",
+          123,
+          "flow",
+          false
+        ],
+        [
+          9879,
           "flow",
           123,
           "flow",
@@ -1952,15 +1952,15 @@
           true
         ],
         [
-          512,
-          "false",
+          10086,
+          "flow",
           151,
           "flow",
           false
         ],
         [
-          10086,
-          "flow",
+          512,
+          "false",
           151,
           "flow",
           false
@@ -1973,14 +1973,14 @@
           false
         ],
         [
-          234,
+          1179,
           "flow",
           152,
           "flow",
           false
         ],
         [
-          1179,
+          234,
           "flow",
           152,
           "flow",
@@ -2123,7 +2123,7 @@
           846,
           "pool",
           162,
-          "poolAmount",
+          "poolActiveAmount",
           false
         ],
         [
@@ -2288,14 +2288,14 @@
           false
         ],
         [
-          1175,
+          146,
           "flow",
           175,
           "flow",
           false
         ],
         [
-          146,
+          1175,
           "flow",
           175,
           "flow",
@@ -2505,14 +2505,14 @@
           false
         ],
         [
-          1096,
+          1094,
           "False",
           194,
           "flow",
           false
         ],
         [
-          1094,
+          1096,
           "False",
           194,
           "flow",
@@ -2757,15 +2757,15 @@
           false
         ],
         [
-          124,
-          "flow",
+          1175,
+          "down",
           212,
           "flow",
           false
         ],
         [
-          1175,
-          "down",
+          124,
+          "flow",
           212,
           "flow",
           false
@@ -2883,15 +2883,15 @@
           false
         ],
         [
-          180,
-          "false",
+          10050,
+          "flow",
           222,
           "flow",
           false
         ],
         [
-          10050,
-          "flow",
+          180,
+          "false",
           222,
           "flow",
           false
@@ -3331,15 +3331,15 @@
           false
         ],
         [
-          148,
-          "flow",
+          254,
+          "false",
           255,
           "flow",
           false
         ],
         [
-          254,
-          "false",
+          148,
+          "flow",
           255,
           "flow",
           false
@@ -3548,15 +3548,15 @@
           false
         ],
         [
-          762,
-          "flow",
+          10217,
+          "false",
           273,
           "flow",
           false
         ],
         [
-          10217,
-          "false",
+          762,
+          "flow",
           273,
           "flow",
           false
@@ -4367,14 +4367,14 @@
           false
         ],
         [
-          10218,
+          769,
           "false",
           337,
           "flow",
           false
         ],
         [
-          769,
+          10218,
           "false",
           337,
           "flow",
@@ -4927,8 +4927,8 @@
           false
         ],
         [
-          377,
-          "none",
+          10017,
+          "flow",
           378,
           "flow",
           false
@@ -4941,7 +4941,7 @@
           false
         ],
         [
-          394,
+          10011,
           "flow",
           378,
           "flow",
@@ -4955,6 +4955,13 @@
           false
         ],
         [
+          394,
+          "flow",
+          378,
+          "flow",
+          false
+        ],
+        [
           1182,
           "flow",
           378,
@@ -4962,15 +4969,8 @@
           false
         ],
         [
-          10017,
-          "flow",
-          378,
-          "flow",
-          false
-        ],
-        [
-          10011,
-          "flow",
+          377,
+          "none",
           378,
           "flow",
           false
@@ -6103,15 +6103,15 @@
           true
         ],
         [
-          752,
-          "flow",
+          493,
+          "true",
           463,
           "flow",
           false
         ],
         [
-          493,
-          "true",
+          752,
+          "flow",
           463,
           "flow",
           false
@@ -7062,14 +7062,14 @@
           true
         ],
         [
-          505,
+          539,
           "flow",
           534,
           "on",
           false
         ],
         [
-          539,
+          505,
           "flow",
           534,
           "on",
@@ -7104,14 +7104,14 @@
           false
         ],
         [
-          505,
+          539,
           "flow",
           537,
           "flow",
           false
         ],
         [
-          539,
+          505,
           "flow",
           537,
           "flow",
@@ -7728,14 +7728,14 @@
         ],
         [
           608,
-          "evade",
+          "arrest",
           587,
           "reset",
           false
         ],
         [
           608,
-          "arrest",
+          "evade",
           587,
           "reset",
           false
@@ -7979,15 +7979,15 @@
           false
         ],
         [
-          48,
-          "false",
+          153,
+          "flow",
           607,
           "on",
           false
         ],
         [
-          153,
-          "flow",
+          48,
+          "false",
           607,
           "on",
           false
@@ -8875,15 +8875,15 @@
           false
         ],
         [
-          672,
-          "true",
+          735,
+          "True",
           671,
           "flow",
           false
         ],
         [
-          735,
-          "True",
+          672,
+          "true",
           671,
           "flow",
           false
@@ -10198,15 +10198,15 @@
           false
         ],
         [
-          656,
-          "false",
+          760,
+          "flow",
           768,
           "flow",
           false
         ],
         [
-          760,
-          "flow",
+          656,
+          "false",
           768,
           "flow",
           false
@@ -10254,15 +10254,15 @@
           false
         ],
         [
-          10022,
-          "flow",
+          269,
+          "false",
           773,
           "flow",
           false
         ],
         [
-          269,
-          "false",
+          10022,
+          "flow",
           773,
           "flow",
           false
@@ -10688,15 +10688,15 @@
           false
         ],
         [
-          10273,
-          "flow",
+          995,
+          "False",
           808,
           "flow",
           false
         ],
         [
-          995,
-          "False",
+          10273,
+          "flow",
           808,
           "flow",
           false
@@ -10751,14 +10751,14 @@
           false
         ],
         [
-          10245,
+          843,
           "down",
           812,
           "reset",
           false
         ],
         [
-          843,
+          10245,
           "down",
           812,
           "reset",
@@ -10926,6 +10926,13 @@
           false
         ],
         [
+          843,
+          "flow",
+          823,
+          "flow",
+          false
+        ],
+        [
           1149,
           "flow",
           823,
@@ -10934,13 +10941,6 @@
         ],
         [
           956,
-          "flow",
-          823,
-          "flow",
-          false
-        ],
-        [
-          843,
           "flow",
           823,
           "flow",
@@ -11241,15 +11241,15 @@
           false
         ],
         [
-          7,
-          "enterState",
+          996,
+          "flow",
           846,
           "flow",
           false
         ],
         [
-          996,
-          "flow",
+          7,
+          "enterState",
           846,
           "flow",
           false
@@ -11437,15 +11437,15 @@
           false
         ],
         [
-          812,
-          "flow",
+          843,
+          "down",
           867,
           "flow",
           false
         ],
         [
-          843,
-          "down",
+          812,
+          "flow",
           867,
           "flow",
           false
@@ -11535,14 +11535,14 @@
           false
         ],
         [
-          171,
+          126,
           "down",
           874,
           "reset",
           false
         ],
         [
-          126,
+          171,
           "down",
           874,
           "reset",
@@ -11570,15 +11570,15 @@
           false
         ],
         [
-          833,
-          "false",
+          10116,
+          "flow",
           876,
           "on",
           false
         ],
         [
-          10116,
-          "flow",
+          833,
+          "false",
           876,
           "on",
           false
@@ -12550,15 +12550,15 @@
           false
         ],
         [
-          193,
-          "down",
+          918,
+          "flow",
           940,
           "flow",
           false
         ],
         [
-          918,
-          "flow",
+          193,
+          "down",
           940,
           "flow",
           false
@@ -13824,10 +13824,17 @@
           false
         ],
         [
-          1134,
+          10038,
           "flow",
-          1175,
+          10039,
           "flow",
+          false
+        ],
+        [
+          275,
+          "opConfig",
+          10039,
+          "val",
           false
         ],
         [
@@ -13866,15 +13873,15 @@
           false
         ],
         [
-          440,
-          "true",
+          44,
+          "flow",
           10136,
           "flow",
           false
         ],
         [
-          44,
-          "flow",
+          440,
+          "true",
           10136,
           "flow",
           false
@@ -14090,13 +14097,6 @@
           false
         ],
         [
-          526,
-          "flow",
-          1119,
-          "flow",
-          false
-        ],
-        [
           10017,
           "down",
           1119,
@@ -14104,15 +14104,22 @@
           false
         ],
         [
-          204,
-          "False",
-          10107,
+          526,
+          "flow",
+          1119,
           "flow",
           false
         ],
         [
           204,
           "True",
+          10107,
+          "flow",
+          false
+        ],
+        [
+          204,
+          "False",
           10107,
           "flow",
           false
@@ -14195,24 +14202,52 @@
           false
         ],
         [
-          882,
+          10151,
           "flow",
-          1087,
+          10140,
           "flow",
           false
         ],
         [
-          670,
-          "vehId",
-          1087,
-          "veid",
+          275,
+          "cpcount",
+          10140,
+          "cpc",
           false
         ],
         [
-          1080,
+          275,
+          "triggers",
+          10140,
+          "trigs",
+          false
+        ],
+        [
+          275,
+          "wayps",
+          10140,
+          "wps",
+          false
+        ],
+        [
+          10150,
           "val",
-          1087,
-          "mass",
+          10140,
+          "current",
+          false
+        ],
+        [
+          10151,
+          "val",
+          10140,
+          "clap",
+          false
+        ],
+        [
+          275,
+          "laps",
+          10140,
+          "laps",
           false
         ],
         [
@@ -14615,16 +14650,16 @@
           false
         ],
         [
-          10145,
+          1143,
           "flow",
-          10146,
+          1144,
           "flow",
           false
         ],
         [
-          10149,
-          "objID",
-          10146,
+          1143,
+          "new",
+          1144,
           "val",
           false
         ],
@@ -14713,17 +14748,10 @@
           false
         ],
         [
-          7,
+          377,
+          "match_1",
+          10212,
           "flow",
-          1072,
-          "flow",
-          false
-        ],
-        [
-          10017,
-          "down",
-          1072,
-          "on",
           false
         ],
         [
@@ -14752,27 +14780,6 @@
           "vehId",
           10084,
           "vehId",
-          false
-        ],
-        [
-          1146,
-          "drain",
-          1185,
-          "flow",
-          false
-        ],
-        [
-          368,
-          "flow",
-          1185,
-          "reset",
-          false
-        ],
-        [
-          10128,
-          "flow",
-          1185,
-          "reset",
           false
         ],
         [
@@ -14811,10 +14818,24 @@
           false
         ],
         [
-          208,
+          1146,
+          "drain",
+          1185,
           "flow",
-          9882,
+          false
+        ],
+        [
+          10128,
           "flow",
+          1185,
+          "reset",
+          false
+        ],
+        [
+          368,
+          "flow",
+          1185,
+          "reset",
           false
         ],
         [
@@ -14846,18 +14867,25 @@
           false
         ],
         [
-          608,
+          208,
           "flow",
-          1188,
+          9882,
           "flow",
           false
         ],
         [
-          608,
-          "active",
-          1188,
-          "on",
+          620,
+          "false",
+          10145,
+          "flow",
           false
+        ],
+        [
+          10140,
+          "nextId",
+          10145,
+          "val",
+          true
         ],
         [
           350,
@@ -14902,20 +14930,6 @@
           false
         ],
         [
-          9913,
-          "flow",
-          9914,
-          "flow",
-          false
-        ],
-        [
-          9913,
-          "filename",
-          9914,
-          "filename",
-          false
-        ],
-        [
           747,
           "flow",
           10214,
@@ -14930,10 +14944,17 @@
           false
         ],
         [
-          250,
-          "flowB",
-          10220,
+          9913,
           "flow",
+          9914,
+          "flow",
+          false
+        ],
+        [
+          9913,
+          "filename",
+          9914,
+          "filename",
           false
         ],
         [
@@ -14972,17 +14993,10 @@
           false
         ],
         [
-          868,
-          "false",
-          10256,
+          7,
           "flow",
-          false
-        ],
-        [
-          869,
-          "num",
-          10256,
-          "val",
+          1150,
+          "flow",
           false
         ],
         [
@@ -14993,31 +15007,24 @@
           false
         ],
         [
-          10251,
+          1067,
           "flow",
-          10252,
+          10284,
           "flow",
           false
         ],
         [
-          10250,
+          10026,
+          "flow",
+          10038,
+          "flow",
+          false
+        ],
+        [
+          275,
+          "opModel",
+          10038,
           "val",
-          10252,
-          "X",
-          false
-        ],
-        [
-          829,
-          "reputation",
-          10252,
-          "DX",
-          false
-        ],
-        [
-          1075,
-          "flow",
-          1082,
-          "flow",
           false
         ],
         [
@@ -15042,9 +15049,44 @@
           false
         ],
         [
+          1097,
+          "true",
+          1099,
+          "flow",
+          false
+        ],
+        [
+          198,
+          "vehId",
+          1099,
+          "veid",
+          false
+        ],
+        [
+          455,
+          "mass",
+          1099,
+          "mass",
+          false
+        ],
+        [
+          455,
+          "cap",
+          1099,
+          "cap",
+          false
+        ],
+        [
           184,
           "flow",
           9885,
+          "flow",
+          false
+        ],
+        [
+          246,
+          "flow",
+          10055,
           "flow",
           false
         ],
@@ -15063,37 +15105,9 @@
           false
         ],
         [
-          4986,
-          "match_2",
-          1177,
+          1168,
           "flow",
-          false
-        ],
-        [
-          4986,
-          "match_1",
-          1177,
-          "flow",
-          false
-        ],
-        [
-          157,
-          "flow",
-          9889,
-          "flow",
-          false
-        ],
-        [
-          157,
-          "destpos",
-          9889,
-          "val",
-          false
-        ],
-        [
-          798,
-          "flow",
-          10272,
+          1169,
           "flow",
           false
         ],
@@ -15154,14 +15168,14 @@
           false
         ],
         [
-          639,
+          520,
           "flow",
           10088,
           "flow",
           false
         ],
         [
-          520,
+          639,
           "flow",
           10088,
           "flow",
@@ -15175,17 +15189,17 @@
           false
         ],
         [
-          846,
+          157,
           "flow",
-          1209,
+          9889,
           "flow",
           false
         ],
         [
-          846,
-          "autoCopfix",
-          1209,
-          "flag",
+          157,
+          "destpos",
+          9889,
+          "val",
           false
         ],
         [
@@ -15203,38 +15217,31 @@
           false
         ],
         [
-          875,
+          487,
           "flow",
-          10259,
+          10236,
           "flow",
           false
         ],
         [
-          591,
-          "false",
-          10259,
-          "reset",
-          false
-        ],
-        [
-          875,
-          "data",
-          10259,
-          "group",
-          false
-        ],
-        [
-          846,
-          "trucks",
-          10259,
-          "quantity",
-          false
-        ],
-        [
-          831,
+          10186,
           "flow",
-          1193,
+          10185,
           "flow",
+          false
+        ],
+        [
+          342,
+          "veid",
+          10185,
+          "veid",
+          false
+        ],
+        [
+          10186,
+          "val",
+          10185,
+          "file",
           false
         ],
         [
@@ -15343,17 +15350,10 @@
           false
         ],
         [
-          10242,
+          558,
           "flow",
-          10243,
+          10095,
           "flow",
-          false
-        ],
-        [
-          809,
-          "True",
-          10243,
-          "reset",
           false
         ],
         [
@@ -15553,15 +15553,15 @@
           false
         ],
         [
-          1106,
-          "flow",
+          146,
+          "down",
           1025,
           "flow",
           false
         ],
         [
-          146,
-          "down",
+          1106,
+          "flow",
           1025,
           "flow",
           false
@@ -15581,9 +15581,9 @@
           false
         ],
         [
-          1195,
-          "true",
-          1196,
+          1186,
+          "flow",
+          1189,
           "flow",
           false
         ],
@@ -15686,24 +15686,17 @@
           true
         ],
         [
-          1029,
+          10097,
           "flow",
-          1030,
+          10098,
           "flow",
           false
         ],
         [
-          843,
-          "down",
-          1030,
-          "reset",
-          false
-        ],
-        [
-          10245,
-          "down",
-          1030,
-          "reset",
+          275,
+          "partPrice",
+          10098,
+          "val",
           false
         ],
         [
@@ -15721,17 +15714,10 @@
           true
         ],
         [
-          365,
+          1016,
+          "true",
+          10276,
           "flow",
-          10260,
-          "flow",
-          false
-        ],
-        [
-          910,
-          "textB",
-          10260,
-          "text",
           false
         ],
         [
@@ -15742,9 +15728,16 @@
           false
         ],
         [
-          377,
-          "match_1",
-          10212,
+          210,
+          "down",
+          1191,
+          "flow",
+          false
+        ],
+        [
+          9876,
+          "down",
+          1191,
           "flow",
           false
         ],
@@ -15756,10 +15749,24 @@
           false
         ],
         [
-          1138,
+          243,
           "flow",
-          1142,
+          10037,
           "flow",
+          false
+        ],
+        [
+          243,
+          "Y",
+          10037,
+          "X",
+          false
+        ],
+        [
+          10029,
+          "val",
+          10037,
+          "DX",
           false
         ],
         [
@@ -15798,17 +15805,10 @@
           false
         ],
         [
-          10038,
+          130,
           "flow",
-          10039,
+          1038,
           "flow",
-          false
-        ],
-        [
-          275,
-          "opConfig",
-          10039,
-          "val",
           false
         ],
         [
@@ -15868,10 +15868,24 @@
           false
         ],
         [
-          130,
+          1016,
+          "true",
+          1031,
           "flow",
-          1038,
-          "flow",
+          false
+        ],
+        [
+          843,
+          "down",
+          1031,
+          "reset",
+          false
+        ],
+        [
+          10245,
+          "down",
+          1031,
+          "reset",
           false
         ],
         [
@@ -15924,30 +15938,30 @@
           false
         ],
         [
-          1016,
-          "true",
-          1031,
+          271,
+          "flow",
+          1094,
           "flow",
           false
         ],
         [
-          843,
-          "down",
-          1031,
-          "reset",
+          193,
+          "flow",
+          1094,
+          "flow",
           false
         ],
         [
-          10245,
-          "down",
-          1031,
-          "reset",
+          466,
+          "flag",
+          1094,
+          "condition",
           false
         ],
         [
-          1190,
-          "true",
-          1194,
+          419,
+          "flow",
+          10193,
           "flow",
           false
         ],
@@ -15966,24 +15980,10 @@
           false
         ],
         [
-          1185,
+          622,
           "flow",
-          1186,
+          10129,
           "flow",
-          false
-        ],
-        [
-          368,
-          "flow",
-          1186,
-          "reset",
-          false
-        ],
-        [
-          10128,
-          "flow",
-          1186,
-          "reset",
           false
         ],
         [
@@ -16008,31 +16008,31 @@
           false
         ],
         [
-          146,
-          "down",
-          1130,
+          1057,
+          "flow",
+          10282,
           "flow",
           false
         ],
         [
-          271,
+          1057,
+          "time",
+          10282,
+          "val",
+          false
+        ],
+        [
+          365,
           "flow",
-          1094,
+          10260,
           "flow",
           false
         ],
         [
-          193,
-          "flow",
-          1094,
-          "flow",
-          false
-        ],
-        [
-          466,
-          "flag",
-          1094,
-          "condition",
+          910,
+          "textB",
+          10260,
+          "text",
           false
         ],
         [
@@ -16050,24 +16050,10 @@
           false
         ],
         [
-          1132,
+          84,
           "flow",
-          1086,
+          1088,
           "flow",
-          false
-        ],
-        [
-          516,
-          "veid",
-          1086,
-          "veid",
-          false
-        ],
-        [
-          295,
-          "nos",
-          1086,
-          "mass",
           false
         ],
         [
@@ -16099,13 +16085,6 @@
           false
         ],
         [
-          10245,
-          "down",
-          10281,
-          "flow",
-          false
-        ],
-        [
           843,
           "down",
           10281,
@@ -16113,23 +16092,30 @@
           false
         ],
         [
-          21,
-          "flow",
-          1098,
+          10245,
+          "down",
+          10281,
           "flow",
           false
         ],
         [
-          968,
-          "output",
-          1098,
-          "vehId",
+          1181,
+          "down",
+          10034,
+          "flow",
           false
         ],
         [
-          867,
+          4986,
+          "match_2",
+          1177,
           "flow",
-          1192,
+          false
+        ],
+        [
+          4986,
+          "match_1",
+          1177,
           "flow",
           false
         ],
@@ -16253,16 +16239,9 @@
           false
         ],
         [
-          210,
-          "down",
-          1191,
+          1134,
           "flow",
-          false
-        ],
-        [
-          9876,
-          "down",
-          1191,
+          1175,
           "flow",
           false
         ],
@@ -16337,23 +16316,16 @@
           false
         ],
         [
-          837,
+          1031,
           "flow",
-          10253,
+          1034,
           "flow",
           false
         ],
         [
-          10252,
-          "Y",
-          10253,
-          "val",
-          false
-        ],
-        [
-          246,
+          867,
           "flow",
-          10055,
+          1192,
           "flow",
           false
         ],
@@ -16407,6 +16379,13 @@
           false
         ],
         [
+          798,
+          "flow",
+          10272,
+          "flow",
+          false
+        ],
+        [
           1089,
           "flow",
           1199,
@@ -16418,27 +16397,6 @@
           "damage",
           1199,
           "val",
-          false
-        ],
-        [
-          10186,
-          "flow",
-          10185,
-          "flow",
-          false
-        ],
-        [
-          342,
-          "veid",
-          10185,
-          "veid",
-          false
-        ],
-        [
-          10186,
-          "val",
-          10185,
-          "file",
           false
         ],
         [
@@ -16456,9 +16414,9 @@
           false
         ],
         [
-          218,
-          "flow",
-          1137,
+          186,
+          "False",
+          10031,
           "flow",
           false
         ],
@@ -16477,9 +16435,9 @@
           false
         ],
         [
-          186,
-          "False",
-          10031,
+          10015,
+          "flow",
+          10024,
           "flow",
           false
         ],
@@ -16512,9 +16470,9 @@
           false
         ],
         [
-          558,
-          "flow",
-          10095,
+          250,
+          "flowB",
+          10220,
           "flow",
           false
         ],
@@ -16529,13 +16487,6 @@
           7,
           "flow",
           1267,
-          "flow",
-          false
-        ],
-        [
-          10015,
-          "flow",
-          10024,
           "flow",
           false
         ],
@@ -16603,13 +16554,6 @@
           false
         ],
         [
-          1170,
-          "flow",
-          1171,
-          "flow",
-          false
-        ],
-        [
           1164,
           "flow",
           1171,
@@ -16617,10 +16561,31 @@
           false
         ],
         [
-          7,
+          1170,
           "flow",
-          1150,
+          1171,
           "flow",
+          false
+        ],
+        [
+          1029,
+          "flow",
+          1030,
+          "flow",
+          false
+        ],
+        [
+          843,
+          "down",
+          1030,
+          "reset",
+          false
+        ],
+        [
+          10245,
+          "down",
+          1030,
+          "reset",
           false
         ],
         [
@@ -16694,27 +16659,6 @@
           false
         ],
         [
-          803,
-          "flow",
-          1033,
-          "flow",
-          false
-        ],
-        [
-          531,
-          "showbm",
-          1033,
-          "condition",
-          false
-        ],
-        [
-          10204,
-          "flow",
-          10201,
-          "flow",
-          false
-        ],
-        [
           841,
           "flow",
           10258,
@@ -16726,6 +16670,20 @@
           "gmwp",
           10258,
           "val",
+          false
+        ],
+        [
+          10204,
+          "flow",
+          10201,
+          "flow",
+          false
+        ],
+        [
+          407,
+          "flow",
+          10124,
+          "flow",
           false
         ],
         [
@@ -16764,10 +16722,24 @@
           false
         ],
         [
-          407,
+          1028,
           "flow",
-          10124,
+          1029,
           "flow",
+          false
+        ],
+        [
+          843,
+          "down",
+          1029,
+          "reset",
+          false
+        ],
+        [
+          10245,
+          "down",
+          1029,
+          "reset",
           false
         ],
         [
@@ -16778,10 +16750,17 @@
           false
         ],
         [
-          1168,
+          1096,
+          "True",
+          1095,
           "flow",
-          1169,
-          "flow",
+          false
+        ],
+        [
+          455,
+          "fillinfo",
+          1095,
+          "text",
           false
         ],
         [
@@ -16799,16 +16778,16 @@
           false
         ],
         [
-          10033,
-          "flow",
-          10036,
+          868,
+          "false",
+          10256,
           "flow",
           false
         ],
         [
-          10033,
-          "Y",
-          10036,
+          869,
+          "num",
+          10256,
           "val",
           false
         ],
@@ -16816,6 +16795,13 @@
           10105,
           "flow",
           10106,
+          "flow",
+          false
+        ],
+        [
+          1138,
+          "flow",
+          1142,
           "flow",
           false
         ],
@@ -16841,17 +16827,10 @@
           false
         ],
         [
-          1137,
+          1190,
+          "true",
+          1194,
           "flow",
-          1138,
-          "flow",
-          false
-        ],
-        [
-          1137,
-          "val",
-          1138,
-          "extras",
           false
         ],
         [
@@ -16925,15 +16904,15 @@
           false
         ],
         [
-          1181,
-          "flow",
+          247,
+          "False",
           10011,
           "flow",
           false
         ],
         [
-          247,
-          "False",
+          1181,
+          "flow",
           10011,
           "flow",
           false
@@ -16944,13 +16923,6 @@
           1075,
           "flow",
           true
-        ],
-        [
-          10181,
-          "flow",
-          10228,
-          "flow",
-          false
         ],
         [
           311,
@@ -16995,30 +16967,30 @@
           false
         ],
         [
-          10281,
+          293,
           "flow",
-          1035,
-          "flow",
-          false
-        ],
-        [
-          1031,
-          "flow",
-          1034,
+          10044,
           "flow",
           false
         ],
         [
-          1112,
-          "match_2",
-          10007,
+          10033,
+          "flow",
+          10036,
           "flow",
           false
         ],
         [
-          1112,
-          "match_5",
-          10007,
+          10033,
+          "Y",
+          10036,
+          "val",
+          false
+        ],
+        [
+          10181,
+          "flow",
+          10228,
           "flow",
           false
         ],
@@ -17044,6 +17016,27 @@
           false
         ],
         [
+          1188,
+          "flow",
+          1146,
+          "flow",
+          false
+        ],
+        [
+          608,
+          "active",
+          1146,
+          "gate",
+          false
+        ],
+        [
+          1118,
+          "flow",
+          10077,
+          "flow",
+          true
+        ],
+        [
           902,
           "flow",
           1145,
@@ -17055,27 +17048,6 @@
           "C",
           1145,
           "condition",
-          false
-        ],
-        [
-          1118,
-          "flow",
-          10077,
-          "flow",
-          true
-        ],
-        [
-          1143,
-          "flow",
-          1144,
-          "flow",
-          false
-        ],
-        [
-          1143,
-          "new",
-          1144,
-          "val",
           false
         ],
         [
@@ -17100,18 +17072,32 @@
           false
         ],
         [
-          118,
-          "a",
-          10060,
+          10235,
           "flow",
+          10234,
+          "flow_1",
           false
         ],
         [
-          407,
-          "output",
-          10060,
-          "data",
-          true
+          844,
+          "cflow",
+          10234,
+          "flow_1",
+          false
+        ],
+        [
+          1112,
+          "match_7",
+          10234,
+          "flow_2",
+          false
+        ],
+        [
+          844,
+          "cflow",
+          10234,
+          "flow_2",
+          false
         ],
         [
           22,
@@ -17121,17 +17107,10 @@
           false
         ],
         [
-          10039,
+          36,
           "flow",
-          10040,
+          1187,
           "flow",
-          false
-        ],
-        [
-          275,
-          "opRisk",
-          10040,
-          "val",
           false
         ],
         [
@@ -17156,17 +17135,24 @@
           false
         ],
         [
-          36,
+          10251,
           "flow",
-          1187,
+          10252,
           "flow",
           false
         ],
         [
-          1037,
-          "flow",
-          1039,
-          "flow",
+          10250,
+          "val",
+          10252,
+          "X",
+          false
+        ],
+        [
+          829,
+          "reputation",
+          10252,
+          "DX",
           false
         ],
         [
@@ -17209,6 +17195,34 @@
           "gas",
           1128,
           "fuel",
+          false
+        ],
+        [
+          875,
+          "flow",
+          10259,
+          "flow",
+          false
+        ],
+        [
+          591,
+          "false",
+          10259,
+          "reset",
+          false
+        ],
+        [
+          875,
+          "data",
+          10259,
+          "group",
+          false
+        ],
+        [
+          846,
+          "trucks",
+          10259,
+          "quantity",
           false
         ],
         [
@@ -17296,17 +17310,31 @@
           false
         ],
         [
-          293,
+          10281,
           "flow",
-          10044,
+          1035,
           "flow",
           false
         ],
         [
-          487,
+          819,
           "flow",
-          10236,
+          10251,
           "flow",
+          false
+        ],
+        [
+          819,
+          "Y",
+          10251,
+          "X",
+          false
+        ],
+        [
+          829,
+          "wager",
+          10251,
+          "DX",
           false
         ],
         [
@@ -17331,24 +17359,17 @@
           false
         ],
         [
-          819,
+          158,
           "flow",
-          10251,
+          10289,
           "flow",
           false
         ],
         [
-          819,
-          "Y",
-          10251,
-          "X",
-          false
-        ],
-        [
-          829,
-          "wager",
-          10251,
-          "DX",
+          54,
+          "msg",
+          10289,
+          "message",
           false
         ],
         [
@@ -17387,45 +17408,38 @@
           false
         ],
         [
-          620,
-          "false",
-          10145,
+          608,
+          "flow",
+          1188,
           "flow",
           false
         ],
         [
-          10140,
-          "nextId",
-          10145,
+          608,
+          "active",
+          1188,
+          "on",
+          false
+        ],
+        [
+          1075,
+          "flow",
+          1082,
+          "flow",
+          false
+        ],
+        [
+          10039,
+          "flow",
+          10040,
+          "flow",
+          false
+        ],
+        [
+          275,
+          "opRisk",
+          10040,
           "val",
-          true
-        ],
-        [
-          402,
-          "flow",
-          1081,
-          "flow",
-          false
-        ],
-        [
-          455,
-          "mass",
-          1081,
-          "input",
-          false
-        ],
-        [
-          10144,
-          "flow",
-          10153,
-          "flow",
-          false
-        ],
-        [
-          633,
-          "objID",
-          10153,
-          "newPin",
           false
         ],
         [
@@ -17478,17 +17492,24 @@
           false
         ],
         [
-          1139,
+          10050,
           "flow",
-          1140,
+          10178,
           "flow",
           false
         ],
         [
-          1139,
-          "val",
-          1140,
-          "rep",
+          268,
+          "integrityData",
+          10178,
+          "iteg",
+          false
+        ],
+        [
+          9901,
+          "ifile",
+          10178,
+          "file",
           false
         ],
         [
@@ -17527,10 +17548,17 @@
           false
         ],
         [
-          622,
+          1088,
           "flow",
-          10129,
+          1089,
           "flow",
+          false
+        ],
+        [
+          1088,
+          "hasNos",
+          1089,
+          "flag",
           false
         ],
         [
@@ -17639,10 +17667,17 @@
           false
         ],
         [
-          950,
+          7,
           "flow",
-          1091,
+          1072,
           "flow",
+          false
+        ],
+        [
+          10017,
+          "down",
+          1072,
+          "on",
           false
         ],
         [
@@ -17653,24 +17688,24 @@
           false
         ],
         [
-          1088,
+          10109,
           "flow",
-          1089,
+          1204,
           "flow",
           false
         ],
         [
-          1088,
-          "hasNos",
-          1089,
-          "flag",
+          385,
+          "flow",
+          10180,
+          "flow",
           false
         ],
         [
-          1082,
-          "flow",
-          1076,
-          "flow",
+          275,
+          "opifile",
+          10180,
+          "val",
           false
         ],
         [
@@ -17821,27 +17856,6 @@
           false
         ],
         [
-          385,
-          "flow",
-          10180,
-          "flow",
-          false
-        ],
-        [
-          275,
-          "opifile",
-          10180,
-          "val",
-          false
-        ],
-        [
-          618,
-          "flow",
-          10182,
-          "flow",
-          false
-        ],
-        [
           10114,
           "loaded",
           10116,
@@ -17863,6 +17877,20 @@
           false
         ],
         [
+          618,
+          "flow",
+          10182,
+          "flow",
+          false
+        ],
+        [
+          1082,
+          "flow",
+          1076,
+          "flow",
+          false
+        ],
+        [
           833,
           "true",
           10118,
@@ -17877,14 +17905,14 @@
           false
         ],
         [
-          843,
+          10245,
           "down",
           1028,
           "on",
           false
         ],
         [
-          10245,
+          843,
           "down",
           1028,
           "on",
@@ -17989,10 +18017,17 @@
           false
         ],
         [
-          1147,
+          1139,
           "flow",
-          1148,
+          1140,
           "flow",
+          false
+        ],
+        [
+          1139,
+          "val",
+          1140,
+          "rep",
           false
         ],
         [
@@ -18052,31 +18087,31 @@
           false
         ],
         [
-          10050,
+          1147,
           "flow",
-          10178,
+          1148,
           "flow",
           false
         ],
         [
-          268,
-          "integrityData",
-          10178,
-          "iteg",
+          882,
+          "flow",
+          1087,
+          "flow",
           false
         ],
         [
-          9901,
-          "ifile",
-          10178,
-          "file",
+          670,
+          "vehId",
+          1087,
+          "veid",
           false
         ],
         [
-          84,
-          "flow",
-          1088,
-          "flow",
+          1080,
+          "val",
+          1087,
+          "mass",
           false
         ],
         [
@@ -18108,16 +18143,23 @@
           false
         ],
         [
-          1186,
+          10144,
           "flow",
-          1189,
+          10153,
           "flow",
           false
         ],
         [
-          10109,
-          "flow",
-          1204,
+          633,
+          "objID",
+          10153,
+          "newPin",
+          false
+        ],
+        [
+          1195,
+          "true",
+          1196,
           "flow",
           false
         ],
@@ -18178,31 +18220,10 @@
           false
         ],
         [
-          1097,
-          "true",
-          1099,
+          950,
           "flow",
-          false
-        ],
-        [
-          198,
-          "vehId",
-          1099,
-          "veid",
-          false
-        ],
-        [
-          455,
-          "mass",
-          1099,
-          "mass",
-          false
-        ],
-        [
-          455,
-          "cap",
-          1099,
-          "cap",
+          1091,
+          "flow",
           false
         ],
         [
@@ -18227,13 +18248,6 @@
           false
         ],
         [
-          825,
-          "flow",
-          1149,
-          "flow",
-          false
-        ],
-        [
           840,
           "false",
           1149,
@@ -18241,17 +18255,24 @@
           false
         ],
         [
-          158,
+          825,
           "flow",
-          10289,
+          1149,
           "flow",
           false
         ],
         [
-          54,
-          "msg",
-          10289,
-          "message",
+          402,
+          "flow",
+          1081,
+          "flow",
+          false
+        ],
+        [
+          455,
+          "mass",
+          1081,
+          "input",
           false
         ],
         [
@@ -18339,17 +18360,10 @@
           false
         ],
         [
-          10026,
+          1037,
           "flow",
-          10038,
+          1039,
           "flow",
-          false
-        ],
-        [
-          275,
-          "opModel",
-          10038,
-          "val",
           false
         ],
         [
@@ -18395,53 +18409,25 @@
           false
         ],
         [
-          10235,
-          "flow",
-          10234,
-          "flow_1",
-          false
-        ],
-        [
-          844,
-          "cflow",
-          10234,
-          "flow_1",
-          false
-        ],
-        [
-          844,
-          "cflow",
-          10234,
-          "flow_2",
-          false
-        ],
-        [
-          1112,
-          "match_7",
-          10234,
-          "flow_2",
-          false
-        ],
-        [
-          1028,
-          "flow",
-          1029,
-          "flow",
-          false
-        ],
-        [
-          843,
+          146,
           "down",
-          1029,
-          "reset",
+          1130,
+          "flow",
           false
         ],
         [
-          10245,
-          "down",
-          1029,
-          "reset",
+          118,
+          "a",
+          10060,
+          "flow",
           false
+        ],
+        [
+          407,
+          "output",
+          10060,
+          "data",
+          true
         ],
         [
           1012,
@@ -18465,17 +18451,17 @@
           false
         ],
         [
-          1188,
-          "flow",
-          1146,
+          1112,
+          "match_2",
+          10007,
           "flow",
           false
         ],
         [
-          608,
-          "active",
-          1146,
-          "gate",
+          1112,
+          "match_5",
+          10007,
+          "flow",
           false
         ],
         [
@@ -18514,10 +18500,17 @@
           false
         ],
         [
-          1181,
-          "down",
-          10034,
+          1137,
           "flow",
+          1138,
+          "flow",
+          false
+        ],
+        [
+          1137,
+          "val",
+          1138,
+          "extras",
           false
         ],
         [
@@ -18528,24 +18521,38 @@
           false
         ],
         [
-          10097,
+          1185,
           "flow",
-          10098,
+          1186,
           "flow",
           false
         ],
         [
-          275,
-          "partPrice",
-          10098,
+          10128,
+          "flow",
+          1186,
+          "reset",
+          false
+        ],
+        [
+          368,
+          "flow",
+          1186,
+          "reset",
+          false
+        ],
+        [
+          837,
+          "flow",
+          10253,
+          "flow",
+          false
+        ],
+        [
+          10252,
+          "Y",
+          10253,
           "val",
-          false
-        ],
-        [
-          419,
-          "flow",
-          10193,
-          "flow",
           false
         ],
         [
@@ -18591,10 +18598,17 @@
           false
         ],
         [
-          1067,
+          21,
           "flow",
-          10284,
+          1098,
           "flow",
+          false
+        ],
+        [
+          968,
+          "output",
+          1098,
+          "vehId",
           false
         ],
         [
@@ -18619,6 +18633,20 @@
           false
         ],
         [
+          803,
+          "flow",
+          1033,
+          "flow",
+          false
+        ],
+        [
+          531,
+          "showbm",
+          1033,
+          "condition",
+          false
+        ],
+        [
           627,
           "True",
           10223,
@@ -18626,24 +18654,24 @@
           false
         ],
         [
-          1057,
-          "flow",
-          10282,
-          "flow",
-          false
-        ],
-        [
-          1057,
-          "time",
-          10282,
-          "val",
-          false
-        ],
-        [
           808,
           "True",
           10245,
           "flow",
+          false
+        ],
+        [
+          10242,
+          "flow",
+          10243,
+          "flow",
+          false
+        ],
+        [
+          809,
+          "True",
+          10243,
+          "reset",
           false
         ],
         [
@@ -18682,17 +18710,10 @@
           false
         ],
         [
-          1096,
-          "True",
-          1095,
+          218,
           "flow",
-          false
-        ],
-        [
-          455,
-          "fillinfo",
-          1095,
-          "text",
+          1137,
+          "flow",
           false
         ],
         [
@@ -18759,13 +18780,6 @@
           false
         ],
         [
-          1016,
-          "true",
-          10276,
-          "flow",
-          false
-        ],
-        [
           1084,
           "true",
           1078,
@@ -18777,6 +18791,13 @@
           "val",
           1078,
           "chp",
+          false
+        ],
+        [
+          831,
+          "flow",
+          1193,
+          "flow",
           false
         ],
         [
@@ -18815,52 +18836,17 @@
           false
         ],
         [
-          10151,
+          10145,
           "flow",
-          10140,
+          10146,
           "flow",
           false
         ],
         [
-          275,
-          "cpcount",
-          10140,
-          "cpc",
-          false
-        ],
-        [
-          275,
-          "triggers",
-          10140,
-          "trigs",
-          false
-        ],
-        [
-          275,
-          "wayps",
-          10140,
-          "wps",
-          false
-        ],
-        [
-          10150,
+          10149,
+          "objID",
+          10146,
           "val",
-          10140,
-          "current",
-          false
-        ],
-        [
-          10151,
-          "val",
-          10140,
-          "clap",
-          false
-        ],
-        [
-          275,
-          "laps",
-          10140,
-          "laps",
           false
         ],
         [
@@ -18878,24 +18864,24 @@
           false
         ],
         [
-          243,
+          1132,
           "flow",
-          10037,
+          1086,
           "flow",
           false
         ],
         [
-          243,
-          "Y",
-          10037,
-          "X",
+          516,
+          "veid",
+          1086,
+          "veid",
           false
         ],
         [
-          10029,
-          "val",
-          10037,
-          "DX",
+          295,
+          "nos",
+          1086,
+          "mass",
           false
         ],
         [
@@ -23852,10 +23838,12 @@
           },
           "hiddenPins":{
             "p_in":{
-              "reset":false,
               "flow":false,
+              "gameStateName":true,
+              "keepLayout":false,
               "layout":false,
-              "menu":false
+              "menu":false,
+              "reset":false
             },
             "p_out":{
               "flow":false
@@ -24870,7 +24858,7 @@
           "hardcodedPins":{
             "duration":{
               "type":"number",
-              "value":0.75000000000000122125
+              "value":0.75000000000000144329
             }
           },
           "hiddenPins":{
@@ -25259,7 +25247,7 @@
         },
         "162":{
           "data":{
-            "useActiveAmount":false
+            "usePoolInactiveAmount":false
           },
           "dynamicMode":"once",
           "hardcodedPins":{
@@ -25269,11 +25257,11 @@
             },
             "directionBias":{
               "type":"number",
-              "value":0.80000001200000159240
+              "value":0.80000001200000192547
             },
             "spawnRate":{
               "type":"number",
-              "value":0.00009999999750000029
+              "value":0.00009999999750000035
             }
           },
           "hiddenPins":{
@@ -25282,7 +25270,7 @@
               "directionBias":true,
               "enableRandomEvents":true,
               "flow":false,
-              "poolAmount":false,
+              "poolActiveAmount":false,
               "reset":false,
               "risk":false,
               "spawnRate":true
@@ -29997,7 +29985,7 @@
           "code":{
             "_executionStarted":"",
             "_executionStopped":"",
-            "work":"local ve\nlocal fullpath = self.pinIn.filename.value\nve = scenetree.findObjectById(self.pinIn.veid.value)\nve:queueLuaCommand(\"beamstate.load(\\\"\" .. fullpath .. \"\\\")\" )\nself.pinOut.dbgval.value = fullpath"
+            "work":"local extensions = require(\"extensions\")\nlocal ve = scenetree.findObjectById(self.pinIn.veid.value)\nlocal fullpath = self.pinIn.filename.value\n\nif extensions.blrglobals.blrFlagGet(\"beamstateToggle\") then\nve:queueLuaCommand(\"beamstate.load(\\\"\" .. fullpath .. \"\\\")\" )\nend\n\nself.pinOut.dbgval.value = fullpath"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -45506,7 +45494,9 @@
           "type":"logic/flowSwitch"
         },
         "633":{
-          "data":{},
+          "data":{
+            "name":"BeamLRTrigger_OffroadCP1"
+          },
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
@@ -51418,7 +51408,7 @@
           "hardcodedPins":{
             "checkVelocity":{
               "type":"number",
-              "value":0.01000000000000002102
+              "value":0.01000000000000002623
             }
           },
           "hiddenPins":{
@@ -52487,7 +52477,7 @@
               "value":[
                 1,
                 0,
-                0.00006008148190000023,
+                0.00006008148190000027,
                 1
               ]
             },
@@ -54350,7 +54340,7 @@
         },
         "846":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal options = extensions.blrutils.loadDataTable(\"beamLR/options\")\nlocal ctraffic = tonumber(options[\"crazytraffic\"])\nif ctraffic == 0 then\nself.pinOut.traffic.value = tonumber(options[\"traffic\"])\nself.pinOut.police.value = tonumber(options[\"police\"])\nself.pinOut.trucks.value = tonumber(options[\"trucks\"])\nself.pinOut.pool.value = math.floor((tonumber(options[\"traffic\"]) + tonumber(options[\"police\"]) + tonumber(options[\"trucks\"])) / 3)\nelse\nself.pinOut.traffic.value = 8\nself.pinOut.police.value = 8\nself.pinOut.trucks.value = 8\nself.pinOut.pool.value = 18\nend\nself.pinOut.sseed.value = tonumber(options[\"sseed\"])\nself.pinOut.risk.value = tonumber(options[\"trisk\"]) or 0.7\nself.pinOut.copstrict.value = tonumber(options[\"copstrict\"]) or 0.08\nself.pinOut.sleepTime.value = tonumber(options[\"sleeptime\"]) or 8\nself.pinOut.raceRandPaint.value = (tonumber(options[\"raceRandPaint\"]) == 1) or false\nlocal copfix = tonumber(options[\"autoCopfix\"] or \"1\")\nself.pinOut.autoCopfix.value = (copfix == 1)",
+            "work":"local extensions = require(\"extensions\")\nlocal options = extensions.blrutils.loadDataTable(\"beamLR/options\")\nlocal ctraffic = tonumber(options[\"crazytraffic\"])\nlocal ttotal = (tonumber(options[\"traffic\"]) + tonumber(options[\"police\"]) + tonumber(options[\"trucks\"]))\nif ctraffic == 0 then\nself.pinOut.traffic.value = tonumber(options[\"traffic\"])\nself.pinOut.police.value = tonumber(options[\"police\"])\nself.pinOut.trucks.value = tonumber(options[\"trucks\"])\nself.pinOut.pool.value = math.floor(ttotal - (ttotal / 3))--Changed in 0.28, value now used as amount of active vehs when pooling\nelse\nself.pinOut.traffic.value = 8\nself.pinOut.police.value = 8\nself.pinOut.trucks.value = 8\nself.pinOut.pool.value = 18\nend\nself.pinOut.sseed.value = tonumber(options[\"sseed\"])\nself.pinOut.risk.value = tonumber(options[\"trisk\"]) or 0.7\nself.pinOut.copstrict.value = tonumber(options[\"copstrict\"]) or 0.08\nself.pinOut.sleepTime.value = tonumber(options[\"sleeptime\"]) or 8\nself.pinOut.raceRandPaint.value = (tonumber(options[\"raceRandPaint\"]) == 1) or false\n\nlocal copfix = tonumber(options[\"autoCopfix\"] or \"1\")\nextensions.blrglobals.blrFlagSet(\"roleFixToggle\", copfix == 1)\nlocal bstoggle = tonumber(options[\"bstoggle\"] or \"0\") --can turn this default to 1 when issue is fixed, for old option files\nextensions.blrglobals.blrFlagSet(\"beamstateToggle\", bstoggle == 1)",
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":""
@@ -54362,7 +54352,6 @@
               "flow":false
             },
             "p_out":{
-              "autoCopfix":false,
               "copstrict":false,
               "flow":false,
               "police":false,
@@ -54453,13 +54442,6 @@
               "out",
               "bool",
               "raceRandPaint",
-              null,
-              ""
-            ],
-            [
-              "out",
-              "bool",
-              "autoCopfix",
               null,
               ""
             ]
@@ -57034,7 +57016,7 @@
           "code":{
             "_executionStarted":"",
             "_executionStopped":"",
-            "work":"local ve\nlocal fullpath = self.pinIn.filename.value \nve = scenetree.findObjectById(self.pinIn.veid.value)\nve:queueLuaCommand(\"beamstate.load(\\\"\" .. fullpath .. \"\\\")\" )\nself.pinOut.dbgval.value = \"WTF\""
+            "work":"local extensions = require(\"extensions\")\nlocal ve = scenetree.findObjectById(self.pinIn.veid.value)\nlocal fullpath = self.pinIn.filename.value\n\nif extensions.blrglobals.blrFlagGet(\"beamstateToggle\") then\nve:queueLuaCommand(\"beamstate.load(\\\"\" .. fullpath .. \"\\\")\" )\nend\n\nself.pinOut.dbgval.value = fullpath"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -58078,7 +58060,7 @@
           "code":{
             "_executionStarted":"",
             "_executionStopped":"",
-            "work":"local ve\nlocal fullpath = self.pinIn.filename.value \nve = scenetree.findObjectById(self.pinIn.veid.value)\nve:queueLuaCommand(\"beamstate.load(\\\"\" .. fullpath .. \"\\\")\" )\nself.pinOut.dbgval.value = \"WTF\""
+            "work":"local extensions = require(\"extensions\")\nlocal ve = scenetree.findObjectById(self.pinIn.veid.value)\nlocal fullpath = self.pinIn.filename.value\n\nif extensions.blrglobals.blrFlagGet(\"beamstateToggle\") then\nve:queueLuaCommand(\"beamstate.load(\\\"\" .. fullpath .. \"\\\")\" )\nend\n\nself.pinOut.dbgval.value = fullpath"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -60424,7 +60406,7 @@
           "hardcodedPins":{
             "duration":{
               "type":"number",
-              "value":0.75000000000000122125
+              "value":0.75000000000000144329
             }
           },
           "hiddenPins":{
@@ -64402,7 +64384,8 @@
               "flow":false,
               "policeStrictness":false,
               "reset":false,
-              "roadblockFrequency":true
+              "roadblockFrequency":true,
+              "suspectFrequency":true
             },
             "p_out":{
               "flow":false
@@ -71399,70 +71382,6 @@
           ],
           "type":"util/customLua"
         },
-        "1209":{
-          "code":{
-            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(self.pinIn.name.value, self.pinIn.flag.value)\n",
-            "_executionStarted":"",
-            "_executionStopped":"",
-            "onPreRender":""
-          },
-          "data":{},
-          "dynamicMode":"repeat",
-          "hardcodedPins":{
-            "name":{
-              "type":"string",
-              "value":"roleFixToggle"
-            }
-          },
-          "hiddenPins":{
-            "p_in":{
-              "flag":false,
-              "flow":false,
-              "name":true
-            },
-            "p_out":{
-              "flow":false
-            }
-          },
-          "name":"BLR Flag Set",
-          "pins":[
-            [
-              "in",
-              "flow",
-              "flow",
-              null,
-              "Inflow for this node.",
-              true
-            ],
-            [
-              "out",
-              "flow",
-              "flow",
-              null,
-              "Outflow for this node.",
-              true
-            ],
-            [
-              "in",
-              "string",
-              "name",
-              null,
-              ""
-            ],
-            [
-              "in",
-              "bool",
-              "flag",
-              null,
-              ""
-            ]
-          ],
-          "pos":[
-            -396,
-            708
-          ],
-          "type":"util/customLua"
-        },
         "1210":{
           "code":{
             "work":"print(\"UI Layout Reset\")\ncore_gamestate.setGameState('freeroam','freeroam','freeroam')\n",
@@ -77034,7 +76953,9 @@
           "type":"types/genericValue"
         },
         "10149":{
-          "data":{},
+          "data":{
+            "name":"BeamLRTrigger_OffroadCP1"
+          },
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
@@ -77515,7 +77436,9 @@
           "type":"scene/singleMarker"
         },
         "10165":{
-          "data":{},
+          "data":{
+            "name":"BeamLRTrigger_OffroadCP2"
+          },
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
@@ -81432,10 +81355,10 @@
         "list":{}
       },
       "viewPos":[
-        1090.21118164062500000000,
-        -3257.90991210937500000000
+        94.48383331298828125000,
+        -106.18286132812500000000
       ],
-      "viewZoom":0.99999988079071044922
+      "viewZoom":0.99999994039535522461
     },
     "3":{
       "description":"This is the description for graph States",
@@ -81665,399 +81588,9 @@
     ],
     "list":[
       {
-        "index":20,
+        "index":24,
         "mergeStrat":"max",
-        "name":"raceMenuPage",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":3,
-        "mergeStrat":"max",
-        "name":"gasCost",
-        "type":"number",
-        "value":10
-      },
-      {
-        "index":12,
-        "mergeStrat":"last",
-        "name":"playerCarTable",
-        "type":"string",
-        "value":""
-      },
-      {
-        "index":15,
-        "mergeStrat":"max",
-        "name":"saveSystemState",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":32,
-        "mergeStrat":"max",
-        "name":"triggerFilterStatus",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":84,
-        "mergeStrat":"max",
-        "name":"challengeStartTime",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":85,
-        "mergeStrat":"max",
-        "name":"challengeFailed",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":59,
-        "mergeStrat":"last",
-        "name":"raceLeague",
-        "type":"string",
-        "value":""
-      },
-      {
-        "index":27,
-        "mergeStrat":"last",
-        "name":"raceDesc",
-        "type":"string",
-        "value":""
-      },
-      {
-        "index":76,
-        "mergeStrat":"max",
-        "name":"challengeInProgress",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":67,
-        "mergeStrat":"last",
-        "name":"raceClub",
-        "type":"string",
-        "value":""
-      },
-      {
-        "index":2,
-        "mergeStrat":"max",
-        "name":"playerCarCount",
-        "type":"number",
-        "value":1
-      },
-      {
-        "index":68,
-        "mergeStrat":"last",
-        "name":"raceOPSP",
-        "type":"vec3",
-        "value":[
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "index":1,
-        "mergeStrat":"max",
-        "name":"playerMoney",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":69,
-        "mergeStrat":"last",
-        "name":"raceOPSR",
-        "type":"quat",
-        "value":[
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "index":7,
-        "mergeStrat":"max",
-        "name":"currentMissionDestid",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":34,
-        "mergeStrat":"max",
-        "name":"racePlayerReady",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":43,
-        "mergeStrat":"max",
-        "name":"outstandingTicket",
-        "type":"number",
-        "value":-1
-      },
-      {
-        "index":60,
-        "mergeStrat":"max",
-        "name":"leagueProgressUpdate",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":39,
-        "mergeStrat":"max",
-        "name":"raceEnemyBasePrice",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":40,
-        "mergeStrat":"last",
-        "name":"raceEnemyPartPrice",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":49,
-        "mergeStrat":"max",
-        "name":"racePlayerLap",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":42,
-        "mergeStrat":"last",
-        "name":"raceEnemyPaint",
-        "type":"string",
-        "value":""
-      },
-      {
-        "index":22,
-        "mergeStrat":"max",
-        "name":"raceEnemyID",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":16,
-        "mergeStrat":"max",
-        "name":"carShopSelectedSlot",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":81,
-        "mergeStrat":"last",
-        "name":"groundMarkersState",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":5,
-        "mergeStrat":"max",
-        "name":"missionGiverUIState",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":13,
-        "mergeStrat":"max",
-        "name":"playerGarageSelectedCar",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":80,
-        "mergeStrat":"last",
-        "name":"groundMarkersWP",
-        "type":"string",
-        "value":""
-      },
-      {
-        "index":6,
-        "mergeStrat":"max",
-        "name":"missionState",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":10,
-        "mergeStrat":"last",
-        "name":"currentMissionDestpos",
-        "type":"vec3",
-        "value":[
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "index":72,
-        "mergeStrat":"max",
-        "name":"raceEnemyAvoid",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":38,
-        "mergeStrat":"max",
-        "name":"playerIsWalking",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":92,
-        "mergeStrat":"last",
-        "name":"psscl",
-        "type":"vec3",
-        "value":[
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "index":89,
-        "mergeStrat":"max",
-        "name":"raceCountdownComplete",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":90,
-        "mergeStrat":"last",
-        "name":"pspos",
-        "type":"vec3",
-        "value":[
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "index":66,
-        "mergeStrat":"last",
-        "name":"triggerDataPath",
-        "type":"string",
-        "value":""
-      },
-      {
-        "index":75,
-        "mergeStrat":"last",
-        "name":"playerRep",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":88,
-        "mergeStrat":"max",
-        "name":"raceEndTime",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":44,
-        "mergeStrat":"max",
-        "name":"ticketCost",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":73,
-        "mergeStrat":"last",
-        "name":"racePartReward",
-        "type":"string",
-        "value":""
-      },
-      {
-        "index":91,
-        "mergeStrat":"last",
-        "name":"psrot",
-        "type":"quat",
-        "value":[
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "index":45,
-        "mergeStrat":"last",
-        "name":"ticketText",
-        "type":"string",
-        "value":""
-      },
-      {
-        "index":53,
-        "mergeStrat":"max",
-        "name":"raceLaps",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":46,
-        "mergeStrat":"max",
-        "name":"ticketMenuState",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":54,
-        "mergeStrat":"last",
-        "name":"raceTriggers",
-        "type":"string",
-        "value":""
-      },
-      {
-        "index":87,
-        "mergeStrat":"max",
-        "name":"raceStartTime",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":33,
-        "mergeStrat":"max",
-        "name":"triggerFilterPlayerTrigID",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":14,
-        "mergeStrat":"max",
-        "name":"playerCurrentCar",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":83,
-        "mergeStrat":"max",
-        "name":"veidref",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":63,
-        "mergeStrat":"last",
-        "name":"triggerFilterPlayerTrigName",
-        "type":"string",
-        "value":""
-      },
-      {
-        "index":51,
-        "mergeStrat":"max",
-        "name":"raceEnemyTriggerID",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":82,
-        "mergeStrat":"last",
-        "name":"missionComplete",
+        "name":"raceWager",
         "type":"number",
         "value":0
       },
@@ -82069,32 +81602,11 @@
         "value":""
       },
       {
-        "index":24,
-        "mergeStrat":"max",
-        "name":"raceWager",
+        "index":19,
+        "mergeStrat":"last",
+        "name":"raceInProgress",
         "type":"number",
         "value":0
-      },
-      {
-        "index":47,
-        "mergeStrat":"max",
-        "name":"racePlayerCPID",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":28,
-        "mergeStrat":"max",
-        "name":"raceCount",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":78,
-        "mergeStrat":"max",
-        "name":"challengeCheckpoint",
-        "type":"number",
-        "value":-1
       },
       {
         "index":11,
@@ -82104,9 +81616,9 @@
         "value":0
       },
       {
-        "index":77,
+        "index":47,
         "mergeStrat":"max",
-        "name":"challengeUIState",
+        "name":"racePlayerCPID",
         "type":"number",
         "value":0
       },
@@ -82125,13 +81637,6 @@
         "value":0
       },
       {
-        "index":71,
-        "mergeStrat":"max",
-        "name":"waitmsgState",
-        "type":"number",
-        "value":0
-      },
-      {
         "index":52,
         "mergeStrat":"max",
         "name":"raceEnemyLap",
@@ -82146,11 +81651,11 @@
         "value":0
       },
       {
-        "index":70,
-        "mergeStrat":"last",
-        "name":"raceClubName",
-        "type":"string",
-        "value":""
+        "index":17,
+        "mergeStrat":"max",
+        "name":"currentRepairCost",
+        "type":"number",
+        "value":0
       },
       {
         "index":26,
@@ -82158,13 +81663,6 @@
         "name":"raceAIWP",
         "type":"string",
         "value":""
-      },
-      {
-        "index":17,
-        "mergeStrat":"max",
-        "name":"currentRepairCost",
-        "type":"number",
-        "value":0
       },
       {
         "index":25,
@@ -82188,27 +81686,6 @@
         "value":0
       },
       {
-        "index":55,
-        "mergeStrat":"last",
-        "name":"raceWaypoints",
-        "type":"string",
-        "value":""
-      },
-      {
-        "index":23,
-        "mergeStrat":"max",
-        "name":"raceDestID",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":19,
-        "mergeStrat":"last",
-        "name":"raceInProgress",
-        "type":"number",
-        "value":0
-      },
-      {
         "index":4,
         "mergeStrat":"max",
         "name":"carStorePage",
@@ -82216,23 +81693,20 @@
         "value":0
       },
       {
-        "index":41,
+        "index":90,
         "mergeStrat":"last",
-        "name":"raceEnemyScrapVal",
-        "type":"number",
-        "value":0
+        "name":"pspos",
+        "type":"vec3",
+        "value":[
+          0,
+          0,
+          0
+        ]
       },
       {
         "index":8,
         "mergeStrat":"last",
         "name":"currentMissionDesc",
-        "type":"string",
-        "value":""
-      },
-      {
-        "index":30,
-        "mergeStrat":"last",
-        "name":"raceEnemyConfig",
         "type":"string",
         "value":""
       },
@@ -82265,11 +81739,11 @@
         "value":0
       },
       {
-        "index":36,
-        "mergeStrat":"max",
-        "name":"playerHealth",
-        "type":"number",
-        "value":0
+        "index":30,
+        "mergeStrat":"last",
+        "name":"raceEnemyConfig",
+        "type":"string",
+        "value":""
       },
       {
         "index":57,
@@ -82293,9 +81767,9 @@
         "value":0
       },
       {
-        "index":18,
-        "mergeStrat":"max",
-        "name":"uiTriggerState",
+        "index":82,
+        "mergeStrat":"last",
+        "name":"missionComplete",
         "type":"number",
         "value":0
       },
@@ -82307,18 +81781,46 @@
         "value":-1
       },
       {
-        "index":62,
-        "mergeStrat":"last",
-        "name":"trafficEnableFlag",
-        "type":"number",
-        "value":0
-      },
-      {
         "index":65,
         "mergeStrat":"max",
         "name":"uiRepairCost",
         "type":"number",
         "value":-1
+      },
+      {
+        "index":20,
+        "mergeStrat":"max",
+        "name":"raceMenuPage",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":23,
+        "mergeStrat":"max",
+        "name":"raceDestID",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":3,
+        "mergeStrat":"max",
+        "name":"gasCost",
+        "type":"number",
+        "value":10
+      },
+      {
+        "index":64,
+        "mergeStrat":"max",
+        "name":"raceUseTraffic",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":15,
+        "mergeStrat":"max",
+        "name":"saveSystemState",
+        "type":"number",
+        "value":0
       },
       {
         "index":61,
@@ -82328,9 +81830,430 @@
         "value":""
       },
       {
-        "index":64,
+        "index":84,
         "mergeStrat":"max",
-        "name":"raceUseTraffic",
+        "name":"challengeStartTime",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":14,
+        "mergeStrat":"max",
+        "name":"playerCurrentCar",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":59,
+        "mergeStrat":"last",
+        "name":"raceLeague",
+        "type":"string",
+        "value":""
+      },
+      {
+        "index":76,
+        "mergeStrat":"max",
+        "name":"challengeInProgress",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":67,
+        "mergeStrat":"last",
+        "name":"raceClub",
+        "type":"string",
+        "value":""
+      },
+      {
+        "index":2,
+        "mergeStrat":"max",
+        "name":"playerCarCount",
+        "type":"number",
+        "value":1
+      },
+      {
+        "index":18,
+        "mergeStrat":"max",
+        "name":"uiTriggerState",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":68,
+        "mergeStrat":"last",
+        "name":"raceOPSP",
+        "type":"vec3",
+        "value":[
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "index":7,
+        "mergeStrat":"max",
+        "name":"currentMissionDestid",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":69,
+        "mergeStrat":"last",
+        "name":"raceOPSR",
+        "type":"quat",
+        "value":[
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "index":34,
+        "mergeStrat":"max",
+        "name":"racePlayerReady",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":1,
+        "mergeStrat":"max",
+        "name":"playerMoney",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":43,
+        "mergeStrat":"max",
+        "name":"outstandingTicket",
+        "type":"number",
+        "value":-1
+      },
+      {
+        "index":60,
+        "mergeStrat":"max",
+        "name":"leagueProgressUpdate",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":39,
+        "mergeStrat":"max",
+        "name":"raceEnemyBasePrice",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":40,
+        "mergeStrat":"last",
+        "name":"raceEnemyPartPrice",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":41,
+        "mergeStrat":"last",
+        "name":"raceEnemyScrapVal",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":49,
+        "mergeStrat":"max",
+        "name":"racePlayerLap",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":42,
+        "mergeStrat":"last",
+        "name":"raceEnemyPaint",
+        "type":"string",
+        "value":""
+      },
+      {
+        "index":71,
+        "mergeStrat":"max",
+        "name":"waitmsgState",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":22,
+        "mergeStrat":"max",
+        "name":"raceEnemyID",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":16,
+        "mergeStrat":"max",
+        "name":"carShopSelectedSlot",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":92,
+        "mergeStrat":"last",
+        "name":"psscl",
+        "type":"vec3",
+        "value":[
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "index":91,
+        "mergeStrat":"last",
+        "name":"psrot",
+        "type":"quat",
+        "value":[
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "index":89,
+        "mergeStrat":"max",
+        "name":"raceCountdownComplete",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":27,
+        "mergeStrat":"last",
+        "name":"raceDesc",
+        "type":"string",
+        "value":""
+      },
+      {
+        "index":5,
+        "mergeStrat":"max",
+        "name":"missionGiverUIState",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":13,
+        "mergeStrat":"max",
+        "name":"playerGarageSelectedCar",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":33,
+        "mergeStrat":"max",
+        "name":"triggerFilterPlayerTrigID",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":85,
+        "mergeStrat":"max",
+        "name":"challengeFailed",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":83,
+        "mergeStrat":"max",
+        "name":"veidref",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":6,
+        "mergeStrat":"max",
+        "name":"missionState",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":81,
+        "mergeStrat":"last",
+        "name":"groundMarkersState",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":77,
+        "mergeStrat":"max",
+        "name":"challengeUIState",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":10,
+        "mergeStrat":"last",
+        "name":"currentMissionDestpos",
+        "type":"vec3",
+        "value":[
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "index":78,
+        "mergeStrat":"max",
+        "name":"challengeCheckpoint",
+        "type":"number",
+        "value":-1
+      },
+      {
+        "index":38,
+        "mergeStrat":"max",
+        "name":"playerIsWalking",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":80,
+        "mergeStrat":"last",
+        "name":"groundMarkersWP",
+        "type":"string",
+        "value":""
+      },
+      {
+        "index":62,
+        "mergeStrat":"last",
+        "name":"trafficEnableFlag",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":28,
+        "mergeStrat":"max",
+        "name":"raceCount",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":72,
+        "mergeStrat":"max",
+        "name":"raceEnemyAvoid",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":70,
+        "mergeStrat":"last",
+        "name":"raceClubName",
+        "type":"string",
+        "value":""
+      },
+      {
+        "index":66,
+        "mergeStrat":"last",
+        "name":"triggerDataPath",
+        "type":"string",
+        "value":""
+      },
+      {
+        "index":75,
+        "mergeStrat":"last",
+        "name":"playerRep",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":87,
+        "mergeStrat":"max",
+        "name":"raceStartTime",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":44,
+        "mergeStrat":"max",
+        "name":"ticketCost",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":88,
+        "mergeStrat":"max",
+        "name":"raceEndTime",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":73,
+        "mergeStrat":"last",
+        "name":"racePartReward",
+        "type":"string",
+        "value":""
+      },
+      {
+        "index":45,
+        "mergeStrat":"last",
+        "name":"ticketText",
+        "type":"string",
+        "value":""
+      },
+      {
+        "index":53,
+        "mergeStrat":"max",
+        "name":"raceLaps",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":46,
+        "mergeStrat":"max",
+        "name":"ticketMenuState",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":54,
+        "mergeStrat":"last",
+        "name":"raceTriggers",
+        "type":"string",
+        "value":""
+      },
+      {
+        "index":36,
+        "mergeStrat":"max",
+        "name":"playerHealth",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":55,
+        "mergeStrat":"last",
+        "name":"raceWaypoints",
+        "type":"string",
+        "value":""
+      },
+      {
+        "index":32,
+        "mergeStrat":"max",
+        "name":"triggerFilterStatus",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":12,
+        "mergeStrat":"last",
+        "name":"playerCarTable",
+        "type":"string",
+        "value":""
+      },
+      {
+        "index":63,
+        "mergeStrat":"last",
+        "name":"triggerFilterPlayerTrigName",
+        "type":"string",
+        "value":""
+      },
+      {
+        "index":51,
+        "mergeStrat":"max",
+        "name":"raceEnemyTriggerID",
         "type":"number",
         "value":0
       }
