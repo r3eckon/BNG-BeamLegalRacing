@@ -1,0 +1,40 @@
+{
+  "additionalAttributes":{},
+  "customAdditionalAttributes":{},
+  "description":"Beam Legal Racing Track Event",
+  "devNotes":{
+    "devMission":false,
+    "mode":"silent",
+    "text":""
+  },
+  "grouping":{
+    "id":"",
+    "label":""
+  },
+  "missionType":"flowgraph",
+  "missionTypeData":{},
+  "name":"BLR Track Event",
+  "retryBehaviour":"infiniteRetries",
+  "startCondition":{
+    "type":"always"
+  },
+  "startTrigger":{
+    "level":"hirochi_raceway",
+    "pos":[
+      -326.1878928,
+      299.1771366,
+      25.00434303
+    ],
+    "radius":3,
+    "rot":[
+      0,
+      0,
+      0,
+      1
+    ],
+    "type":"coordinates"
+  },
+  "visibleCondition":{
+    "type":"automatic"
+  }
+}

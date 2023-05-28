@@ -1,9 +1,5 @@
 local M = {}
 
-local function testPrint(toPrint)
-print(toPrint)
-end
-
 -- Adds fuel in available tanks
 local function addFuel(val)
 local storageData = energyStorage.getStorages()
@@ -12,23 +8,33 @@ local currentVal = 0
 local currentCap = 0
 local currentAdd = 0
 
---Start by filling mainTank if it exists on vehicle
-if storageData["mainTank"] then
-currentVal = storageData["mainTank"].remainingVolume
-currentCap = storageData["mainTank"].capacity
+for k,v in pairs(storageData) do
+if v["type"] == "fuelTank" then
+currentVal = v["remainingVolume"]
+currentCap = v["capacity"]
 currentAdd = math.min(currentCap - currentVal, remainToAdd)
-energyStorage.getStorage("mainTank"):setRemainingVolume(currentVal + currentAdd)
+v:setRemainingVolume(currentVal + currentAdd)
 remainToAdd = math.max(remainToAdd - currentAdd, 0)
+end
 end
 
+--Start by filling mainTank if it exists on vehicle
+--if storageData["mainTank"] then
+--currentVal = storageData["mainTank"].remainingVolume
+--currentCap = storageData["mainTank"].capacity
+--currentAdd = math.min(currentCap - currentVal, remainToAdd)
+--energyStorage.getStorage("mainTank"):setRemainingVolume(currentVal + currentAdd)
+--remainToAdd = math.max(remainToAdd - currentAdd, 0)
+--end
+
 --Now filling auxTank if it exists
-if storageData["auxTank"] then
-currentVal = storageData["auxTank"].remainingVolume
-currentCap = storageData["auxTank"].capacity
-currentAdd = math.min(currentCap - currentVal, remainToAdd)
-energyStorage.getStorage("auxTank"):setRemainingVolume(currentVal + currentAdd)
-remainToAdd = math.max(remainToAdd - currentAdd, 0)
-end
+--if storageData["auxTank"] then
+--currentVal = storageData["auxTank"].remainingVolume
+--currentCap = storageData["auxTank"].capacity
+--currentAdd = math.min(currentCap - currentVal, remainToAdd)
+--energyStorage.getStorage("auxTank"):setRemainingVolume(currentVal + currentAdd)
+--remainToAdd = math.max(remainToAdd - currentAdd, 0)
+--end
 
 --Return remaining value
 return remainToAdd
@@ -41,21 +47,31 @@ local remainToAdd = val
 local currentCap = 0
 local currentAdd = 0
 
---Start by filling mainTank if it exists on vehicle
-if storageData["mainTank"] then
-currentCap = storageData["mainTank"].capacity
+-- This should work for all vehicles
+for k,v in pairs(storageData) do
+if v["type"] == "fuelTank" then
+currentCap = v["capacity"]
 currentAdd = math.min(currentCap, remainToAdd)
-energyStorage.getStorage("mainTank"):setRemainingVolume(currentAdd)
+v:setRemainingVolume(currentAdd)
 remainToAdd = math.max(remainToAdd - currentAdd, 0)
+end
 end
 
+--Start by filling mainTank if it exists on vehicle
+--if storageData["mainTank"] then
+--currentCap = storageData["mainTank"].capacity
+--currentAdd = math.min(currentCap, remainToAdd)
+--energyStorage.getStorage("mainTank"):setRemainingVolume(currentAdd)
+--remainToAdd = math.max(remainToAdd - currentAdd, 0)
+--end
+
 --Now filling auxTank if it exists
-if storageData["auxTank"] then
-currentCap = storageData["auxTank"].capacity
-currentAdd = math.min(currentCap, remainToAdd)
-energyStorage.getStorage("auxTank"):setRemainingVolume(currentAdd)
-remainToAdd = math.max(remainToAdd - currentAdd, 0)
-end
+--if storageData["auxTank"] then
+--currentCap = storageData["auxTank"].capacity
+--currentAdd = math.min(currentCap, remainToAdd)
+--energyStorage.getStorage("auxTank"):setRemainingVolume(currentAdd)
+--remainToAdd = math.max(remainToAdd - currentAdd, 0)
+--end
 
 --Return remaining value
 return remainToAdd
@@ -79,13 +95,20 @@ local function getFuelTotal()
 local storageData = energyStorage.getStorages()
 local toRet = 0
 
-if storageData["mainTank"] then
-toRet = toRet + storageData["mainTank"].remainingVolume
+for k,v in pairs(storageData) do
+if v["type"] == "fuelTank" then
+toRet = toRet + v["remainingVolume"]
+end
 end
 
-if storageData["auxTank"] then
-toRet = toRet + storageData["auxTank"].remainingVolume
-end
+
+--if storageData["mainTank"] then
+--toRet = toRet + storageData["mainTank"].remainingVolume
+--end
+
+--if storageData["auxTank"] then
+--toRet = toRet + storageData["auxTank"].remainingVolume
+--end
 
 return toRet
 end
@@ -94,24 +117,31 @@ local function getFuelCapacityTotal()
 local storageData = energyStorage.getStorages()
 local toRet = 0
 
-if storageData["mainTank"] then
-toRet = toRet + storageData["mainTank"].capacity
+for k,v in pairs(storageData) do
+if v["type"] == "fuelTank" then
+toRet = toRet + v["capacity"]
+end
 end
 
-if storageData["auxTank"] then
-toRet = toRet + storageData["auxTank"].capacity
-end
+--if storageData["mainTank"] then
+--toRet = toRet + storageData["mainTank"].capacity
+--end
+
+--if storageData["auxTank"] then
+--toRet = toRet + storageData["auxTank"].capacity
+--end
 
 return toRet
 end
 
-local function getPowertrainLayoutName(layout)
+local function getPowertrainLayoutName()
+local layout = extensions.vehicleCertifications.getCertifications()["powertrainLayout"]
 local toRet = ""
-if layout[poweredWheelsFront] == 0 and layout[poweredWheelsRear] == 0 then
+if layout["poweredWheelsFront"] == 0 and layout["poweredWheelsRear"] == 0 then
 toRet = "ERROR"
-elseif layout[poweredWheelsFront] == 0 then
+elseif layout["poweredWheelsFront"] == 0 then
 toRet = "RWD"
-elseif layout[poweredWheelsRear] == 0 then
+elseif layout["poweredWheelsRear"] == 0 then
 toRet = "FWD"
 else
 toRet = "AWD"
@@ -151,7 +181,7 @@ end
 
 local function advancedCouplersFix()
 local couplers = controller.getControllersByType("advancedCouplerControl")
-local lastid = -1
+local lastid = -1 -- To properly fix hood couplers
 for k,v in pairs(couplers) do
 if v.name ~= "hoodLatchCoupler" then
 v:reset()
@@ -166,6 +196,69 @@ couplers[lastid]:tryAttachGroupImpulse()
 end
 end
 
+local function getInductionType()
+local induction = extensions.vehicleCertifications.getCertifications()["inductionTypes"]
+local natural = induction["naturalAspiration"]
+local nitrous = induction["N2O"]
+local supercharged = induction["supercharger"]
+local turbocharged = induction["turbocharger"]
+local toRet = ""
+if natural and not (supercharged or turbocharged) then
+toRet = "NA"
+elseif supercharged then
+toRet = "SC"
+elseif turbocharged then
+toRet = "Turbo"
+end
+if nitrous then
+toRet = toRet .. "+N2O"
+end
+return toRet
+end
+
+local function getForceVectorLength()
+local gx, gy, gz = sensors.gx, sensors.gy, sensors.gz
+local length = math.sqrt((gx*gx) + (gy*gy) + (gz*gz))
+return length
+end
+
+local function getPerformanceData()
+local cdata = extensions.vehicleCertifications.getCertifications()
+local horsepower = cdata["power"]
+local torque = cdata["torque"]
+local weight = cdata["weight"]
+local class = getPerformanceClass()
+local value = getRawPerformanceValue()
+return "" .. horsepower .. "," .. torque .. "," .. weight .. "," .. class .. "," .. value
+end
+
+local airspeed = 0
+local airspeedlast = 0
+local force = 0
+local function updateGFX(dtSim)
+airspeed = electrics.values.airspeed
+if dtSim == 0 then
+force = 0
+else
+force = math.abs((airspeed - airspeedlast) / dtSim)
+end
+airspeedlast = airspeed
+end
+
+local function getAcceleration()
+return force
+end
+
+local function toggleNitrous()
+for k,v in pairs(controller.getControllersByType("nitrousOxideInjection")) do v:toggleActive() end
+end
+
+M.toggleNitrous = toggleNitrous
+M.getAcceleration = getAcceleration
+M.updateGFX = updateGFX
+M.getPerformanceData = getPerformanceData
+M.getForceVectorLength = getForceVectorLength
+M.getInductionType = getInductionType
 M.advancedCouplersFix = advancedCouplersFix
 M.getPowertrainLayoutName = getPowertrainLayoutName
 M.getRawPerformanceValue = getRawPerformanceValue
@@ -175,6 +268,5 @@ M.getFuelTotal = getFuelTotal
 M.setFuel = setFuel
 M.addFuel = addFuel
 M.getEnergyStorageData = getEnergyStorageData
-M.testPrint = testPrint
 
 return M

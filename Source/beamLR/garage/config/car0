@@ -3,44 +3,6 @@
   "licenseName":"BeamLR",
   "mainPartName":"legran",
   "model":"legran",
-  "paints":[
-    {
-      "baseColor":[
-        0.65,
-        0.65,
-        0.65,
-        1.2
-      ],
-      "clearcoat":1,
-      "clearcoatRoughness":0.07,
-      "metallic":0.9,
-      "roughness":0.6
-    },
-    {
-      "baseColor":[
-        0.65,
-        0.65,
-        0.65,
-        1.2
-      ],
-      "clearcoat":1,
-      "clearcoatRoughness":0.07,
-      "metallic":0.9,
-      "roughness":0.6
-    },
-    {
-      "baseColor":[
-        0.65,
-        0.65,
-        0.65,
-        1.2
-      ],
-      "clearcoat":1,
-      "clearcoatRoughness":0.07,
-      "metallic":0.9,
-      "roughness":0.6
-    }
-  ],
   "parts":{
     "brakepad_F":"brakepad_F",
     "brakepad_R":"brakepad_R",

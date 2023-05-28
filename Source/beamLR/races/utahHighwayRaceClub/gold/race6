@@ -1,8 +1,7 @@
 desc=Looping race through the tunnel
 wager=1000,2000
 slips=0
-enemyModel=sunburst,vivace,etki,moonhawk,wendover,barstow,pessima,sbr,etk800,legran,coupe,bastion,etkc,bolide,bolide,scintilla,scintilla,covet,autobello,van
-enemyConfig=vehicles/sunburst/hillclimb_SQ.pc,vehicles/vivace/hillclimb_SQ.pc,vehicles/etki/cool.pc,vehicles/moonhawk/drive.pc,vehicles/wendover/super.pc,vehicles/barstow/tracksport.pc,vehicles/pessima/custom.pc,vehicles/sbr/TT_RWD_S_M.pc,vehicles/etk800/etk856tx_A_driving_experience.pc,vehicles/legran/race.pc,vehicles/coupe/demon.pc,vehicles/bastion/street_tuned.pc,vehicles/etkc/kc6tx_M.pc,vehicles/bolide/350_us.pc,vehicles/bolide/notte.pc,vehicles/scintilla/gt.pc,vehicles/scintilla/gts_corse.pc,vehicles/covet/turbo_race.pc,vehicles/autobello/150_track.pc,vehicles/van/street_tuned.pc
+enemyConfig=class:club/street_gold
 enemyRisk=0.8
 enemyBasePrice=800
 enemyPartPrice=100

@@ -1,0 +1,6 @@
+{"name":"cloud","class":"SimGroup","persistentId":"891b1397-bf4b-4f6c-92ae-e291c9d15443","__parent":"Level_object"}
+{"name":"terrain","class":"SimGroup","persistentId":"aa32605d-a53e-4dfa-abec-4bed448a194c","__parent":"Level_object"}
+{"name":"vegetation","class":"SimGroup","persistentId":"4a25f407-e53c-42f3-b734-7472c8fdc16f","__parent":"Level_object"}
+{"name":"info","class":"SimGroup","persistentId":"7b5900ed-b984-45d3-b6b8-4618c0433d59","__parent":"Level_object"}
+{"name":"sky","class":"SimGroup","persistentId":"ebd2d0a4-d940-46d3-9964-735361dee9d3","__parent":"Level_object"}
+{"name":"time","class":"SimGroup","persistentId":"02c09e0d-e8e0-46fb-80f3-72db7bfdb001","__parent":"Level_object"}

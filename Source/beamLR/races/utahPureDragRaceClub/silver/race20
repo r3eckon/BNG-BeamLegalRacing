@@ -1,8 +1,7 @@
 desc=Another drag race
 wager=350,700
 slips=0
-enemyModel=etk800
-enemyConfig=vehicles/etk800/etk856t_A.pc
+enemyConfig=vehicles/etk800/854x_250_A.pc,vehicles/etk800/844_250_M.pc
 enemyRisk=0.98
 enemyBasePrice=0
 enemyPartPrice=0

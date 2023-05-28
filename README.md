@@ -1,11 +1,14 @@
-
-# Beam Legal Racing 1.9.1
+# Beam Legal Racing 1.10
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
 
 ## Quick Links
-### [Forum thread](https://www.beamng.com/threads/87394/) | [Utah Map](utahmap.md) | [East Coast Map](eastcoastmap.md)
+### More Info [Forum thread](https://www.beamng.com/threads/87394/) 
+
+### Career Maps [Utah](utahmap.md) | [East Coast](eastcoastmap.md)
+
+### Track Event Maps [Hirochi Raceway](hirochimap.md) | [Automation Test Track](automationmap.md)
 
 ## Install Instructions
 **BeamLR cannot be installed like a normal mod due to data persistence issues when zipped**. 
@@ -19,7 +22,7 @@ Carefully follow the instructions to ensure all features are working properly:
 Modders should back up the userfolder before installing.
 
 ## Update Instructions
-**BEFORE UPDATING**:  Back up your userfolder/beamLR folder to save your career
+**BEFORE UPDATING**:  Back up the userfolder/beamLR folder to archive your career
 * Download the latest zip file from the **Releases** folder.
 * Use the BeamLR options menu to back up your career.
 * Extract updated mod zip contents to the userfolder. 
@@ -33,6 +36,7 @@ If the backup system fails to work properly you can manually replace the followi
 * beamLR/mainData                                     (Main career data file for money,rep,etc)
 * beamLR/shop/daydata                                 (Vehicle shop daily data, aka bought slots)
 * beamLR/races/INSERT RACE CLUB/progress              (Race club progress, repeat for each club)
+* beamLR/currentTrackEvent                            (Current track event progress)
 
 If you are experiencing issues after updating the mod, try a **clean** userfolder install and copy over your backup.
 
@@ -68,6 +72,9 @@ Version 1.8 adds difficulty settings and different start vehicles (randomly pick
 Version 1.9.1 temporarily disables beamstate loading (visual damage) due to issue with advanced couplers. It can be turned back on from the options menu.
 
 If you decide to use beamstates, advanced couplers can be fixed from the options menu. This is not a guaranteed fix and it may crash the game.
+
+Version 1.10 adds race track events to the mod which can be joined from career mode. Track events work using a different lightweight loader mission and work differently than regular career.  This version also adds a bunch of QoL improvements to the UI, saving/loading configs for your vehicles. Backups are now saved automatically when you stop the mission to ensure all files are updated before a backup is saved.
+
 
 Further instructions and various tips on this mods' various features are listed in the BeamLR UI Main Menu.
 
@@ -123,6 +130,42 @@ BeamLR relies on seeded RNG for various aspects of the mod such as selected star
 Keep an eye out for you health value! There is a slow passive health regeneration but you can also restore your health by using the "Sleep / Heal" button. This fast forward function can also be used to skip ahead to next day which will get vehicle shops to spawn new vehicles, prices for gas stations and part shops will also change. 
 
 When the in game day changes since version 1.8 a small amount of reputation (25 points) is lost. For now reputation isn't used for anything except vehicle sell price scaling. It will be used in a future version to unlock official race track events and other unique events. Rep can easily be gained with races and challenges so this feature acts as a small daily cost to prevent skipping ahead a lot of days without racing. 
+
+## Track Events
+Once you have earned enough reputation and money you may enter race track events which are multi round, multi opponent races.
+
+Keep in mind this is the first iteration of this system, some features may change and more events will be added in future versions.
+
+Race events work using a lightweight event loader flowgraph project. They work a bit differently than regular career: 
+
+* Regular health is disabled
+* Fatal crashes are still possible at higher needed G force
+* Vehicle damage does not carry over to and from career
+* Repairs and refuels are free but do not carry over to career
+* Vehicle must be fully repaired and pass event inspection before joining
+* Vehicle used for current event cannot be sold, scrapped or edited
+
+Event inspection requirements can involve performance class, powertrain layout, induction type, vehicle brand and model.
+
+Track events can be started from their respective level (see maps for mission loader location).
+
+Once a round is started it cannot be restarted. Giving up a round comes with a heavy time penalty. If you crash, some tracks have a pit lane allowing for repair and refuel to tuning fuel load.
+
+Time penalties will be added for shortcuts and pit lane overspeed. Penalty time is added to total time at round end. 
+
+Race leaderboard is sorted by smallest total time at the end of each event.
+
+Events usually reward 1st, 2nd and 3rd position money and rep. More special rewards can go to 1st position. 
+
+Opponent names are randomly selected from the **beamLR/opnames** file which can be edited with custom names. 
+
+Track events use randomized parameters for replayability, such as opponent config choice and count, time of day, lap and round count as well as rewards.
+
+Each event has a unique seed which changes daily and after event completion. Sleep to next day to refresh event parameters.
+
+Track event modding is possible using a similar process to regular race clubs. Event files can be added and modified to have different parameters. 
+
+This system will be used in a future version to create a final boss type race like SLRR.
 
 
 ## WIP Notice
@@ -196,6 +239,8 @@ Since version 1.7 race files can contain a **waypoint speed** value list to set 
 
 Format for this list is **wpspd=WPNAME:SPEED,WPNAME:SPEED, ...** 
 
+Since version 1.10 race files have been simplified, model list is no longer required as it is parsed from the config list. Configs for most races are now passed as **config=class:PATH_TO_CLASS_FILE** to help organize race opponents in easy to edit files for each club tier, as well as other track event related config categories which can be sorted by induction type, drivetrain type and vehicle brand.
+
 ### UI Modding
 Part Images can be added to enhance the UX of the part shop.
 To add more part images:
@@ -244,8 +289,8 @@ Thank you for playing BeamLR!
 
 ## Known Issues 
 
-* Covet beamstate saving breaks advanced coupler beams, doors won't close, hood won't open. Current best workaround is to simply repair the vehicle. Scintilla beamstate can crash the game.
-* Towing mechanic may repair your vehicle. This is due to problems with a teleport function that shouldn't cause a reset yet sometimes does.
+* As of BeamNG version 0.28 beamstate loading is broken. This is listed in known issues for the game and should hopefully be fixed soon.
+* ~~Towing mechanic may repair your vehicle. This is due to problems with a teleport function that shouldn't cause a reset yet sometimes does.~~ Should be fixed as of version 1.10
 * Some tuning configurations can cause unfair damage when a vehicle is loaded. A workaround is implemented but may fail to work in certain situations.
 * Various UI problems, input fields stop registering keystrokes, whole UI can refuse to work. Workaround is to keep cursor above input fields. CTRL+F5 to fix the frozen UI.
 * ~~Race checkpoints sometimes fail to trigger properly.~~ Should be fixed as of version 1.6
@@ -387,3 +432,25 @@ Thank you for playing BeamLR!
 * Added button to attempt to fix hinges after beamstate loading (may crash game)
 * Fixed traffic pooling amount calculation
 * Updated level files for new BeamNG version
+
+### 1.10
+* Added race track event system and UI menus
+* Added race track events on Hirochi Raceway and Automation Test Track
+* Added vehicle config save and load menu
+* Added time scale option
+* Added new ETK800 & ETKC configs to shops & race clubs
+* Further improved fuel related code (should now work with all vehicles)
+* Increased race start parking markers length
+* Using new towing code to fix free repair issue
+* Fixed main menu layering issue
+* Tuning menu now sorted by category & ordered alphabetically
+* Part edit & part shop menu now ordered alphabetically
+* Fixed rep loss happening on fast forward instead of daily
+* Fixed paint loading issue introduced by 0.28 changes
+* Race opponents now use nitrous and lights (lights only turned on during night)
+* Now calculating G forces using airspeed to workaround erratic G forces
+* Backup now happens automatically on mission abandon (ensures updated files)
+* Fixed reset and backup load feature not restarting mission
+* Delivery mission UI now uses confirmation requesting buttons
+* Fixed bug when buying parts using default fallback price
+* Some race clubs now using class system for simplified config loading

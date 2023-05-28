@@ -1,8 +1,0 @@
-name=ETK K-Series (kc4t,Manual)
-type=etkc
-config=vehicles/etkc/kc4t_M.pc
-baseprice=70000
-odometer=0
-scrapval=2000
-partprice=0
-paint=0,0,0,0,0.1,0.1,0.1,0.1

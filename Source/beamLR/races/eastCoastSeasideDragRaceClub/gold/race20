@@ -1,8 +1,7 @@
 desc=Risky seaside drag race
 wager=750,1250
 slips=0
-enemyModel=etk800
-enemyConfig=vehicles/etk800/etk856tx_A_driving_experience.pc
+enemyConfig=vehicles/etk800/846x_ttsport_plus_DCT.pc,vehicles/etk800/846_ttSport_custom_DCT.pc,vehicles/etk800/846_ttsport_heritage_M.pc
 enemyRisk=0.98
 enemyBasePrice=0
 enemyPartPrice=0

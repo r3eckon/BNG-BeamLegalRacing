@@ -93,7 +93,7 @@
         "margin":"auto",
         "position":"absolute",
         "right":0,
-        "top":"205px",
+        "top":"220px",
         "width":"1000px"
       }
     },
@@ -140,7 +140,7 @@
     {
       "appName":"beamlrdriftui",
       "placement":{
-        "bottom":"5px",
+        "bottom":"0px",
         "height":"70px",
         "left":0,
         "margin":"auto",
@@ -148,6 +148,32 @@
         "right":0,
         "top":"",
         "width":"270px"
+      }
+    },
+    {
+      "appName":"beamlrtrackeventbrowser",
+      "placement":{
+        "bottom":0,
+        "height":"610px",
+        "left":0,
+        "margin":"auto",
+        "position":"absolute",
+        "right":0,
+        "top":0,
+        "width":"980px"
+      }
+    },
+    {
+      "appName":"beamlrperfui",
+      "placement":{
+        "bottom":"0px",
+        "height":"270px",
+        "left":0,
+        "margin":"auto",
+        "position":"absolute",
+        "right":0,
+        "top":"",
+        "width":"240px"
       }
     }
   ],

@@ -13,18 +13,120 @@ local leaderboard = {}
 local finishTime = {}
 local finishCount = 0
 
+local idtable = {}
+local nametable = {}
+
 local started = false
 local winner = -1
 local blrtime = 0
 local startTime = 0
 
+local ppos = 0 -- Manually set in flowgraph during position calculation
+
+local uidata = {}
+
+local pentrigs = {}
+local pentimes = {}
+local pentracker = {} -- Ensures each penalty trigger can only be hit once per lap
+
+local pitlane = false -- Do not confuse with pitenabled, global flag telling if track has pit data
+local pittrigs = {}
+local pitentry = ""
+local pitexit = ""
+local pitenabler = ""
+local pitdisabler = ""
+local pitpos = {}
+local pitrot = {}
+local pitpenalty = false
+local pitenabled = false -- Turns on when pit enabler is hit, prevents player skipping laps using pit lane
+
+
+local function getPitMarkerData()
+local toRet = {}
+toRet["pos"] = pitpos
+toRet["rot"] = pitrot
+return toRet
+end
+
+local function setPitData(haspit, trigs, spos, srot)
+pitlane = haspit
+if pitlane then
+pittrigs = {}
+pitentry = trigs[1]
+pitexit = trigs[2]
+pitenabler = trigs[3]
+pitdisabler = trigs[4]
+pittrigs[pitentry] = true
+pittrigs[pitexit] = true
+pittrigs[pitenabler] = true
+pittrigs[pitdisabler] = true
+pitpos = spos
+pitrot = srot
+end
+end
+
+
+local function setUIData(d)
+uidata = d
+end
+
+local function getUIData()
+return uidata
+end
+
+local function generateNameTable(seed, count) -- Doesn't generate name for player at ID 1
+local picks = extensions.blrutils.loadDataFile("beamLR/opnames")
+local cpick = ""
+local used = {}
+math.randomseed(seed)
+for i=2,count do
+cpick = math.random(1, #picks)
+while used[cpick] do -- Need to ensure there are enough picks to avoid infinite loop
+cpick = math.random(1, #picks)
+end
+nametable[i] = picks[cpick]
+used[cpick] = true
+end
+end
+
+local function resetNameTable()
+nametable = {}
+end
+
+local function getRacerName(id)
+return nametable[id]
+end
+
+local function setPlayerName(name)
+nametable[1] = name
+end
+
+local function getPlayerPosition()
+return ppos
+end
+
+local function setPlayerPosition(pos)
+ppos = pos
+end
+
+local function getIDtable()
+return idtable
+end
+
+local function resetIDtable()
+idtable = {}
+end
+
+local function setRacerID(vehid, racerid)
+idtable[vehid] = racerid
+end
+
 local function racerFinished(racer)
 finishCount = finishCount+1  -- increment finish counter (val init at 0, first id in table is 1 as expected)
 leaderboard[finishCount] = racer -- add racer to leaderboard
 finishState[racer] = true	 -- set racer finish state
-finishTime[racer] = blrtime - startTime  -- set finish time
+finishTime[racer] = (blrtime - startTime) + (pentimes[racer] or 0)  -- set finish time, now with penalty time added
 end
-
 
 local function onCheckpointReached(racer, checkpoint)
 if started and not finishState[racer] then -- check if race is running and racer hasn't finished yet
@@ -43,6 +145,7 @@ end
 else					  --racer wasn't on last lap
 claptable[racer] = clap+1 --increment to next lap and
 ccptable[racer] = 1		  --return to first checkpoint
+pentracker[racer] = {} 	  -- Reset penalty tracker for new lap
 end
 else					  -- checkpoint reached isn't last checkpoint
 ccptable[racer] = ccpid+1 -- increment to next checkpoint
@@ -53,15 +156,93 @@ end
 
 end
 
+local function onPenaltyTriggerEntered(racer, trig) -- Could have different penalty for each trig, using +10 seconds for now
+if not pentracker[racer][trig] then -- Prevents same penalty from being added twice in same lap
+pentimes[racer] = (pentimes[racer] or 0) + 10000 -- Adds penalty time for racer
+pentracker[racer][trig] = true -- Set tracked penalty state
+if idtable[racer] == 1 then -- Player was racer, trigger penalty message
+extensions.blrglobals.blrFlagSet("showPenaltyMessage", true)
+extensions.blrutils.blrvarSet("penaltyMessage", "+10s shortcut penalty!")
+end
+end
+end
+
+
+local function onPitOverspeed(racer)
+if not pitpenalty then
+pentimes[racer] = (pentimes[racer] or 0) + 10000 -- Adds penalty time for racer
+pitpenalty = true
+if idtable[racer] == 1 then -- Player was racer, trigger penalty message
+extensions.blrglobals.blrFlagSet("showPenaltyMessage", true)
+extensions.blrutils.blrvarSet("penaltyMessage", "+10s overspeed penalty!<br><span style=\"color:yellow;\">Stay below 50Mph/80Kmh in pit!</span>")
+end
+end
+end
+
+
+local function onPitLaneExit(racer) -- Force set to next lap & first checkpoint, handles pit finish
+if started and not finishState[racer] then -- check if race is running and racer hasn't finished yet
+
+local ccpid = ccptable[racer]
+local clap = claptable[racer]
+local ccp = raceCheckpoints[ccpid]
+
+if clap == raceLaps then	 -- racer was on last lap
+racerFinished(racer)
+if winner == -1 then		 -- no one finished before this racer
+winner = racer				-- set racer as winner
+end
+else					  --racer wasn't on last lap
+claptable[racer] = clap+1 --increment to next lap and
+ccptable[racer] = 1		  --return to first checkpoint
+pentracker[racer] = {} 	  -- Reset penalty tracker for new lap
+end
+end
+
+
+end
+
+
+local function onPitTriggerEntered(racer, trig)
+if idtable[racer] == 1 then -- Only allow player pitting for now
+
+if trig == pitentry and pitenabled then
+extensions.blrglobals.blrFlagSet("playerPitting", true)
+elseif trig == pitexit and pitenabled then
+extensions.blrglobals.blrFlagSet("playerPitting", false)
+pitenabled=false
+pitpenalty=false
+onPitLaneExit(racer)
+elseif trig == pitenabler then
+pitenabled = true
+elseif trig == pitdisabler then
+pitenabled = false
+pitpenalty = false
+extensions.blrglobals.blrFlagSet("playerPitting", false) -- To prevent any exploit caused by entering then leaving pit backwards
+end
+
+end
+end
+
 local function processTriggerUpdate(eventTable, triggerTable)
 local cevent = ""
 local ctrig = ""
 for k,v in pairs(raceVehicles) do
 cevent = eventTable[v] or ""
 ctrig = triggerTable[v] or ""
+
 if cevent == "enter" and ctrig == raceCheckpoints[ccptable[v]] and not finishState[v] then --racer has entered current cp trigger
 onCheckpointReached(v, ctrig)
 end
+
+if cevent == "enter" and pentrigs[ctrig] and not finishState[v] then --racer has entered a penalty trigger
+onPenaltyTriggerEntered(v, ctrig)
+end
+
+if cevent == "enter" and pittrigs[ctrig] and not finishState[v] then --racer has entered a pit trigger
+onPitTriggerEntered(v, ctrig)
+end
+
 end
 end
 
@@ -71,15 +252,20 @@ raceCheckpoints = checkpoints
 claptable = {}
 finishState = {}
 finishTime = {}
+pentimes = {}
+pentracker = {}
 ccptable = {}
 leaderboard = {}
 finishCount = 0
 winner = -1
 raceLaps = laps
+pitpenalty=false
+pitenabled=false
 for k,v in pairs(racers) do -- sets current cp for all racers to first cp
 ccptable[v] = 1
 claptable[v] = 1
 finishState[v] = false
+pentracker[v] = {} -- Reset penalty tracker
 end
 end
 
@@ -186,6 +372,36 @@ local function raceTimeString(time)
 return string.format("%02d:%02d.%03d", time["minutes"], time["seconds"], time["milliseconds"])
 end
 
+local function setPenaltyTriggers(trigs)
+pentrigs = {}
+for k,v in pairs(trigs) do
+pentrigs[v] = true
+end
+end
+
+local function getPenaltyTriggers()
+return pentrigs
+end
+
+M.getPenaltyTriggers = getPenaltyTriggers
+M.getPitMarkerData = getPitMarkerData
+M.onPitOverspeed = onPitOverspeed
+M.onPitLaneExit = onPitLaneExit
+M.onPitTriggerEntered = onPitTriggerEntered
+M.setPitData = setPitData
+M.onPenaltyTriggerEntered = onPenaltyTriggerEntered
+M.setPenaltyTriggers = setPenaltyTriggers
+M.getUIData = getUIData
+M.setUIData = setUIData
+M.generateNameTable = generateNameTable
+M.resetNameTable = resetNameTable
+M.getRacerName = getRacerName
+M.setPlayerName = setPlayerName
+M.setPlayerPosition = setPlayerPosition
+M.getPlayerPosition = getPlayerPosition
+M.getIDtable = getIDtable
+M.resetIDtable = resetIDtable
+M.setRacerID = setRacerID
 M.raceTimeString = raceTimeString
 M.msTimeFormat = msTimeFormat
 M.getTimes = getTimes

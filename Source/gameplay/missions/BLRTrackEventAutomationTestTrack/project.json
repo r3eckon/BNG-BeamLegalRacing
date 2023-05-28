@@ -1,0 +1,10 @@
+[
+  {
+    "authors":"BeamLR",
+    "date":1651797985,
+    "description":"Beam Legal Racing Track Event",
+    "difficulty":100,
+    "flowgraph":"/gameplay/missions/BLRTrackEventAutomationTestTrack/project.flow.json",
+    "name":"BeamLR Track Event"
+  }
+]

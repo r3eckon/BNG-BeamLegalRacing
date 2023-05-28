@@ -1,0 +1,77 @@
+<div class="bngApp beamlrperfui" style="background-color:transparent; height:100%; position:relative;" >
+
+<div ng-if="enabled==true" style="background-color:rgba(0.0,0.0,0.0,0.5); height:100%; margin:0;">
+
+<div ng-if="page==0" style="height:100%;">
+
+<h2 style="text-align:center; margin:0;">Performance Info</h2>
+
+<table style="width:100%; table-layout:fixed; text-align:center; margin-top:0px;">
+
+<tr ng-if="perfmode['power'] == 0">
+<td style="width:60%; font-weight:bold;" ng-click="modeChange('power')">Power (PS)</td>
+<td style="width:50%;">{{formatNumber(perfdata['power'])}}</td>
+</tr>
+
+<tr ng-if="perfmode['power'] == 1">
+<td style="width:60%; font-weight:bold;" ng-click="modeChange('power')">Power (hp)</td>
+<td style="width:50%;">{{formatNumber(perfdata['power'] / 1.014)}}</td>
+</tr>
+
+<tr ng-if="perfmode['power'] == 2">
+<td style="width:60%; font-weight:bold;" ng-click="modeChange('power')">Power (kW)</td>
+<td style="width:50%;">{{formatNumber(perfdata['power'] / 1.36)}}</td>
+</tr>
+
+<tr ng-if="perfmode['torque'] == 0">
+<td style="width:60%; font-weight:bold;" ng-click="modeChange('torque')">Torque (Nm)</td>
+<td style="width:50%;">{{formatNumber(perfdata['torque'])}}</td>
+</tr>
+
+<tr ng-if="perfmode['torque'] == 1">
+<td style="width:60%; font-weight:bold;" ng-click="modeChange('torque')">Torque (lb-ft)</td>
+<td style="width:50%;">{{formatNumber(perfdata['torque'] / 1.356)}}</td>
+</tr>
+
+<tr ng-if="perfmode['weight'] == 0">
+<td style="width:60%; font-weight:bold;" ng-click="modeChange('weight')">Weight (kg)</td>
+<td style="width:50%;">{{formatNumber(perfdata['weight'])}}</td>
+</tr>
+
+<tr ng-if="perfmode['weight'] == 1">
+<td style="width:60%; font-weight:bold;" ng-click="modeChange('weight')">Weight (lbs)</td>
+<td style="width:50%;">{{formatNumber(perfdata['weight'] * 2.205)}}</td>
+</tr>
+
+<tr>
+<td style="width:60%; font-weight:bold;">Class (Value)</td>
+<td style="width:50%;">{{perfdata['class']}} ({{formatNumber(perfdata['value'])}})</td>
+</tr>
+
+</table>
+
+<p style="width:90%; text-align:center; margin:auto; margin-bottom:2px; margin-top:5px; ">To increase performance class, add power and torque or reduce weight.</p>
+
+<p style="width:100%; text-align:center; margin-top:10px;"><button ng-click="switchPage(1)">View Classes</button></p>
+
+</div>
+
+<div ng-if="page==1" style="height:100%;">
+<table style="width:100%; table-layout:fixed; text-align:center; margin-top:0px;">
+<tr><td style="width:30%; font-weight:bold;">Class</td><td style="width:50%; font-weight:bold;">Value</td></tr>
+<tr><td style="width:30%; font-weight:bold;">E</td><td style="width:50%;">Below 0.3</td></tr>
+<tr><td style="width:30%; font-weight:bold;">D</td><td style="width:50%;">0.3 to 0.34</td></tr>
+<tr><td style="width:30%; font-weight:bold;">C</td><td style="width:50%;">0.35 to 0.49</td></tr>
+<tr><td style="width:30%; font-weight:bold;">B</td><td style="width:50%;">0.5 to 0.69</td></tr>
+<tr><td style="width:30%; font-weight:bold;">A</td><td style="width:50%;">0.7 to 0.84</td></tr>
+<tr><td style="width:30%; font-weight:bold;">S</td><td style="width:50%;">0.85 to 1.7</td></tr>
+<tr><td style="width:30%; font-weight:bold;">X</td><td style="width:50%;">Above 1.7</td></tr>
+</table>
+
+<p style="width:100%; text-align:center;"><button ng-click="switchPage(0)">Back</button></p>
+
+</div>
+
+</div>
+
+</div>

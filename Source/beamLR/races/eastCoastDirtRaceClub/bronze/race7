@@ -1,8 +1,7 @@
 desc=Race to the farm area
 wager=200,500
 slips=0
-enemyModel=hopper,roamer,barstow,pickup,sunburst,burnside
-enemyConfig=vehicles/hopper/xt4_M.pc,vehicles/roamer/v8_m.pc,vehicles/barstow/i6m.pc,vehicles/pickup/d15_A.pc,vehicles/sunburst/base_M.pc,vehicles/burnside/v8m.pc
+enemyConfig=class:club/dirt_bronze
 enemyRisk=0.8
 enemyBasePrice=0
 enemyPartPrice=0

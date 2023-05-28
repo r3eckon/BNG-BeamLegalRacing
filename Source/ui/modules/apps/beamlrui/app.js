@@ -33,12 +33,29 @@ angular.module('beamng.apps')
 		{type: "options", svg:"gearbutton.svg", id:1, name:"Options"},
 		{type: "buyparts", svg:"partshopbutton.svg", id:2, name:"Buy Parts"},
 		{type: "editcar", svg:"editcarbutton.svg", id:3, name:"Edit Car"},
-		{type: "tuning", svg:"tuningbutton.svg", id:4, name:"Tuning"}
+		{type: "tuning", svg:"tuningbutton.svg", id:4, name:"Tuning"},
+		{type: "events", svg:"eventbrowserbutton.svg", id:5, name:"Track Events"}
 	  ];
 	  
 	  scope.menuClick = function(id){
 		scope.menuPage = id
 		scope.resetConfirm = false
+		
+		if(id == 3)
+		{
+			bngApi.engineLua(`extensions.customGuiCallbacks.setParam("perfuitoggle", "1")`)
+			bngApi.engineLua(`extensions.customGuiCallbacks.exec("togglePerfUI", "perfuitoggle")`)
+		}
+		else
+		{
+			bngApi.engineLua(`extensions.customGuiCallbacks.setParam("perfuitoggle", "0")`)
+			bngApi.engineLua(`extensions.customGuiCallbacks.exec("togglePerfUI", "perfuitoggle")`)
+		}
+		
+		if(id == 5)
+		{
+			bngApi.engineLua(`extensions.customGuiCallbacks.exec("updateEventMenuPage")`)
+		}
 	  }
 	  
 	  scope.filter = function(m, f){
@@ -61,7 +78,10 @@ angular.module('beamng.apps')
 		{
 			scope.partPrice = scope.beamlrData["partPrices"]["default"] * scope.beamlrData['shopPriceScale'];
 		}
-		scope.partPrice = scope.beamlrData["partPrices"][item] * scope.beamlrData['shopPriceScale'];
+		else
+		{
+			scope.partPrice = scope.beamlrData["partPrices"][item] * scope.beamlrData['shopPriceScale'];
+		}
 	    bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("shopPurchase", "item", "${item}")`)
 		bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("shopPurchase", "price", ${scope.partPrice})`)
 		bngApi.engineLua(`extensions.customGuiCallbacks.exec("buyPart", "shopPurchase")`)
@@ -87,7 +107,17 @@ angular.module('beamng.apps')
 	  
 	  scope.showMenuClick = function () {
 		  scope.showMenu = !scope.showMenu;
-		  scope.resetConfirm = false
+		  scope.resetConfirm = false;
+		  if(scope.menuPage == 3 && scope.showMenu)
+		  {
+			bngApi.engineLua(`extensions.customGuiCallbacks.setParam("perfuitoggle", "1")`)
+			bngApi.engineLua(`extensions.customGuiCallbacks.exec("togglePerfUI", "perfuitoggle")`)
+		  }
+		  else
+		  {
+			bngApi.engineLua(`extensions.customGuiCallbacks.setParam("perfuitoggle", "0")`)
+			bngApi.engineLua(`extensions.customGuiCallbacks.exec("togglePerfUI", "perfuitoggle")`)
+		  }
 	  }
 	  
 	  scope.textboxHover = function(){
@@ -108,7 +138,7 @@ angular.module('beamng.apps')
 	  
 	  scope.getTuneData = function(id)
 	  {
-		  return parseFloat(scope.beamlrData["tuningValues"][id]);
+		  return Math.round(parseFloat(scope.beamlrData["tuningValues"][id]) * 1000) / 1000;
 	  }
 
 	  scope.applyTune = function()
@@ -241,6 +271,13 @@ angular.module('beamng.apps')
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("sleeptime", "${d}")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setSleepDuration", "sleeptime")`)
 	  }
+	  
+	  scope.setTimeScale= function(d)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("timescale", "${d}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setTimeScale", "timescale")`)
+	  }
+
 
 	  scope.setOpponentRandomPaint = function(d)
 	  {
@@ -270,6 +307,17 @@ angular.module('beamng.apps')
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("resetCouplers")`)
 	  }
 	  
+	  scope.showEventBrowser = function(d)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("showEventBrowser")`)
+		  scope.showMenu=false
+	  }
+	  
+	  scope.abandonEvent = function(d)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("abandonEvent")`)
+	  }
+	  
 	  scope.setTargetWager = function()
 	  {
 		  var wager = parseFloat(scope.inputData.targetWager)
@@ -282,6 +330,26 @@ angular.module('beamng.apps')
 		  scope.visibleSlots[slot] = toggle
 	  }
 	  
+	  scope.saveTemplate = function (template)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("templateData", "templateName", "${template}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("templateData", "templateFolder", "${scope.beamlrData["vehicleTemplateFolder"]}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("saveTemplate", "templateData")`)
+	  }
+	  
+	  scope.deleteTemplate = function (template)
+	  {
+	      bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("templateData", "templateName", "${template}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("templateData", "templateFolder", "${scope.beamlrData["vehicleTemplateFolder"]}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("deleteTemplate", "templateData")`)
+	  }
+	  
+	  scope.loadTemplate = function (template)
+	  {
+          bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("templateData", "templateName", "${template}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("templateData", "templateFolder", "${scope.beamlrData["vehicleTemplateFolder"]}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("loadTemplate", "templateData")`)
+	  }
 	  
     }
   }

@@ -45,6 +45,10 @@ else
 list = extensions.betterpartmgmt.categoryFilter(list, true)
 end
 extensions.customGuiStream.sendDataToUI("garageData", list)
+list = extensions.betterpartmgmt.getSortedGarageSlots()
+extensions.customGuiStream.sendDataToUI("sortedGarageSlots", list)
+list = extensions.betterpartmgmt.getSortedGarageParts()
+extensions.customGuiStream.sendDataToUI("sortedGarageParts", list)
 end
 
 ftable["setFilter"] = function(p)
@@ -71,6 +75,10 @@ list = extensions.betterpartmgmt.getSlotNameLibrary()
 extensions.customGuiStream.sendDataToUI("slotNames", list)
 local inventory = extensions.betterpartmgmt.getPartInventory()
 extensions.customGuiStream.sendDataToUI("ownedParts", inventory)
+list = extensions.betterpartmgmt.getSortedShopSlots()
+extensions.customGuiStream.sendDataToUI("sortedShopSlots", list)
+list = extensions.betterpartmgmt.getSortedShopParts()
+extensions.customGuiStream.sendDataToUI("sortedShopParts", list)
 elseif p == 1 then
 list = extensions.betterpartmgmt.getGarageUIData()
 list = extensions.betterpartmgmt.searchFilter(list, true, true)
@@ -81,6 +89,10 @@ list = extensions.betterpartmgmt.getVehicleParts()
 extensions.customGuiStream.sendDataToUI("usedParts", list)
 list = extensions.betterpartmgmt.getSlotNameLibrary()
 extensions.customGuiStream.sendDataToUI("slotNames", list)
+list = extensions.betterpartmgmt.getSortedGarageSlots()
+extensions.customGuiStream.sendDataToUI("sortedGarageSlots", list)
+list = extensions.betterpartmgmt.getSortedGarageParts()
+extensions.customGuiStream.sendDataToUI("sortedGarageParts", list)
 end
 end		
 
@@ -102,6 +114,10 @@ list = extensions.betterpartmgmt.getSlotNameLibrary()
 extensions.customGuiStream.sendDataToUI("slotNames", list)
 local inventory = extensions.betterpartmgmt.getPartInventory()
 extensions.customGuiStream.sendDataToUI("ownedParts", inventory)
+list = extensions.betterpartmgmt.getSortedShopSlots()
+extensions.customGuiStream.sendDataToUI("sortedShopSlots", list)
+list = extensions.betterpartmgmt.getSortedShopParts()
+extensions.customGuiStream.sendDataToUI("sortedShopParts", list)
 elseif p == 1 then
 list = extensions.betterpartmgmt.getGarageUIData()
 list = extensions.betterpartmgmt.categoryFilter(list, true)
@@ -112,6 +128,10 @@ list = extensions.betterpartmgmt.getVehicleParts()
 extensions.customGuiStream.sendDataToUI("usedParts", list)
 list = extensions.betterpartmgmt.getSlotNameLibrary()
 extensions.customGuiStream.sendDataToUI("slotNames", list)
+list = extensions.betterpartmgmt.getSortedGarageSlots()
+extensions.customGuiStream.sendDataToUI("sortedGarageSlots", list)
+list = extensions.betterpartmgmt.getSortedGarageParts()
+extensions.customGuiStream.sendDataToUI("sortedGarageParts", list)
 end
 end																											  
 
@@ -132,6 +152,25 @@ list = extensions.betterpartmgmt.getSlotNameLibrary()
 extensions.customGuiStream.sendDataToUI("slotNames", list)
 local inventory = extensions.betterpartmgmt.getPartInventory()
 extensions.customGuiStream.sendDataToUI("ownedParts", inventory)
+ -- Below added in 1.10, should reload proper tuning data for UI after part edits
+list = extensions.betterpartmgmt.getTuningUIData()
+extensions.customGuiStream.sendDataToUI("tuningData", list)
+list = extensions.betterpartmgmt.getTuningUIValues()
+extensions.customGuiStream.sendDataToUI("tuningValues", list)
+extensions.customGuiStream.sendDataToUI("tuningValuesSlider", list)
+extensions.customGuiStream.sendDataToUI("tuningValuesNumfield", list)
+list = extensions.betterpartmgmt.getSortedTuningCategories(false)
+extensions.customGuiStream.sendDataToUI("tuningSortedCategories", list)
+list = extensions.betterpartmgmt.getSortedTuningFields(false)
+extensions.customGuiStream.sendDataToUI("tuningSortedFields", list)
+list = extensions.betterpartmgmt.getSortedShopSlots()
+extensions.customGuiStream.sendDataToUI("sortedShopSlots", list)
+list = extensions.betterpartmgmt.getSortedShopParts()
+extensions.customGuiStream.sendDataToUI("sortedShopParts", list)
+list = extensions.betterpartmgmt.getSortedGarageSlots()
+extensions.customGuiStream.sendDataToUI("sortedGarageSlots", list)
+list = extensions.betterpartmgmt.getSortedGarageParts()
+extensions.customGuiStream.sendDataToUI("sortedGarageParts", list)
 end
 
 ftable["uiinit"] = function(p)
@@ -323,6 +362,148 @@ local vehid = be:getPlayerVehicleID(0)
 local vobj = be:getObjectByID(vehid)
 vobj:queueLuaCommand("extensions.blrVehicleUtils.advancedCouplersFix()")
 end
+
+ftable["setTuneTrack"] = function(p)
+local dtable = extensions.betterpartmgmt.tuningTableFromUIData(p, false)
+extensions.blrhooks.linkHook("vehReset", "tracktune")
+extensions.betterpartmgmt.applyTuningData(dtable)
+end
+
+ftable["resetTuneTrack"] = function(p)
+extensions.blrhooks.linkHook("vehReset", "tracktune")
+extensions.betterpartmgmt.resetTuningData()
+end
+
+ftable["selectEventFile"] = function(p)
+local eseed = extensions.blrutils.getEventSeed(tonumber(p["uid"]))
+local edata = extensions.blrutils.eventBrowserGetData(p["file"], eseed)
+extensions.customGuiStream.sendEventBrowserData(edata)
+extensions.blrutils.blrvarSet("uiinitSelectedEventFile", p["file"]) -- For ui init request when ESC is pressed
+extensions.blrutils.blrvarSet("uiinitSelectedEventUID", tonumber(p["uid"])) -- For ui init request when ESC is pressed
+local inspection = extensions.blrutils.getEventInspectionStatus()
+extensions.customGuiStream.sendEventBrowserInspectionStatus(inspection)
+local pdata = extensions.blrutils.eventBrowserGetPlayerData()
+extensions.customGuiStream.sendEventBrowserPlayerData(pdata)
+end
+
+ftable["updateEventMenuPage"] = function(p)
+local cdata = extensions.blrutils.getCurrentEventData()
+extensions.customGuiStream.sendDataToUI("currentTrackEvent", cdata)
+end
+
+ftable["showEventBrowser"] = function(p)
+local elist = extensions.blrutils.eventBrowserGetList()
+extensions.customGuiStream.sendEventBrowserList(elist)
+extensions.customGuiStream.toggleTrackEventBrowser(true)
+local pdata = extensions.blrutils.eventBrowserGetPlayerData()
+extensions.customGuiStream.sendEventBrowserPlayerData(pdata)
+local cdata = extensions.blrutils.getCurrentEventData()
+extensions.customGuiStream.sendEventBrowserCurrentEventData(cdata)
+extensions.blrglobals.blrFlagSet("eventBrowserEnabled", true)
+end
+
+ftable["hideEventBrowser"] = function(p)
+extensions.blrglobals.blrFlagSet("eventBrowserEnabled", false)
+end
+
+ftable["abandonEvent"] = function(p)
+local cdata = extensions.blrutils.loadDataTable("beamLR/currentTrackEvent")
+cdata["status"] = "over"
+extensions.blrutils.updateDataTable("beamLR/currentTrackEvent", cdata)
+local cdata = extensions.blrutils.getCurrentEventData() -- Should refresh event menu page data after abandon, do this after event joining too
+extensions.customGuiStream.sendDataToUI("currentTrackEvent", cdata)
+extensions.customGuiStream.sendEventBrowserCurrentEventData(cdata)
+local elist = extensions.blrutils.eventBrowserGetList()
+extensions.customGuiStream.sendEventBrowserList(elist)
+extensions.blrglobals.blrFlagSet("eventRestrictUpdate", true) -- Request updated vehicle restriction state
+end
+
+ftable["joinEvent"] = function(p)
+extensions.blrutils.blrvarSet("joinedEventFile", p["file"]) 
+extensions.blrutils.blrvarSet("joinedEventUID", p["uid"]) 
+extensions.blrglobals.blrFlagSet("joinEventRequest", true) -- Flowgraph will get current garage ID to feed to blrutils join function
+end
+
+ftable["togglePerfUI"] = function(p)
+if tonumber(p) == 1 then
+local options = extensions.blrutils.loadDataTable("beamLR/options")
+local mdata = {}
+mdata["torque"] = tonumber(options["perfmodetorque"] or "0")
+mdata["power"] = tonumber(options["perfmodepower"] or "0")
+mdata["weight"] = tonumber(options["perfmodeweight"] or "0")
+extensions.customGuiStream.sendPerfUIModes(mdata)
+extensions.customGuiStream.togglePerfUI(true)
+else
+extensions.customGuiStream.togglePerfUI(false)
+end
+end
+
+ftable["setTimeScale"] = function(p)
+local dtable = { }
+dtable["timescale"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+end
+
+ftable["uiRequestTemplates"] = function(p)
+extensions.blrutils.uiRefreshTemplates()
+end
+
+
+ftable["saveTemplate"] = function(p)
+local fullpath = p["templateFolder"] .. p["templateName"]
+extensions.betterpartmgmt.saveConfig(fullpath)
+extensions.blrutils.uiRefreshTemplates()
+end
+
+ftable["deleteTemplate"] = function(p)
+local fullpath = p["templateFolder"] .. p["templateName"]
+extensions.blrutils.deleteFile(fullpath)
+extensions.blrutils.uiRefreshTemplates()
+end
+
+ftable["loadTemplate"] = function(p)
+local fullpath = p["templateFolder"] .. p["templateName"]
+local inventory = extensions.blrutils.loadDataTable("beamLR/partInv")
+local cvgid = extensions.blrglobals.gmGetVal("cvgid")
+local currentConfig = jsonReadFile("beamLR/garage/config/car" .. cvgid)["parts"]
+local targetConfig = jsonReadFile(fullpath)["parts"]
+local targetPart = ""
+local currentPart = ""
+
+local canload = extensions.blrutils.templateLoadCheck(currentConfig, targetConfig)
+
+if canload then
+-- Below code taken from part edit process, since parts change this should reload UI menus and gas,odo,nos values
+extensions.blrglobals.gmSetVal("pgas", extensions.blrglobals.gmGetVal("cgas"))
+extensions.blrglobals.gmSetVal("podo", extensions.blrglobals.gmGetVal("codo"))
+extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	
+extensions.blrglobals.blrFlagSet("hasNos", false)
+extensions.blrhooks.linkHook("vehReset", "postedit")	
+
+-- Need to handle inventory updates by comparing current config to target config
+for k,v in pairs(currentConfig) do
+if v ~= "" then
+extensions.betterpartmgmt.addToInventory(v)
+end
+end
+for k,v in pairs(targetConfig) do
+if v ~= "" then
+extensions.betterpartmgmt.removeFromInventory(v)
+end
+end
+					
+extensions.betterpartmgmt.loadConfig(fullpath) 
+else
+guihooks.trigger('Message', {ttl = 10, msg = 'You don\'t have the parts needed to load this config!', icon = 'directions_car'})
+end
+end
+
+ftable["perfuiSetMode"] = function(p)
+local dtable = extensions.blrutils.loadDataTable("beamLR/options")
+dtable["perfmode" .. p["field"]] = tonumber(p["mode"])
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+end
+
 
 
 local ptable = {}

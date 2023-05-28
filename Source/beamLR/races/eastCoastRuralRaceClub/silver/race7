@@ -1,8 +1,7 @@
 desc=Long looping race
 wager=500,1000
 slips=0
-enemyModel=roamer,moonhawk,van,fullsize,etki,covet,miramar,legran,pessima,bluebuck,vivace,pickup,etk800,coupe,barstow,sunburst,autobello
-enemyConfig=vehicles/roamer/street_tuned.pc,vehicles/moonhawk/v8special.pc,vehicles/van/street_tuned.pc,vehicles/fullsize/sport.pc,vehicles/etki/3000i_M.pc,vehicles/covet/gtz.pc,vehicles/miramar/race.pc,vehicles/legran/sport_se_v6_awd_facelift_M.pc,vehicles/pessima/GTz.pc,vehicles/bluebuck/custom.pc,vehicles/vivace/vivace_S_310_M.pc,vehicles/pickup/d15_streettuned_M.pc,vehicles/etk800/etk856t_A.pc,vehicles/coupe/custom.pc,vehicles/barstow/291m_sport.pc,vehicles/sunburst/sport_RS_M.pc,vehicles/autobello/street.pc
+enemyConfig=class:club/street_silver
 enemyRisk=0.8
 enemyBasePrice=0
 enemyPartPrice=0

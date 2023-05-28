@@ -1,0 +1,8 @@
+name=ETK K-Series (kc8 ttSport,DCT)
+type=etkc
+config=vehicles/etkc/kc8_ttsport_DCT.pc
+baseprice=120000
+odometer=0
+scrapval=3000
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

@@ -165,6 +165,9 @@ end
 
 local function saveConfig(file)
 extensions.core_vehicle_partmgmt.save(file)
+local ctable = jsonReadFile(file)
+ctable["paints"] = nil
+jsonWriteFile(file,ctable,true)
 end
 
 
@@ -262,14 +265,14 @@ end
 return t2
 end
 
-local function getTuningUIData()
+local function getTuningUIData(trackMode)
 local dtable = extensions.core_vehicle_manager.getPlayerVehicleData().vdata.variables
 local toRet = {}
 local cname = ""
 local ckey = ""
 for k,v in pairs(dtable) do
-if k ~= "$fuel" and v~= nil then			-- Don't show slider to tune fuel since it's overriden by saved fuel value
-
+if (not k:match("$fuel") or trackMode) and v~= nil then			-- Don't show slider to tune fuel since it's overriden by saved fuel value
+														-- 1.10 TRACK EVENTS can show fuel slider
 ckey = v["name"]
 ckey = string.sub(ckey, 2, #ckey)
 ckey = "ui_" .. ckey
@@ -285,6 +288,7 @@ end
 end
 return toRet
 end
+
 
 local function getTuningUIValues()
 local dtable = extensions.core_vehicle_manager.getPlayerVehicleData().vdata.variables
@@ -487,8 +491,8 @@ end
 local function getVehicleSalePrice(odometer, reputation, repairCost, scrapVal)
 local partcost = getVehiclePartCost()
 local odoscl = 0.9 - math.min(((odometer / 200000000.0) * 0.8), 0.8)
-local repscl = 0.1 + math.min(((reputation / 5000.0) * 0.8), 0.8)
-return math.max(((partcost * repscl) * odoscl) - repairCost , scrapVal)
+local repscl = 0.1 + math.min(((reputation / 100000.0) * 0.5), 0.5)
+return math.max((partcost * (repscl * odoscl)) - repairCost , scrapVal)
 end
 
 
@@ -579,6 +583,165 @@ end
 return toRet
 end
 
+local function getTuningFuelLoad()
+local toRet = 0
+local tunedata = getTuningUIData(true)
+for k,v in pairs(tunedata) do
+if v["name"]:match("$fuel") then
+toRet = toRet + v["val"]
+end
+end
+return toRet
+end
+
+local function getSortedTuningCategories(trackMode)
+local tdata = getTuningUIData(trackMode)
+local toRet = {}
+local added = {}
+local ccat = ""
+for k,v in pairs(tdata) do
+ccat = v['category']
+if not added[ccat] then
+table.insert(toRet, ccat)
+added[ccat] = true
+end
+end
+table.sort(toRet)
+return toRet
+end
+
+
+local function getSortedTuningFields(trackMode)
+local tdata = getTuningUIData(trackMode)
+local cats = getSortedTuningCategories(trackMode)
+local sortedFields = {}
+local fieldMap = {}
+local toRet = {}
+local ccat = ""
+local cfield = ""
+
+for k,v in pairs(tdata) do
+fieldMap[v["title"]] = k
+table.insert(sortedFields, v["title"])
+end
+table.sort(sortedFields)
+
+for k,v in ipairs(sortedFields) do
+cfield = fieldMap[v]
+ccat = tdata[cfield]["category"]
+if not toRet[ccat] then toRet[ccat] = {} end
+table.insert(toRet[ccat], cfield)
+end
+
+return toRet
+end
+
+local function getSortedShopSlots()
+local sdata = getMergedSlotMaps()
+local snames = getSlotNameLibrary()
+
+local sortedSlots = {} -- KEY=POSITION,VAL=SLOT
+local smap = {}
+local toRet = {}
+local cname = ""
+
+for k,v in pairs(sdata) do
+if snames[k] then
+cname = snames[k] .. " " .. k
+smap[cname] = k -- Adding internal slot name to proper name to avoid duplicates in mapping
+table.insert(sortedSlots, cname) -- Sort by name
+end
+end
+table.sort(sortedSlots)
+
+for k,v in ipairs(sortedSlots) do
+table.insert(toRet, smap[v])
+end
+
+return toRet
+end
+
+local function getSortedShopParts()
+local sdata = getMergedSlotMaps()
+local pnames = getPartNameLibrary()
+
+local toRet = {} -- KEY=SLOT,VAL=TABLE:KEY=POSITION,VAL=PART
+local csort = {} 
+local cmap = {}
+
+for k,v in pairs(sdata) do
+toRet[k] = {}
+cmap = {}
+csort = {}
+for _,p in pairs(sdata[k]) do
+cmap[pnames[p]] = p
+table.insert(csort, pnames[p])
+end
+table.sort(csort)
+for _,p in ipairs(csort) do
+table.insert(toRet[k], cmap[p])
+end
+end
+
+return toRet
+end
+
+local function getSortedGarageSlots()
+local sdata = getGarageUIData()
+local snames = getSlotNameLibrary()
+
+local sortedSlots = {} -- KEY=POSITION,VAL=SLOT NAME
+local smap = {}
+local toRet = {} -- KEY=POSITION,VAL=SLOT
+
+for k,v in pairs(sdata) do
+if snames[k] then
+smap[snames[k]] = k
+table.insert(sortedSlots, snames[k]) -- Sort by name
+end
+end
+table.sort(sortedSlots)
+
+for k,v in ipairs(sortedSlots) do
+toRet[k] = smap[v]
+end
+
+return toRet
+end
+
+local function getSortedGarageParts()
+local sdata = getGarageUIData()
+local pnames = getPartNameLibrary()
+
+local toRet = {} -- KEY=SLOT,VAL=TABLE:KEY=POSITION,VAL=PART
+local csort = {} 
+local cmap = {}
+
+for k,v in pairs(sdata) do
+toRet[k] = {}
+cmap = {}
+csort = {}
+for _,p in pairs(sdata[k]) do
+cmap[pnames[p]] = p
+table.insert(csort, pnames[p])
+end
+table.sort(csort)
+for _,p in ipairs(csort) do
+table.insert(toRet[k], cmap[p])
+end
+end
+
+return toRet
+end
+
+
+M.getSortedGarageParts = getSortedGarageParts
+M.getSortedGarageSlots = getSortedGarageSlots
+M.getSortedShopParts = getSortedShopParts
+M.getSortedShopSlots = getSortedShopSlots
+M.getSortedTuningFields = getSortedTuningFields
+M.getSortedTuningCategories = getSortedTuningCategories
+M.getTuningFuelLoad = getTuningFuelLoad
 M.getFilteredSlotMap = getFilteredSlotMap
 M.generateConfigVariant = generateConfigVariant
 M.getCustomIOCTX = getCustomIOCTX

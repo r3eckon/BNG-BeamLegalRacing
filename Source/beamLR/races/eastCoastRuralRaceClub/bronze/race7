@@ -1,8 +1,7 @@
 desc=Long looping race
 wager=200,500
 slips=0
-enemyModel=covet
-enemyConfig=vehicles/covet/type_L_M.pc
+enemyConfig=class:club/street_bronze
 enemyRisk=0.7
 enemyBasePrice=0
 enemyPartPrice=0

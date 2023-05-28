@@ -9,6 +9,11 @@ ftable["postedit"] = function(p)
 extensions.blrglobals.gmSetVal("postEditActionsQueued", true)
 end
 
+ftable["tracktune"] = function(p)
+extensions.blrglobals.blrFlagSet("trackPostTuneActionsQueued", true)
+end
+
+
 ftable["debug"] = function(p)
 print(p)
 end

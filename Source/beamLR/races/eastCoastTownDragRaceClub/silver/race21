@@ -1,8 +1,7 @@
 desc=Quick drag race
 wager=350,600
 slips=0
-enemyModel=etkc
-enemyConfig=vehicles/etkc/kc6_M.pc
+enemyConfig=vehicles/etkc/kc4_250_M.pc,vehicles/etkc/kc4_street_tuned_M.pc
 enemyRisk=0.98
 enemyBasePrice=0
 enemyPartPrice=0

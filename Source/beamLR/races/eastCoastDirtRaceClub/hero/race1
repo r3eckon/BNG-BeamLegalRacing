@@ -1,8 +1,7 @@
 desc=Race to the town through a long dirt path
 wager=1000,2000
 slips=0
-enemyModel=roamer,sunburst,vivace,covet,scintilla,etki,moonhawk,midsize,wendover,pessima
-enemyConfig=vehicles/roamer/offroad.pc,vehicles/sunburst/rally_SQ.pc,vehicles/vivace/gravel_SQ.pc,vehicles/covet/turbo_rally.pc,vehicles/scintilla/offroad.pc,vehicles/etki/rally.pc,vehicles/moonhawk/drive.pc,vehicles/midsize/rally.pc,vehicles/wendover/rally.pc,vehicles/pessima/rally.pc
+enemyConfig=class:club/dirt_hero
 enemyRisk=0.9
 enemyBasePrice=0
 enemyPartPrice=0

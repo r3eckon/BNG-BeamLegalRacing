@@ -6,11 +6,11 @@ local M = {}
 
 local fetchTable = {}
 
-local function fetch(msg,id)
+local function fetch(msg,id) -- used on vlua side through string command exec
 fetchTable[id] = msg
 end
 
-local function getVal(id)
+local function getVal(id) -- used on ge or fg to get fetched val
 return fetchTable[id]
 end
 

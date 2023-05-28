@@ -300,7 +300,9 @@ return toRet
 end
 
 local function garagePaintReload(vid, gid)
+local paint = convertUIPaintToVehiclePaint(getGarageCarPaint(gid))
 local mc = convertUIPaintToMeshColors(getGarageCarPaint(gid))
+livePaintUpdate(vid, paint)
 repaintFullMesh(vid, mc.car,mc.cag, mc.cab, mc.caa, mc.cbr,mc.cbg,mc.cbb, mc.cba, mc.ccr,mc.ccg,mc.ccb, mc.cca)
 end
 
@@ -311,8 +313,8 @@ local wager= ssplit(raceData["wager"], ",")
 local parts= ssplit(raceData["parts"], ",")
 local partsRand = tonumber(raceData["partsRand"]) == 1
 local reputation = ssplit(raceData["rep"], ",")
-local enemyModels = ssplit(raceData["enemyModel"], ",")
-local enemyConfigs = ssplit(raceData["enemyConfig"], ",")
+local enemyModels = raceData["enemyModel"] -- Now receiving perfclass loader table, no need for ssplit
+local enemyConfigs = raceData["enemyConfig"] -- Now receiving perfclass loader table, no need for ssplit
 local enemyRisk = ssplit(raceData["enemyRisk"], ",")
 local laps = ssplit(raceData["laps"], ",")
 
@@ -340,8 +342,8 @@ crand = math.random(#enemyModels)
 toRet["enemyModel"] = enemyModels[crand]
 toRet["enemyConfig"] = enemyConfigs[crand]
 else 
-toRet["enemyModel"] = raceData["enemyModel"]
-toRet["enemyConfig"] = raceData["enemyConfig"]
+toRet["enemyModel"] = raceData["enemyModel"][1]
+toRet["enemyConfig"] = raceData["enemyConfig"][1]
 end
 
 if #enemyRisk > 1 then
@@ -596,6 +598,8 @@ local seed = tonumber(options["sseed"]) -- Career seed cycled before this line s
 local startCarCount = #FS:findFiles("beamLR/init/garage/", "*", 0) -- Automatically find amount of starter cars for easier modding
 local carid = getStarterCarID(seed, startCarCount)
 local difficulty = options["difficulty"] or "hard"	-- Default to hard difficulty if options file comes from older mod version
+local event = loadDataTable("beamLR/currentTrackEvent")
+local ctemplates = {}
 
 deleteFile("beamLR/mainData")
 deleteFile("beamLR/partInv")
@@ -608,6 +612,8 @@ deleteFile("beamLR/garage/config/car" .. i)
 deleteFile("beamLR/beamstate/car" .. i .. ".save.json")
 deleteFile("beamLR/beamstate/mech/car" .. i)
 deleteFile("beamLR/beamstate/integrity/car" .. i)
+-- Removing template folder
+FS:directoryRemove("beamLR/garage/config/template/car" .. i)
 end
 
 for _,v in pairs(FS:directoryList("beamLR/races")) do	-- Loop over all available race clubs to reset progress files
@@ -630,6 +636,16 @@ copyFile("beamLR/init/garage/config/car" .. carid , "beamLR/garage/config/car0")
 copyFile("beamLR/init/beamstate/car" .. carid .. ".save.json" , "beamLR/beamstate/car0.save.json")
 copyFile("beamLR/init/beamstate/mech/car" .. carid , "beamLR/beamstate/mech/car0")
 copyFile("beamLR/init/beamstate/integrity/car" .. carid , "beamLR/beamstate/integrity/car0")
+-- Create new template folder for car0
+FS:directoryCreate("beamLR/garage/config/template/car0")
+
+-- Reset current track event
+event["status"] = "over"
+event["carid"] = 0
+event["eventid"] = 0
+updateDataTable("beamLR/currentTrackEvent", event)
+
+
 end
 
 local function backupCareer()
@@ -637,15 +653,25 @@ local function backupCareer()
 copyFile("beamLR/mainData", "beamLR/backup/mainData")
 copyFile("beamLR/partInv", "beamLR/backup/partInv")
 copyFile("beamLR/options", "beamLR/backup/options")
+copyFile("beamLR/currentTrackEvent", "beamLR/backup/currentTrackEvent")
 
 -- Garage data
 local count = #FS:findFiles("beamLR/garage/", "*", 0)
+local ctemplates = {}
 for i=0,count-1 do 
 copyFile("beamLR/garage/car" .. i, "beamLR/backup/garage/car" .. i)
 copyFile("beamLR/garage/config/car" .. i,"beamLR/backup/garage/config/car" .. i)
 copyFile("beamLR/beamstate/car" .. i .. ".save.json","beamLR/backup/beamstate/car" .. i .. ".save.json")
 copyFile("beamLR/beamstate/mech/car" .. i,"beamLR/backup/beamstate/mech/car" .. i)
 copyFile("beamLR/beamstate/integrity/car" .. i,"beamLR/backup/beamstate/integrity/car" .. i)
+
+-- Backup templates
+ctemplates = FS:findFiles("beamLR/garage/config/template/car" .. i, "*", 0)
+for _,file in pairs(ctemplates) do
+copyFile(file, file:gsub("beamLR/garage/", "beamLR/backup/garage/"))
+end
+
+
 end
 
 -- Race progress data
@@ -665,7 +691,6 @@ dest = v:gsub("beamLR", "beamLR/backup")
 copyFile(v,dest)
 end
 
-
 end
 
 local function restoreBackup()
@@ -678,15 +703,24 @@ resetCareer()
 copyFile("beamLR/backup/mainData","beamLR/mainData")
 copyFile("beamLR/backup/partInv","beamLR/partInv")
 copyFile("beamLR/backup/options","beamLR/options")
+copyFile("beamLR/backup/currentTrackEvent","beamLR/currentTrackEvent")
 
 -- Garage data
 local count = #FS:findFiles("beamLR/backup/garage/", "*", 0)
+local ctemplates = {}
 for i=0,count-1 do 
 copyFile("beamLR/backup/garage/car" .. i,"beamLR/garage/car" .. i)
 copyFile("beamLR/backup/garage/config/car" .. i,"beamLR/garage/config/car" .. i)
 copyFile("beamLR/backup/beamstate/car" .. i .. ".save.json", "beamLR/beamstate/car" .. i .. ".save.json")
 copyFile("beamLR/backup/beamstate/mech/car" .. i,"beamLR/beamstate/mech/car" .. i)
 copyFile("beamLR/backup/beamstate/integrity/car" .. i,"beamLR/beamstate/integrity/car" .. i)
+
+-- Restore template files
+ctemplates = FS:findFiles("beamLR/backup/garage/config/template/car" .. i, "*", 0)
+for _,file in pairs(ctemplates) do
+copyFile(file, file:gsub("beamLR/backup/garage/","beamLR/garage/"))
+end
+
 end
 
 -- Race progress data
@@ -754,6 +788,7 @@ local toRet = {}
 local path = "beamLR/mapdata/" .. getLevelName() .. "/towing"
 local dtable = loadDataTable(path)
 toRet["pos"] = ssplitnum(dtable["pos"], ",")
+toRet["rot"] = ssplitnum(dtable["rot"], ",")
 return toRet
 end
 
@@ -897,6 +932,11 @@ local cweight = 0
 local csource = ""
 local ccancalc = false
 local cclass = ""
+local induction = ""
+local drivetrain = ""
+local brand = ""
+local ccpath = ""
+local ckey = ""
 
 -- Filter models
 for k,v in pairs(models) do
@@ -925,7 +965,26 @@ cpower = cdata["Power"]
 ctorque = cdata["Torque"]
 cweight = cdata["Weight"]
 cclass = getPerformanceClass(cpower,ctorque,cweight)
-data[cclass] = data[cclass] .. "/vehicles/" .. v .. "/" .. cname .. ".pc" .. "\n"
+
+brand = models[v]["Brand"] or "NOBRAND"
+induction = (cdata["Induction Type"] or "NOINDUCTION"):gsub(" + ", "_") -- Replaces +N2O with _N2O for folder structure
+drivetrain = (cdata["Drivetrain"] or "NODRIVETRAIN"):gsub("4WD", "AWD"):gsub("4x4", "AWD"):gsub("4x2", "AWD")
+
+ccpath = "/vehicles/" .. v .. "/" .. cname .. ".pc" -- Current config path to add to files
+
+data[cclass] = data[cclass] .. ccpath .. "\n" -- Add to generic performance class
+
+ckey = "brand/" .. brand .. "/" .. cclass
+if not data[ckey] then data[ckey] = "" end
+data[ckey] = data[ckey] .. ccpath .. "\n" -- Add to brand specific classes
+ckey = "induction/" .. induction .. "/" .. cclass
+if not data[ckey] then data[ckey] = "" end
+data[ckey] = data[ckey] .. ccpath .. "\n" -- Add to induction specific classes
+ckey = "drivetrain/" .. drivetrain .. "/" .. cclass
+if not data[ckey] then data[ckey] = "" end
+data[ckey] = data[ckey] .. ccpath .. "\n" -- Add to drivetrain specific classes
+
+
 else
 data["NA"] = data["NA"] .. "/vehicles/" .. v .. "/" .. cname .. ".pc" .. "\n"
 end
@@ -936,7 +995,25 @@ cpower = cdata["Power"]
 ctorque = cdata["Torque"]
 cweight = cdata["Weight"]
 cclass = getPerformanceClass(cpower,ctorque,cweight)
-data[cclass] = data[cclass] .. "/vehicles/" .. v .. "/" .. cname .. ".pc" .. "\n"
+
+brand = models[v]["Brand"] or "NOBRAND"
+induction = (cdata["Induction Type"] or "NOINDUCTION"):gsub(" + ", "_") -- Replaces +N2O with _N2O for folder structure
+drivetrain = (cdata["Drivetrain"] or "NODRIVETRAIN"):gsub("4WD", "AWD"):gsub("4x4", "AWD"):gsub("4x2", "AWD")
+
+ccpath = "/vehicles/" .. v .. "/" .. cname .. ".pc" -- Current config path to add to files
+
+data[cclass] = data[cclass] .. ccpath .. "\n" -- Add to generic performance class
+
+ckey = "brand/" .. brand .. "/" .. cclass
+if not data[ckey] then data[ckey] = "" end
+data[ckey] = data[ckey] .. ccpath .. "\n" -- Add to brand specific classes
+ckey = "induction/" .. induction .. "/" .. cclass
+if not data[ckey] then data[ckey] = "" end
+data[ckey] = data[ckey] .. ccpath .. "\n" -- Add to induction specific classes
+ckey = "drivetrain/" .. drivetrain .. "/" .. cclass
+if not data[ckey] then data[ckey] = "" end
+data[ckey] = data[ckey] .. ccpath .. "\n" -- Add to drivetrain specific classes
+
 else
 data["NA"] = data["NA"] .. "/vehicles/" .. v .. "/" .. cname .. ".pc" .. "\n"
 end
@@ -963,6 +1040,7 @@ local filedata = readFile(path)
 if string.sub(filedata, #filedata, #filedata) == "\n" then -- Remove last newline if it exists to prevent empty last element
 filedata = string.sub(filedata, 1, #filedata-1) 
 end
+filedata = filedata:gsub("\r", "") -- Clear \r character leaving only \n 
 local filesplit = ssplit(filedata, "\n")
 local toRet = {}
 for k,v in pairs(filesplit) do
@@ -1167,7 +1245,537 @@ local function getShopSeed(shopID)
 return getDailySeed()+(shopID*10) -- As long as shops have < 10 slots no roll collision happens
 end
 
+local function addShopCarToGarage(sfile, count, seed) -- Force add car to garage using a shop file, added for track events
+local ctable = loadDataTable("beamLR/shop/car/" .. sfile) 
+local config = ctable["config"]
+local baseprice = ssplitnum(ctable["baseprice"], ",")[1]
+local paintdata = vehiclePaintToGaragePaint(createRandomPaint(seed))
+local filedata = ""
+local filename = "beamLR/garage/car" .. (count)
+filedata = "name=" .. ctable["name"] .. "\n"
+filedata = filedata .. "type=" .. ctable["type"] .. "\n"
+filedata = filedata .. "gas=2" .. "\n"
+filedata = filedata .. "baseprice=" .. ctable["baseprice"] .. "\n"
+filedata = filedata .. "partprice=" .. ctable["partprice"] .. "\n"
+filedata = filedata .. "scrapval=" .. ctable["scrapval"] .. "\n"
+filedata = filedata .. "paintA=" .. paintdata .. "\n"
+filedata = filedata .. "paintB=" .. paintdata .. "\n"
+filedata = filedata .. "paintC=" .. paintdata .. "\n"
+filedata = filedata .. "damage=0\n"
+filedata = filedata .. "impoundval=0\n"
+filedata = filedata .. "nos=0\n"
+writeFile(filename, filedata)
 
+extensions.blrutils.copyFile(config, "beamLR/garage/config/car" .. (count))
+
+local ifile = "odometer=0"
+writeFile("beamLR/beamstate/integrity/car" .. (count), ifile)
+
+local mechdata = extensions.mechDamageLoader.getNewCarMechData()
+writeFile("beamLR/beamstate/mech/car" .. (count), mechdata)
+
+FS:directoryCreate("beamLR/garage/config/template/car" .. (count))
+
+end
+
+local function getLevelInfo(level)
+return readJsonFile("/levels/" .. level .. "/info.json")
+end
+
+local function getLevelUITitle(level)
+local info = getLevelInfo(level)
+return translateLanguage(info["title"], info["title"])
+end
+
+local function eventBrowserGetList() -- Returns event list for browser UI
+local toRet = {}
+local files = FS:findFiles("beamLR/trackEvents/", "*", 0)
+local pdata = loadDataTable("beamLR/mainData")
+local currentEvent = loadDataTable("beamLR/currentTrackEvent")
+local cdata = {}
+local i = 1
+for k,v in pairs(files) do
+cdata = loadDataTable(v)
+toRet[i] = {}
+toRet[i]["title"] = cdata["title"]
+toRet[i]["joincost"] = cdata["joincost"]
+toRet[i]["map"] = getLevelUITitle(cdata["map"]) -- Using UI level name
+toRet[i]["joined"] = (v:sub(21) == currentEvent["efile"] and currentEvent["status"] ~= "over")
+toRet[i]["unlocked"] = extensions.blrglobals.gmGetVal("playerRep") >= tonumber(cdata["reputation"])
+toRet[i]["repunlock"] = tonumber(cdata["reputation"])
+toRet[i]["file"] = v:sub(21)
+i = i+1
+end
+
+return toRet
+end
+
+local function eventBrowserGetPlayerData() -- Returns player data for browser UI
+local toRet = {}
+local pdata = loadDataTable("beamLR/mainData")
+toRet["money"] = extensions.blrglobals.gmGetVal("playerMoney")
+toRet["rep"] = extensions.blrglobals.gmGetVal("playerRep")
+return toRet
+end
+
+local function getVehicleInfoFile(model) -- info.json containing UI name and brand, dont specify model to use current veh model
+if not model then model = getVehicleMainPartName() end
+local data = readJsonFile("/vehicles/" .. model .. "/info.json")
+return data
+end
+
+local inspectionDataEvent = {} -- Stores last loaded inspection related fields for comparison with vehicle
+
+
+local function loadEventWithRandoms(event, seed)
+local edata = loadDataTable("beamLR/trackEvents/" .. event)
+math.randomseed(seed)
+local lapssplit = extensions.blrutils.ssplitnum(edata["laps"], ",")
+local roundssplit = extensions.blrutils.ssplitnum(edata["rounds"], ",")
+local opcountsplit = extensions.blrutils.ssplitnum(edata["opcount"], ",")
+local timesplit = extensions.blrutils.ssplitnum(edata["timeofday"], ",")
+local carsplit = extensions.blrutils.ssplit(edata["carreward"], ",")
+local partsplit = extensions.blrutils.ssplit(edata["partreward"], ",")
+
+local moneysplit = extensions.blrutils.ssplit(edata["moneyreward"], ",")
+local moneyrange = {}
+local moneydata = ""
+moneyrange[1] = extensions.blrutils.ssplitnum(moneysplit[1], ":")
+moneyrange[2] = extensions.blrutils.ssplitnum(moneysplit[2], ":")
+moneyrange[3] = extensions.blrutils.ssplitnum(moneysplit[3], ":")
+
+local repsplit = extensions.blrutils.ssplit(edata["repreward"], ",")
+local reprange = {}
+local repdata = ""
+reprange[1] = extensions.blrutils.ssplitnum(repsplit[1], ":")
+reprange[2] = extensions.blrutils.ssplitnum(repsplit[2], ":")
+reprange[3] = extensions.blrutils.ssplitnum(repsplit[3], ":")
+
+
+-- Event params are individually seeded except for reward which is linked to total duration of event
+local laproll = math.random()
+local roundroll =  math.random()
+local opcountroll = math.random()
+local timeroll =  math.random()
+local carroll = 0
+local partroll = 0
+local rewardfloat = (laproll + timeroll) / 2.0 -- Max laps + max rounds = max reward
+
+if #lapssplit > 1 then
+edata["laps"] = math.floor(lerp(laproll, lapssplit[1], lapssplit[2], false))
+end
+
+if #roundssplit > 1 then
+edata["rounds"] = math.floor(lerp(roundroll, roundssplit[1], roundssplit[2], false))
+end
+
+if #opcountsplit > 1 then
+edata["opcount"] = math.floor(lerp(opcountroll, opcountsplit[1], opcountsplit[2], false))
+end
+
+if #timesplit > 1 then
+edata["timeofday"] = lerp(timeroll, timesplit[1], timesplit[2], false)
+end
+
+if #moneyrange[1] > 1 then
+moneydata = (math.floor(lerp(rewardfloat, moneyrange[1][1], moneyrange[1][2], false) / 100.0) * 100.0) .. ","
+else
+moneydata = moneyrange[1][1] .. ","
+end
+if #moneyrange[2] > 1 then
+moneydata = moneydata .. (math.floor(lerp(rewardfloat, moneyrange[2][1], moneyrange[2][2], false) / 100.0) * 100.0) .. ","
+else
+moneydata = moneydata .. moneyrange[2][1] .. ","
+end
+if #moneyrange[3] > 1 then
+moneydata = moneydata .. (math.floor(lerp(rewardfloat, moneyrange[3][1], moneyrange[3][2], false) / 100.0) * 100.0)
+else
+moneydata = moneydata .. moneyrange[3][1]
+end
+
+if #reprange[1] > 1 then
+repdata = (math.floor(lerp(rewardfloat, reprange[1][1], reprange[1][2], false) / 10.0) * 10.0) .. ","
+else
+repdata = reprange[1][1] .. ","
+end
+if #reprange[2] > 1 then
+repdata = repdata .. (math.floor(lerp(rewardfloat, reprange[2][1], reprange[2][2], false) / 10.0) * 10.0) .. ","
+else
+repdata = repdata .. reprange[2][1] .. ","
+end
+if #reprange[3] > 1 then
+repdata = repdata .. (math.floor(lerp(rewardfloat, reprange[3][1], reprange[3][2], false) / 10.0) * 10.0)
+else
+repdata = repdata .. reprange[3][1]
+end
+
+edata["moneyreward"] = moneydata
+edata["repreward"] = repdata
+
+if #carsplit > 1 then
+carroll = math.random(1, #carsplit)
+edata["carreward"] = carsplit[carroll]
+end
+
+if #partsplit > 1 then
+partroll = math.random(1, #partsplit)
+edata["partreward"] = partsplit[partroll]
+end
+
+return edata
+end
+
+
+local function eventBrowserGetData(event, seed) -- Returns selected event data for browser UI
+local toRet = {}
+local edata = loadEventWithRandoms(event, seed)
+local cdata = {}
+toRet["title"] = edata["title"]
+toRet["map"] = getLevelUITitle(edata["map"]) -- Using UI level name
+toRet["layout"] = edata["layout"]
+local timedata = formatTimeOfDay(tonumber(edata["timeofday"]))
+local timestring = string.format("%.2d:%.2d", timedata["hours"], timedata["minutes"])
+toRet["timeofday"] = timestring 
+toRet["perfclass"] = edata["perfclass"]
+toRet["powertrain"] = edata["powertrain"]
+if edata["allowedmodel"] ~= "any" then
+toRet["allowedmodel"] = getVehicleInfoFile(edata["allowedmodel"])["Name"]
+else
+toRet["allowedmodel"] = "any"
+end
+toRet["allowedbrand"] = edata["allowedbrand"]
+toRet["induction"] = edata["induction"]
+toRet["reputation"] = tonumber(edata["reputation"])
+toRet["joincost"] = tonumber(edata["joincost"])
+toRet["laps"] = edata["laps"]
+toRet["rounds"] = edata["rounds"]
+toRet["opcount"] = edata["opcount"]
+toRet["moneyreward"] = edata["moneyreward"]
+toRet["repreward"] = edata["repreward"]
+toRet["partreward"] = edata["partreward"] -- Could possibly use actual part names 
+if edata["carreward"] ~= "none" then -- Use proper car name instead of file name
+local cars = ssplit(edata["carreward"], ",")
+local cfirst = true
+toRet["carreward"] = ""
+for k,v in pairs(cars) do
+cdata = loadDataTable("beamLR/shop/car/" .. v)
+if not cfirst then
+toRet["carreward"] = toRet["carreward"] .. ", "
+end
+toRet["carreward"] = toRet["carreward"] .. cdata["name"]
+cfirst=false
+end
+else
+toRet["carreward"] = "none"
+end
+toRet["pitlane"] = edata["pitlane"]
+toRet["efile"] = event -- Passing efile parameter to use when joining
+
+-- set inspection fields
+inspectionDataEvent = {}
+inspectionDataEvent["perfclass"] = toRet["perfclass"]
+inspectionDataEvent["powertrain"] = toRet["powertrain"]
+inspectionDataEvent["model"] = edata["allowedmodel"] -- Use event data internal model instead of UI brand, no need to load veh info file 
+inspectionDataEvent["brand"] = toRet["allowedbrand"]
+inspectionDataEvent["induction"] = toRet["induction"]
+
+return toRet
+end
+
+local function fetchVehicleUtilsData(vehid)-- Use this to update vehutils values when player changes vehicles
+local ptid = "vehinfo_powertrain"
+local inid = "vehinfo_induction"
+local pcid = "vehinfo_perfclass"
+local pdid = "vehinfo_perfdata"
+local ptfetch = "extensions.blrVehicleUtils.getPowertrainLayoutName()"
+local infetch = "extensions.blrVehicleUtils.getInductionType()"
+local pcfetch = "extensions.blrVehicleUtils.getPerformanceClass()"
+local pdfetch = "extensions.blrVehicleUtils.getPerformanceData()"
+if not vehid then vehid = be:getPlayerVehicle(0):getId() end
+extensions.vluaFetchModule.exec(vehid, ptfetch, ptid, true)
+extensions.vluaFetchModule.exec(vehid, infetch, inid, true)
+extensions.vluaFetchModule.exec(vehid, pcfetch, pcid, true)
+extensions.vluaFetchModule.exec(vehid, pdfetch, pdid, true)
+end
+
+local function getFetchedVehicleUtilsData() 
+local toRet = {}
+local ptid = "vehinfo_powertrain"
+local inid = "vehinfo_induction"
+local pcid = "vehinfo_perfclass"
+local pdid = "vehinfo_perfdata"
+toRet["powertrain"] = extensions.vluaFetchModule.getVal(ptid)
+toRet["induction"] = extensions.vluaFetchModule.getVal(inid)
+toRet["perfclass"] = extensions.vluaFetchModule.getVal(pcid)
+toRet["perfdata"] = extensions.vluaFetchModule.getVal(pdid)
+return toRet
+end
+
+local inspectionDataCar = {} -- For inspection process
+
+local function eventBrowserGetCarData(carid)
+local toRet = {}
+local walking = getVehicleMainPartName() == "unicycle"
+toRet["walking"] = walking
+
+if not walking then
+local vudata = getFetchedVehicleUtilsData()
+local info = getVehicleInfoFile()
+local cdata = loadDataTable("beamLR/garage/car" .. carid)
+toRet["garagename"] = cdata["name"]
+toRet["impounded"] = tonumber(cdata["impoundval"]) > 0
+toRet["model"] = cdata["type"]
+toRet["uiname"] = info["Name"]
+--toRet["damage"] = cdata["damage"] -- Damage sent through FG at regular interval to get current damage
+toRet["brand"] = info["Brand"]
+toRet["powertrain"] = vudata["powertrain"]
+toRet["induction"] = vudata["induction"]
+toRet["perfclass"] = vudata["perfclass"]
+end
+
+-- Set inspection data
+inspectionDataCar = {}
+inspectionDataCar["model"] = toRet["model"]
+inspectionDataCar["brand"] = toRet["brand"] 
+inspectionDataCar["powertrain"] = toRet["powertrain"] 
+inspectionDataCar["induction"] = toRet["induction"]
+inspectionDataCar["perfclass"] = toRet["perfclass"]
+
+return toRet
+end
+
+local function performanceUIData()
+local perfdata = getFetchedVehicleUtilsData()["perfdata"]
+local perfsplit = extensions.blrutils.ssplit(perfdata, ",")
+local perftable = {}
+perftable["power"] = perfsplit[1]
+perftable["torque"] = perfsplit[2]
+perftable["weight"] = perfsplit[3]
+perftable["class"] = perfsplit[4]
+perftable["value"] = perfsplit[5]
+return perftable
+end
+
+
+local function getCurrentEventData()
+local toRet = {}
+local cdata = loadDataTable("beamLR/currentTrackEvent")
+local edata = loadEventWithRandoms(cdata["efile"], tonumber(cdata["seed"]))
+local vdata = loadDataTable("beamLR/garage/car" .. cdata["carid"])
+
+toRet["title"] = edata["title"]
+toRet["map"] = getLevelUITitle(edata["map"]) -- Using UI level name
+toRet["status"] = cdata["status"]
+toRet["cround"] = cdata["cround"]
+toRet["tround"] = edata["rounds"]
+toRet["carname"] = vdata["name"]
+toRet["efile"] = cdata["efile"]
+
+return toRet
+end
+
+local function getEventInspectionStatus()
+local failed = false -- Final inspection result
+local cpass = false -- Current item
+local csplit = {}
+local ccarval = ""
+
+ -- Check first field to know if table has been loaded
+if inspectionDataCar["brand"] and inspectionDataEvent["brand"] then
+
+if inspectionDataEvent["brand"] ~= "any" then
+cpass = false
+csplit = ssplit(inspectionDataEvent["brand"], ",")
+ccarval = inspectionDataCar["brand"]
+for k,v in pairs(csplit) do
+cpass = ccarval == v 
+if cpass then break end
+end
+failed = failed or not cpass
+end
+
+if inspectionDataEvent["model"] ~= "any" then
+cpass = false
+csplit = ssplit(inspectionDataEvent["model"], ",")
+ccarval = inspectionDataCar["model"]
+for k,v in pairs(csplit) do
+cpass = ccarval == v 
+if cpass then break end
+end
+failed = failed or not cpass
+end
+
+if inspectionDataEvent["powertrain"] ~= "any" then
+cpass = false
+csplit = ssplit(inspectionDataEvent["powertrain"], ",")
+ccarval = inspectionDataCar["powertrain"]
+for k,v in pairs(csplit) do
+cpass = ccarval == v 
+if cpass then break end
+end
+failed = failed or not cpass
+end
+
+if inspectionDataEvent["perfclass"] ~= "any" then
+cpass = false
+csplit = ssplit(inspectionDataEvent["perfclass"], ",")
+ccarval = inspectionDataCar["perfclass"]
+for k,v in pairs(csplit) do
+cpass = ccarval == v 
+if cpass then break end
+end
+failed = failed or not cpass
+end
+
+-- Induction uses string matching, nitrous is optional since "NA" still matches "SC,Turbo,NA+N2O"
+if inspectionDataEvent["induction"] ~= "any" then
+cpass = string.find(inspectionDataEvent["induction"], inspectionDataCar["induction"], 1, true)
+failed = failed or not cpass
+end
+
+else
+failed=true--Set inspection failed to be safe in event where no data was loaded (ui init request after loading?)
+end
+
+return not failed
+end
+
+local function getEventSeed(uid) -- Generates unique seeds for event, no collision until > 100 event files
+local currentData = loadDataTable("beamLR/currentTrackEvent")
+local currentID = tonumber(currentData["eventid"])
+local seed = getDailySeed() + ((currentID+1) * 100) + uid
+return seed
+end
+
+local function joinEvent(event, carid, uid)
+local currentData = loadDataTable("beamLR/currentTrackEvent")
+local currentID = tonumber(currentData["eventid"])
+local seed = getEventSeed(uid)
+local edata = loadEventWithRandoms(event, seed)
+local filedata = "status=joined\n"
+filedata = filedata .. "seed=" .. seed .. "\n" 
+filedata = filedata .. "efile=" .. event .. "\n"
+filedata = filedata .. "cround=0\ncarid=" .. carid .. "\n"
+
+filedata = filedata .. "ctimes=player:0"
+for i=1,tonumber(edata["opcount"]) do
+filedata = filedata .. ",op" .. i .. ":0"
+end
+filedata = filedata .. "\n"
+
+filedata = filedata .. "eventid=" .. (currentID+1) -- Increment eventid for new event
+writeFile("beamLR/currentTrackEvent", filedata)
+
+-- Refresh current event data for both UIs
+local cdata = getCurrentEventData()
+extensions.customGuiStream.sendDataToUI("currentTrackEvent", cdata)
+extensions.customGuiStream.sendEventBrowserCurrentEventData(cdata)
+-- Refresh event list to get updated join state
+local elist = extensions.blrutils.eventBrowserGetList()
+extensions.customGuiStream.sendEventBrowserList(elist)
+
+-- Charge player for event joining
+local cmoney = extensions.blrglobals.gmGetVal("playerMoney")
+local nmoney = cmoney - tonumber(edata["joincost"])
+extensions.blrglobals.gmSetVal("playerMoney", nmoney)
+local dtable = {}
+dtable["money"] = nmoney
+updateDataTable("beamLR/mainData", dtable)
+
+extensions.blrglobals.blrFlagSet("eventRestrictUpdate", true) -- Request update for vehicle restriction state
+end
+
+local function checkVehicleEventRestricted(gid)
+local dtable = loadDataTable("beamLR/currentTrackEvent")
+local restrict = tonumber(dtable["carid"]) == gid and dtable["status"] ~= "over"
+extensions.blrglobals.blrFlagSet("vehicleEventRestricted", restrict)
+extensions.customGuiStream.sendDataToUI("vehicleRestricted", restrict)
+end
+
+
+local function towPlayerNoReset()
+local playerVehicle = be:getPlayerVehicle(0)
+local spot = getMapTowSpot()
+if not playerVehicle then return end
+local vehRot = quat(playerVehicle:getClusterRotationSlow(playerVehicle:getRefNodeId()))
+local pos = vec3(spot["pos"][1], spot["pos"][2], spot["pos"][3])
+local rot = quat(spot["rot"][1],spot["rot"][2],spot["rot"][3],spot["rot"][4] )
+local diffRot = vehRot:inversed() * rot
+playerVehicle:setClusterPosRelRot(playerVehicle:getRefNodeId(), pos.x, pos.y, pos.z, diffRot.x, diffRot.y, diffRot.z, diffRot.w)
+playerVehicle:applyClusterVelocityScaleAdd(playerVehicle:getRefNodeId(), 0, 0, 0, 0)
+playerVehicle:setOriginalTransform(pos.x, pos.y, pos.z, rot.x, rot.y, rot.z, rot.w)
+end
+
+local function getOrderedCarTemplateList(gid)
+local templates = FS:findFiles("beamLR/garage/config/template/car" .. gid, "*", 0)
+local toRet = {}
+for k,v in pairs(templates) do
+toRet[k] = templates[k]:gsub("/beamLR/garage/config/template/car" .. gid .. "/", "")
+end
+table.sort(toRet)
+return toRet
+end
+
+local function getCarTemplateFolder(gid)
+return "beamLR/garage/config/template/car" .. gid .. "/"
+end
+
+local function uiRefreshTemplates()
+local cvgid = extensions.blrglobals.gmGetVal("cvgid")
+local templates = getOrderedCarTemplateList(cvgid)
+local tempfolder = getCarTemplateFolder(cvgid)
+extensions.customGuiStream.sendDataToUI("vehicleTemplateList", templates)
+extensions.customGuiStream.sendDataToUI("vehicleTemplateFolder", tempfolder)
+end
+
+local function templateLoadCheck(current, target)
+local inventory = extensions.betterpartmgmt.getPartInventory()
+local fullinv = {}
+local toRet = true
+-- Add actual inventory first
+for k,v in pairs(inventory) do
+fullinv[k] = v
+end
+-- Add current config parts to fullinv table so target loop sees them as available parts
+for k,v in pairs(current) do 
+fullinv[v] = (fullinv[v] or 0) + 1
+end
+-- Perform check
+for k,v in pairs(target) do
+if (not fullinv[v]) or fullinv[v] <= 0 then
+toRet = false
+break
+end
+end
+
+return toRet
+end
+
+
+
+M.templateLoadCheck = templateLoadCheck
+M.lerp = lerp
+M.loadEventWithRandoms = loadEventWithRandoms
+M.getEventSeed = getEventSeed
+M.uiRefreshTemplates = uiRefreshTemplates
+M.getCarTemplateFolder = getCarTemplateFolder
+M.getOrderedCarTemplateList = getOrderedCarTemplateList
+M.towPlayerNoReset = towPlayerNoReset
+M.performanceUIData = performanceUIData
+M.getLevelUITitle = getLevelUITitle
+M.getLevelInfo = getLevelInfo
+M.checkVehicleEventRestricted = checkVehicleEventRestricted
+M.joinEvent = joinEvent
+M.getEventInspectionStatus = getEventInspectionStatus
+M.getCurrentEventData = getCurrentEventData
+M.fetchVehicleUtilsData = fetchVehicleUtilsData
+M.getFetchedVehicleUtilsData = getFetchedVehicleUtilsData
+M.getVehicleInfoFile = getVehicleInfoFile
+M.eventBrowserGetCarData = eventBrowserGetCarData
+M.eventBrowserGetPlayerData = eventBrowserGetPlayerData
+M.eventBrowserGetData = eventBrowserGetData
+M.eventBrowserGetList = eventBrowserGetList
+M.addShopCarToGarage = addShopCarToGarage
 M.getShopSeed = getShopSeed
 M.disableQuickAccess = disableQuickAccess
 M.getAIModes = getAIModes

@@ -1,8 +1,7 @@
 desc=Race to the shops at the top of the canyon
 wager=0
 slips=1
-enemyModel=legran,pessima,bluebuck
-enemyConfig=vehicles/legran/sport_se_v6_awd_facelift_M.pc,vehicles/pessima/GTz.pc,vehicles/bluebuck/custom.pc
+enemyConfig=class:club/pinkslips_silver
 enemyRisk=0.87
 enemyBasePrice=2000
 enemyPartPrice=500

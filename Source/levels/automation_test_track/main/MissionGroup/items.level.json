@@ -1,0 +1,12 @@
+{"name":"AIDecalWaypointsGroup","class":"SimGroup","persistentId":"03c69e87-3c7d-4192-b16c-450684e80fd6","__parent":"MissionGroup"}
+{"name":"Level_object","class":"SimGroup","persistentId":"19148b2f-b5e9-402d-86ff-76ff557b4b57","__parent":"MissionGroup"}
+{"name":"Audio","class":"SimGroup","persistentId":"4df0c586-0ad5-4470-85c0-45873dcf14d7","__parent":"MissionGroup","locked":true}
+{"name":"Statics","class":"SimGroup","persistentId":"7c73027e-0fb0-45a5-a9b9-5abd9e8c7fad","__parent":"MissionGroup"}
+{"name":"new_rocks","class":"SimGroup","persistentId":"a470fca4-b3e0-4893-b345-f444b39c8576","__parent":"MissionGroup"}
+{"name":"AIWaypoints","class":"SimGroup","persistentId":"81846f1b-ee81-48bb-a160-8847090d398d","__parent":"MissionGroup"}
+{"name":"PlayerDropPoints","class":"SimGroup","persistentId":"dd1e189d-4f82-48f4-bc70-e69cc54d912a","__parent":"MissionGroup","enabled":"1"}
+{"name":"CameraBookmarks","class":"SimGroup","persistentId":"f1f71fa9-4772-477a-b10e-248e6cf981ea","__parent":"MissionGroup"}
+{"name":"decal_road","class":"SimGroup","persistentId":"59b75cdc-dc36-40cd-b9ad-5222d227ee8b","__parent":"MissionGroup"}
+{"name":"water_objects","class":"SimGroup","persistentId":"792af245-a0a1-46b9-b310-f8bd90b22685","__parent":"MissionGroup"}
+{"name":"point_lights","class":"SimGroup","persistentId":"b21ea2fa-ce65-4898-85d8-fd133bfadb10","__parent":"MissionGroup"}
+{"name":"BeamLR","class":"SimGroup","persistentId":"8a98f9ea-ffcb-47b8-bc9e-5bbe9fc98b87","__parent":"MissionGroup"}

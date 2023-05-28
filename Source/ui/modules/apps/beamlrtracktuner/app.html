@@ -1,0 +1,70 @@
+<div class="bngApp beamlrtracktuner" style="background-color:transparent; height:100%;" >
+
+<div ng-if="enabled==true" style="background-color:rgba(0.0,0.0,0.0,0.7); height:100%; z-index:999; position:relative;">
+
+<span ng-click="toggleui()" style="float:left; text-align:center; transform:translate(0px, 0px); width:40px; font-size:30px;">X</span>
+
+<h2 style="text-align:center; margin:auto; width:300px; line-height:50px;">Tuning Menu</h2>
+
+
+<div style="z-index: 99; margin:auto; overflow-y:scroll; max-height:380px; width:400; max-width:400px; background-color:rgba(0.0,0.0,0.0,0.5);" >
+
+<div style="margin-bottom:20px;" ng-repeat="(cid, category) in tuningCategories">
+
+<h3 style="margin:0; text-align:center;">&nbsp{{category}}</h3>
+
+<table style="table-layout:fixed; width:95%; margin:auto;">
+<tr style="width:100%;" ng-repeat="(fid, field) in tuningFields[category]">
+<td style="width:40%">{{tuningData[field]["title"]}}</td>
+<td><md-slider flex style="width:100px;" min="{{tuningData[field]['minDis']}}" max="{{tuningData[field]['maxDis']}}" step="{{tuningData[field]['stepDis']}}" ng-change="tuneChanged(field)" ng-model="tuningValues[field]" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()">
+</md-slider></td>
+<td style="text-align:right;">{{getTuneData(field)}} &nbsp {{tuningData[field]['unit']}}</td>
+</tr>
+</table>
+
+</div>
+
+<!--
+<div style="margin-bottom:20px;" ng-repeat="(cid, category) in tuningCategories">
+<h3 style="margin:0;">&nbsp{{category}}</h3>
+
+<div ng-repeat="(fid, field) in tuningFields[category]" style="height:50px; max-height:70px;">
+
+<span style="float:left; transform:translate(5px, 20px); overflow-wrap:break-word; width:200px;">{{tuningData[field]["title"]}} &nbsp </span>
+<span>
+<md-slider flex style="width:100px; transform: translate(200px, 10px); " min="{{tuningData[field]['minDis']}}" max="{{tuningData[field]['maxDis']}}" step="{{tuningData[field]['stepDis']}}" ng-change="tuneChanged(field)" ng-model="tuningValues[field]" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()">
+</md-slider>
+</span>
+<span style="float:right; transform:translate(-5px, -25px)">{{getTuneData(field)}} &nbsp {{tuningData[field]['unit']}}</span>
+<br style="line-height:0px;">
+
+</div>
+</div>
+-->
+
+<!--
+<div ng-repeat="(key,value) in tuningData">
+<span style="float:left; transform:translate(5px, 20px); overflow-wrap:break-word; width:200px;">{{value["title"]}} &nbsp </span>
+<span>
+<md-slider flex style="width:100px; transform: translate(200px, 10px); " min="{{value['minDis']}}" max="{{value['maxDis']}}" step="{{value['stepDis']}}" ng-change="tuneChanged(key)" ng-model="tuningValues[key]" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()">
+</md-slider>
+</span>
+<span style="float:right; transform:translate(-5px, -25px)">{{getTuneData(key)}} &nbsp {{value['unit']}}</span>
+<br style="line-height:0px;">
+</div>
+-->
+
+</div>
+
+<div>
+<span>
+<button style="float:left; margin-left:50px; transform:translate(0px, 10px)" ng-click="resetTune()"> Reset </button>
+<button style="float:right; margin-right:50px; transform:translate(0px, 10px)" ng-click="applyTune()"> Apply </button>
+</span>
+</div>
+
+
+</div>
+<div ng-if="enabled==false" style="z-index:8; position:relative;">
+</div>
+</div>

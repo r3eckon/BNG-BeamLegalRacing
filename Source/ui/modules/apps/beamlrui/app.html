@@ -1,31 +1,35 @@
-<div style="height: 100%; background-color:rgba(1.0,1.0,1.0,0.0);" class="bngApp beamlrui">
-
+<div style="height: 100%; background-color:rgba(0.0,0.0,0.0,0.0);" class="bngApp beamlrui">
+<!--
 <img ng-if="showMenu == false" src="/ui/modules/apps/beamlrui/background.png" width=100% height=8% style="z-index:-1; transform:translate(0px,-2px);"/>
 <img ng-if="showMenu == true" src="/ui/modules/apps/beamlrui/background.png" width=100% height=100% style="z-index:-1; transform:translate(0px,-2px);"/>
+-->
+<div style="z-index:999; position:relative;">
 
-<pre style="display:block;">
-<button ng-click="showMenuClick()" ng-if="showMenu" style="position:absolute; left:1%; top:1%;" >▲</button>
-<button ng-click="showMenuClick()" ng-if="showMenu==false" style="position:absolute; left:1%; top:1%;" >▼</button>
-<h1 ng-if="beamlrData['waitmsg'] != true" width=100% height=100% style="line-height:10px; position:absolute; left:50%; top:0%; transform: translate(-50%,0%)">BeamLR Main Menu</h1>
-<h1 ng-if="beamlrData['waitmsg'] == true" width=100% height=100% style="line-height:10px; position:absolute; left:50%; top:0%; transform: translate(-50%,0%)">Loading. Please Wait.</h1>
+<pre style="display:block; height:35px; background-color:rgba(0.0,0.0,0.0,0.6); margin:0; transform:translate(0px,-2px);">
+<button ng-click="showMenuClick()" ng-if="showMenu" style="position:absolute; left:3px; top:3px;" >▲</button>
+<button ng-click="showMenuClick()" ng-if="showMenu==false" style="position:absolute; left:3px; top:3px;" >▼</button>
+<h1 ng-if="beamlrData['waitmsg'] != true" width=100% height=100% style="line-height:10px; position:absolute; left:50%; top:-2px; transform: translate(-50%,0%)">BeamLR Main Menu</h1>
+<h1 ng-if="beamlrData['waitmsg'] == true" width=100% height=100% style="line-height:10px; position:absolute; left:50%; top:-2px; transform: translate(-50%,0%)">Loading. Please Wait.</h1>
 </pre>
 
 
-<div style="position:absolute; left:50%; top:10%; max-height=110px; transform: translate(-50%, 0%);" ng-if="showMenu" >
+<div style="height: 420px; background-color:rgba(0.0,0.0,0.0,0.6); transform:translate(0px,-2px);" ng-if="showMenu" >
 
-<table style="margin-left:auto; margin-right:auto;">
-<tr>
-<td style="line-height:0px;" ng-repeat="button in menuButtons">
-<p><img ng-click="menuClick(button.id)" ng-attr-src="/ui/modules/apps/beamlrui/{{button.svg}}" width=90px height=90px /></p>
-<p style="text-align:center;">{{button.name}}</p>
+<table style="margin-left:auto; margin-right:auto; margin-bottom:0; table-layout:fixed; ">
+<tr style="height:80px;">
+<td style="width:75px; text-align:center;" ng-repeat="button in menuButtons">
+<img ng-click="menuClick(button.id)" ng-attr-src="/ui/modules/apps/beamlrui/{{button.svg}}" width=72px height=72px />
 </td>
+</tr>
+<tr style="height:10px;">
+<td style="margin-top:2px; width:75px; text-align: center; vertical-align:top; line-height:18px;" ng-repeat="button in menuButtons">{{button.name}}</td>
 </tr>
 </table>
 
 <div ng-if="menuPage==0">
 <h3 style="text-align:center; line-height:0px;"> Main Menu </h3>
 
-<div style="z-index: 99; overflow:scroll; overflow-y:scroll; max-height:250px; max-width:500px; background-color:rgba(0,0,0,0.5)" >
+<div style="margin-left: 5px; margin-right: 5px; overflow:scroll; overflow-y:scroll; max-height:250px; max-width:500px; background-color:rgba(0,0,0,0.5);" >
 
 <h2 style="text-align:center;">
 Welcome to BeamLR<br>
@@ -183,7 +187,7 @@ Health and Fatal Crashes<br>
 </h2>
 
 <p style="margin-left:10px; margin-right:10px; text-align:center;">
-Hard crashes (above 10G) will injure the player. Very hard crashes can be instantly fatal.<br><br>
+Hard crashes (above 15G) will injure the player. Very hard crashes (above 80G) can be instantly fatal.<br><br>
 Player Health is indicated in the stats UI.<br>If health drops to 0% your career will be reset.<br><br>
 
 To restore health use the "Sleep/Heal" button in the stats UI. Sleep time can be set in the Options menu.<br><br>
@@ -208,6 +212,51 @@ Career seed is used for the many RNG elements of the mod including starting vehi
 Seed can be set to auto increment on career reset to constantly get a new seed. It can also be set manually.<br><br>
 </p>
 
+
+
+
+<h2 style="text-align:center;">
+Track Events<br>
+</h2>
+
+<p style="margin-left:10px; margin-right:10px; text-align:center;">
+Version 1.10 adds multi round and multi opponent track events that can be entered using the added menu pages.<br><br>
+
+Keep in mind this is the first iteration of this system, some features may change and more events will be added in future versions.<br><br>
+
+Race events work using a lightweight event loader flowgraph project. They work a bit differently than regular career: 
+</p>
+
+<ul style="margin-left:10px; margin-right:10px; text-align:left;" >
+<li>Regular health is disabled</li>
+<li>Fatal crashes are still possible at higher needed G force</li>
+<li>Vehicle damage does not carry over to and from career</li>
+<li>Repairs and refuels are free but do not carry over to career</li>
+<li>Vehicle must be fully repaired and pass event inspection before joining</li>
+<li>Vehicle used for current event cannot be sold, scrapped or edited</li>
+</ul>
+
+<p style="margin-left:10px; margin-right:10px; text-align:center;">
+Event inspection requirements can involve performance class, powertrain layout, induction type, vehicle brand and model.<br><br>
+
+Track events can be started from their respective level (see maps on github for mission loader location). <br><br>
+
+Once a round is started it cannot be restarted. Giving up a round comes with a heavy time penalty. <br><br>
+
+If you crash, some tracks have a pit lane allowing for repair and refuel to tuning fuel load. <br><br>
+
+Time penalties will be added for shortcuts and pit lane overspeed. Penalty time is added to total time at round end. <br><br>
+
+Race leaderboard is sorted by smallest total time at the end of each event. <br><br>
+
+Events usually reward 1st, 2nd and 3rd position money and rep. More special rewards can go to 1st position. <br><br>
+
+Opponent names are randomly selected from the <span style="font-weight:bold;">beamLR/opnames</span> file which can be edited with custom names. <br><br> 
+
+Track events use randomized parameters for replayability, such as opponent config choice and count, time of day, lap and round count as well as rewards.<br><br>
+
+Each event has a unique seed which changes daily and after event completion. Sleep to next day to refresh event parameters.<br><br>
+</p>
 
 <h2 style="text-align:center;">
 Various Tips<br>
@@ -236,11 +285,13 @@ Here are some known issues with this mod, please refer to this list before repor
 
 <ul>
 <li>
-Beamstate saving breaks advanced coupler beams, doors won't close, hood won't open. 
-Current best workaround is to simply repair the vehicle.
+As of BeamNG version 0.28 beamstate loading is broken and thus disabled by default. 
+This is a known issue and should be fixed in a future update.
+Beamstate can be re-enabled from the option menu. 
+This will likely cause issues and crashes.
 </li>
 <li>
-Towing mechanic may repair your vehicle. This is due to problems with a teleport function that shouldn't cause a reset yet sometimes does.
+<s>Towing mechanic may repair your vehicle.</s> Fix added in 1.10 update.
 </li>
 <li>
 Some tuning configurations can cause unfair damage when a vehicle is loaded. A workaround is implemented but may fail to work in certain situations.
@@ -249,7 +300,10 @@ Some tuning configurations can cause unfair damage when a vehicle is loaded. A w
 Various UI problems, input fields stop registering keystrokes, whole UI can refuse to work. Workaround is to keep cursor above input fields. CTRL+F5 to fix the frozen UI.
 </li>
 <li>
-Race checkpoints could fail to trigger properly. Fix has been implemented.
+Some users report odometer reset during part edits. Currently investigating this issue.
+</li>
+<li>
+Some vehicles had erratic G force readings when damaged, causing sudden health drop. Fix added in 1.10 update.
 </li>
 
 
@@ -262,12 +316,12 @@ Race checkpoints could fail to trigger properly. Fix has been implemented.
 
 </div>
 
-<div ng-if="menuPage==1">
+<div ng-if="menuPage==1" style="">
 <h3 style="text-align:center; line-height:0px;"> Options </h3>
 
-<div style="z-index: 99; margin-left: 5px; margin-right: 5px; overflow:scroll; overflow-y:scroll; max-height:250px; max-width:500px; background-color:rgba(0,0,0,0.5)">
+<div style="margin-left: 5px; margin-right: 5px; overflow:scroll; overflow-y:scroll; max-height:250px; max-width:500px; background-color:rgba(0,0,0,0.5)">
 
-<h3 style="text-align:center;">&nbsp General </h3>
+<h3 style="text-align:center; margin-top:5px; margin-bottom:5px;">&nbsp General </h3>
 
 <p style="text-align:center;"> 
 Player Name 
@@ -305,9 +359,18 @@ Race Opponent Random Paint
 <button ng-click="setOpponentRandomPaint(0)">Off</button>
 </p>
 
+<p style="text-align:center; margin-top:5px; margin-bottom:5px;">Time scale requires scenario restart to take effect</p>
+
+<p style="text-align:center; margin-top:5px; margin-bottom:5px;"> 
+Time Scale 
+<input type="number" max=100.0 min=1.0 step=0.1 size=5 maxlength=5 ng-model="inputData.timeScale" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
+<button ng-click="setTimeScale(inputData.timeScale)">Set</button>
+</p>
+
+
 <h3 style="text-align:center;"> Traffic </h3>
 
-<p style="text-align:center;"> Note: Requires scenario restart to take effect </p>
+<p style="text-align:center;">  Requires scenario restart to take effect </p>
 
 <p style="text-align:center;"> 
 Traffic Density  
@@ -354,7 +417,7 @@ Police Strictness
 Current Career Seed: {{beamlrData['seed']}}
 </p>
 
-<p style="text-align:center;"> Note: Next seed takes effect after career reset </p>
+<p style="text-align:center;">  Next seed takes effect after career reset </p>
 
 <p style="text-align:center;"> 
 Next Seed
@@ -371,7 +434,7 @@ Auto Increment Seed
 
 <br>
 
-<p style="text-align:center;"> Note: Difficulty takes effect after career reset </p>
+<p style="text-align:center;">  Difficulty takes effect after career reset </p>
 
 <p style="text-align:center;"> 
 Difficulty Level
@@ -382,9 +445,11 @@ Difficulty Level
 
 <br>
 
-<p style="text-align:center;"> 
-Career Backup
-<button ng-click="backupCareer()">Save</button>&nbsp &nbsp &nbsp &nbsp
+<p style="text-align:center;">
+Career backup is automatically saved in <br><span style="font-weight:bold;">userfolder/beamLR/backup</span><br> when you stop the mission
+</p>
+<p style="text-align:center;">
+Load Career Backup
 <button ng-click="restoreBackup()">Load</button>
 </p>
 
@@ -400,14 +465,14 @@ Reset Career (WARNING: PERMANENT)
 
 <h3 style="text-align:center;"> Advanced </h3>
 
-<p style="text-align:center;"> Note: Use the "Fix Cops" button only if police chases player without pursuit UI showing. Do not use when pursuit UI is showing to avoid further bugs with police system.</p>
+<p style="text-align:center;">  Use the "Fix Cops" button only if police chases player without pursuit UI showing. Do not use when pursuit UI is showing to avoid further bugs with police system.</p>
 
 <p style="text-align:center;"> 
 Manual Police Role Fix
 <button ng-click="forcedCopfix()">Fix Cops</button>
 </p>
 
-<p style="text-align:center;"> Note: Automatic fixing may impact performance with large amounts of police vehicles.</p>
+<p style="text-align:center;">  Automatic fixing may impact performance with large amounts of police vehicles.</p>
 
 
 <p style="text-align:center;"> 
@@ -417,7 +482,7 @@ Automatic Police Role Fix
 </p>
 
 
-<p style="text-align:center;"> Note: Use beamstate toggle to workaround issues with advanced couplers.</p>
+<p style="text-align:center;">  Use beamstate toggle to workaround issues with advanced couplers.</p>
 
 
 <p style="text-align:center;"> 
@@ -427,7 +492,7 @@ Beamstate Toggle
 </p>
 
 
-<p style="text-align:center;"> Note: Use below button to attempt coupler reset after beamstate loading breaks them (game may crash).</p>
+<p style="text-align:center;">  Use below button to attempt coupler reset after beamstate loading breaks them (game may crash).</p>
 
 <p style="text-align:center;"> 
 Reset Advanced Couplers
@@ -444,7 +509,7 @@ Reset Advanced Couplers
 
 </div>
 
-<div ng-if="menuPage==2">
+<div ng-if="menuPage==2" style="">
 <h3 style="text-align:center; line-height:0px;"> Buy Parts ({{beamlrData['shopPriceScale'] * 100.0 | number:0}}% Cost)</h3>
 
 <div ng-if="(beamlrData['triggerState'] == 1 || beamlrData['triggerState'] == 2) && beamlrData['playerWalking'] == 0">
@@ -459,10 +524,12 @@ Reset Advanced Couplers
 <button ng-click="search(0)">&#x1F50D</button>
 </div>
 
-<div style="z-index: 99; overflow:scroll; overflow-y:scroll; max-height:220px; min-height:220px; max-width:470px; min-width:470px; background-color:rgba(0,0,0,0.5);" >
-<div ng-repeat="(key,value) in beamlrData['availParts']">
+<div style="margin-left: 5px; margin-right: 5px; overflow:scroll; overflow-y:scroll; max-height:210px; min-height:210px; max-width:500px; background-color:rgba(0,0,0,0.5);" >
 
-<div style="text-align:center; font-weight: bold; font-size:20px; width:463px; line-height:40px;" ng-if="beamlrData['slotNames'][key] != null && slotNameMode != 1">
+<div ng-repeat="(id,key) in beamlrData['sortedShopSlots'] track by id">
+<div ng-if="beamlrData['availParts'][key] != null">
+
+<div style="text-align:center; font-weight: bold; font-size:20px; width:100%; line-height:40px;" ng-if="beamlrData['slotNames'][key] != null && slotNameMode != 1">
 <span ng-if="visibleSlots[key] == null || visibleSlots[key] == false" style="float:left; text-align:center; width:40px;" ng-click="slotToggle(key, true)">+</span>
 <span ng-if="visibleSlots[key] == true" style="float:left; text-align:center; width:40px;" ng-click="slotToggle(key, false)">-</span>
 <span ng-if="beamlrData['usedParts'][key] != null" style="text-align:center; transform:translate(20px, 0px);" ng-click="setSlotNameMode(1)"> {{beamlrData['slotNames'][key]}} </span>
@@ -471,7 +538,7 @@ Reset Advanced Couplers
 <span ng-if="visibleSlots[key] == true" style="float:right; text-align:center; width:40px;" ng-click="slotToggle(key, false)">-</span>
 </div>
 
-<div style="text-align:center; font-weight: bold; font-size:20px; width:463px; line-height:40px;" ng-if="beamlrData['slotNames'][key] == null || slotNameMode == 1">
+<div style="text-align:center; font-weight: bold; font-size:20px; width:100%; line-height:40px;" ng-if="beamlrData['slotNames'][key] == null || slotNameMode == 1">
 <span ng-if="visibleSlots[key] == null || visibleSlots[key] == false" style="float:left; text-align:center; width:40px;" ng-click="slotToggle(key, true)">+</span>
 <span ng-if="visibleSlots[key] == true" style="float:left; text-align:center; width:40px;" ng-click="slotToggle(key, false)">-</span>
 <span ng-if="beamlrData['usedParts'][key] != null" style="text-align:center; transform:translate(20px, 0px);" ng-click="setSlotNameMode(0)"> {{key}} </span>
@@ -480,7 +547,7 @@ Reset Advanced Couplers
 <span ng-if="visibleSlots[key] == true" style="float:right; text-align:center; width:40px;" ng-click="slotToggle(key, false)">-</span>
 </div>
 
-<div ng-if="visibleSlots[key] == true" style="margin-left:5px; line-height:100px;" ng-repeat="part in value"> 
+<div ng-if="visibleSlots[key] == true" style="margin-left:5px; line-height:100px;" ng-repeat="(pid,part) in beamlrData['sortedShopParts'][key] track by pid"> 
 
 <span style="float:left; height:90px; transform:translate(0px, 5px);">
 <img ng-if="beamlrData['partpreview'][part] != null" ng-attr-src="/ui/modules/apps/beamlrui/partimg/{{beamlrData['partpreview'][part]}}" width=90px height=90px />
@@ -499,7 +566,10 @@ Reset Advanced Couplers
 </span>
 
 </div>
+
 </div>
+</div>
+
 </div>
 </div>
 
@@ -516,17 +586,19 @@ Reset Advanced Couplers
 
 </div>
 
-<div ng-if="menuPage==3">
+<div ng-if="menuPage==3" style="">
 <h3 ng-if="editMode == 0" style="text-align:center; line-height:0px;"> Edit Car Parts </h3>
-<h3 ng-if="editMode == 1" style="text-align:center; line-height:0px;"> Edit Car Paint </h3>
-<div ng-if="beamlrData['triggerState'] == 2 && beamlrData['playerDamage'] == 0 && beamlrData['playerWalking'] == 0" >
+<h3 ng-if="editMode == 1" style="text-align:center; line-height:0px;"> Save/Load Config </h3>
+<h3 ng-if="editMode == 2" style="text-align:center; line-height:0px;"> Edit Car Paint </h3>
+<div ng-if="beamlrData['triggerState'] == 2 && beamlrData['playerDamage'] == 0 && beamlrData['playerWalking'] == 0 && beamlrData['vehicleRestricted'] != true" >
 
 <div style="text-align:center; transform:translate(0, -5px);" >
 
 
-
-<button ng-if="editMode == 0" ng-click="setEditMode(1)" style="width:40px; border-radius:10px; ">&#127912;</button> 
-<button ng-if="editMode == 1" ng-click="setEditMode(0)" style="width:40px; border-radius:10px; ">&#128736;</button> 
+	
+<button ng-if="editMode == 0" ng-click="setEditMode(1)" style="width:40px; border-radius:10px; ">&#128190;</button>
+<button ng-if="editMode == 1" ng-click="setEditMode(2)" style="width:40px; border-radius:10px; ">&#127912;</button> 
+<button ng-if="editMode == 2" ng-click="setEditMode(0)" style="width:40px; border-radius:10px; ">&#128736;</button> 
 <button ng-click="filter(1,'all')">All</button> 
 <button ng-click="filter(1,'body')">Body</button> 
 <button ng-click="filter(1,'engine')">Engine</button> 
@@ -536,21 +608,23 @@ Reset Advanced Couplers
 <button ng-click="search(1)">&#x1F50D</button>
 </div>
 
-<div ng-if="editMode == 0" style="z-index: 99; margin-left: 20px; margin-right: 20px; overflow:scroll; overflow-y:scroll; min-height:220px; max-height:220px; background-color:rgba(0,0,0,0.5); max-width:470px; min-width:470px;">
-<div ng-repeat="(key,value) in beamlrData['garageData']">
+<div ng-if="editMode == 0" style="margin-left: 5px; margin-right: 5px; overflow:scroll; overflow-y:scroll; max-height:210px; min-height:210px; max-width:500px; background-color:rgba(0,0,0,0.5);">
 
-<div style="text-align:center; font-weight: bold; font-size:20px; width:463px; line-height:40px;" ng-if="beamlrData['slotNames'][key] != null && slotNameMode != 1">
+<div ng-repeat="(id,key) in beamlrData['sortedGarageSlots'] track by id">
+<div ng-if="beamlrData['garageData'][key] != null">
+
+<div style="text-align:center; font-weight: bold; font-size:20px; width:100%; line-height:40px;" ng-if="beamlrData['slotNames'][key] != null && slotNameMode != 1">
 <span ng-if="visibleSlots[key] == null || visibleSlots[key] == false" style="float:left; text-align:center; width:40px;" ng-click="slotToggle(key, true)">+</span>
 <span ng-if="visibleSlots[key] == true" style="float:left; text-align:center; width:40px;" ng-click="slotToggle(key, false)">-</span>
-<span style="text-align:center; transform:translate(20px, 0px);" ng-click="setSlotNameMode(1)"> {{beamlrData['slotNames'][key]}} </span>
+<span style="text-align:center; transform:translate(25px, 0px);" ng-click="setSlotNameMode(1)"> {{beamlrData['slotNames'][key]}} </span>
 <span ng-if="visibleSlots[key] == null || visibleSlots[key] == false" style="float:right; text-align:center; width:40px;" ng-click="slotToggle(key, true)">+</span>
 <span ng-if="visibleSlots[key] == true" style="float:right; text-align:center; width:40px;" ng-click="slotToggle(key, false)">-</span>
 </div>
 
-<div style="text-align:center; font-weight: bold; font-size:20px; width:463px; line-height:40px;" ng-if="beamlrData['slotNames'][key] == null || slotNameMode == 1">
+<div style="text-align:center; font-weight: bold; font-size:20px; width:100%; line-height:40px;" ng-if="beamlrData['slotNames'][key] == null || slotNameMode == 1">
 <span ng-if="visibleSlots[key] == null || visibleSlots[key] == false" style="float:left; text-align:center; width:40px;" ng-click="slotToggle(key, true)">+</span>
 <span ng-if="visibleSlots[key] == true" style="float:left; text-align:center; width:40px;" ng-click="slotToggle(key, false)">-</span>
-<span style="text-align:center; transform:translate(20px, 0px);" ng-click="setSlotNameMode(0)"> {{key}} </span>
+<span style="text-align:center; transform:translate(25px, 0px);" ng-click="setSlotNameMode(0)"> {{key}} </span>
 <span ng-if="visibleSlots[key] == null || visibleSlots[key] == false" style="float:right; text-align:center; width:40px;" ng-click="slotToggle(key, true)">+</span>
 <span ng-if="visibleSlots[key] == true" style="float:right; text-align:center; width:40px;" ng-click="slotToggle(key, false)">-</span>
 </div>
@@ -567,7 +641,7 @@ Reset Advanced Couplers
 </div>
 
 <div ng-if="visibleSlots[key] == true">
-<div ng-repeat="item in value" >
+<div ng-repeat="(pid,item) in beamlrData['sortedGarageParts'][key] track by pid" >
 <div ng-if="beamlrData['usedParts'][key] != item" style="text-align:center; line-height:100px;" >
 <span style="float:left; margin-left:20px; transform:translate(0,5px); height:90px; vertical-align:middle;">
 <img ng-if="beamlrData['partpreview'][item] != null" ng-attr-src="/ui/modules/apps/beamlrui/partimg/{{beamlrData['partpreview'][item]}}" width=90px height=90px />
@@ -584,10 +658,30 @@ Reset Advanced Couplers
 </div>
 
 </div>
+
 </div>
 </div>
 
-<div ng-if="editMode ==1" style="z-index: 99; margin-left: 20px; margin-right: 20px; overflow:scroll; overflow-y:scroll; min-height:220px; max-height:220px; background-color:rgba(0,0,0,0.5); max-width:470px; min-width:470px;">
+</div>
+
+<div ng-if="editMode ==1" style="margin-left: 5px; margin-right: 5px; overflow:scroll; overflow-y:scroll; max-height:210px; min-height:210px; max-width:500px; background-color:rgba(0,0,0,0.5);">
+
+<table style="width:95%; margin-left:20px; table-layout:fixed; text-align:center;">
+<tr ng-repeat="(id, template) in beamlrData['vehicleTemplateList']" style="width:100%; height:50px;">
+<td style="text-align:center; width:50%; font-size:20px;">{{template}}</td>
+<td style="width:50%;"><button ng-click="loadTemplate(template)">Load</button>&nbsp &nbsp <button ng-click="saveTemplate(template)">Save As</button>&nbsp &nbsp <button ng-click="deleteTemplate(template)">Delete</button></td>
+</tr>
+<tr style="width:100%; height:50px;">
+<td style="text-align:center; width:50%; font-size:20px;"><input style="width:100%;" type="text" ng-model="inputData.templateName" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" /></td>
+<td style="width:50%; text-align:center;"><button ng-click="saveTemplate(inputData.templateName)">Save New Config</button></td>
+</tr>
+</table>
+
+</div>
+
+
+
+<div ng-if="editMode ==2" style="margin-left: 5px; margin-right: 5px; overflow:scroll; overflow-y:scroll; max-height:210px; min-height:210px; max-width:500px; background-color:rgba(0,0,0,0.5);">
 <div style="text-align:center; margin:auto; width: 50%; height:50%; ">
 <br>
 <button ng-click="applyPaint()">Apply Paint</button>
@@ -620,16 +714,41 @@ Reset Advanced Couplers
 <div ng-if="beamlrData['playerDamage'] != 0">
 <h2 style="text-align:center;" > Vehicle must be fully repaired. </h2>
 </div>
+
+<div ng-if="beamlrData['vehicleRestricted'] == true">
+<h2 style="text-align:center;" > Cannot edit event restricted vehicle. </h2>
 </div>
 
 </div>
 
-<div ng-if="menuPage==4">
+</div>
+
+<div ng-if="menuPage==4" style="">
 
 <h3 style="text-align:center; line-height:0px;"> Tuning </h3>
 
 <div ng-if="beamlrData['triggerState'] == 2 && beamlrData['playerDamage'] == 0 && beamlrData['playerWalking'] == 0">
-<div style="z-index: 99; overflow:scroll; overflow-y:scroll; max-height:220px; max-width:500px; background-color:black;" >
+<div style="overflow:scroll; overflow-y:scroll; max-height:220px; max-width:500px; margin-left:5px; margin-right:5px; background-color:rgba(0,0,0,0.5);" >
+
+
+
+<div style="margin-bottom:20px;" ng-repeat="(cid, category) in beamlrData['tuningSortedCategories']">
+
+<h3 style="margin:0; text-align:center;">&nbsp{{category}}</h3>
+
+<table style="table-layout:fixed; width:95%; margin:auto;">
+<tr style="width:100%;" ng-repeat="(fid, field) in beamlrData['tuningSortedFields'][category]">
+<td style="width:40%">{{beamlrData['tuningData'][field]["title"]}}</td>
+<td><md-slider flex style="width:100px;" min="{{beamlrData['tuningData'][field]['minDis']}}" max="{{beamlrData['tuningData'][field]['maxDis']}}" step="{{beamlrData['tuningData'][field]['stepDis']}}" ng-change="tuneChanged(field)" ng-model="beamlrData['tuningValues'][field]" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()">
+</md-slider></td>
+<td style="text-align:right;">{{getTuneData(field)}} &nbsp {{beamlrData['tuningData'][field]['unit']}}</td>
+</tr>
+</table>
+
+</div>
+
+
+<!--
 <div ng-repeat="(key,value) in beamlrData['tuningData']">
 <span style="float:left; transform:translate(5px, 20px)">{{value["title"]}} &nbsp </span>
 <span>
@@ -638,12 +757,14 @@ Reset Advanced Couplers
 </span>
 <span style="float:right; transform:translate(-5px, -25px)">{{getTuneData(key)}} &nbsp {{value['unit']}}</span>
 </div>
+-->
+
 </div>
 
 <div>
 <span>
-<button style="float:left; margin-left:50px; transform:translate(0px, 10px)" ng-click="resetTune()"> Reset </button>
-<button style="float:right; margin-right:50px; transform:translate(0px, 10px)" ng-click="applyTune()"> Apply </button>
+<button style="float:left; margin-left:50px; transform:translate(0px, 5px)" ng-click="resetTune()"> Reset </button>
+<button style="float:right; margin-right:50px; transform:translate(0px, 5px)" ng-click="applyTune()"> Apply </button>
 </span>
 </div>
 
@@ -667,7 +788,35 @@ Reset Advanced Couplers
 </div>
 
 
+<div ng-if="menuPage == 5" style="">
 
+<h3 style="text-align:center; line-height:0px;">Track Events</h3>
+
+<div ng-if="beamlrData['currentTrackEvent']['status'] != null && beamlrData['currentTrackEvent']['status'] != 'over'">
+
+<h2 style="text-align:center; margin-top:0px; margin-bottom:0px;">Current Event Info</h2>
+
+<div style="overflow:scroll; overflow-y:scroll; height: 190px; max-height:190px; max-width:500px; margin-left:5px; margin-right:5px; background-color:rgba(0,0,0,0.5);" >
+<table style="width:100%; table-layout:fixed; vertical-align:top;">
+<tr style="height:35px;"><td style="width: 150px; font-size:18px; font-weight:bold; text-align:center;">Title </td><td style="text-align:center;">{{beamlrData['currentTrackEvent']['title']}}</td></tr>
+<tr style="height:35px;"><td style="width: 150px;font-size:18px; font-weight:bold; text-align:center;">Map </td><td style="text-align:center;">{{beamlrData['currentTrackEvent']['map']}}</td></tr>
+<tr style="height:35px;"><td style="width: 150px;font-size:18px; font-weight:bold; text-align:center;">Status</td><td style="text-align:center;">{{beamlrData['currentTrackEvent']['status']}}</td></tr>
+<tr style="height:35px;"><td style="width: 150px;font-size:18px; font-weight:bold; text-align:center;">Round</td><td style="text-align:center;">{{beamlrData['currentTrackEvent']['cround']}} / {{beamlrData['currentTrackEvent']['tround']}}</td></tr>
+<tr style="height:35px;"><td style="width: 150px;font-size:18px; font-weight:bold; text-align:center;">Car Used</td><td style="text-align:center;">{{beamlrData['currentTrackEvent']['carname']}}</td></tr>
+</table>
+</div>
+
+<p style="margin-left:5px; margin-right:5px; transform:translate(0px, -12px);"><span style="float:left;"><button ng-click="showEventBrowser()">Browse Events</button></span><span style="float:right;"><button ng-click="abandonEvent()" ng-if="beamlrData['currentTrackEvent']['status'] != 'over'">Abandon Event</button></span></p>
+
+</div>
+
+<div ng-if="beamlrData['currentTrackEvent']['status'] == 'over' || beamlrData['currentTrackEvent']['status'] == null">
+
+<h2 style="text-align:center;">No event in progress</h2>
+
+<p style="text-align:center; transform:translate(0px, -10px);"><button ng-click="showEventBrowser()">Browse Events</button></p>
+
+</div>
 
 </div>
 
@@ -675,8 +824,9 @@ Reset Advanced Couplers
 
 
 
-<div ng-if="!showMenu">
+<div ng-if="!showMenu" style="z-index: 9; position:relative;">
 
 
+</div>
 </div>
 </div>
