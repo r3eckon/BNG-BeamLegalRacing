@@ -649,6 +649,9 @@ updateDataTable("beamLR/currentTrackEvent", event)
 end
 
 local function backupCareer()
+-- Delete existing backup
+deleteDir("beamLR/backup")
+
 -- Root folder data
 copyFile("beamLR/mainData", "beamLR/backup/mainData")
 copyFile("beamLR/partInv", "beamLR/backup/partInv")

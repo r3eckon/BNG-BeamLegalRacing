@@ -648,9 +648,11 @@ local cname = ""
 for k,v in pairs(sdata) do
 if snames[k] then
 cname = snames[k] .. " " .. k
+else -- 1.10.1 fix for missing paint_design part, default to using internal slot name in case no name is found
+cname = k
+end
 smap[cname] = k -- Adding internal slot name to proper name to avoid duplicates in mapping
 table.insert(sortedSlots, cname) -- Sort by name
-end
 end
 table.sort(sortedSlots)
 
@@ -668,14 +670,16 @@ local pnames = getPartNameLibrary()
 local toRet = {} -- KEY=SLOT,VAL=TABLE:KEY=POSITION,VAL=PART
 local csort = {} 
 local cmap = {}
+local cname = ""
 
 for k,v in pairs(sdata) do
 toRet[k] = {}
 cmap = {}
 csort = {}
 for _,p in pairs(sdata[k]) do
-cmap[pnames[p]] = p
-table.insert(csort, pnames[p])
+cname = pnames[p] or p -- 1.10.1 fix
+cmap[cname] = p
+table.insert(csort, cname)
 end
 table.sort(csort)
 for _,p in ipairs(csort) do
@@ -693,12 +697,12 @@ local snames = getSlotNameLibrary()
 local sortedSlots = {} -- KEY=POSITION,VAL=SLOT NAME
 local smap = {}
 local toRet = {} -- KEY=POSITION,VAL=SLOT
+local cname = ""
 
 for k,v in pairs(sdata) do
-if snames[k] then
-smap[snames[k]] = k
-table.insert(sortedSlots, snames[k]) -- Sort by name
-end
+cname = snames[k] or k -- 1.10.1 fix
+smap[cname] = k
+table.insert(sortedSlots, cname) -- Sort by name
 end
 table.sort(sortedSlots)
 
@@ -716,14 +720,16 @@ local pnames = getPartNameLibrary()
 local toRet = {} -- KEY=SLOT,VAL=TABLE:KEY=POSITION,VAL=PART
 local csort = {} 
 local cmap = {}
+local cname = ""
 
 for k,v in pairs(sdata) do
 toRet[k] = {}
 cmap = {}
 csort = {}
 for _,p in pairs(sdata[k]) do
-cmap[pnames[p]] = p
-table.insert(csort, pnames[p])
+cname = pnames[p] or p -- 1.10.1 fix
+cmap[cname] = p
+table.insert(csort, cname)
 end
 table.sort(csort)
 for _,p in ipairs(csort) do

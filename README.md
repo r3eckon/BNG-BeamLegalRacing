@@ -454,3 +454,13 @@ Thank you for playing BeamLR!
 * Delivery mission UI now uses confirmation requesting buttons
 * Fixed bug when buying parts using default fallback price
 * Some race clubs now using class system for simplified config loading
+
+### 1.10.1
+* Fixed backup saving process not clearing old backup data
+* Fixed career reset from towing while moving (added speed check before tow)
+* Disabled big map UI to remove fast travel
+* Fixed missing slots in part shop and part edit
+* Fixed rear struts missing from suspension part category
+* Fixed automation induction specific track events using wrong data 
+* Fixed race club league progress bug
+* Hero league now shows completion message instead of 0/X progress

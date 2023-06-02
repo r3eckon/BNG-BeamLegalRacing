@@ -2,7 +2,7 @@
   "activeGraphId":3,
   "authors":"BeamLR",
   "currentGraphID":3,
-  "date":1685009105,
+  "date":1685702168,
   "debugEnabled":false,
   "description":"Beam Legal Racing Career",
   "difficulty":100,
@@ -28,7 +28,14 @@
         ],
         [
           99,
-          "match_3",
+          "match_5",
+          11,
+          "flow",
+          false
+        ],
+        [
+          99,
+          "match_4",
           11,
           "flow",
           false
@@ -42,14 +49,7 @@
         ],
         [
           99,
-          "match_5",
-          11,
-          "flow",
-          false
-        ],
-        [
-          99,
-          "match_4",
+          "match_3",
           11,
           "flow",
           false
@@ -118,15 +118,15 @@
           false
         ],
         [
-          60,
-          "flow",
+          57,
+          "false",
           18,
           "flow",
           false
         ],
         [
-          57,
-          "false",
+          60,
+          "flow",
           18,
           "flow",
           false
@@ -245,13 +245,6 @@
         ],
         [
           4986,
-          "match_3",
-          25,
-          "flow",
-          false
-        ],
-        [
-          4986,
           "match_2",
           25,
           "flow",
@@ -260,6 +253,13 @@
         [
           4986,
           "match_4",
+          25,
+          "flow",
+          false
+        ],
+        [
+          4986,
+          "match_3",
           25,
           "flow",
           false
@@ -307,15 +307,15 @@
           false
         ],
         [
-          494,
-          "flow",
+          979,
+          "completed",
           30,
           "flow",
           false
         ],
         [
-          979,
-          "completed",
+          494,
+          "flow",
           30,
           "flow",
           false
@@ -545,14 +545,14 @@
           false
         ],
         [
-          880,
+          27,
           "flow",
           50,
           "flow",
           false
         ],
         [
-          27,
+          880,
           "flow",
           50,
           "flow",
@@ -783,14 +783,14 @@
           false
         ],
         [
-          1114,
+          963,
           "flow",
           69,
           "flow",
           false
         ],
         [
-          963,
+          1114,
           "flow",
           69,
           "flow",
@@ -854,14 +854,14 @@
         ],
         [
           99,
-          "match_2",
+          "match_3",
           76,
           "flow_1",
           false
         ],
         [
           99,
-          "match_3",
+          "match_2",
           76,
           "flow_1",
           false
@@ -874,6 +874,13 @@
           false
         ],
         [
+          471,
+          "False",
+          77,
+          "flow",
+          false
+        ],
+        [
           613,
           "flow",
           77,
@@ -883,13 +890,6 @@
         [
           585,
           "false",
-          77,
-          "flow",
-          false
-        ],
-        [
-          471,
-          "False",
           77,
           "flow",
           false
@@ -1140,6 +1140,13 @@
           false
         ],
         [
+          1178,
+          "flow",
+          95,
+          "flow",
+          false
+        ],
+        [
           109,
           "flow",
           95,
@@ -1155,13 +1162,6 @@
         ],
         [
           1251,
-          "flow",
-          95,
-          "flow",
-          false
-        ],
-        [
-          1178,
           "flow",
           95,
           "flow",
@@ -1588,13 +1588,6 @@
           false
         ],
         [
-          844,
-          "mflow",
-          119,
-          "flow_1",
-          false
-        ],
-        [
           10235,
           "flow",
           119,
@@ -1602,15 +1595,22 @@
           false
         ],
         [
-          1112,
-          "match_4",
+          844,
+          "mflow",
           119,
-          "flow_2",
+          "flow_1",
           false
         ],
         [
           844,
           "mflow",
+          119,
+          "flow_2",
+          false
+        ],
+        [
+          1112,
+          "match_4",
           119,
           "flow_2",
           false
@@ -1637,13 +1637,6 @@
           true
         ],
         [
-          9879,
-          "flow",
-          123,
-          "flow",
-          false
-        ],
-        [
           183,
           "flow",
           123,
@@ -1659,6 +1652,13 @@
         ],
         [
           9884,
+          "flow",
+          123,
+          "flow",
+          false
+        ],
+        [
+          9879,
           "flow",
           123,
           "flow",
@@ -1952,15 +1952,15 @@
           true
         ],
         [
-          10086,
-          "flow",
+          512,
+          "false",
           151,
           "flow",
           false
         ],
         [
-          512,
-          "false",
+          10086,
+          "flow",
           151,
           "flow",
           false
@@ -2092,14 +2092,14 @@
           false
         ],
         [
-          947,
+          877,
           "flow",
           162,
           "flow",
           false
         ],
         [
-          877,
+          947,
           "flow",
           162,
           "flow",
@@ -2288,8 +2288,8 @@
           false
         ],
         [
-          949,
-          "false",
+          146,
+          "flow",
           175,
           "flow",
           false
@@ -2302,15 +2302,15 @@
           false
         ],
         [
-          146,
+          1175,
           "flow",
           175,
           "flow",
           false
         ],
         [
-          1175,
-          "flow",
+          949,
+          "false",
           175,
           "flow",
           false
@@ -2337,14 +2337,14 @@
           false
         ],
         [
-          878,
+          206,
           "flow",
           178,
           "flow",
           false
         ],
         [
-          206,
+          878,
           "flow",
           178,
           "flow",
@@ -2505,13 +2505,6 @@
           false
         ],
         [
-          1096,
-          "False",
-          194,
-          "flow",
-          false
-        ],
-        [
           1095,
           "flow",
           194,
@@ -2521,6 +2514,13 @@
         [
           749,
           "flow",
+          194,
+          "flow",
+          false
+        ],
+        [
+          1096,
+          "False",
           194,
           "flow",
           false
@@ -2764,6 +2764,13 @@
           false
         ],
         [
+          1180,
+          "down",
+          212,
+          "flow",
+          false
+        ],
+        [
           1175,
           "down",
           212,
@@ -2773,13 +2780,6 @@
         [
           124,
           "flow",
-          212,
-          "flow",
-          false
-        ],
-        [
-          1180,
-          "down",
           212,
           "flow",
           false
@@ -3562,14 +3562,14 @@
           false
         ],
         [
-          10217,
+          763,
           "false",
           273,
           "flow",
           false
         ],
         [
-          763,
+          10217,
           "false",
           273,
           "flow",
@@ -4318,8 +4318,8 @@
           false
         ],
         [
-          203,
-          "down",
+          891,
+          "True",
           334,
           "flow",
           false
@@ -4374,8 +4374,8 @@
           false
         ],
         [
-          10218,
-          "false",
+          758,
+          "flow",
           337,
           "flow",
           false
@@ -4388,8 +4388,8 @@
           false
         ],
         [
-          758,
-          "flow",
+          10218,
+          "false",
           337,
           "flow",
           false
@@ -4927,13 +4927,6 @@
           false
         ],
         [
-          394,
-          "flow",
-          378,
-          "flow",
-          false
-        ],
-        [
           10011,
           "flow",
           378,
@@ -4941,7 +4934,7 @@
           false
         ],
         [
-          966,
+          961,
           "flow",
           378,
           "flow",
@@ -4955,13 +4948,6 @@
           false
         ],
         [
-          377,
-          "none",
-          378,
-          "flow",
-          false
-        ],
-        [
           1182,
           "flow",
           378,
@@ -4969,7 +4955,21 @@
           false
         ],
         [
-          961,
+          394,
+          "flow",
+          378,
+          "flow",
+          false
+        ],
+        [
+          377,
+          "none",
+          378,
+          "flow",
+          false
+        ],
+        [
+          966,
           "flow",
           378,
           "flow",
@@ -6103,15 +6103,15 @@
           true
         ],
         [
-          752,
-          "flow",
+          493,
+          "true",
           463,
           "flow",
           false
         ],
         [
-          493,
-          "true",
+          752,
+          "flow",
           463,
           "flow",
           false
@@ -6502,15 +6502,15 @@
           false
         ],
         [
-          924,
-          "flow",
+          923,
+          "False",
           499,
           "flow",
           false
         ],
         [
-          923,
-          "False",
+          924,
+          "flow",
           499,
           "flow",
           false
@@ -7034,14 +7034,14 @@
           false
         ],
         [
-          505,
+          539,
           "flow",
           533,
           "reset",
           false
         ],
         [
-          539,
+          505,
           "flow",
           533,
           "reset",
@@ -7055,14 +7055,14 @@
           true
         ],
         [
-          505,
+          539,
           "flow",
           534,
           "on",
           false
         ],
         [
-          539,
+          505,
           "flow",
           534,
           "on",
@@ -7721,14 +7721,14 @@
         ],
         [
           608,
-          "arrest",
+          "evade",
           587,
           "reset",
           false
         ],
         [
           608,
-          "evade",
+          "arrest",
           587,
           "reset",
           false
@@ -8994,8 +8994,8 @@
           true
         ],
         [
-          315,
-          "flow",
+          895,
+          "true",
           681,
           "flow",
           false
@@ -10520,15 +10520,15 @@
           false
         ],
         [
-          815,
-          "flow",
+          438,
+          "enter",
           798,
           "flow",
           false
         ],
         [
-          438,
-          "enter",
+          815,
+          "flow",
           798,
           "flow",
           false
@@ -10555,15 +10555,15 @@
           false
         ],
         [
-          1005,
-          "False",
+          1007,
+          "flow",
           801,
           "flow",
           false
         ],
         [
-          1007,
-          "flow",
+          1005,
+          "False",
           801,
           "flow",
           false
@@ -10604,15 +10604,15 @@
           false
         ],
         [
-          843,
-          "down",
+          800,
+          "True",
           803,
           "reset",
           false
         ],
         [
-          800,
-          "True",
+          843,
+          "down",
           803,
           "reset",
           false
@@ -10674,15 +10674,15 @@
           false
         ],
         [
-          10273,
-          "flow",
+          995,
+          "False",
           808,
           "flow",
           false
         ],
         [
-          995,
-          "False",
+          10273,
+          "flow",
           808,
           "flow",
           false
@@ -10737,14 +10737,14 @@
           false
         ],
         [
-          843,
+          10245,
           "down",
           812,
           "reset",
           false
         ],
         [
-          10245,
+          843,
           "down",
           812,
           "reset",
@@ -10905,13 +10905,6 @@
           false
         ],
         [
-          1131,
-          "flow",
-          823,
-          "flow",
-          false
-        ],
-        [
           10245,
           "flow",
           823,
@@ -10919,7 +10912,7 @@
           false
         ],
         [
-          956,
+          1131,
           "flow",
           823,
           "flow",
@@ -10927,6 +10920,13 @@
         ],
         [
           843,
+          "flow",
+          823,
+          "flow",
+          false
+        ],
+        [
+          956,
           "flow",
           823,
           "flow",
@@ -11227,15 +11227,15 @@
           false
         ],
         [
-          996,
-          "flow",
+          7,
+          "enterState",
           846,
           "flow",
           false
         ],
         [
-          7,
-          "enterState",
+          996,
+          "flow",
           846,
           "flow",
           false
@@ -11423,15 +11423,15 @@
           false
         ],
         [
-          843,
-          "down",
+          812,
+          "flow",
           867,
           "flow",
           false
         ],
         [
-          812,
-          "flow",
+          843,
+          "down",
           867,
           "flow",
           false
@@ -11500,14 +11500,14 @@
           false
         ],
         [
-          206,
+          878,
           "down",
           873,
           "flow",
           false
         ],
         [
-          878,
+          206,
           "down",
           873,
           "flow",
@@ -11521,14 +11521,14 @@
           false
         ],
         [
-          148,
+          171,
           "down",
           874,
           "reset",
           false
         ],
         [
-          171,
+          148,
           "down",
           874,
           "reset",
@@ -11714,6 +11714,69 @@
           "flow",
           888,
           "flow",
+          false
+        ],
+        [
+          7,
+          "flow",
+          889,
+          "flow",
+          false
+        ],
+        [
+          332,
+          "vehId",
+          889,
+          "veid",
+          false
+        ],
+        [
+          889,
+          "flow",
+          890,
+          "flow",
+          false
+        ],
+        [
+          889,
+          "output",
+          890,
+          "fetchspd",
+          false
+        ],
+        [
+          203,
+          "down",
+          891,
+          "flow",
+          false
+        ],
+        [
+          890,
+          "cantow",
+          891,
+          "condition",
+          false
+        ],
+        [
+          315,
+          "flow",
+          894,
+          "flow",
+          false
+        ],
+        [
+          894,
+          "flow",
+          895,
+          "flow",
+          false
+        ],
+        [
+          894,
+          "val",
+          895,
+          "A",
           false
         ],
         [
@@ -12193,15 +12256,15 @@
           false
         ],
         [
-          193,
-          "down",
+          918,
+          "flow",
           940,
           "flow",
           false
         ],
         [
-          918,
-          "flow",
+          193,
+          "down",
           940,
           "flow",
           false
@@ -13117,7 +13180,7 @@
           false
         ],
         [
-          1134,
+          1175,
           "down",
           1026,
           "flow",
@@ -13131,7 +13194,7 @@
           false
         ],
         [
-          1175,
+          1134,
           "down",
           1026,
           "flow",
@@ -13236,13 +13299,6 @@
           false
         ],
         [
-          843,
-          "down",
-          1032,
-          "reset",
-          false
-        ],
-        [
           1033,
           "False",
           1032,
@@ -13251,6 +13307,13 @@
         ],
         [
           10245,
+          "down",
+          1032,
+          "reset",
+          false
+        ],
+        [
+          843,
           "down",
           1032,
           "reset",
@@ -13943,14 +14006,14 @@
           false
         ],
         [
-          271,
+          193,
           "flow",
           1094,
           "flow",
           false
         ],
         [
-          193,
+          271,
           "flow",
           1094,
           "flow",
@@ -14776,14 +14839,14 @@
           false
         ],
         [
-          843,
+          10245,
           "down",
           1168,
           "flow",
           false
         ],
         [
-          10245,
+          843,
           "down",
           1168,
           "flow",
@@ -14861,14 +14924,14 @@
         ],
         [
           4986,
-          "match_1",
+          "match_2",
           1177,
           "flow",
           false
         ],
         [
           4986,
-          "match_2",
+          "match_1",
           1177,
           "flow",
           false
@@ -14944,14 +15007,14 @@
           false
         ],
         [
-          368,
+          10128,
           "flow",
           1185,
           "reset",
           false
         ],
         [
-          10128,
+          368,
           "flow",
           1185,
           "reset",
@@ -14965,14 +15028,14 @@
           false
         ],
         [
-          10128,
+          368,
           "flow",
           1186,
           "reset",
           false
         ],
         [
-          368,
+          10128,
           "flow",
           1186,
           "reset",
@@ -15021,14 +15084,14 @@
           false
         ],
         [
-          210,
+          9876,
           "down",
           1191,
           "flow",
           false
         ],
         [
-          9876,
+          210,
           "down",
           1191,
           "flow",
@@ -16428,15 +16491,15 @@
           false
         ],
         [
-          10031,
-          "flow",
+          186,
+          "True",
           10014,
           "flow",
           false
         ],
         [
-          186,
-          "True",
+          10031,
+          "flow",
           10014,
           "flow",
           false
@@ -17065,14 +17128,14 @@
           false
         ],
         [
-          623,
+          579,
           "flow",
           10125,
           "flow",
           false
         ],
         [
-          579,
+          623,
           "flow",
           10125,
           "flow",
@@ -17415,15 +17478,15 @@
           false
         ],
         [
-          661,
-          "False",
+          10017,
+          "down",
           10164,
           "reset",
           false
         ],
         [
-          10017,
-          "down",
+          661,
+          "False",
           10164,
           "reset",
           false
@@ -17605,14 +17668,14 @@
         ],
         [
           1112,
-          "match_5",
+          "match_2",
           10007,
           "flow",
           false
         ],
         [
           1112,
-          "match_2",
+          "match_5",
           10007,
           "flow",
           false
@@ -17681,15 +17744,15 @@
           false
         ],
         [
-          1112,
-          "match_7",
+          844,
+          "cflow",
           10234,
           "flow_2",
           false
         ],
         [
-          844,
-          "cflow",
+          1112,
+          "match_7",
           10234,
           "flow_2",
           false
@@ -18815,14 +18878,14 @@
           false
         ],
         [
-          843,
+          10245,
           "down",
           10281,
           "flow",
           false
         ],
         [
-          10245,
+          843,
           "down",
           10281,
           "flow",
@@ -24444,7 +24507,7 @@
             ]
           ],
           "pos":[
-            2908,
+            3146,
             1282
           ],
           "type":"util/customLua"
@@ -24907,7 +24970,7 @@
           "hardcodedPins":{
             "duration":{
               "type":"number",
-              "value":0.75000000000000099920
+              "value":0.75000000000000133227
             }
           },
           "hiddenPins":{
@@ -25306,11 +25369,11 @@
             },
             "directionBias":{
               "type":"number",
-              "value":0.80000001200000125934
+              "value":0.80000001200000181445
             },
             "spawnRate":{
               "type":"number",
-              "value":0.00009999999750000023
+              "value":0.00009999999750000033
             }
           },
           "hiddenPins":{
@@ -27808,7 +27871,7 @@
             1
           ],
           "commentSize":[
-            726,
+            950,
             660
           ],
           "commentText":"",
@@ -31002,25 +31065,26 @@
             }
           },
           "list":[
-            "dropPlayerAtCamera",
-            "faster_motion",
+            "recover_vehicle",
+            "reload_vehicle",
+            "reload_all_vehicles",
             "loadHome",
+            "saveHome",
+            "toggleWalkingMode",
+            "vehicle_selector",
+            "parts_selector",
+            "slower_motion",
+            "faster_motion",
+            "toggle_slow_motion",
             "nodegrabberAction",
             "nodegrabberStrength",
-            "parts_selector",
-            "recover_vehicle",
-            "reload_all_vehicles",
-            "reload_vehicle",
-            "saveHome",
-            "slower_motion",
+            "toggleTraffic",
+            "toggleAITraffic",
             "switch_next_vehicle",
             "switch_previous_vehicle",
-            "toggleAITraffic",
-            "toggleCamera",
-            "toggleTraffic",
-            "toggleWalkingMode",
-            "toggle_slow_motion",
-            "vehicle_selector"
+            "toggleBigMap",
+            "dropPlayerAtCamera",
+            "toggleCamera"
           ],
           "pos":[
             -592,
@@ -32655,8 +32719,8 @@
             }
           },
           "pos":[
-            2670,
-            1282
+            2894,
+            1268
           ],
           "type":"scene/getPlayerVehicle"
         },
@@ -32678,8 +32742,8 @@
           },
           "opSymbol":">=",
           "pos":[
-            2670,
-            932
+            2894,
+            918
           ],
           "type":"logic/compare"
         },
@@ -32706,8 +32770,8 @@
             }
           },
           "pos":[
-            2670,
-            834
+            2894,
+            820
           ],
           "type":"types/genericValue"
         },
@@ -33125,7 +33189,7 @@
             ]
           ],
           "pos":[
-            2894,
+            3132,
             1030
           ],
           "type":"util/customLua"
@@ -33263,7 +33327,7 @@
             }
           },
           "pos":[
-            2908,
+            3146,
             1156
           ],
           "type":"types/genericValue"
@@ -33877,7 +33941,7 @@
             }
           },
           "pos":[
-            3104,
+            3342,
             848
           ],
           "type":"logic/frameDelay"
@@ -41549,7 +41613,7 @@
             }
           },
           "pos":[
-            2866,
+            3104,
             862
           ],
           "type":"ui/fadeToBlack"
@@ -41740,7 +41804,7 @@
             }
           },
           "pos":[
-            3118,
+            3356,
             960
           ],
           "type":"ui/fadeFromBlack"
@@ -41765,8 +41829,8 @@
             }
           },
           "pos":[
-            2684,
-            1184
+            2908,
+            1170
           ],
           "type":"vehicle/freeze"
         },
@@ -45535,7 +45599,9 @@
           "type":"logic/flowSwitch"
         },
         "633":{
-          "data":{},
+          "data":{
+            "name":"BeamNGTrigger_HighwayExit"
+          },
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
@@ -47319,8 +47385,8 @@
             }
           },
           "pos":[
-            -3560,
-            -2218
+            -3504,
+            -2092
           ],
           "type":"types/genericValue"
         },
@@ -47941,8 +48007,8 @@
           "dynamicMode":"repeat",
           "moveMode":"withoutNodes",
           "pos":[
-            -3220,
-            -2198
+            -3038,
+            -2212
           ],
           "simple":true,
           "textColor":[
@@ -48104,7 +48170,7 @@
             ]
           ],
           "pos":[
-            -326,
+            -312,
             -482
           ],
           "type":"util/customLua"
@@ -48220,7 +48286,7 @@
             ]
           ],
           "pos":[
-            -606,
+            -522,
             -398
           ],
           "type":"util/customLua"
@@ -48555,7 +48621,7 @@
         },
         "707":{
           "code":{
-            "work":"local league = self.pinIn.league.value or \"none\"\nlocal lcount = self.pinIn.lcount.value or 0\nlocal rcount = self.pinIn.rcount.value or 0\nlocal club = self.pinIn.club.value or \"none\"\nlocal txt = \"\"\ntxt = txt .. \"Club: \" .. club .. \"\\n\"\ntxt = txt .. \"League: \" .. league .. \"\\n\"\ntxt = txt .. \"Completed \" .. lcount-rcount .. \"/\" .. lcount .. \" races\"\nself.pinOut.text.value = txt",
+            "work":"local league = self.pinIn.league.value or \"none\"\nlocal lcount = self.pinIn.lcount.value or 0\nlocal rcount = self.pinIn.rcount.value or 0\nlocal club = self.pinIn.club.value or \"none\"\nlocal txt = \"\"\ntxt = txt .. \"Club: \" .. club .. \"\\n\"\ntxt = txt .. \"League: \" .. league .. \"\\n\"\nif league == \"hero\" then\ntxt = txt .. \"Race club completed!\"\nelse\ntxt = txt .. \"Completed \" .. lcount-rcount .. \"/\" .. lcount .. \" races\"\nend\nself.pinOut.text.value = txt",
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":""
@@ -51437,7 +51503,7 @@
           "hardcodedPins":{
             "checkVelocity":{
               "type":"number",
-              "value":0.01000000000000001756
+              "value":0.01000000000000002449
             }
           },
           "hiddenPins":{
@@ -52524,7 +52590,7 @@
               "value":[
                 1,
                 0,
-                0.00006008148190000019,
+                0.00006008148190000025,
                 1
               ]
             },
@@ -56564,6 +56630,234 @@
           ],
           "type":"logic/once"
         },
+        "889":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "work":"local extensions = require(\"extensions\")\nlocal ve = scenetree.findObjectById(self.pinIn.veid.value)\nif ve ~= nil then\nlocal id = self.pinIn.fetchID.value\nlocal toFetch = self.pinIn.toFetch.value\nlocal vecmd = \"obj:queueGameEngineLua(string.format('extensions.vluaFetchModule.fetch(%s,%q)', \" .. toFetch .. \",'\" .. id .. \"'))\"\nif ve.queueLuaCommand ~= nil then\nve:queueLuaCommand(vecmd)\nself.pinOut.output.value = extensions.vluaFetchModule.getVal(id)\nend\nend"
+          },
+          "customIcon":"simobject_lightning",
+          "customName":"Fetch VLUA Variable",
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "fetchID":{
+              "type":"string",
+              "value":"towspd"
+            },
+            "toFetch":{
+              "type":"string",
+              "value":"electrics.values.airspeed"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "veid":false,
+              "fetchID":false,
+              "flow":false,
+              "toFetch":false
+            },
+            "p_out":{
+              "flow":false,
+              "output":false
+            }
+          },
+          "name":"Fetch VLUA Variable",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow"
+            ],
+            [
+              "out",
+              "flow",
+              "flow"
+            ],
+            [
+              "in",
+              "number",
+              "veid",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "string",
+              "toFetch",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "string",
+              "output",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "string",
+              "fetchID",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            2670,
+            834
+          ],
+          "type":"util/customLua"
+        },
+        "890":{
+          "code":{
+            "work":"local speed = tonumber(self.pinIn.fetchspd.value or \"0\")\nlocal maxspd = self.pinIn.maxspd.value\nself.pinOut.cantow.value = speed <= maxspd",
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":""
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "maxspd":{
+              "type":"number",
+              "value":10
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "fetchspd":false,
+              "flow":false,
+              "maxspd":false
+            },
+            "p_out":{
+              "cantow":false,
+              "flow":false
+            }
+          },
+          "name":"Tow Speed Check",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "string",
+              "fetchspd",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "bool",
+              "cantow",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "number",
+              "maxspd",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            2670,
+            1002
+          ],
+          "type":"util/customLua"
+        },
+        "891":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "condition":false,
+              "flow":false
+            },
+            "p_out":{
+              "False":false,
+              "True":false,
+              "flow":true
+            }
+          },
+          "pos":[
+            2670,
+            1142
+          ],
+          "type":"logic/branch"
+        },
+        "894":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "getter":true,
+          "global":true,
+          "hardcodedPins":{
+            "varName":{
+              "type":"string",
+              "value":"raceMenuPage"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "suffix":true,
+              "varName":true
+            },
+            "p_out":{
+              "flow":false,
+              "val":false
+            }
+          },
+          "pos":[
+            -3546,
+            -2232
+          ],
+          "type":"types/genericValue"
+        },
+        "895":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "B":{
+              "type":"number",
+              "value":0
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "A":false,
+              "B":false,
+              "flow":false
+            },
+            "p_out":{
+              "value":true,
+              "false":false,
+              "flow":false,
+              "true":false
+            }
+          },
+          "opSymbol":"==",
+          "pos":[
+            -3350,
+            -2232
+          ],
+          "type":"logic/compare"
+        },
         "901":{
           "data":{},
           "dynamicMode":"repeat",
@@ -59617,7 +59911,7 @@
           "hardcodedPins":{
             "duration":{
               "type":"number",
-              "value":0.75000000000000099920
+              "value":0.75000000000000133227
             }
           },
           "hiddenPins":{
@@ -59951,8 +60245,8 @@
             ]
           ],
           "pos":[
-            2684,
-            1058
+            2908,
+            1044
           ],
           "type":"util/customLua"
         },
@@ -60019,7 +60313,7 @@
             ]
           ],
           "pos":[
-            3174,
+            3412,
             1198
           ],
           "type":"util/customLua"
@@ -61179,8 +61473,8 @@
             ]
           ],
           "pos":[
-            2684,
-            1114
+            2908,
+            1100
           ],
           "type":"util/customLua"
         },
@@ -61310,7 +61604,7 @@
             ]
           ],
           "pos":[
-            3174,
+            3412,
             1254
           ],
           "type":"util/customLua"
@@ -69360,7 +69654,7 @@
           ],
           "pos":[
             -270,
-            -1252
+            -1378
           ],
           "type":"util/customLua"
         },
@@ -74602,7 +74896,7 @@
             }
           },
           "pos":[
-            -634,
+            -662,
             -1210
           ],
           "type":"ui/imgui/elemental/imButton"
@@ -74666,8 +74960,8 @@
             }
           },
           "pos":[
-            -256,
-            -1448
+            -410,
+            -1434
           ],
           "type":"types/genericValue"
         },
@@ -76362,7 +76656,7 @@
             }
           },
           "pos":[
-            3160,
+            3398,
             1114
           ],
           "type":"vehicle/freeze"
@@ -78202,7 +78496,9 @@
           "type":"types/genericValue"
         },
         "10149":{
-          "data":{},
+          "data":{
+            "name":"BeamNGTrigger_HighwayExit"
+          },
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
@@ -78683,7 +78979,9 @@
           "type":"scene/singleMarker"
         },
         "10165":{
-          "data":{},
+          "data":{
+            "name":"BeamNGTrigger_AirfieldFinish"
+          },
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
@@ -78844,7 +79142,7 @@
           },
           "pos":[
             -256,
-            -1350
+            -1434
           ],
           "type":"types/genericValue"
         },
@@ -79897,8 +80195,8 @@
             }
           },
           "pos":[
-            -3532,
-            -2106
+            -3336,
+            -2092
           ],
           "type":"types/genericValue"
         },
@@ -82543,10 +82841,10 @@
         "list":{}
       },
       "viewPos":[
-        -1134.61413574218750000000,
-        -2517.16015625000000000000
+        -1368.18237304687500000000,
+        -1188.84179687500000000000
       ],
-      "viewZoom":0.75000000000000000000
+      "viewZoom":0.74999994039535522461
     },
     "3":{
       "description":"This is the description for graph States",
@@ -82562,14 +82860,14 @@
         ],
         [
           4,
-          "fail",
+          "success",
           6,
           "flow",
           false
         ],
         [
           4,
-          "success",
+          "fail",
           6,
           "flow",
           false
@@ -82776,180 +83074,6 @@
     ],
     "list":[
       {
-        "index":90,
-        "mergeStrat":"last",
-        "name":"pspos",
-        "type":"vec3",
-        "value":[
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "index":91,
-        "mergeStrat":"last",
-        "name":"psrot",
-        "type":"quat",
-        "value":[
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "index":92,
-        "mergeStrat":"last",
-        "name":"psscl",
-        "type":"vec3",
-        "value":[
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "index":83,
-        "mergeStrat":"max",
-        "name":"veidref",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":16,
-        "mergeStrat":"max",
-        "name":"carShopSelectedSlot",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":72,
-        "mergeStrat":"max",
-        "name":"raceEnemyAvoid",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":5,
-        "mergeStrat":"max",
-        "name":"missionGiverUIState",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":60,
-        "mergeStrat":"max",
-        "name":"leagueProgressUpdate",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":59,
-        "mergeStrat":"last",
-        "name":"raceLeague",
-        "type":"string",
-        "value":""
-      },
-      {
-        "index":85,
-        "mergeStrat":"max",
-        "name":"challengeFailed",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":6,
-        "mergeStrat":"max",
-        "name":"missionState",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":78,
-        "mergeStrat":"max",
-        "name":"challengeCheckpoint",
-        "type":"number",
-        "value":-1
-      },
-      {
-        "index":38,
-        "mergeStrat":"max",
-        "name":"playerIsWalking",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":53,
-        "mergeStrat":"max",
-        "name":"raceLaps",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":54,
-        "mergeStrat":"last",
-        "name":"raceTriggers",
-        "type":"string",
-        "value":""
-      },
-      {
-        "index":55,
-        "mergeStrat":"last",
-        "name":"raceWaypoints",
-        "type":"string",
-        "value":""
-      },
-      {
-        "index":22,
-        "mergeStrat":"max",
-        "name":"raceEnemyID",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":51,
-        "mergeStrat":"max",
-        "name":"raceEnemyTriggerID",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":28,
-        "mergeStrat":"max",
-        "name":"raceCount",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":76,
-        "mergeStrat":"max",
-        "name":"challengeInProgress",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":50,
-        "mergeStrat":"max",
-        "name":"raceEnemyCPID",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":1,
-        "mergeStrat":"max",
-        "name":"playerMoney",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":52,
-        "mergeStrat":"max",
-        "name":"raceEnemyLap",
-        "type":"number",
-        "value":0
-      },
-      {
         "index":49,
         "mergeStrat":"max",
         "name":"racePlayerLap",
@@ -82971,18 +83095,32 @@
         "value":0
       },
       {
-        "index":56,
-        "mergeStrat":"max",
-        "name":"raceCPCount",
-        "type":"number",
-        "value":0
-      },
-      {
         "index":66,
         "mergeStrat":"last",
         "name":"triggerDataPath",
         "type":"string",
         "value":""
+      },
+      {
+        "index":52,
+        "mergeStrat":"max",
+        "name":"raceEnemyLap",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":28,
+        "mergeStrat":"max",
+        "name":"raceCount",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":56,
+        "mergeStrat":"max",
+        "name":"raceCPCount",
+        "type":"number",
+        "value":0
       },
       {
         "index":26,
@@ -82992,20 +83130,6 @@
         "value":""
       },
       {
-        "index":25,
-        "mergeStrat":"max",
-        "name":"raceForSlips",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":17,
-        "mergeStrat":"max",
-        "name":"currentRepairCost",
-        "type":"number",
-        "value":0
-      },
-      {
         "index":71,
         "mergeStrat":"max",
         "name":"waitmsgState",
@@ -83013,16 +83137,9 @@
         "value":0
       },
       {
-        "index":33,
+        "index":25,
         "mergeStrat":"max",
-        "name":"triggerFilterPlayerTrigID",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":57,
-        "mergeStrat":"max",
-        "name":"racePlayerInitStatus",
+        "name":"raceForSlips",
         "type":"number",
         "value":0
       },
@@ -83034,11 +83151,46 @@
         "value":""
       },
       {
+        "index":4,
+        "mergeStrat":"max",
+        "name":"carStorePage",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":86,
+        "mergeStrat":"max",
+        "name":"challengeUseTimer",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":8,
+        "mergeStrat":"last",
+        "name":"currentMissionDesc",
+        "type":"string",
+        "value":""
+      },
+      {
+        "index":57,
+        "mergeStrat":"max",
+        "name":"racePlayerInitStatus",
+        "type":"number",
+        "value":0
+      },
+      {
         "index":29,
         "mergeStrat":"last",
         "name":"raceEnemyModel",
         "type":"string",
         "value":""
+      },
+      {
+        "index":24,
+        "mergeStrat":"max",
+        "name":"raceWager",
+        "type":"number",
+        "value":0
       },
       {
         "index":30,
@@ -83048,9 +83200,23 @@
         "value":""
       },
       {
-        "index":31,
+        "index":35,
         "mergeStrat":"max",
-        "name":"raceEnemyRisk",
+        "name":"gmax",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":45,
+        "mergeStrat":"last",
+        "name":"ticketText",
+        "type":"string",
+        "value":""
+      },
+      {
+        "index":48,
+        "mergeStrat":"max",
+        "name":"racePlayerTriggerID",
         "type":"number",
         "value":0
       },
@@ -83090,18 +83256,201 @@
         "value":""
       },
       {
-        "index":45,
+        "index":62,
         "mergeStrat":"last",
-        "name":"ticketText",
+        "name":"trafficEnableFlag",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":64,
+        "mergeStrat":"max",
+        "name":"raceUseTraffic",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":73,
+        "mergeStrat":"last",
+        "name":"racePartReward",
         "type":"string",
         "value":""
       },
       {
-        "index":46,
+        "index":23,
         "mergeStrat":"max",
-        "name":"ticketMenuState",
+        "name":"raceDestID",
         "type":"number",
         "value":0
+      },
+      {
+        "index":36,
+        "mergeStrat":"max",
+        "name":"playerHealth",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":14,
+        "mergeStrat":"max",
+        "name":"playerCurrentCar",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":47,
+        "mergeStrat":"max",
+        "name":"racePlayerCPID",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":20,
+        "mergeStrat":"max",
+        "name":"raceMenuPage",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":2,
+        "mergeStrat":"max",
+        "name":"playerCarCount",
+        "type":"number",
+        "value":1
+      },
+      {
+        "index":68,
+        "mergeStrat":"last",
+        "name":"raceOPSP",
+        "type":"vec3",
+        "value":[
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "index":18,
+        "mergeStrat":"max",
+        "name":"uiTriggerState",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":69,
+        "mergeStrat":"last",
+        "name":"raceOPSR",
+        "type":"quat",
+        "value":[
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "index":7,
+        "mergeStrat":"max",
+        "name":"currentMissionDestid",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":27,
+        "mergeStrat":"last",
+        "name":"raceDesc",
+        "type":"string",
+        "value":""
+      },
+      {
+        "index":92,
+        "mergeStrat":"last",
+        "name":"psscl",
+        "type":"vec3",
+        "value":[
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "index":39,
+        "mergeStrat":"max",
+        "name":"raceEnemyBasePrice",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":82,
+        "mergeStrat":"last",
+        "name":"missionComplete",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":40,
+        "mergeStrat":"last",
+        "name":"raceEnemyPartPrice",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":58,
+        "mergeStrat":"max",
+        "name":"playerDamage",
+        "type":"number",
+        "value":-1
+      },
+      {
+        "index":41,
+        "mergeStrat":"last",
+        "name":"raceEnemyScrapVal",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":65,
+        "mergeStrat":"max",
+        "name":"uiRepairCost",
+        "type":"number",
+        "value":-1
+      },
+      {
+        "index":42,
+        "mergeStrat":"last",
+        "name":"raceEnemyPaint",
+        "type":"string",
+        "value":""
+      },
+      {
+        "index":1,
+        "mergeStrat":"max",
+        "name":"playerMoney",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":91,
+        "mergeStrat":"last",
+        "name":"psrot",
+        "type":"quat",
+        "value":[
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "index":90,
+        "mergeStrat":"last",
+        "name":"pspos",
+        "type":"vec3",
+        "value":[
+          0,
+          0,
+          0
+        ]
       },
       {
         "index":89,
@@ -83125,30 +83474,9 @@
         "value":0
       },
       {
-        "index":21,
-        "mergeStrat":"max",
-        "name":"raceWinner",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":62,
+        "index":75,
         "mergeStrat":"last",
-        "name":"trafficEnableFlag",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":64,
-        "mergeStrat":"max",
-        "name":"raceUseTraffic",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":86,
-        "mergeStrat":"max",
-        "name":"challengeUseTimer",
+        "name":"playerRep",
         "type":"number",
         "value":0
       },
@@ -83160,23 +83488,16 @@
         "value":0
       },
       {
-        "index":73,
-        "mergeStrat":"last",
-        "name":"racePartReward",
-        "type":"string",
-        "value":""
-      },
-      {
-        "index":23,
+        "index":16,
         "mergeStrat":"max",
-        "name":"raceDestID",
+        "name":"carShopSelectedSlot",
         "type":"number",
         "value":0
       },
       {
-        "index":44,
+        "index":83,
         "mergeStrat":"max",
-        "name":"ticketCost",
+        "name":"veidref",
         "type":"number",
         "value":0
       },
@@ -83195,16 +83516,44 @@
         "value":""
       },
       {
-        "index":36,
+        "index":5,
         "mergeStrat":"max",
-        "name":"playerHealth",
+        "name":"missionGiverUIState",
         "type":"number",
         "value":0
+      },
+      {
+        "index":60,
+        "mergeStrat":"max",
+        "name":"leagueProgressUpdate",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":59,
+        "mergeStrat":"last",
+        "name":"raceLeague",
+        "type":"string",
+        "value":""
       },
       {
         "index":79,
         "mergeStrat":"max",
         "name":"challengeComplete",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":78,
+        "mergeStrat":"max",
+        "name":"challengeCheckpoint",
+        "type":"number",
+        "value":-1
+      },
+      {
+        "index":6,
+        "mergeStrat":"max",
+        "name":"missionState",
         "type":"number",
         "value":0
       },
@@ -83216,95 +83565,9 @@
         "value":0
       },
       {
-        "index":14,
+        "index":72,
         "mergeStrat":"max",
-        "name":"playerCurrentCar",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":75,
-        "mergeStrat":"last",
-        "name":"playerRep",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":74,
-        "mergeStrat":"max",
-        "name":"raceRepReward",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":27,
-        "mergeStrat":"last",
-        "name":"raceDesc",
-        "type":"string",
-        "value":""
-      },
-      {
-        "index":68,
-        "mergeStrat":"last",
-        "name":"raceOPSP",
-        "type":"vec3",
-        "value":[
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "index":19,
-        "mergeStrat":"last",
-        "name":"raceInProgress",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":67,
-        "mergeStrat":"last",
-        "name":"raceClub",
-        "type":"string",
-        "value":""
-      },
-      {
-        "index":69,
-        "mergeStrat":"last",
-        "name":"raceOPSR",
-        "type":"quat",
-        "value":[
-          0,
-          0,
-          0,
-          0
-        ]
-      },
-      {
-        "index":20,
-        "mergeStrat":"max",
-        "name":"raceMenuPage",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":24,
-        "mergeStrat":"max",
-        "name":"raceWager",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":2,
-        "mergeStrat":"max",
-        "name":"playerCarCount",
-        "type":"number",
-        "value":1
-      },
-      {
-        "index":48,
-        "mergeStrat":"max",
-        "name":"racePlayerTriggerID",
+        "name":"raceEnemyAvoid",
         "type":"number",
         "value":0
       },
@@ -83312,20 +83575,6 @@
         "index":9,
         "mergeStrat":"max",
         "name":"currentMissionReward",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":4,
-        "mergeStrat":"max",
-        "name":"carStorePage",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":18,
-        "mergeStrat":"max",
-        "name":"uiTriggerState",
         "type":"number",
         "value":0
       },
@@ -83341,37 +83590,23 @@
         ]
       },
       {
-        "index":39,
+        "index":38,
         "mergeStrat":"max",
-        "name":"raceEnemyBasePrice",
+        "name":"playerIsWalking",
         "type":"number",
         "value":0
       },
       {
-        "index":7,
+        "index":85,
         "mergeStrat":"max",
-        "name":"currentMissionDestid",
+        "name":"challengeFailed",
         "type":"number",
         "value":0
       },
       {
-        "index":40,
-        "mergeStrat":"last",
-        "name":"raceEnemyPartPrice",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":34,
+        "index":74,
         "mergeStrat":"max",
-        "name":"racePlayerReady",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":41,
-        "mergeStrat":"last",
-        "name":"raceEnemyScrapVal",
+        "name":"raceRepReward",
         "type":"number",
         "value":0
       },
@@ -83383,18 +83618,60 @@
         "value":""
       },
       {
-        "index":42,
+        "index":67,
         "mergeStrat":"last",
-        "name":"raceEnemyPaint",
+        "name":"raceClub",
         "type":"string",
         "value":""
       },
       {
-        "index":35,
+        "index":31,
         "mergeStrat":"max",
-        "name":"gmax",
+        "name":"raceEnemyRisk",
         "type":"number",
         "value":0
+      },
+      {
+        "index":22,
+        "mergeStrat":"max",
+        "name":"raceEnemyID",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":46,
+        "mergeStrat":"max",
+        "name":"ticketMenuState",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":33,
+        "mergeStrat":"max",
+        "name":"triggerFilterPlayerTrigID",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":53,
+        "mergeStrat":"max",
+        "name":"raceLaps",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":34,
+        "mergeStrat":"max",
+        "name":"racePlayerReady",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":54,
+        "mergeStrat":"last",
+        "name":"raceTriggers",
+        "type":"string",
+        "value":""
       },
       {
         "index":43,
@@ -83404,44 +83681,65 @@
         "value":-1
       },
       {
-        "index":82,
+        "index":55,
         "mergeStrat":"last",
-        "name":"missionComplete",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":47,
-        "mergeStrat":"max",
-        "name":"racePlayerCPID",
-        "type":"number",
-        "value":0
-      },
-      {
-        "index":58,
-        "mergeStrat":"max",
-        "name":"playerDamage",
-        "type":"number",
-        "value":-1
-      },
-      {
-        "index":8,
-        "mergeStrat":"last",
-        "name":"currentMissionDesc",
+        "name":"raceWaypoints",
         "type":"string",
         "value":""
       },
       {
-        "index":65,
+        "index":44,
         "mergeStrat":"max",
-        "name":"uiRepairCost",
+        "name":"ticketCost",
         "type":"number",
-        "value":-1
+        "value":0
+      },
+      {
+        "index":76,
+        "mergeStrat":"max",
+        "name":"challengeInProgress",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":21,
+        "mergeStrat":"max",
+        "name":"raceWinner",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":51,
+        "mergeStrat":"max",
+        "name":"raceEnemyTriggerID",
+        "type":"number",
+        "value":0
       },
       {
         "index":13,
         "mergeStrat":"max",
         "name":"playerGarageSelectedCar",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":19,
+        "mergeStrat":"last",
+        "name":"raceInProgress",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":50,
+        "mergeStrat":"max",
+        "name":"raceEnemyCPID",
+        "type":"number",
+        "value":0
+      },
+      {
+        "index":17,
+        "mergeStrat":"max",
+        "name":"currentRepairCost",
         "type":"number",
         "value":0
       }

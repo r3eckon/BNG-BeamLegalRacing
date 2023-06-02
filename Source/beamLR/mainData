@@ -1,7 +1,7 @@
 day=0
 carCount=1
-time=0.00019054584845435
+time=0
+money=1000
 health=100
 rep=0
 carUsed=0
-money=1000

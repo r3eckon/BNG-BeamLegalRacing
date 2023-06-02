@@ -1,7 +1,7 @@
 status=over
-seed=334
-eventid=0
-cround=4
+seed=742
 carid=0
-efile=automation_trackA_classD
-ctimes=player:2012286.0664223,op1:1957385.5644483,op2:2148645.0669015,op3:2077846.0671657,op4:2099302.0674715
+efile=automation_trackA_ibishu_high
+eventid=0
+cround=3
+ctimes=player:0,op1:0,op2:0,op3:0,op4:0,op5:0
