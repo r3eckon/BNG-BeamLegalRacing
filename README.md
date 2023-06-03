@@ -18,6 +18,8 @@ Carefully follow the instructions to ensure all features are working properly:
 * Extract zip file contents directly to your [BeamNG userfolder](https://documentation.beamng.com/support/userfolder/).
 * Tell your operating system to replace existing files if asked.
 
+**After installing check the *Read Before Playing* section of this readme for important information and a quick overview of major update features**
+
 **Installing BeamLR may overwrite custom changes made to levels.** 
 Modders should back up the userfolder before installing.
 
@@ -38,6 +40,8 @@ If the backup system fails to work properly you can manually replace the followi
 * beamLR/races/INSERT RACE CLUB/progress              (Race club progress, repeat for each club)
 * beamLR/currentTrackEvent                            (Current track event progress)
 
+**After updating check the *Read Before Playing* section of this readme for important information and a quick overview of major update features**
+
 If you are experiencing issues after updating the mod, try a **clean** userfolder install and copy over your backup.
 
 ## BeamNG Update Userfolder Migration Process
@@ -52,6 +56,10 @@ The game will give you a chance to view the contents of your old userfolder cont
 
 
 ## Read Before Playing
+To ensure the mod works correctly you must be using the following **gameplay** settings:
+
+![settings](https://i.imgur.com/ZIor6iw.png)
+
 BeamLR relies on a UI app and custom UI layout in order to access features such as:
 * Options Menu
 * Part Edit Menu
