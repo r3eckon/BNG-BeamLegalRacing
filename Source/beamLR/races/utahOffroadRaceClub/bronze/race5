@@ -1,6 +1,6 @@
 desc=Long dirt race to the highway bridge
 wager=200,500
-slips=0
+slips=0.04
 enemyConfig=class:club/dirt_bronze
 enemyRisk=.8
 enemyBasePrice=0

@@ -1,9 +1,9 @@
 desc=Quick drag race
 wager=750,1250
-slips=0
+slips=0.03
 enemyModel=autobello
 enemyConfig=vehicles/autobello/150_track.pc
-enemyRisk=0.98
+enemyRisk=2.0
 enemyBasePrice=0
 enemyPartPrice=0
 enemyScrapVal=0

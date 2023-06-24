@@ -1,0 +1,7 @@
+destpos=-816.66662597656,-104.35800933838,296.82940673828
+destrot=0.0017453151283683,-0.0031414454117902,0.79601520961258,0.6052659508524
+desc=Deliver $item to the new car shop
+reward=400
+items=smallflatbed_armchairs,smallflatbed_couch,smallflatbed_1400planks,smallflatbed_2100planks,smallflatbed_400crate_bodypanels,smallflatbed_400crate_eggs,smallflatbed_400crate_engineparts,smallflatbed_400crate_fineart,smallflatbed_400crate_graphicscards,smallflatbed_400crate_scrapmetal,smallflatbed_800crate_engineparts,smallflatbed_800crate_fridge,smallflatbed_800crate_metalingots,smallflatbed_800crate_science
+gmwp=blrwp_topshops
+type=trailer

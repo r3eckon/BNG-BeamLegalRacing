@@ -8,6 +8,7 @@ local guihooks = require('guihooks')
 
 local uidata = {}
 
+local lastdata = {}
 
 local function sendDataToUI(k,v) -- For BLR main menu
 local d = {}
@@ -25,14 +26,17 @@ return uidata[k]
 end
 
 local function sendCurrentDrift(v)
+lastdata["driftCurrent"] = v
 guihooks.trigger("beamlrCurrentDrift", v)
 end
 
 local function sendTotalDrift(v)
+lastdata["driftTotal"] = val
 guihooks.trigger("beamlrTotalDrift", v)
 end
 
 local function toggleDriftUI(t)
+lastdata["driftToggled"] = t
 guihooks.trigger("beamlrToggleDriftUI", t)
 end
 
@@ -124,6 +128,75 @@ local function sendEventBrowserSelectedUID(d)
 guihooks.trigger("beamlrEventBrowserReloadUID", d)
 end
 
+local function sendDeliveryMaxForce(d)
+lastdata["deliveryMax"] = d
+guihooks.trigger("beamlrDeliveryMaxForce", d)
+end
+
+local function sendDeliveryCurrentForce(d)
+lastdata["deliveryCurrent"] = d
+guihooks.trigger("beamlrDeliveryCurrentForce", d)
+end
+
+local function toggleDeliveryUI(t)
+lastdata["deliveryToggled"] = t
+guihooks.trigger("beamlrToggleDeliveryUI", t)
+end
+
+-- 1.11 fix for scoring windows not reloading with UI init
+local function driftUIinitreload()
+guihooks.trigger("beamlrCurrentDrift", lastdata["driftCurrent"] or 0)
+guihooks.trigger("beamlrTotalDrift", lastdata["driftTotal"] or 0)
+guihooks.trigger("beamlrToggleDriftUI", lastdata["driftToggled"] or false)
+end
+local function deliveryUIinitreload()
+guihooks.trigger("beamlrDeliveryMaxForce", lastdata["deliveryMax"] or 0)
+guihooks.trigger("beamlrDeliveryCurrentForce", lastdata["deliveryCurrent"] or 0)
+guihooks.trigger("beamlrToggleDeliveryUI", lastdata["deliveryToggled"] or false)
+end
+-- Called on startup to clear old data (prevents scoring windows opening due to quitting when open)
+local function resetUIsavedData()
+lastdata = {}
+end
+
+local function sendGameOverCareerStats(d)
+lastdata["gameoverstats"] = d
+guihooks.trigger("beamlrGameOverStats", d)
+end
+
+local function toggleGameOverUI(t)
+lastdata["gameovertoggle"] = t
+guihooks.trigger("beamlrToggleGameOverUI", t)
+end
+
+local function sendGameOverUIBackOpacity(d)
+lastdata["gameoverbackopacity"] = d
+guihooks.trigger("beamlrGameOverBackOpacity", d)
+end
+
+local function sendGameOverUITextOpacity(d)
+lastdata["gameovertextopacity"] = d
+guihooks.trigger("beamlrGameOverTextOpacity", d)
+end
+
+local function gameOverUIinitreload()
+guihooks.trigger("beamlrGameOverStats", lastdata["gameoverstats"] or {})
+guihooks.trigger("beamlrToggleGameOverUI", lastdata["gameovertoggle"] or false)
+guihooks.trigger("beamlrGameOverBackOpacity", lastdata["gameoverbackopacity"] or 0)
+guihooks.trigger("beamlrGameOverTextOpacity", lastdata["gameovertextopacity"] or 0)
+end
+
+M.gameOverUIinitreload = gameOverUIinitreload
+M.sendGameOverUITextOpacity = sendGameOverUITextOpacity
+M.sendGameOverUIBackOpacity = sendGameOverUIBackOpacity
+M.toggleGameOverUI = toggleGameOverUI
+M.sendGameOverCareerStats = sendGameOverCareerStats
+M.resetUIsavedData = resetUIsavedData
+M.deliveryUIinitreload = deliveryUIinitreload
+M.driftUIinitreload = driftUIinitreload
+M.toggleDeliveryUI = toggleDeliveryUI
+M.sendDeliveryCurrentForce = sendDeliveryCurrentForce
+M.sendDeliveryMaxForce = sendDeliveryMaxForce
 M.sendPerfUIModes = sendPerfUIModes
 M.sendEventBrowserSelectedUID = sendEventBrowserSelectedUID
 M.togglePerfUI = togglePerfUI

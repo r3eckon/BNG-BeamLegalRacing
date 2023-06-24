@@ -1,7 +1,7 @@
 desc=Race to the shops at the top of the canyon
-wager=0
-slips=1
-enemyConfig=class:club/pinkslips_bronze
+wager=200,500
+slips=0.05
+enemyConfig=class:club/street_bronze
 enemyRisk=0.8
 enemyBasePrice=800
 enemyPartPrice=100

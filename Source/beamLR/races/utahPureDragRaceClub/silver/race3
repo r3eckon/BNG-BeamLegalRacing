@@ -1,9 +1,9 @@
 desc=Another drag race
 wager=350,700
-slips=0
+slips=0.04
 enemyModel=etki
 enemyConfig=vehicles/etki/3000i_M.pc
-enemyRisk=0.98
+enemyRisk=2.0
 enemyBasePrice=0
 enemyPartPrice=0
 enemyScrapVal=0

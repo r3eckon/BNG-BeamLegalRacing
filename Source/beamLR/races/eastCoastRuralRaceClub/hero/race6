@@ -1,6 +1,6 @@
 desc=Short looping race
 wager=1000,2500
-slips=0
+slips=0.01
 enemyConfig=class:club/street_hero
 enemyRisk=0.9
 enemyBasePrice=0

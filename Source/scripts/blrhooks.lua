@@ -94,7 +94,17 @@ print("BLRHOOK: Menu Toggled")
 extensions.blrglobals.blrFlagSet("disableQuickAccess", true)
 end
 
+function onCouplerAttached(objId1, objId2, nodeId, obj2nodeId)
+extensions.blrTrailerManager.couplerAttached(objId1, objId2, nodeId, obj2nodeId)
+end
 
+function onCouplerDetached(objId1, objId2, nodeId, obj2nodeId)
+extensions.blrTrailerManager.couplerDetached(objId1, objId2, nodeId, obj2nodeId)
+end
+
+
+M.onCouplerDetached = onCouplerDetached
+M.onCouplerAttached = onCouplerAttached
 M.onMenuToggled = onMenuToggled
 M.onVehicleActiveChanged = onVehicleActiveChanged
 M.getFilter = getFilter

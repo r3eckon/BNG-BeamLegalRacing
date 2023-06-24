@@ -1,4 +1,6 @@
 dest=MissionTrigger_CaravanArea
-desc=Deliver some parts to the caravan area
+desc=Deliver $item to the caravan area
 reward=50
+items=beer,books,coffee_lid,coffee_nolid,fastfood,fishingequipment,gameconsoles,graphicscards,monitors,motoroil,mufflers,pistons,pizza,powertools,scrapmetal,soda,sparkplugs,tools
 gmwp=blrwp_mgm_caravan
+type=small

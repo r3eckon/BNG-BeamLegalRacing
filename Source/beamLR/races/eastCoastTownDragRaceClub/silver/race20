@@ -1,8 +1,8 @@
 desc=Quick drag race
 wager=350,600
-slips=0
+slips=0.04
 enemyConfig=vehicles/etk800/854x_250_A.pc,vehicles/etk800/844_250_M.pc
-enemyRisk=0.98
+enemyRisk=2.0
 enemyBasePrice=0
 enemyPartPrice=0
 enemyScrapVal=0

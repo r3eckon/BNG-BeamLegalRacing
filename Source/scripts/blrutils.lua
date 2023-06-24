@@ -317,6 +317,14 @@ local enemyModels = raceData["enemyModel"] -- Now receiving perfclass loader tab
 local enemyConfigs = raceData["enemyConfig"] -- Now receiving perfclass loader table, no need for ssplit
 local enemyRisk = ssplit(raceData["enemyRisk"], ",")
 local laps = ssplit(raceData["laps"], ",")
+local slipsChance = tonumber(raceData["slips"])
+
+
+if math.random() <= slipsChance then -- RNG based pink slips 
+toRet["slips"] = 1
+else -- No pink slips, randomly generate wager
+toRet["slips"] = 0
+end
 
 if #wager > 1 then 
 toRet["wager"] = math.random(tonumber(wager[1]), tonumber(wager[2]))
@@ -427,19 +435,6 @@ toRet["position"] = vehicleData.pos:toTable()
 toRet["velocityVector"] = vehicleData.vel:toTable()
 toRet["velocity"] = vehicleData.vel:length()
 toRet["rotation"] = quatFromDir(vehicleData.dirVec, vehicleData.dirVecUp)
-return toRet
-end
-
-local function processMissionRandoms(mdata)
-local toRet = {}
-local reward = ssplit(mdata["reward"] or "",",")
-
-if #reward > 1 then 
-toRet["reward"] = math.random(tonumber(reward[1]), tonumber(reward[2]))
-else 
-toRet["reward"] = tonumber(reward[1])
-end
-
 return toRet
 end
 
@@ -1755,7 +1750,108 @@ return toRet
 end
 
 
+local function processMissionRandoms(mdata, mtype)
+local toRet = {}
+local items = ssplit(mdata["items"], ",")
+local ipick = ""
+local idata = {}
+local difficulty = 0
+local basereward = tonumber(mdata["reward"])
+math.randomseed(os.clock()*1000) -- No complex seeding for mission system
 
+
+if #items > 1 then
+ipick = items[math.random(1, #items)]
+else
+ipick = items[1]
+end
+
+idata = loadDataTable("beamLR/missions/items/" .. mtype .. "/" .. ipick)
+difficulty = 1.0 - math.max(0, math.min(1.0, tonumber(idata["failg"]) / 100.0)) 
+
+toRet["reward"] = basereward + (basereward * difficulty)
+toRet["itemname"] = idata["name"]
+toRet["failg"] = tonumber(idata["failg"])
+toRet["desc"] = mdata["desc"]:gsub("$item", idata["name"]) .. "\n"
+toRet["desc"] = toRet["desc"] .. "Reward: $" .. toRet["reward"] .. "\n"
+toRet["desc"] = toRet["desc"] .. "Max Force: " .. toRet["failg"] .. " Gs\n"
+
+if mtype == "trailer" then
+toRet["desc"] = toRet["desc"] .. "Task: Unhook trailer inside markers"
+else
+toRet["desc"] = toRet["desc"] .. "Task: Drive to marked location"
+end
+
+toRet["tconfig"] = idata["trailer"]
+
+return toRet
+end
+
+
+local function timeDetector(tstart, tend) -- Expects 24h format time (ex: 12.5 for 12h30 PM)
+if tstart == tend then return true end -- Always return true if start time is same as end time
+local ctime = core_environment.getTimeOfDay().time
+local rtime = ((ctime - 0.5) % 1) * 24.0
+local inside = false
+if tstart < tend then
+inside = (rtime >= tstart and rtime <= tend)
+else
+inside = not (rtime >= tend and rtime <= tstart)
+end
+return inside
+end
+
+local function hoursTimeString(hours) -- 12.5 to 12:30
+local h,m = math.modf(hours)
+return string.format("%02d:%02d", h, m * 60.0)
+end
+
+
+local savedGameOptions = {} -- To reset game options after scenario stops
+local function setGameOption(setting, value)
+savedGameOptions[setting] = settings.getValue(setting)
+settings.setValue(setting, value, true)
+end
+
+local function getSavedGameOption(setting, value)
+return savedGameOptions[setting]
+end
+
+local function resetGameOptions()
+for k,v in pairs(savedGameOptions) do
+settings.setValue(k, v, true)
+end
+end
+
+
+local dsBackOpacity = 0
+local dsTextOpacity = 0
+
+local function setDeathScreenBackOpacity(dx, mx, mn)
+dsBackOpacity = math.max(math.min(dsBackOpacity + dx, mx), mn)
+extensions.customGuiStream.sendGameOverUIBackOpacity(dsBackOpacity)
+return dsBackOpacity
+end
+
+local function setDeathScreenTextOpacity(dx, mx, mn)
+dsTextOpacity = math.max(math.min(dsTextOpacity + dx, mx), mn)
+extensions.customGuiStream.sendGameOverUITextOpacity(dsTextOpacity)
+return dsTextOpacity
+end
+
+local function playSFX(effect)
+blrvarSet("SFXFile", effect)
+extensions.blrglobals.blrFlagSet("SFXQueued", true)
+end
+
+M.playSFX = playSFX
+M.setDeathScreenTextOpacity = setDeathScreenTextOpacity
+M.setDeathScreenBackOpacity = setDeathScreenBackOpacity
+M.resetGameOptions = resetGameOptions
+M.getSavedGameOption = getSavedGameOption
+M.setGameOption = setGameOption
+M.hoursTimeString = hoursTimeString
+M.timeDetector = timeDetector
 M.templateLoadCheck = templateLoadCheck
 M.lerp = lerp
 M.loadEventWithRandoms = loadEventWithRandoms

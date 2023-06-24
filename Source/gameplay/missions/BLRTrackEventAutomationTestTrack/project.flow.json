@@ -1,8 +1,8 @@
 {
-  "activeGraphId":1,
+  "activeGraphId":3,
   "authors":"BeamLR",
-  "currentGraphID":1,
-  "date":1684617549,
+  "currentGraphID":3,
+  "date":1687155881,
   "debugEnabled":false,
   "description":"Beam Legal Racing Track Event",
   "difficulty":100,
@@ -28,14 +28,14 @@
         ],
         [
           78,
-          "match_2",
+          "match_1",
           9,
           "flow",
           false
         ],
         [
           78,
-          "match_1",
+          "match_2",
           9,
           "flow",
           false
@@ -160,8 +160,8 @@
           false
         ],
         [
-          2,
-          "flow",
+          197,
+          "False",
           14,
           "flow",
           false
@@ -181,13 +181,6 @@
           false
         ],
         [
-          126,
-          "False",
-          16,
-          "flow",
-          false
-        ],
-        [
           54,
           "flow",
           16,
@@ -195,7 +188,7 @@
           false
         ],
         [
-          100,
+          126,
           "False",
           16,
           "flow",
@@ -204,6 +197,13 @@
         [
           37,
           "flow",
+          16,
+          "flow",
+          false
+        ],
+        [
+          100,
+          "False",
           16,
           "flow",
           false
@@ -342,8 +342,8 @@
           false
         ],
         [
-          2,
-          "enterState",
+          222,
+          "flow",
           24,
           "flow",
           false
@@ -434,14 +434,14 @@
         ],
         [
           78,
-          "match_1",
+          "match_2",
           31,
           "reset",
           false
         ],
         [
           78,
-          "match_2",
+          "match_1",
           31,
           "reset",
           false
@@ -958,15 +958,15 @@
           false
         ],
         [
-          75,
-          "False",
+          69,
+          "flow",
           70,
           "flow",
           false
         ],
         [
-          69,
-          "flow",
+          75,
+          "False",
           70,
           "flow",
           false
@@ -1133,15 +1133,15 @@
           false
         ],
         [
-          79,
-          "flow",
+          86,
+          "down",
           80,
           "flow",
           false
         ],
         [
-          86,
-          "down",
+          79,
+          "flow",
           80,
           "flow",
           false
@@ -1197,13 +1197,6 @@
         ],
         [
           33,
-          "match_2",
-          85,
-          "reset",
-          false
-        ],
-        [
-          33,
           "match_3",
           85,
           "reset",
@@ -1212,6 +1205,13 @@
         [
           82,
           "True",
+          85,
+          "reset",
+          false
+        ],
+        [
+          33,
+          "match_2",
           85,
           "reset",
           false
@@ -1683,6 +1683,20 @@
           "vehId",
           116,
           "vehId",
+          false
+        ],
+        [
+          171,
+          "flow",
+          117,
+          "flow",
+          false
+        ],
+        [
+          2,
+          "flow",
+          118,
+          "flow",
           false
         ],
         [
@@ -2267,14 +2281,14 @@
           false
         ],
         [
-          110,
+          138,
           "flow",
           161,
           "flow",
           false
         ],
         [
-          138,
+          110,
           "flow",
           161,
           "flow",
@@ -2358,17 +2372,10 @@
           false
         ],
         [
-          171,
+          195,
           "flow",
           169,
           "flow",
-          false
-        ],
-        [
-          165,
-          "msg",
-          169,
-          "message",
           false
         ],
         [
@@ -2407,29 +2414,43 @@
           false
         ],
         [
-          174,
+          169,
           "flow",
           173,
           "flow",
           false
         ],
         [
-          2,
-          "flow",
-          174,
-          "flow",
+          169,
+          "money",
+          173,
+          "money",
           false
         ],
         [
-          171,
-          "flow",
-          174,
-          "on",
+          169,
+          "reputation",
+          173,
+          "rep",
+          false
+        ],
+        [
+          169,
+          "carCount",
+          173,
+          "cars",
           false
         ],
         [
           173,
-          "completed",
+          "flow",
+          174,
+          "flow",
+          false
+        ],
+        [
+          221,
+          "flow",
           175,
           "flow",
           false
@@ -2438,6 +2459,90 @@
           175,
           "flow",
           176,
+          "flow",
+          false
+        ],
+        [
+          2,
+          "enterState",
+          177,
+          "flow",
+          false
+        ],
+        [
+          2,
+          "flow",
+          178,
+          "flow",
+          false
+        ],
+        [
+          174,
+          "flow",
+          178,
+          "on",
+          false
+        ],
+        [
+          178,
+          "flow",
+          179,
+          "flow",
+          false
+        ],
+        [
+          178,
+          "flow",
+          180,
+          "flow",
+          false
+        ],
+        [
+          183,
+          "true",
+          181,
+          "flow",
+          false
+        ],
+        [
+          181,
+          "flow",
+          182,
+          "flow",
+          false
+        ],
+        [
+          178,
+          "flow",
+          183,
+          "flow",
+          false
+        ],
+        [
+          184,
+          "out",
+          183,
+          "A",
+          false
+        ],
+        [
+          180,
+          "flow",
+          184,
+          "flow",
+          false
+        ],
+        [
+          182,
+          "flow",
+          185,
+          "flow",
+          false
+        ],
+        [
+          194,
+          "flow",
+          186,
           "flow",
           false
         ],
@@ -2531,6 +2636,307 @@
           193,
           "reset",
           false
+        ],
+        [
+          2,
+          "flow",
+          194,
+          "flow",
+          false
+        ],
+        [
+          117,
+          "flow",
+          194,
+          "on",
+          false
+        ],
+        [
+          186,
+          "flow",
+          195,
+          "flow",
+          false
+        ],
+        [
+          117,
+          "flow",
+          196,
+          "flow",
+          false
+        ],
+        [
+          118,
+          "flow",
+          197,
+          "flow",
+          false
+        ],
+        [
+          118,
+          "flag",
+          197,
+          "condition",
+          false
+        ],
+        [
+          2,
+          "enterState",
+          198,
+          "flow",
+          false
+        ],
+        [
+          2,
+          "flow",
+          199,
+          "flow",
+          false
+        ],
+        [
+          199,
+          "flow",
+          200,
+          "flow",
+          false
+        ],
+        [
+          199,
+          "flag",
+          200,
+          "condition",
+          false
+        ],
+        [
+          200,
+          "True",
+          201,
+          "flow",
+          false
+        ],
+        [
+          200,
+          "False",
+          201,
+          "reset",
+          false
+        ],
+        [
+          201,
+          "flow",
+          202,
+          "flow",
+          false
+        ],
+        [
+          2,
+          "flow",
+          203,
+          "flow",
+          false
+        ],
+        [
+          2,
+          "flow",
+          204,
+          "flow",
+          false
+        ],
+        [
+          207,
+          "True",
+          204,
+          "on",
+          false
+        ],
+        [
+          202,
+          "flow",
+          205,
+          "flow",
+          false
+        ],
+        [
+          2,
+          "flow",
+          206,
+          "flow",
+          false
+        ],
+        [
+          203,
+          "flow",
+          207,
+          "flow",
+          false
+        ],
+        [
+          203,
+          "flag",
+          207,
+          "condition",
+          false
+        ],
+        [
+          204,
+          "flow",
+          208,
+          "flow",
+          false
+        ],
+        [
+          2,
+          "flow",
+          209,
+          "flow",
+          false
+        ],
+        [
+          208,
+          "completed",
+          209,
+          "on",
+          false
+        ],
+        [
+          209,
+          "flow",
+          210,
+          "flow",
+          false
+        ],
+        [
+          210,
+          "flow",
+          211,
+          "flow",
+          false
+        ],
+        [
+          211,
+          "flow",
+          212,
+          "flow",
+          false
+        ],
+        [
+          204,
+          "flow",
+          213,
+          "flow",
+          false
+        ],
+        [
+          213,
+          "flow",
+          214,
+          "flow",
+          false
+        ],
+        [
+          2,
+          "flow",
+          215,
+          "flow",
+          false
+        ],
+        [
+          215,
+          "flow",
+          216,
+          "flow",
+          false
+        ],
+        [
+          215,
+          "flag",
+          216,
+          "condition",
+          false
+        ],
+        [
+          2,
+          "flow",
+          217,
+          "flow",
+          false
+        ],
+        [
+          216,
+          "True",
+          217,
+          "on",
+          false
+        ],
+        [
+          217,
+          "flow",
+          218,
+          "flow",
+          false
+        ],
+        [
+          2,
+          "flow",
+          219,
+          "flow",
+          false
+        ],
+        [
+          218,
+          "completed",
+          219,
+          "on",
+          false
+        ],
+        [
+          219,
+          "flow",
+          220,
+          "flow",
+          false
+        ],
+        [
+          220,
+          "flow",
+          221,
+          "flow",
+          false
+        ],
+        [
+          2,
+          "enterState",
+          222,
+          "flow",
+          false
+        ],
+        [
+          217,
+          "flow",
+          224,
+          "flow",
+          false
+        ],
+        [
+          224,
+          "flow",
+          225,
+          "flow",
+          false
+        ],
+        [
+          208,
+          "completed",
+          230,
+          "flow",
+          false
+        ],
+        [
+          218,
+          "completed",
+          235,
+          "flow",
+          false
         ]
       ],
       "name":"New State",
@@ -2550,7 +2956,7 @@
             }
           },
           "pos":[
-            -830,
+            -1026,
             78
           ],
           "type":"events/onUpdate"
@@ -3095,8 +3501,8 @@
             }
           },
           "pos":[
-            -494,
-            78
+            -396,
+            64
           ],
           "type":"ui/imgui/elemental/imBegin"
         },
@@ -3589,8 +3995,8 @@
             ]
           ],
           "pos":[
-            -942,
-            -20
+            -1096,
+            -216
           ],
           "type":"util/customLua"
         },
@@ -3665,7 +4071,7 @@
           ],
           "pos":[
             -662,
-            8
+            -20
           ],
           "type":"util/customLua"
         },
@@ -3924,8 +4330,8 @@
             }
           },
           "pos":[
-            -270,
-            64
+            -172,
+            50
           ],
           "type":"logic/switchcase"
         },
@@ -3952,8 +4358,8 @@
             }
           },
           "pos":[
-            -466,
-            204
+            -368,
+            190
           ],
           "type":"types/genericValue"
         },
@@ -4363,7 +4769,7 @@
             "color_in":{
               "type":"color",
               "value":[
-                0.44597768800000286982,
+                0.44597768800000348044,
                 1,
                 0,
                 1
@@ -7795,6 +8201,106 @@
           ],
           "type":"vehicle/recoverInPlace"
         },
+        "117":{
+          "data":{},
+          "dynamicMode":"once",
+          "hardcodedPins":{
+            "keepLayout":{
+              "type":"bool",
+              "value":false
+            },
+            "layout":{
+              "type":"string",
+              "value":"beamlrgameover"
+            },
+            "menu":{
+              "type":"string",
+              "value":"scenario"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "gameStateName":true,
+              "keepLayout":true,
+              "layout":true,
+              "menu":true,
+              "reset":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -2314,
+            -174
+          ],
+          "type":"ui/setUILayout"
+        },
+        "118":{
+          "code":{
+            "work":"local extensions = require(\"extensions\")\nself.pinOut.flag.value = extensions.blrglobals.blrFlagGet(self.pinIn.name.value)\n",
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":""
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "name":{
+              "type":"string",
+              "value":"gameOverScreen"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "name":false
+            },
+            "p_out":{
+              "flag":false,
+              "flow":false
+            }
+          },
+          "name":"BLR Flag Get",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "bool",
+              "flag",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "string",
+              "name",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -606,
+            78
+          ],
+          "type":"util/customLua"
+        },
         "119":{
           "data":{},
           "dynamicMode":"repeat",
@@ -8284,8 +8790,8 @@
             ]
           ],
           "pos":[
-            -732,
-            260
+            -746,
+            302
           ],
           "type":"util/customLua"
         },
@@ -9695,7 +10201,7 @@
           "hardcodedPins":{
             "duration":{
               "type":"number",
-              "value":0.75000000000000255351
+              "value":0.75000000000000344169
             }
           },
           "hiddenPins":{
@@ -9791,8 +10297,8 @@
             ]
           ],
           "pos":[
-            -1852,
-            134
+            -2762,
+            -48
           ],
           "type":"util/customLua"
         },
@@ -9936,7 +10442,7 @@
         },
         "165":{
           "code":{
-            "work":"local gforce = tonumber(self.pinIn.gfetch.value or \"0\")\nlocal death = gforce > self.pinIn.max.value\nself.pinOut.msg.value = \"That was fatal (\" .. gforce .. \")\"\nself.pinOut.death.value = death",
+            "work":"local extensions = require(\"extensions\")\nlocal gforce = tonumber(self.pinIn.gfetch.value or \"0\")\nlocal death = gforce > self.pinIn.max.value\nself.pinOut.msg.value = \"That was fatal (\" .. gforce .. \")\"\nself.pinOut.death.value = death\n\n",
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":""
@@ -10009,8 +10515,8 @@
             ]
           ],
           "pos":[
-            -1614,
-            134
+            -2524,
+            -48
           ],
           "type":"util/customLua"
         },
@@ -10094,31 +10600,103 @@
           "type":"logic/frameDelay"
         },
         "169":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "work":"local extensions = require(\"extensions\")\nlocal dtable = extensions.blrutils.loadDataTable(\"beamLR/mainData\")\nself.pinOut.money.value = dtable[\"money\"]\nself.pinOut.carCount.value = dtable[\"carCount\"]\nself.pinOut.carUsed.value = tonumber(dtable[\"carUsed\"])\nself.pinOut.health.value = dtable[\"health\"]\nself.pinOut.time.value = tonumber(dtable[\"time\"])\nself.pinOut.reputation.value = tonumber(dtable[\"rep\"])\nself.pinOut.day.value = tonumber(dtable[\"day\"])"
+          },
           "data":{},
           "dynamicMode":"repeat",
-          "hardcodedPins":{
-            "duration":{
-              "type":"number",
-              "value":3
-            }
-          },
           "hiddenPins":{
             "p_in":{
-              "biggerText":true,
-              "duration":false,
-              "flow":false,
-              "instant":true,
-              "message":false
+              "flow":false
             },
             "p_out":{
-              "flow":false
+              "carCount":false,
+              "carUsed":true,
+              "day":true,
+              "flow":false,
+              "health":true,
+              "league":true,
+              "money":false,
+              "reputation":false,
+              "time":true
             }
           },
-          "pos":[
-            -1362,
-            148
+          "name":"Load Career Data",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow"
+            ],
+            [
+              "out",
+              "flow",
+              "flow"
+            ],
+            [
+              "out",
+              "number",
+              "money",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "number",
+              "carCount",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "number",
+              "carUsed",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "number",
+              "health",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "number",
+              "time",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "string",
+              "league",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "number",
+              "reputation",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "number",
+              "day",
+              null,
+              ""
+            ]
           ],
-          "type":"ui/flashMessage"
+          "pos":[
+            -2118,
+            50
+          ],
+          "type":"util/customLua"
         },
         "170":{
           "data":{},
@@ -10135,8 +10713,8 @@
             }
           },
           "pos":[
-            -1740,
-            302
+            -2748,
+            120
           ],
           "type":"logic/branch"
         },
@@ -10153,8 +10731,8 @@
             }
           },
           "pos":[
-            -1516,
-            302
+            -2524,
+            120
           ],
           "type":"logic/once"
         },
@@ -10235,51 +10813,126 @@
           "type":"util/customLua"
         },
         "173":{
-          "data":{},
-          "dynamicMode":"once",
-          "hardcodedPins":{
-            "duration":{
-              "type":"number",
-              "value":3
-            }
+          "code":{
+            "work":"local extensions = require(\"extensions\")\nlocal tosend = {}\ntosend[\"money\"] = self.pinIn.money.value or 0\ntosend[\"reputation\"] = self.pinIn.rep.value or 0\ntosend[\"cars\"] = self.pinIn.cars.value or 0\nextensions.customGuiStream.sendGameOverCareerStats(tosend)",
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":""
           },
-          "hiddenPins":{
-            "p_in":{
-              "duration":false,
-              "flow":false,
-              "reset":false
-            },
-            "p_out":{
-              "incomplete":false,
-              "complete":false,
-              "completed":false,
-              "flow":false
-            }
-          },
-          "pos":[
-            -1698,
-            442
-          ],
-          "type":"ui/fadeToBlack"
-        },
-        "174":{
           "data":{},
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
+              "rep":false,
+              "cars":false,
               "flow":false,
-              "off":false,
-              "on":false
+              "money":false
             },
             "p_out":{
               "flow":false
             }
           },
+          "name":"Game Over Stats",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "number",
+              "money",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "number",
+              "rep",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "number",
+              "cars",
+              null,
+              ""
+            ]
+          ],
           "pos":[
             -1894,
-            428
+            -76
           ],
-          "type":"logic/flowSwitch"
+          "type":"util/customLua"
+        },
+        "174":{
+          "code":{
+            "work":"local extensions = require(\"extensions\")\nextensions.customGuiStream.toggleGameOverUI(self.pinIn.toggle.value)",
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":""
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "toggle":{
+              "type":"bool",
+              "value":true
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "toggle":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Toggle Death Screen",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "bool",
+              "toggle",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -1880,
+            106
+          ],
+          "type":"util/customLua"
         },
         "175":{
           "code":{
@@ -10318,8 +10971,8 @@
             ]
           ],
           "pos":[
-            -1432,
-            442
+            -2076,
+            1464
           ],
           "type":"util/customLua"
         },
@@ -10334,10 +10987,410 @@
             "p_out":{}
           },
           "pos":[
-            -1306,
-            330
+            -2076,
+            1366
           ],
           "type":"activity/activityStop"
+        },
+        "177":{
+          "code":{
+            "work":"local extensions = require(\"extensions\")\nextensions.blrutils.setDeathScreenBackOpacity(-100,1.0,0.0)\nextensions.blrutils.setDeathScreenTextOpacity(-100,1.0,0.0)\nextensions.customGuiStream.toggleGameOverUI(false)",
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":""
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Death Screen Reset",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ]
+          ],
+          "pos":[
+            -1040,
+            260
+          ],
+          "type":"util/customLua"
+        },
+        "178":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "off":false,
+              "on":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -2468,
+            246
+          ],
+          "type":"logic/flowSwitch"
+        },
+        "179":{
+          "data":{},
+          "dynamicMode":"once",
+          "hardcodedPins":{
+            "duration":{
+              "type":"number",
+              "value":5
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "duration":false,
+              "flow":false,
+              "reset":false
+            },
+            "p_out":{
+              "incomplete":false,
+              "complete":false,
+              "completed":false,
+              "flow":false
+            }
+          },
+          "pos":[
+            -2720,
+            260
+          ],
+          "type":"audio/fadeOut"
+        },
+        "180":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "input":{
+              "type":"number",
+              "value":10
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "asDuration":true,
+              "dt":true,
+              "flow":false,
+              "input":true,
+              "reset":true,
+              "reverseHit":true
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -2468,
+            400
+          ],
+          "type":"logic/rateLimit"
+        },
+        "181":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "frames":{
+              "type":"number",
+              "value":10
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "frames":true,
+              "reset":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -2482,
+            498
+          ],
+          "type":"logic/frameDelay"
+        },
+        "182":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "input":{
+              "type":"number",
+              "value":10
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "asDuration":true,
+              "dt":true,
+              "flow":false,
+              "input":true,
+              "reset":true,
+              "reverseHit":true
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -2230,
+            414
+          ],
+          "type":"logic/rateLimit"
+        },
+        "183":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "B":{
+              "type":"number",
+              "value":1
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "A":false,
+              "B":false,
+              "flow":false
+            },
+            "p_out":{
+              "value":true,
+              "false":false,
+              "flow":false,
+              "true":false
+            }
+          },
+          "opSymbol":"==",
+          "pos":[
+            -2706,
+            428
+          ],
+          "type":"logic/compare"
+        },
+        "184":{
+          "code":{
+            "work":"local extensions = require(\"extensions\")\nlocal dx = self.pinIn.dx.value\nlocal mx = self.pinIn.mx.value\nlocal mn = self.pinIn.mn.value\nlocal toRet = extensions.blrutils.setDeathScreenBackOpacity(dx,mx,mn)\nself.pinOut.out.value = toRet",
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":""
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "dx":{
+              "type":"number",
+              "value":0.05000000074505814990
+            },
+            "mn":{
+              "type":"number",
+              "value":0
+            },
+            "mx":{
+              "type":"number",
+              "value":1
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "mx":false,
+              "dx":false,
+              "flow":false,
+              "mn":false
+            },
+            "p_out":{
+              "flow":false,
+              "out":false
+            }
+          },
+          "name":"Death Screen Back Fade",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "number",
+              "dx",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "number",
+              "mx",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "number",
+              "mn",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "number",
+              "out",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -2216,
+            246
+          ],
+          "type":"util/customLua"
+        },
+        "185":{
+          "code":{
+            "work":"local extensions = require(\"extensions\")\nlocal dx = self.pinIn.dx.value\nlocal mx = self.pinIn.mx.value\nlocal mn = self.pinIn.mn.value\nlocal toRet = extensions.blrutils.setDeathScreenTextOpacity(dx,mx,mn)\nself.pinOut.out.value = toRet",
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":""
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "dx":{
+              "type":"number",
+              "value":0.05000000074505814990
+            },
+            "mn":{
+              "type":"number",
+              "value":0
+            },
+            "mx":{
+              "type":"number",
+              "value":1
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "mx":false,
+              "dx":false,
+              "flow":false,
+              "mn":false
+            },
+            "p_out":{
+              "flow":false,
+              "out":false
+            }
+          },
+          "name":"Death Screen Text Fade",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "number",
+              "dx",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "number",
+              "mx",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "number",
+              "mn",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "number",
+              "out",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -2230,
+            512
+          ],
+          "type":"util/customLua"
+        },
+        "186":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "frames":{
+              "type":"number",
+              "value":10
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "frames":true,
+              "reset":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -2342,
+            92
+          ],
+          "type":"logic/frameDelay"
         },
         "187":{
           "data":{},
@@ -10505,6 +11558,1133 @@
             -1938
           ],
           "type":"logic/once"
+        },
+        "194":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "off":false,
+              "on":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -2314,
+            -48
+          ],
+          "type":"logic/flowSwitch"
+        },
+        "195":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "reset":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -2090,
+            -76
+          ],
+          "type":"logic/once"
+        },
+        "196":{
+          "code":{
+            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(self.pinIn.name.value, self.pinIn.flag.value)\n",
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":""
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "flag":{
+              "type":"bool",
+              "value":true
+            },
+            "name":{
+              "type":"string",
+              "value":"gameOverScreen"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flag":true,
+              "flow":false,
+              "name":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"BLR Flag Set",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "string",
+              "name",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "bool",
+              "flag",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -2118,
+            -216
+          ],
+          "type":"util/customLua"
+        },
+        "197":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "condition":false,
+              "flow":false
+            },
+            "p_out":{
+              "False":false,
+              "True":false,
+              "flow":true
+            }
+          },
+          "pos":[
+            -620,
+            176
+          ],
+          "type":"logic/branch"
+        },
+        "198":{
+          "code":{
+            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(self.pinIn.name.value, self.pinIn.flag.value)\n",
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":""
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "flag":{
+              "type":"bool",
+              "value":false
+            },
+            "name":{
+              "type":"string",
+              "value":"gameOverScreen"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flag":true,
+              "flow":false,
+              "name":true
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"BLR Flag Set",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "string",
+              "name",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "bool",
+              "flag",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -1026,
+            330
+          ],
+          "type":"util/customLua"
+        },
+        "199":{
+          "code":{
+            "work":"local extensions = require(\"extensions\")\nself.pinOut.flag.value = extensions.blrglobals.blrFlagGet(self.pinIn.name.value)\n",
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":""
+          },
+          "customName":"UI INIT REQ",
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "name":{
+              "type":"string",
+              "value":"uiInitRequest"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "name":false
+            },
+            "p_out":{
+              "flag":false,
+              "flow":false
+            }
+          },
+          "name":"BLR Flag Get",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "bool",
+              "flag",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "string",
+              "name",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -1152,
+            582
+          ],
+          "type":"util/customLua"
+        },
+        "200":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "condition":false,
+              "flow":false
+            },
+            "p_out":{
+              "False":false,
+              "True":false,
+              "flow":true
+            }
+          },
+          "pos":[
+            -1166,
+            694
+          ],
+          "type":"logic/branch"
+        },
+        "201":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "reset":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -956,
+            694
+          ],
+          "type":"logic/once"
+        },
+        "202":{
+          "code":{
+            "work":"local extensions = require(\"extensions\")\nextensions.customGuiStream.gameOverUIinitreload()",
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":""
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Death Screen UI Init",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ]
+          ],
+          "pos":[
+            -816,
+            596
+          ],
+          "type":"util/customLua"
+        },
+        "203":{
+          "code":{
+            "work":"local extensions = require(\"extensions\")\nself.pinOut.flag.value = extensions.blrglobals.blrFlagGet(self.pinIn.name.value)\n",
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":""
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "name":{
+              "type":"string",
+              "value":"restartQueued"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "name":false
+            },
+            "p_out":{
+              "flag":false,
+              "flow":false
+            }
+          },
+          "name":"BLR Flag Get",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "bool",
+              "flag",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "string",
+              "name",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -2720,
+            736
+          ],
+          "type":"util/customLua"
+        },
+        "204":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "off":false,
+              "on":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -2734,
+            848
+          ],
+          "type":"logic/flowSwitch"
+        },
+        "205":{
+          "code":{
+            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(self.pinIn.name.value, self.pinIn.flag.value)\n",
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":""
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "flag":{
+              "type":"bool",
+              "value":false
+            },
+            "name":{
+              "type":"string",
+              "value":"uiInitRequest"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flag":true,
+              "flow":false,
+              "name":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"BLR Flag Set",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "string",
+              "name",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "bool",
+              "flag",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -746,
+            694
+          ],
+          "type":"util/customLua"
+        },
+        "206":{
+          "code":{
+            "work":"local extensions = require(\"extensions\")\nextensions.blrutils.disableQuickAccess()",
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":""
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Disable QuickAccess",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ]
+          ],
+          "pos":[
+            -1278,
+            288
+          ],
+          "type":"util/customLua"
+        },
+        "207":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "condition":false,
+              "flow":false
+            },
+            "p_out":{
+              "False":false,
+              "True":false,
+              "flow":true
+            }
+          },
+          "pos":[
+            -2524,
+            750
+          ],
+          "type":"logic/branch"
+        },
+        "208":{
+          "data":{},
+          "dynamicMode":"once",
+          "hardcodedPins":{
+            "duration":{
+              "type":"number",
+              "value":1
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "duration":true,
+              "flow":false,
+              "reset":true
+            },
+            "p_out":{
+              "incomplete":true,
+              "complete":true,
+              "completed":false,
+              "flow":true
+            }
+          },
+          "pos":[
+            -2524,
+            890
+          ],
+          "type":"ui/fadeToBlack"
+        },
+        "209":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "off":false,
+              "on":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -2734,
+            1002
+          ],
+          "type":"logic/flowSwitch"
+        },
+        "210":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "frames":{
+              "type":"number",
+              "value":100
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "frames":true,
+              "reset":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -2538,
+            1002
+          ],
+          "type":"logic/frameDelay"
+        },
+        "211":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "reset":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -2300,
+            1016
+          ],
+          "type":"logic/once"
+        },
+        "212":{
+          "code":{
+            "work":"local extensions = require(\"extensions\")\nlocal missionID = extensions.gameplay_missions_missionManager.getForegroundMissionId()\nif missionID then\nlocal missionData = gameplay_missions_missions.getMissionById(missionID)\nextensions.gameplay_missions_missionManager.startFromWithinMission(missionData, {})\nelse\nself.graph.mgr:queueForRestart()\nend",
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":""
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Mission Restart",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ]
+          ],
+          "pos":[
+            -2104,
+            974
+          ],
+          "type":"util/customLua"
+        },
+        "213":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "reset":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -2300,
+            792
+          ],
+          "type":"logic/once"
+        },
+        "214":{
+          "code":{
+            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(self.pinIn.name.value, self.pinIn.flag.value)\n",
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":""
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "flag":{
+              "type":"bool",
+              "value":false
+            },
+            "name":{
+              "type":"string",
+              "value":"restartQueued"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flag":true,
+              "flow":false,
+              "name":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"BLR Flag Set",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "string",
+              "name",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "bool",
+              "flag",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -2118,
+            792
+          ],
+          "type":"util/customLua"
+        },
+        "215":{
+          "code":{
+            "work":"local extensions = require(\"extensions\")\nself.pinOut.flag.value = extensions.blrglobals.blrFlagGet(self.pinIn.name.value)\n",
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":""
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "name":{
+              "type":"string",
+              "value":"careerResetRequest"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "name":false
+            },
+            "p_out":{
+              "flag":false,
+              "flow":false
+            }
+          },
+          "name":"BLR Flag Get",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "bool",
+              "flag",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "string",
+              "name",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -2706,
+            1198
+          ],
+          "type":"util/customLua"
+        },
+        "216":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "condition":false,
+              "flow":false
+            },
+            "p_out":{
+              "False":false,
+              "True":false,
+              "flow":true
+            }
+          },
+          "pos":[
+            -2496,
+            1212
+          ],
+          "type":"logic/branch"
+        },
+        "217":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "off":false,
+              "on":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -2706,
+            1310
+          ],
+          "type":"logic/flowSwitch"
+        },
+        "218":{
+          "data":{},
+          "dynamicMode":"once",
+          "hardcodedPins":{
+            "duration":{
+              "type":"number",
+              "value":1
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "duration":true,
+              "flow":false,
+              "reset":true
+            },
+            "p_out":{
+              "incomplete":true,
+              "complete":true,
+              "completed":false,
+              "flow":true
+            }
+          },
+          "pos":[
+            -2496,
+            1338
+          ],
+          "type":"ui/fadeToBlack"
+        },
+        "219":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "off":false,
+              "on":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -2706,
+            1450
+          ],
+          "type":"logic/flowSwitch"
+        },
+        "220":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "frames":{
+              "type":"number",
+              "value":100
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "frames":true,
+              "reset":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -2496,
+            1450
+          ],
+          "type":"logic/frameDelay"
+        },
+        "221":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "reset":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -2258,
+            1464
+          ],
+          "type":"logic/once"
+        },
+        "222":{
+          "code":{
+            "work":"local extensions = require(\"extensions\")\nextensions.blrutils.setGameOption(\"restrictScenarios\", true)\nextensions.blrutils.setGameOption(\"trafficEnableSwitching\", false)",
+            "_executionStarted":"",
+            "_executionStopped":"local extensions = require(\"extensions\")\nextensions.blrutils.resetGameOptions()",
+            "onPreRender":""
+          },
+          "customName":"SET GAME OPTIONS",
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Auto Resetting Game Options",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ]
+          ],
+          "pos":[
+            -1166,
+            -90
+          ],
+          "type":"util/customLua"
+        },
+        "224":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "reset":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -2286,
+            1240
+          ],
+          "type":"logic/once"
+        },
+        "225":{
+          "code":{
+            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(self.pinIn.name.value, self.pinIn.flag.value)\n",
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":""
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "flag":{
+              "type":"bool",
+              "value":false
+            },
+            "name":{
+              "type":"string",
+              "value":"careerResetRequest"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flag":true,
+              "flow":false,
+              "name":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"BLR Flag Set",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "string",
+              "name",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "bool",
+              "flag",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -2118,
+            1240
+          ],
+          "type":"util/customLua"
+        },
+        "230":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "vehId":true
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -2300,
+            904
+          ],
+          "type":"vehicle/beamstate/reset"
+        },
+        "235":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "vehId":true
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -2272,
+            1352
+          ],
+          "type":"vehicle/beamstate/reset"
         }
       },
       "showTab":true,
@@ -10514,10 +12694,10 @@
         "list":{}
       },
       "viewPos":[
-        702.52832031250000000000,
-        -439.06884765625000000000
+        -1080.52075195312500000000,
+        -310.84313964843750000000
       ],
-      "viewZoom":0.75000000000000000000
+      "viewZoom":0.74999994039535522461
     },
     "3":{
       "description":"This is the description for graph States",
@@ -10638,10 +12818,10 @@
         "list":{}
       },
       "viewPos":[
-        0.70114135742187500000,
-        -225.99316406250000000000
+        -80.47418212890625000000,
+        -244.24488830566406250000
       ],
-      "viewZoom":1
+      "viewZoom":0.74999994039535522461
     }
   },
   "isScenario":true,
@@ -10666,11 +12846,11 @@
         "value":0
       },
       {
-        "index":2,
+        "index":1,
         "mergeStrat":"last",
-        "name":"racestate",
-        "type":"string",
-        "value":"Race in progress"
+        "name":"uistate",
+        "type":"number",
+        "value":0
       },
       {
         "index":3,
@@ -10680,11 +12860,11 @@
         "value":10
       },
       {
-        "index":1,
+        "index":2,
         "mergeStrat":"last",
-        "name":"uistate",
-        "type":"number",
-        "value":0
+        "name":"racestate",
+        "type":"string",
+        "value":"Race in progress"
       }
     ]
   },

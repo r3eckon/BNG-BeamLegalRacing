@@ -1,9 +1,9 @@
 desc=Quick drag race
 wager=150,300
-slips=0
+slips=0.05
 enemyModel=fullsize
 enemyConfig=vehicles/fullsize/fleet.pc
-enemyRisk=0.98
+enemyRisk=2.0
 enemyBasePrice=0
 enemyPartPrice=0
 enemyScrapVal=0

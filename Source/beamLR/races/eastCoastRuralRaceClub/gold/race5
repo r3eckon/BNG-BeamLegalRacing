@@ -1,6 +1,6 @@
 desc=Another race to the town
 wager=1000,2500
-slips=0
+slips=0.03
 enemyConfig=class:club/street_gold
 enemyRisk=0.9
 enemyBasePrice=0

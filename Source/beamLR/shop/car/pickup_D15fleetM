@@ -1,4 +1,4 @@
-name=Gravil D-Series (D15 Fleet,Manual)
+name=Gavril D-Series (D15 Fleet,Manual)
 type=pickup
 config=vehicles/pickup/d15_fleet_M_facelift.pc
 baseprice=1000,3000

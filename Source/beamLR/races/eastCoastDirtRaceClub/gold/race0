@@ -1,6 +1,6 @@
 desc=Race to the end of the path
 wager=1000,2000
-slips=0
+slips=0.02
 enemyConfig=class:club/dirt_gold
 enemyRisk=0.9
 enemyBasePrice=0

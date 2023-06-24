@@ -164,7 +164,7 @@ end
 
 
 local function saveConfig(file)
-extensions.core_vehicle_partmgmt.save(file)
+extensions.core_vehicle_partmgmt.save(file) 
 local ctable = jsonReadFile(file)
 ctable["paints"] = nil
 jsonWriteFile(file,ctable,true)
@@ -188,7 +188,6 @@ end
 end
 return dtable
 end
-
 
 local function loadInventoryFromFile(file)
 partInventory = loadTableFromFile(file, true)
@@ -265,14 +264,28 @@ end
 return t2
 end
 
+
+local trackModeTuningAvoid = {"$revLimiterRPM", "$n2o_power", "$n2o_rpm", "$wastegateStart"}
+
+local function strMatchTable(toMatch, toSearch)
+local toRet = false
+for k,v in pairs(toSearch) do
+if toMatch:match(v) then 
+toRet = true
+break
+end
+end
+return toRet
+end
+
 local function getTuningUIData(trackMode)
 local dtable = extensions.core_vehicle_manager.getPlayerVehicleData().vdata.variables
 local toRet = {}
 local cname = ""
 local ckey = ""
 for k,v in pairs(dtable) do
-if (not k:match("$fuel") or trackMode) and v~= nil then			-- Don't show slider to tune fuel since it's overriden by saved fuel value
-														-- 1.10 TRACK EVENTS can show fuel slider
+if (not k:match("$fuel") and not trackMode) or (not strMatchTable(k,trackModeTuningAvoid) and trackMode) and v~= nil then			
+-- Don't show slider to tune fuel since it's overriden by saved fuel value -- 1.10 TRACK EVENTS can show fuel slider
 ckey = v["name"]
 ckey = string.sub(ckey, 2, #ckey)
 ckey = "ui_" .. ckey
@@ -740,7 +753,81 @@ end
 return toRet
 end
 
+-- Removes vehicle model name from slots for easier finding of universal parts
+local function getPartsCommonSlots()
+local model = getMainPartName()
+local parts = getVehicleParts()
+local toRet = {}
+local ckey = ""
 
+for k,v in pairs(parts) do
+ckey = string.gsub(k, model .. "_", "")
+toRet[ckey] = v
+end
+
+return toRet
+end
+
+local function getPartPricesCommonSlots()
+local model = getMainPartName()
+local parts = getVehicleParts()
+local toRet = {}
+local ckey = ""
+
+for k,v in pairs(parts) do
+ckey = string.gsub(k, model .. "_", "")
+if v and v ~= "" then
+toRet[ckey] = getPartPrice(v)
+else
+toRet[ckey] = 0
+end
+end
+
+return toRet
+end
+
+local generatedDamageCostTable = {}
+
+local function generateDamageCostTable()
+local fdata = extensions.blrutils.loadDataTable("beamLR/dmgPrices") -- KEY: damage element, VAL: cost OR comma sep list of common slots
+local cprices = getPartPricesCommonSlots() -- KEY: common slot, VAL: cost
+generatedDamageCostTable = {} -- KEY: damage element, VAL: cost
+
+local csplit = ""
+local ccost = 0
+
+for k,v in pairs(fdata) do
+
+if tonumber(v) then -- If dmgPrices file has number value, directly use it
+generatedDamageCostTable[k] = tonumber(v)
+else -- Otherwise its comma separated common slot names
+csplit = extensions.blrutils.ssplit(v, ",")
+ccost = 0
+
+for _,toMatch in pairs(csplit) do -- Looping over common slots linked to damage element
+for slot,value in pairs(cprices) do -- Looping over common slot keyed part prices table to find match
+if string.find(slot, toMatch) then
+ccost = ccost + value
+end
+end
+end 
+
+generatedDamageCostTable[k] = ccost
+
+end -- if tonumber(v) then
+
+end -- for k,v in pairs(fdata) do
+
+end
+
+local function getGeneratedDamageCost()
+return generatedDamageCostTable
+end
+
+M.getGeneratedDamageCost = getGeneratedDamageCost
+M.generateDamageCostTable = generateDamageCostTable
+M.getPartPricesCommonSlots = getPartPricesCommonSlots
+M.getPartsCommonSlots = getPartsCommonSlots
 M.getSortedGarageParts = getSortedGarageParts
 M.getSortedGarageSlots = getSortedGarageSlots
 M.getSortedShopParts = getSortedShopParts

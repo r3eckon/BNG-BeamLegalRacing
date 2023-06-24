@@ -1,6 +1,6 @@
 desc=Long race through curvy roads
 wager=1000,2000
-slips=0
+slips=0.01
 enemyConfig=class:club/street_hero
 enemyRisk=0.87
 enemyBasePrice=800

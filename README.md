@@ -1,4 +1,6 @@
-# Beam Legal Racing 1.10.1
+
+
+# Beam Legal Racing 1.11
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -10,6 +12,8 @@ Perform missions, races and challenges to earn money to buy vehicles and parts. 
 
 ### Track Event Maps [Hirochi Raceway](hirochimap.md) | [Automation Test Track](automationmap.md)
 
+### Enjoying the mod and looking to support the project? [Donate here!](https://www.paypal.com/donate/?hosted_button_id=QQ7SKC6XK7PAE)
+
 ## Install Instructions
 **BeamLR cannot be installed like a normal mod due to data persistence issues when zipped**. 
 
@@ -17,6 +21,8 @@ Carefully follow the instructions to ensure all features are working properly:
 * Download the latest zip file from the **Releases** folder.
 * Extract zip file contents directly to your [BeamNG userfolder](https://documentation.beamng.com/support/userfolder/).
 * Tell your operating system to replace existing files if asked.
+
+**After installing check the *Read Before Playing* section of this readme for important information and a quick overview of major update features**
 
 **Installing BeamLR may overwrite custom changes made to levels.** 
 Modders should back up the userfolder before installing.
@@ -38,6 +44,8 @@ If the backup system fails to work properly you can manually replace the followi
 * beamLR/races/INSERT RACE CLUB/progress              (Race club progress, repeat for each club)
 * beamLR/currentTrackEvent                            (Current track event progress)
 
+**After updating check the *Read Before Playing* section of this readme for important information and a quick overview of major update features**
+
 If you are experiencing issues after updating the mod, try a **clean** userfolder install and copy over your backup.
 
 ## BeamNG Update Userfolder Migration Process
@@ -52,6 +60,12 @@ The game will give you a chance to view the contents of your old userfolder cont
 
 
 ## Read Before Playing
+This mod requires specific gameplay options to work properly. As of version 1.11 the mod will automatically set the following gameplay options when you start playing for best experience:
+
+![settings](https://i.imgur.com/ZIor6iw.png)
+
+**Do not change the above settings while playing BeamLR**. The settings should be automatically restored to your previous values when you abandon the scenario. Keep in mind game crashes and other forceful exit from the scenario may prevent your old setting from being restored.
+
 BeamLR relies on a UI app and custom UI layout in order to access features such as:
 * Options Menu
 * Part Edit Menu
@@ -69,11 +83,11 @@ Version 1.6 adds N2O tank persistence. Garage files from previous versions are m
 
 Version 1.8 adds difficulty settings and different start vehicles (randomly picked using seed), the default difficulty is medium ($1000 start money). 
 
-Version 1.9.1 temporarily disables beamstate loading (visual damage) due to issue with advanced couplers. It can be turned back on from the options menu.
-
-If you decide to use beamstates, advanced couplers can be fixed from the options menu. This is not a guaranteed fix and it may crash the game.
+Version 1.9.1 temporarily disables beamstate loading (visual damage) due to issue with advanced couplers. It can be turned back on from the options menu. If you decide to use beamstates, advanced couplers can be fixed from the options menu. This is not a guaranteed fix and it may crash the game.
 
 Version 1.10 adds race track events to the mod which can be joined from career mode. Track events work using a different lightweight loader mission and work differently than regular career.  This version also adds a bunch of QoL improvements to the UI, saving/loading configs for your vehicles. Backups are now saved automatically when you stop the mission to ensure all files are updated before a backup is saved.
+
+Version 1.11 adds new trailer deliveries, RNG based pink slips and various new restrictions relating to time of day. Car shops are now closed at night while new "high stakes" race clubs are only available at night. This version also adds a new death screen UI allowing you to immediately reload your last backup.
 
 
 Further instructions and various tips on this mods' various features are listed in the BeamLR UI Main Menu.
@@ -103,6 +117,8 @@ Depending on your chosen difficulty setting (default is medium) you may need to 
 * Medium: $1000
 * Hard: $20
 
+Version 1.11 updated delivery mission system works using a set of items and destinations. Each destination has a base reward that is scaled to give up to 100% bonus depending on item fragility. Experiencing more Gs than the item can endure will fail the mission. If your vehicle has a tow hitch you can accept trailer delivery missions. 
+
 ![race clubs](https://i.imgur.com/yPLsjIc.png)
 
 Race club opponents are sorted into performance leagues of **Bronze**, **Silver**, **Gold** and **Hero**. You must complete every race in a league to progress to the next league. Opponent vehicle performance and wager values will increase as you progress through leagues.
@@ -113,13 +129,15 @@ Some races have pink slips instead of monetary wagers. Some races have enabled t
 
 Since version 1.8 you can use the options menu to set a wager target for races. If your bet is outside of opponent range the final race wager will be capped to the opponent min/max.
 
+Since version 1.11 races have chance based pink slips opponents. All races have a low chance of having a pink slips bet. The chance of getting a pink slips race decreases with increasing leagues. High stakes night only race clubs have the highest chance of pink slips being offered.
+
 You can spend money on part upgrades or new vehicles by visiting the various shops. Vehicles can also be sold at vehicle shops, sale price will depend on vehicle condition, added parts and player reputation. 
 
 Since version 1.8 part shops offer different price scale percentages that changes daily. This percentage is indicated in the title for the part buying menu. Buying parts outside part shops (player & repair garages) is considered a remote purchase and has a 150% price scale applied, also indicated in the title. Different part shops can offer different ranges of price scales.
 
 To repair your vehicle you must visit a repair garage or call a mechanic to your garage (+100% cost).
 
-The towing button will teleport your vehicle to the player garage for a cost (may repair vehicle due to bug). 
+The towing button will teleport your vehicle to the player garage for a cost. 
 
 Use the top menu to access part shop, part edit, painting and tuning interface.
 
@@ -129,7 +147,7 @@ BeamLR relies on seeded RNG for various aspects of the mod such as selected star
 
 Keep an eye out for you health value! There is a slow passive health regeneration but you can also restore your health by using the "Sleep / Heal" button. This fast forward function can also be used to skip ahead to next day which will get vehicle shops to spawn new vehicles, prices for gas stations and part shops will also change. 
 
-When the in game day changes since version 1.8 a small amount of reputation (25 points) is lost. For now reputation isn't used for anything except vehicle sell price scaling. It will be used in a future version to unlock official race track events and other unique events. Rep can easily be gained with races and challenges so this feature acts as a small daily cost to prevent skipping ahead a lot of days without racing. 
+When the in game day changes since version 1.8 a small amount of reputation (25 points) is lost. Rep can be gained with races and challenges so this feature acts as a small daily cost to prevent skipping ahead a lot of days without racing. 
 
 ## Track Events
 Once you have earned enough reputation and money you may enter race track events which are multi round, multi opponent races.
@@ -241,6 +259,24 @@ Format for this list is **wpspd=WPNAME:SPEED,WPNAME:SPEED, ...**
 
 Since version 1.10 race files have been simplified, model list is no longer required as it is parsed from the config list. Configs for most races are now passed as **config=class:PATH_TO_CLASS_FILE** to help organize race opponents in easy to edit files for each club tier, as well as other track event related config categories which can be sorted by induction type, drivetrain type and vehicle brand.
 
+Version 1.11 makes the **slips** field a float value working as percent chance for a race to offer a pink slips bet.
+
+Also new in 1.11 is the ability to set race club open hours. The below trigger data file example is for a night only race club on east coast, open from 20:00 to 07:00. 
+
+```
+club=eastCoastNightRaceClub
+opsp=-755.02685546875,506.66494750977,23.37056350708
+opsr=0.0096882955460253,-0.018372787351004,0.89616867455903,0.44322712501998
+pspos=-758.22436523438,503.17645263672,23.403123855591
+psrot=0.010362435751454,-0.016063638166846,0.89713974366614,0.44133304860252
+psscl=3.5,5.8,10
+cname=Night Drag Race Club
+hours=20,7
+```
+Format is 24 hours with minutes as fraction of 1 hour so 30 minutes is 0.5 added to the hour value.
+For example to set the club open time from 20:30 to 7:30 use **hours=20.5,7.5**
+To keep race clubs open all the time use **hours=0,0**
+
 ### UI Modding
 Part Images can be added to enhance the UX of the part shop.
 To add more part images:
@@ -292,9 +328,11 @@ Thank you for playing BeamLR!
 * As of BeamNG version 0.28 beamstate loading is broken. This is listed in known issues for the game and should hopefully be fixed soon.
 * ~~Towing mechanic may repair your vehicle. This is due to problems with a teleport function that shouldn't cause a reset yet sometimes does.~~ Should be fixed as of version 1.10
 * Some tuning configurations can cause unfair damage when a vehicle is loaded. A workaround is implemented but may fail to work in certain situations.
-* Various UI problems, input fields stop registering keystrokes, whole UI can refuse to work. Workaround is to keep cursor above input fields. CTRL+F5 to fix the frozen UI.
+* ~~Various UI problems, input fields stop registering keystrokes, whole UI can refuse to work. Workaround is to keep cursor above input fields.~~ Seems fixed as of 1.11 if any issues arise try CTRL+F5.
 * ~~Race checkpoints sometimes fail to trigger properly.~~ Should be fixed as of version 1.6
 * Beamstate file corruption breaking pristine vehicles. Workaround is implemented but may fail. Use world editor for repair or delete the corrupted beamstate file.
+* Player can get stuck in place while walking and trying to take bus home. Currently investigating this issue. Reload the mission to get unstuck.
+* Health mechanic is temporarily removed due to vehicle "wiggle" after crashes causing erroneous high enough G forces to injure the player. Fatal crashes from a single high G impact are still enabled like track events.
 
 
 ## Changelog
@@ -464,3 +502,29 @@ Thank you for playing BeamLR!
 * Fixed automation induction specific track events using wrong data 
 * Fixed race club league progress bug
 * Hero league now shows completion message instead of 0/X progress
+
+### 1.11
+* Added trailer delivery missions
+* Added night time race clubs to utah and east coast
+* Added death screen UI (offers choice to reset career or reload save)
+* Added SFX for various money related actions
+* Updated delivery mission system (added random items & fragility)
+* Pink slips races are now RNG based for all races
+* Vehicle shops now closed at night (open from 8:00 to 16:00)
+* Fixed deprecated pickup configs in perfclass files
+* Garage UI buttons now disabled while car loads (fixes config saving issue)
+* Fixed Update Current Day node error when event UID is nil
+* Some race clubs are now only open during certain hours
+* Fixed Gavril brand event using incorrect name
+* Needed game options now automatically set (user options reloaded when stopping)
+* Health mechanic temporarily removed due to body panel wiggle still causing injury
+* Reverted to more accurate sensor G forces due to health being disabled
+* Fixed mission IMGUI letting other windows appear during mission
+* Removed track event tuning sliders that can change engine performance
+* Fixed empty template folders remaining after garage car delete
+* Fixed fast forward button skipping 2 days in some situations
+* Now showing current day instead of health in stats window
+* Fixed some track events using incorrect data
+* Slightly reduced max amount of rounds for most track events
+* Mechanical damage cost now based on linked parts values
+* Fixed N2O check flowgraph node throwing error when vehicle has no engine

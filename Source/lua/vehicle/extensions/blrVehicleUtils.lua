@@ -232,17 +232,20 @@ local value = getRawPerformanceValue()
 return "" .. horsepower .. "," .. torque .. "," .. weight .. "," .. class .. "," .. value
 end
 
-local airspeed = 0
-local airspeedlast = 0
 local force = 0
+local velocity = vec3({0,0,0})
+local velocityLast = vec3({0,0,0})
+local forcevector = vec3({0,0,0})
+
 local function updateGFX(dtSim)
-airspeed = electrics.values.airspeed
+velocityLast = velocity
+velocity = obj:getVelocity()
 if dtSim == 0 then
 force = 0
 else
-force = math.abs((airspeed - airspeedlast) / dtSim)
+forcevector = vec3({ (velocity["x"] - velocityLast["x"]) / dtSim, (velocity["y"] - velocityLast["y"]) / dtSim, (velocity["z"] - velocityLast["z"]) / dtSim })
+force = forcevector:length()
 end
-airspeedlast = airspeed
 end
 
 local function getAcceleration()
@@ -253,6 +256,31 @@ local function toggleNitrous()
 for k,v in pairs(controller.getControllersByType("nitrousOxideInjection")) do v:toggleActive() end
 end
 
+local function getNitrousRemainingVolume(bottle)
+if not bottle then bottle = "mainBottle" end
+local toRet = 0
+if energyStorage then
+if energyStorage.getStorage(bottle) then
+toRet =  energyStorage.getStorage(bottle).remainingMass
+end
+end
+return toRet
+end
+
+local function getNitrousCapacity(bottle)
+if not bottle then bottle = "mainBottle" end
+local toRet = 0
+if energyStorage then
+if energyStorage.getStorage(bottle) then
+toRet =  energyStorage.getStorage(bottle).capacity
+end
+end
+return toRet
+end
+
+
+M.getNitrousCapacity = getNitrousCapacity
+M.getNitrousRemainingVolume = getNitrousRemainingVolume
 M.toggleNitrous = toggleNitrous
 M.getAcceleration = getAcceleration
 M.updateGFX = updateGFX

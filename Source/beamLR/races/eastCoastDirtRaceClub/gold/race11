@@ -1,6 +1,6 @@
 desc=Long looping multi surface race
 wager=1000,2000
-slips=0
+slips=0.02
 enemyConfig=class:club/dirt_gold
 enemyRisk=0.8
 enemyBasePrice=0

@@ -35,6 +35,7 @@ local money = extensions.blrglobals.gmGetVal("playerMoney")
 if money >= p["price"] then
 extensions.betterpartmgmt.addToInventory(p["item"])
 extensions.blrglobals.gmSetVal("playerMoney", money - p["price"])
+extensions.blrutils.playSFX("event:>UI>Special>Buy")
 end
 local inventory = extensions.betterpartmgmt.getPartInventory()
 extensions.customGuiStream.sendDataToUI("ownedParts", inventory)
@@ -198,7 +199,6 @@ end
 ftable["uiResetCareer"] = function(p)
 extensions.blrglobals.blrFlagSet("careerResetRequest", true)					-- Send career reset request to flowgraph using blrglobals
 end
-
 
 ftable["vehicleRename"] = function(p)
 local cvgid = extensions.blrglobals.gmGetVal("cvgid")

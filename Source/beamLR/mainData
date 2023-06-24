@@ -1,7 +1,7 @@
-day=0
-carCount=1
-time=0
 money=1000
-health=100
-rep=0
 carUsed=0
+health=100
+carCount=1
+time=0.0
+rep=0
+day=0

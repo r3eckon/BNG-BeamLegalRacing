@@ -1,9 +1,9 @@
 desc=Risky seaside drag race
 wager=150,300
-slips=0
+slips=0.05
 enemyModel=coupe
 enemyConfig=vehicles/coupe/type-l_M.pc
-enemyRisk=0.98
+enemyRisk=2.0
 enemyBasePrice=0
 enemyPartPrice=0
 enemyScrapVal=0

@@ -1,0 +1,7 @@
+destpos=-66.978370666504,-884.07922363281,14.34782409668
+destrot=0.0066369030227728,0.00015118282494334,-0.063029029233074,0.99798961424253
+desc=Deliver $item to the dock
+reward=400
+items=smallflatbed_armchairs,smallflatbed_couch,smallflatbed_1400planks,smallflatbed_2100planks,smallflatbed_400crate_bodypanels,smallflatbed_400crate_eggs,smallflatbed_400crate_engineparts,smallflatbed_400crate_fineart,smallflatbed_400crate_graphicscards,smallflatbed_400crate_scrapmetal,smallflatbed_800crate_engineparts,smallflatbed_800crate_fridge,smallflatbed_800crate_metalingots,smallflatbed_800crate_science
+gmwp=blrwp_dock
+type=trailer

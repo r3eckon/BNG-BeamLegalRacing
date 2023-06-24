@@ -1,6 +1,6 @@
 desc=Long looping dirt race with alternate ending
 wager=200,500
-slips=0
+slips=0.04
 enemyConfig=class:club/dirt_bronze
 enemyRisk=.6
 enemyBasePrice=0

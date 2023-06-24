@@ -1,6 +1,6 @@
 desc=Race to the fishing village
 wager=200,500
-slips=0
+slips=0.04
 enemyConfig=class:club/dirt_bronze
 enemyRisk=0.8
 enemyBasePrice=0

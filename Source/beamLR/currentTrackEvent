@@ -1,7 +1,7 @@
 status=over
 seed=742
-carid=0
-efile=automation_trackA_ibishu_high
 eventid=0
-cround=3
+efile=hirochi_trackA_classA
+carid=0
 ctimes=player:0,op1:0,op2:0,op3:0,op4:0,op5:0
+cround=0

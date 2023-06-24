@@ -1,6 +1,6 @@
 desc=Short looping race uphill and back down the cliffside dirt road
 wager=200,500
-slips=0
+slips=0.04
 enemyConfig=class:club/dirt_bronze
 enemyRisk=0.8
 enemyBasePrice=0

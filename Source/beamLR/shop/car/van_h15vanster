@@ -1,4 +1,4 @@
-name=Gravil H-Series (H15 Vanster,Automatic)
+name=Gavril H-Series (H15 Vanster,Automatic)
 type=van
 config=vehicles/van/h15_vanster.pc
 baseprice=2000,4000

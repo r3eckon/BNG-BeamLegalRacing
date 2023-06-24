@@ -1,9 +1,9 @@
 desc=Quick drag race
 wager=350,600
-slips=0
+slips=0.04
 enemyModel=van
 enemyConfig=vehicles/van/street_tuned.pc
-enemyRisk=0.98
+enemyRisk=2.0
 enemyBasePrice=0
 enemyPartPrice=0
 enemyScrapVal=0

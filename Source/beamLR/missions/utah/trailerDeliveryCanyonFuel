@@ -1,0 +1,7 @@
+destpos=-785.61590576172,-77.350463867188,296.83209228516
+destrot=-0.00088233368261632,-0.0038026061017462,0.99062503313809,-0.13655330605394
+desc=Deliver $item to the Canyon Fuel gas station
+reward=400
+items=smallflatbed_armchairs,smallflatbed_couch,smallflatbed_1400planks,smallflatbed_2100planks,smallflatbed_400crate_bodypanels,smallflatbed_400crate_eggs,smallflatbed_400crate_engineparts,smallflatbed_400crate_fineart,smallflatbed_400crate_graphicscards,smallflatbed_400crate_scrapmetal,smallflatbed_800crate_engineparts,smallflatbed_800crate_fridge,smallflatbed_800crate_metalingots,smallflatbed_800crate_science
+gmwp=blrwp_topshops
+type=trailer

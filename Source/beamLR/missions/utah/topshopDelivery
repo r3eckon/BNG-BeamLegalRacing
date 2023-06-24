@@ -1,4 +1,6 @@
 dest=BeamNGTrigger_TopShopFinish
-desc=Deliver some parts to the shops at the top of the canyon
+desc=Deliver $item to the shops at the top of the canyon
 reward=200
+items=beer,books,coffee_lid,coffee_nolid,fastfood,fishingequipment,gameconsoles,graphicscards,monitors,motoroil,mufflers,pistons,pizza,powertools,scrapmetal,soda,sparkplugs,tools
 gmwp=blrwp_topshops
+type=small

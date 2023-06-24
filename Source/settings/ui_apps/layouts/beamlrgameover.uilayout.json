@@ -1,0 +1,20 @@
+{
+  "type":"beamlrgameover",
+  "apps":[
+    {
+      "appName":"beamlrgameoverui",
+      "placement":{
+        "bottom":"",
+        "height":"104%",
+        "left":0,
+        "margin":"auto",
+        "position":"absolute",
+        "right":0,
+        "top":"0px",
+        "width":"104%"
+      }
+    }
+  ],
+  "description":"BeamLR Game Over Layout",
+  "title":"BeamLR Game Over"
+}

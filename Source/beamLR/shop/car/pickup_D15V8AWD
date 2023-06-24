@@ -1,4 +1,4 @@
-name=Gravil D-Series (D15 V8 AWD,Automatic)
+name=Gavril D-Series (D15 V8 AWD,Automatic)
 type=pickup
 config=vehicles/pickup/d15_4wd_A.pc
 baseprice=3000,6000

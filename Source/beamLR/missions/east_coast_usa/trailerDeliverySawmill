@@ -1,0 +1,7 @@
+destpos=287.87887573242,-747.23974609375,46.37228012085
+destrot=-0.0020957198308636,-0.0031921508491768,0.93672613893874,-0.35004222425341
+desc=Deliver $item to the sawmill
+reward=400
+items=smallflatbed_armchairs,smallflatbed_couch,smallflatbed_1400planks,smallflatbed_2100planks,smallflatbed_400crate_bodypanels,smallflatbed_400crate_eggs,smallflatbed_400crate_engineparts,smallflatbed_400crate_fineart,smallflatbed_400crate_graphicscards,smallflatbed_400crate_scrapmetal,smallflatbed_800crate_engineparts,smallflatbed_800crate_fridge,smallflatbed_800crate_metalingots,smallflatbed_800crate_science
+gmwp=blrwp_sawmill
+type=trailer

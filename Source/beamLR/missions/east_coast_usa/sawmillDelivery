@@ -2,3 +2,4 @@ dest=BeamLRTrigger_Sawmill
 desc=Deliver parts to the sawmill
 reward=250
 gmwp=blrwp_sawmill
+items=beer,books,coffee_lid,coffee_nolid,fastfood,fishingequipment,gameconsoles,graphicscards,monitors,motoroil,mufflers,pistons,pizza,powertools,scrapmetal,soda,sparkplugs,tools

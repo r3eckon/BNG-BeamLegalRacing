@@ -1,7 +1,7 @@
 triggers=BeamLRTrigger_CP1,BeamLRTrigger_CP2,BeamLRTrigger_CP3,BeamLRTrigger_CP4,BeamLRTrigger_CP5,BeamLRTrigger_CP6,BeamLRTrigger_CP7,BeamLRTrigger_CP8,BeamLRTrigger_FinishLine
 waypoints=blrwp_aiwp1,blrwp_aiwp2,blrwp_aiwp3fix1,blrwp_aiwp3fix2,blrwp_aiwp3,blrwp_aiwp4,blrwp_aiwp5,blrwp_aiwp6,blrwp_aiwp7,blrwp_aiwp7fix1,blrwp_aiwp7fix2,blrwp_aiwp8,blrwp_aiwp9,blrwp_aiwp9fix1,blrwp_aiwp9fix2,blrwp_aiwp10,blrwp_aiwp11,blrwp_aiwp12,blrwp_aiwp13
 wpspd=blrwp_aiwp1:22,blrwp_aiwp2:33,blrwp_aiwp3fix1:27,blrwp_aiwp3fix2:22,blrwp_aiwp3:17,blrwp_aiwp7:40,blrwp_aiwp7fix1:32,blrwp_aiwp7fix2:27,blrwp_aiwp8:30,blrwp_aiwp9:20,blrwp_aiwp9fix1:15,blrwp_aiwp11:27,blrwp_aiwp12:33,blrwp_aiwp13:17
-configs=class:brand/ETK/tier_high
+configs=class:brand/ETK/tier_mid
 title=ETK Mid Tier Automation Challenge
 map=automation_test_track
 layout=Long
@@ -14,7 +14,7 @@ induction=any
 reputation=3000
 joincost=5000
 laps=3,8
-rounds=3,7
+rounds=3,5
 opcount=4,7
 moneyreward=20000:25000,10000:15000,5000:8000
 repreward=1000:1200,500:750,250:500

@@ -1,8 +1,8 @@
 desc=Another drag race
 wager=750,1250
-slips=0
+slips=0.01
 enemyConfig=vehicles/etk800/846x_ttsport_plus_DCT.pc,vehicles/etk800/846_ttSport_custom_DCT.pc,vehicles/etk800/846_ttsport_heritage_M.pc
-enemyRisk=0.98
+enemyRisk=2.0
 enemyBasePrice=0
 enemyPartPrice=0
 enemyScrapVal=0

@@ -1,6 +1,6 @@
 desc=Race to the Firwood Inn
 wager=200,500
-slips=0
+slips=0.05
 enemyConfig=class:club/street_bronze
 enemyRisk=0.7
 enemyBasePrice=0

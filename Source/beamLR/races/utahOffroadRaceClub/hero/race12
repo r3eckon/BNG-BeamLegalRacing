@@ -1,6 +1,6 @@
 desc=Very long looping dirt race with alternate ending
 wager=1000,2000
-slips=0
+slips=0.01
 enemyConfig=class:club/dirt_hero
 enemyRisk=.8
 enemyBasePrice=0

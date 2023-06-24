@@ -1,6 +1,6 @@
 desc=Looping race through the tunnel
 wager=500,1000
-slips=0
+slips=0.04
 enemyConfig=class:club/street_silver
 enemyRisk=0.7
 enemyBasePrice=800

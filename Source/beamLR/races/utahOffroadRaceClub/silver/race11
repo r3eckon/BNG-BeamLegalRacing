@@ -1,6 +1,6 @@
 desc=Long looping dirt race
 wager=500,1000
-slips=0
+slips=0.03
 enemyConfig=class:club/dirt_silver
 enemyRisk=.6
 enemyBasePrice=0

@@ -1,4 +1,6 @@
 dest=BeamLRTrigger_CurvyRoadLot
-desc=Deliver parts to the observation area parking lot
+desc=Deliver $item to the observation area parking lot
 reward=200
+items=beer,books,coffee_lid,coffee_nolid,fastfood,fishingequipment,gameconsoles,graphicscards,monitors,motoroil,mufflers,pistons,pizza,powertools,scrapmetal,soda,sparkplugs,tools
 gmwp=blrwp_curvyroadlot
+type=small

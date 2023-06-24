@@ -1,6 +1,6 @@
 desc=Drag race to the end of the highway
 wager=1000,2000
-slips=0
+slips=0.03
 enemyConfig=class:club/street_gold_drag
 enemyRisk=0.98
 enemyBasePrice=0
@@ -9,7 +9,7 @@ enemyScrapVal=0
 enemyPaint=0,0,0,0,0.1,0.1,0.1,0.1
 enemyAvoid=1
 triggers=BeamNGTrigger_HighwayDragFinish
-waypoints=ut_wp_53
+waypoints=ut_wp_56
 laps=1
 ifile=beamLR/races/integrity/good
 traffic=1

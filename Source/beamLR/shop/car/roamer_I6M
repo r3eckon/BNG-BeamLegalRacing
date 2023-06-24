@@ -1,4 +1,4 @@
-name=Gravil Roamer (I6,Manual)
+name=Gavril Roamer (I6,Manual)
 type=roamer
 config=vehicles/roamer/i6_m.pc
 baseprice=3000,5000
