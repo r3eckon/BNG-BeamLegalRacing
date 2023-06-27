@@ -305,6 +305,74 @@ It relies on basic string matching so all part names with the text to match will
 
 The UI is overall a heavy WIP and will need a ton of work to become more user friendly. 
 
+### Adding New Missions
+
+For small item delivery you need to add a trigger on the map where you want the destination to be so just open world editor and duplicate an existing delivery destination so you get the correct settings. Rename then move it where you want the destination and add a waypoint for the GPS system (or just pick one that's close enough). Save the map and restart the game (otherwise the trigger doesn't work). Copy a delivery file and alter the values to reflect your new destination.
+
+```
+dest=DESTINATION_TRIGGER
+desc=Deliver $item to DESTINATION
+reward=200
+items=beer,books,coffee_lid,coffee_nolid,fastfood,fishingequipment,gameconsoles,graphicscards,monitors,motoroil,mufflers,pistons,pizza,powertools,scrapmetal,soda,sparkplugs,tools
+gmwp=DESTINATION_GPS_WAYPOINT
+type=small
+```
+
+For trailer deliveries you don't need triggers. Drive up to the location where the trailer should be placed. In lua console use extensions.blrutils.slotHelper() to dump vehicle and camera positions in the beamLR/slotHelper file (which will be created if it doesn't exist yet). Some vehicles tend to have slight offset when using this code but the ETK 800 works well enough. File will look like this:
+
+```
+slotp=-767.92095947266,474.75573730469,23.898416519165
+slotr=0.0077511852342431,0.0054148582438654,0.344295775316,0.93881362236454
+```
+
+Use the values to replace data in an existing trailer delivery file and fill in the remaining values accordingly.
+
+```
+destpos=SLOT_HELPER_SLOTP
+destrot=SLOT_HELPER_SLOTR
+desc=Deliver $item to DESTINATION
+reward=350
+items=smallflatbed_armchairs,smallflatbed_couch,smallflatbed_1400planks,smallflatbed_2100planks,smallflatbed_400crate_bodypanels,smallflatbed_400crate_eggs,smallflatbed_400crate_engineparts,smallflatbed_400crate_fineart,smallflatbed_400crate_graphicscards,smallflatbed_400crate_scrapmetal,smallflatbed_800crate_engineparts,smallflatbed_800crate_fridge,smallflatbed_800crate_metalingots,smallflatbed_800crate_science
+gmwp=DESTINATION_GPS_WAYPOINT
+type=trailer
+```
+
+Then last step so your mission is available in game is to add it to a mission giver file (like beamLR/missions/utah/utahGiver0). Increment the mission count for the type of mission you added and point to the new mission file following the existing format:
+
+```
+tspos=775.04846191406,-168.5132598877,144.50952148438
+tsrot=0.0033254586916255,-0.0011244714208908,0.1608575760131,0.98697138617475
+smallcount=7
+trailercount=7
+small1=caravanDelivery
+small2=airfieldDelivery
+small3=topshopDelivery
+small4=constructionDelivery
+small5=parkingLotDelivery
+small6=touristAreaDelivery
+small7=rangerCabinDelivery
+trailer1=trailerDeliveryAirfield
+trailer2=trailerDeliveryCanyonFuel
+trailer3=trailerDeliveryConstructionBasement
+trailer4=trailerDeliveryInfoCenter
+trailer5=trailerDeliveryNewShop
+trailer6=trailerDeliveryParking
+trailer7=trailerDeliveryRanger
+```
+
+So if you added a trailer mission you get trailercount=8 and trailer8=MISSION FILENAME is added at the end of the file. East coast has two mission giver files so make sure you add the mission to the correct one (or both if that's what you want). eastCoastGiver0 is the town part shop while eastCoastGiver1 is near the player spawn.
+
+You can also add extra delivery items. Item files for small deliveries are very simple, only item name which will be used to replace $item in the mission description and a G force value where the mission fails, basically the fragility of the item being delivered. Mission reward bonus scales with fragility. Just copy a file and change the values. Trailer items have an extra parameter for what trailer config should spawn, usually it will be one of the crate trailers for generic items but specific configs are also be used.
+
+```
+name=a couch
+failg=20.0
+trailer=vehicles/tsfb/loaded_couch.pc
+```
+
+After adding an item file you need to point to it in the mission files. As this is the first iteration of this new system this part will be a bit annoying because you need to change every mission file. One way to do it quickly is to use notepad++ and do "find and replace in files" in the mission folder. Search for the old item list, replace with the list that has your item added. I will be improving this part of the process and the mission giver mission lists in a future update likely using list files that are more easy to manage when modding.
+
+
 ### Other modding
 Want to add your custom config to the vehicle store? That's also possible.
 
