@@ -373,14 +373,83 @@ trailer=vehicles/tsfb/loaded_couch.pc
 After adding an item file you need to point to it in the mission files. As this is the first iteration of this new system this part will be a bit annoying because you need to change every mission file. One way to do it quickly is to use notepad++ and do "find and replace in files" in the mission folder. Search for the old item list, replace with the list that has your item added. I will be improving this part of the process and the mission giver mission lists in a future update likely using list files that are more easy to manage when modding.
 
 
-### Other modding
-Want to add your custom config to the vehicle store? That's also possible.
+### Adding modded vehicles and custom configs to shops
 
+First step is to copy a file in the **beamLR/shop/car** folder so you have a new car file ready to replace values. Rename it to a unique file name.
+Opening that file you then replace the fields for your modded cars or custom configs. For this example the file used is **autobello_110AM**.
+
+```
+name=Autobello Piccolina (text value shown in car shop UI)
+type=autobello (internal BeamNG model of the vehicle)
+config=vehicles/autobello/110_m.pc (actual config file to spawn)
+baseprice=1000,3000 (price range, calculated as inverse of odometer so small odometer means higher price, for new vehicle use a single value)
+odometer=80000000,130000000 (odometer range in meters, for new vehicle use 0)
+scrapval=300 (value of vehicle when sold as scrap)
+partprice=0 (no longer used, can be ignored)
+paint=0,0,0,0,0.1,0.1,0.1,0.1 (only used as fallback paint color if random paints are turned off)
+randslots=autobello_fender_FL,autobello_bumper_F,...,..., (list of internal slot names to be randomized, usually only body panels)
+```
+
+The **randslots** line simply isn't there on new cars as they do not spawn with randomized parts. To look through all the slots for body panels spawn the config in game and in lua console use the function **extensions.blrutils.actualSlotDebug()** to dump the slots of that vehicle in the file **beamLR/actualSlotsDebug** so you can create the list of body panel slots.
+
+What I do is look through the list to remove slots I don't want randomized (such as engine parts, wheels, other important parts) then using Notepad++ search and replace extended mode to replace **\n** with a **comma** and append that list to the randslots field. Keep in mind if you hit enter when removing slots it might add **\r\n** so if the list isn't in a single line that's probably why.
+
+Once you're done with the car file itself the next step is to make it available in shops. That's done within shop files in **beamLR/shops**. We're interested in the **models** line and associated **model0,model1,...** lines to add a car. This example file is **utahNewCarShop** process is the same for used shops.
+
+```
+name=New Car Shop
+slots=5
+chance=0.7
+shopid=1
+models=13
+model0=etk800_844M_new
+model1=bastion_SE35A
+model2=bastion_battlehawkM
+model3=bolide_350USDM
+model4=vivace_100M_new
+model5=etkc_kc4M
+model6=sbr_rwdbaseM
+model7=scintilla_GT
+model8=scintilla_spyderGTs
+model9=sunburst_20sportM
+model10=etk800_854M_new
+model11=etkc_kc6M
+model12=etkc_kc8M
+slotp0=-809.82904052734,-135.27842712402,296.84014892578
+slotr0=0.0030195300350944,-0.0044971101883625,0.79615106486364,0.60507366522996
+camp0=-805.90307617188,-137.25805664063,298.81729125977
+camr0=0.1438989341259,0.083446733653545,-0.49466302990913,0.85301703214645
+slotp1=-808.48980712891,-130.46528625488,296.82257080078
+slotr1=-0.0020591345820029,-0.002938413974088,0.79541885852035,0.60604947421665
+camp1=-804.58197021484,-132.46055603027,298.81381225586
+camr1=0.14540919661522,0.083938360214233,-0.49284192919731,0.85376650094986
+slotp2=-807.16265869141,-125.64483642578,296.83483886719
+slotr2=0.0034723356938514,-0.0054626919924033,0.7954801701488,0.60594504765784
+camp2=-803.23175048828,-127.61531066895,298.81381225586
+camr2=0.14388573169708,0.083665773272514,-0.49565941095352,0.852419257164
+slotp3=-805.83636474609,-120.82448577881,296.82476806641
+slotr3=0.0034576713507743,-0.0044816834397327,0.79550292794515,0.60592330426637
+camp3=-801.91857910156,-122.78488922119,298.84783935547
+camr3=0.14785739779472,0.086016781628132,-0.495441198349,0.8516321182251
+slotp4=-804.50823974609,-116.00479125977,296.80920410156
+slotr4=0.0046553285357728,-0.0064758269101433,0.79550978787762,0.60588824792445
+camp4=-800.55853271484,-117.96599578857,298.75772094727
+camr4=0.14097069203854,0.08230085670948,-0.49741896986961,0.85201412439346
+```
+
+Increase the value of **models** by **1** and then add a new line following the **modelN** format that points to your file, keep in mind the first model has index **0**. So for the above file to add a car you would set **models** to **14** and then add the line **model13=filename** at the bottom of the models list, using the file name you used after copying a car file. Repeat this part of the process for all shops you want your car to spawn in.
+
+This part of the process is a bit tedious with the hard count list and will likely be improved to work with list files that are shared for multiple shops and easier to manage when modding.
+
+Your car should now be spawning in shops you added it to. 
+
+One way to test to make sure the new car works is to backup the contents of a specific shop file to restore later and then set **models** to **1**, delete every single **modelN** line except for **model0** pointing to your car. This will make it so that shop only has that one car to sell and it'll be the only thing that can spawn so you don't wait for RNG to know if you made a mistake. You can also set the **chance** value to **1.0** so the shop has 100% chance to spawn cars in every slot, a good way to see different variations with randomized parts.
+
+
+### Other modding
 Start money can be customized, check the **beamLR/init** folder for the various start difficulties.
 
-Mod vehicles *should* also work but beamstate loading is a very unstable feature so some may have issues. 
-
-This remains untested and I will not focus on fixing issues related to other mods.
+Mod vehicles *should* also work but beamstate loading is a very unstable feature so some may have issues and I will not focus on fixing issues related to other mods.
 
 The flowgraph mission can also be tweaked, this is for advanced users only as it's very easy to break things.
 
