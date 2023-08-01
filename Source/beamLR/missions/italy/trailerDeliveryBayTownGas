@@ -1,0 +1,7 @@
+destpos=1227.0822753906,-812.90533447266,145.48522949219
+destrot=-0.0012681343709086,-0.0040265522047819,0.95670120300776,-0.29104121164546
+desc=Deliver $item to the bay town gas station
+reward=700
+items=list_all
+gmwp=blrwp_baytowngas
+type=trailer

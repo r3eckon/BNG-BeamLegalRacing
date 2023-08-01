@@ -1,0 +1,7 @@
+destpos=-1799.9260253906,-1147.7921142578,144.30436706543
+destrot=0.011846477065359,0.018694894617684,0.79636594334051,0.60440999841478
+desc=Deliver $item to a seaside parking lot
+reward=600
+items=list_all
+gmwp=blrwp_seasideparking
+type=trailer

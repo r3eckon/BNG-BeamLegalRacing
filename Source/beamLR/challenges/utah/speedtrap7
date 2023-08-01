@@ -1,5 +1,5 @@
 desc=Speed trap challenge through the highway tunnel
-wager=300,500
+wager=400,2000
 triggers=BeamLRTrigger_TunnelSTA
 type=speed
 targetspd=80,100

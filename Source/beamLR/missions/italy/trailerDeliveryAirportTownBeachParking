@@ -1,0 +1,7 @@
+destpos=-1769.4373779297,1412.818359375,138.32073974609
+destrot=0.0019449015559317,0.0035538890451785,-0.71776116270538,0.69627760307395
+desc=Deliver $item to the airport town beach parking lot
+reward=700
+items=list_all
+gmwp=blrwp_airporttownbeachpark
+type=trailer

@@ -1,5 +1,5 @@
 desc=Speed trap challenge near the fishing village
-wager=200,600
+wager=200,2000
 triggers=BeamLRTrigger_SeasideVillageCP2
 type=speed
 targetspd=41,52

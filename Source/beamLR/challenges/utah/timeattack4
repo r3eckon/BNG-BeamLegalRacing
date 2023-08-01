@@ -1,5 +1,5 @@
 desc=Another short hotlap
-wager=150,300
+wager=200,2000
 triggers=BeamNGTrigger_BridgeCarZoneIntersect,BeamNGTrigger_CaravanAreaEntrance,BeamNGTrigger_RoadToAirfield,BeamNGTrigger_AirfieldRoadIntersect,BeamLRTrigger_CurvyRoadCP1,BeamLRTrigger_CurvyRoadCP2,BeamLRTrigger_NearShopCP1,BeamNGTrigger_BridgeCarZoneIntersect
 type=time
 targettime=120000,150000

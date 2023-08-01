@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_CastleTownGasStation
+desc=Deliver $item to the mountain top castle town gas station
+reward=600
+items=list_all
+gmwp=blrwp_castletownstation
+type=small

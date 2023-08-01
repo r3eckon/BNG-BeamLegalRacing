@@ -1,0 +1,112 @@
+{
+  "size":[
+    4096,
+    4096
+  ],
+  "suitablefor": "levels.italy.info.suitablefor",
+  "authors":"BeamNG",
+  "description": "levels.italy.info.description",
+  "roads": "levels.italy.info.roads",
+  "title": "levels.italy.info.title",
+  "country": "levels.common.country.italy",
+  "biome": "levels.italy.info.biome",
+  "features": "levels.italy.info.features",
+  "previews":[
+    "italy_preview0.jpg",
+    "italy_preview4.jpg",
+    "italy_preview3.jpg",
+    "italy_preview2.jpg",
+    "italy_preview1.jpg"
+  ],
+  "defaultSpawnPointName":"spawn_crossroads",
+  "spawnPoints":[
+    {
+      "translationId":"levels.italy.spawnpoints.castle_town",
+      "objectname":"spawn_castle_town",
+      "preview":"spawn_castle_town_preview.jpg"
+    },
+    {
+      "translationId":"levels.italy.spawnpoints.village_mountain",
+      "objectname":"spawn_village_mountain",
+      "preview":"spawn_village_mountain_preview.jpg"
+    },
+    {
+      "translationId":"levels.italy.spawnpoints.city",
+      "objectname":"spawn_city",
+      "preview":"spawn_city_preview.jpg"
+    },
+    {
+      "translationId":"levels.italy.spawnpoints.crossroads",
+      "objectname":"spawn_crossroads",
+      "preview":"spawn_crossroads_preview.jpg"
+    },
+    {
+      "translationId":"levels.italy.spawnpoints.port",
+      "objectname":"spawn_port",
+      "preview":"spawn_port_preview.jpg"
+    },
+    {
+      "translationId":"levels.italy.spawnpoints.airport",
+      "objectname":"spawn_airport",
+      "preview":"spawn_airport_preview.jpg"
+    },
+    {
+      "translationId":"levels.italy.spawnpoints.runway",
+      "objectname":"spawn_runway",
+      "preview":"spawn_runway_preview.jpg"
+    },
+    {
+      "translationId":"levels.italy.spawnpoints.small_village",
+      "objectname":"spawn_small_village",
+      "preview":"spawn_small_village_preview.jpg"
+    },
+    {
+      "translationId":"levels.italy.spawnpoints.town_east",
+      "objectname":"spawn_town_east",
+      "preview":"spawn_town_east_preview.jpg"
+    },
+    {
+      "translationId":"BeamLR Spawn",
+      "objectname":"spawn_beamlr",
+      "preview":"spawn_beamlr_preview.jpg"
+    }
+  ],
+  "gasStationPoints":[
+    {
+      "translationId":"levels.italy.gasStationPoints.fuel_apex_fastello",
+      "description":"levels.italy.gasStationPoints.fuel_apex_fastello.description",
+      "preview":"fuel_apex_fastello.jpg",
+      "zoneNames":["fuel_apex_fastello"]
+    },
+    {
+      "translationId":"levels.italy.gasStationPoints.fuel_apex_norte",
+      "description":"levels.italy.gasStationPoints.fuel_apex_norte.description",
+      "preview":"fuel_apex_norte.jpg",
+      "zoneNames":["fuel_apex_norte"]
+    },
+    {
+      "translationId":"levels.italy.gasStationPoints.fuel_apex_airport",
+      "description":"levels.italy.gasStationPoints.fuel_apex_airport.description",
+      "preview":"fuel_apex_airport.jpg",
+      "zoneNames":["fuel_apex_airport"]
+    },
+    {
+      "translationId":"levels.italy.gasStationPoints.fuel_apex_castelletto",
+      "description":"levels.italy.gasStationPoints.fuel_apex_castelletto.description",
+      "preview":"fuel_apex_castelletto.jpg",
+      "zoneNames":["fuel_apex_castelletto"]
+    },
+    {
+      "translationId":"levels.italy.gasStationPoints.fuel_apex_crossroads",
+      "description":"levels.italy.gasStationPoints.fuel_apex_crossroads.description",
+      "preview":"fuel_apex_crossroads.jpg",
+      "zoneNames":["fuel_apex_crossroads"]
+    },
+    {
+      "translationId":"levels.italy.gasStationPoints.fuel_apex_lucera",
+      "description":"levels.italy.gasStationPoints.fuel_apex_lucera.description",
+      "preview":"fuel_apex_lucera.jpg",
+      "zoneNames":["fuel_apex_lucera"]
+    },
+  ]
+}

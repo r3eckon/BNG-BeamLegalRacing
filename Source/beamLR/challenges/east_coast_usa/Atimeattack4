@@ -1,5 +1,5 @@
 desc=Short length looping time attack
-wager=150,550
+wager=350,1550
 triggers=BeamLRTrigger_TownCP1,BeamLRTrigger_TownCP6,BeamLRTrigger_TownCP7,BeamLRTrigger_FirstResponderStationST,BeamLRTrigger_DirtPathBCP11,BeamLRTrigger_CurveIntersectCP2,BeamLRTrigger_CurveIntersectBCP1,BeamLRTrigger_TownGasStationST
 type=time
 targettime=65000,100000

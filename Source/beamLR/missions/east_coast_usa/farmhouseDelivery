@@ -2,4 +2,4 @@ dest=BeamLRTrigger_Farmhouse
 desc=Deliver tools to the farm house
 reward=350
 gmwp=blrwp_farmhouse
-items=beer,books,coffee_lid,coffee_nolid,fastfood,fishingequipment,gameconsoles,graphicscards,monitors,motoroil,mufflers,pistons,pizza,powertools,scrapmetal,soda,sparkplugs,tools
+items=list_all

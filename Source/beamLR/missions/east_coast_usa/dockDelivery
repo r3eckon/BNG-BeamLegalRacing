@@ -2,4 +2,4 @@ dest=BeamLRTrigger_DockWarehouse
 desc=Deliver parts to the dock warehouse
 reward=350
 gmwp=blrwp_dock
-items=beer,books,coffee_lid,coffee_nolid,fastfood,fishingequipment,gameconsoles,graphicscards,monitors,motoroil,mufflers,pistons,pizza,powertools,scrapmetal,soda,sparkplugs,tools
+items=list_all

@@ -1,0 +1,7 @@
+destpos=1217.0428466797,1088.5377197266,165.1247253418
+destrot=0.0023141576713204,0.0027461155418985,-0.7031794514492,0.71100334920681
+desc=Deliver $item to a house in the city
+reward=850
+items=list_all
+gmwp=blrwp_cityhousetrailer
+type=trailer

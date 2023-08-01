@@ -1,0 +1,8 @@
+desc=Time attack to the airport
+type=time
+wager=400,1000
+rep=20,50
+triggers=BeamLRTrigger_VineyardRaceCP66,BeamLRTrigger_VineyardRaceCP53,BeamLRTrigger_HighwayRaceCP1,BeamLRTrigger_HighwayRaceCP2,BeamLRTrigger_HighwayRaceCP3,BeamLRTrigger_HighwayRaceCP4,BeamLRTrigger_HighwayRaceCP5
+gmwp=Roundabout1_wp1
+targettime=65000,100000
+traffic=0

@@ -1,5 +1,5 @@
 desc=Speed trap challenge near the gas station
-wager=200,1000
+wager=200,2000
 triggers=BeamLRTrigger_TownGasStationST
 type=speed
 targetspd=38,56

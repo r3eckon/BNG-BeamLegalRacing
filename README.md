@@ -1,6 +1,7 @@
 
 
-# Beam Legal Racing 1.11
+
+# Beam Legal Racing 1.12
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -8,9 +9,11 @@ Perform missions, races and challenges to earn money to buy vehicles and parts. 
 ## Quick Links
 ### More Info [Forum thread](https://www.beamng.com/threads/87394/) 
 
-### Career Maps [Utah](utahmap.md) | [East Coast](eastcoastmap.md)
+### Career Maps [Utah](utahmap.md) | [East Coast](eastcoastmap.md) | [Italy](italymap.md)
 
-### Track Event Maps [Hirochi Raceway](hirochimap.md) | [Automation Test Track](automationmap.md)
+### Track Event Maps [Hirochi Raceway](hirochimap.md) | [Automation Test Track](automationmap.md) | [Nordschleife](map_ks_nord.md)
+
+### Addons [Nordschleife](Addons/ks_nord)
 
 ### Enjoying the mod and looking to support the project? [Donate here!](https://www.paypal.com/donate/?hosted_button_id=QQ7SKC6XK7PAE)
 
@@ -88,6 +91,8 @@ Version 1.9.1 temporarily disables beamstate loading (visual damage) due to issu
 Version 1.10 adds race track events to the mod which can be joined from career mode. Track events work using a different lightweight loader mission and work differently than regular career.  This version also adds a bunch of QoL improvements to the UI, saving/loading configs for your vehicles. Backups are now saved automatically when you stop the mission to ensure all files are updated before a backup is saved.
 
 Version 1.11 adds new trailer deliveries, RNG based pink slips and various new restrictions relating to time of day. Car shops are now closed at night while new "high stakes" race clubs are only available at night. This version also adds a new death screen UI allowing you to immediately reload your last backup.
+
+Version 1.12 adds Italy map content, Soliad Lansdale in shops, traffic and opponents, various improvements relating to ease of modding as well as the first addon to the mod which adds support for track events on the Nürburgring Nordschleife mod map.
 
 
 Further instructions and various tips on this mods' various features are listed in the BeamLR UI Main Menu.
@@ -184,6 +189,8 @@ Each event has a unique seed which changes daily and after event completion. Sle
 Track event modding is possible using a similar process to regular race clubs. Event files can be added and modified to have different parameters. 
 
 This system will be used in a future version to create a final boss type race like SLRR.
+
+As of version 1.12 mod levels are now supported for track events. Events for maps you do not have installed will not be offered in the browser. You must also install the **addon** for a specific map otherwise events will not work properly.
 
 
 ## WIP Notice
@@ -313,12 +320,12 @@ For small item delivery you need to add a trigger on the map where you want the 
 dest=DESTINATION_TRIGGER
 desc=Deliver $item to DESTINATION
 reward=200
-items=beer,books,coffee_lid,coffee_nolid,fastfood,fishingequipment,gameconsoles,graphicscards,monitors,motoroil,mufflers,pistons,pizza,powertools,scrapmetal,soda,sparkplugs,tools
+items=list_all
 gmwp=DESTINATION_GPS_WAYPOINT
 type=small
 ```
 
-For trailer deliveries you don't need triggers. Drive up to the location where the trailer should be placed. In lua console use extensions.blrutils.slotHelper() to dump vehicle and camera positions in the beamLR/slotHelper file (which will be created if it doesn't exist yet). Some vehicles tend to have slight offset when using this code but the ETK 800 works well enough. File will look like this:
+For trailer deliveries you don't need triggers. Drive up to the location where the trailer should be placed. In lua console use **extensions.blrutils.slotHelper()** to dump vehicle and camera positions in the **beamLR/slotHelper** file (which will be created if it doesn't exist yet). Some vehicles tend to have slight offset when using this code but the ETK 800 works well enough. File will look like this:
 
 ```
 slotp=-767.92095947266,474.75573730469,23.898416519165
@@ -332,35 +339,33 @@ destpos=SLOT_HELPER_SLOTP
 destrot=SLOT_HELPER_SLOTR
 desc=Deliver $item to DESTINATION
 reward=350
-items=smallflatbed_armchairs,smallflatbed_couch,smallflatbed_1400planks,smallflatbed_2100planks,smallflatbed_400crate_bodypanels,smallflatbed_400crate_eggs,smallflatbed_400crate_engineparts,smallflatbed_400crate_fineart,smallflatbed_400crate_graphicscards,smallflatbed_400crate_scrapmetal,smallflatbed_800crate_engineparts,smallflatbed_800crate_fridge,smallflatbed_800crate_metalingots,smallflatbed_800crate_science
+items=list_all
 gmwp=DESTINATION_GPS_WAYPOINT
 type=trailer
 ```
 
-Then last step so your mission is available in game is to add it to a mission giver file (like beamLR/missions/utah/utahGiver0). Increment the mission count for the type of mission you added and point to the new mission file following the existing format:
+Then last step so your mission is available in game is to add it to a mission giver. As of version 1.12 mission givers use list files to make it easier to add new missions. For this example we'll take a look at the mission giver file **beamLR/missions/utah/utahGiver0**:
 
 ```
 tspos=775.04846191406,-168.5132598877,144.50952148438
 tsrot=0.0033254586916255,-0.0011244714208908,0.1608575760131,0.98697138617475
-smallcount=7
-trailercount=7
-small1=caravanDelivery
-small2=airfieldDelivery
-small3=topshopDelivery
-small4=constructionDelivery
-small5=parkingLotDelivery
-small6=touristAreaDelivery
-small7=rangerCabinDelivery
-trailer1=trailerDeliveryAirfield
-trailer2=trailerDeliveryCanyonFuel
-trailer3=trailerDeliveryConstructionBasement
-trailer4=trailerDeliveryInfoCenter
-trailer5=trailerDeliveryNewShop
-trailer6=trailerDeliveryParking
-trailer7=trailerDeliveryRanger
+slist=list_small
+tlist=list_trailer
 ```
 
-So if you added a trailer mission you get trailercount=8 and trailer8=MISSION FILENAME is added at the end of the file. East coast has two mission giver files so make sure you add the mission to the correct one (or both if that's what you want). eastCoastGiver0 is the town part shop while eastCoastGiver1 is near the player spawn.
+The fields **tlist** and **slist** point to list files for trailer missions and small item missions respectively. The other two fields are the spawn position of trailers so should not be changed unless you're adding a new mission giver. Now taking a look at the file **list_small** you can see mission files are listed one by one:
+
+```
+caravanDelivery
+airfieldDelivery
+topshopDelivery
+constructionDelivery
+parkingLotDelivery
+touristAreaDelivery
+rangerCabinDelivery
+```
+Simply add your mission file to this file and your mission will now be available from the mission giver. To test your mission, create a temporary list file containing only your mission and use that list for a mission giver to force that mission to be offered immediately.
+
 
 You can also add extra delivery items. Item files for small deliveries are very simple, only item name which will be used to replace $item in the mission description and a G force value where the mission fails, basically the fragility of the item being delivered. Mission reward bonus scales with fragility. Just copy a file and change the values. Trailer items have an extra parameter for what trailer config should spawn, usually it will be one of the crate trailers for generic items but specific configs are also be used.
 
@@ -370,8 +375,29 @@ failg=20.0
 trailer=vehicles/tsfb/loaded_couch.pc
 ```
 
-After adding an item file you need to point to it in the mission files. As this is the first iteration of this new system this part will be a bit annoying because you need to change every mission file. One way to do it quickly is to use notepad++ and do "find and replace in files" in the mission folder. Search for the old item list, replace with the list that has your item added. I will be improving this part of the process and the mission giver mission lists in a future update likely using list files that are more easy to manage when modding.
+After adding an item file you need to point to it in the mission files. As of version 1.12 items are also stored in list files which can quickly be edited with new items. Below is the item list **beamLR/missions/items/small/list_all** which is used for most small item delivery missions.
 
+```
+beer
+books
+coffee_lid
+coffee_nolid
+fastfood
+fishingequipment
+gameconsoles
+graphicscards
+monitors
+motoroil
+mufflers
+pistons
+pizza
+powertools
+scrapmetal
+soda
+sparkplugs
+tools
+```
+Simply add your item file to a list file to make it available in missions which use this list file. The **items** field of a mission file can be changed to point to different or more specific item list files such as the small item list **list_food** which only contains food items. Make sure not to use trailer item files/lists for small item deliveries.
 
 ### Adding modded vehicles and custom configs to shops
 
@@ -390,60 +416,61 @@ paint=0,0,0,0,0.1,0.1,0.1,0.1 (only used as fallback paint color if random paint
 randslots=autobello_fender_FL,autobello_bumper_F,...,..., (list of internal slot names to be randomized, usually only body panels)
 ```
 
-The **randslots** line simply isn't there on new cars as they do not spawn with randomized parts. To look through all the slots for body panels spawn the config in game and in lua console use the function **extensions.blrutils.actualSlotDebug()** to dump the slots of that vehicle in the file **beamLR/actualSlotsDebug** so you can create the list of body panel slots.
+The **randslots** line simply isn't there on new cars as they do not spawn with randomized parts. 
+
+To look through all the slots for body panels spawn the config in game and in lua console use the function **extensions.blrutils.actualSlotDebug()** to dump the slots of that vehicle in the file **beamLR/actualSlotsDebug** so you can create the list of body panel slots.
 
 What I do is look through the list to remove slots I don't want randomized (such as engine parts, wheels, other important parts) then using Notepad++ search and replace extended mode to replace **\n** with a **comma** and append that list to the randslots field. Keep in mind if you hit enter when removing slots it might add **\r\n** so if the list isn't in a single line that's probably why.
 
-Once you're done with the car file itself the next step is to make it available in shops. That's done within shop files in **beamLR/shops**. We're interested in the **models** line and associated **model0,model1,...** lines to add a car. This example file is **utahNewCarShop** process is the same for used shops.
+Once you're done with the car file itself the next step is to make it available in shops. That's done within shop files in **beamLR/shops**.  As of version 1.12 list files are used to easily manage which vehicles are available in each shop. Shop files contain a link to the list file set using the **models** field. List files are stored in **beamLR/shop/car** and are simple one value per line files pointing to vehicle files. As an example here is the file **utahUsedCarShop** which uses the **list_used_all** list file:
 
 ```
-name=New Car Shop
-slots=5
-chance=0.7
-shopid=1
-models=13
-model0=etk800_844M_new
-model1=bastion_SE35A
-model2=bastion_battlehawkM
-model3=bolide_350USDM
-model4=vivace_100M_new
-model5=etkc_kc4M
-model6=sbr_rwdbaseM
-model7=scintilla_GT
-model8=scintilla_spyderGTs
-model9=sunburst_20sportM
-model10=etk800_854M_new
-model11=etkc_kc6M
-model12=etkc_kc8M
-slotp0=-809.82904052734,-135.27842712402,296.84014892578
-slotr0=0.0030195300350944,-0.0044971101883625,0.79615106486364,0.60507366522996
-camp0=-805.90307617188,-137.25805664063,298.81729125977
-camr0=0.1438989341259,0.083446733653545,-0.49466302990913,0.85301703214645
-slotp1=-808.48980712891,-130.46528625488,296.82257080078
-slotr1=-0.0020591345820029,-0.002938413974088,0.79541885852035,0.60604947421665
-camp1=-804.58197021484,-132.46055603027,298.81381225586
-camr1=0.14540919661522,0.083938360214233,-0.49284192919731,0.85376650094986
-slotp2=-807.16265869141,-125.64483642578,296.83483886719
-slotr2=0.0034723356938514,-0.0054626919924033,0.7954801701488,0.60594504765784
-camp2=-803.23175048828,-127.61531066895,298.81381225586
-camr2=0.14388573169708,0.083665773272514,-0.49565941095352,0.852419257164
-slotp3=-805.83636474609,-120.82448577881,296.82476806641
-slotr3=0.0034576713507743,-0.0044816834397327,0.79550292794515,0.60592330426637
-camp3=-801.91857910156,-122.78488922119,298.84783935547
-camr3=0.14785739779472,0.086016781628132,-0.495441198349,0.8516321182251
-slotp4=-804.50823974609,-116.00479125977,296.80920410156
-slotr4=0.0046553285357728,-0.0064758269101433,0.79550978787762,0.60588824792445
-camp4=-800.55853271484,-117.96599578857,298.75772094727
-camr4=0.14097069203854,0.08230085670948,-0.49741896986961,0.85201412439346
+name=Used Car Shop
+slots=4
+chance=0.9
+rpchance=0.3
+shopid=0
+models=list_used_all
+slotp0=824.29364013672,-0.1175025672017,147.83654785156
+slotr0=0.0019109094749717,0.034539506349485,-0.82961584485164,0.55832066827696
+slotp1=825.71472167969,-3.5963778495789,147.83418644531
+slotr1=0.0033082890440838,0.0027348922892865,-0.82524905499833,0.56475266903957
+slotp2=826.95849609375,-6.9461436271667,147.83628845215
+slotr2=0.0027869357604591,0.0029588866532912,-0.82071921700846,0.57131728908887
+slotp3=827.56097412109,-10.998514175415,147.83543395996
+slotr3=0.0033683123225928,0.0022886268196966,-0.6751874490874,0.73763495392656
+camp0=819.196,-0.168,149.798
+camr0=0.070,-0.080,0.749,0.654
+camp1=820.313,-4.253,149.607
+camr1=0.069,-0.069,0.706,0.702
+camp2=822.327,-7.880,149.303
+camr2=0.057,-0.057,0.707,0.703
+camp3=823.124,-11.839,149.786
+camr3=0.125,-0.112,0.660,0.732
+```
+Part of the file **list_used_all** can be seen below. Each line must point to a vehicle files in **beamLR/shop/car**. Add your previously created vehicle file to the list file for the shop you want your vehicle to be available in.
+
+```
+coupe_baseM
+coupe_malodorous
+coupe_typeLSM
+barstow_awful
+barstow_232I6M
+bluebuck_horrible
+bluebuck_291V8
+covet_pointless
+covet_13SM
+covet_typeLSM
+vivace_100M_used
+fullsize_miserable
+fullsize_V8A
+etki_2400M
+...
 ```
 
-Increase the value of **models** by **1** and then add a new line following the **modelN** format that points to your file, keep in mind the first model has index **0**. So for the above file to add a car you would set **models** to **14** and then add the line **model13=filename** at the bottom of the models list, using the file name you used after copying a car file. Repeat this part of the process for all shops you want your car to spawn in.
+Your car should now be spawning in shops you added it to. While by default list files are mostly shared between shops of a similar type (scrap,used,new) shops can also have their own specific list files which can used to create more specific shops, for instance brand or country specific shops.
 
-This part of the process is a bit tedious with the hard count list and will likely be improved to work with list files that are shared for multiple shops and easier to manage when modding.
-
-Your car should now be spawning in shops you added it to. 
-
-One way to test to make sure the new car works is to backup the contents of a specific shop file to restore later and then set **models** to **1**, delete every single **modelN** line except for **model0** pointing to your car. This will make it so that shop only has that one car to sell and it'll be the only thing that can spawn so you don't wait for RNG to know if you made a mistake. You can also set the **chance** value to **1.0** so the shop has 100% chance to spawn cars in every slot, a good way to see different variations with randomized parts.
+With list files to test if your vehicle is working you can force it to spawn by creating a temporary list file containing only your vehicle and set a shop to use that list file. This will force the vehicle to spawn at that shop on the first attempt and will save you having to re-roll shops until your new vehicle spawns.
 
 
 ### Other modding
@@ -454,6 +481,8 @@ Mod vehicles *should* also work but beamstate loading is a very unstable feature
 The flowgraph mission can also be tweaked, this is for advanced users only as it's very easy to break things.
 
 Same things goes for LUA scripts.
+
+As of version 1.12 pink slip races are now restricted for certain vehicle models listed in the file **beamLR/pinkslipsBlacklist**. Blacklisted (fancy) vehicles will only allow pink slips when player is also using a blacklisted vehicle. This list can be edited.
 
 ## Final Word
 Feedback and bug reports are appreciated! 
@@ -665,3 +694,25 @@ Thank you for playing BeamLR!
 * Slightly reduced max amount of rounds for most track events
 * Mechanical damage cost now based on linked parts values
 * Fixed N2O check flowgraph node throwing error when vehicle has no engine
+
+### 1.12
+* Added Italy map content
+* Added Soliad Lansdale to race clubs and shops
+* Added new simple traffic configs to traffic spawn group
+* Added pink slips blacklist (no pink slips for fancy vehicles unless player has one)
+* Added Nürburgring Nordschleife Track Events (ks_nord_v20230416)
+* Improved mission files and items loading process using list files
+* Fixed mouse input not registering on bottom of performance class app
+* Slight increase in maximum tolerable G forces
+* Car shop files now using list files for models
+* Randomized parts now controlled with shop specific chance
+* Shop cars without random parts now spawn with factory paints
+* Fixed paint mismatch with pink slips and shops on some vehicles
+* Trying fix for walk mode stuck in place after selling vehicle
+* Drift challenge now adds current drift to total score on completion
+* Fixed hours not showing in race event leaderboard times
+* Fixed stuck walk mode after exiting car shop buy mode
+* Fixed time scale reset after fast forward (sleep)
+* Fixed day change detection not working properly with fast time scale
+* Increased upper reward limit for most challenges
+* Improved level mod compatibility for track event browser (only shows installed maps)

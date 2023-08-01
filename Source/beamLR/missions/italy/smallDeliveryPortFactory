@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_PortFactory
+desc=Deliver $item to the city port factory
+reward=500
+items=list_all
+gmwp=blrwp_portfactory
+type=small

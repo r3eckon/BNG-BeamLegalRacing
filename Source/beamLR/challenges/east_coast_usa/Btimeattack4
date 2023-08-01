@@ -1,5 +1,5 @@
 desc=Short time attack challenge to the sawmill
-wager=250,700
+wager=250,2700
 triggers=BeamLRTrigger_FarmDirtRoadCP6,BeamLRTrigger_FarmDirtRoadCP7,BeamLRTrigger_SawmillDirtRoadCP7,BeamLRTrigger_SawmillCP1,BeamLRTrigger_SawmillCP3,BeamLRTrigger_SawmillCP4,BeamLRTrigger_SawmillCP5,BeamLRTrigger_SawmillCP9
 type=time
 targettime=55000,65000

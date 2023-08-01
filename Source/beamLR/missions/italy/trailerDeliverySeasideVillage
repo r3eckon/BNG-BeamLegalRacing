@@ -1,0 +1,7 @@
+destpos=1854.0771484375,-1310.3048095703,157.73196411133
+destrot=-0.00084713488619546,-0.0030567282467505,0.9884207815695,0.15170463848032
+desc=Deliver $item to the seaside village
+reward=750
+items=list_all
+gmwp=blrwp_seasidevillage
+type=trailer

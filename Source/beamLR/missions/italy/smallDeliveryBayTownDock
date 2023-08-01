@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_BayTownDock
+desc=Deliver $item to the bay town dock
+reward=400
+items=list_all
+gmwp=blrwp_baytowndock
+type=small

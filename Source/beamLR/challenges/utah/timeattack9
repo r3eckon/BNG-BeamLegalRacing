@@ -1,5 +1,5 @@
 desc=Another short length rally time attack
-wager=200,500
+wager=200,3000
 triggers=BeamLRTrigger_OffroadClubEnd,BeamLRTrigger_OffroadCP1,BeamLRTrigger_OffroadCP2,BeamLRTrigger_AirfieldDirtRoadCP2,BeamLRTrigger_AirfieldDirtRoadCP1,BeamLRTrigger_AirfieldJuncDirtA,BeamLRTrigger_Offroad2CP3,BeamLRTrigger_Offroad2CP5,BeamLRTrigger_Offroad2CP4,BeamLRTrigger_Offroad2A2CP4,BeamLRTrigger_Offroad2ACP3,BeamLRTrigger_Offroad2BCP3
 type=time
 targettime=150000,180000

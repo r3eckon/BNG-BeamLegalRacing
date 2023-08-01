@@ -1,0 +1,7 @@
+destpos=-511.09521484375,708.67681884766,304.31155395508
+destrot=0.0027147934478123,-0.003295207218688,0.71804329373725,0.69598534454748
+desc=Deliver $item to the cliffside manor
+reward=850
+items=list_all
+gmwp=blrwp_cliffsidemanor
+type=trailer

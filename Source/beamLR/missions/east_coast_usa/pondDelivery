@@ -2,4 +2,4 @@ dest=BeamLRTrigger_FarPond
 desc=Deliver fishing equipment to the pond
 reward=100
 gmwp=blrwp_farpond
-items=beer,books,coffee_lid,coffee_nolid,fastfood,fishingequipment,gameconsoles,graphicscards,monitors,motoroil,mufflers,pistons,pizza,powertools,scrapmetal,soda,sparkplugs,tools
+items=list_all

@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_SmallBayTownParking
+desc=Deliver $item to the small bay town parking lot
+reward=400
+items=list_all
+gmwp=blrwp_smallbaytownpark
+type=small

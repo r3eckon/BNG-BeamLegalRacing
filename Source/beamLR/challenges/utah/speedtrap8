@@ -1,5 +1,5 @@
 desc=Speed trap challenge near the airfield bus stop
-wager=200,300
+wager=400,2000
 triggers=BeamLRTrigger_BusStopST
 type=speed
 targetspd=50,70

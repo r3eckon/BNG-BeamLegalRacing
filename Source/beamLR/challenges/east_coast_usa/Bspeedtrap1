@@ -1,5 +1,5 @@
 desc=Speed trap challenge at the nearby intersection
-wager=150,500
+wager=250,2500
 triggers=BeamLRTrigger_FarmJuncCP1
 type=speed
 targetspd=39,53

@@ -176,6 +176,14 @@ end
 return dtable
 end
 
+local function loadDataString(filedata)
+local dtable = {}
+for k,v in string.gmatch(filedata, "([^%c]+)=([^%c]+)") do
+    dtable[k] = v
+end
+return dtable
+end
+
 local function saveDataTable(file, data)
 local filedata = ""
 for k,v in pairs(data) do
@@ -193,18 +201,20 @@ saveDataTable(file, dtable)
 end
 
 
-local function slotHelper()
+local function slotHelper(spprefix,srprefix,cpprefix,crprefix)
 local filedata = ""
 local veh = be:getPlayerVehicle(0)
 local vehicleData = map.objects[veh:getId()]
 local pos = vehicleData.pos:toTable()
 local rot = quatFromDir(vehicleData.dirVec, vehicleData.dirVecUp):toTable()
-filedata = "slotp=" .. pos[1] .. "," .. pos[2] .. "," .. pos[3] .. "\n"
-filedata = filedata .. "slotr=" .. rot[1] .. "," .. rot[2] .. "," .. rot[3] .. "," .. rot[4] .. "\n"
+
+
+filedata = (spprefix or "slotp") .. "=" .. pos[1] .. "," .. pos[2] .. "," .. pos[3] .. "\n"
+filedata = filedata .. (srprefix or "slotr") .. "=" .. rot[1] .. "," .. rot[2] .. "," .. rot[3] .. "," .. rot[4] .. "\n"
 pos = getCameraPosition():toTable()
 rot = getCameraQuat():toTable()
-filedata = filedata .. "camp=" .. pos[1] .. "," .. pos[2] .. "," .. pos[3] .. "\n"
-filedata = filedata .. "camr=" .. rot[1] .. "," .. rot[2] .. "," .. rot[3] .. "," .. rot[4]
+filedata = filedata .. (cpprefix or "camp") .. "=" .. pos[1] .. "," .. pos[2] .. "," .. pos[3] .. "\n"
+filedata = filedata .. (crprefix or "camr") .. "=" .. rot[1] .. "," .. rot[2] .. "," .. rot[3] .. "," .. rot[4]
 writeFile("beamLR/slotHelper", filedata)
 end
 
@@ -306,70 +316,7 @@ livePaintUpdate(vid, paint)
 repaintFullMesh(vid, mc.car,mc.cag, mc.cab, mc.caa, mc.cbr,mc.cbg,mc.cbb, mc.cba, mc.ccr,mc.ccg,mc.ccb, mc.cca)
 end
 
-local function processRaceRandoms(raceData)
-local toRet = {}
-local crand = 0
-local wager= ssplit(raceData["wager"], ",")
-local parts= ssplit(raceData["parts"], ",")
-local partsRand = tonumber(raceData["partsRand"]) == 1
-local reputation = ssplit(raceData["rep"], ",")
-local enemyModels = raceData["enemyModel"] -- Now receiving perfclass loader table, no need for ssplit
-local enemyConfigs = raceData["enemyConfig"] -- Now receiving perfclass loader table, no need for ssplit
-local enemyRisk = ssplit(raceData["enemyRisk"], ",")
-local laps = ssplit(raceData["laps"], ",")
-local slipsChance = tonumber(raceData["slips"])
 
-
-if math.random() <= slipsChance then -- RNG based pink slips 
-toRet["slips"] = 1
-else -- No pink slips, randomly generate wager
-toRet["slips"] = 0
-end
-
-if #wager > 1 then 
-toRet["wager"] = math.random(tonumber(wager[1]), tonumber(wager[2]))
-else 
-toRet["wager"] = tonumber(wager[1])
-end
-
-if partsRand then
-crand = math.random(#parts)
-toRet["parts"] = parts[crand]
-else
-toRet["parts"] = raceData["parts"]
-end
-
-if #reputation > 1 then
-toRet["rep"] = math.random(tonumber(reputation[1]), tonumber(reputation[2]))
-else 
-toRet["rep"] = tonumber(reputation[1])
-end
-
-if #enemyModels > 1 then
-crand = math.random(#enemyModels)
-toRet["enemyModel"] = enemyModels[crand]
-toRet["enemyConfig"] = enemyConfigs[crand]
-else 
-toRet["enemyModel"] = raceData["enemyModel"][1]
-toRet["enemyConfig"] = raceData["enemyConfig"][1]
-end
-
-if #enemyRisk > 1 then
-toRet["enemyRisk"] = math.random(tonumber(enemyRisk[1])*100.0, tonumber(enemyRisk[2])*100.0) / 100.0
-else
-toRet["enemyRisk"] = tonumber(enemyRisk[1])
-end
-
-if #laps > 1 then
-toRet["laps"] = math.random(tonumber(laps[1]), tonumber(laps[2]))
-else
-toRet["laps"] = tonumber(laps[1])
-end
-
-lastProcessedRace = toRet
-
-return toRet
-end
 
 local function processChallengeRandoms(cdata)
 local toRet = {}
@@ -853,14 +800,27 @@ local function resetTimeOfDay() -- For mission end cleanup
 core_environment.setTimeOfDay({time = 0, play = false, dayScale = 1.0, nightScale = 2.0 })
 end
 
-local driftScore = 0
+local driftTotal = 0
+local driftCurrent = 0
 
-local function setDriftScore(score)
-driftScore = score
+local function setDriftTotal(score)
+driftTotal = score
 end
 
-local function getDriftScore()
-return driftScore
+local function setDriftCurrent(score)
+driftCurrent = score
+end
+
+local function getDriftTotal()
+return driftTotal
+end
+
+local function getDriftCurrent()
+return driftCurrent
+end
+
+local function getDriftCombined()
+return math.floor(driftTotal + driftCurrent)
 end
 
 local buttonConfirmState = {}
@@ -1033,7 +993,7 @@ local model = split[2+offset]
 return model
 end
 
-local function loadDataFile(path) -- For files not in table format, load each line as a table element
+local function loadDataFile(path, asKeys) -- For files not in table format, load each line as a table element
 local filedata = readFile(path)
 if string.sub(filedata, #filedata, #filedata) == "\n" then -- Remove last newline if it exists to prevent empty last element
 filedata = string.sub(filedata, 1, #filedata-1) 
@@ -1042,7 +1002,11 @@ filedata = filedata:gsub("\r", "") -- Clear \r character leaving only \n
 local filesplit = ssplit(filedata, "\n")
 local toRet = {}
 for k,v in pairs(filesplit) do
+if asKeys then
+toRet[v] = true
+else
 toRet[k] = v
+end
 end
 return toRet
 end
@@ -1285,15 +1249,28 @@ local info = getLevelInfo(level)
 return translateLanguage(info["title"], info["title"])
 end
 
+local function getInstalledLevels() -- As key map for quick lookup
+local levels = core_levels.getLevelNames()
+local toRet = {}
+for k,v in pairs(levels) do -- Look for terrain file to ensure lvl is actually installed
+if FS:findFiles("levels/" .. v, "*.ter", 0, false)[1] ~= nil then
+toRet[v] = true
+end
+end
+return toRet
+end
+
 local function eventBrowserGetList() -- Returns event list for browser UI
 local toRet = {}
 local files = FS:findFiles("beamLR/trackEvents/", "*", 0)
 local pdata = loadDataTable("beamLR/mainData")
 local currentEvent = loadDataTable("beamLR/currentTrackEvent")
+local installedLevels = getInstalledLevels()
 local cdata = {}
 local i = 1
 for k,v in pairs(files) do
 cdata = loadDataTable(v)
+if installedLevels[cdata["map"]] then -- Do not offer events on maps that aren't installed
 toRet[i] = {}
 toRet[i]["title"] = cdata["title"]
 toRet[i]["joincost"] = cdata["joincost"]
@@ -1303,6 +1280,7 @@ toRet[i]["unlocked"] = extensions.blrglobals.gmGetVal("playerRep") >= tonumber(c
 toRet[i]["repunlock"] = tonumber(cdata["reputation"])
 toRet[i]["file"] = v:sub(21)
 i = i+1
+end
 end
 
 return toRet
@@ -1752,7 +1730,7 @@ end
 
 local function processMissionRandoms(mdata, mtype)
 local toRet = {}
-local items = ssplit(mdata["items"], ",")
+local items = loadDataFile("beamLR/missions/items/" .. mtype .. "/" .. mdata["items"]) -- Now uses list files
 local ipick = ""
 local idata = {}
 local difficulty = 0
@@ -1844,6 +1822,175 @@ blrvarSet("SFXFile", effect)
 extensions.blrglobals.blrFlagSet("SFXQueued", true)
 end
 
+-- Race path helper function: finds editor selection and dumps to file
+-- To create or edit race paths without having to input each trigger individually
+local function racePathHelper(separator)
+local data = ""
+local cobj = {}
+local cname = ""
+for k,v in ipairs(editor.selection.object) do
+cobj = scenetree.findObjectById(v)
+cname = cobj:getName()
+data = data .. cname
+if separator then
+data = data .. separator
+else
+data = data .. "\n"
+end
+end
+data = data:sub(1,-2)
+writeFile("beamLR/racePathHelper", data)
+end
+
+local function createRandomFactoryPaint(seed, model)
+math.randomseed(seed)
+local paints = getVehicleInfoFile(model)["paints"]
+local pkeys = {}
+local pid = 1
+for k,v in pairs(paints) do
+pkeys[pid] = k
+pid = pid+1
+end
+local pick = pkeys[math.random(1, #pkeys)]
+print("Picked random factory paint key: " .. pick)
+local paint = paints[pick]
+return createVehiclePaint({x=paint.baseColor[1], y=paint.baseColor[2], z=paint.baseColor[3], w=paint.baseColor[4]}, paint.metallic, paint.roughness, paint.clearcoat, paint.clearcoatRoughness)
+end
+
+local function processRaceRandoms(raceData)
+local toRet = {}
+local crand = 0
+local wager= ssplit(raceData["wager"], ",")
+local parts= ssplit(raceData["parts"], ",")
+local partsRand = tonumber(raceData["partsRand"]) == 1
+local reputation = ssplit(raceData["rep"], ",")
+local enemyModels = raceData["enemyModel"] -- Now receiving perfclass loader table, no need for ssplit
+local enemyConfigs = raceData["enemyConfig"] -- Now receiving perfclass loader table, no need for ssplit
+local enemyRisk = ssplit(raceData["enemyRisk"], ",")
+local laps = ssplit(raceData["laps"], ",")
+local slipsChance = tonumber(raceData["slips"])
+local pmodel = extensions.betterpartmgmt.getMainPartName()
+local slipsBlacklist = loadDataFile("beamLR/pinkslipsBlacklist", true)-- Loaded as keys for fast lookup
+local wagertmp = 0
+
+if #wager > 1 then 
+toRet["wager"] = math.random(tonumber(wager[1]), tonumber(wager[2]))
+else 
+toRet["wager"] = tonumber(wager[1])
+end
+wagertmp = toRet["wager"]
+
+crand = math.random()
+if crand <= slipsChance then -- RNG based pink slips 
+toRet["slips"] = 1
+-- 1.12 now uses chance for slips to also have a bonus wager
+if crand > slipsChance / 2.0 then toRet["wager"] = 0 end
+else -- No pink slips, randomly generate wager
+toRet["slips"] = 0
+end
+
+if partsRand then
+crand = math.random(#parts)
+toRet["parts"] = parts[crand]
+else
+toRet["parts"] = raceData["parts"]
+end
+
+if #reputation > 1 then
+toRet["rep"] = math.random(tonumber(reputation[1]), tonumber(reputation[2]))
+else 
+toRet["rep"] = tonumber(reputation[1])
+end
+
+if #enemyModels > 1 then
+-- dev mode attempt to load specific model
+if blrvarGet("devRaceModel") then
+for i=1,100 do 
+crand = math.random(#enemyModels)
+toRet["enemyModel"] = enemyModels[crand]
+toRet["enemyConfig"] = enemyConfigs[crand]
+if toRet["enemyModel"] == blrvarGet("devRaceModel") then break end
+end
+else
+crand = math.random(#enemyModels)
+toRet["enemyModel"] = enemyModels[crand]
+toRet["enemyConfig"] = enemyConfigs[crand]
+end
+
+else 
+toRet["enemyModel"] = raceData["enemyModel"][1]
+toRet["enemyConfig"] = raceData["enemyConfig"][1]
+end
+
+-- enemy model is on slips blacklist, only offer slips if player also has
+-- a blacklisted (aka fancy) vehicle model otherwise force disable slips
+if slipsBlacklist[toRet["enemyModel"]] and not slipsBlacklist[pmodel] then
+toRet["slips"] = 0
+toRet["wager"] = wagertmp -- Restores wager in event it was set to 0 by slips
+end
+
+
+if #enemyRisk > 1 then
+toRet["enemyRisk"] = math.random(tonumber(enemyRisk[1])*100.0, tonumber(enemyRisk[2])*100.0) / 100.0
+else
+toRet["enemyRisk"] = tonumber(enemyRisk[1])
+end
+
+if #laps > 1 then
+toRet["laps"] = math.random(tonumber(laps[1]), tonumber(laps[2]))
+else
+toRet["laps"] = tonumber(laps[1])
+end
+
+lastProcessedRace = toRet
+
+return toRet
+end
+
+local function wpspdHelper(scale,original)
+local split = ssplit(original, ",")
+local vsplit = {}
+local cval = 0
+local toRet = "wpspd="
+for k,v in pairs(split) do
+vsplit = ssplit(v, ":")
+cval = tonumber(vsplit[2])
+toRet = toRet .. vsplit[1] .. ":" .. (cval * scale) .. ","
+end
+return writeFile("beamLR/wpspdHelper",toRet:sub(1,-2))
+end
+
+-- 1.12 added system for better day change detection 
+-- should work with most reasonable time scale vals
+local dayChangeReady = {}
+local dayChangeDone = {}
+
+local function getDayChangeDone(day)
+return dayChangeDone[day]
+end
+local function getDayChangeReady(day)
+return dayChangeReady[day]
+end
+local function setDayChangeDone(day)
+dayChangeDone[day] = true
+end
+local function setDayChangeReady(day)
+dayChangeReady[day] = true
+end
+local function initDayChangeSystem()
+dayChangeReady = {}
+dayChangeDone = {}
+end
+
+M.getInstalledLevels = getInstalledLevels
+M.initDayChangeSystem = initDayChangeSystem
+M.setDayChangeReady = setDayChangeReady
+M.setDayChangeDone = setDayChangeDone
+M.getDayChangeReady = getDayChangeReady
+M.getDayChangeDone = getDayChangeDone
+M.wpspdHelper = wpspdHelper
+M.createRandomFactoryPaint = createRandomFactoryPaint
+M.racePathHelper = racePathHelper
 M.playSFX = playSFX
 M.setDeathScreenTextOpacity = setDeathScreenTextOpacity
 M.setDeathScreenBackOpacity = setDeathScreenBackOpacity
@@ -1900,8 +2047,12 @@ M.getButtonStates = getButtonStates
 M.resetButtonConfirm = resetButtonConfirm
 M.getButtonConfirm = getButtonConfirm
 M.cycleButtonConfirm = cycleButtonConfirm
-M.getDriftScore = getDriftScore
-M.setDriftScore = setDriftScore
+M.getDriftTotal = getDriftTotal
+M.getDriftCurrent = getDriftCurrent
+M.getDriftCombined = getDriftCombined
+M.setDriftCurrent = setDriftCurrent
+M.setDriftTotal = setDriftTotal
+M.setDriftCurrent = setDriftCurrent
 M.resetTimeOfDay = resetTimeOfDay
 M.getPartShopPriceScale = getPartShopPriceScale
 M.getStarterCarID = getStarterCarID 

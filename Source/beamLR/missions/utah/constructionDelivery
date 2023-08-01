@@ -1,6 +1,6 @@
 dest=BeamLRTrigger_ConstructionZone
 desc=Deliver $item to the construction zone
 reward=400
-items=beer,books,coffee_lid,coffee_nolid,fastfood,fishingequipment,gameconsoles,graphicscards,monitors,motoroil,mufflers,pistons,pizza,powertools,scrapmetal,soda,sparkplugs,tools
+items=list_all
 gmwp=blrwp_mgm_construction
 type=small

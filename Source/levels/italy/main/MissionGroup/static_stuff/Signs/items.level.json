@@ -1,0 +1,6 @@
+{"name":"signs_quads_3","class":"SimGroup","persistentId":"0f118916-2e76-4111-a423-c650f30b2eeb","__parent":"Signs"}
+{"name":"direction_signs","class":"SimGroup","persistentId":"124a5d23-1d43-4a8f-b89c-6213c87fa428","__parent":"Signs"}
+{"name":"highway_signs","class":"SimGroup","persistentId":"125a6920-f44e-4c55-8492-1a3a431285f6","__parent":"Signs"}
+{"name":"signs_quads_1","class":"SimGroup","persistentId":"1c777700-eabb-43f3-b780-65ce8da8c2aa","__parent":"Signs"}
+{"name":"signs_quads_2","class":"SimGroup","persistentId":"1d4574fb-c39f-4401-88e0-5ab26c20c3d7","__parent":"Signs"}
+{"name":"signs_quads_4","class":"SimGroup","persistentId":"583181e9-d182-4a69-b0f5-00402d9e249f","__parent":"Signs"}

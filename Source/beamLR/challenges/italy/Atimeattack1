@@ -1,0 +1,8 @@
+desc=Short time attack to the dam
+type=time
+wager=400,1000
+rep=20,50
+triggers=BeamLRTrigger_TougeCP1,BeamLRTrigger_TougeCP2,BeamLRTrigger_TougeCP3,BeamLRTrigger_TougeCP4,BeamLRTrigger_TougeCP5,BeamLRTrigger_TougeCP6,BeamLRTrigger_TougeCP7,BeamLRTrigger_TougeCP8
+gmwp=blrwp_topdirtparking
+targettime=118000,180000
+traffic=0

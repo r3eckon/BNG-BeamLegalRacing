@@ -1,5 +1,5 @@
 desc=Time attack challenge to the red manor
-wager=250,750
+wager=250,1750
 triggers=BeamLRTrigger_TownCP1,BeamLRTrigger_TownCP2,BeamLRTrigger_TownCP3,BeamLRTrigger_TownCP5,BeamLRTrigger_TownEntranceBridgeCP1,BeamLRTrigger_TownEntranceBridgeCP3,BeamLRTrigger_TownEntranceYJuncCP2,BeamLRTrigger_FirwoodInnJuncCP1,BeamLRTrigger_FirwoodInnEntranceCP1,BeamLRTrigger_SawmillCP11,BeamLRTrigger_RedmanorEntranceCP2,BeamLRTrigger_Manor
 type=time
 targettime=66000,100000

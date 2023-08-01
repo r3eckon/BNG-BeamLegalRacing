@@ -1,0 +1,9 @@
+desc=Drift challenge to a cliffside parking area
+type=drift
+wager=900,5000
+rep=50,100
+triggers=BeamLRTrigger_TougeCP18,BeamLRTrigger_TougeCP19,BeamLRTrigger_TougeCP20,BeamLRTrigger_TougeCP21,BeamLRTrigger_TougeCP22,BeamLRTrigger_TougeCP23,BeamLRTrigger_TougeCP24,BeamLRTrigger_TougeCP25,BeamLRTrigger_TougeCP26,BeamLRTrigger_TougeCP34,BeamLRTrigger_TougeCP35,BeamLRTrigger_TougeCP36,BeamLRTrigger_TougeCP37
+gmwp=blrwp_topdirtparking
+targettime=410000,470000
+driftpts=20000,30000
+traffic=0

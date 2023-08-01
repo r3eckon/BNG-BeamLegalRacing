@@ -1,0 +1,8 @@
+desc=Highway speed trap challenge #4
+wager=200,2000
+triggers=BeamLRTrigger_VineyardRaceCP60
+type=speed
+targetspd=50,90
+rep=10,50
+gmwp=blrwp_highwayraceaiwp4
+traffic=1

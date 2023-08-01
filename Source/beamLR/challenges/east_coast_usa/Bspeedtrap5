@@ -1,5 +1,5 @@
 desc=Another speed trap challenge at the gas station intersection
-wager=175,500
+wager=375,2500
 triggers=BeamLRTrigger_GasStationIntersectCP4
 type=speed
 targetspd=38,55

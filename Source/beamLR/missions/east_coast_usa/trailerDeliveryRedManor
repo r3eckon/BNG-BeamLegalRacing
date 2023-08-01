@@ -2,6 +2,6 @@ destpos=-556.12976074219,-824.76770019531,49.70431137085
 destrot=0.0039646381053748,-0.00097452688157582,0.16760151993476,0.98584636858773
 desc=Deliver $item to the red manor
 reward=400
-items=smallflatbed_armchairs,smallflatbed_couch,smallflatbed_1400planks,smallflatbed_2100planks,smallflatbed_400crate_bodypanels,smallflatbed_400crate_eggs,smallflatbed_400crate_engineparts,smallflatbed_400crate_fineart,smallflatbed_400crate_graphicscards,smallflatbed_400crate_scrapmetal,smallflatbed_800crate_engineparts,smallflatbed_800crate_fridge,smallflatbed_800crate_metalingots,smallflatbed_800crate_science
+items=list_all
 gmwp=blrwp_manor
 type=trailer

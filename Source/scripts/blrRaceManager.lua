@@ -369,7 +369,11 @@ return toRet
 end
 
 local function raceTimeString(time)
+if time["hours"] > 0 then
+return string.format("%02d:%02d:%02d.%03d",time["hours"], time["minutes"], time["seconds"], time["milliseconds"])
+else
 return string.format("%02d:%02d.%03d", time["minutes"], time["seconds"], time["milliseconds"])
+end
 end
 
 local function setPenaltyTriggers(trigs)

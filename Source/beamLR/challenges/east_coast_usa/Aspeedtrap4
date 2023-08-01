@@ -1,5 +1,5 @@
 desc=Town entrance bridge speed trap challenge
-wager=150,500
+wager=150,2000
 triggers=BeamLRTrigger_TownEntranceBridgeCP1
 type=speed
 targetspd=33,44

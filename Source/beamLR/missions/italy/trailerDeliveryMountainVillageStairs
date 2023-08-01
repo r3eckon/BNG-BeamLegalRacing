@@ -1,0 +1,7 @@
+destpos=245.47039794922,-983.77233886719,271.85327148438
+destrot=0.022119709220997,-0.0043006880096178,0.9972473531041,0.070639502217227
+desc=Deliver $item to the top of the mountain village stairs
+reward=1000
+items=list_all
+gmwp=mountain_village_bridge2_d
+type=trailer

@@ -1,0 +1,16 @@
+{"name":"construction_1","class":"SimGroup","persistentId":"2e1b2d67-2972-418e-8975-a395b92f5f04","__parent":"static_stuff"}
+{"name":"clutter","class":"SimGroup","persistentId":"4678a047-3f1c-4b16-b46e-a5eaa8450a51","__parent":"static_stuff"}
+{"name":"firestation","class":"SimGroup","persistentId":"4c878f45-1ddb-4ad6-b020-ca219bfb2c78","__parent":"static_stuff"}
+{"name":"Small_Village","class":"SimGroup","persistentId":"61057d54-42e6-4cfe-b026-ee777245bfd5","__parent":"static_stuff"}
+{"name":"Airport_Clutters","class":"SimGroup","persistentId":"6c8bf544-4547-41bd-bd8f-b87f53d9a778","__parent":"static_stuff"}
+{"name":"backdrops","class":"SimGroup","persistentId":"86d72f4e-dcba-44c0-93d2-b4fb210f5417","__parent":"static_stuff"}
+{"name":"lights_boxes_traffic_lights","class":"SimGroup","persistentId":"8ab30493-1336-4e14-9ed5-1f833f5f57b0","__parent":"static_stuff"}
+{"name":"construction_2","class":"SimGroup","persistentId":"9b9a2b57-24db-48a9-9843-ff90aae4bc6b","__parent":"static_stuff"}
+{"name":"general","class":"SimGroup","persistentId":"b57489b1-c470-4882-adb6-0f267d7a1901","__parent":"static_stuff"}
+{"name":"windows_standalone","class":"SimGroup","persistentId":"b6e69fed-6508-4ed4-84c2-b697f60a31af","__parent":"static_stuff"}
+{"name":"boats","class":"SimGroup","persistentId":"c18bbdfc-95ba-44a9-8545-c628e12ca6a4","__parent":"static_stuff"}
+{"name":"Signs","class":"SimGroup","persistentId":"c27230f5-8da3-47f2-842d-093401138b1c","__parent":"static_stuff"}
+{"name":"billboards","class":"SimGroup","persistentId":"c9db5e04-c620-41b6-a9a8-391c1bc05b56","__parent":"static_stuff"}
+{"name":"castle_detaill","class":"SimGroup","persistentId":"e7c85c75-f6b0-487e-bfea-8bdfb923c8e4","__parent":"static_stuff"}
+{"name":"hospital","class":"SimGroup","persistentId":"ed6d955b-d4c5-4de8-8fbc-b43cef48ebd5","__parent":"static_stuff"}
+{"name":"town_bases","class":"SimGroup","persistentId":"f7fb3bd8-a902-4efb-bcf9-dbe035bc9531","__parent":"static_stuff"}

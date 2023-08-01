@@ -2,4 +2,4 @@ dest=BeamLRTrigger_Manor
 desc=Deliver electronics to the red manor
 reward=450
 gmwp=blrwp_manor
-items=beer,books,coffee_lid,coffee_nolid,fastfood,fishingequipment,gameconsoles,graphicscards,monitors,motoroil,mufflers,pistons,pizza,powertools,scrapmetal,soda,sparkplugs,tools
+items=list_all

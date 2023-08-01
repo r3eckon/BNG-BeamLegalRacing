@@ -1,5 +1,5 @@
 desc=Drift challenge to the town
-wager=400,800
+wager=400,2800
 triggers=BeamLRTrigger_FarmJuncCP1,BeamLRTrigger_SawmillEntranceCP2,BeamLRTrigger_SawmillOverpassJuncCP1,BeamLRTrigger_TownEntranceYJuncCP1,BeamLRTrigger_TownEntranceBridgeCP1
 type=drift
 targettime=125000,185000

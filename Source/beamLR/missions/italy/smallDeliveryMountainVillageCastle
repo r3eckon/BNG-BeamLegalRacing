@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_MountainVillageCastle
+desc=Deliver $item to the mountain village castle
+reward=600
+items=list_all
+gmwp=blrwp_mountainvillagecastle
+type=small

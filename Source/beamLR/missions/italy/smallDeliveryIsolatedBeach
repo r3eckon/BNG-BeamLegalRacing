@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_IsolatedBeach
+desc=Deliver $item to an isolated beach
+reward=400
+items=list_all
+gmwp=blrwp_isolatedbeach
+type=small

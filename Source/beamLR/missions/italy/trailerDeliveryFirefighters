@@ -1,0 +1,7 @@
+destpos=1477.3774414063,1372.9423828125,148.23504638672
+destrot=0.0020291004776002,-0.0047928784165604,0.95240421892872,0.30479356101222
+desc=Deliver $item to the city fire station
+reward=600
+items=list_all
+gmwp=blrwp_firefighters
+type=trailer

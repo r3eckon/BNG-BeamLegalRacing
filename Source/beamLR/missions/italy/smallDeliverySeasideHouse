@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_SeasideHouse
+desc=Deliver $item to a seaside house
+reward=400
+items=list_all
+gmwp=blrwp_seasidehouse
+type=small

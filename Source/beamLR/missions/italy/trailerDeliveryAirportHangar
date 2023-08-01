@@ -1,0 +1,7 @@
+destpos=-825.18347167969,1676.3090820313,152.62672424316
+destrot=0.0037627833269807,0.0012995579121444,-0.10456782507555,0.99450979008245
+desc=Deliver $item to the airport hangars
+reward=800
+items=list_all
+gmwp=blrwp_airporthangar
+type=trailer

@@ -1,5 +1,5 @@
 desc=Time attack challenge to the watchtower
-wager=100,500
+wager=300,1500
 triggers=BeamLRTrigger_TownCP1,BeamLRTrigger_TownCP2,BeamLRTrigger_TownCP3,BeamLRTrigger_TownCP5,BeamLRTrigger_TownEntranceBridgeCP1,BeamLRTrigger_TownEntranceBridgeCP2,BeamLRTrigger_WatchtowerroadYjuncCP1,BeamLRTrigger_WatchtowerCP1,BeamLRTrigger_Watchtower
 type=time
 targettime=50000,67000

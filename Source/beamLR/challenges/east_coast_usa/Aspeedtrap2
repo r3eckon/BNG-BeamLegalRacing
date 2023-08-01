@@ -1,5 +1,5 @@
 desc=Speed trap challenge next to the town church
-wager=100,500
+wager=300,2000
 triggers=BeamLRTrigger_RaceClubBFinish
 type=speed
 targetspd=38,52

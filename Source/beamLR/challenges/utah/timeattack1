@@ -1,5 +1,5 @@
 desc=Time attack challenge through the tunnel
-wager=200,300
+wager=200,2000
 triggers=BeamNGTrigger_RaceEnd,BeamNGTrigger_HighwayDragFinish,BeamLRTrigger_TunnelSTA,BeamNGTrigger_RaceEnd
 type=time
 targettime=150000,180000

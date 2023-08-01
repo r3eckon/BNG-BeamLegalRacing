@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_CityPark
+desc=Deliver $item to the city park
+reward=400
+items=list_all
+gmwp=wp_busStop_14_b_3
+type=small

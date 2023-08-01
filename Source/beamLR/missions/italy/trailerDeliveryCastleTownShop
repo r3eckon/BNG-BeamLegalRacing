@@ -1,0 +1,7 @@
+destpos=-1125.9945068359,900.380859375,383.96942138672
+destrot=0.0029811499168824,-0.002837086356609,0.75039875928715,0.66097259076794
+desc=Deliver $item in front of Claudio Motors in the mountain top town
+reward=900
+items=list_all
+gmwp=blrwp_castletownstation
+type=trailer

@@ -1,5 +1,5 @@
 desc=Time attack challenge to the town
-wager=200,600
+wager=400,3600
 triggers=BeamLRTrigger_FarmJuncCP1,BeamLRTrigger_SawmillEntranceCP2,BeamLRTrigger_SawmillOverpassJuncCP1,BeamLRTrigger_TownEntranceYJuncCP1,BeamLRTrigger_TownEntranceBridgeCP1
 type=time
 targettime=37000,55000

@@ -1,6 +1,6 @@
 desc=Another drag race
 wager=750,1250
-slips=0.03
+slips=1
 enemyModel=scintilla
 enemyConfig=vehicles/scintilla/gt.pc
 enemyRisk=2.0

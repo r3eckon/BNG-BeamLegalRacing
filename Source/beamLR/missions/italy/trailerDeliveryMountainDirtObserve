@@ -1,0 +1,7 @@
+destpos=-209.96803283691,-623.58001708984,476.89596557617
+destrot=0.00096833191889146,-0.0021578889336132,0.84016014615371,0.54233323212175
+desc=Deliver $item to a mountain top dirt observation area
+reward=1200
+items=list_all
+gmwp=blrwp_topdirtparking
+type=trailer

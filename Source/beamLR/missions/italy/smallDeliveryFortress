@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_Fortress
+desc=Deliver $item to the city fort
+reward=520
+items=list_all
+gmwp=blrwp_fortress
+type=small

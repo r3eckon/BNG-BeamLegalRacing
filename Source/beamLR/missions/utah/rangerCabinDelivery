@@ -1,6 +1,6 @@
 dest=BeamLRTrigger_RangerCabin
 desc=Deliver $item to the ranger cabin
 reward=150
-items=beer,books,coffee_lid,coffee_nolid,fastfood,fishingequipment,gameconsoles,graphicscards,monitors,motoroil,mufflers,pistons,pizza,powertools,scrapmetal,soda,sparkplugs,tools
+items=list_all
 gmwp=blrwp_rangercabin
 type=small

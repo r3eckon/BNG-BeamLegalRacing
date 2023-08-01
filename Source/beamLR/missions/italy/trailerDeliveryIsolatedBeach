@@ -1,0 +1,7 @@
+destpos=1021.7200317383,-1764.3820800781,141.51924133301
+destrot=0.0011509838456827,0.0026533109577098,-0.61837445718867,0.78587827675395
+desc=Deliver $item to an isolated beach
+reward=650
+items=list_all
+gmwp=blrwp_isolatedbeach
+type=trailer

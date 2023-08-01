@@ -1,0 +1,9 @@
+desc=Drift challenge to the cliffside gas station
+type=drift
+wager=800,3500
+rep=50,100
+triggers=BeamLRTrigger_TougeCP18,BeamLRTrigger_TougeCP19,BeamLRTrigger_TougeCP45,BeamLRTrigger_TougeCP47,BeamLRTrigger_TougeCP48,BeamLRTrigger_TougeCP49,BeamLRTrigger_TougeCP50,BeamLRTrigger_TougeCP51,BeamLRTrigger_TougeCP52
+gmwp=blrwp_topdirtparking
+targettime=330000,390000
+driftpts=12000,17000
+traffic=0

@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_MountainVillageChurch
+desc=Deliver $item to the mountain village church
+reward=600
+items=list_all
+gmwp=mountain_village_road1_a
+type=small

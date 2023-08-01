@@ -2,4 +2,4 @@ dest=BeamLRTrigger_Watchtower
 desc=Deliver food to the watch tower
 reward=200
 gmwp=blrwp_watchtower
-items=beer,books,coffee_lid,coffee_nolid,fastfood,fishingequipment,gameconsoles,graphicscards,monitors,motoroil,mufflers,pistons,pizza,powertools,scrapmetal,soda,sparkplugs,tools
+items=list_all

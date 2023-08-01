@@ -1,7 +1,7 @@
 status=over
-seed=742
 eventid=0
-efile=hirochi_trackA_classA
+cround=1
+ctimes=player:969058.04273766,op1:1028959.0427377,op2:974689.04273766,op3:1010299.0427377,op4:1025697.0427377,op5:1018970.0427377
 carid=0
-ctimes=player:0,op1:0,op2:0,op3:0,op4:0,op5:0
-cround=0
+efile=nordschleife_trackA_classD
+seed=700

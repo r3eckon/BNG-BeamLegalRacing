@@ -1,5 +1,5 @@
 desc=Highway speed trap challenge
-wager=100,200
+wager=400,2000
 triggers=BeamNGTrigger_HighwayDragFinish
 type=speed
 targetspd=50,90

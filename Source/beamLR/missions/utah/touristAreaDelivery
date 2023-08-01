@@ -1,6 +1,6 @@
 dest=BeamLRTrigger_TouristAreaDelivery
 desc=Deliver $item to the information center
 reward=220
-items=beer,books,coffee_lid,coffee_nolid,fastfood,fishingequipment,gameconsoles,graphicscards,monitors,motoroil,mufflers,pistons,pizza,powertools,scrapmetal,soda,sparkplugs,tools
+items=list_all
 gmwp=ut_wp_124
 type=small

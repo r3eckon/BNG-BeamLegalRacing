@@ -1,5 +1,5 @@
 desc=Crazy jump over the road!
-wager=600,800
+wager=800,2800
 triggers=BeamLRTrigger_CrazyJump
 type=jump
 rep=20,40

@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_VineyardConstruction
+desc=Deliver $item to the vineyard construction site
+reward=400
+items=list_all
+gmwp=wp_busStop_05_3
+type=small

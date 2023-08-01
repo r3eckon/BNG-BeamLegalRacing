@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_RoadsideBeach
+desc=Deliver $item to a beach
+reward=400
+items=list_all
+gmwp=blrwp_roadsidebeach
+type=small

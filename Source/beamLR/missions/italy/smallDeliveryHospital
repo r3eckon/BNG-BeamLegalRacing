@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_Hospital
+desc=Deliver $item to the city hospital
+reward=470
+items=list_all
+gmwp=blrwp_hospital
+type=small

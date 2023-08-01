@@ -1,0 +1,7 @@
+destpos=-1770.7080078125,1314.5721435547,139.35958862305
+destrot=0.0025653181126225,-0.0030559739479528,0.71210375663058,0.70206290313535
+desc=Deliver $item to the airport town dock area
+reward=700
+items=list_all
+gmwp=blrwp_airporttowndock
+type=trailer

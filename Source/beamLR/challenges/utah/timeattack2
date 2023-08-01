@@ -1,5 +1,5 @@
 desc=Offroad time attack to the airfield
-wager=200,300
+wager=200,2000
 triggers=BeamLRTrigger_OffroadChallenge1CP1,BeamLRTrigger_OffroadChallenge1CP2,BeamLRTrigger_OffroadChallenge1CP3,BeamNGTrigger_AirfieldFinish
 type=time
 targettime=90000,120000

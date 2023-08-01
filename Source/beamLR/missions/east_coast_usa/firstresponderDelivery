@@ -2,4 +2,4 @@ dest=BeamLRTrigger_FirstResponderStation
 desc=Deliver coffee to the fire and police station
 reward=400
 gmwp=blrwp_firstresponderstation
-items=beer,books,coffee_lid,coffee_nolid,fastfood,fishingequipment,gameconsoles,graphicscards,monitors,motoroil,mufflers,pistons,pizza,powertools,scrapmetal,soda,sparkplugs,tools
+items=list_all

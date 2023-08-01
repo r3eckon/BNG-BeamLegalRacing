@@ -1,0 +1,8 @@
+name=Soliad Lansdale
+type=lansdale
+config=vehicles/lansdale/blr_scrapyard.pc
+baseprice=300
+odometer=0
+scrapval=50
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

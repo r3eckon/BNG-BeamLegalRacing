@@ -1,5 +1,5 @@
 desc=Short time attack to the Firwood inn
-wager=100,300
+wager=300,2000
 triggers=BeamLRTrigger_TownCP1,BeamLRTrigger_TownCP2,BeamLRTrigger_TownCP3,BeamLRTrigger_TownCP5,BeamLRTrigger_TownEntranceBridgeCP1,BeamLRTrigger_TownEntranceBridgeCP3,BeamLRTrigger_TownEntranceYJuncCP2,BeamLRTrigger_FirwoodInnJuncCP1,BeamLRTrigger_FirwoodInnEntranceCP
 type=time
 targettime=31000,45000

@@ -1,0 +1,6 @@
+{"name":"Amb_2D","class":"SimGroup","persistentId":"a51486dd-bcb0-4dfa-a4d8-109d1f371ce5","__parent":"Audio","locked":true}
+{"name":"Amb_3D","class":"SimGroup","persistentId":"019ce587-b133-4bb7-a3f7-1bd5d5bc7069","__parent":"Audio","locked":true}
+{"name":"Snapshots","class":"SimGroup","persistentId":"c6cc5b83-b327-49eb-b8ea-f32ea69e400e","__parent":"Audio","locked":true}
+{"name":"Whooshes","class":"SimGroup","persistentId":"527d9889-717e-4759-b0d2-c291f92a2bf5","__parent":"Audio","locked":true}
+{"name":"Wind","class":"SimGroup","persistentId":"af0862d0-ac4b-4e9e-ab70-fa7bd44056f0","__parent":"Audio","locked":true}
+{"name":"Generic_Air","class":"SFXEmitter","persistentId":"db3153b2-e9d3-407a-aaca-c542c7419545","__parent":"Audio","position":[1232.34949,930.050781,212.223999],"fadeInTime":0,"fadeOutTime":0,"is3D":false,"isLooping":false,"locked":true,"maxDistance":20,"scale":[20,20,20],"track":"event:>Ambient>2D>Generic_Air","useTrackDescriptionOnly":true}

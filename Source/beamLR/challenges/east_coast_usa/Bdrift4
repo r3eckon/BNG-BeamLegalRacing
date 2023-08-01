@@ -1,5 +1,5 @@
 desc=Short drift challenge to the sawmill
-wager=350,750
+wager=350,2750
 triggers=BeamLRTrigger_FarmDirtRoadCP6,BeamLRTrigger_FarmDirtRoadCP7,BeamLRTrigger_SawmillDirtRoadCP7,BeamLRTrigger_SawmillCP1,BeamLRTrigger_SawmillCP3,BeamLRTrigger_SawmillCP4,BeamLRTrigger_SawmillCP5,BeamLRTrigger_SawmillCP9
 type=drift
 targettime=120000,180000

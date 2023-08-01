@@ -1,4 +1,3 @@
-/vehicles/bluebuck/track.pc
 /vehicles/bolide/320gtt_us.pc
 /vehicles/bolide/320gtt_targa.pc
 /vehicles/bolide/rally_gravel.pc
@@ -13,14 +12,11 @@
 /vehicles/sbr/powerglow.pc
 /vehicles/sbr/hillclimb.pc
 /vehicles/sbr/TT_AWD_S2_M.pc
-/vehicles/sbr/electric_500.pc
-/vehicles/sbr/electric_800.pc
 /vehicles/sbr/hillclimb_SQ.pc
 /vehicles/wendover/hillclimb.pc
 /vehicles/wendover/Street_tuned.pc
 /vehicles/vivace/hillclimb_SQ.pc
 /vehicles/etki/cool.pc
-/vehicles/racetruck/stadum_ST2.pc
 /vehicles/etkc/kc8_drift_M.pc
 /vehicles/etkc/rennspecht_kr_A.pc
 /vehicles/etkc/kc8_ttsport_heritage_M.pc
@@ -29,7 +25,6 @@
 /vehicles/sunburst/street.pc
 /vehicles/pessima/hillclimb.pc
 /vehicles/autobello/street.pc
-/vehicles/autobello/autobuggy_baja_extreme.pc
 /vehicles/covet/turbo_race.pc
 /vehicles/bastion/hotlap.pc
 /vehicles/bastion/redtail_A.pc

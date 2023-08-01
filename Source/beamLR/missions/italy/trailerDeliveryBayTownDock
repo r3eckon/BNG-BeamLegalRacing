@@ -1,0 +1,7 @@
+destpos=1140.7706298828,-425.41790771484,140.97244262695
+destrot=-0.00035534138021297,0.0030173148255666,0.97679521452773,-0.21415386622582
+desc=Deliver $item to the bay town dock parking lot
+reward=700
+items=list_all
+gmwp=blrwp_baytowndockparking
+type=trailer

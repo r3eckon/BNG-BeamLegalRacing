@@ -1,0 +1,9 @@
+desc=Short drift challenge to the dam
+type=drift
+wager=500,2000
+rep=50,100
+triggers=BeamLRTrigger_TougeCP1,BeamLRTrigger_TougeCP2,BeamLRTrigger_TougeCP3,BeamLRTrigger_TougeCP4,BeamLRTrigger_TougeCP5,BeamLRTrigger_TougeCP6,BeamLRTrigger_TougeCP7,BeamLRTrigger_TougeCP8
+gmwp=blrwp_topdirtparking
+targettime=225000,300000
+driftpts=7500,12500
+traffic=0

@@ -1,0 +1,7 @@
+destpos=-968.76440429688,954.24810791016,392.79104614258
+destrot=-0.003458312835274,0.0042867553620629,-0.77969928370333,0.62612993123897
+desc=Deliver $item near the EV chargers in the mountain top town
+reward=930
+items=list_all
+gmwp=blrwp_castletownchargers
+type=trailer

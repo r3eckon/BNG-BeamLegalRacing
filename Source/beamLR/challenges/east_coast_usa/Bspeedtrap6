@@ -1,5 +1,5 @@
 desc=River side speed trap challenge
-wager=200,1000
+wager=400,3000
 triggers=BeamLRTrigger_YJuncBCP1
 type=speed
 targetspd=43,56

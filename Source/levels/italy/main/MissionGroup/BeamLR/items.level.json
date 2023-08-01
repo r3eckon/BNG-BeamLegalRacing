@@ -1,0 +1,7 @@
+{"name":"spawn_beamlr","class":"SpawnSphere","persistentId":"5fffccc5-7b75-4a32-af67-afe9ffcde537","__parent":"BeamLR","position":[308.151276,-250.753555,195.940079],"cloneOrigin":"spawn_city","dataBlock":"SpawnSphereMarker","radius":1,"rotationMatrix":[0.764326274,0.64482975,0,-0.64482975,0.764326274,0,0,0,1],"spawnClass":"player","spawnDatablock":"DefaultPlayerData","sphereWeight":"1"}
+{"name":"BLRRoads","class":"SimGroup","persistentId":"68c70453-5212-46b9-a0eb-75d1eb318793","__parent":"BeamLR"}
+{"name":"Triggers","class":"SimGroup","persistentId":"cf337628-47c9-4b8a-9eb0-424fe2b114c7","__parent":"BeamLR"}
+{"name":"Markers","class":"SimGroup","persistentId":"73d7a361-ddd1-4871-bccf-77ee023a8713","__parent":"BeamLR"}
+{"name":"Waypoints","class":"SimGroup","persistentId":"bd3a7379-f58a-464d-9376-9d6f1f05cc99","__parent":"BeamLR"}
+{"name":"RaceTriggers","class":"SimGroup","persistentId":"e3a100d5-3cb4-4376-b131-696d2c9b19b9","__parent":"BeamLR"}
+{"name":"RaceWaypoints","class":"SimGroup","persistentId":"751737b4-69a0-4d13-a146-c8eaf6286597","__parent":"BeamLR"}

@@ -1,5 +1,5 @@
 desc=Dirt road intersection speed trap challenge
-wager=200,500
+wager=200,2500
 triggers=BeamLRTrigger_FarmDirtRoadCP1
 type=speed
 targetspd=33,39

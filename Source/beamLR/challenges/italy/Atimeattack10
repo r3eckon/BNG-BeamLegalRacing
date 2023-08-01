@@ -1,0 +1,8 @@
+desc=Alternate path time attack to a cliffside parking area
+type=time
+wager=300,2000
+rep=20,40
+triggers=BeamLRTrigger_TougeCP18,BeamLRTrigger_TougeCP19,BeamLRTrigger_TougeCP45,BeamLRTrigger_TougeCP47,BeamLRTrigger_TougeCP53,BeamLRTrigger_TougeCP54,BeamLRTrigger_TougeCP55,BeamLRTrigger_TougeCP56
+gmwp=blrwp_topdirtparking
+targettime=181000,235000
+traffic=0

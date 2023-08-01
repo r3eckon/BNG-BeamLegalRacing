@@ -1,0 +1,3 @@
+{"name":"asphalt","class":"SimGroup","persistentId":"45efeca9-8c62-4969-adf5-060b87901a2b","__parent":"decalroads"}
+{"name":"dirt","class":"SimGroup","persistentId":"dbe1b417-cc22-4f51-987c-c3faa0be9eac","__parent":"decalroads"}
+{"name":"temporary","class":"SimGroup","persistentId":"5d8cf136-cbe1-4735-a0c1-ad9ff556952e","__parent":"decalroads"}

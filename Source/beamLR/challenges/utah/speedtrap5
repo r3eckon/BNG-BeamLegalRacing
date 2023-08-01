@@ -1,5 +1,5 @@
 desc=Speed trap challenge on the edge of a cliff
-wager=150,300
+wager=400,2000
 triggers=BeamLRTrigger_CliffsideST
 type=speed
 targetspd=40,60

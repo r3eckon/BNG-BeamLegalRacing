@@ -1,0 +1,7 @@
+destpos=359.4612121582,1438.4188232422,158.21130371094
+destrot=0.0035469145473814,-0.00044481016516896,0.0066073409383983,0.99997178189529
+desc=Deliver $item to the city port factory
+reward=700
+items=list_all
+gmwp=blrwp_portfactory
+type=trailer

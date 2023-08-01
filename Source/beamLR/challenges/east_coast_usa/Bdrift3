@@ -1,5 +1,5 @@
 desc=Short drift challenge to the red manor
-wager=300,600
+wager=300,2600
 triggers=BeamLRTrigger_FarmJuncCP2,BeamLRTrigger_FarmTurnCP1,BeamLRTrigger_RedmanorEntranceCP1
 type=drift
 targettime=120000,180000

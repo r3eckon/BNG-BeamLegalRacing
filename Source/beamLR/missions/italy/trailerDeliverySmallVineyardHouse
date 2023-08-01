@@ -1,0 +1,7 @@
+destpos=77.15340423584,401.43029785156,190.26545715332
+destrot=0.0012654224501636,-0.0044057415911976,0.88276956472667,0.46978386917745
+desc=Deliver $item to a small vineyard house
+reward=750
+items=list_all
+gmwp=blrwp_smallvineyard
+type=trailer

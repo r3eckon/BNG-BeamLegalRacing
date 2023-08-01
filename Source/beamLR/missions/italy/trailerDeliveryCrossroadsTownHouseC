@@ -1,0 +1,7 @@
+destpos=696.12298583984,840.02117919922,184.43437194824
+destrot=0.0042408931535435,-0.0025241485501981,0.92688471733569,0.37531368782513
+desc=Deliver $item to the crossroads town
+reward=750
+items=list_all
+gmwp=blrwp_crossroadstrailerC
+type=trailer

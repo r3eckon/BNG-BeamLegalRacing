@@ -1,5 +1,5 @@
 desc=Another seaside speed trap challenge
-wager=250,750
+wager=250,2500
 triggers=BeamLRTrigger_MidRoadEndCP2
 type=speed
 targetspd=40,60

@@ -1,0 +1,9 @@
+desc=Drift challenge to a gas station
+type=drift
+wager=800,3000
+rep=50,100
+triggers=BeamLRTrigger_TougeCP18,BeamLRTrigger_TougeCP38,BeamLRTrigger_TougeCP39,BeamLRTrigger_TougeCP40,BeamLRTrigger_CrossroadsRaceCP80,BeamLRTrigger_CrossroadsRaceCP78,BeamLRTrigger_TougeCP41,BeamLRTrigger_TougeCP42,BeamLRTrigger_TougeCP43,BeamLRTrigger_TougeCP44
+gmwp=blrwp_topdirtparking
+targettime=300000,360000
+driftpts=12000,17000
+traffic=0
