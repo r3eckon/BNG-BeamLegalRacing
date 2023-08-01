@@ -7,13 +7,13 @@ BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardco
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
 
 ## Quick Links
-### More Info [Forum thread](https://www.beamng.com/threads/87394/) 
+### More Info | [Forum thread](https://www.beamng.com/threads/87394/) 
 
-### Career Maps [Utah](utahmap.md) | [East Coast](eastcoastmap.md) | [Italy](italymap.md)
+### Career Maps | [Utah](utahmap.md) | [East Coast](eastcoastmap.md) | [Italy](italymap.md)
 
-### Track Event Maps [Hirochi Raceway](hirochimap.md) | [Automation Test Track](automationmap.md) | [Nordschleife](map_ks_nord.md)
+### Track Event Maps | [Hirochi Raceway](hirochimap.md) | [Automation Test Track](automationmap.md) | [Nordschleife](map_ks_nord.md)
 
-### Addons [Nordschleife](Addons/ks_nord)
+### [Addons](Addons) | [Nordschleife](Addons/ks_nord)
 
 ### Enjoying the mod and looking to support the project? [Donate here!](https://www.paypal.com/donate/?hosted_button_id=QQ7SKC6XK7PAE)
 
