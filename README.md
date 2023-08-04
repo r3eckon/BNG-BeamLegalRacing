@@ -416,11 +416,22 @@ paint=0,0,0,0,0.1,0.1,0.1,0.1 (only used as fallback paint color if random paint
 randslots=autobello_fender_FL,autobello_bumper_F,...,..., (list of internal slot names to be randomized, usually only body panels)
 ```
 
-The **randslots** line simply isn't there on new cars as they do not spawn with randomized parts. 
+The **randslots** line simply isn't there on new cars as they do not spawn with randomized parts. To use randomized parts use the following process:
 
-To look through all the slots for body panels spawn the config in game and in lua console use the function **extensions.blrutils.actualSlotDebug()** to dump the slots of that vehicle in the file **beamLR/actualSlotsDebug** so you can create the list of body panel slots.
+First step is to get a list of vehicle slots to find all the slots for body panels: 
 
-What I do is look through the list to remove slots I don't want randomized (such as engine parts, wheels, other important parts) then using Notepad++ search and replace extended mode to replace **\n** with a **comma** and append that list to the randslots field. Keep in mind if you hit enter when removing slots it might add **\r\n** so if the list isn't in a single line that's probably why.
+* Spawn the config in game
+* In lua console use the line **extensions.blrutils.actualSlotDebug()**
+
+This will dump the slots of that vehicle in the file **beamLR/actualSlotsDebug** so you can create the list of body panel slots. 
+
+Here is one way to accomplish this:
+
+* Look through the list to remove slots you don't want randomized (such as engine parts, wheels, other important parts)
+* Use Notepad++ search and replace **extended mode** to replace **\n** with a **comma**
+* Append that list to the **randslots** field.
+
+Keep in mind if you hit enter when removing slots it might add **\r\n** so if the list isn't in a single line that's probably why.
 
 Once you're done with the car file itself the next step is to make it available in shops. That's done within shop files in **beamLR/shops**.  As of version 1.12 list files are used to easily manage which vehicles are available in each shop. Shop files contain a link to the list file set using the **models** field. List files are stored in **beamLR/shop/car** and are simple one value per line files pointing to vehicle files. As an example here is the file **utahUsedCarShop** which uses the **list_used_all** list file:
 
