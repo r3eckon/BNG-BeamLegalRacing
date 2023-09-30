@@ -100,8 +100,9 @@ Further instructions and various tips on this mods' various features are listed 
 ## Getting started
 BeamLR is loaded as a freeroam mission. Use the following spawn point depending on map choice:
 
-* Utah Spawn: **Auto Repair Zone**
-* East Coast Spawn: **Gas Station Parking Lot**
+* Utah: **Auto Repair Zone**
+* East Coast: **Gas Station Parking Lot**
+* Italy: **BeamLR Spawn**
 
 Drive into the BeamLR Career mission marker and use the UI to start the mission.
 
