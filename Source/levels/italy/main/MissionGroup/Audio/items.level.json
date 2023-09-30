@@ -3,4 +3,5 @@
 {"name":"Snapshots","class":"SimGroup","persistentId":"c6cc5b83-b327-49eb-b8ea-f32ea69e400e","__parent":"Audio","locked":true}
 {"name":"Whooshes","class":"SimGroup","persistentId":"527d9889-717e-4759-b0d2-c291f92a2bf5","__parent":"Audio","locked":true}
 {"name":"Wind","class":"SimGroup","persistentId":"af0862d0-ac4b-4e9e-ab70-fa7bd44056f0","__parent":"Audio","locked":true}
+{"name":"Airplanes","class":"SFXEmitter","persistentId":"25cdd55c-5ef6-425d-a903-2283e8d60947","__parent":"Audio","position":[-24.1689758,15.4717712,179.649231],"fadeInTime":0,"fadeOutTime":0,"isLooping":false,"locked":true,"maxDistance":5000,"referenceDistance":2000,"scale":[5000,5000,5000],"track":"event:>Ambient>3D Shared>Airplanes","useTrackDescriptionOnly":true}
 {"name":"Generic_Air","class":"SFXEmitter","persistentId":"db3153b2-e9d3-407a-aaca-c542c7419545","__parent":"Audio","position":[1232.34949,930.050781,212.223999],"fadeInTime":0,"fadeOutTime":0,"is3D":false,"isLooping":false,"locked":true,"maxDistance":20,"scale":[20,20,20],"track":"event:>Ambient>2D>Generic_Air","useTrackDescriptionOnly":true}

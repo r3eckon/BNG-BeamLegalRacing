@@ -1244,11 +1244,6 @@ local function getLevelInfo(level)
 return readJsonFile("/levels/" .. level .. "/info.json")
 end
 
-local function getLevelUITitle(level)
-local info = getLevelInfo(level)
-return translateLanguage(info["title"], info["title"])
-end
-
 local function getInstalledLevels() -- As key map for quick lookup
 local levels = core_levels.getLevelNames()
 local toRet = {}
@@ -1258,6 +1253,16 @@ toRet[v] = true
 end
 end
 return toRet
+end
+
+local function getLevelUITitle(level)
+local installed = getInstalledLevels()
+if installed[level] then
+local info = getLevelInfo(level)
+return translateLanguage(info["title"], info["title"])
+else
+return "MISSING_LEVEL"
+end
 end
 
 local function eventBrowserGetList() -- Returns event list for browser UI
@@ -1981,6 +1986,8 @@ local function initDayChangeSystem()
 dayChangeReady = {}
 dayChangeDone = {}
 end
+
+
 
 M.getInstalledLevels = getInstalledLevels
 M.initDayChangeSystem = initDayChangeSystem

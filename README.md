@@ -1,7 +1,8 @@
 
 
 
-# Beam Legal Racing 1.12
+
+# Beam Legal Racing 1.12.1
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -25,7 +26,7 @@ Carefully follow the instructions to ensure all features are working properly:
 * Extract zip file contents directly to your [BeamNG userfolder](https://documentation.beamng.com/support/userfolder/).
 * Tell your operating system to replace existing files if asked.
 
-**After installing check the *Read Before Playing* section of this readme for important information and a quick overview of major update features**
+**After installing check the *Read Before Playing* section of this readme for important information and a quick overview of major update features.**
 
 **Installing BeamLR may overwrite custom changes made to levels.** 
 Modders should back up the userfolder before installing.
@@ -37,6 +38,8 @@ Modders should back up the userfolder before installing.
 * Extract updated mod zip contents to the userfolder. 
 * Tell OS to replace existing files when asked. **This will apply the update.**
 * Use the BeamLR options menu to restore your backup.
+
+**Remember to update your addons if you have any installed!**
 
 If the backup system fails to work properly you can manually replace the following files/folders using your backed up beamLR folder:
 
@@ -716,3 +719,9 @@ Thank you for playing BeamLR!
 * Fixed day change detection not working properly with fast time scale
 * Increased upper reward limit for most challenges
 * Improved level mod compatibility for track event browser (only shows installed maps)
+
+### 1.12.1 
+* Added GP circuit layout for Nürburgring track event map
+* Added donors special thanks to main menu
+* Updated level files for BeamNG 0.30 update
+* Fixed track event bug causing incorrect join state in UI

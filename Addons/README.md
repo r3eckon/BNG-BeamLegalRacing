@@ -2,10 +2,10 @@
 # Addons
 BeamLR addons are compatibility files needed to run certain extra content. It is recommended to only use addon files for content (mods) you have installed otherwise some unexpected behavior can occur such as bugged/empty maps showing in the map selector.
 
-## Installing Addons
-To install addons:
+## Installing & Updating Addons
+To install or update addons:
 * Download the addon zip file
-* Drop it inside your BeamNG **mods** folder
+* Drop it inside your BeamNG **mods** folder (tell OS to replace existing files when updating)
 
 That's it. Addons are read only and can safely be installed in the mods folder like regular non-repo mods.
 
