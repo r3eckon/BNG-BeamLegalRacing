@@ -9,6 +9,8 @@ To install or update addons:
 
 That's it. Addons are read only and can safely be installed in the mods folder like regular non-repo mods.
 
+**Remember to update addons with new releases of BeamLR!**
+
 Make sure you read the addon readme for extra information on specific addons.
 ## Mod Loading Order Information
 Since BeamNG has no mod sorting / loading order feature, addons zip files have to be prefixed in a way that makes them load after content they are trying to modify. This shouldn't be a worry for regular users and only relevant for users trying to create their own addons. 
