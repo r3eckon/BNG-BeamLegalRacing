@@ -501,6 +501,20 @@ Feedback and bug reports are appreciated!
 
 Thank you for playing BeamLR!
 
+### Special thanks to donors!
+
+* Luka Rupnik (fabio)
+* Dimitriu Dragos-Alexandru (rapturereaperALEX)
+* Bartosz Falba (enouqh)
+* Mikołaj Bartosz Kuliński
+* Gál Ádám (Buksikutya77)
+* Petr Brůžek (NikdoNicNevi)
+* Jukka-Pekka Tuppurainen
+* Lauri Kabur
+* Liam Wood (liamwood15)
+* Benjamin Rogers (thisvelologist)
+
+
 ## Known Issues 
 
 * As of BeamNG version 0.28 beamstate loading is broken. This is listed in known issues for the game and should hopefully be fixed soon.
