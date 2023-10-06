@@ -71,42 +71,5 @@
       "preview":"spawn_beamlr_preview.jpg"
     }
   ],
-  "gasStationPoints":[
-    {
-      "translationId":"levels.italy.gasStationPoints.fuel_apex_fastello",
-      "description":"levels.italy.gasStationPoints.fuel_apex_fastello.description",
-      "preview":"fuel_apex_fastello.jpg",
-      "zoneNames":["fuel_apex_fastello"]
-    },
-    {
-      "translationId":"levels.italy.gasStationPoints.fuel_apex_norte",
-      "description":"levels.italy.gasStationPoints.fuel_apex_norte.description",
-      "preview":"fuel_apex_norte.jpg",
-      "zoneNames":["fuel_apex_norte"]
-    },
-    {
-      "translationId":"levels.italy.gasStationPoints.fuel_apex_airport",
-      "description":"levels.italy.gasStationPoints.fuel_apex_airport.description",
-      "preview":"fuel_apex_airport.jpg",
-      "zoneNames":["fuel_apex_airport"]
-    },
-    {
-      "translationId":"levels.italy.gasStationPoints.fuel_apex_castelletto",
-      "description":"levels.italy.gasStationPoints.fuel_apex_castelletto.description",
-      "preview":"fuel_apex_castelletto.jpg",
-      "zoneNames":["fuel_apex_castelletto"]
-    },
-    {
-      "translationId":"levels.italy.gasStationPoints.fuel_apex_crossroads",
-      "description":"levels.italy.gasStationPoints.fuel_apex_crossroads.description",
-      "preview":"fuel_apex_crossroads.jpg",
-      "zoneNames":["fuel_apex_crossroads"]
-    },
-    {
-      "translationId":"levels.italy.gasStationPoints.fuel_apex_lucera",
-      "description":"levels.italy.gasStationPoints.fuel_apex_lucera.description",
-      "preview":"fuel_apex_lucera.jpg",
-      "zoneNames":["fuel_apex_lucera"]
-    },
-  ]
+
 }
