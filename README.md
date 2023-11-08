@@ -94,7 +94,7 @@ Version 1.11 adds new trailer deliveries, RNG based pink slips and various new r
 
 Version 1.12 adds Italy map content, Soliad Lansdale in shops, traffic and opponents, various improvements relating to ease of modding as well as the first addon to the mod which adds support for track events on the Nürburgring Nordschleife mod map.
 
-Version 1.13 adds advanced vehicle building, advanced repair cost calculation, a GPS system and gooseneck trailer deliveries. Make sure you read the [Advanced Vehicle Building](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#getting-started) section of this readme before playing after installing this update.
+Version 1.13 adds advanced vehicle building, advanced repair cost calculation, a GPS system and gooseneck trailer deliveries. Make sure you read the [Advanced Vehicle Building](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#advanced-vehicle-building) section of this readme before playing after installing this update.
 
 
 Further instructions and various tips on this mods' various features are listed in the BeamLR UI Main Menu.
