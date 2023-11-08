@@ -243,7 +243,7 @@ velocity = obj:getVelocity()
 if dtSim == 0 then
 force = 0
 else
-forcevector = vec3({ (velocity["x"] - velocityLast["x"]) / dtSim, (velocity["y"] - velocityLast["y"]) / dtSim, (velocity["z"] - velocityLast["z"]) / dtSim })
+forcevector = vec3({ (velocity["x"] - velocityLast["x"]) / dtSim, (velocity["y"] - velocityLast["y"]) / dtSim, (velocity["z"] - velocityLast["z"]) / dtSim - 9.81 })
 force = forcevector:length()
 end
 end
@@ -278,7 +278,132 @@ end
 return toRet
 end
 
+local function getBreakableBeamCount(part)
+local beams = v.data.beams
+local nodes = v.data.nodes
+local partBeams = {}
+local cid1, cid2
+local count = 0
 
+for k,v in pairs(beams) do
+if v["partOrigin"] == part then
+table.insert(partBeams, v)
+end
+end
+
+for k,v in pairs(partBeams) do
+cid1 = v["id1"]
+cid2 = v["id2"]
+if v["beamType"] ~= 7 then
+if nodes[cid1].partOrigin ~= part or nodes[cid2].partOrigin ~= part then
+count = count+1
+end
+end
+end
+
+return count
+end
+
+local function getDeformableBeamCount(part)
+local beams = v.data.beams
+local nodes = v.data.nodes
+local partBeams = {}
+local cid1, cid2
+local count = 0
+
+for k,v in pairs(beams) do
+if v["partOrigin"] == part then
+table.insert(partBeams, v)
+end
+end
+
+for k,v in pairs(partBeams) do
+count = count+1
+end
+
+return count
+end
+
+local function loadTableFromFile(file, numVals)
+local filedata = readFile(file)
+local dtable = {}
+for k,v in string.gmatch(filedata, "([^%c]+)=([^%c]+)") do
+if numVals then 
+dtable[k] = tonumber(v)
+else
+dtable[k] = v
+end
+end
+return dtable
+end
+
+local breakBeamCount = {}
+local deformBeamCount = {}
+local partPrices = {}
+
+local function buildAdvancedDamageTables()
+local beamData = beamstate.getPartDamageTable()
+local customPrices = loadTableFromFile("beamLR/partprices", true)
+breakBeamCount = {}
+deformBeamCount = {}
+partPrices = {}
+for k,v in pairs(beamData) do
+breakBeamCount[k] = getBreakableBeamCount(k)
+deformBeamCount[k] = getDeformableBeamCount(k)
+partPrices[k] = customPrices[k] or beamData[k].value 
+end
+end
+
+local function getAdvancedRepairCost(dbg)
+local beamData = beamstate.getPartDamageTable()
+local toRet = 0
+local cbdmg = 0 -- deform damage percent
+local cddmg = 0 -- break damage percent
+local ctdmg = 0 -- total damage percent
+local cbroken = 0 -- broken count
+local cdeformed = 0 -- deformed count
+local cdcount = 0 -- deformable count
+local cbcount = 0 -- breakable count
+
+if dbg then print("ADVANCED DAMAGE DEBUG") end
+
+for k,v in pairs(beamData) do
+cbroken = v["beamsBroken"] or 0
+cdeformed = v["beamsDeformed"] or 0
+cdcount = deformBeamCount[k] or 0
+cbcount = breakBeamCount[k] or 0
+cbdmg = 0
+cddmg = 0
+ctdmg = 0
+if cbcount > 0 then
+cbdmg = math.min(1.0, cbroken / cbcount)
+else
+cbdmg = 0
+end
+if cdcount > 0 then
+cddmg = math.min(1.0, cdeformed / cdcount )
+else
+cddmg = 0
+end
+if cbdmg + cddmg > 0 then
+ctdmg = math.min(1.0, math.max(cbdmg, cddmg))
+else
+ctdmg = 0
+end
+if ctdmg > 0 then
+toRet = toRet + partPrices[k] * (ctdmg*ctdmg*ctdmg)
+if dbg then print(k .. "\tCBCOUNT=" .. cbcount .. "\tCBROKEN=" .. cbroken  .. "\tCDCOUNT=" .. cdcount  .. "\tCDEFORMED=" .. cdeformed  .. "\tCTDMG=" .. ctdmg  .. "\tVALUE=" .. partPrices[k]  .. "\tTOTAL=" .. toRet) end
+end
+end
+
+return toRet
+end
+
+M.buildAdvancedDamageTables = buildAdvancedDamageTables
+M.getAdvancedRepairCost = getAdvancedRepairCost
+M.loadTableFromFile = loadTableFromFile
+M.getDeformableBeamCount = getDeformableBeamCount
+M.getBreakableBeamCount = getBreakableBeamCount
 M.getNitrousCapacity = getNitrousCapacity
 M.getNitrousRemainingVolume = getNitrousRemainingVolume
 M.toggleNitrous = toggleNitrous

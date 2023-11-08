@@ -1,6 +1,4 @@
 
-
-
 # Addon: Nürburgring Nordschleife (ks_nord)
 Adds compatibility for the Nürburgring Nordschleife mod level which can be found in the description of [this youtube video](https://www.youtube.com/watch?v=bBluGKs1wjs) alongside install instructions for the map itself. 
 
@@ -24,3 +22,5 @@ This addon is currently built for map version **v20230416** (ks_nord_v20230416.z
 * Initial Release
 ### BeamLR 1.12.1
 * Added GP circuit layout events
+### BeamLR 1.13
+* Fixed mission UI abandon not ending current round

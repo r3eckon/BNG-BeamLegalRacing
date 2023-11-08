@@ -31,13 +31,44 @@ end
 local function towhitchCheck()
 local parts = extensions.betterpartmgmt.getVehicleParts()
 local toRet = false
+-- 1.13 advanced vehicle building needs to check pickup receiver for attachment
+-- because parent tow hitch slot no longer fills with default ball hitch
+if parts["pickup_towhitch"] and parts["pickup_towhitch"] ~= "" then
+toRet = parts["pickup_receiver_attachment"] ~= ""
+end
+if not toRet then -- can skip loop if valid pickup tow hitch found
 for k,v in pairs(parts) do
-if string.find(v, "towhitch") then toRet = true break end
+if k~= "pickup_towhitch" and string.find(v, "towhitch") then 
+toRet = true break 
+end
+end
 end
 return toRet
 end
 
+local function gooseneckCheck()
+local parts = extensions.betterpartmgmt.getVehicleParts()
+local toRet = false
+for k,v in pairs(parts) do
+if string.find(v, "gooseneck_ball") then toRet = true break end
+end
+return toRet
+end
 
+-- Custom impact G force based damage to workaround trailer wobble
+-- causing damage during spawning and 40ft tiltdeck bending
+local tdamage = 0
+local function getTrailerDamage()
+return tdamage
+end
+
+local function setTrailerDamage(dmg)
+tdamage = dmg
+end
+
+M.setTrailerDamage = setTrailerDamage
+M.getTrailerDamage = getTrailerDamage
+M.gooseneckCheck = gooseneckCheck
 M.towhitchCheck = towhitchCheck
 M.getPlayerTrailerID = getPlayerTrailerID
 M.setPlayerVID = setPlayerVID

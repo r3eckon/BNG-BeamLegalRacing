@@ -1,5 +1,5 @@
 desc=Race to the shops at the top of the canyon
-wager=200,500
+wager=250,1000
 slips=0.05
 enemyConfig=class:club/street_bronze
 enemyRisk=0.8

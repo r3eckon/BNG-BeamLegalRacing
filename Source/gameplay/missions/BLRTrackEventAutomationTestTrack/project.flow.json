@@ -1,8 +1,8 @@
 {
-  "activeGraphId":3,
+  "activeGraphId":1,
   "authors":"BeamLR",
-  "currentGraphID":3,
-  "date":1687155881,
+  "currentGraphID":1,
+  "date":1696998383,
   "debugEnabled":false,
   "description":"Beam Legal Racing Track Event",
   "difficulty":100,
@@ -181,7 +181,7 @@
           false
         ],
         [
-          54,
+          37,
           "flow",
           16,
           "flow",
@@ -195,15 +195,15 @@
           false
         ],
         [
-          37,
-          "flow",
+          100,
+          "False",
           16,
           "flow",
           false
         ],
         [
-          100,
-          "False",
+          54,
+          "flow",
           16,
           "flow",
           false
@@ -434,14 +434,14 @@
         ],
         [
           78,
-          "match_2",
+          "match_1",
           31,
           "reset",
           false
         ],
         [
           78,
-          "match_1",
+          "match_2",
           31,
           "reset",
           false
@@ -671,6 +671,13 @@
           false
         ],
         [
+          33,
+          "match_1",
+          51,
+          "reset",
+          false
+        ],
+        [
           37,
           "down",
           51,
@@ -679,21 +686,14 @@
         ],
         [
           33,
-          "match_1",
-          51,
-          "reset",
-          false
-        ],
-        [
-          33,
-          "match_1",
+          "match_3",
           52,
           "flow",
           false
         ],
         [
           33,
-          "match_3",
+          "match_1",
           52,
           "flow",
           false
@@ -846,6 +846,13 @@
           false
         ],
         [
+          231,
+          "true",
+          63,
+          "flow",
+          false
+        ],
+        [
           54,
           "down",
           63,
@@ -937,15 +944,15 @@
           false
         ],
         [
-          75,
-          "False",
+          33,
+          "match_1",
           69,
           "reset",
           false
         ],
         [
-          33,
-          "match_1",
+          75,
+          "False",
           69,
           "reset",
           false
@@ -1169,14 +1176,14 @@
         ],
         [
           78,
-          "match_2",
+          "match_1",
           83,
           "flow",
           false
         ],
         [
           78,
-          "match_1",
+          "match_2",
           83,
           "flow",
           false
@@ -1197,7 +1204,7 @@
         ],
         [
           33,
-          "match_3",
+          "match_2",
           85,
           "reset",
           false
@@ -1211,7 +1218,7 @@
         ],
         [
           33,
-          "match_2",
+          "match_3",
           85,
           "reset",
           false
@@ -1498,6 +1505,13 @@
         ],
         [
           78,
+          "match_1",
+          108,
+          "flow",
+          false
+        ],
+        [
+          78,
           "match_2",
           108,
           "flow",
@@ -1505,21 +1519,14 @@
         ],
         [
           78,
-          "match_1",
-          108,
-          "flow",
-          false
-        ],
-        [
-          78,
-          "match_1",
+          "match_2",
           108,
           "reset",
           false
         ],
         [
           78,
-          "match_2",
+          "match_1",
           108,
           "reset",
           false
@@ -1798,15 +1805,15 @@
           false
         ],
         [
-          137,
-          "flow",
+          136,
+          "False",
           126,
           "flow",
           false
         ],
         [
-          136,
-          "False",
+          137,
+          "flow",
           126,
           "flow",
           false
@@ -2281,14 +2288,14 @@
           false
         ],
         [
-          138,
+          110,
           "flow",
           161,
           "flow",
           false
         ],
         [
-          110,
+          138,
           "flow",
           161,
           "flow",
@@ -2561,7 +2568,7 @@
           false
         ],
         [
-          155,
+          228,
           "flow",
           188,
           "flow",
@@ -2925,10 +2932,59 @@
           false
         ],
         [
+          227,
+          "flow",
+          226,
+          "flow",
+          false
+        ],
+        [
+          2,
+          "flow",
+          227,
+          "flow",
+          false
+        ],
+        [
+          155,
+          "flow",
+          227,
+          "on",
+          false
+        ],
+        [
+          226,
+          "flow",
+          228,
+          "flow",
+          false
+        ],
+        [
+          155,
+          "flow",
+          229,
+          "flow",
+          false
+        ],
+        [
           208,
           "completed",
           230,
           "flow",
+          false
+        ],
+        [
+          229,
+          "flow",
+          231,
+          "flow",
+          false
+        ],
+        [
+          229,
+          "val",
+          231,
+          "A",
           false
         ],
         [
@@ -4769,7 +4825,7 @@
             "color_in":{
               "type":"color",
               "value":[
-                0.44597768800000348044,
+                0.44597768800000386902,
                 1,
                 0,
                 1
@@ -5364,9 +5420,10 @@
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
+              "value":false,
               "color":true,
               "flow":false,
-              "value":false
+              "useGenericMissionDataApp":false
             },
             "p_out":{
               "flow":false
@@ -10002,8 +10059,8 @@
             }
           },
           "pos":[
-            -1544,
-            -188
+            -1690,
+            -230
           ],
           "type":"activity/requestAbandon"
         },
@@ -10141,7 +10198,7 @@
           },
           "pos":[
             -1544,
-            -454
+            -552
           ],
           "type":"logic/once"
         },
@@ -10201,7 +10258,7 @@
           "hardcodedPins":{
             "duration":{
               "type":"number",
-              "value":0.75000000000000344169
+              "value":0.75000000000000388578
             }
           },
           "hiddenPins":{
@@ -10411,7 +10468,7 @@
           ],
           "pos":[
             -1376,
-            -454
+            -552
           ],
           "type":"util/customLua"
         },
@@ -11203,7 +11260,7 @@
           "hardcodedPins":{
             "dx":{
               "type":"number",
-              "value":0.05000000074505814990
+              "value":0.05000000074505820541
             },
             "mn":{
               "type":"number",
@@ -11291,7 +11348,7 @@
           "hardcodedPins":{
             "dx":{
               "type":"number",
-              "value":0.05000000074505814990
+              "value":0.05000000074505820541
             },
             "mn":{
               "type":"number",
@@ -11439,8 +11496,8 @@
             "p_out":{}
           },
           "pos":[
-            -1306,
-            -174
+            -1334,
+            -230
           ],
           "type":"activity/activityStop"
         },
@@ -12650,6 +12707,96 @@
           ],
           "type":"util/customLua"
         },
+        "226":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "frames":{
+              "type":"number",
+              "value":20
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "frames":true,
+              "reset":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -1474,
+            -118
+          ],
+          "type":"logic/frameDelay"
+        },
+        "227":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "off":false,
+              "on":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -1670,
+            -118
+          ],
+          "type":"logic/flowSwitch"
+        },
+        "228":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "reset":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -1508,
+            -230
+          ],
+          "type":"logic/once"
+        },
+        "229":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "getter":true,
+          "global":true,
+          "hardcodedPins":{
+            "varName":{
+              "type":"string",
+              "value":"uistate"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "suffix":true,
+              "varName":true
+            },
+            "p_out":{
+              "flow":false,
+              "val":false
+            }
+          },
+          "pos":[
+            -1684,
+            -356
+          ],
+          "type":"types/genericValue"
+        },
         "230":{
           "data":{},
           "dynamicMode":"repeat",
@@ -12667,6 +12814,35 @@
             904
           ],
           "type":"vehicle/beamstate/reset"
+        },
+        "231":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "B":{
+              "type":"number",
+              "value":2
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "A":false,
+              "B":false,
+              "flow":false
+            },
+            "p_out":{
+              "value":true,
+              "false":false,
+              "flow":false,
+              "true":false
+            }
+          },
+          "opSymbol":"==",
+          "pos":[
+            -1508,
+            -384
+          ],
+          "type":"logic/compare"
         },
         "235":{
           "data":{},
@@ -12694,10 +12870,10 @@
         "list":{}
       },
       "viewPos":[
-        -1080.52075195312500000000,
-        -310.84313964843750000000
+        -970.15051269531250000000,
+        -397.52050781250000000000
       ],
-      "viewZoom":0.74999994039535522461
+      "viewZoom":0.74999982118606567383
     },
     "3":{
       "description":"This is the description for graph States",
@@ -12818,10 +12994,10 @@
         "list":{}
       },
       "viewPos":[
-        -80.47418212890625000000,
-        -244.24488830566406250000
+        -127.90475463867187500000,
+        -1000.50683593750000000000
       ],
-      "viewZoom":0.74999994039535522461
+      "viewZoom":0.75000000000000000000
     }
   },
   "isScenario":true,

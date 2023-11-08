@@ -1,5 +1,5 @@
 desc=Quick drag race
-wager=750,1250
+wager=1000,3000
 slips=0.03
 enemyConfig=vehicles/etk800/846x_ttsport_plus_DCT.pc,vehicles/etk800/846_ttSport_custom_DCT.pc,vehicles/etk800/846_ttsport_heritage_M.pc
 enemyRisk=2.0

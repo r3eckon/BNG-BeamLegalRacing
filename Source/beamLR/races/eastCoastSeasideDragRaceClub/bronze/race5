@@ -1,5 +1,5 @@
 desc=Risky seaside drag race
-wager=150,300
+wager=150,500
 slips=0.05
 enemyModel=wendover
 enemyConfig=vehicles/wendover/base_v6_A.pc

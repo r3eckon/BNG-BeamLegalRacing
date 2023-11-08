@@ -1,5 +1,5 @@
 desc=Race past the gas station area
-wager=500,1000
+wager=1000,2000
 slips=0.03
 enemyConfig=class:club/dirt_silver
 enemyRisk=0.75

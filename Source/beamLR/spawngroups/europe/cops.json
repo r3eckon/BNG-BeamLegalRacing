@@ -1,0 +1,38 @@
+{
+  "data":[
+    {
+      "config":"carabinieri",
+      "model":"autobello"
+    },
+	{
+      "config":"vivace_polizia",
+      "model":"vivace"
+    },
+	{
+      "config":"tograc_polizia",
+      "model":"vivace"
+    },
+	{
+      "config":"vivace_S_gendarmerie",
+      "model":"vivace"
+    },
+	{
+      "config":"polizia",
+      "model":"bolide"
+    },
+	{
+      "config":"gts_polizia",
+      "model":"scintilla"
+    },
+	{
+      "config":"854_police_A",
+      "model":"etk800"
+    },
+	{
+      "config":"kc6x_340_police_highway_A",
+      "model":"etkc"
+    }
+  ],
+  "name":"Police - Europe",
+  "type":"custom"
+}

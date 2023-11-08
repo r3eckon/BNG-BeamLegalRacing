@@ -1,0 +1,7 @@
+destpos=-1773.7338867188,1406.9454345703,138.32914733887
+destrot=0.0056076836671775,-0.0028438897233058,0.70628175532159,0.70790292291739
+desc=Deliver $item to the airport town beach parking lot
+reward=700
+items=list_all
+gmwp=blrwp_airporttownbeachpark
+type=gooseneck

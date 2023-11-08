@@ -1,0 +1,7 @@
+destpos=-784.84411621094,-87.083869934082,296.83618164063
+destrot=-0.00086725329976536,-0.0057559268573733,0.99376059058035,-0.11138225077238
+desc=Deliver $item to the Canyon Fuel gas station
+reward=1000
+items=list_all
+gmwp=blrwp_topshops
+type=gooseneck

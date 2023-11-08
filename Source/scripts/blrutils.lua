@@ -11,7 +11,7 @@ local dailySeedOffset = 1000	-- Seed offset for daily seed should be bigger valu
 local startSeed = 1234			-- in order to avoid repeating random values. Without this value the paint colors in shop
 local day = 0					-- are still showing up the next day, just offset by one vehicle. Increase as needed.
 
-local pwager = 5000				-- Player wager, start scenario with max wager but could add proper option val 
+local pwager = 10000				-- Player wager, start scenario with max wager but could add proper option val 
 local lastProcessedRace = {}	
 
 local markers = {}
@@ -313,7 +313,7 @@ local function garagePaintReload(vid, gid)
 local paint = convertUIPaintToVehiclePaint(getGarageCarPaint(gid))
 local mc = convertUIPaintToMeshColors(getGarageCarPaint(gid))
 livePaintUpdate(vid, paint)
-repaintFullMesh(vid, mc.car,mc.cag, mc.cab, mc.caa, mc.cbr,mc.cbg,mc.cbb, mc.cba, mc.ccr,mc.ccg,mc.ccb, mc.cca)
+--repaintFullMesh(vid, mc.car,mc.cag, mc.cab, mc.caa, mc.cbr,mc.cbg,mc.cbb, mc.cba, mc.ccr,mc.ccg,mc.ccb, mc.cca)
 end
 
 
@@ -1740,6 +1740,7 @@ local ipick = ""
 local idata = {}
 local difficulty = 0
 local basereward = tonumber(mdata["reward"])
+local weightscale = 0
 math.randomseed(os.clock()*1000) -- No complex seeding for mission system
 
 
@@ -1750,7 +1751,9 @@ ipick = items[1]
 end
 
 idata = loadDataTable("beamLR/missions/items/" .. mtype .. "/" .. ipick)
-difficulty = 1.0 - math.max(0, math.min(1.0, tonumber(idata["failg"]) / 100.0)) 
+difficulty = 1.0 - math.max(0, math.min(1.0, tonumber(idata["failg"]) / 100.0))
+local weightscale = tonumber(idata["wrscl"] or "1.0") -- Difficulty increase from item weight, items without the param default to 1.0
+difficulty = difficulty + (weightscale - 1.0) -- which means since 1.0 is removed here it won't add any difficulty
 
 toRet["reward"] = basereward + (basereward * difficulty)
 toRet["itemname"] = idata["name"]
@@ -1759,8 +1762,8 @@ toRet["desc"] = mdata["desc"]:gsub("$item", idata["name"]) .. "\n"
 toRet["desc"] = toRet["desc"] .. "Reward: $" .. toRet["reward"] .. "\n"
 toRet["desc"] = toRet["desc"] .. "Max Force: " .. toRet["failg"] .. " Gs\n"
 
-if mtype == "trailer" then
-toRet["desc"] = toRet["desc"] .. "Task: Unhook trailer inside markers"
+if mtype == "trailer" or mtype == "gooseneck" then
+toRet["desc"] = toRet["desc"] .. "Task: Unhook trailer inside markers\nNote: Damaging the trailer will fail the mission!"
 else
 toRet["desc"] = toRet["desc"] .. "Task: Drive to marked location"
 end
@@ -1988,7 +1991,176 @@ dayChangeDone = {}
 end
 
 
+local function getRouteDistance(from, to)
+local route = require('/lua/ge/extensions/gameplay/route/route')()
+local fromPos = {}
+local toPos = scenetree.findObject(to):getPosition()
+if type(from) == "string" then
+fromPos = scenetree.findObject(from):getPosition()
+else
+fromPos = from
+end
+if type(to) == "string" then
+toPos = scenetree.findObject(to):getPosition()
+else
+toPos = to
+end
+route:setRouteParams(0,nil,0,0)
+route:setupPath(fromPos,toPos)
+local distance = -1 -- if this stays at -1 then path was invalid
+if route.path[1] then distance = route.path[1].distToTarget end
+return distance
+end
 
+local function getRouteDistanceFromPlayer(to)
+local veh = be:getPlayerVehicle(0)
+local vehicleData = map.objects[veh:getId()]
+return getRouteDistance(vehicleData.pos, to)
+end
+
+local function getDistanceFromPlayer(to)
+local veh = be:getPlayerVehicle(0)
+local vehicleData = map.objects[veh:getId()]
+local toPos = to
+if type(to) == "string" then
+toPos = scenetree.findObject(to):getPosition()
+end
+return vehicleData.pos:distance(toPos)
+end
+
+local function getGPSDestinationUIList()
+local gtable = loadDataTable("beamLR/mapdata/" .. getLevelName() .. "/gps")
+local toRet = {}
+toRet["names"] = {}
+toRet["keys"] = {}
+local tmap = {}
+local names = {}
+local csplit = {}
+local cname = ""
+local i = 1
+for k,v in pairs(gtable) do
+if k ~= "PlayerGarage" then
+csplit = ssplit(v, ",")
+cname = csplit[3]
+tmap[cname] = k
+table.insert(names, cname)
+end
+end
+table.sort(names)
+toRet["names"][1] = "Player Garage"
+toRet["keys"][1] = "PlayerGarage"
+for k,v in ipairs(names) do
+toRet["names"][k+1] = v
+toRet["keys"][k+1] = tmap[v]
+end
+return toRet
+end
+
+local function gpsGetUnit()
+local units = extensions.blrutils.getSettingValue("uiUnits")
+local toRet = ""
+if units == "imperial" then
+toRet ="mi"
+else
+toRet ="km"
+end
+return toRet
+end
+
+local function setGPSDestination(dest)--nil dest will turn off gps
+if dest then
+local gtable = loadDataTable("beamLR/mapdata/" .. getLevelName() .. "/gps")
+local selected = gtable[dest]
+local csplit = ssplit(selected, ",")
+local targetwp = csplit[2]
+blrvarSet("gpswaypoint", targetwp) -- used by flowgraph to set project var for gmwp system
+extensions.customGuiStream.sendGPSCurrentDestination(csplit[3])
+extensions.customGuiStream.sendGPSDistanceUnit(gpsGetUnit()) -- sends correct unit (km/mi)
+extensions.blrglobals.blrFlagSet("gpsActive", true) -- flowgraph detects this flag to turn on gmwp system
+else
+extensions.blrglobals.blrFlagSet("gpsActive", false)
+extensions.blrglobals.blrFlagSet("gmstate", false)
+end
+end
+
+local function getGPSDistance()
+local dest = blrvarGet("gpswaypoint")
+local units = extensions.blrutils.getSettingValue("uiUnits")
+-- not using GPS route distance, groundmarkers distance is more accurate & stable
+local dist = 0
+if core_groundMarkers.routePlanner.path and core_groundMarkers.routePlanner.path[1] then
+dist = core_groundMarkers.routePlanner.path[1].distToTarget
+end
+dist = dist/1000.0
+if units == "imperial" then
+dist = dist / 1.609
+end
+return dist
+end
+
+local function gpsFindNearest(dtype)
+local gtable = loadDataTable("beamLR/mapdata/" .. getLevelName() .. "/gps")
+local ttable = {}
+local csplit = {}
+local ctype = ""
+local cwp = ""
+local cdist = 0
+local cbestdist = 999999999
+local cbestkey = ""
+for k,v in pairs(gtable) do
+csplit = ssplit(v, ",")
+ctype = csplit[1]
+cwp = csplit[2]
+if ctype == dtype then
+--cdist = getRouteDistanceFromPlayer(cwp)
+--using vec3 distance from player to wp seems more accurate than route distance to find nearest
+cdist = getDistanceFromPlayer(cwp)
+if cdist < cbestdist then
+cbestdist = cdist
+cbestkey = k
+end
+end
+end
+setGPSDestination(cbestkey)
+end
+
+
+local function gpsToggleStateUpdate()
+local playerWalking = extensions.betterpartmgmt.getMainPartName() == "unicycle" -- force off when walking
+local forcedOff = extensions.blrglobals.blrFlagGet("gpsForceOff") -- Used in missions, races, shops, etc
+local mode = blrvarGet("gpsmode")
+if not (forcedOff or playerWalking) then
+if mode == 0 then --default mode, checks vehicle to make sure gps is installed
+local hasGPS = extensions.betterpartmgmt.getVehicleParts()["gps"] ~= ""
+extensions.customGuiStream.sendGPSToggleState(hasGPS)
+if not hasGPS then 
+setGPSDestination() -- to remove groundmarkers if part edit done with gps active
+extensions.customGuiStream.sendGPSPage(0)
+end 
+elseif mode == 1 then -- always on mode
+extensions.customGuiStream.sendGPSToggleState(true)
+elseif mode == 2 then -- always off mode
+extensions.customGuiStream.sendGPSToggleState(false)
+setGPSDestination()
+extensions.customGuiStream.sendGPSPage(0)
+else
+end
+else
+extensions.customGuiStream.sendGPSToggleState(false)
+setGPSDestination()
+extensions.customGuiStream.sendGPSPage(0)
+end
+end
+
+M.getDistanceFromPlayer = getDistanceFromPlayer
+M.gpsGetUnit = gpsGetUnit
+M.gpsToggleStateUpdate = gpsToggleStateUpdate
+M.gpsFindNearest = gpsFindNearest
+M.getGPSDistance = getGPSDistance
+M.setGPSDestination = setGPSDestination
+M.getGPSDestinationUIList = getGPSDestinationUIList
+M.getRouteDistanceFromPlayer = getRouteDistanceFromPlayer
+M.getRouteDistance = getRouteDistance
 M.getInstalledLevels = getInstalledLevels
 M.initDayChangeSystem = initDayChangeSystem
 M.setDayChangeReady = setDayChangeReady

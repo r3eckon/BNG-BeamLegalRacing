@@ -52,11 +52,16 @@ if lftable[h] ~= nil then
 rtable[h] = ftable[lftable[h]](lptable[h])
 unlinkHook(h)
 end
+--1.13 advanced vehicle building, reset avb flag to false after spawn
+--to avoid shop cars, race opponents & traffic from missing parts
+if extensions.blrglobals.blrFlagGet("advancedVehicleBuilding") then
+extensions.blrglobals.blrFlagSet("avbResetDelayed", true) -- Need to delay reset a bit
+end
 print("BLRHOOK: VEHICLE RESETTED")
 end
 end
 
-local onVehicleSpawned = function(vid)
+local onVehicleSpawned = function(vehicleID)
 local h = "vehSpawned"
 if vehicleID == vidfilter or vidfilter == -1 then
 if lftable[h] ~= nil then

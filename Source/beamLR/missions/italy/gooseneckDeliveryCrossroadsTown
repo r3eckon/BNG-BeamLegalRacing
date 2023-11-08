@@ -1,0 +1,7 @@
+destpos=941.99438476563,495.01226806641,183.37896728516
+destrot=-0.030949620048177,-0.01901903008662,-0.47571678920923,0.87884807218193
+desc=Deliver $item to the crossroads town
+reward=750
+items=list_all
+gmwp=blrwp_crossroadstownhouseB
+type=gooseneck

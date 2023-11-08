@@ -1,0 +1,56 @@
+{
+"midsize_hub_R_5": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"5-Lug Rear Wheel Hubs",
+        "value":600,
+    },
+    "slotType" : "midsize_hub_R",
+    "slots": [
+        ["type", "default", "description"],
+        ["midsize_brake_R","midsize_brake_R", "Rear Brakes"],
+        ["wheel_R_5","steelwheel_01a_15x7_R", "Rear Wheels", {"nodeOffset":{"x":"$=$trackoffset_R+0.27", "y":1.37, "z":0.31}}],
+    ],
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["brake_hub_5l", ["wheel_RR","wheelhub_RR"], [],                      {"pos":{"x":-0.76, "y":1.37, "z":0.31}, "scale":{"x":0.6,   "y":1.0,   "z":1.0},   "rot":{"x": 0,    "y":0,   "z":0   }}],
+        ["brake_hub_5l", ["wheel_RL","wheelhub_RL"], [],                      {"pos":{"x": 0.76, "y":1.37, "z":0.31}, "scale":{"x":0.6,   "y":1.0,   "z":1.0},   "rot":{"x": 0,    "y":0,   "z":180 }}],
+    ],
+},
+"midsize_touring_hub_R_5": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"5-Lug Rear Wheel Hubs",
+        "value":600,
+    },
+    "slotType" : "midsize_touring_hub_R",
+    "slots": [
+        ["type", "default", "description"],
+        ["midsize_touring_brake_R","midsize_touring_brake_R_race", "Rear Brakes"],
+        ["wheel_R_5","steelwheel_01a_15x7_R", "Rear Wheels", {"nodeOffset":{"x":"$=$trackoffset_R+0.285", "y":1.37, "z":0.39}}],
+    ],
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["brake_hub_5l", ["wheel_RR","wheelhub_RR"], [],                      {"pos":{"x":-0.765, "y":1.37, "z":0.39}, "scale":{"x":0.8,   "y":1.0,   "z":1.0},   "rot":{"x": 0,    "y":0,   "z":0   }}],
+        ["brake_hub_5l", ["wheel_RL","wheelhub_RL"], [],                      {"pos":{"x": 0.765, "y":1.37, "z":0.39}, "scale":{"x":0.8,   "y":1.0,   "z":1.0},   "rot":{"x": 0,    "y":0,   "z":180 }}],
+    ],
+},
+"midsize_touring_hub_R_centerlug": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Center Lug Rear Wheel Hubs",
+        "value":1200,
+    },
+    "slotType" : "midsize_touring_hub_R",
+    "slots": [
+        ["type", "default", "description"],
+        ["midsize_touring_brake_R","midsize_touring_brake_R_race", "Rear Brakes"],
+        ["wheel_R_centerlug","centerlug_wheel_01a_19x8_R", "Rear Wheels", {"nodeOffset":{"x":"$=$trackoffset_R+0.285", "y":1.37, "z":0.39}}],
+    ],
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        //["brake_hub_5l", ["wheel_RR","wheelhub_RR"], [],                      {"pos":{"x":-0.75, "y":1.37, "z":0.39}, "scale":{"x":0.8,   "y":1.0,   "z":1.0},   "rot":{"x": 0,    "y":0,   "z":0   }}],
+        //["brake_hub_5l", ["wheel_RL","wheelhub_RL"], [],                      {"pos":{"x": 0.75, "y":1.37, "z":0.39}, "scale":{"x":0.8,   "y":1.0,   "z":1.0},   "rot":{"x": 0,    "y":0,   "z":180 }}],
+    ],
+},
+}

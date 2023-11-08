@@ -1,5 +1,5 @@
 desc=Quick highway drag race
-wager=350,700
+wager=500,1000
 slips=0.04
 enemyModel=burnside
 enemyConfig=vehicles/burnside/custom.pc

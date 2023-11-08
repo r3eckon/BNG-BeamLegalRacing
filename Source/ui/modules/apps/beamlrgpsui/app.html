@@ -1,0 +1,75 @@
+<div class="bngApp beamlrgpsui" style="background-color:transparent; height:100%; position:relative;" >
+
+<div ng-if="enabled==true" style="background-color:rgba(0.0,0.0,0.0,0.0); height:100%; margin:0; z-index:9999; position:relative;">
+
+<div ng-if="page==0" style="background-color:rgba(0.0,0.0,0.0,0.5); height:60px; margin-top:150px;">
+<p style="text-align:center; font-weight:bold; font-size:20px; margin-bottom:0px;">GPS Main Menu</p>
+
+<div style="width:100%; text-align:center;">
+<button ng-click="setPage(1)" style="width:148px;">Select Destination</button>
+<button ng-click="setPage(2)" style="width:148px;">Find Nearest</button>
+</div>
+
+</div>
+
+<div ng-if="page==1" style="background-color:rgba(0.0,0.0,0.0,0.5); height:100%;">
+<p style="text-align:center; font-weight:bold; font-size:20px; margin-bottom:0px;">Select Destination</p>
+
+<div style="background-color:rgba(0, 0, 0, 0.2); overflow-y:scroll; max-height:120px; width:95%; margin:auto;">
+<div ng-repeat="(k,v) in destinations['names']">
+<button ng-click="selectDestination(destinations['keys'][k])" style="width:90%; margin-left:15px; margin-top:5px; margin-bottom:5px;">{{v}}</button>
+</div>
+</div>
+
+<div style="width:100%; text-align:center; margin-top:7px;">
+<button ng-click="setPage(0)" style="width:147px;">Back</button>
+</div>
+
+</div>
+
+<div ng-if="page==2" style="background-color:rgba(0.0,0.0,0.0,0.5); height:100%;">
+<p style="text-align:center; font-weight:bold; font-size:20px; margin-bottom:0px;">Find Nearest</p>
+<table style="table-layout:fixed; margin-top:10px; text-align:center; width:100%;">
+<tr>
+<td><button style="width:125px;" ng-click="findNearest('gas')">Gas Station</button></td>
+<td><button style="width:125px;" ng-click="findNearest('repair')">Garage</button></td>
+</tr>
+<tr>
+<td><button style="width:125px;" ng-click="findNearest('partshop')">Part Shop</button></td>
+<td><button style="width:125px;" ng-click="findNearest('usedcarshop')">Used Car Shop</button></td>
+</tr>
+<tr>
+<td><button style="width:125px;" ng-click="findNearest('newcarshop')">New Car Shop</button></td>
+<td><button style="width:125px;" ng-click="findNearest('scrapyard')">Scrapyard</button></td>
+</tr>
+</table>
+
+<div style="width:100%; text-align:center; margin-top:20px;">
+<button ng-click="setPage(0)" style="width:147px;">Back</button>
+</div>
+
+</div>
+
+<div ng-if="page==3" style="background-color:rgba(0.0,0.0,0.0,0.5); height:100%;">
+
+<p style="text-align:center; font-weight:bold; font-size:20px; margin-bottom:0px;">Route Information</p>
+
+<div style="width:100%; overflow-y:scroll; max-height:120px;">
+<table style="table-layout:fixed; font-weight:bold; min-height:120px; margin-top:0px; text-align:center; width:100%;">
+<tr><td style="font-size:20px;">Destination:</td><td style="font-size:16px;">{{currentDestination}}</td></tr>
+<tr><td style="font-size:20px;">Distance:</td><td style="font-size:20px;">{{currentDistance | number:2}} {{distanceUnit}}</td></tr>
+</table>
+</div>
+
+<div style="width:100%; text-align:center; margin-top:5px;">
+<button ng-click="cancelRoute()" style="width:147px;">Cancel Route</button>
+</div>
+
+</div>
+
+
+
+
+</div>
+
+</div>

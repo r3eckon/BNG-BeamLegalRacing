@@ -52,9 +52,9 @@
     {
       "appName":"tacho2",
       "placement":{
-        "width":"300px",
+        "width":"310px",
         "bottom":"20px",
-        "height":"300px",
+        "height":"310px",
         "right":"20px"
       },
       "settings":{
@@ -64,10 +64,13 @@
     {
       "appName":"forcedInduction",
       "placement":{
-        "width":"150px",
-        "bottom":"320px",
+        "bottom":"335px",
         "height":"150px",
-        "right":"20px"
+        "left":"",
+        "position":"absolute",
+        "right":"20px",
+        "top":"",
+        "width":"150px"
       },
       "settings":{
         "noCockpit":true
@@ -180,13 +183,25 @@
       "appName":"beamlrdeliveryui",
       "placement":{
         "bottom":"0px",
-        "height":"70px",
+        "height":"130px",
         "left":0,
         "margin":"auto",
         "position":"absolute",
         "right":0,
         "top":"",
-        "width":"270px"
+        "width":"290px"
+      }
+    },
+    {
+      "appName":"beamlrgpsui",
+      "placement":{
+        "bottom":"5px",
+        "height":"210px",
+        "left":"185px",
+        "position":"absolute",
+        "right":"",
+        "top":"",
+        "width":"310px"
       }
     }
   ],

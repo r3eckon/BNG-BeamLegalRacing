@@ -1,5 +1,5 @@
 desc=Long seaside race to the bay down
-wager=500,1000
+wager=1000,2000
 slips=0.04
 enemyConfig=class:club/street_silver
 enemyRisk=0.85

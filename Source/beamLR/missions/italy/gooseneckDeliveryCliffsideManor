@@ -1,0 +1,7 @@
+destpos=-492.89709472656,705.61749267578,304.30706787109
+destrot=0.0026373945167328,-0.0036178170245754,0.72186705979473,0.69201727112367
+desc=Deliver $item to the cliffside manor
+reward=850
+items=list_all
+gmwp=blrwp_cliffsidemanor
+type=gooseneck

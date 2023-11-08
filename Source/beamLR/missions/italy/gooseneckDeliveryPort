@@ -1,0 +1,7 @@
+destpos=467.68984985352,1738.3436279297,139.22941589355
+destrot=0.0043577178666768,-8.5804002198312e-05,0.016716747798372,0.99985076550239
+desc=Deliver $item to the city port
+reward=700
+items=list_all
+gmwp=wp_port_9
+type=gooseneck

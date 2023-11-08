@@ -95,3 +95,4 @@
 {"name":"blrwp_highwayraceaiwp9","class":"BeamNGWaypoint","persistentId":"365d9f53-b16e-4ed9-b4ec-d9d0d3de4f0e","__parent":"Waypoints","position":[1095.40662,-566.438477,146.018143],"scale":[3.10288429,3.10288429,3.10288429]}
 {"name":"blrwp_topdirtparking","class":"BeamNGWaypoint","persistentId":"8b731b8e-6266-4137-bd0d-7d9c4afb9f5a","__parent":"Waypoints","position":[-205.701752,-656.388306,475.367615],"scale":[2.49487305,2.49487305,2.49487305]}
 {"name":"blrwp_damdirtparking","class":"BeamNGWaypoint","persistentId":"cd72a96d-53b9-485c-8307-05c072aaace0","__parent":"Waypoints","position":[-1176.52917,-333.733521,387.313019]}
+{"name":"blrwp_castletownshops","class":"BeamNGWaypoint","persistentId":"18180072-3870-4c3b-97ba-a28222ee12db","__parent":"Waypoints","position":[-1112.70117,898.963684,383.702393]}

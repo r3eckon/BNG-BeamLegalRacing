@@ -1,5 +1,5 @@
 desc=Quick highway drag race
-wager=750,1250
+wager=1000,3000
 slips=0.03
 enemyModel=pickup
 enemyConfig=vehicles/pickup/d15_longbed_drag_A.pc

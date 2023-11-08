@@ -1,0 +1,7 @@
+destpos=285.04168701172,-758.55004882813,46.344650268555
+destrot=0.0022680741593441,-0.0036374867274552,0.91524824879805,0.40286755590642
+desc=Deliver $item to the sawmill
+reward=800
+items=list_all
+gmwp=blrwp_sawmill
+type=gooseneck

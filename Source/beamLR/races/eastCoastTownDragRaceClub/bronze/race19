@@ -1,5 +1,5 @@
 desc=Quick drag race
-wager=150,300
+wager=150,500
 slips=0.05
 enemyModel=moonhawk
 enemyConfig=vehicles/moonhawk/v8m.pc

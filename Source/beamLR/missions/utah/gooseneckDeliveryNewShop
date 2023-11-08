@@ -1,0 +1,7 @@
+destpos=-808.94787597656,-104.4838104248,296.83624267578
+destrot=0.0028104368776935,-0.004588893903476,0.79743951697739,0.6033748919703
+desc=Deliver $item to the new car shop
+reward=1000
+items=list_all
+gmwp=blrwp_topshops
+type=gooseneck

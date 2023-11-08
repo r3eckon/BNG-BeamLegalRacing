@@ -1,5 +1,5 @@
 desc=Short race to a T junction near the river
-wager=1000,2000
+wager=1500,3000
 slips=0.01
 enemyConfig=class:club/street_hero
 enemyRisk=0.9

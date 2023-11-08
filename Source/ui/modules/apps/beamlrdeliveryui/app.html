@@ -1,19 +1,35 @@
 <div class="bngApp beamlrdeliveryui" style="background-color:transparent; height:100%;" >
 
-<div ng-if="enabled==true" style="background-color:rgba(0.0,0.0,0.0,0.5); height:100%;">
+<div ng-if="enabled==true" style="background-color:rgba(0.0,0.0,0.0,0.0); height:100%;">
 
-
-<table style="table-layout:fixed; height:30px; margin:auto; text-align:center; font-size:18px;">
+<div ng-if="damage==true" style="height:40px; margin-top:18px;">
+<table style="width:95%; table-layout:fixed; font-weight:bold; color:black; height:30px; margin:auto; text-align:center; font-size:17px; transform:translate(0px,33px); z-index:10;">
 <tr style="width:100%">
-<td style="width:50%">Acceleration:</td>
+<td style="width:50%;">Damage:</td>
+<td style="width:50%">{{formatValue(cdmg) | number:1}}%</td>
+</tr>
+</table>
+
+<div style="width:100%; height:40px; text-align:center; z-index:2; background-color:rgba(0.0,0.0,0.0,0.5);">
+<meter style="height:30px; width:95%; margin-top:4px;" value="{{cdmg}}" max="100" high="80" low="50" optimum="25" min="0"></meter>
+</div>
+</div>
+
+<div ng-if="damage==false" style="margin-top:58px;"></div>
+
+<div>
+<table style="width:95%; table-layout:fixed; font-weight:bold; color:black; height:30px; margin:auto; text-align:center; font-size:16px; transform:translate(0px,33px); z-index:10;">
+<tr style="width:100%">
+<td style="width:40%">Acceleration:</td>
 <td style="width:20%">{{formatValue(cforce) | number:1}}Gs</td>
-<td style="width:10%">/</td>
+<td style="width:7%">/</td>
 <td style="width:20%">{{mforce}}Gs</td>
 </tr>
 </table>
 
-<div style="width:250px; margin:auto;">
-<meter style="height:30px; width:99%;" value="{{cforce}}" max="{{mforce}}" high={{mforce*0.8}} min="0"></meter>
+<div style="width:100%; height:40px; text-align:center; z-index:2; background-color:rgba(0.0,0.0,0.0,0.5);">
+<meter style="height:30px; width:95%; margin-top:4px;" value="{{cforce}}" max="{{mforce}}" high={{mforce*0.8}} low={{mforce*0.5}} optimum={{mforce*0.25}} min="0"></meter>
+</div>
 </div>
 
 </div>

@@ -6,25 +6,28 @@ angular.module('beamng.apps')
     restrict: 'EA',
     link: function (scope, element, attrs) {
 	  
-	  scope.testdata = 'Not Loaded'
-	  scope.beamlrData = {}
-	  scope.inputData = {}
-	  scope.textBoxFocus = false
-	  scope.menuPage = 0 
-	  scope.showMenu = false
-	  scope.partPrice = 0
+	  scope.testdata = 'Not Loaded';
+	  scope.beamlrData = {};
+	  scope.inputData = {};
+	  scope.textBoxFocus = false;
+	  scope.menuPage = 0;
+	  scope.showMenu = false;
+	  scope.partPrice = 0;
 	  scope.initDone = false
-	  scope.editMode = 0
-	  scope.slotNameMode = 0
-	  scope.visibleSlots = {}
-	  scope.resetConfirm = false
+	  scope.editMode = 0;
+	  scope.slotNameMode = 0;
+	  scope.visibleSlots = {};
+	  scope.resetConfirm = false;
+	  scope.partSellConfirm = {};
+	  scope.partSellScale = 0.5;
 
 	  if(!scope.initDone)
 	  {
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("uiinit")`);
-		  scope.inputData.searchFilter = ""
-		  scope.inputData.targetWager = 100
+		  scope.inputData.searchFilter = "";
+		  scope.inputData.targetWager = 100;
 		  scope.initDone=true;
+		  scope.partSellConfirm = {};
 	  }
 	  
 	  
@@ -38,37 +41,37 @@ angular.module('beamng.apps')
 	  ];
 	  
 	  scope.menuClick = function(id){
-		scope.menuPage = id
-		scope.resetConfirm = false
+		scope.menuPage = id;
+		scope.resetConfirm = false;
 		
 		if(id == 3)
 		{
-			bngApi.engineLua(`extensions.customGuiCallbacks.setParam("perfuitoggle", "1")`)
-			bngApi.engineLua(`extensions.customGuiCallbacks.exec("togglePerfUI", "perfuitoggle")`)
+			bngApi.engineLua(`extensions.customGuiCallbacks.setParam("perfuitoggle", "1")`);
+			bngApi.engineLua(`extensions.customGuiCallbacks.exec("togglePerfUI", "perfuitoggle")`);
 		}
 		else
 		{
-			bngApi.engineLua(`extensions.customGuiCallbacks.setParam("perfuitoggle", "0")`)
-			bngApi.engineLua(`extensions.customGuiCallbacks.exec("togglePerfUI", "perfuitoggle")`)
+			bngApi.engineLua(`extensions.customGuiCallbacks.setParam("perfuitoggle", "0")`);
+			bngApi.engineLua(`extensions.customGuiCallbacks.exec("togglePerfUI", "perfuitoggle")`);
 		}
 		
 		if(id == 5)
 		{
-			bngApi.engineLua(`extensions.customGuiCallbacks.exec("updateEventMenuPage")`)
+			bngApi.engineLua(`extensions.customGuiCallbacks.exec("updateEventMenuPage")`);
 		}
 	  }
 	  
 	  scope.filter = function(m, f){
-		bngApi.engineLua(`extensions.customGuiCallbacks.setParam("filter", "${f}")`)
-		bngApi.engineLua(`extensions.customGuiCallbacks.exec("setFilter", "filter")`)
-		bngApi.engineLua(`extensions.customGuiCallbacks.setParam("menu", ${m})`)
-		bngApi.engineLua(`extensions.customGuiCallbacks.exec("partUICategory", "menu")`)
+		bngApi.engineLua(`extensions.customGuiCallbacks.setParam("filter", "${f}")`);
+		bngApi.engineLua(`extensions.customGuiCallbacks.exec("setFilter", "filter")`);
+		bngApi.engineLua(`extensions.customGuiCallbacks.setParam("menu", ${m})`);
+		bngApi.engineLua(`extensions.customGuiCallbacks.exec("partUICategory", "menu")`);
 	  } 
 
 	  scope.garagePartClick = function(slot, item){
-		bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("garageEdit", "slot", "${slot}")`)
-		bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("garageEdit", "item", "${item}")`)
-		bngApi.engineLua(`extensions.customGuiCallbacks.exec("setPart", "garageEdit")`)
+		bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("garageEdit", "slot", "${slot}")`);
+		bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("garageEdit", "item", "${item}")`);
+		bngApi.engineLua(`extensions.customGuiCallbacks.exec("setPart", "garageEdit")`);
 		//bngApi.engineLua(`extensions.customGuiCallbacks.exec("inventoryRefresh")`) //Needs to be called in post edit process to work properly
 	  }
 	  
@@ -82,9 +85,9 @@ angular.module('beamng.apps')
 		{
 			scope.partPrice = scope.beamlrData["partPrices"][item] * scope.beamlrData['shopPriceScale'];
 		}
-	    bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("shopPurchase", "item", "${item}")`)
-		bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("shopPurchase", "price", ${scope.partPrice})`)
-		bngApi.engineLua(`extensions.customGuiCallbacks.exec("buyPart", "shopPurchase")`)
+	    bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("shopPurchase", "item", "${item}")`);
+		bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("shopPurchase", "price", ${scope.partPrice})`);
+		bngApi.engineLua(`extensions.customGuiCallbacks.exec("buyPart", "shopPurchase")`);
 	  }
 
 	  scope.$on('beamlrData', function (event, data) {
@@ -93,10 +96,10 @@ angular.module('beamng.apps')
 	  
 	  
 	  scope.setNameClick = function () {
-		bngApi.engineLua(`extensions.customGuiStream.sendDataToEngine("inputData","${scope.inputData.name}")`)
-		bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("saveinfo", "filename", "beamLR/playername")`)
-		bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("saveinfo", "filedata", "playerName=${scope.inputData.name}")`)
-		bngApi.engineLua(`extensions.customGuiCallbacks.exec("writeFile", "saveinfo")`)
+		bngApi.engineLua(`extensions.customGuiStream.sendDataToEngine("inputData","${scope.inputData.name}")`);
+		bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("saveinfo", "filename", "beamLR/playername")`);
+		bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("saveinfo", "filedata", "playerName=${scope.inputData.name}")`);
+		bngApi.engineLua(`extensions.customGuiCallbacks.exec("writeFile", "saveinfo")`);
 		
 	  }
 	  
@@ -350,6 +353,42 @@ angular.module('beamng.apps')
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("templateData", "templateFolder", "${scope.beamlrData["vehicleTemplateFolder"]}")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("loadTemplate", "templateData")`)
 	  }
+	  
+	  scope.avbToggle = function(toggle)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("avbtoggle", "${toggle}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setAVBToggle", "avbtoggle")`)
+	  }
+	  //advanced repair cost
+	  scope.arcToggle = function(toggle)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("arctoggle", ${toggle})`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setARCToggle", "arctoggle")`)
+	  }
+	  
+	  scope.setGPSMode = function(mode)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("gpsmode", ${mode})`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setGPSMode", "gpsmode")`)
+	  }
+	  
+	  scope.garagePartSell = function(part, value)
+	  {
+		  if(scope.partSellConfirm[part] == true)
+		  {
+			  bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("partToSell", "part", "${part}")`)
+		      bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("partToSell", "value", "${value}")`)
+			  bngApi.engineLua(`extensions.customGuiCallbacks.exec("garagePartSell", "partToSell")`)
+			  scope.partSellConfirm[part] = false;
+		  }
+		  else
+		  {
+			  scope.partSellConfirm[part] = true;
+		  }
+		  
+	  }
+	  
+	  
 	  
     }
   }

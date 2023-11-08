@@ -1,5 +1,5 @@
 
-# Beam Legal Racing 1.12.2
+# Beam Legal Racing 1.13
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -93,6 +93,8 @@ Version 1.10 adds race track events to the mod which can be joined from career m
 Version 1.11 adds new trailer deliveries, RNG based pink slips and various new restrictions relating to time of day. Car shops are now closed at night while new "high stakes" race clubs are only available at night. This version also adds a new death screen UI allowing you to immediately reload your last backup.
 
 Version 1.12 adds Italy map content, Soliad Lansdale in shops, traffic and opponents, various improvements relating to ease of modding as well as the first addon to the mod which adds support for track events on the Nürburgring Nordschleife mod map.
+
+Version 1.13 adds advanced vehicle building, advanced repair cost calculation, a GPS system and gooseneck trailer deliveries. Make sure you read the [Advanced Vehicle Building](README.md#advanced-vehicle-building) section of this readme before playing after installing this update.
 
 
 Further instructions and various tips on this mods' various features are listed in the BeamLR UI Main Menu.
@@ -193,6 +195,25 @@ This system will be used in a future version to create a final boss type race li
 
 As of version 1.12 mod levels are now supported for track events. Events for maps you do not have installed will not be offered in the browser. You must also install the **addon** for a specific map otherwise events will not work properly.
 
+## Advanced Vehicle Building
+### NOTE: Advanced vehicle building is disabled by default so your current career files are compatible with update 1.13, use the options menu to enable it. A career reset is highly recommended after enabling, otherwise vehicles will spawn with missing parts.
+Added in version 1.13, advanced vehicle building (AVB) allows for a more realistic or SLRR-like vehicle building experience. Jbeam loading scripts have been modified to remove all slot defaults, which for instance makes it so  wheels spawn without tires, pickup bed spawns without tailgate, taillights or bed accessory. Sub-parts must therefore be purchased and added manually. 
+
+When AVB is enabled, removing a part will add all attached sub-parts to your inventory. It will also be possible to sell parts at a scaled down value compared to purchase cost. Part selling is disabled when playing without AVB due to the fact that slot defaults could be used as infinite money exploit.
+
+This feature is not recommended for casual players as it can make part edits more complex and confusing. For example, engine swaps can be frustrating because a single missing part can prevent your vehicle from moving. If this happens, make sure you added all drivetrain related parts (transmission, driveshaft, halfshafts, etc) some of which may not be located under the 'Engine' category of the part edit menu.
+
+BeamNG is not built to fully handle this type of feature. Engines will still be running even when missing important parts like the oil pan, intake, exhaust manifold, long block or ECU. If you experience issues with vehicles missing parts in freeroam after force exiting from BeamLR, restarting the game should fix it.
+
+## Advanced Repair Cost Calculation
+### NOTE: Advanced repair cost calculation is turned off by default and can be enabled from the options menu. This setting does not require scenario reset and can be changed on the fly to see repair cost difference. 
+
+Added in version 1.13, advanced repair cost calculation makes use of broken/deformed beams specific to each part on the vehicle to detect 'ruined' parts and add their actual cost to the repair value of the vehicle. This results in a more realistic and accurate representation of vehicle damage. 
+
+Since repair cost becomes related to vehicle part value, repair costs will be higher especially for high end vehicles like the scintilla or vehicles using costly parts. Race wagers have been increased to help balance this change.
+
+## GPS System
+Added in version 1.13 is a new GPS system that allows you to find specific destinations or nearest destinations of certain types like gas stations, vehicle shops, repair garages, part shops, etc. By default, the GPS UI will only show when using a vehicle that has a GPS (BeamNavigator) installed. It is also possible to force enable or disable the GPS UI through the options menu. Regardless of chosen setting, the GPS UI will be disabled in some situations where groundmarkers are required, such as during delivery missions and daredevil challenges.
 
 ## WIP Notice
 This mod is a work in progress. At this stage it is a decent vertical slice of the gameplay the project is trying to achieve with some bugs and quirks remaining that should get better as BeamNG and the mod are updated. That being said a lot of content is missing and reward values may be unbalanced relative to part prices.
@@ -501,7 +522,7 @@ Feedback and bug reports are appreciated!
 
 Thank you for playing BeamLR!
 
-### Special thanks to donors!
+## Special thanks to donors!
 
 * Luka Rupnik (fabio)
 * Dimitriu Dragos-Alexandru (rapturereaperALEX)
@@ -522,8 +543,9 @@ Thank you for playing BeamLR!
 * Some tuning configurations can cause unfair damage when a vehicle is loaded. A workaround is implemented but may fail to work in certain situations.
 * ~~Various UI problems, input fields stop registering keystrokes, whole UI can refuse to work. Workaround is to keep cursor above input fields.~~ Seems fixed as of 1.11 if any issues arise try CTRL+F5.
 * ~~Race checkpoints sometimes fail to trigger properly.~~ Should be fixed as of version 1.6
-* Beamstate file corruption breaking pristine vehicles. Workaround is implemented but may fail. Use world editor for repair or delete the corrupted beamstate file.
+* ~~Beamstate file corruption breaking pristine vehicles. Workaround is implemented but may fail. Use world editor for repair or delete the corrupted beamstate file.~~ Seems fixed.
 * Player can get stuck in place while walking and trying to take bus home. Currently investigating this issue. Reload the mission to get unstuck.
+* Pausing the game during part edits will reset your vehicle odometer. Try to make sure the game isn't paused when interacting with BeamLR features to prevent issues.
 * Health mechanic is temporarily removed due to vehicle "wiggle" after crashes causing erroneous high enough G forces to injure the player. Fatal crashes from a single high G impact are still enabled like track events.
 
 
@@ -751,4 +773,32 @@ Thank you for playing BeamLR!
 
 ### 1.12.2
 * Fixed missing airport gas station prefab on italy
-
+### 1.13
+* Added "Advanced Vehicle Building" option (more realistic/SLRR like part edits)
+* Added part selling feature (enabled when using Advanced Vehicle Building)
+* Added "Advanced Repair Cost" option (more realistic, uses part specific values)
+* Added police Lansdale to US police spawn group
+* Added map specific traffic spawn goups (European police on italy)
+* Added new tow hitch trailer types to delivery missions
+* Added optional weight based reward scaling field to delivery items
+* Added gooseneck trailer deliveries
+* Added GPS feature (default GPS mode shows UI if vehicle has GPS installed)
+* Trying fix for stuck walk mode after loading into scenario
+* Fixed Buy Parts and Edit Car menu empty when loading car in walk mode
+* Garage & Part Shop triggers no longer cause lag spike when entered
+* Abandoning track event scenario when race is in progress now ends round
+* Fixed trailer G force calculation not counting gravity
+* Fixed wheel hubs slot missing from wheel category
+* Fixed paint setting not working with roughness,metallic,etc. parameters
+* Fixed incorrect centerlug wheel defaults for covet & midsize with custom jbeam files
+* Part buying now shows message if player has not enough money
+* Part edit and buying menu now shows internal part names with internal slot names
+* Updated police ticket offense specific values
+* Trailer missions now fail if trailer is damaged (uses g force based damage for now)
+* Updated delivery UI for trailer damage & meters now colored red close to failure val
+* Mission failure now has rep penalty specific to mission type
+* Removed "Not Enough Money" message from empty car shop slots
+* Abandon request now checks for car shop browsing to prevent car files corruption
+* Improved tow hitch check for Advanced Vehicle Building (pickup receiver comes empty)
+* Increased race wagers to better balance with delivery missions & advanced repair cost calc
+* Increased target wager slider max value to $10000

@@ -1,5 +1,5 @@
 desc=Another highway run
-wager=750,1250
+wager=1000,3000
 slips=0.03
 enemyModel=midsize
 enemyConfig=vehicles/midsize/drag.pc

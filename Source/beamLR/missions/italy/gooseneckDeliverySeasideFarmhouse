@@ -1,0 +1,7 @@
+destpos=-1784.8941650391,-99.836212158203,152.65316772461
+destrot=-0.0060266676065161,0.010894256030684,-0.73425974600404,0.67875446212985
+desc=Deliver $item to a seaside farm house
+reward=600
+items=list_all
+gmwp=blrwp_seasidefarmhouse
+type=gooseneck

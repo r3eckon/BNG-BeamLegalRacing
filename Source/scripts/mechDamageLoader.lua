@@ -185,7 +185,9 @@ local odoval = 0
 -- THAT SYSTEM FOLLOWS THE ODOMETER VALUE OF THE "MAIN PART"
 local odometer = tonumber(itable["odometer"])
 ve:queueLuaCommand("partCondition.reset()")
-ve:queueLuaCommand("partCondition.initConditions(nil," .. odometer .. ", 1)")
+-- for initConditions last {'a'} param is to avoid paint condition using fallback value
+-- passing a useless table causes the paint condition function to return without setting mesh colors
+ve:queueLuaCommand("partCondition.initConditions(nil," .. odometer .. ", 1, {'a'})")
 ve:queueLuaCommand("controller.getAllControllers()['analogOdometer'].updateGFX(1)")
 
 -- Now loading integrity values for different devices
@@ -231,7 +233,9 @@ end
 local function forceSetOdometer(vid, odometer)
 local ve = be:getObjectByID(vid)
 ve:queueLuaCommand("partCondition.reset()")
-ve:queueLuaCommand("partCondition.initConditions(nil," .. odometer .. ", 1)")
+-- for initConditions last {'a'} param is to avoid paint condition using fallback value
+-- passing a useless table causes the paint condition function to return without setting mesh colors
+ve:queueLuaCommand("partCondition.initConditions(nil," .. odometer .. ", 1, {'a'})")
 ve:queueLuaCommand("controller.getAllControllers()['analogOdometer'].updateGFX(1)")
 end
 

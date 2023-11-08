@@ -1,5 +1,5 @@
 desc=Another drag race
-wager=150,300
+wager=150,500
 slips=0.05
 enemyModel=lansdale
 enemyConfig=vehicles/lansdale/22_cargo_A.pc

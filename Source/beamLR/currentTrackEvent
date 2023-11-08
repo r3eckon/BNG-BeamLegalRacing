@@ -1,7 +1,7 @@
-seed=123
 status=over
-carid=0
 eventid=0
+ctimes=player:22377653.515364,op1:11425279.515364,op2:11259512.512725,op3:11437003.515364,op4:11360396.015514,op5:11388400.515364,op6:11376788.514901
+seed=123
+cround=4
 efile=hirochi_trackA_classA
-cround=0
-ctimes=player:0,op1:0,op2:0,op3:0,op4:0,op5:0,op6:0
+carid=0

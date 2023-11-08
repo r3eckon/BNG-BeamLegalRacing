@@ -143,6 +143,16 @@ lastdata["deliveryToggled"] = t
 guihooks.trigger("beamlrToggleDeliveryUI", t)
 end
 
+local function sendDeliveryCurrentDamage(d)
+lastdata["deliveryDamage"] = d
+guihooks.trigger("beamlrDeliveryCurrentDamage", d)
+end
+
+local function toggleDeliveryDamage(d)
+lastdata["deliveryDamageToggle"] = d
+guihooks.trigger("beamlrToggleDeliveryDamage", d)
+end
+
 -- 1.11 fix for scoring windows not reloading with UI init
 local function driftUIinitreload()
 guihooks.trigger("beamlrCurrentDrift", lastdata["driftCurrent"] or 0)
@@ -153,6 +163,8 @@ local function deliveryUIinitreload()
 guihooks.trigger("beamlrDeliveryMaxForce", lastdata["deliveryMax"] or 0)
 guihooks.trigger("beamlrDeliveryCurrentForce", lastdata["deliveryCurrent"] or 0)
 guihooks.trigger("beamlrToggleDeliveryUI", lastdata["deliveryToggled"] or false)
+guihooks.trigger("beamlrToggleDeliveryDamage", lastdata["deliveryDamage"] or 0)
+guihooks.trigger("beamlrDeliveryCurrentDamage", lastdata["deliveryDamageToggle"] or false)
 end
 -- Called on startup to clear old data (prevents scoring windows opening due to quitting when open)
 local function resetUIsavedData()
@@ -186,6 +198,62 @@ guihooks.trigger("beamlrGameOverBackOpacity", lastdata["gameoverbackopacity"] or
 guihooks.trigger("beamlrGameOverTextOpacity", lastdata["gameovertextopacity"] or 0)
 end
 
+local gpslastpage = 0
+
+local function gpsSetLastPage(p)
+gpslastpage = p
+end
+
+local function sendGPSDestinationList(list)
+guihooks.trigger("beamlrGPSDestinationList", list)
+lastdata["gpslist"] = list
+end
+
+local function sendGPSCurrentDestination(name)
+guihooks.trigger("beamlrGPSCurrentDestination", name)
+lastdata["gpsdest"] = name
+end
+
+local function sendGPSCurrentDistance(dist)
+guihooks.trigger("beamlrGPSCurrentDistance", dist)
+lastdata["gpsdist"] = dist
+end
+
+local function sendGPSDistanceUnit(unit)
+guihooks.trigger("beamlrGPSDistanceUnit", unit)
+lastdata["gpsunit"] = unit
+end
+
+local function sendGPSToggleState(toggle)
+guihooks.trigger("beamlrGPSToggleState", toggle)
+lastdata["gpstoggle"] = toggle
+end
+
+local function sendGPSPage(p)
+guihooks.trigger("beamlrGPSPageReload", p)
+gpslastpage = p
+end
+
+local function gpsUIInitReload()
+guihooks.trigger("beamlrGPSPageReload", gpslastpage)
+guihooks.trigger("beamlrGPSDestinationList", lastdata["gpslist"])
+guihooks.trigger("beamlrGPSCurrentDestination", lastdata["gpsdest"])
+-- distance and unit use fresh data to ensure unit change in options menu is reflected instantly
+guihooks.trigger("beamlrGPSCurrentDistance", extensions.blrutils.getGPSDistance())
+guihooks.trigger("beamlrGPSDistanceUnit", extensions.blrutils.gpsGetUnit())
+guihooks.trigger("beamlrGPSToggleState", lastdata["gpstoggle"])
+end
+
+M.toggleDeliveryDamage = toggleDeliveryDamage
+M.sendDeliveryCurrentDamage = sendDeliveryCurrentDamage
+M.sendGPSPage = sendGPSPage
+M.sendGPSToggleState = sendGPSToggleState
+M.gpsUIInitReload = gpsUIInitReload
+M.gpsSetLastPage = gpsSetLastPage
+M.sendGPSDistanceUnit = sendGPSDistanceUnit
+M.sendGPSCurrentDistance = sendGPSCurrentDistance
+M.sendGPSCurrentDestination = sendGPSCurrentDestination
+M.sendGPSDestinationList = sendGPSDestinationList
 M.gameOverUIinitreload = gameOverUIinitreload
 M.sendGameOverUITextOpacity = sendGameOverUITextOpacity
 M.sendGameOverUIBackOpacity = sendGameOverUIBackOpacity

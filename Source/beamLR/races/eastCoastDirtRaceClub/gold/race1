@@ -1,5 +1,5 @@
 desc=Race to the town through a long dirt path
-wager=1000,2000
+wager=2000,5000
 slips=0.02
 enemyConfig=class:club/dirt_gold
 enemyRisk=0.9

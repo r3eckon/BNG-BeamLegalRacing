@@ -11,24 +11,35 @@ local partPrice = {}
 local categoryData = {}
 local currentFilter = ""
 
-local function getVehicleParts(veid)
-local chosen = {}
+local function getVehicleData(veid)
+local toRet = {}
+local shopmode = extensions.blrglobals.blrFlagGet("shopmode")
+local shopmodeid = extensions.blrutils.blrvarGet("playervehid")
 if not veid then
-chosen = vehManager.getPlayerVehicleData().chosenParts
+if shopmode then
+toRet = vehManager.getVehicleData(shopmodeid)
 else
-chosen = vehManager.getVehicleData(veid).chosenParts
+toRet = vehManager.getPlayerVehicleData()
 end
-return chosen
+else
+toRet = vehManager.getVehicleData(veid)
+end
+return toRet
+end
+
+
+local function getVehicleParts(veid)
+return getVehicleData(veid).chosenParts
 end
 
 local function ioCtx()
-return vehManager.getPlayerVehicleData().ioCtx
+return getVehicleData().ioCtx
 end
 
 
 local function getActualSlots()
 local toRet = {}
-local chosen = vehManager.getPlayerVehicleData().chosenParts
+local chosen = getVehicleData().chosenParts
 for k,v in pairs(chosen) do
 table.insert(toRet, k)
 end
@@ -40,21 +51,21 @@ local slotMap = {}
 if customIO then
 slotMap = jbeamIO.getAvailableSlotMap(customIO)
 else
-local playerVehicle = vehManager.getPlayerVehicleData()
+local playerVehicle = getVehicleData()
 slotMap = jbeamIO.getAvailableSlotMap(playerVehicle.ioCtx)
 end
 return slotMap
 end
 
 local function getMainPartName()
-return jbeamIO.getMainPartName(vehManager.getPlayerVehicleData().ioCtx)
+return jbeamIO.getMainPartName(getVehicleData().ioCtx)
 end
 
 local function getAvailablePartList()
 local toRet = {}
-local playerVehicle = vehManager.getPlayerVehicleData()
+local playerVehicle = getVehicleData()
 local availParts = getSlotMap()
-local slots = vehManager.getPlayerVehicleData().chosenParts
+local slots = getVehicleData().chosenParts
 for k,v in pairs(slots) do		-- Loops over current vehicle slots to show parts available for current build
 if k~="main" then				-- Avoid adding "main" part to list
 toRet[k] = availParts[k]
@@ -76,13 +87,9 @@ end
 
 
 local function getAvailablePartData(k)
-local playerVehicle = vehManager.getPlayerVehicleData()
+local playerVehicle = getVehicleData()
 local availParts = jbeamIO.getAvailableParts(playerVehicle.ioCtx)
 return availParts[k]
-end
-
-local function getPlayerVehicleData()
-return vehManager.getPlayerVehicleData()
 end
 
 local function getGarageUIData()
@@ -135,7 +142,7 @@ end
 end
 
 local function setSlot(slot, val)
-local toSet = vehManager.getPlayerVehicleData().config.parts
+local toSet = getVehicleData().chosenParts
 local currentParts = getVehicleParts()
 
 if val == "" then					-- Val is null, part is being removed
@@ -163,10 +170,16 @@ end
 end
 
 
+
+
+
 local function saveConfig(file)
 extensions.core_vehicle_partmgmt.save(file) 
 local ctable = jsonReadFile(file)
 ctable["paints"] = nil
+-- need this for advanced vehicle building, adds missing slots relying on defaults
+-- with actual part used so bought cars aren't missing parts after being avbready
+ctable["parts"] = getVehicleParts()
 jsonWriteFile(file,ctable,true)
 end
 
@@ -279,7 +292,7 @@ return toRet
 end
 
 local function getTuningUIData(trackMode)
-local dtable = extensions.core_vehicle_manager.getPlayerVehicleData().vdata.variables
+local dtable = getVehicleData().vdata.variables
 local toRet = {}
 local cname = ""
 local ckey = ""
@@ -304,7 +317,7 @@ end
 
 
 local function getTuningUIValues()
-local dtable = extensions.core_vehicle_manager.getPlayerVehicleData().vdata.variables
+local dtable = getVehicleData().vdata.variables
 local toRet = {}
 local ckey = ""
 local cval = 0
@@ -330,7 +343,7 @@ end
 
 
 local function tuningTableFromUIData(uidata, defaults)
-local dtable = extensions.core_vehicle_manager.getPlayerVehicleData().vdata.variables
+local dtable = getVehicleData().vdata.variables
 local toRet = {}
 local ckey = ""
 
@@ -824,6 +837,121 @@ local function getGeneratedDamageCost()
 return generatedDamageCostTable
 end
 
+local function getChildSlots(parent, veid)
+local activeParts = {} -- Contains child links but has to be indexed using part, not slot
+local chosenParts = {} -- Contains part linked to slots
+local vehicleData = getVehicleData(veid)
+local lookupkey = ""
+local toRet = {}
+
+activeParts = vehicleData.vdata.activeParts
+chosenParts = vehicleData.chosenParts
+lookupkey = chosenParts[parent]
+
+if activeParts[lookupkey] then
+toRet = activeParts[lookupkey].slots
+end
+
+return toRet
+end
+
+
+local csl_activeParts = {}
+local csl_chosenParts = {}
+local csl_vehicleData = {}
+local csl_result = {}
+
+
+local function childSlotLookupStep(slot)
+local csl_ctype = ""
+local csl_lookupkey = csl_chosenParts[slot]
+if csl_activeParts[csl_lookupkey] then
+csl_result[slot] = csl_chosenParts[slot]
+if csl_activeParts[csl_lookupkey].slots then
+for k,v in pairs(csl_activeParts[csl_lookupkey].slots) do
+csl_ctype=v["type"]
+childSlotLookupStep(csl_ctype)
+end
+end
+else
+csl_result[slot] = ""
+end
+end
+
+
+local function getAllChildSlots(parent, veid)
+-- Reset tables for new lookup
+csl_activeParts = {}
+csl_chosenParts = {}
+csl_vehicleData = {}
+csl_result = {}
+
+-- Fill tables with reusable data
+if not veid then 
+csl_vehicleData = getVehicleData()
+else
+csl_vehicleData = vehManager.getVehicleData(veid)
+end
+csl_activeParts = csl_vehicleData.vdata.activeParts
+csl_chosenParts = csl_vehicleData.chosenParts
+
+childSlotLookupStep(parent)
+
+csl_result[parent] = nil
+
+return csl_result
+end
+
+
+local delayedSlotSet = {}
+local function setSlotDelayed(slot, val)
+local currentParts = getVehicleParts()
+
+if val == "" then					-- Val is null, part is being removed
+if currentParts[slot] ~= nil and currentParts[slot] ~= "" then   -- Check if slot has part
+addToInventory(currentParts[slot])	-- Add removed part to inventory
+delayedSlotSet[slot] = val
+end
+
+else								-- Val isn't null, part is being added to vehicle
+
+if partInventory[val] ~= nil then	-- Check that inventory contains part being added
+if partInventory[val] >= 1 then	
+if currentParts[slot] ~= nil and currentParts[slot] ~= "" then   -- Check if there's a part in that slot already
+addToInventory(currentParts[slot])	-- If so add removed part to inventory
+end
+removeFromInventory(val)			-- Remove added part from inventory
+delayedSlotSet[slot] = val
+end
+end
+
+end
+
+end
+
+local function executeDelayedSlotSet()
+extensions.core_vehicle_partmgmt.setPartsConfig(delayedSlotSet)
+end
+
+local function setSlotWithChildren(slot, val)
+delayedSlotSet = getVehicleData().chosenParts -- load table with current parts
+local setList = getAllChildSlots(slot)
+setSlotDelayed(slot,val) -- start with parent slot
+for k,v in pairs(setList) do -- then loop over child slots, always set to empty
+setSlotDelayed(k,"")
+end
+executeDelayedSlotSet()
+end
+
+
+
+
+M.setSlotDelayed = setSlotDelayed
+M.setSlotWithChildren = setSlotWithChildren
+M.executeDelayedSlotSet = executeDelayedSlotSet
+M.getAllChildSlots = getAllChildSlots
+M.childSlotLookupStep = childSlotLookupStep
+M.getChildSlots = getChildSlots
 M.getGeneratedDamageCost = getGeneratedDamageCost
 M.generateDamageCostTable = generateDamageCostTable
 M.getPartPricesCommonSlots = getPartPricesCommonSlots
@@ -876,7 +1004,7 @@ M.setSlot = setSlot
 M.getActualSlots = getActualSlots
 M.getAvailablePartList = getAvailablePartList
 M.getSlotMap = getSlotMap
-M.getPlayerVehicleData = getPlayerVehicleData
+M.getVehicleData = getVehicleData
 M.saveConfig = saveConfig
 M.loadConfig = loadConfig
 

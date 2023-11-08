@@ -1,0 +1,7 @@
+destpos=-557.78643798828,256.88153076172,298.69473266602
+destrot=0.0057257991164228,-0.00085376350868156,0.096163992269248,0.99534866901161
+desc=Deliver $item to the information center
+reward=1100
+items=list_all
+gmwp=ut_wp_124
+type=gooseneck

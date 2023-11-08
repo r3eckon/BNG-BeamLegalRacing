@@ -1,0 +1,7 @@
+destpos=-781.001953125,-1362.4080810547,142.43087768555
+destrot=0.00063133485544495,-0.003638376707472,0.9700752976738,0.24277619420841
+desc=Deliver $item to the parking lot in the small bay town 
+reward=600
+items=list_all
+gmwp=blrwp_smallbaytownpark
+type=gooseneck

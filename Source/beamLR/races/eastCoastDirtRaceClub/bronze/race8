@@ -1,5 +1,5 @@
 desc=Alternate path race to the sawmill
-wager=200,500
+wager=250,1000
 slips=0.04
 enemyConfig=class:club/dirt_bronze
 enemyRisk=0.8

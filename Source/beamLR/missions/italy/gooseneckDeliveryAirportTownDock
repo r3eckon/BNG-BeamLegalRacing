@@ -1,0 +1,7 @@
+destpos=-1758.3388671875,1307.1525878906,139.2056427002
+destrot=-0.0045457253872361,-0.0067873988690945,0.99992461574674,-0.0091668108432864
+desc=Deliver $item to the airport town dock area
+reward=700
+items=list_all
+gmwp=blrwp_airporttowndock
+type=gooseneck

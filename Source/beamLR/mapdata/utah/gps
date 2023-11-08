@@ -1,0 +1,8 @@
+PlayerGarage=home,blrgps_playergarage,Player Garage
+CloseGas=gas,blrgps_closegas,Gas Station (GAS OL' IN)
+PartShop=partshop,blrgps_playergarage,Part Shop (ACCELER IT)
+RepairGarage=repair,blrgps_closegarage,Garage (AJ AUTO REPAIRS)
+UsedCars=usedcarshop,blrgps_usedcars,Used Car Shop (WEST ROCK MOTORS)
+Scrapyard=scrapyard,blrwp_airfield,Scrapyard
+FarGas=gas,blrwp_topshops,Gas Station (CANYON FUEL)
+NewCars=newcarshop,blrwp_topshops,New Car Shop (CANYON AUTO)

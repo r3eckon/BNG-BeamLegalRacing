@@ -1,5 +1,5 @@
 desc=Risky seaside drag race
-wager=350,700
+wager=500,1000
 slips=0.04
 enemyModel=covet
 enemyConfig=vehicles/covet/gtz.pc

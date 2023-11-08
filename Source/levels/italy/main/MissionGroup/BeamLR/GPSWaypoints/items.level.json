@@ -1,0 +1,10 @@
+{"name":"gpswp_home","class":"BeamNGWaypoint","persistentId":"e8dca2d1-8e5c-4fc9-ac0e-06822a0423b1","__parent":"GPSWaypoints","position":[313.79541,-259.537445,196.06955]}
+{"name":"gpswp_usedcarsA","class":"BeamNGWaypoint","persistentId":"ad7322dc-89e5-46d2-986c-73088b795352","__parent":"GPSWaypoints","position":[204.364944,-337.627655,192.033371]}
+{"name":"gpswp_partshopA","class":"BeamNGWaypoint","persistentId":"896ce095-6e19-47c6-8a13-ec19b4decaf1","__parent":"GPSWaypoints","position":[755.759399,416.800629,178.05722]}
+{"name":"gpswp_gasJ","class":"BeamNGWaypoint","persistentId":"b3dc5fbd-cc47-4e01-93ed-781fa045e6d9","__parent":"GPSWaypoints","position":[463.267303,1264.8634,171.587128]}
+{"name":"gpswp_partshopC","class":"BeamNGWaypoint","persistentId":"e3593e63-d254-4608-bcaf-e9ab66b9be8c","__parent":"GPSWaypoints","position":[471.69754,1551.46753,139.023041]}
+{"name":"gpswp_airportgas","class":"BeamNGWaypoint","persistentId":"9099e137-5348-4f8f-8464-6ec6ddd93c37","__parent":"GPSWaypoints","position":[-1619.47241,1505.51282,163.751587]}
+{"name":"gpswp_usedcarsB","class":"BeamNGWaypoint","persistentId":"a2c9c4fe-2ce1-49ca-bdb9-4ed5c43dd861","__parent":"GPSWaypoints","position":[910.457153,1312.53174,144.006348]}
+{"name":"gpswp_scrapyardA","class":"BeamNGWaypoint","persistentId":"790447b3-a944-4377-9733-917e981f52bc","__parent":"GPSWaypoints","position":[-1792.29968,1505.77307,142.910965]}
+{"name":"gpswp_partshopB","class":"BeamNGWaypoint","persistentId":"51f825dd-d338-421f-9422-64d5cc188f93","__parent":"GPSWaypoints","position":[-695.914917,-1333.77551,140.315506]}
+{"name":"gpswp_gasG","class":"BeamNGWaypoint","persistentId":"63ffb658-f3e3-4189-9ec4-535244f52466","__parent":"GPSWaypoints","position":[-1062.84851,-1347.49158,324.168915]}

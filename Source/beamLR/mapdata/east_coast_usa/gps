@@ -1,0 +1,10 @@
+PlayerGarage=home,wp138,Player Garage
+CloseGas=gas,wp138,Gas Station (Outside Town NODEOLINE)
+CloseParts=partshop,wp138,Part Shop (SMITHS AUTO SERVICE)
+UsedCars=usedcarshop,blrgps_usedcarshop,Used Car Shop (TJ'S OFFROAD WORLD)
+DockRepair=repair,blrgps_repairA,Repair Garage (HENDERSON'S GARAGE)
+NewCars=newcarshop,blrwp_firwoodinn,New Car Shop (GEM CLASSICS)
+FarParts=partshop,wp177,Part Shop (Inside Town)
+Scrapyard=scrapyard,wp176,Scrapyard (FIRWOOD GARAGE)
+TownRepair=repair,wp169,Repair Garage (FIRWOOD MOTOR COMPANY)
+TownGas=gas,blrwp_storeA,Gas Station (Inside Town NODEOLINE)

@@ -1,0 +1,7 @@
+destpos=202.46678161621,-312.15341186523,192.23989868164
+destrot=0.00021726051668587,-0.0050322108564852,0.9998570923127,-0.016137676529279
+desc=Deliver $item to the vineyard construction site
+reward=750
+items=list_all
+gmwp=wp_busStop_05_3
+type=gooseneck

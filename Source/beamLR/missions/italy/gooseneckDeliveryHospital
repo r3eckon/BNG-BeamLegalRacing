@@ -1,0 +1,7 @@
+destpos=210.49295043945,1385.947265625,187.41625976563
+destrot=-0.0063754787641543,-0.01495788077979,0.92509944137373,0.37937664483086
+desc=Deliver $item to the city hospital
+reward=800
+items=list_all
+gmwp=blrwp_hospital
+type=gooseneck

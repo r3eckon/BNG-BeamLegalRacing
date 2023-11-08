@@ -1,5 +1,5 @@
 desc=Quick highway drag race
-wager=150,300
+wager=150,500
 slips=0.05
 enemyModel=pessima
 enemyConfig=vehicles/pessima/DX_M.pc

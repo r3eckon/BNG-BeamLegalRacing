@@ -1,5 +1,5 @@
 desc=Very long endurance race around Utah
-wager=1000,2000
+wager=1500,3000
 slips=0.01
 enemyConfig=class:club/street_hero
 enemyRisk=0.87

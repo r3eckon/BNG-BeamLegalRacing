@@ -1,0 +1,7 @@
+destpos=-310.03311157227,-556.25140380859,129.86949157715
+destrot=0.007347911088707,0.0071419366155193,-0.62949749060235,0.77693494596997
+desc=Deliver $item to the airfield
+reward=800
+items=list_all
+gmwp=blrwp_airfield
+type=gooseneck

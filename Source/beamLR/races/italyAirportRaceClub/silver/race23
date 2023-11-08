@@ -1,5 +1,5 @@
 desc=Short runway drag race
-wager=350,700
+wager=500,1000
 slips=0.04
 enemyModel=lansdale
 enemyConfig=vehicles/lansdale/25_tuner_M.pc

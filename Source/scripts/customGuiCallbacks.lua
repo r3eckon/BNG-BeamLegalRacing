@@ -23,7 +23,19 @@ extensions.blrglobals.gmSetVal("podo", extensions.blrglobals.gmGetVal("codo"))	-
 extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-- Do same thing with NOS
 extensions.blrglobals.blrFlagSet("hasNos", false) -- Setting hasNos to false to avoid vlua fetching bug before flag is set by N2O Check node
 extensions.blrhooks.linkHook("vehReset", "postedit")							-- Hooks post edit actions to the vehicle restored callback
-extensions.betterpartmgmt.setSlot(p["slot"], p["item"])							-- which restores proper camera and gas value
+
+--1.13 advanced vehicle building edits																				-- which restores proper camera and gas value
+if extensions.blrglobals.blrFlagGet("avbToggle") then
+extensions.blrglobals.blrFlagSet("advancedVehicleBuilding", true)
+-- BELOW FUNCTION CALL FIXED ISSUE WITH FIRST EDIT NOT USING AVB
+require("jbeam/io").finishLoading() -- clearing jbeam cache before edit
+extensions.betterpartmgmt.setSlotWithChildren(p["slot"], p["item"])
+else--use legacy slot setting function if avb toggle is off
+extensions.betterpartmgmt.setSlot(p["slot"], p["item"])						
+end
+
+
+
 end
 
 ftable["addInventory"] = function(p)
@@ -36,7 +48,6 @@ if money >= p["price"] then
 extensions.betterpartmgmt.addToInventory(p["item"])
 extensions.blrglobals.gmSetVal("playerMoney", money - p["price"])
 extensions.blrutils.playSFX("event:>UI>Special>Buy")
-end
 local inventory = extensions.betterpartmgmt.getPartInventory()
 extensions.customGuiStream.sendDataToUI("ownedParts", inventory)
 local list = extensions.betterpartmgmt.getGarageUIData()
@@ -50,6 +61,9 @@ list = extensions.betterpartmgmt.getSortedGarageSlots()
 extensions.customGuiStream.sendDataToUI("sortedGarageSlots", list)
 list = extensions.betterpartmgmt.getSortedGarageParts()
 extensions.customGuiStream.sendDataToUI("sortedGarageParts", list)
+else
+guihooks.trigger('Message', {ttl = 10, msg = 'You don\'t have enough money to buy this part!', icon = 'directions_car'})
+end
 end
 
 ftable["setFilter"] = function(p)
@@ -172,6 +186,9 @@ list = extensions.betterpartmgmt.getSortedGarageSlots()
 extensions.customGuiStream.sendDataToUI("sortedGarageSlots", list)
 list = extensions.betterpartmgmt.getSortedGarageParts()
 extensions.customGuiStream.sendDataToUI("sortedGarageParts", list)
+-- 1.13 part selling needs updated part prices updated after part edit
+list = extensions.betterpartmgmt.getFullPartPrices()
+extensions.customGuiStream.sendDataToUI("partPrices", list)
 end
 
 ftable["uiinit"] = function(p)
@@ -216,8 +233,8 @@ if cvgid ~= -1 then
 extensions.blrutils.saveUIPaintToGarageFile(cvgid, p)
 local paint = extensions.blrutils.convertUIPaintToVehiclePaint(p)
 extensions.blrutils.livePaintUpdate(vehid, paint)
-local mc = extensions.blrutils.convertUIPaintToMeshColors(p)
-extensions.blrutils.repaintFullMesh(vehid, mc.car,mc.cag, mc.cab, mc.caa, mc.cbr,mc.cbg,mc.cbb, mc.cba, mc.ccr,mc.ccg,mc.ccb, mc.cca)
+--local mc = extensions.blrutils.convertUIPaintToMeshColors(p)
+--extensions.blrutils.repaintFullMesh(vehid, mc.car,mc.cag, mc.cab, mc.caa, mc.cbr,mc.cbg,mc.cbb, mc.cba, mc.ccr,mc.ccg,mc.ccb, mc.cca)
 end
 end
 
@@ -504,6 +521,64 @@ dtable["perfmode" .. p["field"]] = tonumber(p["mode"])
 extensions.blrutils.updateDataTable("beamLR/options", dtable)
 end
 
+ftable["setAVBToggle"] = function(p)
+local dtable = {}
+dtable["avbtoggle"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+end
+
+ftable["setARCToggle"] = function(p)
+local dtable = {}
+dtable["advrepaircost"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+extensions.blrglobals.blrFlagSet("advrepaircost", p == 1)
+end
+
+
+ftable["garagePartSell"] = function(p)
+local part = p["part"]
+local value = p["value"]
+extensions.betterpartmgmt.removeFromInventory(part)
+local money = extensions.blrglobals.gmGetVal("playerMoney")
+extensions.blrglobals.gmSetVal("playerMoney", money + value)
+extensions.blrutils.playSFX("event:>UI>Special>Buy")
+local inventory = extensions.betterpartmgmt.getPartInventory()
+extensions.customGuiStream.sendDataToUI("ownedParts", inventory)
+local list = extensions.betterpartmgmt.getGarageUIData()
+if searching then
+list = extensions.betterpartmgmt.searchFilter(list, true, true)
+else
+list = extensions.betterpartmgmt.categoryFilter(list, true)
+end
+extensions.customGuiStream.sendDataToUI("garageData", list)
+list = extensions.betterpartmgmt.getSortedGarageSlots()
+extensions.customGuiStream.sendDataToUI("sortedGarageSlots", list)
+list = extensions.betterpartmgmt.getSortedGarageParts()
+extensions.customGuiStream.sendDataToUI("sortedGarageParts", list)
+end
+
+ftable["gpsSelectDestination"] = function(p)
+extensions.blrutils.setGPSDestination(p)
+extensions.customGuiStream.gpsSetLastPage(3)
+end
+
+ftable["gpsFindNearest"] = function(p)
+extensions.blrutils.gpsFindNearest(p)
+extensions.customGuiStream.gpsSetLastPage(3)
+end
+
+ftable["gpsCancelRoute"] = function(p)
+extensions.blrutils.setGPSDestination()
+extensions.customGuiStream.gpsSetLastPage(0)
+end
+
+ftable["setGPSMode"] = function(p)
+local dtable = {}
+dtable["gpsmode"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+extensions.blrutils.blrvarSet("gpsmode", p)
+extensions.blrutils.gpsToggleStateUpdate()
+end
 
 
 local ptable = {}

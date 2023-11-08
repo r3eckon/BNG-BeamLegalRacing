@@ -1,0 +1,7 @@
+destpos=573.63562011719,1394.2421875,148.20980834961
+destrot=0.0041107866009117,0.0010922295418602,-0.36611517194427,0.93055982577176
+desc=Deliver $item to an apartment building in the city
+reward=700
+items=list_all
+gmwp=blrwp_cityapartmenttrailer
+type=gooseneck

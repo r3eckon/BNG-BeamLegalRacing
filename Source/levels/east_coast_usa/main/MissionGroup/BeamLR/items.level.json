@@ -1,3 +1,4 @@
 {"name":"Triggers","class":"SimGroup","persistentId":"18e0913a-db1c-46e4-aa8a-dcb4b8115e58","__parent":"BeamLR"}
 {"name":"Waypoints","class":"SimGroup","persistentId":"e62f90af-818e-47d3-bd34-ff53df467f2b","__parent":"BeamLR"}
 {"name":"Markers","class":"SimGroup","persistentId":"f753fbf6-db4e-43d0-b9c0-53f287434a63","__parent":"BeamLR"}
+{"name":"GPSWaypoints","class":"SimGroup","persistentId":"4bfa2ce1-2931-41ce-8bfa-a9bb171f00d9","__parent":"BeamLR"}

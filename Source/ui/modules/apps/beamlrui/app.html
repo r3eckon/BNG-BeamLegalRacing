@@ -158,7 +158,7 @@ Different race clubs give different styles of races such as drag and dirt/offroa
 Race leagues provide a degree of progression to race clubs. Bronze league has slow opponents while Gold league has race configs.
 Wagers and rep rewards increase with opponent difficulty as you progress through leagues.<br><br>
 
-Reputation is currently only used for vehicle sell price scaling but will be used to unlock official races in a future version.<br><br>
+Reputation is used for vehicle sell price scaling and to unlock track events.<br><br>
 A small amount of reputation is lost every day. To keep your rep up you must perform races or challenges.<br><br>
 
 The final league for a club is called the "Hero" league. This league is endless and has no progression, with randomized opponents to make races replayable.<br><br>
@@ -198,6 +198,10 @@ Drive carefully!<br><br>
 <h2 style="text-align:center;">
 Health and Fatal Crashes<br>
 </h2>
+
+<h3 style="text-align:center;">
+Note: Health feature is temporarily disabled but fatal crashes are still possible!<br>
+</h3>
 
 <p style="margin-left:10px; margin-right:10px; text-align:center;">
 Hard crashes (above 15G) will injure the player. Very hard crashes (above 80G) can be instantly fatal.<br><br>
@@ -271,6 +275,24 @@ Track events use randomized parameters for replayability, such as opponent confi
 Each event has a unique seed which changes daily and after event completion. Sleep to next day to refresh event parameters.<br><br>
 </p>
 
+
+<h2 style="text-align:center;">
+Advanced Vehicle Building<br>
+</h2>
+
+<p style="text-align:center;">
+Added in 1.13, Advanced Vehicle Building allows for a more realistic or SLRR-like vehicle building experience.<br><br>
+When enabled parts no longer spawn with default sub-parts installed. Removing parts will add sub-parts to your inventory.<br><br>
+Turning on the feature will also allow you to sell parts using the Edit Car menu. Value is indicated above the sell button.<br><br>
+This feature is experimental and may still contain bugs and other weird issues. Use at your own risk and as always remember to back up your career files<br><br>
+BeamNG is not built to properly handle this feature. Engines missing important parts (intake, long block, manifold, ECU) will still be running.<br><br>
+The feature can be enabled throug the options menu. It is recommended to reset your career after changing this setting to avoid issues.<br><br>
+This feature is not recommended for casual players. It will make part edits more confusing and time consuming.<br><br>
+Tip: if your vehicle isn't moving after engine swap, check that drivetrain related part are not missing (driveshaft, halfshafts, transmission, etc).<br><br>
+Tip: when adding the pickup tow hitch (roamer also uses it) the ball hitch itself is under a slot called "Attachment" and must be added to accept trailer missions.<br><br>
+</p>
+
+
 <h2 style="text-align:center;">
 Various Tips<br>
 </h2>
@@ -287,6 +309,7 @@ Vehicle stuck upside down?<br> Nodegrabber is enabled with restricted force for 
 Bad performance with lots of traffic?<br> Use the Options menu to change traffic density.<br><br>
 Options menu can be used to change the random seed for the next career. Current seed can be changed by editing the "options" file.<br><br>
 There is currently no autosave mechanic. If you forcefully quit the game some progress may be lost.<br><br>
+Having trouble getting around the map?<br> Install a GPS in your vehicle (or force enable GPS UI in the options menu)<br><br>
 </p>
 
 <h2 style="text-align:center;">
@@ -357,10 +380,10 @@ Sleep Duration (Hours)
 
 <span style="float:left; transform:translate(40px, 0px)">Target Wager &nbsp </span>
 <span>
-<md-slider flex style="width:130px; transform: translate(150px, -10px); " min="100" max="5000" step="1" ng-model="inputData.targetWager" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()">
+<md-slider flex style="width:150px; transform: translate(150px, -10px); " min="100" max="10000" step="5" ng-model="inputData.targetWager" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()">
 </md-slider>
 </span>
-<span style="float:right; transform:translate(-95px, -45px); width:50px">${{inputData.targetWager}}</span>
+<span style="float:right; transform:translate(-100px, -45px); width:50px">${{inputData.targetWager}}</span>
 <span style="float:right; transform:translate(0px, -45px)">
 <button ng-click="setTargetWager(inputData.targetWager)">Set</button>
 </span>
@@ -378,6 +401,18 @@ Race Opponent Random Paint
 Time Scale 
 <input type="number" max=100.0 min=1.0 step=0.1 size=5 maxlength=5 ng-model="inputData.timeScale" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
 <button ng-click="setTimeScale(inputData.timeScale)">Set</button>
+</p>
+
+<p style="text-align:center; margin-top:15px; margin-bottom:15px; margin-left:20px; margin-right:20px;">
+Default GPS mode shows GPS UI if vehicle has a GPS installed. Always On ignores part check. Regardless of setting GPS UI will be hidden in certain situations.
+</p>
+
+
+<p style="text-align:center; transform:translate(60px,0px); width:350px;"> 
+GPS Mode
+<button ng-click="setGPSMode(0)">Default</button>
+<button ng-click="setGPSMode(1)">Always On</button>
+<button ng-click="setGPSMode(2)">Always Off</button>
 </p>
 
 
@@ -512,6 +547,28 @@ Reset Advanced Couplers
 <button ng-click="resetCouplers()">Reset</button>
 </p>
 
+<p style="text-align:center;">  
+Advanced vehicle building allows part selling and a more realistic, SLRR-like part editing system.
+Career reset is recommended after changing this parameter to avoid<br> issues such as corrupted vehicle configs.
+</p>
+<p style="text-align:center;">  Requires scenario restart to take effect. </p>
+
+<p style="text-align:center;"> 
+Advanced Vehicle Building
+<button ng-click="avbToggle(1)">On</button>
+<button ng-click="avbToggle(0)">Off</button>
+</p>
+
+<p style="text-align:center;">  
+Advanced repair cost uses improved code for more accurate repair cost calculation, relying on broken/deformed beams<br>and part specific costs. Will likely result in higher repair costs especially for high end vehicles.
+</p>
+
+<p style="text-align:center;"> 
+Advanced Repair Cost
+<button ng-click="arcToggle(1)">On</button>
+<button ng-click="arcToggle(0)">Off</button>
+</p>
+
 
 <br>
 
@@ -567,16 +624,29 @@ Reset Advanced Couplers
 <img ng-if="beamlrData['partpreview'][part] == null" src="/ui/modules/apps/beamlrui/partimg/none.png" width=90px height=90px />
 </span>
 
+<div ng-if="slotNameMode!=1">
 <span ng-if="beamlrData['usedParts'][key] != part && (beamlrData['ownedParts'][part] == null || beamlrData['ownedParts'][part] == 0)" style="transform:translate(20px, 0px); display:inline-block; text-align:center; line-height:20px; width: 200px; margin-left:20px; vertical-align:middle; overflow-wrap:break-word;">{{beamlrData['partNames'][part]}}</span>
 <span ng-if="beamlrData['usedParts'][key] != part && beamlrData['ownedParts'][part] > 0" style="transform:translate(20px, 0px); display:inline-block; text-align:center; line-height:20px; width: 200px; margin-left:20px; vertical-align:middle; overflow-wrap:break-word;">{{beamlrData['partNames'][part]}} (OWN {{beamlrData['ownedParts'][part]}})</span>
 <span ng-if="beamlrData['usedParts'][key] == part" style="transform:translate(20px, 0px); display:inline-block; text-align:center; line-height:20px; width: 200px; margin-left:20px; vertical-align:middle; overflow-wrap:break-word;">{{beamlrData['partNames'][part]}} (INSTALLED)</span>
-
-
 <span style="float:right; margin-right:5px; vertical-align:middle;">
 <span ng-if="beamlrData['partPrices'][part] == null">${{beamlrData['partPrices']['default'] * beamlrData['shopPriceScale'] | number:2}}</span>
 <span ng-if="beamlrData['partPrices'][part] != null">${{beamlrData['partPrices'][part] * beamlrData['shopPriceScale'] | number:2}}</span>
 <button ng-click="shopPartClick(part)">Buy</button>
 </span>
+</div>
+
+<div ng-if="slotNameMode==1">
+<span ng-if="beamlrData['usedParts'][key] != part && (beamlrData['ownedParts'][part] == null || beamlrData['ownedParts'][part] == 0)" style="transform:translate(20px, 0px); display:inline-block; text-align:center; line-height:20px; width: 200px; margin-left:20px; vertical-align:middle; overflow-wrap:break-word;">{{part}}</span>
+<span ng-if="beamlrData['usedParts'][key] != part && beamlrData['ownedParts'][part] > 0" style="transform:translate(20px, 0px); display:inline-block; text-align:center; line-height:20px; width: 200px; margin-left:20px; vertical-align:middle; overflow-wrap:break-word;">{{part}} (OWN {{beamlrData['ownedParts'][part]}})</span>
+<span ng-if="beamlrData['usedParts'][key] == part" style="transform:translate(20px, 0px); display:inline-block; text-align:center; line-height:20px; width: 200px; margin-left:20px; vertical-align:middle; overflow-wrap:break-word;">{{part}} (INSTALLED)</span>
+<span style="float:right; margin-right:5px; vertical-align:middle;">
+<span ng-if="beamlrData['partPrices'][part] == null">${{beamlrData['partPrices']['default'] * beamlrData['shopPriceScale'] | number:2}}</span>
+<span ng-if="beamlrData['partPrices'][part] != null">${{beamlrData['partPrices'][part] * beamlrData['shopPriceScale'] | number:2}}</span>
+<button ng-click="shopPartClick(part)">Buy</button>
+</span>
+</div>
+
+
 
 </div>
 
@@ -642,30 +712,44 @@ Reset Advanced Couplers
 <span ng-if="visibleSlots[key] == true" style="float:right; text-align:center; width:40px;" ng-click="slotToggle(key, false)">-</span>
 </div>
 
-<div ng-if="visibleSlots[key] == true && beamlrData['usedParts'][key] != ''" style="text-align:center; line-height:100px;">
-<span style="float:left; margin-left:20px; transform:translate(0,5px); height:90px; vertical-align:middle;">
+<div ng-if="visibleSlots[key] == true && beamlrData['usedParts'][key] != ''" style="text-align:center; line-height:120px;">
+<span style="float:left; margin-left:20px; transform:translate(0,15px); height:90px; vertical-align:middle;">
 <img ng-if="beamlrData['partpreview'][beamlrData['usedParts'][key]] != null" ng-attr-src="/ui/modules/apps/beamlrui/partimg/{{beamlrData['partpreview'][beamlrData['usedParts'][key]]}}" width=90px height=90px />
 <img ng-if="beamlrData['partpreview'][beamlrData['usedParts'][key]] == null" src="/ui/modules/apps/beamlrui/partimg/none.png" width=90px height=90px />
 </span>
-<span ng-if="beamlrData['usedParts'][key] != item" style="display:inline-block; width: 150px; line-height:20px; vertical-align:middle; overflow-wrap:break-word;">{{beamlrData['partNames'][beamlrData['usedParts'][key]]}}</span>
-<span style="float:right; margin-right:20px; vertical-align:middle;">
-<button ng-click="garagePartClick(key,'')">Remove Part</button>
+<span ng-if="beamlrData['usedParts'][key] != item && slotNameMode != 1" style="display:inline-block; width: 150px; line-height:20px; vertical-align:middle; overflow-wrap:break-word;">{{beamlrData['partNames'][beamlrData['usedParts'][key]]}}</span>
+<span ng-if="beamlrData['usedParts'][key] != item && slotNameMode == 1" style="display:inline-block; width: 150px; line-height:20px; vertical-align:middle; overflow-wrap:break-word;">{{beamlrData['usedParts'][key]}}</span>
+<span style="float:right; margin-right:0px; width:120px; vertical-align:middle;">
+<button ng-click="garagePartClick(key,'')" style="width:90px;">Remove</button>
 </span>
 </div>
 
 <div ng-if="visibleSlots[key] == true">
 <div ng-repeat="(pid,item) in beamlrData['sortedGarageParts'][key] track by pid" >
-<div ng-if="beamlrData['usedParts'][key] != item" style="text-align:center; line-height:100px;" >
-<span style="float:left; margin-left:20px; transform:translate(0,5px); height:90px; vertical-align:middle;">
+<div ng-if="beamlrData['usedParts'][key] != item" style="text-align:center; line-height:120px;" >
+<span style="float:left; margin-left:20px; transform:translate(0,15px); height:90px; vertical-align:middle;">
 <img ng-if="beamlrData['partpreview'][item] != null" ng-attr-src="/ui/modules/apps/beamlrui/partimg/{{beamlrData['partpreview'][item]}}" width=90px height=90px />
 <img ng-if="beamlrData['partpreview'][item] == null" src="/ui/modules/apps/beamlrui/partimg/none.png" width=90px height=90px />
 </span>
 
-<span style="display:inline-block; width: 150px; line-height:20px; vertical-align:middle; overflow-wrap:break-word;">{{beamlrData['partNames'][item]}}</span>
+<span ng-if="slotNameMode != 1" style="display:inline-block; width: 150px; line-height:20px; vertical-align:middle; overflow-wrap:break-word;">{{beamlrData['partNames'][item]}} (OWN {{beamlrData['ownedParts'][item]}})</span>
+<span ng-if="slotNameMode == 1" style="display:inline-block; width: 150px; line-height:20px; vertical-align:middle; overflow-wrap:break-word;">{{item}} (OWN {{beamlrData['ownedParts'][item]}})</span>
 
-
-<span style="float:right; margin-right:20px; vertical-align:middle;">
+<span style="float:right; margin-right:0px; vertical-align:middle; width:120px; line-height:20px;">
+<div ng-if="beamlrData['avbToggle'] == false" style="margin-top:46px;">
 <button style="width:90px;" ng-click="garagePartClick(key,item)">Use</button>
+</div>
+<div ng-if="beamlrData['avbToggle'] == true" style="transform:translate(0px,5px);">
+<table style="table-layout:fixed; width:">
+<tr><td><button style="width:90px;" ng-click="garagePartClick(key,item)">Use</button></td></tr>
+<tr><td>Sell value ${{beamlrData['partPrices'][item] * partSellScale | number:2}}</td></tr>
+<tr><td>
+<button ng-if="partSellConfirm[item] == null || partSellConfirm[item] == false" style="width:90px;" ng-click="garagePartSell(item,beamlrData['partPrices'][item] * partSellScale)">Sell</button>
+<button ng-if="partSellConfirm[item] == true" style="width:90px;" ng-click="garagePartSell(item, beamlrData['partPrices'][item] * partSellScale)">Confirm</button>
+</td></tr>
+</table>
+</div>
+</div>
 </span>
 </div>
 </div>
@@ -713,7 +797,7 @@ Reset Advanced Couplers
 </div>
 </div>
 
-</div>
+
 
 <div ng-if="beamlrData['playerWalking'] != 0">
 <h2 style="text-align:center;" > Cannot use while walking. </h2>

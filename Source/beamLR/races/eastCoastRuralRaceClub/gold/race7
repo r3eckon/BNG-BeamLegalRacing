@@ -1,5 +1,5 @@
 desc=Long looping race
-wager=1000,2500
+wager=2000,5000
 slips=0.03
 enemyConfig=class:club/street_gold
 enemyRisk=0.9

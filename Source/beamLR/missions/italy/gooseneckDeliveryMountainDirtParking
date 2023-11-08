@@ -1,0 +1,7 @@
+destpos=-1214.1423339844,-320.83245849609,387.44055175781
+destrot=0.0015351865026787,-0.0039494369686538,0.9749002099812,0.22260194457516
+desc=Deliver $item to the dam parking area
+reward=800
+items=list_all
+gmwp=blrwp_damdirtparking
+type=gooseneck

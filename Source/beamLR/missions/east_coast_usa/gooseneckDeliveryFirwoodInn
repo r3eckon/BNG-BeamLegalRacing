@@ -1,0 +1,7 @@
+destpos=550.18273925781,-761.7744140625,60.711414337158
+destrot=0.0042656765819276,0.0038038992037302,-0.72033651948997,0.69360120605664
+desc=Deliver $item to the Firwood Inn
+reward=700
+items=list_all
+gmwp=blrwp_firwoodinn
+type=gooseneck

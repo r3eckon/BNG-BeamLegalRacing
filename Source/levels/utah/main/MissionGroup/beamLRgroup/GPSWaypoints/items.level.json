@@ -1,0 +1,4 @@
+{"name":"blrgps_playergarage","class":"BeamNGWaypoint","persistentId":"6dd28571-dde3-4b76-9411-06a8b5f845b9","__parent":"GPSWaypoints","position":[763.371033,-152.203125,144.538879]}
+{"name":"blrgps_closegas","class":"BeamNGWaypoint","persistentId":"f101e934-ff81-40a8-b538-15afea98d3a6","__parent":"GPSWaypoints","position":[816.74469,-152.207535,144.304916]}
+{"name":"blrgps_closegarage","class":"BeamNGWaypoint","persistentId":"2ebb431a-203e-418b-85da-2ba9bd9fb9dd","__parent":"GPSWaypoints","position":[813.416382,-178.116699,144.304916]}
+{"name":"blrgps_usedcars","class":"BeamNGWaypoint","persistentId":"2b0bf2f1-c9be-4016-8cf0-b126a9eb31ff","__parent":"GPSWaypoints","position":[785.788269,-13.4169884,147.367447]}
