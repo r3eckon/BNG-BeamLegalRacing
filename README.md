@@ -534,7 +534,7 @@ Thank you for playing BeamLR!
 * Lauri Kabur
 * Liam Wood (liamwood15)
 * Benjamin Rogers (thisvelologist)
-* Rosemary Makepeace
+* Leon Makepeace
 
 ## Known Issues 
 
