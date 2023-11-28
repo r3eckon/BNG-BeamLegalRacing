@@ -30,7 +30,7 @@ Modders should back up the userfolder before installing.
 
 ## Update Instructions
 **BEFORE UPDATING**:  Back up the userfolder/beamLR folder to archive your career
-* Download the latest zip file from the **Releases** folder.
+* Download the latest zip file from [**Releases**](https://github.com/r3eckon/BNG-BeamLegalRacing/releases).
 * Use the BeamLR options menu to back up your career.
 * Extract updated mod zip contents to the userfolder. 
 * Tell OS to replace existing files when asked. **This will apply the update.**
