@@ -19,7 +19,7 @@ Perform missions, races and challenges to earn money to buy vehicles and parts. 
 **BeamLR cannot be installed like a normal mod due to data persistence issues when zipped**. 
 
 Carefully follow the instructions to ensure all features are working properly:
-* Download the latest zip file from the **Releases** folder.
+* Download the latest zip file from [**Releases**](https://github.com/r3eckon/BNG-BeamLegalRacing/releases).
 * Extract zip file contents directly to your [BeamNG userfolder](https://documentation.beamng.com/support/userfolder/).
 * Tell your operating system to replace existing files if asked.
 
