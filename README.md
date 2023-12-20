@@ -845,3 +845,4 @@ Thank you for playing BeamLR!
 * Some hero leagues now have 50% chance of using traffic
 * Replaced bolide 350usdm config for gold race club with amateur racing config
 * Reduced "call mechanic" fee from 200% to 150% of total repair cost
+* Removed caravans from trailer item list for construction basement mission
