@@ -1,0 +1,7 @@
+desc=Jump on the roof of the Belasco Auto shop
+wager=500,1000
+triggers=BeamLRTrigger_Jump3
+type=jump
+rep=10,50
+gmwp=blrgps_usedcarsB
+traffic=1

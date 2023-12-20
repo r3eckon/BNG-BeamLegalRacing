@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_IslandDockWarehouse
+desc=Deliver $item to Spearleaf Marine Logistics
+reward=400
+items=list_all
+gmwp=blrwp_islanddockwarehouse
+type=small

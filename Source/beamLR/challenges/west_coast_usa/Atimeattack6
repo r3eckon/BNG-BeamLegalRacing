@@ -1,0 +1,8 @@
+desc=High speed time attack to the dragstrip
+type=time
+wager=1000,3000
+rep=20,50
+triggers=BeamLRTrigger_RaceACP3,BeamLRTrigger_RaceACP4,BeamLRTrigger_RaceACP5,BeamLRTrigger_RaceACP6,BeamLRTrigger_RaceACP7,BeamLRTrigger_RaceACP8,BeamLRTrigger_RaceACP9,BeamLRTrigger_RaceACP15,BeamLRTrigger_RaceACP16,BeamLRTrigger_RaceDCP83,BeamLRTrigger_RaceDCP84,BeamLRTrigger_RaceDCP85,BeamLRTrigger_RaceDCP86,BeamLRTrigger_RaceDCP87,BeamLRTrigger_RaceDCP88,BeamLRTrigger_RaceDCP89
+gmwp=blrwp_raceA5
+targettime=105000,120000
+traffic=0

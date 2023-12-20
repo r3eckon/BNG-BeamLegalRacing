@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_Condos
+desc=Deliver $item to a condominium building
+reward=400
+items=list_all
+gmwp=blrwp_condos
+type=small

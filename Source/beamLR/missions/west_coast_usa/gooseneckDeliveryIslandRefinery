@@ -1,0 +1,7 @@
+destpos=-610.66033935547,1898.0284423828,85.701293945313
+destrot=0.0056407184953895,-0.00015923039052273,-0.62262657481146,0.78249875736584
+desc=Deliver $item to the Spearleaf Refinery
+reward=850
+items=list_all
+gmwp=blrwp_gooseneckrefinery
+type=gooseneck

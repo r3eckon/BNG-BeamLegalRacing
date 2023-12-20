@@ -1,0 +1,7 @@
+destpos=387.5368347168,1707.7155761719,75.077499389648
+destrot=-9.4100008603678e-05,-0.0032569192508406,0.9998481928186,0.017116510730031
+desc=Deliver $item to the island dock storage area
+reward=350
+items=list_all
+gmwp=blrwp_trailerdockstorage
+type=trailer

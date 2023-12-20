@@ -1,0 +1,7 @@
+destpos=-369.02438354492,-586.49560546875,127.252784729
+destrot=0.0048108751928406,0.0020661698813159,-0.39544160884103,0.91847619480263
+desc=Deliver $item to a house in the suburb
+reward=350
+items=list_all
+gmwp=blrwp_trailersuburb
+type=trailer

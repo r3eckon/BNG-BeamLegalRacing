@@ -1,0 +1,17 @@
+desc=Another drag race
+wager=1000,2500
+slips=0.01
+enemyConfig=vehicles/etk800/846x_ttsport_plus_DCT.pc,vehicles/etk800/846_ttSport_custom_DCT.pc,vehicles/etk800/846_ttsport_heritage_M.pc
+enemyRisk=2.0
+enemyBasePrice=0
+enemyPartPrice=0
+enemyScrapVal=0
+enemyPaint=0,0,0,0,0.1,0.1,0.1,0.1
+enemyAvoid=1
+triggers=BeamLRTrigger_RaceACP70
+waypoints=Bridge20_2,Bridge29_3,blrwp_raceA99
+laps=1
+ifile=beamLR/races/integrity/good
+traffic=1
+parts=none
+rep=50,100

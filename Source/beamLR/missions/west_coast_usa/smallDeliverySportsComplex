@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_SportsComplex
+desc=Deliver $item to the sports complex
+reward=400
+items=list_all
+gmwp=blrwp_sportscomplex
+type=small

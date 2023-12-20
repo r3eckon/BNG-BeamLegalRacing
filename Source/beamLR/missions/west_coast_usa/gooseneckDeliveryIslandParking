@@ -1,0 +1,7 @@
+destpos=139.37753295898,1776.6003417969,102.75637054443
+destrot=0.0025524072797858,0.0058423888990601,-0.79665179593195,0.60440488726303
+desc=Deliver $item to the island gas station
+reward=850
+items=list_all
+gmwp=blrwp_islandparkingarea
+type=gooseneck

@@ -1,0 +1,7 @@
+destpos=-669.40191650391,838.59069824219,75.065452575684
+destrot=0.0011720485136353,-0.0035575935556093,0.92019433811978,0.39144392947479
+desc=Deliver $item to the beach parking lot
+reward=850
+items=list_all
+gmwp=blrwp_beachparking
+type=gooseneck

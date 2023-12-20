@@ -1,0 +1,7 @@
+destpos=-642.60498046875,27.757926940918,102.61916351318
+destrot=-0.01185520260954,-0.024965334134896,0.39070547214759,0.92010076638189
+desc=Deliver $item to a concrete plant
+reward=850
+items=list_all
+gmwp=blrwp_concreteparking
+type=gooseneck

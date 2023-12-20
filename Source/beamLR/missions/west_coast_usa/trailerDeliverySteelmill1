@@ -1,0 +1,7 @@
+destpos=-1143.1437988281,-506.2682800293,104.56534576416
+destrot=-0.00093427696101423,-0.0026093603450297,0.92528877846653,-0.37925320672218
+desc=Deliver $item to the Hot Rolled Inc. steel mill entrance
+reward=350
+items=list_all
+gmwp=blrwp_steelmill1
+type=trailer

@@ -16,9 +16,16 @@ local menuTriggerData = {}
 local menuTriggerStatus = {}
 local menuTriggerDataState = {}
 
+-- Trigger counter keeps track of trigger type entries and exits, this only matters For
+-- close triggers of the same type like garage on west coast thats split into two trigs
+-- for the same garage, to workaround issue of exit event closing menu despite still being
+-- inside the garage
+local menuTriggerCounter = {}
+local menuTriggerType = {}
 
 local function blrTrigger(data)
 local menuMatch = false
+local cmcount = 0
 
 for k,v in pairs(registeredNodes) do
 triggerData[k][data.subjectID] = data
@@ -48,12 +55,17 @@ menuTriggerDataState[k][data.subjectID] = true
 
 if menuTriggerStatus[k][data.subjectID] == nil then
 menuTriggerStatus[k][data.subjectID] = {}
+menuTriggerCounter[k][data.subjectID] = {}
 end
+
+cmcount = menuTriggerCounter[k][data.subjectID][menuTriggerType[data.triggerName]] or 0
 
 if data.event == "enter" then
 menuTriggerStatus[k][data.subjectID][data.triggerName] = true
+menuTriggerCounter[k][data.subjectID][menuTriggerType[data.triggerName]] = cmcount+1
 else
 menuTriggerStatus[k][data.subjectID][data.triggerName] = nil --to remove from table
+menuTriggerCounter[k][data.subjectID][menuTriggerType[data.triggerName]] = math.max(cmcount-1,0)
 end
 
 end
@@ -115,7 +127,8 @@ local function loadMenuFilters()
 local dtable = extensions.blrutils.loadDataTable("beamLR/mapdata/" .. extensions.blrutils.getLevelName() .. "/triggers")
 menuFilters = {} 
 for k,v in pairs(dtable) do
-menuFilters[k] = true
+menuFilters[k] = true --using type_dataFile format for trigger type so all triggers for same spot have shared type
+menuTriggerType[k] = "" .. string.gsub(v, ",", "_")
 end
 end
 
@@ -127,6 +140,7 @@ triggerDataState = {}
 menuTriggerData = {}
 menuTriggerStatus = {}
 menuTriggerDataState = {}
+menuTriggerCounter = {}
 if useMenuFilters then
 loadMenuFilters()
 end
@@ -141,6 +155,7 @@ triggerDataState[nid] = {}
 menuTriggerData[nid] = {}
 menuTriggerStatus[nid] = {}
 menuTriggerDataState[nid] = {}
+menuTriggerCounter[nid] = {}
 end
 end
 
@@ -148,6 +163,16 @@ local function isNodeRegistered(nid)
 return registeredNodes[nid] or false
 end
 
+local function getMenuTriggerCounter(nid, vid, trigger)
+local ttype = menuTriggerType[trigger]
+local toRet = 0
+if menuTriggerCounter[nid] and menuTriggerCounter[nid][vid] then
+toRet = menuTriggerCounter[nid][vid][ttype]
+end
+return toRet
+end
+
+M.getMenuTriggerCounter = getMenuTriggerCounter
 M.isNodeRegistered = isNodeRegistered
 M.registerNode = registerNode
 M.loadMenuFilters = loadMenuFilters

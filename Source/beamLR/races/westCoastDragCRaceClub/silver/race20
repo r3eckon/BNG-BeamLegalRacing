@@ -1,0 +1,17 @@
+desc=Another high stakes drag race
+wager=1500,3000
+slips=0.08
+enemyConfig=vehicles/etk800/846x_ttsport_plus_DCT.pc,vehicles/etk800/846_ttSport_custom_DCT.pc,vehicles/etk800/846_ttsport_heritage_M.pc
+enemyRisk=2.0
+enemyBasePrice=0
+enemyPartPrice=0
+enemyScrapVal=0
+enemyPaint=0,0,0,0,0.1,0.1,0.1,0.1
+enemyAvoid=0
+triggers=BeamLRTrigger_DragCFinish
+waypoints=blrwp_raceA14
+laps=1
+ifile=beamLR/races/integrity/good
+traffic=1
+parts=none
+rep=50,100

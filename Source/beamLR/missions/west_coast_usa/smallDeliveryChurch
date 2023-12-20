@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_Church
+desc=Deliver $item to a church in the city
+reward=400
+items=list_all
+gmwp=blrwp_church
+type=small

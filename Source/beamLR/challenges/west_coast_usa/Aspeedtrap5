@@ -1,0 +1,8 @@
+desc=Island refinery speed trap challenge
+wager=500,2000
+triggers=BeamLRTrigger_RaceACP14
+type=speed
+targetspd=50,69
+rep=30,200
+gmwp=blrwp_raceA18
+traffic=1

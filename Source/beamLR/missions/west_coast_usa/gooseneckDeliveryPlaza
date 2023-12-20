@@ -1,0 +1,7 @@
+destpos=-382.93139648438,372.8376159668,102.00382995605
+destrot=0.0036454245047726,0.00077388710126725,-0.3697219020553,0.92913498864242
+desc=Deliver $item to Riverway Plaza
+reward=850
+items=list_all
+gmwp=blrwp_plaza
+type=gooseneck

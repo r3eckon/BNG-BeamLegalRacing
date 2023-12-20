@@ -1,0 +1,7 @@
+destpos=-642.44543457031,27.250841140747,102.59156036377
+destrot=-0.012428725641842,-0.024299501809787,0.40121730982654,0.91557617448592
+desc=Deliver $item to the concrete plant
+reward=350
+items=list_all
+gmwp=blrwp_concreteparking
+type=trailer

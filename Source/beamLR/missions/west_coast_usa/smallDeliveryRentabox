@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_Rentabox
+desc=Deliver $item to Rent-A-Box Secure Storage
+reward=400
+items=list_all
+gmwp=blrwp_rentabox
+type=small

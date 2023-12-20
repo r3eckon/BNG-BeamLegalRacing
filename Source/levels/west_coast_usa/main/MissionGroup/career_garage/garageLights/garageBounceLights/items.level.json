@@ -1,0 +1,3 @@
+{"name":"garageBounce_1","class":"PointLight","persistentId":"7c239321-0245-4824-afe5-b569e4e5120b","__parent":"garageBounceLights","position":[903.532898,-546.028137,162.62561],"brightness":0.100000001,"isEnabled":false,"radius":12}
+{"name":"garageBounce_2","class":"PointLight","persistentId":"7bac65fc-78d9-4275-a8b8-7d8fde088f92","__parent":"garageBounceLights","position":[913.371826,-547.213928,162.62561],"brightness":0.100000001,"isEnabled":false,"radius":12,"shadowDarkenColor":[0,0,0,0]}
+{"name":"garageBounce_3","class":"PointLight","persistentId":"3939c159-a316-4da1-872e-f4a6f1e06e0e","__parent":"garageBounceLights","position":[914.376648,-537.362549,162.62561],"brightness":0.100000001,"isEnabled":false,"radius":12,"shadowDarkenColor":[0,0,0,0]}

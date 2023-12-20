@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_WoodHouse
+desc=Deliver $item to a house in the woods
+reward=400
+items=list_all
+gmwp=blrwp_woodhouse
+type=small

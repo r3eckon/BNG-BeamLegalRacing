@@ -1,0 +1,9 @@
+desc=Suburb drift challenge
+wager=1000,5000
+triggers=BeamLRTrigger_RaceACP61,BeamLRTrigger_RaceACP62,BeamLRTrigger_RaceACP63,BeamLRTrigger_RaceACP64,BeamLRTrigger_RaceACP65,BeamLRTrigger_RaceACP66,BeamLRTrigger_RaceACP67
+type=drift
+targettime=115000,150000
+driftpts=8000,11000
+rep=50,100
+gmwp=blrwp_raceA85
+traffic=0

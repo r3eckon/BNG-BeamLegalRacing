@@ -203,6 +203,18 @@
         "top":"",
         "width":"310px"
       }
+    },
+    {
+      "appName":"beamlrrepairui",
+      "placement":{
+        "bottom":"",
+        "height":"500px",
+        "left":"",
+        "position":"absolute",
+        "right":"195px",
+        "top":"0px",
+        "width":"500px"
+      }
     }
   ],
   "description":"BeamLR UI Layout",

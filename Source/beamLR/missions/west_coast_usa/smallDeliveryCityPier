@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_CityPier
+desc=Deliver $item to the city pier
+reward=400
+items=list_all
+gmwp=blrwp_citypier
+type=small

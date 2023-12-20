@@ -1,0 +1,9 @@
+desc=Drift challenge to the Lens Flare movie studio
+wager=1000,5000
+triggers=BeamLRTrigger_RaceDCP61,BeamLRTrigger_RaceDCP62,BeamLRTrigger_RaceDCP63,BeamLRTrigger_RaceACP79,BeamLRTrigger_RaceACP80,BeamLRTrigger_RaceACP81,BeamLRTrigger_RaceACP59,BeamLRTrigger_RaceACP82,BeamLRTrigger_RaceACP83
+type=drift
+targettime=186000,300000
+driftpts=10000,18000
+rep=50,100
+gmwp=Bridge19_2
+traffic=0

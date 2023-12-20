@@ -1,0 +1,8 @@
+desc=Difficult bridge speed trap challenge
+wager=2000,8000
+triggers=BeamLRTrigger_DragCFinish
+type=speed
+targetspd=70,91
+rep=30,200
+gmwp=blrwp_raceA13
+traffic=1

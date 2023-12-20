@@ -1,5 +1,6 @@
 
-# Beam Legal Racing 1.13
+
+# Beam Legal Racing 1.14
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -7,7 +8,7 @@ Perform missions, races and challenges to earn money to buy vehicles and parts. 
 ## Quick Links
 ### More Info | [Forum thread](https://www.beamng.com/threads/87394/) 
 
-### Career Maps | [Utah](utahmap.md) | [East Coast](eastcoastmap.md) | [Italy](italymap.md)
+### Career Maps | [Utah](utahmap.md) | [East Coast](eastcoastmap.md) | [Italy](italymap.md) | [West Coast](westcoastmap.md)
 
 ### Track Event Maps | [Hirochi Raceway](hirochimap.md) | [Automation Test Track](automationmap.md) | [Nordschleife](map_ks_nord.md)
 
@@ -96,6 +97,7 @@ Version 1.12 adds Italy map content, Soliad Lansdale in shops, traffic and oppon
 
 Version 1.13 adds advanced vehicle building, advanced repair cost calculation, a GPS system and gooseneck trailer deliveries. Make sure you read the [Advanced Vehicle Building](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#advanced-vehicle-building) section of this readme before playing after installing this update.
 
+Version 1.14 adds West Coast USA map content, part specific repairs, improved UX for the options menu and layout options for IMGUI menus as well as options to force enable/disable traffic in races, groundmarkers and floating markers. Make sure you read the [Part Specific Repairs](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#part-specific-repairs) section of this readme to get a grasp on this new feature.
 
 Further instructions and various tips on this mods' various features are listed in the BeamLR UI Main Menu.
 
@@ -105,6 +107,7 @@ BeamLR is loaded as a freeroam mission. Use the following spawn point depending 
 * Utah: **Auto Repair Zone**
 * East Coast: **Gas Station Parking Lot**
 * Italy: **BeamLR Spawn**
+* West Coast: **BeamLR Spawn**
 
 Drive into the BeamLR Career mission marker and use the UI to start the mission.
 
@@ -196,7 +199,7 @@ This system will be used in a future version to create a final boss type race li
 As of version 1.12 mod levels are now supported for track events. Events for maps you do not have installed will not be offered in the browser. You must also install the **addon** for a specific map otherwise events will not work properly.
 
 ## Advanced Vehicle Building
-### NOTE: Advanced vehicle building is disabled by default so your current career files are compatible with update 1.13, use the options menu to enable it. A career reset is highly recommended after enabling, otherwise vehicles will spawn with missing parts.
+### NOTE: As of version 1.14 advanced vehicle building is enabled by default.
 Added in version 1.13, advanced vehicle building (AVB) allows for a more realistic or SLRR-like vehicle building experience. Jbeam loading scripts have been modified to remove all slot defaults, which for instance makes it so  wheels spawn without tires, pickup bed spawns without tailgate, taillights or bed accessory. Sub-parts must therefore be purchased and added manually. 
 
 When AVB is enabled, removing a part will add all attached sub-parts to your inventory. It will also be possible to sell parts at a scaled down value compared to purchase cost. Part selling is disabled when playing without AVB due to the fact that slot defaults could be used as infinite money exploit.
@@ -206,11 +209,14 @@ This feature is not recommended for casual players as it can make part edits mor
 BeamNG is not built to fully handle this type of feature. Engines will still be running even when missing important parts like the oil pan, intake, exhaust manifold, long block or ECU. If you experience issues with vehicles missing parts in freeroam after force exiting from BeamLR, restarting the game should fix it.
 
 ## Advanced Repair Cost Calculation
-### NOTE: Advanced repair cost calculation is turned off by default and can be enabled from the options menu. This setting does not require scenario reset and can be changed on the fly to see repair cost difference. 
+### NOTE: As of version 1.14 Advanced repair cost calculation is enabled by default.
 
 Added in version 1.13, advanced repair cost calculation makes use of broken/deformed beams specific to each part on the vehicle to detect 'ruined' parts and add their actual cost to the repair value of the vehicle. This results in a more realistic and accurate representation of vehicle damage. 
 
 Since repair cost becomes related to vehicle part value, repair costs will be higher especially for high end vehicles like the scintilla or vehicles using costly parts. Race wagers have been increased to help balance this change.
+
+## Part Specific Repairs
+Added in version 1.14 part specific repairs adds a menu allowing players to choose which parts to repair. Damaged parts that aren't repaired will be removed from the vehicle config and **will not be added to inventory**. Some parts must be repaired such as mechanical damage and the vehicle 'main' part and cannot be deselected. To repair a sub-part, damaged parent parts must be repaired and will be force selected if an attached sub-part is selected for repair. Undamaged sub-parts removed by a damaged parent part will be added to the part inventory. When repairing your vehicle from the player garage an on-site mechanic fee is added to the repair cost.
 
 ## GPS System
 Added in version 1.13 is a new GPS system that allows you to find specific destinations or nearest destinations of certain types like gas stations, vehicle shops, repair garages, part shops, etc. By default, the GPS UI will only show when using a vehicle that has a GPS (BeamNavigator) installed. It is also possible to force enable or disable the GPS UI through the options menu. Regardless of chosen setting, the GPS UI will be disabled in some situations where groundmarkers are required, such as during delivery missions and daredevil challenges.
@@ -305,6 +311,10 @@ hours=20,7
 Format is 24 hours with minutes as fraction of 1 hour so 30 minutes is 0.5 added to the hour value.
 For example to set the club open time from 20:30 to 7:30 use **hours=20.5,7.5**
 To keep race clubs open all the time use **hours=0,0**
+
+Since version 1.14 the **traffic** parameter works as a random chance to use traffic in a certain race.
+
+Also new in 1.14 is the ability to define looping subsections with **lstrig** and **lswp**. For example setting lstrig to 2 and lswp to 3 would mean the looping part of this race begins at checkpoint 2, with waypoint 3 used as the start of the looping path for the AI. This allows for a starting area that doesn't need to be traversed to complete extra laps.
 
 ### UI Modding
 Part Images can be added to enhance the UX of the part shop.
@@ -535,6 +545,7 @@ Thank you for playing BeamLR!
 * Liam Wood (liamwood15)
 * Benjamin Rogers (thisvelologist)
 * Leon Makepeace
+* Ethan Rapp
 
 ## Known Issues 
 
@@ -802,3 +813,35 @@ Thank you for playing BeamLR!
 * Improved tow hitch check for Advanced Vehicle Building (pickup receiver comes empty)
 * Increased race wagers to better balance with delivery missions & advanced repair cost calc
 * Increased target wager slider max value to $10000
+
+### 1.14
+* Added West Coast USA map content
+* Added race file parameters for looping subsection
+* Added IMGUI scaling and layout persistence options
+* Added dragstrip implementation for West Coast (start lights, time & speed, slowmo)
+* Added option to hide floating markers and groundmarkers (gps arrows)
+* Added option to force enable or disable traffic in races
+* Added Advanced Repair Menu (part specific repairs when using Advanced Repair Cost)
+* Fixed issues and updated level files for BeamNG 0.31 update
+* Updated offense cost for failure to stop at intersection
+* Increased battlehawk bastion cost (was incorrectly using base model cost)
+* Fixed UI not using default value for missing part sell value
+* Fixed advanced repair cost option not loading on scenario start
+* Fixed incorrect rep reward and opponent integrity for some east coast races
+* Looping race wagers are now linked to lap count
+* Fixed empty mission giver window appearing at part shop
+* Fixed config loading & paint edit available outside garage & with damaged car
+* Removed sub-parts now added to inventory even when advanced vehicle building is off
+* Improved UX for the options menu (current values and toggle states now shown)
+* Moved player name to options file & removed dedicated playername file
+* Fixed sorted part names conflicting with search results (ex: wheel size search)
+* Race file traffic parameter now works as percent chance to use traffic
+* Race menu now shows opponent vehicle name and brand from jbeam info file
+* Improved trigger system to work with multi-trigger interactive areas
+* Fixed part search function to find currently used parts
+* Disabled remove button for vehicle main part (bugs game when removed)
+* Fixed race club league bug when claiming rewards inside a different club trigger
+* Updated truck traffic spawn group to use configs added in 0.31 
+* Some hero leagues now have 50% chance of using traffic
+* Replaced bolide 350usdm config for gold race club with amateur racing config
+* Reduced "call mechanic" fee from 200% to 150% of total repair cost

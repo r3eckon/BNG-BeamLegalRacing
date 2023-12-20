@@ -1,0 +1,9 @@
+desc=City drift challenge
+wager=1000,5000
+triggers=BeamLRTrigger_DriftCP12,BeamLRTrigger_DriftCP13,BeamLRTrigger_DriftCP14,BeamLRTrigger_DriftCP15,BeamLRTrigger_DriftCP16,BeamLRTrigger_DriftCP17,BeamLRTrigger_DriftCP18,BeamLRTrigger_DriftCP19,BeamLRTrigger_DriftCP20,BeamLRTrigger_DriftCP21,BeamLRTrigger_DriftCP22,BeamLRTrigger_DriftCP23,BeamLRTrigger_DriftCP24
+type=drift
+targettime=120000,180000
+driftpts=7000,12000
+rep=50,100
+gmwp=blrwp_citydrift
+traffic=0

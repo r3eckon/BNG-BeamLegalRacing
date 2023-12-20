@@ -1,0 +1,9 @@
+{"name":"blrspawn","class":"SpawnSphere","persistentId":"3d284518-5e16-439d-8e41-afc65a719246","__parent":"BeamLR","position":[-215.969528,-819.671265,136.400711],"dataBlock":"SpawnSphereMarker","radius":1,"rotationMatrix":[0.598203003,-0.801342726,-0.00169255398,0.800337553,0.597555757,-0.0488543101,0.0401604474,0.0278701745,0.99880451],"spawnClass":"Player","sphereWeight0":"1"}
+{"name":"Triggers","class":"SimGroup","persistentId":"be2b0a05-9025-4314-9687-fc51db174a4f","__parent":"BeamLR"}
+{"name":"Markers","class":"SimGroup","persistentId":"0d6913fc-7ec0-4d1d-8f9e-e60a0d4e59f1","__parent":"BeamLR"}
+{"name":"BLRGPS","class":"SimGroup","persistentId":"ff354fb0-809e-4601-8b7e-0da987731c5c","__parent":"BeamLR"}
+{"name":"MissionTriggers","class":"SimGroup","persistentId":"9f0830b8-f189-4016-b347-ff1dd74096dc","__parent":"BeamLR"}
+{"name":"MissionWaypoints","class":"SimGroup","persistentId":"dc024974-ab0a-489a-beae-17c4d4b4aa9e","__parent":"BeamLR"}
+{"name":"RaceTriggers","class":"SimGroup","persistentId":"b3930e4b-4e05-46b5-93a7-f624b0517a4e","__parent":"BeamLR"}
+{"name":"RaceWaypoints","class":"SimGroup","persistentId":"5279d4e2-79b1-4273-8c09-ad0f9e59955b","__parent":"BeamLR"}
+{"name":"AIRoads","class":"SimGroup","persistentId":"50ce9fbc-3e10-482d-ad2f-7de8c9833ac1","__parent":"BeamLR"}

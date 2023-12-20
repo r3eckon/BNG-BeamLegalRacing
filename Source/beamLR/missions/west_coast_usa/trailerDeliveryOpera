@@ -1,0 +1,7 @@
+destpos=-486.49563598633,613.93145751953,86.827339172363
+destrot=0.0033849935591361,-0.0019599166306609,0.38538786715087,0.92274638574112
+desc=Deliver $item to the opera house
+reward=350
+items=list_all
+gmwp=blrwp_traileropera
+type=trailer

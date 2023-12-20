@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_StudioWarehouse
+desc=Deliver $item to a warehouse near the Lens Flare movie studio
+reward=400
+items=list_all
+gmwp=blrwp_studiowarehouse
+type=small

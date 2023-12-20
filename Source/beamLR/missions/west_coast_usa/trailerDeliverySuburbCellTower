@@ -1,0 +1,7 @@
+destpos=-608.92895507813,-649.92706298828,186.96122741699
+destrot=0.0027979224176209,-0.0003907694936176,-0.22875661541441,0.97347954772224
+desc=Deliver $item to the suburb cell tower
+reward=350
+items=list_all
+gmwp=blrwp_suburbcelltower
+type=trailer

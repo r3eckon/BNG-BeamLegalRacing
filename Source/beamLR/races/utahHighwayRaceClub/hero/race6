@@ -12,6 +12,6 @@ triggers=BeamNGTrigger_HighwayDragFinish,BeamLRTrigger_TunnelSTA,BeamNGTrigger_R
 waypoints=ut_wp_53,blrwp_cgm_tunnelSTA,blrwp_raceend
 laps=1
 ifile=beamLR/races/integrity/good
-traffic=0
+traffic=0.5
 parts=none
 rep=50,100

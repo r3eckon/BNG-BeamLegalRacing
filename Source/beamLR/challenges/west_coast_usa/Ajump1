@@ -1,0 +1,7 @@
+desc=Crazy jump from the opera house to the overpass
+wager=2500,7000
+triggers=BeamLRTrigger_Jump1CP
+type=jump
+rep=100,250
+gmwp=blrwp_traileropera
+traffic=1

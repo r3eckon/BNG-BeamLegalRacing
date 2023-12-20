@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_DragParking
+desc=Deliver $item to the drag strip parking lot
+reward=400
+items=list_all
+gmwp=blrwp_dragparking
+type=small

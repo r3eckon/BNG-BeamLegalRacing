@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_Restaurant
+desc=Deliver $item to a restaurant
+reward=400
+items=list_all
+gmwp=blrwp_restaurant
+type=small

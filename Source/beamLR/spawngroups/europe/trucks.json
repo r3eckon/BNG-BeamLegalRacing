@@ -5,31 +5,112 @@
       "model":"semi"
     },
     {
-      "model":"citybus"
+      "config":"t82_base",
+      "model":"us_semi"
     },
     {
-      "config":"t65_cargobox",
-      "model":"semi"
+      "config":"t82_custom",
+      "model":"us_semi"
     },
     {
-      "config":"t65_rollback",
-      "model":"semi"
+      "config":"t83s_cargobox",
+      "model":"us_semi"
     },
     {
-      "config":"deliverytruck",
-      "model":"van"
+      "config":"t83s_dump",
+      "model":"us_semi"
     },
     {
-      "config":"t75_sleeper",
-      "model":"semi"
+      "config":"t83s_flatbed",
+      "model":"us_semi"
     },
     {
-      "config":"t75_mixer",
-      "model":"semi"
+      "config":"t83s_rollback",
+      "model":"us_semi"
     },
     {
-      "config":"t75_dumptruck",
-      "model":"semi"
+      "config":"t83s_tanker",
+      "model":"us_semi"
+    },
+    {
+      "config":"t83_base",
+      "model":"us_semi"
+    },
+    {
+      "config":"t83_long",
+      "model":"us_semi"
+    },
+    {
+      "config":"t83_longhaul",
+      "model":"us_semi"
+    },
+    {
+      "config":"t83_longhaul_custom",
+      "model":"us_semi"
+    },
+    {
+      "config":"t83_longhaul_special",
+      "model":"us_semi"
+    },
+    {
+      "config":"t83_sleeper",
+      "model":"us_semi"
+    },
+    {
+      "config":"t83_sleeper_alt",
+      "model":"us_semi"
+    },
+    {
+      "config":"t83_stretch",
+      "model":"us_semi"
+    },
+    {
+      "config":"tc82s_cargobox",
+      "model":"us_semi"
+    },
+    {
+      "config":"tc82s_rollback",
+      "model":"us_semi"
+    },
+    {
+      "config":"tc82_base",
+      "model":"us_semi"
+    },
+    {
+      "config":"tc82_custom",
+      "model":"us_semi"
+    },
+    {
+      "config":"tc83s_dump",
+      "model":"us_semi"
+    },
+    {
+      "config":"tc83s_flatbed",
+      "model":"us_semi"
+    },
+    {
+      "config":"tc83s_tanker",
+      "model":"us_semi"
+    },
+    {
+      "config":"tc83_base",
+      "model":"us_semi"
+    },
+    {
+      "config":"tc83_ext",
+      "model":"us_semi"
+    },
+    {
+      "config":"tc83_long",
+      "model":"us_semi"
+    },
+    {
+      "config":"tc83_longhaul",
+      "model":"us_semi"
+    },
+    {
+      "config":"tc83_special",
+      "model":"us_semi"
     }
   ],
   "name":"Trucks",

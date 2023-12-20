@@ -1,0 +1,7 @@
+destpos=-287.07083129883,-99.076774597168,119.59603118896
+destrot=-0.0021019808210281,-0.0034487705543874,0.86889010594106,-0.49498855689402
+desc=Deliver $item to a warehouse near the race track
+reward=850
+items=list_all
+gmwp=blrwp_trailerpartwarehouse
+type=gooseneck

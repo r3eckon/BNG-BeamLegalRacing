@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_IslandParkingArea
+desc=Deliver $item to the island parking area
+reward=400
+items=list_all
+gmwp=blrwp_islandparkingarea
+type=small

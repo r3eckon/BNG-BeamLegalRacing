@@ -94,18 +94,46 @@ angular.module('beamng.apps')
           scope.beamlrData[data.key] = data.val;
       })
 	  
+	  scope.$on('beamlrOptions', function (event, data) {
+          scope.inputData['name'] = data['playername'];
+		  scope.inputData['vehname'] = data['vehname'];
+		  scope.inputData['sleepTime'] = data['sleeptime'];
+		  scope.inputData['targetWager'] = data['targetwager'];
+		  scope.inputData['raceRandPaint'] = data['raceRandPaint'];
+		  scope.inputData['timeScale'] = data['timescale'];
+		  scope.inputData['gpsmode'] = data['gpsmode'];
+		  scope.inputData['dragslowmo'] = data['dragslowmo'];
+		  scope.inputData['seed'] = data['nseed'];
+		  scope.inputData['autoseed'] = data['autoseed'];
+		  scope.inputData['difficulty'] = data['difficulty'];
+		  scope.inputData['imguiScale'] = data['imscale'];
+		  scope.inputData['imautosave'] = data['imautosave'];
+		  scope.inputData['traffic'] = data['traffic'];
+		  scope.inputData['police'] = data['police'];
+		  scope.inputData['trucks'] = data['trucks'];
+		  scope.inputData['trisk'] = data['trisk'];
+		  scope.inputData['copstrict'] = data['copstrict'];
+		  scope.inputData['autoCopfix'] = data['autoCopfix'];
+		  scope.inputData['bstoggle'] = data['bstoggle'];
+		  scope.inputData['avbtoggle'] = data['avbtoggle'];
+		  scope.inputData['advrepaircost'] = data['advrepaircost'];
+		  scope.inputData['gmtoggle'] = data['gmtoggle'];
+		  scope.inputData['rtmode'] = data['rtmode'];
+		  scope.inputData['fmtoggle'] = data['fmtoggle'];
+		  scope.inputData['useadvrepairui'] = data['useadvrepairui'] && data['advrepaircost'];
+      })
 	  
-	  scope.setNameClick = function () {
-		bngApi.engineLua(`extensions.customGuiStream.sendDataToEngine("inputData","${scope.inputData.name}")`);
-		bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("saveinfo", "filename", "beamLR/playername")`);
-		bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("saveinfo", "filedata", "playerName=${scope.inputData.name}")`);
-		bngApi.engineLua(`extensions.customGuiCallbacks.exec("writeFile", "saveinfo")`);
-		
+	  
+	  scope.setNameClick = function (name) {
+		bngApi.engineLua(`extensions.customGuiCallbacks.setParam("playername", "${scope.inputData.name}")`)
+		bngApi.engineLua(`extensions.customGuiCallbacks.exec("playerRename", "playername")`)
+		bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
 	  
-	  scope.setVehNameClick = function () {
+	  scope.setVehNameClick = function (name) {
 		bngApi.engineLua(`extensions.customGuiCallbacks.setParam("vehname", "${scope.inputData.vehname}")`)
 		bngApi.engineLua(`extensions.customGuiCallbacks.exec("vehicleRename", "vehname")`)
+		bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
 	  
 	  scope.showMenuClick = function () {
@@ -210,41 +238,48 @@ angular.module('beamng.apps')
 	  {
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("traffic", "${d}")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setTrafficDensity", "traffic")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
 	  
 	  scope.setPoliceDensity= function(d)
 	  {
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("traffic", "${d}")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setPoliceDensity", "traffic")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
 	  
 	  scope.setTruckDensity= function(d)
 	  {
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("traffic", "${d}")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setTruckDensity", "traffic")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
 	  
 	  scope.setSeed = function(d)
 	  {
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("seed", "${scope.inputData.seed}")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setSeed", "seed")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
 	  
 	  scope.setAutoSeed = function(d)
 	  {
-		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("autoseed", "${d}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("autoseed", ${d})`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setAutoSeed", "autoseed")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
 	  
 	  scope.setRandomSeed = function(d)
 	  {
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setRandomSeed")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
 	  
 	  scope.setDifficulty = function(d)
 	  {
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("difficulty", "${d}")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setDifficulty", "difficulty")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
 	  
 	  scope.backupCareer = function(d)
@@ -261,24 +296,28 @@ angular.module('beamng.apps')
 	  {
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("risk", "${d}")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setTrafficRisk", "risk")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
 	  
 	  scope.setPoliceStrictness= function(d)
 	  {
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("copstrict", "${d}")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setPoliceStrictness", "copstrict")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
 	  
 	  scope.setSleepDuration= function(d)
 	  {
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("sleeptime", "${d}")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setSleepDuration", "sleeptime")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
 	  
 	  scope.setTimeScale= function(d)
 	  {
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("timescale", "${d}")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setTimeScale", "timescale")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
 
 
@@ -286,6 +325,7 @@ angular.module('beamng.apps')
 	  {
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("randpaint", "${d}")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setOpponentRandomPaint", "randpaint")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
 	  
 	  scope.forcedCopfix = function(d)
@@ -297,12 +337,14 @@ angular.module('beamng.apps')
 	  {
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("copfixToggle", "${d}")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setAutoCopfix", "copfixToggle")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
 	  
 	  scope.beamstateToggle = function(d)
 	  {
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("beamstateToggle", "${d}")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setBeamstateToggle", "beamstateToggle")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
 	  
 	  scope.resetCouplers = function(d)
@@ -324,8 +366,9 @@ angular.module('beamng.apps')
 	  scope.setTargetWager = function()
 	  {
 		  var wager = parseFloat(scope.inputData.targetWager)
-		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("pwager", "${wager}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("pwager", ${wager})`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setRaceWager", "pwager")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
 	  
 	  scope.slotToggle = function(slot, toggle)
@@ -358,18 +401,77 @@ angular.module('beamng.apps')
 	  {
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("avbtoggle", "${toggle}")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setAVBToggle", "avbtoggle")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
 	  //advanced repair cost
 	  scope.arcToggle = function(toggle)
 	  {
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("arctoggle", ${toggle})`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setARCToggle", "arctoggle")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
+		  if(!toggle)
+		  {
+			  scope.inputdata["useadvrepairui"] = false
+		  }
+	  }
+	  
+	  scope.aruiToggle = function(toggle)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("aruitoggle", ${toggle})`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setARUIToggle", "aruitoggle")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
+	  }
+	  
+	  scope.toggleGroundmarkers = function(toggle)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("gmtoggle", ${toggle})`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setGroundmarkersToggle", "gmtoggle")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
+	  }
+	  
+	  scope.toggleMarkers = function(toggle)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("fmtoggle", ${toggle})`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setMarkersToggle", "fmtoggle")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
 	  
 	  scope.setGPSMode = function(mode)
 	  {
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("gpsmode", ${mode})`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setGPSMode", "gpsmode")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
+	  }
+	  
+	  scope.setRaceTraffic = function(mode)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("rtmode", ${mode})`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setRaceTrafficMode", "rtmode")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
+	  }
+	  
+	  scope.setIMGUIScale = function(scale)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("imscale", ${scale})`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setIMGUIScale", "imscale")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
+	  }
+	  
+	  scope.loadIMGUI = function()
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("loadIMGUI")`)
+	  }
+	  
+	  scope.saveIMGUI = function()
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("saveIMGUI")`)
+	  }
+	  
+	  scope.autosaveIMGUI = function(toggle)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("imautosave", ${toggle})`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("autosaveIMGUI", "imautosave")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
 	  
 	  scope.garagePartSell = function(part, value)
@@ -386,6 +488,13 @@ angular.module('beamng.apps')
 			  scope.partSellConfirm[part] = true;
 		  }
 		  
+	  }
+	  
+	  scope.toggleDragSlowmo = function(toggle)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("dragslowmo", ${toggle})`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setDragSlowmoToggle", "dragslowmo")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
 	  
 	  

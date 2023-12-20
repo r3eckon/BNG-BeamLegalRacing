@@ -1,4 +1,23 @@
 <div style="height: 100%; background-color:rgba(0.0,0.0,0.0,0.0);" class="bngApp beamlrui">
+
+<style>
+::placeholder {
+	color: white;
+	font-size:16px;
+}
+
+.toggleon{
+	border-color:#FF6600;
+	border-width:3px;
+	border-style:solid;
+}
+
+.toggleoff{
+
+}
+
+</style>
+
 <!--
 <img ng-if="showMenu == false" src="/ui/modules/apps/beamlrui/background.png" width=100% height=8% style="z-index:-1; transform:translate(0px,-2px);"/>
 <img ng-if="showMenu == true" src="/ui/modules/apps/beamlrui/background.png" width=100% height=100% style="z-index:-1; transform:translate(0px,-2px);"/>
@@ -54,6 +73,8 @@ Jukka-Pekka Tuppurainen<br>
 Lauri Kabur<br>
 Liam Wood (liamwood15)<br>
 Benjamin Rogers (thisvelologist)<br>
+Leon Makepeace<br>
+Ethan Rapp<br>
 </p>
 
 <h2 style="text-align:center;">
@@ -292,6 +313,19 @@ Tip: if your vehicle isn't moving after engine swap, check that drivetrain relat
 Tip: when adding the pickup tow hitch (roamer also uses it) the ball hitch itself is under a slot called "Attachment" and must be added to accept trailer missions.<br><br>
 </p>
 
+<h2 style="text-align:center;">
+Part Specific Repairs<br>
+</h2>
+
+<p style="text-align:center;">
+Added in version 1.14 part specific repairs adds a menu allowing players to choose which parts to repair. <br><br>
+Damaged parts that aren't repaired will be removed from the vehicle config and will not be added to inventory. <br><br>
+Some parts must be repaired such as mechanical damage and the vehicle 'main' part and cannot be deselected. <br><br>
+To repair a sub-part, damaged parent parts must be repaired and will be force selected if an attached sub-part is selected for repair. <br><br>
+Undamaged sub-parts removed by a damaged parent part will be added to the part inventory. <br><br>
+When repairing your vehicle from the player garage an on-site mechanic fee is added to the repair cost.<br><br>
+</p>
+
 
 <h2 style="text-align:center;">
 Various Tips<br>
@@ -323,11 +357,8 @@ Here are some known issues with this mod, please refer to this list before repor
 <li>
 As of BeamNG version 0.28 beamstate loading is broken and thus disabled by default. 
 This is a known issue and should be fixed in a future update.
-Beamstate can be re-enabled from the option menu. 
-This will likely cause issues and crashes.
-</li>
-<li>
-<s>Towing mechanic may repair your vehicle.</s> Fix added in 1.10 update.
+Beamstate can be re-enabled from the option menu at your own risk. 
+This will likely cause issues and game crashes.
 </li>
 <li>
 Some tuning configurations can cause unfair damage when a vehicle is loaded. A workaround is implemented but may fail to work in certain situations.
@@ -336,7 +367,7 @@ Some tuning configurations can cause unfair damage when a vehicle is loaded. A w
 Various UI problems, input fields stop registering keystrokes, whole UI can refuse to work. Workaround is to keep cursor above input fields. CTRL+F5 to fix the frozen UI.
 </li>
 <li>
-Some users report odometer reset during part edits. Currently investigating this issue.
+Some users report odometer reset during part edits. Can be caused by pausing the game during part edits.
 </li>
 <li>
 Some vehicles had erratic G force readings when damaged, causing sudden health drop. Fix added in 1.10 update.
@@ -391,8 +422,8 @@ Sleep Duration (Hours)
 
 <p style="text-align:center; transform:translate(40px,-20px); width:350px;"> 
 Race Opponent Random Paint
-<button ng-click="setOpponentRandomPaint(1)">On</button>
-<button ng-click="setOpponentRandomPaint(0)">Off</button>
+<button ng-class="inputData.raceRandPaint == 1 ? 'toggleon' : 'toggleoff'" ng-click="setOpponentRandomPaint(1)">On</button>
+<button ng-class="inputData.raceRandPaint == 0 ? 'toggleon' : 'toggleoff'" ng-click="setOpponentRandomPaint(0)">Off</button>
 </p>
 
 <p style="text-align:center; margin-top:5px; margin-bottom:5px;">Time scale requires scenario restart to take effect</p>
@@ -410,53 +441,27 @@ Default GPS mode shows GPS UI if vehicle has a GPS installed. Always On ignores 
 
 <p style="text-align:center; transform:translate(60px,0px); width:350px;"> 
 GPS Mode
-<button ng-click="setGPSMode(0)">Default</button>
-<button ng-click="setGPSMode(1)">Always On</button>
-<button ng-click="setGPSMode(2)">Always Off</button>
+<button ng-class="inputData.gpsmode == 0 ? 'toggleon' : 'toggleoff'" ng-click="setGPSMode(0)">Default</button>
+<button ng-class="inputData.gpsmode == 1 ? 'toggleon' : 'toggleoff'" ng-click="setGPSMode(1)">Always On</button>
+<button ng-class="inputData.gpsmode == 2 ? 'toggleon' : 'toggleoff'" ng-click="setGPSMode(2)">Always Off</button>
 </p>
 
-
-<h3 style="text-align:center;"> Traffic </h3>
-
-<p style="text-align:center;">  Requires scenario restart to take effect </p>
-
-<p style="text-align:center;"> 
-Traffic Density  
-<button ng-click="setTrafficDensity(0)">Off</button>
-<button ng-click="setTrafficDensity(3)">Light</button>
-<button ng-click="setTrafficDensity(6)">Medium</button>
-<button ng-click="setTrafficDensity(10)">Heavy</button>
-<button ng-click="setTrafficDensity(18)">Max</button>
+<p style="text-align:center; transform:translate(60px,0px); width:350px;"> 
+Dragstrip Cinematic Finish
+<button ng-class="inputData.dragslowmo == 1 ? 'toggleon' : 'toggleoff'" ng-click="toggleDragSlowmo(1)">On</button>
+<button ng-class="inputData.dragslowmo == 0 ? 'toggleon' : 'toggleoff'" ng-click="toggleDragSlowmo(0)">Off</button>
 </p>
 
-<p style="text-align:center;"> 
-Police Density 
-<button ng-click="setPoliceDensity(0)">Off</button>
-<button ng-click="setPoliceDensity(1)">Light</button>
-<button ng-click="setPoliceDensity(2)">Medium</button>
-<button ng-click="setPoliceDensity(3)">Heavy</button>
-<button ng-click="setPoliceDensity(4)">Max</button>
+<p style="text-align:center; transform:translate(60px,0px); width:350px;"> 
+Show Groundmarkers
+<button ng-class="inputData.gmtoggle == 1 ? 'toggleon' : 'toggleoff'" ng-click="toggleGroundmarkers(1)">On</button>
+<button ng-class="inputData.gmtoggle == 0 ? 'toggleon' : 'toggleoff'" ng-click="toggleGroundmarkers(0)">Off</button>
 </p>
 
-<p style="text-align:center;"> 
-Truck Density 
-<button ng-click="setTruckDensity(0)">Off</button>
-<button ng-click="setTruckDensity(1)">Light</button>
-<button ng-click="setTruckDensity(2)">Medium</button>
-<button ng-click="setTruckDensity(3)">Heavy</button>
-<button ng-click="setTruckDensity(4)">Max</button>
-</p>
-
-<p style="text-align:center;"> 
-Traffic Risk 
-<input type="number" min=0 max=1 step=0.01 maxlength=10 size=5 ng-model="inputData.trisk" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
-<button ng-click="setTrafficRisk(inputData.trisk)">Set</button>
-</p>
-
-<p style="text-align:center;"> 
-Police Strictness
-<input type="number" min=0 max=1 step=0.01 size=5 ng-model="inputData.copstrict" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
-<button ng-click="setPoliceStrictness(inputData.copstrict)">Set</button>
+<p style="text-align:center; transform:translate(60px,0px); width:350px;"> 
+Show Floating Markers
+<button ng-class="inputData.fmtoggle == 1 ? 'toggleon' : 'toggleoff'" ng-click="toggleMarkers(1)">On</button>
+<button ng-class="inputData.fmtoggle == 0 ? 'toggleon' : 'toggleoff'" ng-click="toggleMarkers(0)">Off</button>
 </p>
 
 <h3 style="text-align:center;"> Career </h3>
@@ -476,8 +481,8 @@ Next Seed
 
 <p style="text-align:center;"> 
 Auto Increment Seed 
-<button ng-click="setAutoSeed('true')">On</button>
-<button ng-click="setAutoSeed('false')">Off</button>
+<button ng-class="inputData.autoseed == 1 ? 'toggleon' : 'toggleoff'" ng-click="setAutoSeed(1)">On</button>
+<button ng-class="inputData.autoseed == 0 ? 'toggleon' : 'toggleoff'" ng-click="setAutoSeed(0)">Off</button>
 </p>
 
 <br>
@@ -486,9 +491,9 @@ Auto Increment Seed
 
 <p style="text-align:center;"> 
 Difficulty Level
-<button ng-click="setDifficulty('easy')">Easy</button>
-<button ng-click="setDifficulty('medium')">Medium</button>
-<button ng-click="setDifficulty('hard')">Hard</button>
+<button ng-class="inputData.difficulty == 'easy' ? 'toggleon' : 'toggleoff'" ng-click="setDifficulty('easy')">Easy</button>
+<button ng-class="inputData.difficulty == 'medium' ? 'toggleon' : 'toggleoff'" ng-click="setDifficulty('medium')">Medium</button>
+<button ng-class="inputData.difficulty == 'hard' ? 'toggleon' : 'toggleoff'" ng-click="setDifficulty('hard')">Hard</button>
 </p>
 
 <br>
@@ -511,6 +516,92 @@ Reset Career (WARNING: PERMANENT)
 
 <br>
 
+<h3 style="text-align:center;"> User Interface </h3>
+
+<p style="text-align:center; margin-top:15px; margin-bottom:15px; margin-left:20px; margin-right:20px;">
+IMGUI scale parameter can be used to increase interactive menu sizes when playing at high resolution.
+UI app scaling can be changed from the BeamNG options menu.
+</p>
+
+<p style="text-align:center; margin-top:5px; margin-bottom:5px;"> 
+IMGUI Scale
+<input type="number" max=10.0 min=0.01 step=0.01 size=5 maxlength=5 ng-model="inputData.imguiScale" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
+<button ng-click="setIMGUIScale(inputData.imguiScale)">Set</button>
+</p>
+
+<p style="text-align:center; margin-top:15px; margin-bottom:15px; margin-left:20px; margin-right:20px;">
+IMGUI layout will store menu positions, sizes and docking states. Remember to save the layout immediately after making changes.
+This feature is especially useful when using a custom IMGUI scale.
+</p>
+
+<p style="text-align:center; margin-top:5px; margin-bottom:5px;"> 
+IMGUI Layout
+<button ng-click="saveIMGUI()">Save</button>
+<button ng-click="loadIMGUI()">Load</button>
+</p>
+
+<p style="text-align:center; margin-top:15px; margin-bottom:15px; margin-left:20px; margin-right:20px;">
+IMGUI Layout Autosave will save your menu layout when quitting.
+</p>
+
+<p style="text-align:center; margin-top:5px; margin-bottom:5px;"> 
+IMGUI Layout Autosave
+<button ng-class="inputData.imautosave == 1 ? 'toggleon' : 'toggleoff'" ng-click="autosaveIMGUI(1)">On</button>
+<button ng-class="inputData.imautosave == 0 ? 'toggleon' : 'toggleoff'" ng-click="autosaveIMGUI(0)">Off</button>
+</p>
+
+<h3 style="text-align:center;"> Traffic </h3>
+
+<p style="text-align:center;">  Requires scenario restart to take effect </p>
+
+<p style="text-align:center;"> 
+Traffic Density  
+<button ng-class="inputData.traffic == 0 ? 'toggleon' : 'toggleoff'" ng-click="setTrafficDensity(0)">Off</button>
+<button ng-class="inputData.traffic == 3 ? 'toggleon' : 'toggleoff'" ng-click="setTrafficDensity(3)">Light</button>
+<button ng-class="inputData.traffic == 6 ? 'toggleon' : 'toggleoff'" ng-click="setTrafficDensity(6)">Medium</button>
+<button ng-class="inputData.traffic == 10 ? 'toggleon' : 'toggleoff'" ng-click="setTrafficDensity(10)">Heavy</button>
+<button ng-class="inputData.traffic == 18 ? 'toggleon' : 'toggleoff'" ng-click="setTrafficDensity(18)">Max</button>
+</p>
+
+<p style="text-align:center;"> 
+Police Density 
+<button ng-class="inputData.police == 0 ? 'toggleon' : 'toggleoff'" ng-click="setPoliceDensity(0)">Off</button>
+<button ng-class="inputData.police == 1 ? 'toggleon' : 'toggleoff'" ng-click="setPoliceDensity(1)">Light</button>
+<button ng-class="inputData.police == 2 ? 'toggleon' : 'toggleoff'" ng-click="setPoliceDensity(2)">Medium</button>
+<button ng-class="inputData.police == 3 ? 'toggleon' : 'toggleoff'" ng-click="setPoliceDensity(3)">Heavy</button>
+<button ng-class="inputData.police == 4 ? 'toggleon' : 'toggleoff'" ng-click="setPoliceDensity(4)">Max</button>
+</p>
+
+<p style="text-align:center;"> 
+Truck Density 
+<button ng-class="inputData.trucks == 0 ? 'toggleon' : 'toggleoff'" ng-click="setTruckDensity(0)">Off</button>
+<button ng-class="inputData.trucks == 1 ? 'toggleon' : 'toggleoff'" ng-click="setTruckDensity(1)">Light</button>
+<button ng-class="inputData.trucks == 2 ? 'toggleon' : 'toggleoff'" ng-click="setTruckDensity(2)">Medium</button>
+<button ng-class="inputData.trucks == 3 ? 'toggleon' : 'toggleoff'" ng-click="setTruckDensity(3)">Heavy</button>
+<button ng-class="inputData.trucks == 4 ? 'toggleon' : 'toggleoff'" ng-click="setTruckDensity(4)">Max</button>
+</p>
+
+<p style="text-align:center;"> 
+Traffic Risk 
+<input type="number" min=0 max=1 step=0.01 maxlength=10 size=5 ng-model="inputData.trisk" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
+<button ng-click="setTrafficRisk(inputData.trisk)">Set</button>
+</p>
+
+<p style="text-align:center;"> 
+Police Strictness
+<input type="number" min=0 max=1 step=0.01 size=5 ng-model="inputData.copstrict" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
+<button ng-click="setPoliceStrictness(inputData.copstrict)">Set</button>
+</p>
+
+<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >Race traffic default mode uses race file parameter. Using traffic for all races may negatively impact opponent skill.</p>
+
+<p style="text-align:center; transform:translate(40px,0px); width:400px;"> 
+Race Traffic
+<button ng-class="inputData.rtmode == 0 ? 'toggleon' : 'toggleoff'" ng-click="setRaceTraffic(0)">Default</button>
+<button ng-class="inputData.rtmode == 2 ? 'toggleon' : 'toggleoff'" ng-click="setRaceTraffic(2)">Always On</button>
+<button ng-class="inputData.rtmode == 1 ? 'toggleon' : 'toggleoff'" ng-click="setRaceTraffic(1)">Always Off</button>
+</p>
+
 <h3 style="text-align:center;"> Advanced </h3>
 
 <p style="text-align:center;">  Use the "Fix Cops" button only if police chases player without pursuit UI showing. Do not use when pursuit UI is showing to avoid further bugs with police system.</p>
@@ -525,8 +616,8 @@ Manual Police Role Fix
 
 <p style="text-align:center;"> 
 Automatic Police Role Fix
-<button ng-click="autoCopfix(1)">On</button>
-<button ng-click="autoCopfix(0)">Off</button>
+<button ng-class="inputData.autoCopfix == 1 ? 'toggleon' : 'toggleoff'" ng-click="autoCopfix(1)">On</button>
+<button ng-class="inputData.autoCopfix == 0 ? 'toggleon' : 'toggleoff'" ng-click="autoCopfix(0)">Off</button>
 </p>
 
 
@@ -535,8 +626,8 @@ Automatic Police Role Fix
 
 <p style="text-align:center;"> 
 Beamstate Toggle 
-<button ng-click="beamstateToggle(1)">On</button>
-<button ng-click="beamstateToggle(0)">Off</button>
+<button ng-class="inputData.bstoggle == 1 ? 'toggleon' : 'toggleoff'" ng-click="beamstateToggle(1)">On</button>
+<button ng-class="inputData.bstoggle == 0 ? 'toggleon' : 'toggleoff'" ng-click="beamstateToggle(0)">Off</button>
 </p>
 
 
@@ -555,8 +646,8 @@ Career reset is recommended after changing this parameter to avoid<br> issues su
 
 <p style="text-align:center;"> 
 Advanced Vehicle Building
-<button ng-click="avbToggle(1)">On</button>
-<button ng-click="avbToggle(0)">Off</button>
+<button ng-class="inputData.avbtoggle == 1 ? 'toggleon' : 'toggleoff'" ng-click="avbToggle(1)">On</button>
+<button ng-class="inputData.avbtoggle == 0 ? 'toggleon' : 'toggleoff'" ng-click="avbToggle(0)">Off</button>
 </p>
 
 <p style="text-align:center;">  
@@ -565,8 +656,18 @@ Advanced repair cost uses improved code for more accurate repair cost calculatio
 
 <p style="text-align:center;"> 
 Advanced Repair Cost
-<button ng-click="arcToggle(1)">On</button>
-<button ng-click="arcToggle(0)">Off</button>
+<button ng-class="inputData.advrepaircost == 1 ? 'toggleon' : 'toggleoff'" ng-click="arcToggle(1)">On</button>
+<button ng-class="inputData.advrepaircost == 0 ? 'toggleon' : 'toggleoff'" ng-click="arcToggle(0)">Off</button>
+</p>
+
+<p ng-if="inputData.advrepaircost == 1" style="text-align:center;">  
+Advanced repair UI allows for part specific repairs.<br>Damaged parts will be removed unless repaired.<br>Removed damaged parts are not added to inventory.<br><br>This setting requires Advanced Repair Cost to be enabled.
+</p>
+
+<p ng-if="inputData.advrepaircost == 1" style="text-align:center;"> 
+Advanced Repair UI
+<button ng-class="inputData.useadvrepairui == 1 ? 'toggleon' : 'toggleoff'" ng-click="aruiToggle(1)">On</button>
+<button ng-class="inputData.useadvrepairui == 0 ? 'toggleon' : 'toggleoff'" ng-click="aruiToggle(0)">Off</button>
 </p>
 
 
@@ -597,7 +698,7 @@ Advanced Repair Cost
 <div style="margin-left: 5px; margin-right: 5px; overflow:scroll; overflow-y:scroll; max-height:210px; min-height:210px; max-width:500px; background-color:rgba(0,0,0,0.5);" >
 
 <div ng-repeat="(id,key) in beamlrData['sortedShopSlots'] track by id">
-<div ng-if="beamlrData['availParts'][key] != null">
+<div ng-if="beamlrData['availParts'][key] != null && key != 'main'">
 
 <div style="text-align:center; font-weight: bold; font-size:20px; width:100%; line-height:40px;" ng-if="beamlrData['slotNames'][key] != null && slotNameMode != 1">
 <span ng-if="visibleSlots[key] == null || visibleSlots[key] == false" style="float:left; text-align:center; width:40px;" ng-click="slotToggle(key, true)">+</span>
@@ -618,6 +719,7 @@ Advanced Repair Cost
 </div>
 
 <div ng-if="visibleSlots[key] == true" style="margin-left:5px; line-height:100px;" ng-repeat="(pid,part) in beamlrData['sortedShopParts'][key] track by pid"> 
+<div ng-if="beamlrData['availParts'][key][part] != null">
 
 <span style="float:left; height:90px; transform:translate(0px, 5px);">
 <img ng-if="beamlrData['partpreview'][part] != null" ng-attr-src="/ui/modules/apps/beamlrui/partimg/{{beamlrData['partpreview'][part]}}" width=90px height=90px />
@@ -646,7 +748,7 @@ Advanced Repair Cost
 </span>
 </div>
 
-
+</div>
 
 </div>
 
@@ -694,7 +796,7 @@ Advanced Repair Cost
 <div ng-if="editMode == 0" style="margin-left: 5px; margin-right: 5px; overflow:scroll; overflow-y:scroll; max-height:210px; min-height:210px; max-width:500px; background-color:rgba(0,0,0,0.5);">
 
 <div ng-repeat="(id,key) in beamlrData['sortedGarageSlots'] track by id">
-<div ng-if="beamlrData['garageData'][key] != null">
+<div ng-if="beamlrData['garageData'][key] != null && key != 'main'">
 
 <div style="text-align:center; font-weight: bold; font-size:20px; width:100%; line-height:40px;" ng-if="beamlrData['slotNames'][key] != null && slotNameMode != 1">
 <span ng-if="visibleSlots[key] == null || visibleSlots[key] == false" style="float:left; text-align:center; width:40px;" ng-click="slotToggle(key, true)">+</span>
@@ -720,12 +822,13 @@ Advanced Repair Cost
 <span ng-if="beamlrData['usedParts'][key] != item && slotNameMode != 1" style="display:inline-block; width: 150px; line-height:20px; vertical-align:middle; overflow-wrap:break-word;">{{beamlrData['partNames'][beamlrData['usedParts'][key]]}}</span>
 <span ng-if="beamlrData['usedParts'][key] != item && slotNameMode == 1" style="display:inline-block; width: 150px; line-height:20px; vertical-align:middle; overflow-wrap:break-word;">{{beamlrData['usedParts'][key]}}</span>
 <span style="float:right; margin-right:0px; width:120px; vertical-align:middle;">
-<button ng-click="garagePartClick(key,'')" style="width:90px;">Remove</button>
+<button ng-click="garagePartClick(key,'')" style="width:90px;" ng-disabled="beamlrData['mainpart']==beamlrData['usedParts'][key]">Remove</button>
 </span>
 </div>
 
 <div ng-if="visibleSlots[key] == true">
 <div ng-repeat="(pid,item) in beamlrData['sortedGarageParts'][key] track by pid" >
+<div ng-if="beamlrData['garageData'][key][item] != null">
 <div ng-if="beamlrData['usedParts'][key] != item" style="text-align:center; line-height:120px;" >
 <span style="float:left; margin-left:20px; transform:translate(0,15px); height:90px; vertical-align:middle;">
 <img ng-if="beamlrData['partpreview'][item] != null" ng-attr-src="/ui/modules/apps/beamlrui/partimg/{{beamlrData['partpreview'][item]}}" width=90px height=90px />
@@ -742,7 +845,8 @@ Advanced Repair Cost
 <div ng-if="beamlrData['avbToggle'] == true" style="transform:translate(0px,5px);">
 <table style="table-layout:fixed; width:">
 <tr><td><button style="width:90px;" ng-click="garagePartClick(key,item)">Use</button></td></tr>
-<tr><td>Sell value ${{beamlrData['partPrices'][item] * partSellScale | number:2}}</td></tr>
+<tr ng-if="beamlrData['partPrices'][item] != null"><td>Sell value ${{beamlrData['partPrices'][item] * partSellScale | number:2}}</td></tr>
+<tr ng-if="beamlrData['partPrices'][item] == null"><td>Sell value ${{beamlrData['partPrices']['default'] * partSellScale | number:2}}</td></tr>
 <tr><td>
 <button ng-if="partSellConfirm[item] == null || partSellConfirm[item] == false" style="width:90px;" ng-click="garagePartSell(item,beamlrData['partPrices'][item] * partSellScale)">Sell</button>
 <button ng-if="partSellConfirm[item] == true" style="width:90px;" ng-click="garagePartSell(item, beamlrData['partPrices'][item] * partSellScale)">Confirm</button>
@@ -753,13 +857,14 @@ Advanced Repair Cost
 </span>
 </div>
 </div>
-
 </div>
 
 </div>
-</div>
 
 </div>
+</div>
+
+
 
 <div ng-if="editMode ==1" style="margin-left: 5px; margin-right: 5px; overflow:scroll; overflow-y:scroll; max-height:210px; min-height:210px; max-width:500px; background-color:rgba(0,0,0,0.5);">
 
@@ -797,7 +902,7 @@ Advanced Repair Cost
 </div>
 </div>
 
-
+</div>
 
 <div ng-if="beamlrData['playerWalking'] != 0">
 <h2 style="text-align:center;" > Cannot use while walking. </h2>

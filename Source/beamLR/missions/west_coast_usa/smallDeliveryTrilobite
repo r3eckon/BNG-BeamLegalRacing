@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_TrilobiteDelivery
+desc=Deliver $item to the Trilobite gas station
+reward=400
+items=list_all
+gmwp=blrgps_gasC
+type=small

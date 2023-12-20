@@ -1,0 +1,7 @@
+destpos=-857.8037109375,-620.50811767578,104.88668823242
+destrot=0.0047990845178074,-0.0001940976447287,-0.4175426720653,0.90864462146566
+desc=Deliver $item to the Lens Flare studio
+reward=850
+items=list_all
+gmwp=blrwp_trailerstudio
+type=gooseneck

@@ -1,0 +1,17 @@
+desc=Another drag race
+wager=500,1000
+slips=0.04
+enemyConfig=vehicles/etk800/854x_250_A.pc,vehicles/etk800/844_250_M.pc
+enemyRisk=2.0
+enemyBasePrice=0
+enemyPartPrice=0
+enemyScrapVal=0
+enemyPaint=0,0,0,0,0.1,0.1,0.1,0.1
+enemyAvoid=1
+triggers=endTrigger
+waypoints=drag_4
+laps=1
+ifile=beamLR/races/integrity/good
+traffic=1
+parts=none
+rep=10,50

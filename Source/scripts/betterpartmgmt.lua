@@ -94,7 +94,7 @@ end
 
 local function getGarageUIData()
 local toRet = {}
-local current = {}
+local current = getVehicleParts()	-- Current parts
 local slots = getActualSlots() 		-- Gets actual slots from current car
 local avail = getSlotMap()	   		-- Gets all available parts for all available slots of this car
 
@@ -107,7 +107,6 @@ toRet[slot] = {}
 end
 
 for _,part in pairs(avail[slot]) do -- Looping over all available parts for the current slot
-
 if partInventory[part] ~= nil then 	-- Finding the part in player inventory
 if partInventory[part] >= 1 then
 table.insert(toRet[slot], part) 	-- Populate return table
@@ -118,6 +117,12 @@ end
 
 end
 
+end
+
+for slot,part in pairs(current) do	-- Fix for search function not finding current used parts
+if part ~= "" and slot ~= "main" then
+table.insert(toRet[slot], part)
+end
 end
 
 return toRet
@@ -140,36 +145,6 @@ if partInventory[p] ~= nil or 0 then
 partInventory[p] = partInventory[p] - 1
 end
 end
-
-local function setSlot(slot, val)
-local toSet = getVehicleData().chosenParts
-local currentParts = getVehicleParts()
-
-if val == "" then					-- Val is null, part is being removed
-if currentParts[slot] ~= nil and currentParts[slot] ~= "" then   -- Check if slot has part
-addToInventory(currentParts[slot])	-- Add removed part to inventory
-toSet[slot] = val
-extensions.core_vehicle_partmgmt.setPartsConfig(toSet)
-end
-
-else								-- Val isn't null, part is being added to vehicle
-
-if partInventory[val] ~= nil then	-- Check that inventory contains part being added
-if partInventory[val] >= 1 then	
-if currentParts[slot] ~= nil and currentParts[slot] ~= "" then   -- Check if there's a part in that slot already
-addToInventory(currentParts[slot])	-- If so add removed part to inventory
-end
-removeFromInventory(val)			-- Remove added part from inventory
-toSet[slot] = val
-extensions.core_vehicle_partmgmt.setPartsConfig(toSet)
-end
-end
-
-end
-
-end
-
-
 
 
 
@@ -237,27 +212,24 @@ local toRet = {}
 local part = ""
 local cm = false
 
-if currentFilter == "all" then
-toRet = source
-else
-
 for k,v in pairs(source) do
-
 cm = false													-- Reset current match flag
 if keyMode then part = k else part = v end
-
 for f,t in pairs(categoryData) do							-- To have universal filters, loop over universal part names to see if they match												-- with the current part in the list. Only add if matching the selected filter.
-	if string.match(part, f) and t == currentFilter then	-- Matching filter detected, adding to return table
-		toRet[k] = v
-		cm = true
-	end
-	if cm then break end									-- Stop looping over filters once match has been found
+if currentFilter=="all" or (string.match(part, f) and t == currentFilter) then	-- Matching filter detected, adding to return table
+if not toRet[k] then toRet[k] = {} end
+for i,p in pairs(v) do
+toRet[k][p] = true
+end
+cm = true
+end
+if cm then break end									-- Stop looping over filters once match has been found
 end
 
-end
 end
 return toRet
 end
+
 
 
 
@@ -527,14 +499,24 @@ local toRet = {}
 local avail = getMergedSlotMaps()
 local cjbeam = {}
 local cslots = {}
+local newfmt = false
 for k,v in pairs(avail) do
 for _,part in pairs(v) do
 cjbeam = getPartJbeam(part)
 if cjbeam ~= nil then
+if cjbeam["slots2"] then -- updated for new jbeam slot format
+cslots = cjbeam["slots2"]
+newfmt=true
+else
 cslots = cjbeam["slots"]
+end
 if cslots ~= nil then
 for _,s in pairs(cslots) do
+if newfmt then
+toRet[s["name"]] = s["description"]
+else
 toRet[s["type"]] = s["description"]
+end
 end
 end
 end
@@ -544,7 +526,7 @@ return toRet
 end
 
 local function searchFilter(source, keyMode, deepSearch)	-- Directly matches filter with part list for simple search function
-local toRet = {}								
+local toRet = {}
 local part = ""	
 local cname = ""
 local snameLib = getSlotNameLibrary()
@@ -554,13 +536,16 @@ for k,v in pairs(source) do
 if keyMode then part = k else part = v end
 cname = snameLib[part] or ""
 if string.match(part:upper(), currentFilter:upper()) or string.match(cname:upper(),currentFilter:upper()) then -- Updated to match proper slot name not just internal slot name
-toRet[k] = v
+for i,p in pairs(v) do
+if not toRet[k] then toRet[k] = {} end
+toRet[k][p]=true
+end
 elseif deepSearch then
 for i,p in pairs(v) do
 cname = pnameLib[p]
 if string.match(p:upper(), currentFilter:upper()) or string.match(cname:upper(),currentFilter:upper()) then
 if not toRet[k] then toRet[k] = {} end
-table.insert(toRet[k],p)
+toRet[k][p]=true
 end
 end
 end
@@ -587,7 +572,7 @@ end
 local function generateConfigVariant(baseFile, fmap, seed)
 math.randomseed(seed)
 local toRet = {}
-local baseConfig = readJsonFile(baseFile)
+local baseConfig = jsonReadFile(baseFile)
 
 if not baseConfig["parts"] then -- Detected old config format, build format 2 config
 toRet["format"] = 2
@@ -860,6 +845,7 @@ local csl_activeParts = {}
 local csl_chosenParts = {}
 local csl_vehicleData = {}
 local csl_result = {}
+local csl_defaults = {} -- for non avb part edits to add removed child slots to inv except defaults
 
 
 local function childSlotLookupStep(slot)
@@ -867,9 +853,16 @@ local csl_ctype = ""
 local csl_lookupkey = csl_chosenParts[slot]
 if csl_activeParts[csl_lookupkey] then
 csl_result[slot] = csl_chosenParts[slot]
-if csl_activeParts[csl_lookupkey].slots then
+if csl_activeParts[csl_lookupkey]["slots2"] then
+for k,v in pairs(csl_activeParts[csl_lookupkey]["slots2"]) do
+csl_ctype=v["name"]
+csl_defaults[csl_ctype]=v["default"]
+childSlotLookupStep(csl_ctype)
+end
+elseif csl_activeParts[csl_lookupkey].slots then
 for k,v in pairs(csl_activeParts[csl_lookupkey].slots) do
 csl_ctype=v["type"]
+csl_defaults[csl_ctype]=v["default"]
 childSlotLookupStep(csl_ctype)
 end
 end
@@ -885,6 +878,7 @@ csl_activeParts = {}
 csl_chosenParts = {}
 csl_vehicleData = {}
 csl_result = {}
+csl_defaults = {}
 
 -- Fill tables with reusable data
 if not veid then 
@@ -900,6 +894,10 @@ childSlotLookupStep(parent)
 csl_result[parent] = nil
 
 return csl_result
+end
+
+local function getCSLDefaults()
+return csl_defaults
 end
 
 
@@ -944,8 +942,173 @@ executeDelayedSlotSet()
 end
 
 
+-- Non AVB slot setting, updated in 1.14 to fix issue with subparts not added to inventory
+-- tried dealing with defaults but there's nothing I can do so default parts can be exploited
+local function setSlot(slot, val)
+local toSet = getVehicleData().chosenParts
+local currentParts = getVehicleParts()
+local childslots = getAllChildSlots(slot)
+
+if val == "" then					-- Val is null, part is being removed
+if currentParts[slot] ~= nil and currentParts[slot] ~= "" then   -- Check if slot has part
+addToInventory(currentParts[slot])	-- Add removed part to inventory
+toSet[slot] = val
+extensions.core_vehicle_partmgmt.setPartsConfig(toSet)
+end
+
+else								-- Val isn't null, part is being added to vehicle
+
+if partInventory[val] ~= nil then	-- Check that inventory contains part being added
+if partInventory[val] >= 1 then	
+if currentParts[slot] ~= nil and currentParts[slot] ~= "" then   -- Check if there's a part in that slot already
+addToInventory(currentParts[slot])	-- If so add removed part to inventory
+end
+removeFromInventory(val)			-- Remove added part from inventory
+toSet[slot] = val
+extensions.core_vehicle_partmgmt.setPartsConfig(toSet)
+end
+end
+
+end
+
+-- loop over child slots, add parts to inventory (even defaults, nothing I can do about this without AVB)
+for k,v in pairs(childslots) do
+if (v~= nil and v ~= "") then
+addToInventory(v)
+end
+end
+
+end
 
 
+local function templateLoadInventorySwap(currentConfig, targetConfig)
+for k,v in pairs(currentConfig) do
+if v ~= ""  then
+addToInventory(v)
+end
+end
+for k,v in pairs(targetConfig) do
+if v ~= "" then
+removeFromInventory(v)
+end
+end
+end
+
+local function getMainPartChild(veid)
+local vehicleData = {}
+local activeParts = {}
+local chosenParts = {}
+local toRet = ""
+local mainPart = getMainPartName()
+local jbeamdata = jsonReadFile(string.format("vehicles/%s/%s.jbeam", mainPart,mainPart))[mainPart]
+local newfmt = jbeamdata["slots2"]
+local slotdata = {}
+if newfmt then
+slotdata = jbeamdata["slots2"]
+else
+slotdata = jbeamdata["slots"]
+end
+
+
+if not veid then 
+vehicleData = getVehicleData()
+else
+vehicleData = vehManager.getVehicleData(veid)
+end
+activeParts = vehicleData.vdata.activeParts
+chosenParts = vehicleData.chosenParts
+
+for k,v in pairs(slotdata) do
+if newfmt then
+if v[6] and v[6]["coreSlot"] then
+toRet = chosenParts[v[1]]
+end
+else
+if v[4] and v[4]["coreSlot"] then
+toRet = chosenParts[v[1]]
+end
+end
+end
+
+return toRet
+end
+
+local function getParentMap(veid)
+local toRet = {}
+local vehicleData = {}
+local chosenParts = {}
+
+if not veid then 
+vehicleData = getVehicleData()
+else
+vehicleData = vehManager.getVehicleData(veid)
+end
+chosenParts = vehicleData.chosenParts
+
+local cchilds = {}
+
+for k,v in pairs(chosenParts) do
+cchilds = getAllChildSlots(k)
+for slot,part in pairs(cchilds) do
+if part ~= "" then
+if not toRet[part] then toRet[part] = {} end
+table.insert(toRet[part], v)
+end
+end
+end
+
+return toRet
+end
+
+local function getChildMap()
+local toRet = {}
+local vehicleData = {}
+local chosenParts = {}
+
+if not veid then 
+vehicleData = getVehicleData()
+else
+vehicleData = vehManager.getVehicleData(veid)
+end
+chosenParts = vehicleData.chosenParts
+
+for k,v in pairs(chosenParts) do
+if v ~= "" then
+toRet[v] = getAllChildSlots(k)
+end
+end
+
+return toRet
+end
+
+-- manual init for non inventory slot set used in advanced repair ui
+local function initDelayedSlotTable()
+delayedSlotSet = getVehicleData().chosenParts
+end
+
+local function setSlotDelayedNoInventory(slot, val)
+delayedSlotSet[slot] = val
+end
+
+local function getPartKeyedSlots()
+local parts = getVehicleData().chosenParts
+local toRet = {}
+for k,v in pairs(parts) do
+if v and v ~= "" then
+toRet[v] = k
+end
+end
+return toRet
+end
+
+M.initDelayedSlotTable = initDelayedSlotTable
+M.getPartKeyedSlots = getPartKeyedSlots
+M.setSlotDelayedNoInventory = setSlotDelayedNoInventory
+M.getChildMap = getChildMap
+M.getParentMap = getParentMap
+M.getMainPartChild = getMainPartChild
+M.templateLoadInventorySwap = templateLoadInventorySwap
+M.getCSLDefaults = getCSLDefaults
 M.setSlotDelayed = setSlotDelayed
 M.setSlotWithChildren = setSlotWithChildren
 M.executeDelayedSlotSet = executeDelayedSlotSet

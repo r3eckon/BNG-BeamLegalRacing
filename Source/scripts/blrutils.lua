@@ -138,9 +138,10 @@ marker = createObject('TSStatic')
 marker:setField('shapeName', 0, 'art/shapes/collectible/s_marker_BNG.dae')
 marker:setPosition(getObjectPosName(v))
 marker.scale = vec3(2, 2, 2)
-marker:registerObject(mid .. "marker")
+marker:registerObject("BLRMarker" .. mid)
 markers[k] = marker
 markersOriginPos[k] = getObjectPosName(v) -- Store spawn position to use as center point of animation
+mid = mid+1
 end
 end
 
@@ -200,22 +201,43 @@ end
 saveDataTable(file, dtable)
 end
 
+local shautoindex = 0
 
-local function slotHelper(spprefix,srprefix,cpprefix,crprefix)
+local function slotHelper(params)
 local filedata = ""
 local veh = be:getPlayerVehicle(0)
 local vehicleData = map.objects[veh:getId()]
 local pos = vehicleData.pos:toTable()
 local rot = quatFromDir(vehicleData.dirVec, vehicleData.dirVecUp):toTable()
+if not params then params = {} end
+local spprefix = params["spprefix"] or "slotp" -- slot position prefix
+local srprefix = params["srprefix"] or "slotr" -- slot rotation prefix
+local cpprefix = params["cpprefix"] or "camp" -- cam position prefix
+local crprefix = params["crprefix"] or "camr" -- cam rotation prefix
+local append = params["append"] -- append mode, adds to file instead of overwriting
+local cam = params["cam"] -- also add camera position and rotation
+local index = params["index"] or "" -- add index to the end of prefix
+local autoindex = params["autoindex"] -- automatically incremented index
 
+if append then filedata = readFile("beamLR/slotHelper") end
 
-filedata = (spprefix or "slotp") .. "=" .. pos[1] .. "," .. pos[2] .. "," .. pos[3] .. "\n"
-filedata = filedata .. (srprefix or "slotr") .. "=" .. rot[1] .. "," .. rot[2] .. "," .. rot[3] .. "," .. rot[4] .. "\n"
+if autoindex then index = shautoindex end
+
+filedata = filedata .. (spprefix) .. index .. "=" .. pos[1] .. "," .. pos[2] .. "," .. pos[3] .. "\n"
+filedata = filedata .. (srprefix) .. index .. "=" .. rot[1] .. "," .. rot[2] .. "," .. rot[3] .. "," .. rot[4] .. "\n"
+
+if cam then 
 pos = getCameraPosition():toTable()
 rot = getCameraQuat():toTable()
-filedata = filedata .. (cpprefix or "camp") .. "=" .. pos[1] .. "," .. pos[2] .. "," .. pos[3] .. "\n"
-filedata = filedata .. (crprefix or "camr") .. "=" .. rot[1] .. "," .. rot[2] .. "," .. rot[3] .. "," .. rot[4]
+filedata = filedata .. (cpprefix) .. index .. "=" .. pos[1] .. "," .. pos[2] .. "," .. pos[3] .. "\n"
+filedata = filedata .. (crprefix) .. index .. "=" .. rot[1] .. "," .. rot[2] .. "," .. rot[3] .. "," .. rot[4] .. "\n"
+end
 writeFile("beamLR/slotHelper", filedata)
+if autoindex then shautoindex = shautoindex+1 end
+end
+
+local function slotHelperAutoIndexReset()
+shautoindex = 0
 end
 
 local function saveUIPaintToGarageFile(gid, paintdata)
@@ -369,7 +391,7 @@ local function getVehicleData(vid)
 local toRet = {}
 local veh = {}
 if vid ~= nil then
-veh = scenetree.findObjectById(self.pinIn.vehId.value)
+veh = scenetree.findObjectById(vid)
 else
 veh = be:getPlayerVehicle(0)
 end
@@ -499,8 +521,8 @@ end
 
 local function cycleCareerSeed()
 local dtable = loadDataTable("beamLR/options")
-local autoseed = dtable["autoseed"] or "false" -- Defaults to "false" for old versions
-if autoseed == "true" then -- New automatic seed increment feature
+local autoseed = (tonumber(dtable["autoseed"]) == 1) or (dtable["autoseed"] == "true")--check text param for old version compatibility
+if autoseed then -- New automatic seed increment feature
 if tonumber(dtable["sseed"]) > 0 and tonumber(dtable["sseed"]) < 9999999999 then
 dtable["nseed"] = tonumber(dtable["sseed"]) + 1 -- Current seed within range, just increment
 else
@@ -1046,7 +1068,7 @@ end
 -- Cop Fix, after pursuit ended inactive police vehicles will stay on "follow" AI mode 
 -- and has to be forced back to "traffic" after pursuit (hopefully will get fixed soon)
 local lastTrafficData = {}
-local copTable = {}				-- Vehid KEY, TRUE val, non cop ids will return nil when checked
+local copTable = {}				-- Vehid KEY, true val, non cop ids will return nil when checked
 local copfixReceived = {}		-- Vehid KEY, SENT as boolean val
 local copCount = 0				-- Fixes to send before stopping
 local copfixSent = 0			-- Sent fixes so far
@@ -1241,7 +1263,7 @@ FS:directoryCreate("beamLR/garage/config/template/car" .. (count))
 end
 
 local function getLevelInfo(level)
-return readJsonFile("/levels/" .. level .. "/info.json")
+return jsonReadFile("/levels/" .. level .. "/info.json")
 end
 
 local function getInstalledLevels() -- As key map for quick lookup
@@ -1301,7 +1323,7 @@ end
 
 local function getVehicleInfoFile(model) -- info.json containing UI name and brand, dont specify model to use current veh model
 if not model then model = getVehicleMainPartName() end
-local data = readJsonFile("/vehicles/" .. model .. "/info.json")
+local data = jsonReadFile("/vehicles/" .. model .. "/info.json")
 return data
 end
 
@@ -1712,6 +1734,7 @@ end
 local function templateLoadCheck(current, target)
 local inventory = extensions.betterpartmgmt.getPartInventory()
 local fullinv = {}
+
 local toRet = true
 -- Add actual inventory first
 for k,v in pairs(inventory) do
@@ -1723,7 +1746,7 @@ fullinv[v] = (fullinv[v] or 0) + 1
 end
 -- Perform check
 for k,v in pairs(target) do
-if (not fullinv[v]) or fullinv[v] <= 0 then
+if ((not fullinv[v]) or fullinv[v] <= 0) then
 toRet = false
 break
 end
@@ -1880,9 +1903,17 @@ local slipsChance = tonumber(raceData["slips"])
 local pmodel = extensions.betterpartmgmt.getMainPartName()
 local slipsBlacklist = loadDataFile("beamLR/pinkslipsBlacklist", true)-- Loaded as keys for fast lookup
 local wagertmp = 0
+local lstrig = tonumber(raceData["lstrig"] or "0")
+local lswp = tonumber(raceData["lswp"] or "0")
+local wpsplit = ssplit(raceData["waypoints"], ",")
+local wploop = "" -- looping subsection
+local wptoret = "" -- final waypoint list
+local wrand = 0 -- to link lap count with rewards 
+local traffic = tonumber(raceData["traffic"])--traffic param now interpreted as chance to use traffic
 
 if #wager > 1 then 
-toRet["wager"] = math.random(tonumber(wager[1]), tonumber(wager[2]))
+wrand = math.random()
+toRet["wager"] = math.floor(lerp(wrand, tonumber(wager[1]), tonumber(wager[2]), false)*100.0) / 100.0;
 else 
 toRet["wager"] = tonumber(wager[1])
 end
@@ -1905,7 +1936,7 @@ toRet["parts"] = raceData["parts"]
 end
 
 if #reputation > 1 then
-toRet["rep"] = math.random(tonumber(reputation[1]), tonumber(reputation[2]))
+toRet["rep"] = math.floor(lerp(wrand, tonumber(reputation[1]), tonumber(reputation[2]), false))
 else 
 toRet["rep"] = tonumber(reputation[1])
 end
@@ -1944,10 +1975,40 @@ else
 toRet["enemyRisk"] = tonumber(enemyRisk[1])
 end
 
-if #laps > 1 then
-toRet["laps"] = math.random(tonumber(laps[1]), tonumber(laps[2]))
+-- upper bound + 1 because floor would mean only 1.0 roll has max lap count, cap with math.min in case the 1.0 roll happens
+if #laps > 1 then 
+toRet["laps"] = math.min(tonumber(laps[2]), math.floor(lerp(wrand, tonumber(laps[1]), tonumber(laps[2])+1, false)))
 else
 toRet["laps"] = tonumber(laps[1])
+end
+
+--1.14 looping race subsection
+blrvarSet("racelstrig", lstrig)
+if lswp > 0 then
+-- build looping waypoint subsection
+wploop = wpsplit[lswp]
+for i=lswp+1,#wpsplit do
+wploop = wploop .. "," .. wpsplit[i]
+end
+-- build final waypoint list
+wptoret = raceData["waypoints"]
+for i=2,toRet["laps"] do
+wptoret = wptoret .. "," .. wploop
+end
+toRet["waypoints"] = wptoret
+else
+toRet["waypoints"] = raceData["waypoints"]
+end
+
+local raceTrafficMode = blrvarGet("raceTrafficMode")
+if raceTrafficMode == 0 then
+if (math.random() < traffic) then
+toRet["traffic"] = 1
+else
+toRet["traffic"] = 0
+end
+else
+toRet["traffic"] = raceTrafficMode-1
 end
 
 lastProcessedRace = toRet
@@ -1955,7 +2016,7 @@ lastProcessedRace = toRet
 return toRet
 end
 
-local function wpspdHelper(scale,original)
+local function wpspdHelper(scale,minimum,original)
 local split = ssplit(original, ",")
 local vsplit = {}
 local cval = 0
@@ -1963,7 +2024,11 @@ local toRet = "wpspd="
 for k,v in pairs(split) do
 vsplit = ssplit(v, ":")
 cval = tonumber(vsplit[2])
+if cval >= minimum then
 toRet = toRet .. vsplit[1] .. ":" .. (cval * scale) .. ","
+else
+toRet = toRet .. vsplit[1] .. ":" .. (cval) .. ","
+end
 end
 return writeFile("beamLR/wpspdHelper",toRet:sub(1,-2))
 end
@@ -2152,6 +2217,67 @@ extensions.customGuiStream.sendGPSPage(0)
 end
 end
 
+local function loadCustomIMGUILayout()
+if FS:fileExists("settings/beamlr_imgui.ini") then
+extensions.ui_imgui.loadIniSettingsFromDisk("settings/beamlr_imgui.ini")
+end
+end
+
+local iminit = {}
+local function IMGUILayoutInit(wid)
+if not iminit[wid] then
+extensions.blrdelay.setParam("wid", wid)
+extensions.blrdelay.queue("iminit", "wid",1)
+iminit[wid]=true
+end
+end
+
+local function IMGUIResetInitStates()
+iminit = {}
+end
+
+local function advancedDamageStringToTable(str)
+local toRet = {}
+local stable = ssplit(str, ",")
+local csplit = {}
+for k,v in pairs(stable) do
+csplit = ssplit(v, ":")
+toRet[csplit[1]] = tonumber(csplit[2])
+end
+return toRet
+end
+
+local function getGasStationByID(id)
+local stations = extensions.freeroam_facilities.getFacilities(extensions.blrutils.getLevelName()).gasStations
+local toRet = {}
+for k,v in pairs(stations) do
+if v.id==id then toRet = v end
+end
+return toRet
+end
+
+local function setGasStationDisplayValue(id, fueltype, value, enabled, ustax)
+local station = getGasStationByID(id)
+station.prices[fueltype].priceBaseline = value
+station.prices[fueltype].priceRandomnessBias = nil
+station.prices[fueltype].priceRandomnessGain = nil
+station.prices[fueltype].disabled = not enabled
+station.prices[fueltype].us_9_10_tax = ustax
+if ustax then station.prices[fueltype].priceBaseline = value - 0.01 end --remove 1 cent from actual value for display in US maps
+end
+
+local function applyGasStationsDisplays()
+extensions.freeroam_facilities_fuelPrice.setDisplayPrices()
+end
+
+M.setGasStationDisplayValue = setGasStationDisplayValue
+M.applyGasStationsDisplays = applyGasStationsDisplays
+M.getGasStationByID = getGasStationByID
+M.advancedDamageStringToTable = advancedDamageStringToTable
+M.IMGUIResetInitStates = IMGUIResetInitStates
+M.IMGUILayoutInit = IMGUILayoutInit
+M.loadCustomIMGUILayout = loadCustomIMGUILayout
+M.slotHelperAutoIndexReset = slotHelperAutoIndexReset
 M.getDistanceFromPlayer = getDistanceFromPlayer
 M.gpsGetUnit = gpsGetUnit
 M.gpsToggleStateUpdate = gpsToggleStateUpdate

@@ -11,6 +11,8 @@ local jbeamUtils = require("jbeam/utils")
 local jbeamTableSchema = require('jbeam/tableSchema')
 local json = require("json")
 
+local fileCacheOld = {}
+local fileCache -- it is nil so that we don't cache everything on first load
 local jbeamCache = {}
 local partFileMap = {}
 local partSlotMap = {}
@@ -18,8 +20,12 @@ local partNameMap = {}
 local modManager = nil
 local invalidatedCache = false
 
+
 local function parseFile(filename)
-  local content = readFile(filename)
+  local content = fileCacheOld[filename] or readFile(filename)
+  if fileCache then
+    fileCache[filename] = content
+  end
   if content then
     local ok, data = pcall(json.decode, content)
     if ok == false then
@@ -33,7 +39,7 @@ local function parseFile(filename)
   end
 end
 
-local function processSlotsDestructiveBackwardCompatibility(slots, newSlots)
+local function processSlotsV1DestructiveBackwardCompatibility(slots, newSlots)
   local addedSlots = 0
   for k, slotSectionRow in ipairs(slots) do
     if slotSectionRow[1] == "type" then goto continue end -- ignore the header
@@ -58,7 +64,7 @@ local function processSlotsDestructiveBackwardCompatibility(slots, newSlots)
   return addedSlots
 end
 
-local function processSlotsDestructive(part, sourceFilename)
+local function _processSlotsDestructiveLegacy(part, sourceFilename)
   if type(part.slots) ~= 'table' then return nil end
 
   local newSlots = {}
@@ -71,7 +77,7 @@ local function processSlotsDestructive(part, sourceFilename)
   if newListSize < 0 then
     -- fallback: use old code for old mods with errors
     newSlots = {}
-    newListSize = processSlotsDestructiveBackwardCompatibility(part.slots, newSlots)
+    newListSize = processSlotsV1DestructiveBackwardCompatibility(part.slots, newSlots)
     if newListSize < 0 then
       log('E', "", "Slots section in file " .. tostring(sourceFilename) .. " invalid. Unable to recover: " .. dumpsz(part.slots, 2))
     else
@@ -79,17 +85,52 @@ local function processSlotsDestructive(part, sourceFilename)
     end
   end
   part.slots = newSlots
+end
 
-  local res = table.new(0, #part.slots)
-  for _, slot in ipairs(part.slots) do
-    res[slot.name or slot.type] = {
-      --default = slot.default,
-      type = slot.type,
-      description = slot.description,
-      coreSlot = slot.coreSlot,
-    }
+-- this function processes the slots / slots2
+local function processSlotsDestructive(part, sourceFilename)
+  if type(part.slots) ~= 'table' and type(part.slots2) ~= 'table' then return nil end
+
+  if part.slots then
+    _processSlotsDestructiveLegacy(part, sourceFilename)
+    -- now upgrade to the new slots2 data structure
+    for _, slot in ipairs(part.slots) do
+      slot.name = slot.name or slot.type
+      slot.allowTypes = {slot.type}
+      slot.type = nil
+      slot.denyTypes = {}
+    end
+    part.slots2 = part.slots
+    part.slots = nil
+  elseif part.slots2 then
+    -- slots 2
+    -- ["name", "allowTypes", "denyTypes", "default", "description"],
+    local newSlots2 = {}
+    local newListSize = jbeamTableSchema.processTableWithSchemaDestructive(part.slots2, newSlots2)
+    if newListSize < 0 then
+      log('E', "", "Slots section in file " .. tostring(sourceFilename) .. " invalid. Unable to recover: " .. dumpsz(part.slots2, 2))
+    end
+    part.slots2 = newSlots2
   end
-  return res
+  -- from here on we only have slots2 available
+end
+
+
+-- this filters the data we send to the UI as there is a lot of additonal data in there that we do not want
+local function getSlotInfoDataForUi(slots)
+  local res = table.new(0, #slots)
+  for _, slot in ipairs(slots) do
+    local s = {}
+    s.name = slot.name or slot.type -- slots2 - new feature for uniquely identifying slots
+    s.type = slot.type -- slots1, replaced by allowTypes and denyTypes
+    --s.default = slot.default,
+    s.allowTypes = slot.allowTypes -- slots2
+    s.denyTypes = slot.denyTypes  -- slots2
+    s.description = slot.description
+    s.coreSlot = slot.coreSlot
+    res[slot.name or slot.type] = s
+  end
+  return res    
 end
 
 local function loadJBeamFile(dir, filename, addToCache)
@@ -115,48 +156,69 @@ local function loadJBeamFile(dir, filename, addToCache)
 	end
 	end
 	end
+	-- BeamNG 0.31 adds uses "slots2" for some vehicles
+	if part["slots2"] then
+	for i=2,#part["slots2"] do 
+	part["slots2"][i][4] = "" -- Default for this format at index 4
+	if part["slots2"][i][#part["slots2"][i]].coreSlot then
+	part["slots2"][i][#part["slots2"][i]] = nil
 	end
 	end
-	-- BeamLR 1.13 Advanced Vehicle Building Code End
+	end
+	end
+	end
+	-- BeamLR 1.13 Advanced Vehicle Building Code End	
+    
+    -- this processes the slot and slot2 section
+    processSlotsDestructive(part, filename)
+    local slotInfoUi = getSlotInfoDataForUi(part.slots2 or {})
 
-    local slotInfo = processSlotsDestructive(part, filename)
     if addToCache then
       if not partFileMap[dir] then
         partFileMap[dir] = {}
         partSlotMap[dir] = {}
         partNameMap[dir] = {}
       end
-      if type(part.slotType) ~= 'string' then
+      if type(part.slotType) ~= 'string' and type(part.slotType) ~= 'table' then
         log('E', "jbeam.loadJBeamFile", "part does not have a slot type. Ignoring: "..tostring(filename))
         goto continue
       end
-      partSlotMap[dir][part.slotType] = partSlotMap[dir][part.slotType] or {}
-      local partDesc = {
-        description = part.information.name or "",
-        authors = part.information.authors or "",
-        isAuxiliary = part.information.isAuxiliary,
-        slots = slotInfo
-      }
-      if modManager then -- only available on the game engine side
-        -- enrich the part with modName and ID
-        local modName, modInfo = modManager.getModForFilename(filename)
-        if modName then
-          partDesc.modName = modName
-          --partDesc.modID   = modInfo.modID
-          --partDesc.modInfo = modInfo -- too much data
-        end
+      -- support for a part that fits in the correct slottype
+      local slotTypes = {}
+      if type(part.slotType) == 'string' then
+        table.insert(slotTypes, part.slotType)
+      elseif type(part.slotType) == 'table' then
+        slotTypes = part.slotType
       end
+      for _, slotType in ipairs(slotTypes) do
+        partSlotMap[dir][slotType] = partSlotMap[dir][slotType] or {}
+        local partDesc = {
+          description = part.information.name or "",
+          authors = part.information.authors or "",
+          isAuxiliary = part.information.isAuxiliary,
+          slotInfoUi = slotInfoUi
+        }
+        if modManager then -- only available on the game engine side
+          -- enrich the part with modName and ID
+          local modName, modInfo = modManager.getModForFilename(filename)
+          if modName then
+            partDesc.modName = modName
+            --partDesc.modID   = modInfo.modID
+            --partDesc.modInfo = modInfo -- too much data
+          end
+        end
 
-      if tableContains(partSlotMap[dir][part.slotType], partName) then
-        if partFileMap[dir][partName] and tableSize(fileContent) > tableSize(jbeamCache[partFileMap[dir][partName]]) then
+        if tableContains(partSlotMap[dir][slotType], partName) then
+          if partFileMap[dir][partName] and tableSize(fileContent) > tableSize(jbeamCache[partFileMap[dir][partName]]) then
+            partFileMap[dir][partName] = filename
+            partNameMap[dir][partName] = partDesc
+          end
+          log('E', 'jbeam.loadJBeamFile', 'Duplicate part found: ' .. tostring(partName) .. ' from file ' .. tostring(filename))
+        else
           partFileMap[dir][partName] = filename
           partNameMap[dir][partName] = partDesc
+          table.insert(partSlotMap[dir][slotType], partName)
         end
-        log('E', 'jbeam.loadJBeamFile', 'Duplicate part found: ' .. tostring(partName) .. ' from file ' .. tostring(filename))
-      else
-        partFileMap[dir][partName] = filename
-        partNameMap[dir][partName] = partDesc
-        table.insert(partSlotMap[dir][part.slotType], partName)
       end
       ::continue::
     end
@@ -195,7 +257,7 @@ local function getPart(ioCtx, partName)
         log('D', 'jbeam.getPart', "Loaded " .. tostring(partCount) .. " part(s) from file " .. tostring(jbeamFilename))
       end
       if jbeamCache[jbeamFilename] then
-        return deepcopy(jbeamCache[jbeamFilename][partName]), jbeamFilename
+        return jbeamCache[jbeamFilename][partName], jbeamFilename
       end
     end
   end
@@ -215,7 +277,9 @@ local function getMainPartName(ioCtx)
 end
 
 local function finishLoading()
-  jbeamCache = {}
+  table.clear(jbeamCache)
+  fileCacheOld = fileCache or {}
+  fileCache = {}
 end
 
 local function getAvailableParts(ioCtx)
@@ -272,6 +336,7 @@ local function onFileChanged(filename, type)
   local dir = string.match(filename, "(/vehicles/[^/]*/).*$") -- yeah it's weird to have no leading slash :/
   local _, _, ext = path.split(filename)
   if ext ~= 'jbeam' then return end
+  fileCacheOld[filename] = nil
 
   if dir and (partFileMap[dir] or partSlotMap[dir] or partNameMap[dir]) then
     log('I', 'jbeamIO.onFileChanged', 'cache reset for path: ' .. tostring(dir) .. ' due to file change: ' .. tostring(filename) .. ' (' .. tostring(type) .. ')')

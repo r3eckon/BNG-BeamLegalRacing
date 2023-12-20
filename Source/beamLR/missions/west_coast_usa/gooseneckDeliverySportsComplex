@@ -1,0 +1,7 @@
+destpos=-39.537635803223,216.83053588867,123.89160919189
+destrot=0.00034452634074745,-0.0045396635452242,0.92244920086589,0.38609162717984
+desc=Deliver $item to the sports complex
+reward=850
+items=list_all
+gmwp=blrwp_trailersports
+type=gooseneck

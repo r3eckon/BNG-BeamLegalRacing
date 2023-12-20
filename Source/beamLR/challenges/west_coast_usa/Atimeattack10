@@ -1,0 +1,8 @@
+desc=Time attack around the service station cell tower
+type=time
+wager=700,2000
+rep=20,50
+triggers=BeamLRTrigger_RaceACP24,BeamLRTrigger_RaceACP28,BeamLRTrigger_RaceACP29,BeamLRTrigger_RaceACP30,BeamLRTrigger_RaceACP31,BeamLRTrigger_RaceACP32,BeamLRTrigger_RaceACP33,BeamLRTrigger_RaceACP34,BeamLRTrigger_RaceACP35
+gmwp=blrwp_raceA1
+targettime=87000,100000
+traffic=0

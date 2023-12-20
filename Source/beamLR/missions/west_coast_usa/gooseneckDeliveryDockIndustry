@@ -1,0 +1,7 @@
+destpos=41.26993560791,667.93420410156,74.931762695313
+destrot=0.0042447690083062,-0.0030930847551052,0.5143798694242,0.85754636299964
+desc=Deliver $item to the city dockyard industrial buildings
+reward=850
+items=list_all
+gmwp=blrwp_dockyardindustry
+type=gooseneck

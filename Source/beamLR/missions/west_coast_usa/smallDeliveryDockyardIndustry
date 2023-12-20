@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_DockyardIndustry
+desc=Deliver $item to the dockyard industrial buildings
+reward=400
+items=list_all
+gmwp=blrwp_dockyardindustry
+type=small

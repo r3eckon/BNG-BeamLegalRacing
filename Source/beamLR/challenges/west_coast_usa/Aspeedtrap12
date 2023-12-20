@@ -1,0 +1,8 @@
+desc=Curvy highway speed trap challenge
+wager=1000,4000
+triggers=BeamLRTrigger_RaceACP38
+type=speed
+targetspd=50,71
+rep=30,200
+gmwp=blrwp_raceA53
+traffic=1

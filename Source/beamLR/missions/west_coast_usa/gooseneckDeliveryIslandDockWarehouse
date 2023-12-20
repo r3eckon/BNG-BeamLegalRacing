@@ -1,0 +1,7 @@
+destpos=593.71643066406,1609.5262451172,74.913208007813
+destrot=0.010553951628644,-0.00024006873666067,0.71192573084335,0.70217541272476
+desc=Deliver $item to Spearleaf Marine Logistics
+reward=850
+items=list_all
+gmwp=blrwp_islanddockwarehouse
+type=gooseneck

@@ -1,0 +1,7 @@
+destpos=-397.18704223633,735.07000732422,74.949501037598
+destrot=0.004024586892014,-0.0022029656178204,0.39920938354235,0.91684830682865
+desc=Deliver $item to the city pier 
+reward=850
+items=list_all
+gmwp=blrwp_trailerpier
+type=gooseneck

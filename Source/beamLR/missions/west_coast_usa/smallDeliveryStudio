@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_Studio
+desc=Deliver $item to the Lens Flare movie studio
+reward=400
+items=list_all
+gmwp=blrwp_studio
+type=small

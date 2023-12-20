@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_OfficeBuilding1
+desc=Deliver $item to an office building
+reward=400
+items=list_all
+gmwp=blrwp_officebuilding1
+type=small

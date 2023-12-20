@@ -1,0 +1,7 @@
+destpos=-391.18316650391,177.99291992188,101.03399658203
+destrot=-0.0056966108225172,0.004118846449318,0.2190984218057,0.97567743916282
+desc=Deliver $item to Jefferson Motors
+reward=350
+items=list_all
+gmwp=blrgps_mixedcars
+type=trailer

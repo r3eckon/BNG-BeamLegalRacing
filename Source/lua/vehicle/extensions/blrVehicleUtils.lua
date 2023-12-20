@@ -399,6 +399,54 @@ end
 return toRet
 end
 
+local function getAdvancedRepairString()
+local beamData = beamstate.getPartDamageTable()
+local toRet = ""
+local cbdmg = 0 -- deform damage percent
+local cddmg = 0 -- break damage percent
+local ctdmg = 0 -- total damage percent
+local cbroken = 0 -- broken count
+local cdeformed = 0 -- deformed count
+local cdcount = 0 -- deformable count
+local cbcount = 0 -- breakable count
+local ccost = 0
+
+for k,v in pairs(beamData) do
+cbroken = v["beamsBroken"] or 0
+cdeformed = v["beamsDeformed"] or 0
+cdcount = deformBeamCount[k] or 0
+cbcount = breakBeamCount[k] or 0
+cbdmg = 0
+cddmg = 0
+ctdmg = 0
+if cbcount > 0 then
+cbdmg = math.min(1.0, cbroken / cbcount)
+else
+cbdmg = 0
+end
+if cdcount > 0 then
+cddmg = math.min(1.0, cdeformed / cdcount )
+else
+cddmg = 0
+end
+if cbdmg + cddmg > 0 then
+ctdmg = math.min(1.0, math.max(cbdmg, cddmg))
+else
+ctdmg = 0
+end
+if ctdmg > 0 then
+ccost = partPrices[k] * (ctdmg*ctdmg*ctdmg)
+toRet = toRet .. k .. ":" .. string.format("%.2f",ccost) .. ","
+end
+end
+
+toRet = string.sub(toRet, 1,-2)
+
+return toRet
+end
+
+
+M.getAdvancedRepairString = getAdvancedRepairString
 M.buildAdvancedDamageTables = buildAdvancedDamageTables
 M.getAdvancedRepairCost = getAdvancedRepairCost
 M.loadTableFromFile = loadTableFromFile

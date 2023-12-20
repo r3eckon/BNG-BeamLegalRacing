@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_BeachParking
+desc=Deliver $item to the beach parking lot
+reward=400
+items=list_all
+gmwp=blrwp_beachparking
+type=small

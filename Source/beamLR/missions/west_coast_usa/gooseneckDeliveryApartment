@@ -1,0 +1,7 @@
+destpos=-229.9836730957,371.99035644531,102.35231781006
+destrot=0.0034249256619532,-0.003129868762658,0.63030722265371,0.7763319385909
+desc=Deliver $item to an apartment building behind the hospital
+reward=850
+items=list_all
+gmwp=blrwp_trailerapartment
+type=gooseneck

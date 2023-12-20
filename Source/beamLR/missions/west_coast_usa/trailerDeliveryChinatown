@@ -1,0 +1,7 @@
+destpos=-686.072265625,619.91058349609,111.97342681885
+destrot=-0.0014473917270364,-0.0035502403330341,0.92492268758503,-0.38013592679625
+desc=Deliver $item to a parking lot in chinatown
+reward=350
+items=list_all
+gmwp=blrwp_chinatownparking
+type=trailer

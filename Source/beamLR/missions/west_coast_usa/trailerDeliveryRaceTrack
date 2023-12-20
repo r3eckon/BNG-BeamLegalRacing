@@ -1,0 +1,7 @@
+destpos=313.93041992188,-160.14506530762,144.09159851074
+destrot=-0.0018505456949021,-0.0030946841135788,0.99997008402896,-0.0068432052425659
+desc=Deliver $item to the race track
+reward=350
+items=list_all
+gmwp=blrwp_racetrack
+type=trailer

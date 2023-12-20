@@ -1,0 +1,8 @@
+desc=Highway speed trap challenge #6
+wager=1000,4000
+triggers=BeamLRTrigger_RaceACP71
+type=speed
+targetspd=60,83
+rep=30,200
+gmwp=blrwp_raceA100
+traffic=1

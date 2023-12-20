@@ -1,0 +1,2 @@
+{"name":"Marker_GarageA1","class":"ParticleEmitterNode","persistentId":"71b60b6f-7096-4090-8be6-d97d2fad0fd2","__parent":"Markers","position":[915.803223,-530.984009,168.972733],"active":false,"dataBlock":"lightExampleEmitterNodeData1","emitter":"BNGP_1"}
+{"name":"Marker_GarageA2","class":"ParticleEmitterNode","persistentId":"e974cf47-7c2b-499a-940c-48ba454cae53","__parent":"Markers","position":[896.025574,-545.217102,168.972733],"active":false,"dataBlock":"lightExampleEmitterNodeData1","emitter":"BNGP_1"}

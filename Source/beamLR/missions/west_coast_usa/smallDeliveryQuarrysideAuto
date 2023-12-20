@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_QuarrysideAuto
+desc=Deliver $item to the Quarryside car shop
+reward=400
+items=list_all
+gmwp=blrgps_usedcarsA
+type=small

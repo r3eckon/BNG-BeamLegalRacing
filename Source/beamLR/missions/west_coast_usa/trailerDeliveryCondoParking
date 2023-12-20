@@ -1,0 +1,7 @@
+destpos=-283.65536499023,582.46221923828,75.054824829102
+destrot=-0.0022383400780509,-0.0032603715642606,0.91557134805706,-0.40213612922483
+desc=Deliver $item to a condominium building parking lot
+reward=350
+items=list_all
+gmwp=blrwp_condoparking
+type=trailer

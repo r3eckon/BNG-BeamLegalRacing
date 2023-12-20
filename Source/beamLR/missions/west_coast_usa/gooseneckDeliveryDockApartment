@@ -1,0 +1,7 @@
+destpos=-7.4195938110352,513.73706054688,74.784896850586
+destrot=0.0036880354940802,-0.0026421335239552,0.45483400990294,0.89056467533821
+desc=Deliver $item to the city dockyard apartment buildings
+reward=850
+items=list_all
+gmwp=blrwp_gooseneckdockapart
+type=gooseneck

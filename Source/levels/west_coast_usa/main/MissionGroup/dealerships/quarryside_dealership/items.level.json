@@ -1,0 +1,5 @@
+{"name":"quarrySide_decalRoads","class":"SimGroup","persistentId":"1da21bc9-5343-48be-89df-64f8619a7889","__parent":"quarryside_dealership"}
+{"name":"quarrySide_fence","class":"SimGroup","persistentId":"afa5d23b-50c1-4212-b0e4-05984df14365","__parent":"quarryside_dealership"}
+{"name":"quarrySide_props","class":"SimGroup","persistentId":"42b2ecba-8947-473d-ba5a-ca565b337c34","__parent":"quarryside_dealership"}
+{"name":"dealership_interaction","class":"SimGroup","persistentId":"8c798902-4abc-423d-a238-39ff24d9e396","__parent":"quarryside_dealership"}
+{"name":"quarrySide_aiRoads","class":"SimGroup","persistentId":"6be58ebc-5553-4f55-8ddb-520180f6ddc6","__parent":"quarryside_dealership"}

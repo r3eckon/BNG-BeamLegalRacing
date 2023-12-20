@@ -1,0 +1,9 @@
+desc=Island dockyard drift challenge
+wager=1000,5000
+triggers=BeamLRTrigger_DriftCP35,BeamLRTrigger_DriftCP36,BeamLRTrigger_DriftCP37,BeamLRTrigger_DriftCP38,BeamLRTrigger_DriftCP39,BeamLRTrigger_DriftCP40,BeamLRTrigger_DriftCP41,BeamLRTrigger_DriftCP42,BeamLRTrigger_DriftCP43,BeamLRTrigger_DriftCP44,BeamLRTrigger_DriftCP45,BeamLRTrigger_DriftCP46,BeamLRTrigger_DriftCP47,BeamLRTrigger_DriftCP48,BeamLRTrigger_DriftCP49,BeamLRTrigger_DriftCP50
+type=drift
+targettime=104000,150000
+driftpts=6000,10000
+rep=50,100
+gmwp=blrwp_islanddockwarehouse
+traffic=0

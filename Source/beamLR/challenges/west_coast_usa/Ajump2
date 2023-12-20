@@ -1,0 +1,7 @@
+desc=Easy jump on the dirt race track
+wager=500,1000
+triggers=BeamLRTrigger_Jump2
+type=jump
+rep=10,50
+gmwp=dirttrack_23c
+traffic=1

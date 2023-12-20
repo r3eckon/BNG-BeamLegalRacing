@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_TurboBurger
+desc=Deliver $item to the Turbo Burger restaurant
+reward=400
+items=list_all
+gmwp=blrwp_turboburger
+type=small

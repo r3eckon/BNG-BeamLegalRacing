@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_Lighthouse
+desc=Deliver $item to the island lighthouse
+reward=400
+items=list_all
+gmwp=blrwp_lighthouse
+type=small

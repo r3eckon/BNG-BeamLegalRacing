@@ -244,6 +244,63 @@ guihooks.trigger("beamlrGPSDistanceUnit", extensions.blrutils.gpsGetUnit())
 guihooks.trigger("beamlrGPSToggleState", lastdata["gpstoggle"])
 end
 
+local function sendCurrentOptionValues()
+local options = extensions.blrutils.loadDataTable("beamLR/options")
+local cvgid = extensions.blrglobals.gmGetVal("cvgid")
+local vehname = ""
+if cvgid and FS:fileExists("beamLR/garage/car" .. cvgid) then
+local vehdata = extensions.blrutils.loadDataTable("beamLR/garage/car" .. cvgid)
+if vehdata then vehname = vehdata["name"] end
+end
+local tosend = {}
+for k,v in pairs(options) do
+if tonumber(v) then tosend[k] = tonumber(v) else tosend[k] = v end 
+end
+tosend["vehname"] = vehname
+guihooks.trigger("beamlrOptions", tosend)
+end
+
+local function sendRepairData(damage, partnames, mech)
+if damage then guihooks.trigger("beamlrRepairUIDamageList", damage) end
+if partnames then guihooks.trigger("beamlrRepairUIPartNames", partnames) end
+if mech then guihooks.trigger("beamlrRepairUIMechanicalDamage", mech) end
+end
+
+
+local function toggleAdvancedRepairUI(toggle)
+guihooks.trigger("beamlrRepairUIToggle", toggle)
+extensions.blrglobals.blrFlagSet("advancedRepairUI", toggle)
+end
+
+local function sendRepairUIMaps(parent, child)
+if parent then guihooks.trigger("beamlrRepairUIParentMap", parent) end
+if child then guihooks.trigger("beamlrRepairUIChildMap", child) end
+end
+
+local function sendRepairUIMainPart(main)
+guihooks.trigger("beamlrRepairUIMainPart", main)
+end
+
+local function sendRepairUIMultiplier(mult)
+guihooks.trigger("beamlrRepairUIMultiplier", mult)
+end
+
+local function sendRepairUIPlayerMoney(pmoney)
+guihooks.trigger("beamlrRepairUIMoney", pmoney)
+end
+
+local function advancedRepairUIResetPicks()
+guihooks.trigger("beamlrRepairResetPicks", nil)
+end
+
+M.advancedRepairUIResetPicks = advancedRepairUIResetPicks
+M.sendRepairUIPlayerMoney = sendRepairUIPlayerMoney
+M.sendRepairUIMultiplier = sendRepairUIMultiplier
+M.sendRepairUIMainPart = sendRepairUIMainPart
+M.sendRepairUIMaps = sendRepairUIMaps
+M.toggleAdvancedRepairUI = toggleAdvancedRepairUI
+M.sendRepairData = sendRepairData
+M.sendCurrentOptionValues = sendCurrentOptionValues
 M.toggleDeliveryDamage = toggleDeliveryDamage
 M.sendDeliveryCurrentDamage = sendDeliveryCurrentDamage
 M.sendGPSPage = sendGPSPage

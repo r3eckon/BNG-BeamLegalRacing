@@ -1,0 +1,4 @@
+{"name":"trafficlight_city4","class":"Prefab","persistentId":"6f5dd56c-cb20-4559-9ce9-202a6506d451","__parent":"trafficlights","annotation":"TRAFFIC_SIGNALS","fileName":"/levels/west_coast_usa/art/prefabs/trafficlight_city2.prefab"}
+{"name":"trafficlight_city3","class":"Prefab","persistentId":"ba795e70-5288-42c6-8aae-eee0ef07e3c3","__parent":"trafficlights","fileName":"/levels/west_coast_usa/art/prefabs/trafficlight_city1.prefab"}
+{"name":"trafficlight_overhead4","class":"Prefab","persistentId":"84843aef-7abd-4295-8041-acf72b383aa9","__parent":"trafficlights","fileName":"/levels/west_coast_usa/art/prefabs/trafficlight_overhead2.prefab"}
+{"name":"trafficlight_overhead3","class":"Prefab","persistentId":"03463aaa-a66e-4664-abf0-f0e1e93a83ec","__parent":"trafficlights","fileName":"/levels/west_coast_usa/art/prefabs/trafficlight_overhead1.prefab"}

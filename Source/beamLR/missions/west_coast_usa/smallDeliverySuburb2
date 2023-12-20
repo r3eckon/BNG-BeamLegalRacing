@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_Suburb2
+desc=Deliver $item to another house in the suburb
+reward=400
+items=list_all
+gmwp=blrwp_suburb2
+type=small

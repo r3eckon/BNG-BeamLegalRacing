@@ -1,0 +1,7 @@
+destpos=664.48291015625,-634.05529785156,228.12344360352
+destrot=0.0001620951275833,-0.002651207801655,0.99954651410819,-0.02999518222201
+desc=Deliver $item to the quarry cell tower
+reward=350
+items=list_all
+gmwp=blrwp_quarrycelltower
+type=trailer

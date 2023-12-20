@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_SteelMill2
+desc=Deliver $item to the Hot Rolled Inc. steel mill
+reward=400
+items=list_all
+gmwp=blrwp_steelmill2
+type=small

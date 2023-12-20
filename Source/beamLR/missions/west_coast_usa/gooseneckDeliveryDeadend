@@ -1,0 +1,7 @@
+destpos=-881.50793457031,415.89730834961,151.59323120117
+destrot=0.003092365249868,0.002959444041691,-0.69971802923735,0.71440629793439
+desc=Deliver $item to a deadend in the city
+reward=850
+items=list_all
+gmwp=blrwp_trailerdeadend
+type=gooseneck

@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_FireStation
+desc=Deliver $item to the Fog Hill fire station
+reward=400
+items=list_all
+gmwp=blrwp_firestation
+type=small

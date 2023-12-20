@@ -1,0 +1,98 @@
+<div class="bngApp beamlrrepairui" style="background-color:transparent; height:100%;" >
+
+<style>
+.listitem{
+	padding:10px; 
+	padding-top:2px; 
+	padding-bottom:2px;
+}
+
+</style>
+
+<div ng-if="enabled==true" style="background-color:rgba(0.0,0.0,0.0,0.5); transform:translate(0px, -2px); height:100%; z-index:8888;">
+
+<span ng-click="toggleui(false)" style="float:right; text-align:center; transform:translate(0px, 0px); width:40px; font-size:30px;">X</span>
+<h2 style="text-align:center; transform:translate(0px,0px); width:70%; margin:auto; margin-top:0px; margin-bottom:0px;">Advanced Repair Menu</h2>
+
+<div style="overflow-y:scroll; width:95%; height:75%; margin:auto; margin-top:20px; transform:translate(0px,-10px); background-color:rgba(0.0,0.0,0.0,0.3);">
+
+<div style="width:100%; font-size:20px; background-color:rgba(0.0,0.0,0.0,0.1);">
+<table style="width:100%; table-layout:fixed; font-weight:bold;">
+<tr>
+<td style="width:5%; text-align:center;"></td>
+<td style="width:70%; text-align:center; transform:translate(15px,0px);">Item</td>
+<td style="width:25%; text-align:center; transform:translate(-10px,0px);">Cost</td>
+</tr>
+</table>
+</div>
+
+<div ng-repeat="(part,cost) in damage" ng-if="part != mainpart" style="width:100%; font-size:20px;">
+<table class="listitem">
+<tr>
+<td style="width:5%; text-align:center;"><md-checkbox ng-model="picks[part]" ng-change="linkedPartsUpdate(part)" ></md-checkbox></td>
+<td style="width:70%; text-align:center;">{{names[part]}}</td>
+<td style="width:25%; text-align:center;" ng-style="picks[part] && {'color':'#FF6600','font-weight':'bold'}">${{formatNumber(cost)}}</td>
+</tr>
+</table>
+</div>
+
+<div ng-if="damage[mainpart] != null" style="width:100%; font-size:20px;">
+<table style="width:100%; table-layout:fixed; padding:10px;">
+<tr>
+<td style="width:5%; text-align:center;"></td>
+<td style="width:70%; text-align:center; transform:translate(15px,0px);">{{names[mainpart]}}</td>
+<td style="width:25%; text-align:center; color:#FF6600; font-weight:bold;">${{formatNumber(damage[mainpart])}}</td>
+</tr>
+</table>
+</div>
+
+<div ng-if="mechanical > 0" style="width:100%; font-size:20px;">
+<table style="width:100%; table-layout:fixed; padding:10px;">
+<tr>
+<td style="width:5%; text-align:center;"></td>
+<td style="width:70%; text-align:center; transform:translate(15px,0px);">Mechanical Damage</td>
+<td style="width:25%; text-align:center; color:#FF6600; font-weight:bold;">${{formatNumber(mechanical)}}</td>
+</tr>
+</table>
+</div>
+
+<table ng-if="mult > 1" style="width:100%; table-layout:fixed; padding:10px; font-size:20px;">
+<tr>
+<td style="width:5%; text-align:center;"></td>
+<td style="width:70%; text-align:center; transform:translate(15px,0px);">Onsite Mechanic Fee</td>
+<td style="width:25%; text-align:center; color:#FF6600; font-weight:bold;">${{formatNumber((total * mult) - total)}}</td>
+</tr>
+</table>
+
+<table style="width:100%; table-layout:fixed; padding:10px; font-size:20px;">
+<tr>
+<td style="width:5%; text-align:center;"></td>
+<td style="width:70%; text-align:center; transform:translate(15px,0px);">Total Repair Cost</td>
+<td style="width:25%; text-align:center; font-weight:bold;">${{formatNumber(total * mult)}}</td>
+</tr>
+</table>
+
+
+</div>
+
+<div ng-if="ready==true" style="width:95%; margin:auto; margin-top:5px; text-align:center;">
+<button ng-if="totalConfirm == true" ng-click="repairSelected()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(total * mult)">Confirm repair?<br>${{formatNumber(total * mult)}}</button>
+<button ng-if="totalConfirm == false" ng-click="repairSelected()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(total * mult)">Repair Selected<br>${{formatNumber(total * mult)}}</button>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp	
+<button ng-if="fullConfirm == true" ng-click="repairAll()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(full * mult)">Confirm repair?<br>${{formatNumber(full * mult)}}</button>
+<button ng-if="fullConfirm == false" ng-click="repairAll()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(full * mult)">Repair All<br>${{formatNumber(full * mult)}}</button>
+</div>
+
+<div ng-if="ready==false" style="width:95%; margin:auto; margin-top:5px; text-align:center; font-size:20px;">
+Loading damage data...
+</div>
+
+</div>
+
+<div ng-if="enabled==false" style="background-color:rgba(0.0,0.0,0.0,0.0); height:100%; z-index:8;">
+
+
+</div>
+
+</div>

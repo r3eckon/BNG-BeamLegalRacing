@@ -1,0 +1,42 @@
+{
+  "additionalAttributes":{},
+  "customAdditionalAttributes":{},
+  "description":"Beam Legal Racing Career",
+  "devNotes":{
+    "devMission":false,
+    "mode":"silent",
+    "text":""
+  },
+  "grouping":{
+    "id":"",
+    "label":""
+  },
+  "missionType":"flowgraph",
+  "missionTypeData":{},
+  "name":"BeamLR Career",
+  "retryBehaviour":"infiniteRetries",
+  "startCondition":{
+    "type":"always"
+  },
+ "startTrigger":{
+    "level":"west_coast_usa",
+    "pos":[
+      -224.8939056,
+      -818.4179077,
+      137.6168976
+    ],
+    "radius":3,
+    "rot":[
+      0,
+      0,
+      -0.2883527875,
+      0.9575243592
+    ],
+    "type":"coordinates"
+  },
+  "visibleCondition":{
+    "type":"automatic"
+  }
+}
+
+

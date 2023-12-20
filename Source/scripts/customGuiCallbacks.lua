@@ -19,8 +19,8 @@ end
 
 ftable["setPart"] = function(p)
 extensions.blrglobals.gmSetVal("pgas", extensions.blrglobals.gmGetVal("cgas")) 	-- Gets current gas value and stores it for after part edit
-extensions.blrglobals.gmSetVal("podo", extensions.blrglobals.gmGetVal("codo"))	-- Do same thing with odometer
-extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-- Do same thing with NOS
+extensions.blrglobals.gmSetVal("podo", extensions.blrglobals.gmGetVal("codo"))	-- do same thing with odometer
+extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-- do same thing with NOS
 extensions.blrglobals.blrFlagSet("hasNos", false) -- Setting hasNos to false to avoid vlua fetching bug before flag is set by N2O Check node
 extensions.blrhooks.linkHook("vehReset", "postedit")							-- Hooks post edit actions to the vehicle restored callback
 
@@ -47,7 +47,7 @@ local money = extensions.blrglobals.gmGetVal("playerMoney")
 if money >= p["price"] then
 extensions.betterpartmgmt.addToInventory(p["item"])
 extensions.blrglobals.gmSetVal("playerMoney", money - p["price"])
-extensions.blrutils.playSFX("event:>UI>Special>Buy")
+extensions.blrutils.playSFX("event:>UI>Career>Buy_01")
 local inventory = extensions.betterpartmgmt.getPartInventory()
 extensions.customGuiStream.sendDataToUI("ownedParts", inventory)
 local list = extensions.betterpartmgmt.getGarageUIData()
@@ -189,6 +189,15 @@ extensions.customGuiStream.sendDataToUI("sortedGarageParts", list)
 -- 1.13 part selling needs updated part prices updated after part edit
 list = extensions.betterpartmgmt.getFullPartPrices()
 extensions.customGuiStream.sendDataToUI("partPrices", list)
+--1.14 selective repair maps
+local cmap = extensions.betterpartmgmt.getChildMap()
+local pmap = extensions.betterpartmgmt.getParentMap()
+extensions.customGuiStream.sendRepairUIMaps(pmap, cmap)
+local mainpart = extensions.betterpartmgmt.getMainPartChild()
+extensions.customGuiStream.sendRepairUIMainPart(mainpart)
+-- 1.14 fix to prevent removing main part (bugs the game)
+local mainpart = extensions.betterpartmgmt.getMainPartChild()
+extensions.customGuiStream.sendDataToUI("mainpart", mainpart)
 end
 
 ftable["uiinit"] = function(p)
@@ -199,22 +208,28 @@ end
 ftable["setTune"] = function(p)
 local dtable = extensions.betterpartmgmt.tuningTableFromUIData(p, false)
 extensions.blrglobals.gmSetVal("pgas", extensions.blrglobals.gmGetVal("cgas")) 	-- Gets current gas value and stores it for after tune apply
-extensions.blrglobals.gmSetVal("podo", extensions.blrglobals.gmGetVal("codo"))	-- Do same thing with odometer
-extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-- Do same thing with NOS
+extensions.blrglobals.gmSetVal("podo", extensions.blrglobals.gmGetVal("codo"))	-- do same thing with odometer
+extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-- do same thing with NOS
 extensions.blrhooks.linkHook("vehReset", "postedit")							-- Link to post edit action hook, reuse the code for tune
 extensions.betterpartmgmt.applyTuningData(dtable)
 end
 
 ftable["resetTune"] = function(p)
 extensions.blrglobals.gmSetVal("pgas", extensions.blrglobals.gmGetVal("cgas")) 	-- Gets current gas value and stores it for after tune apply
-extensions.blrglobals.gmSetVal("podo", extensions.blrglobals.gmGetVal("codo"))	-- Do same thing with odometer
-extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-- Do same thing with NOS
+extensions.blrglobals.gmSetVal("podo", extensions.blrglobals.gmGetVal("codo"))	-- do same thing with odometer
+extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-- do same thing with NOS
 extensions.blrhooks.linkHook("vehReset", "postedit")							-- Link to post edit action hook, reuse the code for tune
 extensions.betterpartmgmt.resetTuningData()
 end
 
 ftable["uiResetCareer"] = function(p)
 extensions.blrglobals.blrFlagSet("careerResetRequest", true)					-- Send career reset request to flowgraph using blrglobals
+end
+
+ftable["playerRename"] = function(p)
+local otable = extensions.blrutils.loadDataTable("beamLR/options")
+otable["playername"] = p
+extensions.blrutils.saveDataTable("beamLR/options", otable)
 end
 
 ftable["vehicleRename"] = function(p)
@@ -275,7 +290,7 @@ ftable["setSeed"] = function(p)
 local dtable = {}
 if tonumber(p) ~= nil and tonumber(p) > 0 and tonumber(p) < 9999999999 then 
 dtable["nseed"] = p
-dtable["autoseed"] = "false"
+dtable["autoseed"] = 0
 extensions.blrutils.updateDataTable("beamLR/options", dtable)
 end
 end
@@ -291,7 +306,7 @@ ftable["setRandomSeed"] = function(p)
 local dtable = {}
 math.randomseed(os.time())
 dtable["nseed"] = math.random(1,9999999999)
-dtable["autoseed"] = "false"
+dtable["autoseed"] = 0
 extensions.blrutils.updateDataTable("beamLR/options", dtable)
 end
 
@@ -336,6 +351,9 @@ extensions.blrglobals.blrFlagSet("reloadOptions", true)	-- Force reload options 
 end
 
 ftable["setRaceWager"] = function(p)
+local dtable = {}
+dtable["targetwager"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
 extensions.blrutils.setWager(p)
 extensions.blrglobals.blrFlagSet("reloadRace", true)	-- Force reload of race parameters after wager change
 end
@@ -498,17 +516,9 @@ extensions.blrglobals.blrFlagSet("hasNos", false)
 extensions.blrhooks.linkHook("vehReset", "postedit")	
 
 -- Need to handle inventory updates by comparing current config to target config
-for k,v in pairs(currentConfig) do
-if v ~= "" then
-extensions.betterpartmgmt.addToInventory(v)
-end
-end
-for k,v in pairs(targetConfig) do
-if v ~= "" then
-extensions.betterpartmgmt.removeFromInventory(v)
-end
-end
-					
+extensions.betterpartmgmt.templateLoadInventorySwap(currentConfig, targetConfig)
+
+-- finally load the actual config
 extensions.betterpartmgmt.loadConfig(fullpath) 
 else
 guihooks.trigger('Message', {ttl = 10, msg = 'You don\'t have the parts needed to load this config!', icon = 'directions_car'})
@@ -530,8 +540,20 @@ end
 ftable["setARCToggle"] = function(p)
 local dtable = {}
 dtable["advrepaircost"] = p
+if p==0 then -- also disable advanced repair ui if arc is turned off
+dtable["useadvrepairui"] = 0 
+extensions.blrglobals.blrFlagSet("useadvrepairui", false)
+extensions.customGuiStream.toggleAdvancedRepairUI(false)
+end
 extensions.blrutils.updateDataTable("beamLR/options", dtable)
 extensions.blrglobals.blrFlagSet("advrepaircost", p == 1)
+end
+
+ftable["setGroundmarkersToggle"] = function(p)
+local dtable = {}
+dtable["gmtoggle"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+extensions.blrglobals.blrFlagSet("gmtoggle", p == 1)
 end
 
 
@@ -541,7 +563,7 @@ local value = p["value"]
 extensions.betterpartmgmt.removeFromInventory(part)
 local money = extensions.blrglobals.gmGetVal("playerMoney")
 extensions.blrglobals.gmSetVal("playerMoney", money + value)
-extensions.blrutils.playSFX("event:>UI>Special>Buy")
+extensions.blrutils.playSFX("event:>UI>Career>Buy_01")
 local inventory = extensions.betterpartmgmt.getPartInventory()
 extensions.customGuiStream.sendDataToUI("ownedParts", inventory)
 local list = extensions.betterpartmgmt.getGarageUIData()
@@ -580,10 +602,137 @@ extensions.blrutils.blrvarSet("gpsmode", p)
 extensions.blrutils.gpsToggleStateUpdate()
 end
 
+ftable["setRaceTrafficMode"] = function(p)
+local dtable = {}
+dtable["rtmode"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+extensions.blrutils.blrvarSet("raceTrafficMode", p)
+end
+
+ftable["setIMGUIScale"] = function(p)
+local dtable = {}
+dtable["imscale"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+extensions.ui_imguiUtils.changeUIScale(tonumber(p))
+end
+
+ftable["autosaveIMGUI"] = function(p)
+local dtable = {}
+dtable["imautosave"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+extensions.blrglobals.blrFlagSet("imautosave", tonumber(p) == 1)
+end
+
+ftable["loadIMGUI"] = function()
+extensions.blrutils.loadCustomIMGUILayout()
+end
+
+ftable["saveIMGUI"] = function()
+extensions.ui_imgui.saveIniSettingsToDisk("settings/beamlr_imgui.ini")
+end
+
+ftable["setDragSlowmoToggle"] = function(p)
+local dtable = {}
+dtable["dragslowmo"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+extensions.blrglobals.blrFlagSet("dragslowmo", p == 1)
+end
+
+ftable["setMarkersToggle"] = function(p)
+local dtable = {}
+dtable["fmtoggle"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+extensions.blrglobals.blrFlagSet("fmtoggle", p == 1)
+
+if p == 0 then
+extensions.blrutils.deleteMarkers()
+else
+local markers = extensions.blrutils.loadDataTable("beamLR/mapdata/" .. extensions.blrutils.getLevelName() .. "/markers")
+extensions.blrutils.deleteMarkers()
+extensions.blrutils.spawnMarkers(markers)
+end
+
+end
+
+ftable["optionsUIReload"] = function(p)
+extensions.customGuiStream.sendCurrentOptionValues()
+end
+
+ftable["advancedRepairUIClosed"] = function()
+extensions.blrglobals.blrFlagSet("advancedRepairUI", false)
+end
+
+ftable["advancedRepairSelected"] = function(p)
+local dmgstr = extensions.vluaFetchModule.getVal("advdmgstr")
+local damage = extensions.blrutils.advancedDamageStringToTable(dmgstr)
+local partslot = extensions.betterpartmgmt.getPartKeyedSlots()
+local money = extensions.blrglobals.gmGetVal("playerMoney")
+local childmap = extensions.betterpartmgmt.getChildMap()
+local cchilds = {}
+local removed = {}
+
+-- since advanced repair is just like part edit, need to store veh values
+extensions.blrglobals.gmSetVal("pgas", extensions.blrglobals.gmGetVal("cgas")) 	-- gets current gas value to restore later
+extensions.blrglobals.gmSetVal("podo", extensions.blrglobals.gmGetVal("codo"))	-- do same thing with odometer
+extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-- do same thing with NOS
+extensions.blrhooks.linkHook("vehReset", "postedit")							-- link to post edit action hook
+
+-- charge player for repair
+extensions.blrglobals.gmSetVal("playerMoney", money - p["cost"])
+extensions.blrutils.playSFX("event:>UI>Career>Buy_01")
+
+-- load current config data into delayed slot set table
+extensions.betterpartmgmt.initDelayedSlotTable()
+
+-- now loop over parts and check for damaged & selected states
+for k,v in pairs(partslot) do
+if damage[k] and (not p[k]) then --damaged part not selected, remove from config
+extensions.betterpartmgmt.setSlotDelayedNoInventory(v, "")
+table.insert(removed, k)
+end
+end
+
+-- loop over removed parts, checked childs for damage, add undamaged to inventory
+for k,v in pairs(removed) do
+cchilds = childmap[v]
+for s,p in pairs(cchilds) do
+if not damage[p] and p~="" then
+extensions.betterpartmgmt.addToInventory(p)
+print("ADDED UNDAMAGED CHILD TO INVENTORY: " .. p)
+end
+end
+end
+
+
+-- finally execute delayed slot set
+extensions.betterpartmgmt.executeDelayedSlotSet()
+end
+
+ftable["advancedRepairAll"] = function(p)
+-- charging player here since cost multiplier comes from ui
+local money = extensions.blrglobals.gmGetVal("playerMoney")
+extensions.blrglobals.gmSetVal("playerMoney", money - p["cost"])
+extensions.blrutils.playSFX("event:>UI>Career>Buy_01")
+-- repair all can just trigger flowgraph repair with flag, skipping part that charges player
+extensions.blrglobals.blrFlagSet("uiAdvancedRepairRequest", true)
+end
+
+ftable["setARUIToggle"] = function(p)
+local dtable = {}
+dtable["useadvrepairui"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+extensions.blrglobals.blrFlagSet("useadvrepairui", p == 1)
+if p==0 then extensions.customGuiStream.toggleAdvancedRepairUI(false) end
+end
+
+
 
 local ptable = {}
-
 local rtable = {}
+
+local function resetParamTable(p)
+ptable[p] = {}
+end
 
 local function setParamTableValue(p,ti,v)
 if ptable[p] == nil then ptable[p] = {} end
@@ -597,6 +746,7 @@ end
 local function exec(f,p)
 if p ~= nil then
 rtable[f] = ftable[f](ptable[p])
+if type(ptable[p]) then resetParamTable(p) end
 else
 rtable[f] = ftable[f](0)
 end
@@ -605,6 +755,7 @@ end
 local function getReturnValue(f)
 return rtable[f] or "nil"
 end
+
 
 M.setParamTableValue = setParamTableValue
 M.setParam = setParam

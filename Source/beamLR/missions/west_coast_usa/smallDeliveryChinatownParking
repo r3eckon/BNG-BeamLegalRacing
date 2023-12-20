@@ -1,0 +1,6 @@
+dest=BeamLRTrigger_ChinatownParking
+desc=Deliver $item to a parking lot in chinatown
+reward=400
+items=list_all
+gmwp=blrwp_chinatownparking
+type=small

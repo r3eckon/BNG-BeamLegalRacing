@@ -1,0 +1,8 @@
+desc=Looping highway time attack
+type=time
+wager=1000,3000
+rep=20,50
+triggers=BeamLRTrigger_RaceACP71,BeamLRTrigger_RaceACP72,BeamLRTrigger_RaceACP22,BeamLRTrigger_RaceACP2,BeamLRTrigger_RaceACP3,BeamLRTrigger_RaceACP4,BeamLRTrigger_RaceACP5,BeamLRTrigger_RaceACP68,BeamLRTrigger_RaceACP69,BeamLRTrigger_RaceACP70,BeamLRTrigger_RaceACP71
+gmwp=blrwp_raceA100
+targettime=101000,120000
+traffic=0
