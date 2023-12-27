@@ -2270,6 +2270,37 @@ local function applyGasStationsDisplays()
 extensions.freeroam_facilities_fuelPrice.setDisplayPrices()
 end
 
+local function smoothFuelCharge(added)
+blrvarSet("smoothFuelAdded", math.floor(added * 100.0) / 100.0)
+extensions.blrglobals.blrFlagSet("smoothFuelCharge", true)
+extensions.blrglobals.blrFlagSet("smoothFueling", false)
+end
+
+-- For now only "gasoline" type and force enabled US tax since only west coast has displays
+local function blrStationDisplays()
+local level = getLevelName()
+local triggers = loadDataTable("beamLR/mapdata/" .. level .. "/triggers")
+local csplit = {}
+local ctrig = {}
+local cval = 0
+for k,v in pairs(triggers) do
+csplit = ssplit(v, ",")
+if csplit[1] == "station" then
+ctrig = loadDataTable("beamLR/mapdata/" .. level .. "/triggerData/" .. csplit[2])
+if ctrig["display"] then
+cval = tonumber(processGasStationRandoms(ctrig, getDailySeed() + tonumber(ctrig["id"]))["cost"])
+setGasStationDisplayValue(ctrig["display"], "gasoline", cval, true, true)
+setGasStationDisplayValue(ctrig["display"], "gasoline2", 0, false, true)
+setGasStationDisplayValue(ctrig["display"], "gasoline3", 0, false, true)
+setGasStationDisplayValue(ctrig["display"], "diesel", 0, false, true)
+end
+end
+end
+applyGasStationsDisplays()
+end
+
+M.blrStationDisplays = blrStationDisplays
+M.smoothFuelCharge = smoothFuelCharge
 M.setGasStationDisplayValue = setGasStationDisplayValue
 M.applyGasStationsDisplays = applyGasStationsDisplays
 M.getGasStationByID = getGasStationByID

@@ -78,7 +78,6 @@ return remainToAdd
 end
 
 
-
 local function getEnergyStorageData(storage)
 local toRet = ""
 local storageData = energyStorage.getStorages()[storage]
@@ -133,6 +132,51 @@ end
 
 return toRet
 end
+
+
+
+local smoothFuel = false
+local smoothFuelLast = 0
+local smoothFuelTotal = 0
+local smoothFuelAllowed = 0
+local smoothFuelStart = 0
+local function smoothRefuelToggle(toggle, allowed)
+smoothFuel = toggle
+if toggle then 
+smoothFuelTotal = 0
+smoothFuelAllowed = allowed or 999999
+smoothFuelStart = getFuelTotal()
+--print("Smooth fuel start: " .. smoothFuelStart)
+else 
+--print("Refuel Stopped! Total added: " .. smoothFuelTotal .. "L") 
+obj:queueGameEngineLua("extensions.blrutils.smoothFuelCharge(" .. smoothFuelTotal .. ")")
+end
+end
+
+local function smoothRefuel(addval,delay, ct)
+local capacity = getFuelCapacityTotal()
+local current = getFuelTotal()
+if current >= capacity - addval then
+addFuel(addval * 2) -- makes sure to top off tank in final tick
+smoothFuelTotal = capacity - smoothFuelStart
+smoothRefuelToggle(false)
+--print("Finish car fuel: " .. smoothFuelStart + smoothFuelTotal)
+elseif smoothFuelTotal >= smoothFuelAllowed then
+setFuel(smoothFuelStart + smoothFuelAllowed)
+smoothFuelTotal = smoothFuelAllowed
+smoothRefuelToggle(false)
+--print("Finish car fuel: " .. smoothFuelStart + smoothFuelAllowed)
+elseif ct - smoothFuelLast >= delay then
+smoothFuelTotal = smoothFuelTotal + (addval - addFuel(addval))
+smoothFuelLast = ct
+--print(getFuelTotal())
+end
+end
+
+local function getSmoothFuelTotal()
+return smoothFuelTotal
+end
+
 
 local function getPowertrainLayoutName()
 local layout = extensions.vehicleCertifications.getCertifications()["powertrainLayout"]
@@ -236,8 +280,11 @@ local force = 0
 local velocity = vec3({0,0,0})
 local velocityLast = vec3({0,0,0})
 local forcevector = vec3({0,0,0})
+local ctime = 0
+
 
 local function updateGFX(dtSim)
+ctime = ctime + dtSim
 velocityLast = velocity
 velocity = obj:getVelocity()
 if dtSim == 0 then
@@ -245,6 +292,9 @@ force = 0
 else
 forcevector = vec3({ (velocity["x"] - velocityLast["x"]) / dtSim, (velocity["y"] - velocityLast["y"]) / dtSim, (velocity["z"] - velocityLast["z"]) / dtSim - 9.81 })
 force = forcevector:length()
+end
+if smoothFuel then
+smoothRefuel(0.1, 0.05, ctime)
 end
 end
 
@@ -445,7 +495,35 @@ toRet = string.sub(toRet, 1,-2)
 return toRet
 end
 
+-- below code is useless, found a better way to do it, keeping in case it is needed later
 
+-- for quick traffic toggle, to remove light glow, must be used before setHidden
+--local function toggleAllProps(toggle)
+--for k,prop in pairs(v.data.props) do 
+--if prop then 
+--prop.disabled = not toggle
+--obj:propUpdate(k, 0, 0, 0, 0, 0, 0, false, 0, 0) 
+--end 
+--end
+--end
+
+-- Advanced ghost mode disables sounds, props and collisions
+-- for quicker traffic toggle
+--local function toggleAdvancedGhostMode(toggle)
+--local ttext = (toggle and "true") or "false"
+--toggleAllProps(not toggle)
+--sounds.setEnabled(not toggle)
+--obj:setGhostEnabled(toggle)
+--obj:queueGameEngineLua(string.format("scenetree.findObjectById(%d):setHidden(%s)", obj:getId(), ttext))
+--end
+
+--M.toggleAdvancedGhostMode = toggleAdvancedGhostMode
+--M.toggleAllProps = toggleAllProps
+
+
+
+
+M.smoothRefuelToggle = smoothRefuelToggle
 M.getAdvancedRepairString = getAdvancedRepairString
 M.buildAdvancedDamageTables = buildAdvancedDamageTables
 M.getAdvancedRepairCost = getAdvancedRepairCost
@@ -469,5 +547,6 @@ M.getFuelTotal = getFuelTotal
 M.setFuel = setFuel
 M.addFuel = addFuel
 M.getEnergyStorageData = getEnergyStorageData
+M.getSmoothFuelTotal = getSmoothFuelTotal
 
 return M

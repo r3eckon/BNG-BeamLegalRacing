@@ -15,7 +15,7 @@ Use the **Touristenfahrten** spawn to be close to mission loader.
 GP circuit events start is near the GP starting line/pits.
 
 ## Version Information
-This addon is currently built for map version **v20230416** (ks_nord_v20230416.zip).
+This addon is currently built for map version **v20231124_v2** (ks_nord_v20231124_v2.zip).
 
 ## Changelog
 ### BeamLR 1.12
@@ -24,3 +24,5 @@ This addon is currently built for map version **v20230416** (ks_nord_v20230416.z
 * Added GP circuit layout events
 ### BeamLR 1.13
 * Fixed mission UI abandon not ending current round
+### BeamLR 1.14.1
+* Updated base map version to v20231124_v2

@@ -725,6 +725,17 @@ extensions.blrglobals.blrFlagSet("useadvrepairui", p == 1)
 if p==0 then extensions.customGuiStream.toggleAdvancedRepairUI(false) end
 end
 
+ftable["setTrafficFastToggle"] = function(p)
+local dtable = {}
+dtable["tfasttoggle"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+extensions.blrglobals.blrFlagSet("fastTrafficToggle", p == 1)
+end
+
+ftable["trafficToggle"] = function(p)
+extensions.blrglobals.blrFlagSet("trafficEnable", p == 1)
+end
+
 
 
 local ptable = {}

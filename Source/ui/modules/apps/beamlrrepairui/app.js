@@ -11,6 +11,7 @@ angular.module('beamng.apps')
 	  scope.damage = {}
 	  scope.names = {}
 	  scope.mechanical = 0
+	  scope.minimum = 0
 	  scope.total = 0
 	  scope.full = 0
 	  scope.ready = false
@@ -21,6 +22,7 @@ angular.module('beamng.apps')
 	  scope.money = 0
 	  scope.totalConfirm = false
 	  scope.fullConfirm = false
+	  scope.totalBeforeMin = 0
 	  
 	  scope.calculateTotal = function()
 	  {
@@ -33,6 +35,8 @@ angular.module('beamng.apps')
 			  }
 		  }
 		  scope.total += scope.mechanical
+		  scope.totalBeforeMin = scope.total
+		  scope.total = Math.max(scope.total, scope.minimum)
 	  }
 	  
 	  scope.calculateFull = function()
@@ -43,6 +47,7 @@ angular.module('beamng.apps')
 			 scope.full+=scope.damage[k]
 		  }
 		  scope.full += scope.mechanical
+		  scope.full = Math.max(scope.full, scope.minimum)
 	  }
 	  
 	  scope.linkedPartsUpdate = function(root)
@@ -90,6 +95,12 @@ angular.module('beamng.apps')
 	  
 	  scope.$on('beamlrRepairUIMechanicalDamage', function (event, data) {
           scope.mechanical = data
+		  scope.calculateTotal()
+		  scope.calculateFull()
+      })
+	  
+	  scope.$on('beamlrRepairUIMinimumDamage', function (event, data) {
+          scope.minimum = data
 		  scope.calculateTotal()
 		  scope.calculateFull()
       })

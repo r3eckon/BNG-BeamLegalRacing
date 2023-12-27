@@ -121,6 +121,8 @@ angular.module('beamng.apps')
 		  scope.inputData['rtmode'] = data['rtmode'];
 		  scope.inputData['fmtoggle'] = data['fmtoggle'];
 		  scope.inputData['useadvrepairui'] = data['useadvrepairui'] && data['advrepaircost'];
+		  scope.inputData['tfasttoggle'] = data['tfasttoggle'];
+		  
       })
 	  
 	  
@@ -411,7 +413,7 @@ angular.module('beamng.apps')
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 		  if(!toggle)
 		  {
-			  scope.inputdata["useadvrepairui"] = false
+			  scope.inputData["useadvrepairui"] = false
 		  }
 	  }
 	  
@@ -496,6 +498,21 @@ angular.module('beamng.apps')
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setDragSlowmoToggle", "dragslowmo")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
+	  
+	  scope.setTrafficFastToggle = function(toggle)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("tfasttoggle", ${toggle})`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setTrafficFastToggle", "tfasttoggle")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
+	  }
+	  
+	  scope.trafficToggle = function(toggle)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("ttoggle", ${toggle})`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("trafficToggle", "ttoggle")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
+	  }
+	  
 	  
 	  
 	  

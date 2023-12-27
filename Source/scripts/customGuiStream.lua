@@ -260,10 +260,11 @@ tosend["vehname"] = vehname
 guihooks.trigger("beamlrOptions", tosend)
 end
 
-local function sendRepairData(damage, partnames, mech)
+local function sendRepairData(damage, partnames, mech, minimum)
 if damage then guihooks.trigger("beamlrRepairUIDamageList", damage) end
 if partnames then guihooks.trigger("beamlrRepairUIPartNames", partnames) end
 if mech then guihooks.trigger("beamlrRepairUIMechanicalDamage", mech) end
+if minimum then guihooks.trigger("beamlrRepairUIMinimumDamage", minimum) end -- 1.14.1 fix 
 end
 
 

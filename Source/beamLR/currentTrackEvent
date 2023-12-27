@@ -1,7 +1,7 @@
 carid=0
-seed=250
+efile=hirochi_derby_classC
 cround=3
 ctimes=player:8049073.0280728,op1:4064386.5155662,op2:4150481.5179853,op3:4128248.0168355,op4:4178863.5179853
 eventid=0
 status=over
-efile=hirochi_derby_classC
+seed=250

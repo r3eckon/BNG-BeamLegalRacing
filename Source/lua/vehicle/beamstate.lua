@@ -14,10 +14,15 @@ M.deformGroupDamage = {}
 M.activeParts = {}
 
 M.monetaryDamage = 0
+
+M.nodeNameMap = {}
+M.tagBeamMap = {}
+M.linkTagBeamMap = {}
+
 local partDamageData
 local lastDisplayedDamage = 0
 
-local delayedPrecompBeams = {}
+local delayedPrecompBeams
 local initTimer = 0
 
 local collTriState = {}
@@ -37,7 +42,6 @@ local couplerTags = {}
 local externalCouplerVisibilityTags
 
 local autoCouplingActive = false
-local autoCouplingNodeTag = nil
 local autoCouplingTimer = 0
 local autoCouplingTimeoutTimer = 0
 local autoCouplingVisibleTags
@@ -55,10 +59,6 @@ local bodyPartDamageTracker = nil
 
 local planets = {}
 local planetTimers = {}
-
-M.nodeNameMap = {}
-M.tagBeamMap = {}
-M.linkTagBeamMap = {}
 
 local function setPartCondition(partName, partTypeData, odometer, integrity, visual)
   if type(integrity) == "number" then
@@ -230,14 +230,25 @@ local function activateAutoCoupling(_nodetag)
   if not hasActiveCoupler then
     return
   end
+  local nodeTags
+  local forwardToCouplingsExtension = true
+  if type(_nodetag) == "string" then
+    nodeTags = {[_nodetag] = true}
+    forwardToCouplingsExtension = false
+  elseif type(_nodetag) == "table" then
+    nodeTags = {}
+    for _, tag in ipairs(_nodetag) do
+      nodeTags[tag] = true
+    end
+    forwardToCouplingsExtension = false
+  end
 
-  autoCouplingNodeTag = _nodetag
   autoCouplingActive = true
   autoCouplingTimeoutTimer = 0
   autoCouplingTimer = 0
 
   local visibleTags
-  if not _nodetag then
+  if not nodeTags then
     visibleTags = {}
     for _, c in pairs(couplerCache) do
       if not c.couplerWeld and not c.couplerLock and c.couplerTag then
@@ -245,19 +256,22 @@ local function activateAutoCoupling(_nodetag)
       end
     end
   else
-    visibleTags = {_nodetag}
+    visibleTags = nodeTags
   end
   autoCouplingVisibleTags = visibleTags
   broadcastCouplerVisibility(visibleTags)
+  if forwardToCouplingsExtension then
+    extensions.couplings.onBeamstateActivateAutoCoupling()
+  end
 end
 
 local function disableAutoCoupling()
   autoCouplingActive = false
-  autoCouplingNodeTag = nil
   autoCouplingTimeoutTimer = 0
   autoCouplingTimer = 0
   autoCouplingVisibleTags = nil
   broadcastCouplerVisibility(false)
+  extensions.couplings.onBeamstateDisableAutoLatching()
 end
 
 local function sendObjectCouplingChange()
@@ -285,12 +299,13 @@ local function detachCouplers(_nodetag, forceLocked, forceWelded)
       obj:queueGameEngineLua(string.format("onCouplerDetach(%s,%s)", obj:getId(), val.cid))
     end
   end
+  extensions.couplings.onBeamstateDetachCouplers()
 end
 
-local function isCouplerAttached()
+local function isCouplerAttached(nodeTag)
   -- check for manual coupler
   for nid, c in pairs(couplerCache) do
-    if not c.couplerWeld and not c.couplerLock and c.couplerTag then
+    if not c.couplerWeld and not c.couplerLock and c.couplerTag and (nodeTag == nil or c.couplerTag == nodeTag) then
       if attachedCouplers[nid] ~= nil then
         return true
       end
@@ -301,7 +316,7 @@ local function isCouplerAttached()
   --we need to be careful with couplers within the same vehicle here, in the attached method we transfer the locked/welded meta data from primary to secondary couplers,
   --otherwise we'd detect the secondary one as "attached" here even if it's locked or welded
   for nid, _ in pairs(attachedCouplers) do
-    if couplerCache[nid] and not couplerCache[nid].couplerWeld and not couplerCache[nid].couplerLock then
+    if couplerCache[nid] and not couplerCache[nid].couplerWeld and not couplerCache[nid].couplerLock and (nodeTag == nil or couplerCache[nid].couplerTag == nodeTag) then
       return true
     end
   end
@@ -310,23 +325,25 @@ local function isCouplerAttached()
 end
 
 -- this is called on keypress (L)
-local function toggleCouplers(_nodetag, forceLocked, forceWelded)
-  if not _nodetag then
-    if autoCouplingActive then
+local function toggleCouplers(_nodetag, forceLocked, forceWelded, forceAutoCoupling)
+  if not _nodetag or (_nodetag and forceAutoCoupling) then
+    local externalAutoCouplingActive = extensions.couplings.isAutoCouplingActive()
+    if autoCouplingActive or externalAutoCouplingActive then
       obj:stopLatching()
       disableAutoCoupling()
     else
-      if isCouplerAttached() then
+      local externalIsCouplerAttached = extensions.couplings.isCouplerAttached()
+      if isCouplerAttached() or externalIsCouplerAttached then
         detachCouplers()
       else
-        activateAutoCoupling()
+        activateAutoCoupling(_nodetag)
       end
     end
   else
     local isAttached = false
     for cid, coupler in pairs(couplerCache) do
       if coupler.couplerTag == _nodetag then
-        isAttached = attachedCouplers[cid] ~= nil
+        isAttached = isAttached or attachedCouplers[cid] ~= nil
       end
     end
 
@@ -354,6 +371,11 @@ local function updateRemoteElectrics(retainReceivedElectrics)
   end
 end
 
+local function sendExportCouplerData(obj2Id, obj2nodeId, data)
+  obj:queueObjectLuaCommand(obj2Id, "beamstate.exportCouplerData(" .. tostring(obj2nodeId) .. ", " .. serialize(data) .. ")")
+  M.updateRemoteElectrics = updateRemoteElectrics
+end
+
 local function onCouplerAttached(nodeId, obj2id, obj2nodeId, attachSpeed, attachEnergy)
   --check if we are dealing with couplers within the same vehicle
   local sameId = objectId == obj2id
@@ -377,8 +399,9 @@ local function onCouplerAttached(nodeId, obj2id, obj2nodeId, attachSpeed, attach
   if n and (n.importElectrics or n.importInputs) then
     local data = {electrics = n.importElectrics, inputs = n.importInputs}
     --print("couplerAttached -> beamstate.exportCouplerData("..tostring(obj2nodeId)..", "..serialize(data)..")")
-    obj:queueObjectLuaCommand(obj2id, "beamstate.exportCouplerData(" .. tostring(obj2nodeId) .. ", " .. serialize(data) .. ")")
-    M.updateRemoteElectrics = updateRemoteElectrics
+    -- obj:queueObjectLuaCommand(obj2id, "beamstate.exportCouplerData(" .. tostring(obj2nodeId) .. ", " .. serialize(data) .. ")")
+    -- M.updateRemoteElectrics = updateRemoteElectrics
+    sendExportCouplerData(obj2id, obj2nodeId, data)
   end
 
   local breakGroups = type(n.breakGroup) == "table" and n.breakGroup or {n.breakGroup}
@@ -410,17 +433,20 @@ local function onCouplerDetached(nodeId, obj2id, obj2nodeId)
   end
 
   if objectId < obj2id then
-    obj:queueGameEngineLua(string.format("onCouplerDetached(%s,%s)", objectId, obj2id))
+    obj:queueGameEngineLua(string.format("onCouplerDetached(%s,%s,%s,%s)", objectId, obj2id, nodeId, obj2nodeId))
   end
 end
 
 local function getCouplerOffset(couplerTag)
+  if not v.data.nodes then
+    return {}
+  end
   local refPos = v.data.nodes[v.data.refNodes[0].ref].pos
   local couplerOffset = {}
   for _, c in pairs(couplerCache) do
     if c.couplerTag == couplerTag or c.tag == couplerTag or couplerTag == "" or not couplerTag then
       local pos = v.data.nodes[c.cid].pos
-      couplerOffset[c.cid] = {x = pos.x - refPos.x, y = pos.y - refPos.y, z = pos.z - refPos.z}
+      couplerOffset[c.cid] = {x = pos.x - refPos.x, y = pos.y - refPos.y, z = pos.z - refPos.z, couplerTag = c.couplerTag, tag = c.tag}
     end
   end
   return couplerOffset
@@ -428,15 +454,24 @@ end
 
 -- called from the vehicle that wants to import electrics
 local function exportCouplerData(nodeid, dataList)
-  --print(obj:getId().."<-exportCouplerData("..nodeid..','..dumps(dataList)..')')
+  --print(obj:getId() .. "<-exportCouplerData(" .. nodeid .. "," .. dumps(dataList) .. ")")
   transmitCouplers[nodeid] = attachedCouplers[nodeid] or {}
-  transmitCouplers[nodeid].exportElectrics = dataList.electrics
-  transmitCouplers[nodeid].exportInputs = dataList.inputs
+
+  --merge possibly existing electrics/inputs with the newly requested ones. This is necessary if external systems require syncing that isn't defined in jbeam directly
+  transmitCouplers[nodeid].exportElectrics = transmitCouplers[nodeid].exportElectrics or {}
+  for _, electric in ipairs(dataList.electrics or {}) do
+    table.insert(transmitCouplers[nodeid].exportElectrics, electric)
+  end
+
+  transmitCouplers[nodeid].exportInputs = transmitCouplers[nodeid].exportInputs or {}
+  for _, input in ipairs(dataList.inputs or {}) do
+    table.insert(transmitCouplers[nodeid].exportInputs, input)
+  end
 end
 
 -- called by the host that provides the electrics
 local function importCouplerData(nodeId, data)
-  --print(obj:getId().."<-importCouplerData("..nodeId..','..dumps(data)..')')
+  --print(obj:getId() .. "<-importCouplerData(" .. nodeId .. "," .. dumps(data) .. ")")
   if data.electrics then
     table.insert(recievedElectrics, data.electrics)
   end
@@ -650,7 +685,9 @@ local function updateGFX(dt)
     end
     autoCouplingTimer = (autoCouplingActive and autoCouplingTimer <= 0.5) and autoCouplingTimer + dt or 0
     if autoCouplingTimer > 0.5 then
-      attachCouplers(autoCouplingNodeTag)
+      for nodeTag, _ in pairs(autoCouplingVisibleTags) do
+        attachCouplers(nodeTag)
+      end
     end
   end
 
@@ -679,15 +716,17 @@ M.update = nop
 local function update(dtSim)
   local finished_precomp = true
   initTimer = initTimer + dtSim
-  for _, b in ipairs(delayedPrecompBeams) do
-    local tratio = initTimer / b.beamPrecompressionTime
-    finished_precomp = finished_precomp and tratio >= 1
-    obj:setPrecompressionRatio(b.cid, 1 + (b.beamPrecompression - 1) * min(tratio, 1))
+  if delayedPrecompBeams then
+    for _, b in ipairs(delayedPrecompBeams) do
+      local tratio = initTimer / b.beamPrecompressionTime
+      finished_precomp = finished_precomp and tratio >= 1
+      obj:setPrecompressionRatio(b.cid, 1 + (b.beamPrecompression - 1) * min(tratio, 1))
+    end
   end
 
   if finished_precomp then
     M.update = nop
-    delayedPrecompBeams = {}
+    delayedPrecompBeams = nil
     updateCorePhysicsStepEnabled()
   end
 end
@@ -896,12 +935,9 @@ local function init()
   breakGroupCache = {}
   brokenBreakGroups = {}
   M.deformGroupDamage = {}
-  delayedPrecompBeams = {}
   initTimer = 0
-  M.update = update
 
   autoCouplingActive = false
-  autoCouplingNodeTag = nil
   autoCouplingTimer = 0
   autoCouplingTimeoutTimer = 0
 
@@ -1061,7 +1097,11 @@ local function init()
       end
 
       if type(b.beamPrecompressionTime) == "number" and b.beamPrecompressionTime > 0 then
+        delayedPrecompBeams = delayedPrecompBeams or {}
         table.insert(delayedPrecompBeams, b)
+      end
+      if not tableIsEmpty(delayedPrecompBeams) then
+        M.update = update
       end
 
       if not b.wheelID then
@@ -1228,9 +1268,9 @@ local function sendUISkeleton()
   sendUISkeletonState()
 end
 
-local function hasCouplers()
+local function hasCouplers(couplerTag)
   for _, val in pairs(couplerCache) do
-    if (val.couplerWeld ~= true and val.couplerTag) and val.cid then
+    if (val.couplerWeld ~= true and val.couplerTag) and val.cid and (couplerTag == nil or val.couplerTag == couplerTag or val.tag == couplerTag) then
       return true
     end
   end
@@ -1259,9 +1299,7 @@ local function save(filename)
 
   save.nodes = {}
   for _, node in pairs(v.data.nodes) do
-    local d = {
-      obj:getNodePosition(node.cid):toTable()
-    }
+    local d = {obj:getNodePosition(node.cid):toTable()}
     if math.abs(obj:getOriginalNodeMass(node.cid) - obj:getNodeMass(node.cid)) > 0.1 then
       table.insert(d, obj:getNodeMass(node.cid))
     end
@@ -1391,6 +1429,7 @@ M.getCouplerOffset = getCouplerOffset
 M.setCouplerVisiblityExternal = setCouplerVisiblityExternal
 M.exportCouplerData = exportCouplerData
 M.importCouplerData = importCouplerData
+M.sendExportCouplerData = sendExportCouplerData
 M.updateRemoteElectrics = nop
 M.hasCouplers = hasCouplers
 M.registerExternalCouplerBreakGroup = registerExternalCouplerBreakGroup

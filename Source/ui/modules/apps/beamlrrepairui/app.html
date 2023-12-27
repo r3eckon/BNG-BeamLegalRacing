@@ -31,7 +31,7 @@
 <tr>
 <td style="width:5%; text-align:center;"><md-checkbox ng-model="picks[part]" ng-change="linkedPartsUpdate(part)" ></md-checkbox></td>
 <td style="width:70%; text-align:center;">{{names[part]}}</td>
-<td style="width:25%; text-align:center;" ng-style="picks[part] && {'color':'#FF6600','font-weight':'bold'}">${{formatNumber(cost)}}</td>
+<td style="width:25%; text-align:center;" ng-style="picks[part] && {'color':'#FF6600','font-weight':'bold'}">${{formatNumber(cost)| number:2}}</td>
 </tr>
 </table>
 </div>
@@ -41,7 +41,7 @@
 <tr>
 <td style="width:5%; text-align:center;"></td>
 <td style="width:70%; text-align:center; transform:translate(15px,0px);">{{names[mainpart]}}</td>
-<td style="width:25%; text-align:center; color:#FF6600; font-weight:bold;">${{formatNumber(damage[mainpart])}}</td>
+<td style="width:25%; text-align:center; color:#FF6600; font-weight:bold;">${{formatNumber(damage[mainpart]) | number:2}}</td>
 </tr>
 </table>
 </div>
@@ -51,7 +51,17 @@
 <tr>
 <td style="width:5%; text-align:center;"></td>
 <td style="width:70%; text-align:center; transform:translate(15px,0px);">Mechanical Damage</td>
-<td style="width:25%; text-align:center; color:#FF6600; font-weight:bold;">${{formatNumber(mechanical)}}</td>
+<td style="width:25%; text-align:center; color:#FF6600; font-weight:bold;">${{formatNumber(mechanical)| number:2}}</td>
+</tr>
+</table>
+</div>
+
+<div ng-if="minimum - totalBeforeMin > 0" style="width:100%; font-size:20px;">
+<table style="width:100%; table-layout:fixed; padding:10px;">
+<tr>
+<td style="width:5%; text-align:center;"></td>
+<td style="width:70%; text-align:center; transform:translate(15px,0px);">Saved Damage Fee</td>
+<td style="width:25%; text-align:center; color:#FF6600; font-weight:bold;">${{formatNumber(minimum - totalBeforeMin)| number:2}}</td>
 </tr>
 </table>
 </div>
@@ -60,7 +70,7 @@
 <tr>
 <td style="width:5%; text-align:center;"></td>
 <td style="width:70%; text-align:center; transform:translate(15px,0px);">Onsite Mechanic Fee</td>
-<td style="width:25%; text-align:center; color:#FF6600; font-weight:bold;">${{formatNumber((total * mult) - total)}}</td>
+<td style="width:25%; text-align:center; color:#FF6600; font-weight:bold;">${{formatNumber((total * mult) - total)| number:2}}</td>
 </tr>
 </table>
 
@@ -68,7 +78,7 @@
 <tr>
 <td style="width:5%; text-align:center;"></td>
 <td style="width:70%; text-align:center; transform:translate(15px,0px);">Total Repair Cost</td>
-<td style="width:25%; text-align:center; font-weight:bold;">${{formatNumber(total * mult)}}</td>
+<td style="width:25%; text-align:center; font-weight:bold;">${{formatNumber(total * mult)| number:2}}</td>
 </tr>
 </table>
 
@@ -76,12 +86,12 @@
 </div>
 
 <div ng-if="ready==true" style="width:95%; margin:auto; margin-top:5px; text-align:center;">
-<button ng-if="totalConfirm == true" ng-click="repairSelected()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(total * mult)">Confirm repair?<br>${{formatNumber(total * mult)}}</button>
-<button ng-if="totalConfirm == false" ng-click="repairSelected()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(total * mult)">Repair Selected<br>${{formatNumber(total * mult)}}</button>
+<button ng-if="totalConfirm == true" ng-click="repairSelected()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(total * mult)">Confirm repair?<br>${{formatNumber(total * mult)| number:2}}</button>
+<button ng-if="totalConfirm == false" ng-click="repairSelected()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(total * mult)">Repair Selected<br>${{formatNumber(total * mult)| number:2}}</button>
 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp	
-<button ng-if="fullConfirm == true" ng-click="repairAll()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(full * mult)">Confirm repair?<br>${{formatNumber(full * mult)}}</button>
-<button ng-if="fullConfirm == false" ng-click="repairAll()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(full * mult)">Repair All<br>${{formatNumber(full * mult)}}</button>
+<button ng-if="fullConfirm == true" ng-click="repairAll()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(full * mult)">Confirm repair?<br>${{formatNumber(full * mult)| number:2}}</button>
+<button ng-if="fullConfirm == false" ng-click="repairAll()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(full * mult)">Repair All<br>${{formatNumber(full * mult)| number:2}}</button>
 </div>
 
 <div ng-if="ready==false" style="width:95%; margin:auto; margin-top:5px; text-align:center; font-size:20px;">

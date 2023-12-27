@@ -602,6 +602,22 @@ Race Traffic
 <button ng-class="inputData.rtmode == 1 ? 'toggleon' : 'toggleoff'" ng-click="setRaceTraffic(1)">Always Off</button>
 </p>
 
+<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >Instant toggle traffic removes lag when spawning traffic after races & challenges. Prevents the game from freeing up RAM when traffic is disabled. Also reduces traffic diversity due to same vehicles always being used.<p>
+
+<p style="text-align:center; transform:translate(40px,0px); width:400px;"> 
+Instant Toggle Traffic 
+<button ng-class="inputData.tfasttoggle == 1 ? 'toggleon' : 'toggleoff'" ng-click="setTrafficFastToggle(1)">On</button>
+<button ng-class="inputData.tfasttoggle == 0 ? 'toggleon' : 'toggleoff'" ng-click="setTrafficFastToggle(0)">Off</button>
+</p>
+
+<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >Use this setting to manually toggle traffic for debug or testing purposes. Can be used to spawn new variants if Instant Toggle Traffic is off.<p>
+
+<p style="text-align:center; transform:translate(40px,0px); width:400px;"> 
+Manual Traffic Toggle
+<button class="toggleoff" ng-click="trafficToggle(1)">On</button>
+<button class="toggleoff" ng-click="trafficToggle(0)">Off</button>
+</p>
+
 <h3 style="text-align:center;"> Advanced </h3>
 
 <p style="text-align:center;">  Use the "Fix Cops" button only if police chases player without pursuit UI showing. Do not use when pursuit UI is showing to avoid further bugs with police system.</p>

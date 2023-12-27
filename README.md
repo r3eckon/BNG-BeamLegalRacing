@@ -846,3 +846,14 @@ Thank you for playing BeamLR!
 * Replaced bolide 350usdm config for gold race club with amateur racing config
 * Reduced "call mechanic" fee from 200% to 150% of total repair cost
 * Removed caravans from trailer item list for construction basement mission
+
+### 1.14.1
+* Added smooth refueling mechanic & new gas station sound effects
+* Added Instant Traffic Toggle option (removes lag when spawning traffic after race)
+* Added Manual Traffic Toggle to options menu
+* Added dynamic gas station display implementation (only works on west coast for now)
+* Modified "Play Sound" flowgraph node to allow stopping looping sounds
+* Fixed game wide T-series coupler issue due to outdated beamstate.lua script
+* Fixed repair cost not using saved minimum value with enabled advanced repair cost
+* Updated ks_nord addon mod version to v20231124_v2
+* Fixed west coast scrapyard missing data
