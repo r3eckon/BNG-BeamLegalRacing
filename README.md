@@ -1,6 +1,6 @@
 
 
-# Beam Legal Racing 1.14
+# Beam Legal Racing 1.14.1
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -98,6 +98,8 @@ Version 1.12 adds Italy map content, Soliad Lansdale in shops, traffic and oppon
 Version 1.13 adds advanced vehicle building, advanced repair cost calculation, a GPS system and gooseneck trailer deliveries. Make sure you read the [Advanced Vehicle Building](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#advanced-vehicle-building) section of this readme before playing after installing this update.
 
 Version 1.14 adds West Coast USA map content, part specific repairs, improved UX for the options menu and layout options for IMGUI menus as well as options to force enable/disable traffic in races, groundmarkers and floating markers. Make sure you read the [Part Specific Repairs](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#part-specific-repairs) section of this readme to get a grasp on this new feature.
+
+Version 1.14.1 adds smooth refueling, instant traffic toggling and dynamic gas station displays linked with randomly generated gas price. Instant traffic toggling removes lag caused by spawning traffic after races and challenges that disable it but will reduce traffic diversity by keeping the same vehicle pool and may reduce expected performance with disabled traffic on systems with low RAM as it prevents freeing up memory while traffic is disabled.
 
 Further instructions and various tips on this mods' various features are listed in the BeamLR UI Main Menu.
 
