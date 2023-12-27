@@ -4,6 +4,9 @@
 
 local M = {}
 
+--Locals table for variable storage, lua has a hard limit of 200 locals
+local locals = {}
+
 local json = require("json")
 local extensions = require("extensions")
 
@@ -201,7 +204,7 @@ end
 saveDataTable(file, dtable)
 end
 
-local shautoindex = 0
+locals["shautoindex"] = 0
 
 local function slotHelper(params)
 local filedata = ""
@@ -221,7 +224,7 @@ local autoindex = params["autoindex"] -- automatically incremented index
 
 if append then filedata = readFile("beamLR/slotHelper") end
 
-if autoindex then index = shautoindex end
+if autoindex then index = locals["shautoindex"] end
 
 filedata = filedata .. (spprefix) .. index .. "=" .. pos[1] .. "," .. pos[2] .. "," .. pos[3] .. "\n"
 filedata = filedata .. (srprefix) .. index .. "=" .. rot[1] .. "," .. rot[2] .. "," .. rot[3] .. "," .. rot[4] .. "\n"
@@ -233,11 +236,11 @@ filedata = filedata .. (cpprefix) .. index .. "=" .. pos[1] .. "," .. pos[2] .. 
 filedata = filedata .. (crprefix) .. index .. "=" .. rot[1] .. "," .. rot[2] .. "," .. rot[3] .. "," .. rot[4] .. "\n"
 end
 writeFile("beamLR/slotHelper", filedata)
-if autoindex then shautoindex = shautoindex+1 end
+if autoindex then locals["shautoindex"] = locals["shautoindex"]+1 end
 end
 
 local function slotHelperAutoIndexReset()
-shautoindex = 0
+locals["shautoindex"] = 0
 end
 
 local function saveUIPaintToGarageFile(gid, paintdata)
@@ -1064,14 +1067,13 @@ end
 return toRet
 end
 
-
 -- Cop Fix, after pursuit ended inactive police vehicles will stay on "follow" AI mode 
 -- and has to be forced back to "traffic" after pursuit (hopefully will get fixed soon)
 local lastTrafficData = {}
 local copTable = {}				-- Vehid KEY, true val, non cop ids will return nil when checked
 local copfixReceived = {}		-- Vehid KEY, SENT as boolean val
-local copCount = 0				-- Fixes to send before stopping
-local copfixSent = 0			-- Sent fixes so far
+locals["copCount"] = 0		    -- Fixes to send before stopping
+locals["copfixSent"] = 0			-- Sent fixes so far
 
 local aimodes = {}
 local rolestates = {}
@@ -1091,18 +1093,18 @@ copTable = {}
 aimodes = {}
 rolestates = {}
 roleFixQueued = {}
-copCount = 0
+locals["copCount"] = 0
 for k,v in pairs(lastTrafficData) do
 if v["autoRole"] == "police" then
 copTable[k] = true
-copCount = copCount + 1
+locals["copCount"] = locals["copCount"] + 1
 end
 end
 end
 
 local function copfixReset() -- Should be called before init pass
 copfixReceived = {}
-copfixSent = 0
+locals["copfixSent"] = 0
 end
 
 local function copfixInit()	-- Initial copfix pass, sends fixes to all cops active when fix is triggered
@@ -1115,10 +1117,10 @@ cdata = lastTrafficData[k]
 if cdata["state"] == "active" then -- Found active cop
 forceSetAIMode(k, "traffic") -- Send fix
 copfixReceived[k] = true	-- Set fix received to true for vehid 
-copfixSent = copfixSent + 1 -- Increment sent copfix amount
+locals["copfixSent"] = locals["copfixSent"] + 1 -- Increment sent copfix amount
 print("Should have fixed cop: " .. k)
 
-if copfixSent == copCount then -- Finished sending copfixes in init pass
+if locals["copfixSent"] == locals["copCount"] then -- Finished sending copfixes in init pass
 extensions.blrglobals.blrFlagSet("policeResetRequest", false) -- Turn off request flag
 print("Copfix finished in init pass, all cops were active to receive fix.")
 end
@@ -1137,10 +1139,10 @@ if not copfixReceived[veid] then -- Cop has not received fix yet
 
 forceSetAIMode(veid, "traffic") -- Send fix
 copfixReceived[veid] = true	-- Set fix received to true for vehid 
-copfixSent = copfixSent + 1 -- Increment sent copfix amount
+locals["copfixSent"] = locals["copfixSent"] + 1 -- Increment sent copfix amount
 print("Should have fixed cop: " .. veid)
 
-if copfixSent == copCount then -- Finished sending copfixes in init pass
+if locals["copfixSent"] == locals["copCount"] then -- Finished sending copfixes in init pass
 extensions.blrglobals.blrFlagSet("policeResetRequest", false) -- Turn off request flag
 print("Copfix finished on hook for last fix.")
 end
@@ -2122,7 +2124,7 @@ return toRet
 end
 
 local function gpsGetUnit()
-local units = extensions.blrutils.getSettingValue("uiUnits")
+local units = getSettingValue("uiUnits")
 local toRet = ""
 if units == "imperial" then
 toRet ="mi"
@@ -2277,8 +2279,11 @@ extensions.blrglobals.blrFlagSet("smoothFueling", false)
 end
 
 -- For now only "gasoline" type and force enabled US tax since only west coast has displays
+locals["lastGasUnit"] = ""
 local function blrStationDisplays()
 local level = getLevelName()
+local unit = getSettingValue("uiUnits")
+locals["lastGasUnit"] = unit
 local triggers = loadDataTable("beamLR/mapdata/" .. level .. "/triggers")
 local csplit = {}
 local ctrig = {}
@@ -2289,6 +2294,7 @@ if csplit[1] == "station" then
 ctrig = loadDataTable("beamLR/mapdata/" .. level .. "/triggerData/" .. csplit[2])
 if ctrig["display"] then
 cval = tonumber(processGasStationRandoms(ctrig, getDailySeed() + tonumber(ctrig["id"]))["cost"])
+if unit == "imperial" then cval = cval * 3.785 end
 setGasStationDisplayValue(ctrig["display"], "gasoline", cval, true, true)
 setGasStationDisplayValue(ctrig["display"], "gasoline2", 0, false, true)
 setGasStationDisplayValue(ctrig["display"], "gasoline3", 0, false, true)
@@ -2299,6 +2305,15 @@ end
 applyGasStationsDisplays()
 end
 
+-- Force refresh gas station displays if uiUnit setting changed
+local function onSettingsChanged()
+local nunit = getSettingValue("uiUnits")
+if locals["lastGasUnit"] ~= nunit then
+blrStationDisplays()
+end
+end
+
+M.onSettingsChanged = onSettingsChanged
 M.blrStationDisplays = blrStationDisplays
 M.smoothFuelCharge = smoothFuelCharge
 M.setGasStationDisplayValue = setGasStationDisplayValue
