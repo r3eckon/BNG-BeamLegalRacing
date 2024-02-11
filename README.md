@@ -1,6 +1,7 @@
 
 
-# Beam Legal Racing 1.14.1
+
+# Beam Legal Racing 1.14.2
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -70,6 +71,8 @@ This mod requires specific gameplay options to work properly. As of version 1.11
 
 **Do not change the above settings while playing BeamLR**. The settings should be automatically restored to your previous values when you abandon the scenario. Keep in mind game crashes and other forceful exit from the scenario may prevent your old setting from being restored.
 
+**IMPORTANT**: You must abandon the scenario to properly save your progress. Do not exit the game from main menu until you have abandonned the scenario and are back in freeroam. ALT-F4 or other forceful exit from the game are likely to cause lost progress and/or corrupted save files. Copy the **userfolder/beamLR** folder somewhere if you want to manually backup your career files.
+
 BeamLR relies on a UI app and custom UI layout in order to access features such as:
 * Options Menu
 * Part Edit Menu
@@ -81,7 +84,7 @@ Since version 1.5 there is no setup required for the UI to work. The "BeamLR" la
 
 First time players: the imgui unit detection feature may fail to properly register your unit setting. Switching between metric and imperial fixes this issue. The UI will then show correct units.
 
-Remember to save the **userfolder/beamLR** folder if you want to backup your career! The scenario has no autosave feature. Abandon the scenario and wait until you are back in freeroam before closing the game to ensure all progress is saved. Game crashes or hard quit may result in lost progress.
+### Major Feature Update Overview
 
 Version 1.6 adds N2O tank persistence. Garage files from previous versions are missing this value and will default to empty N2O tanks. Nitrous tanks can be refilled at the repair shop.
 
@@ -100,6 +103,8 @@ Version 1.13 adds advanced vehicle building, advanced repair cost calculation, a
 Version 1.14 adds West Coast USA map content, part specific repairs, improved UX for the options menu and layout options for IMGUI menus as well as options to force enable/disable traffic in races, groundmarkers and floating markers. Make sure you read the [Part Specific Repairs](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#part-specific-repairs) section of this readme to get a grasp on this new feature.
 
 Version 1.14.1 adds smooth refueling, instant traffic toggling and dynamic gas station displays linked with randomly generated gas price. Instant traffic toggling removes lag caused by spawning traffic after races and challenges that disable it but will reduce traffic diversity by keeping the same vehicle pool and may reduce expected performance with disabled traffic on systems with low RAM as it prevents freeing up memory while traffic is disabled.
+
+Version 1.14.2 adds improved fuel system (fuel tiers, diesel) and a safe mode option for part edits used to prevent damage when removing certain parts. Read the [Improved Fuel System](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#improved-fuel-system) and [Part Edit Safe Mode](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#part-edit-safe-mode) section of this readme for more information on these new features. As always make sure to manually back up your current beamLR folder in case the fuel system changes cause issues with your old career files.
 
 Further instructions and various tips on this mods' various features are listed in the BeamLR UI Main Menu.
 
@@ -222,6 +227,17 @@ Added in version 1.14 part specific repairs adds a menu allowing players to choo
 
 ## GPS System
 Added in version 1.13 is a new GPS system that allows you to find specific destinations or nearest destinations of certain types like gas stations, vehicle shops, repair garages, part shops, etc. By default, the GPS UI will only show when using a vehicle that has a GPS (BeamNavigator) installed. It is also possible to force enable or disable the GPS UI through the options menu. Regardless of chosen setting, the GPS UI will be disabled in some situations where groundmarkers are required, such as during delivery missions and daredevil challenges.
+
+## Improved Fuel System
+Added in version 1.14.2 the improved fuel system now features diesel fuel and gasoline tiers which give slight performance boost to vehicles. Diesel fuel must now be used with diesel engines. Using the incorrect fuel type will disable the engine until the tank is drained. Draining the tank will allow you to add the correct fuel and start the engine again. Gasoline quality is calculated based on ratio of each fuel tier in the tank, higher quality will slightly increase the vehicle output torque. The maximum increase for each tier (for a fuel tank containing only this tier) is as follows:
+* Premium: 20%
+* Mid-Grade: 10%
+* Regular: 0%
+
+For example, if a fuel tank contains a 50/50 mix of premium and mid-grade the increase is 15%. For a mix of regular and mid-grade, the increase is 5%. If a fuel tank contains only premium grade, the increase is 20%. While not realistic, BeamNG does not have fuel octane ratings for engines and side effects of incorrect fuel being used, so this is a compromise to give a purpose to higher fuel tiers that makes sense for a racing game. If BeamNG eventually adds this feature the fuel system will be changed to implement fuel tiers in a more realistic way.
+
+## Part Edit Safe Mode
+Added in version 1.14.2 part edit safe mode is a new advanced option used to help prevent damage during part edits. Certain parts may cause damage when removed, for instance wheels, which cause the vehicle to fall and damage the bumper. This option will temporarily increase beam strength to help prevent taking damage. While in safe mode, the vehicle will be frozen in place. To unfreeze the vehicle you must exit safe mode, at which point the game will reload the normal beam strength values. This option can be kept off for the vast majority of part edits but should help with certain edits that tend to cause damage.
 
 ## WIP Notice
 This mod is a work in progress. At this stage it is a decent vertical slice of the gameplay the project is trying to achieve with some bugs and quirks remaining that should get better as BeamNG and the mod are updated. That being said a lot of content is missing and reward values may be unbalanced relative to part prices.
@@ -548,6 +564,8 @@ Thank you for playing BeamLR!
 * Benjamin Rogers (thisvelologist)
 * Leon Makepeace
 * Ethan Rapp
+* Mattia Morris (Mattia83)
+* Michael Mckinley
 
 ## Known Issues 
 
@@ -859,3 +877,16 @@ Thank you for playing BeamLR!
 * Fixed repair cost not using saved minimum value with enabled advanced repair cost
 * Updated ks_nord addon mod version to v20231124_v2
 * Fixed west coast scrapyard missing data
+
+### 1.14.2
+* Added improved fuel system (fuel tiers, diesel, wrong fuel type disables engine)
+* Added part edit safe mode (prevents taking damage during part edits)
+* Fixed config loading function using partmgmt.load (renamed to partmgmt.loadLocal)
+* Fixed missing waypoints on East Coast
+* Fixed missions in incorrect list on West Coast
+* Fixed part selling with missing jbeam value causing $nan player money
+* Fixed track events not loading due to removed playername file
+* Fixed GPS Select Destination menu empty list data due to duplicate names
+* Trying fix for player garage menu not visible after towing
+* Fixed police tickets while walking (no cost to pay & removed impound button)
+* Decreased part sell value from 50% to 20% of buy value

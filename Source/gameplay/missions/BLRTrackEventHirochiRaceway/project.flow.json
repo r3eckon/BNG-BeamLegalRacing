@@ -2,7 +2,7 @@
   "activeGraphId":1,
   "authors":"BeamLR",
   "currentGraphID":1,
-  "date":1696995066,
+  "date":1705442948,
   "debugEnabled":false,
   "description":"Beam Legal Racing Track Event",
   "difficulty":100,
@@ -28,14 +28,14 @@
         ],
         [
           78,
-          "match_2",
+          "match_1",
           9,
           "flow",
           false
         ],
         [
           78,
-          "match_1",
+          "match_2",
           9,
           "flow",
           false
@@ -181,7 +181,7 @@
           false
         ],
         [
-          37,
+          54,
           "flow",
           16,
           "flow",
@@ -195,8 +195,8 @@
           false
         ],
         [
-          126,
-          "False",
+          37,
+          "flow",
           16,
           "flow",
           false
@@ -209,8 +209,8 @@
           false
         ],
         [
-          54,
-          "flow",
+          126,
+          "False",
           16,
           "flow",
           false
@@ -434,14 +434,14 @@
         ],
         [
           78,
-          "match_1",
+          "match_2",
           31,
           "reset",
           false
         ],
         [
           78,
-          "match_2",
+          "match_1",
           31,
           "reset",
           false
@@ -944,15 +944,15 @@
           false
         ],
         [
-          75,
-          "False",
+          33,
+          "match_1",
           69,
           "reset",
           false
         ],
         [
-          33,
-          "match_1",
+          75,
+          "False",
           69,
           "reset",
           false
@@ -965,15 +965,15 @@
           false
         ],
         [
-          75,
-          "False",
+          69,
+          "flow",
           70,
           "flow",
           false
         ],
         [
-          69,
-          "flow",
+          75,
+          "False",
           70,
           "flow",
           false
@@ -1140,15 +1140,15 @@
           false
         ],
         [
-          86,
-          "down",
+          79,
+          "flow",
           80,
           "flow",
           false
         ],
         [
-          79,
-          "flow",
+          86,
+          "down",
           80,
           "flow",
           false
@@ -1176,14 +1176,14 @@
         ],
         [
           78,
-          "match_2",
+          "match_1",
           83,
           "flow",
           false
         ],
         [
           78,
-          "match_1",
+          "match_2",
           83,
           "flow",
           false
@@ -1203,15 +1203,15 @@
           false
         ],
         [
-          33,
-          "match_2",
+          82,
+          "True",
           85,
           "reset",
           false
         ],
         [
-          82,
-          "True",
+          33,
+          "match_2",
           85,
           "reset",
           false
@@ -1505,6 +1505,13 @@
         ],
         [
           78,
+          "match_2",
+          108,
+          "flow",
+          false
+        ],
+        [
+          78,
           "match_1",
           108,
           "flow",
@@ -1512,21 +1519,14 @@
         ],
         [
           78,
-          "match_2",
-          108,
-          "flow",
-          false
-        ],
-        [
-          78,
-          "match_2",
+          "match_1",
           108,
           "reset",
           false
         ],
         [
           78,
-          "match_1",
+          "match_2",
           108,
           "reset",
           false
@@ -1959,15 +1959,15 @@
           false
         ],
         [
-          88,
-          "flow",
+          76,
+          "False",
           136,
           "flow",
           false
         ],
         [
-          76,
-          "False",
+          88,
+          "flow",
           136,
           "flow",
           false
@@ -3037,10 +3037,10 @@
         },
         "9":{
           "code":{
-            "work":"self.pinOut.output.value = self.pinIn.input.value",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"self.pinOut.output.value = self.pinIn.input.value"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -3095,10 +3095,10 @@
         },
         "10":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal limits = self.pinIn.limits.value\nlocal idtable = self.pinIn.idtable.value\nlocal laps = self.pinIn.laps.value\nlocal mode = self.pinIn.speedMode.value\nlocal lane = self.pinIn.useLanes.value\nlocal risk = self.pinIn.risk.value\nlocal avoid = self.pinIn.avoid.value == 1\nlocal speed = self.pinIn.routeSpd.value\nlocal codrivability = self.pinIn.codrivability.value\nlocal wpspd = self.pinIn.wpspd.value\nlocal wtable = self.pinIn.waypoints.value\nlocal count = #wtable\nlocal spdtable = {}\nlocal spdsplit = {}\nlocal spdtfirst = false\n\nlocal cwp = \"\"\nlocal clim = 0\n\nlocal args = \"{\"\n\nif laps ~= nil then\nargs = args .. \"noOfLaps = \" .. laps .. \",\"\nend\n\nif lane ~= nil then\nargs = args .. \"driveInLane = \" .. extensions.blrutils.boolToText(lane, \"'on'\", \"'off'\") .. \",\"\nend\n\nif avoid ~= nil then\nargs = args .. \"avoidCars = \" .. extensions.blrutils.boolToText(avoid, \"'on'\", \"'off'\") .. \",\"\nend\n\nif risk ~= nil then\nargs = args .. \"aggression = \" .. risk .. \",\"\nend\n\nif speed ~= nil then\nargs = args .. \"routeSpeed = \" .. speed .. \",\"\nend\n\nif mode ~= nil then\nargs = args .. \"routeSpeedMode = '\" .. mode .. \"',\"\nend\n\nif wpspd ~= nil then\nspdtable = extensions.blrutils.ssplit(wpspd, \",\")\nspdtfirst = true\nargs = args .. \"wpSpeeds = {\"\nfor k,v in pairs(spdtable) do\nspdsplit = extensions.blrutils.ssplit(v, \":\")\nif not spdtfirst then \nargs = args .. \",\"\nelse\nspdtfirst = false\nend\nargs = args .. spdsplit[1] .. \"=\" .. tonumber(spdsplit[2])\nend\nargs = args .. \"},\"\nend\n\nargs = args .. \"wpTargetList = {\"\nfor k,v in ipairs(wtable) do\nargs = args .. \"'\" .. wtable[k] .. \"'\"\nif k ~= count then\nargs = args .. \",\"\nend\nend\nargs = args .. \"}\"\n\nif limits ~= nil then\nargs = args .. \",wpSpeeds = {\"\nfor k,v in ipairs(wtable) do\nargs = args .. wtable[k] .. \"=\" .. ltable[k] \nif k ~= count then\nargs = args .. \",\"\nend\nend\nargs = args .. \"}\"\nend\n\nargs = args .. \"}\"\n\nlocal veh = {}\nfor i=1,#idtable do\nveh = scenetree.findObjectById(idtable[i])\nif veh ~= nil then\nveh:queueLuaCommand(\"ai.setCutOffDrivability(\" .. codrivability .. \")\")\nveh:queueLuaCommand(\"ai.driveUsingPath(\" .. args .. \")\")\nend\nend\n\n\n\n",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal limits = self.pinIn.limits.value\nlocal idtable = self.pinIn.idtable.value\nlocal laps = self.pinIn.laps.value\nlocal mode = self.pinIn.speedMode.value\nlocal lane = self.pinIn.useLanes.value\nlocal risk = self.pinIn.risk.value\nlocal avoid = self.pinIn.avoid.value == 1\nlocal speed = self.pinIn.routeSpd.value\nlocal codrivability = self.pinIn.codrivability.value\nlocal wpspd = self.pinIn.wpspd.value\nlocal wtable = self.pinIn.waypoints.value\nlocal count = #wtable\nlocal spdtable = {}\nlocal spdsplit = {}\nlocal spdtfirst = false\n\nlocal cwp = \"\"\nlocal clim = 0\n\nlocal args = \"{\"\n\nif laps ~= nil then\nargs = args .. \"noOfLaps = \" .. laps .. \",\"\nend\n\nif lane ~= nil then\nargs = args .. \"driveInLane = \" .. extensions.blrutils.boolToText(lane, \"'on'\", \"'off'\") .. \",\"\nend\n\nif avoid ~= nil then\nargs = args .. \"avoidCars = \" .. extensions.blrutils.boolToText(avoid, \"'on'\", \"'off'\") .. \",\"\nend\n\nif risk ~= nil then\nargs = args .. \"aggression = \" .. risk .. \",\"\nend\n\nif speed ~= nil then\nargs = args .. \"routeSpeed = \" .. speed .. \",\"\nend\n\nif mode ~= nil then\nargs = args .. \"routeSpeedMode = '\" .. mode .. \"',\"\nend\n\nif wpspd ~= nil then\nspdtable = extensions.blrutils.ssplit(wpspd, \",\")\nspdtfirst = true\nargs = args .. \"wpSpeeds = {\"\nfor k,v in pairs(spdtable) do\nspdsplit = extensions.blrutils.ssplit(v, \":\")\nif not spdtfirst then \nargs = args .. \",\"\nelse\nspdtfirst = false\nend\nargs = args .. spdsplit[1] .. \"=\" .. tonumber(spdsplit[2])\nend\nargs = args .. \"},\"\nend\n\nargs = args .. \"wpTargetList = {\"\nfor k,v in ipairs(wtable) do\nargs = args .. \"'\" .. wtable[k] .. \"'\"\nif k ~= count then\nargs = args .. \",\"\nend\nend\nargs = args .. \"}\"\n\nif limits ~= nil then\nargs = args .. \",wpSpeeds = {\"\nfor k,v in ipairs(wtable) do\nargs = args .. wtable[k] .. \"=\" .. ltable[k] \nif k ~= count then\nargs = args .. \",\"\nend\nend\nargs = args .. \"}\"\nend\n\nargs = args .. \"}\"\n\nlocal veh = {}\nfor i=1,#idtable do\nveh = scenetree.findObjectById(idtable[i])\nif veh ~= nil then\nveh:queueLuaCommand(\"ai.setCutOffDrivability(\" .. codrivability .. \")\")\nveh:queueLuaCommand(\"ai.driveUsingPath(\" .. args .. \")\")\nend\nend\n\n\n\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -3239,10 +3239,10 @@
         },
         "11":{
           "code":{
-            "work":"local dtable = self.pinIn.idtable.value\nlocal veh = {}\nfor k,v in pairs(dtable) do\nveh = {}\nif v ~= -1 then\nveh = scenetree.findObjectById(v)\nif veh ~= nil then\ncore_vehicleBridge.executeAction(veh,'setFreeze', self.pinIn.freeze.value)\nend\nend\nend",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local dtable = self.pinIn.idtable.value\nlocal veh = {}\nfor k,v in pairs(dtable) do\nveh = {}\nif v ~= -1 then\nveh = scenetree.findObjectById(v)\nif veh ~= nil then\ncore_vehicleBridge.executeAction(veh,'setFreeze', self.pinIn.freeze.value)\nend\nend\nend"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -3328,19 +3328,19 @@
         },
         "13":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal seed = self.pinIn.seed.value\nlocal efile = extensions.blrutils.loadEventWithRandoms(self.pinIn.efile.value, seed)\n\nlocal opModels = {}\nlocal opConfigs = {}\nlocal configData = efile[\"configs\"]\n-- Updated config loading, universal, works with performance class files or old config lists\nlocal loadedConfigs = extensions.blrutils.perfclassConfigLoader(configData)\nopModels = loadedConfigs[\"models\"]\nopConfigs = loadedConfigs[\"configs\"]\n\nlocal waypoints = extensions.blrutils.ssplit(efile[\"waypoints\"],\",\")\nwaypoints[#waypoints+1] = waypoints[1]\nlocal triggers = extensions.blrutils.ssplit(efile[\"triggers\"],\",\")\nlocal scount = tonumber(efile[\"scount\"])\nlocal opCount = math.min(tonumber(efile[\"opcount\"]), self.pinIn.opt.value)\nlocal risk = tonumber(efile[\"risk\"]) or 1.0\nlocal wpspd = efile[\"wpspd\"]\nlocal aispd = tonumber(efile[\"aispd\"]) or 110.0\nlocal aispdmode = efile[\"aispdmode\"] or \"limit\"\n\nlocal laps = tonumber(efile[\"laps\"])\n\nlocal opspos = {}\nlocal opsrot = {}\nlocal pspos = {}\nlocal psrot = {}\n\nmath.randomseed(seed)\nlocal pspawn = math.random(1,opCount+1)\npspos = extensions.blrutils.ssplitnum(efile[\"spos\" .. pspawn],\",\")\npsrot = extensions.blrutils.ssplitnum(efile[\"srot\" .. pspawn],\",\")\n\nlocal padded = false\nfor i=1,opCount do\npadded = i==pspawn or padded\nif not padded then\nopspos[i] = efile[\"spos\" .. i]\nopsrot[i] = efile[\"srot\" .. i]\nelse\nopspos[i] = efile[\"spos\" .. i+1]\nopsrot[i] = efile[\"srot\" .. i+1]\nend\nend\n\nself.pinOut.opModels.value = opModels\nself.pinOut.opConfigs.value = opConfigs\nself.pinOut.pspos.value = pspos\nself.pinOut.psrot.value = psrot\nself.pinOut.waypoints.value = waypoints\nself.pinOut.triggers.value = triggers\nself.pinOut.opCount.value = opCount\nself.pinOut.opspos.value = opspos\nself.pinOut.opsrot.value = opsrot\nself.pinOut.laps.value = laps\nself.pinOut.cpcount.value = #triggers\nself.pinOut.wpspd.value = wpspd\nself.pinOut.aispd.value = aispd\nself.pinOut.aispdmode.value = aispdmode\nself.pinOut.risk.value = risk",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal seed = self.pinIn.seed.value\nlocal efile = extensions.blrutils.loadEventWithRandoms(self.pinIn.efile.value, seed)\n\nlocal opModels = {}\nlocal opConfigs = {}\nlocal configData = efile[\"configs\"]\n-- Updated config loading, universal, works with performance class files or old config lists\nlocal loadedConfigs = extensions.blrutils.perfclassConfigLoader(configData)\nopModels = loadedConfigs[\"models\"]\nopConfigs = loadedConfigs[\"configs\"]\n\nlocal waypoints = extensions.blrutils.ssplit(efile[\"waypoints\"],\",\")\nwaypoints[#waypoints+1] = waypoints[1]\nlocal triggers = extensions.blrutils.ssplit(efile[\"triggers\"],\",\")\nlocal scount = tonumber(efile[\"scount\"])\nlocal opCount = math.min(tonumber(efile[\"opcount\"]), self.pinIn.opt.value)\nlocal risk = tonumber(efile[\"risk\"]) or 1.0\nlocal wpspd = efile[\"wpspd\"]\nlocal aispd = tonumber(efile[\"aispd\"]) or 110.0\nlocal aispdmode = efile[\"aispdmode\"] or \"limit\"\n\nlocal laps = tonumber(efile[\"laps\"])\n\nlocal opspos = {}\nlocal opsrot = {}\nlocal pspos = {}\nlocal psrot = {}\n\nmath.randomseed(seed)\nlocal pspawn = math.random(1,opCount+1)\npspos = extensions.blrutils.ssplitnum(efile[\"spos\" .. pspawn],\",\")\npsrot = extensions.blrutils.ssplitnum(efile[\"srot\" .. pspawn],\",\")\n\nlocal padded = false\nfor i=1,opCount do\npadded = i==pspawn or padded\nif not padded then\nopspos[i] = efile[\"spos\" .. i]\nopsrot[i] = efile[\"srot\" .. i]\nelse\nopspos[i] = efile[\"spos\" .. i+1]\nopsrot[i] = efile[\"srot\" .. i+1]\nend\nend\n\nself.pinOut.opModels.value = opModels\nself.pinOut.opConfigs.value = opConfigs\nself.pinOut.pspos.value = pspos\nself.pinOut.psrot.value = psrot\nself.pinOut.waypoints.value = waypoints\nself.pinOut.triggers.value = triggers\nself.pinOut.opCount.value = opCount\nself.pinOut.opspos.value = opspos\nself.pinOut.opsrot.value = opsrot\nself.pinOut.laps.value = laps\nself.pinOut.cpcount.value = #triggers\nself.pinOut.wpspd.value = wpspd\nself.pinOut.aispd.value = aispd\nself.pinOut.aispdmode.value = aispdmode\nself.pinOut.risk.value = risk"
           },
           "data":{},
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
-              "seed":false,
               "efile":false,
               "flow":false,
-              "opt":false
+              "opt":false,
+              "seed":false
             },
             "p_out":{
               "aispd":false,
@@ -3606,10 +3606,10 @@
         },
         "17":{
           "data":{
-            "useMessages":false,
             "bigFinishMsg":false,
             "playSounds":true,
-            "useImgui":false
+            "useImgui":false,
+            "useMessages":false
           },
           "dynamicMode":"repeat",
           "hardcodedPins":{
@@ -3664,10 +3664,10 @@
         },
         "19":{
           "code":{
-            "work":"local dtable = self.pinIn.idtable.value\nlocal veh = {}\nfor k,v in pairs(dtable) do\nveh = {}\nif v ~= -1 then\nveh = scenetree.findObjectById(v)\nif veh ~= nil then\ncore_vehicleBridge.executeAction(veh,'setFreeze', self.pinIn.freeze.value)\nend\nend\nend",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local dtable = self.pinIn.idtable.value\nlocal veh = {}\nfor k,v in pairs(dtable) do\nveh = {}\nif v ~= -1 then\nveh = scenetree.findObjectById(v)\nif veh ~= nil then\ncore_vehicleBridge.executeAction(veh,'setFreeze', self.pinIn.freeze.value)\nend\nend\nend"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -3753,10 +3753,10 @@
         },
         "21":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal veidtable = self.pinIn.veid.value\nlocal nid = self.pinIn.nid.value or 0\nlocal af = self.pinIn.af.value\n\nlocal filter = -1\nlocal tdata = {}\nlocal statusTable = {}\nlocal eventTable = {}\nlocal tnameTable = {}\nlocal tidTable = {}\nlocal hasUpdate = false\n\nif not extensions.blrtriggers.isNodeRegistered(nid) then\nextensions.blrtriggers.registerNode(nid)\nend\n\nfor k,v in pairs(veidtable) do\nfilter = v\ntdata = extensions.blrtriggers.poolTriggerData(nid, filter, false)\nif tdata then\nhasUpdate = true\neventTable[filter] = tdata[\"event\"]\ntidTable[filter] = tdata[\"triggerID\"]\ntnameTable[filter] = tdata[\"triggerName\"]\nelse\neventTable[filter] = nil\ntidTable[filter] = nil\ntnameTable[filter] = nil\nend\n\nif af == nil then\nstatusTable[filter] = extensions.blrtriggers.getGlobalTriggerStatus(nid,filter, false)\nelseif af[filter] == nil then\nstatusTable[filter] = extensions.blrtriggers.getGlobalTriggerStatus(nid,filter, false)\nelse\nstatusTable[filter] = extensions.blrtriggers.getTriggerStatus(nid,filter, af[filter], false)\nend\n\nend\n\nself.pinOut.status.value = statusTable\nself.pinOut.event.value = eventTable\nself.pinOut.triggerID.value = tidTable\nself.pinOut.triggerName.value = tnameTable\nself.pinOut.update.value = hasUpdate",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal veidtable = self.pinIn.veid.value\nlocal nid = self.pinIn.nid.value or 0\nlocal af = self.pinIn.af.value\n\nlocal filter = -1\nlocal tdata = {}\nlocal statusTable = {}\nlocal eventTable = {}\nlocal tnameTable = {}\nlocal tidTable = {}\nlocal hasUpdate = false\n\nif not extensions.blrtriggers.isNodeRegistered(nid) then\nextensions.blrtriggers.registerNode(nid)\nend\n\nfor k,v in pairs(veidtable) do\nfilter = v\ntdata = extensions.blrtriggers.poolTriggerData(nid, filter, false)\nif tdata then\nhasUpdate = true\neventTable[filter] = tdata[\"event\"]\ntidTable[filter] = tdata[\"triggerID\"]\ntnameTable[filter] = tdata[\"triggerName\"]\nelse\neventTable[filter] = nil\ntidTable[filter] = nil\ntnameTable[filter] = nil\nend\n\nif af == nil then\nstatusTable[filter] = extensions.blrtriggers.getGlobalTriggerStatus(nid,filter, false)\nelseif af[filter] == nil then\nstatusTable[filter] = extensions.blrtriggers.getGlobalTriggerStatus(nid,filter, false)\nelse\nstatusTable[filter] = extensions.blrtriggers.getTriggerStatus(nid,filter, af[filter], false)\nend\n\nend\n\nself.pinOut.status.value = statusTable\nself.pinOut.event.value = eventTable\nself.pinOut.triggerID.value = tidTable\nself.pinOut.triggerName.value = tnameTable\nself.pinOut.update.value = hasUpdate"
           },
           "customColor":[
             1,
@@ -3884,10 +3884,10 @@
         },
         "22":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal leaders = self.pinIn.leaderboard.value\nlocal times = self.pinIn.times.value\nlocal endpos = self.pinIn.endpos.value or -1\nlocal winner = self.pinIn.winner.value or false\nlocal started = self.pinIn.started.value\nlocal toRet = \"\"\nif started then\nif leaders then\nif leaders[1] then\ntoRet = \"Leaderboard\\n\"\nfor i=1,#leaders do\ntoRet = toRet .. \"#\" .. i .. \" - \" .. leaders[i] .. \" in \" .. extensions.blrRaceManager.raceTimeString(extensions.blrRaceManager.msTimeFormat(times[leaders[i]])) .. \"\\n\"\nend\n\nelse\ntoRet = toRet .. \"Waiting for results\"\nend\nelse\ntoRet = \"Race not started\"\nend\nelse\ntoRet = \"Race not started\"\nend\n\nif winner and started then\ntoRet = toRet .. \"\\nYou won the race!\"\nelseif endpos ~= -1 and started then\ntoRet = toRet .. \"\\nYou finished #\" .. endpos\nend\n\nself.pinOut.strout.value = toRet",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal leaders = self.pinIn.leaderboard.value\nlocal times = self.pinIn.times.value\nlocal endpos = self.pinIn.endpos.value or -1\nlocal winner = self.pinIn.winner.value or false\nlocal started = self.pinIn.started.value\nlocal toRet = \"\"\nif started then\nif leaders then\nif leaders[1] then\ntoRet = \"Leaderboard\\n\"\nfor i=1,#leaders do\ntoRet = toRet .. \"#\" .. i .. \" - \" .. leaders[i] .. \" in \" .. extensions.blrRaceManager.raceTimeString(extensions.blrRaceManager.msTimeFormat(times[leaders[i]])) .. \"\\n\"\nend\n\nelse\ntoRet = toRet .. \"Waiting for results\"\nend\nelse\ntoRet = \"Race not started\"\nend\nelse\ntoRet = \"Race not started\"\nend\n\nif winner and started then\ntoRet = toRet .. \"\\nYou won the race!\"\nelseif endpos ~= -1 and started then\ntoRet = toRet .. \"\\nYou finished #\" .. endpos\nend\n\nself.pinOut.strout.value = toRet"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -3974,10 +3974,10 @@
         },
         "23":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nextensions.blrtriggers.blrTriggerInit()",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrtriggers.blrTriggerInit()"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -4016,10 +4016,10 @@
         },
         "24":{
           "code":{
-            "work":"local actions = {\"dropPlayerAtCamera\", \"dropPlayerAtCameraNoReset\", \"recover_vehicle\", \"recover_vehicle_alt\", \"recover_to_last_road\", \"reload_vehicle\", \"reload_all_vehicles\", \"loadHome\", \"saveHome\", \"reset_all_physics\", \"goto_checkpoint\", \"set_checkpoint\", \"slower_motion\", \"faster_motion\", \"toggle_slow_motion\", \"nodegrabberAction\", \"nodegrabberGrab\", \"nodegrabberRender\", \"nodegrabberStrength\", \"toggleTraffic\", \"toggleAITraffic\", \"switch_next_vehicle\", \"switch_previous_vehicle\", \"switch_next_vehicle_multiseat\", \"forceField\", \"funBoom\", \"funBreak\", \"funExtinguish\", \"funFire\", \"funHinges\", \"funTires\", \"funRandomTire\", \"toggleWalkingMode\", \"toggleTrackBuilder\", \"toggleBigMap\", \"reset_physics\", \"vehicle_selector\", \"parts_selector\"}\nfor i=1,#actions do\ncore_input_actionFilter.addAction(1, actions[i], true)\nend\n\n-- NOTE: FOR MENU ACTIONS NEED Set UI Layout NODE TO HAVE\n-- menu PIN SET TO scenario OTHERWISE PART EDIT AND VEH SELECT\n-- WILL STILL BE AVAILABLE",
             "_executionStarted":"",
             "_executionStopped":"core_input_actionFilter.clear(1)",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local actions = {\"dropPlayerAtCamera\", \"dropPlayerAtCameraNoReset\", \"recover_vehicle\", \"recover_vehicle_alt\", \"recover_to_last_road\", \"reload_vehicle\", \"reload_all_vehicles\", \"loadHome\", \"saveHome\", \"reset_all_physics\", \"goto_checkpoint\", \"set_checkpoint\", \"slower_motion\", \"faster_motion\", \"toggle_slow_motion\", \"nodegrabberAction\", \"nodegrabberGrab\", \"nodegrabberRender\", \"nodegrabberStrength\", \"toggleTraffic\", \"toggleAITraffic\", \"switch_next_vehicle\", \"switch_previous_vehicle\", \"switch_next_vehicle_multiseat\", \"forceField\", \"funBoom\", \"funBreak\", \"funExtinguish\", \"funFire\", \"funHinges\", \"funTires\", \"funRandomTire\", \"toggleWalkingMode\", \"toggleTrackBuilder\", \"toggleBigMap\", \"reset_physics\", \"vehicle_selector\", \"parts_selector\"}\nfor i=1,#actions do\ncore_input_actionFilter.addAction(1, actions[i], true)\nend\n\n-- NOTE: FOR MENU ACTIONS NEED Set UI Layout NODE TO HAVE\n-- menu PIN SET TO scenario OTHERWISE PART EDIT AND VEH SELECT\n-- WILL STILL BE AVAILABLE"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -4090,10 +4090,10 @@
         },
         "26":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nextensions.blrhooks.loadBLRHooks()",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrhooks.loadBLRHooks()"
           },
           "customName":"Load BLR Hooks",
           "data":{},
@@ -4133,10 +4133,10 @@
         },
         "27":{
           "code":{
-            "work":"local veid = self.pinIn.veid.value\nlocal status = self.pinIn.status.value\nlocal event = self.pinIn.event.value\nlocal triggerID = self.pinIn.triggerID.value\nlocal triggerName = self.pinIn.triggerName.value\n\nlocal cevent = \"\"\nlocal cid = -1\nlocal cname = \"\"\n\nlocal strout = \"\"\n\nfor k,v in pairs(veid) do\nstrout = strout .. \"\\n~~ ID \" .. v .. \" ~~\\n\"\nif status[v] then\nstrout = strout .. \"Status: TRUE \\n\"\nelse\nstrout = strout .. \"Status: FALSE \\n\"\nend\ncevent = event[v] or \"\"\ncid = triggerID[v] or -1\ncname = triggerName[v] or \"\"\nstrout = strout .. \"Event: \" .. cevent .. \"\\n\"\nstrout = strout .. \"triggerID: \" .. cid .. \"\\n\"\nstrout = strout .. \"triggerName: \" .. cname .. \"\\n\"\nend\n\nself.pinOut.strout.value = strout",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local veid = self.pinIn.veid.value\nlocal status = self.pinIn.status.value\nlocal event = self.pinIn.event.value\nlocal triggerID = self.pinIn.triggerID.value\nlocal triggerName = self.pinIn.triggerName.value\n\nlocal cevent = \"\"\nlocal cid = -1\nlocal cname = \"\"\n\nlocal strout = \"\"\n\nfor k,v in pairs(veid) do\nstrout = strout .. \"\\n~~ ID \" .. v .. \" ~~\\n\"\nif status[v] then\nstrout = strout .. \"Status: TRUE \\n\"\nelse\nstrout = strout .. \"Status: FALSE \\n\"\nend\ncevent = event[v] or \"\"\ncid = triggerID[v] or -1\ncname = triggerName[v] or \"\"\nstrout = strout .. \"Event: \" .. cevent .. \"\\n\"\nstrout = strout .. \"triggerID: \" .. cid .. \"\\n\"\nstrout = strout .. \"triggerName: \" .. cname .. \"\\n\"\nend\n\nself.pinOut.strout.value = strout"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -4286,10 +4286,10 @@
           },
           "hiddenPins":{
             "p_in":{
-              "varName":true,
               "flow":false,
               "suffix":true,
-              "val":false
+              "val":false,
+              "varName":true
             },
             "p_out":{
               "flow":false
@@ -4336,10 +4336,10 @@
           },
           "hiddenPins":{
             "p_in":{
-              "varName":true,
               "flow":false,
               "suffix":true,
-              "val":true
+              "val":true,
+              "varName":true
             },
             "p_out":{
               "flow":false
@@ -4421,19 +4421,19 @@
         },
         "35":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal racers = self.pinIn.racers.value\nlocal checkpoints = self.pinIn.checkpoints.value\nlocal laps = self.pinIn.laps.value\nextensions.blrRaceManager.setRaceParams(racers, checkpoints, laps)",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal racers = self.pinIn.racers.value\nlocal checkpoints = self.pinIn.checkpoints.value\nlocal laps = self.pinIn.laps.value\nextensions.blrRaceManager.setRaceParams(racers, checkpoints, laps)"
           },
           "data":{},
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
-              "racers":false,
               "checkpoints":false,
               "flow":false,
-              "laps":false
+              "laps":false,
+              "racers":false
             },
             "p_out":{
               "flow":false
@@ -4524,10 +4524,10 @@
               "text":false
             },
             "p_out":{
-              "up":true,
               "down":false,
               "flow":false,
-              "hold":true
+              "hold":true,
+              "up":true
             }
           },
           "pos":[
@@ -4538,10 +4538,10 @@
         },
         "38":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nself.pinOut.leaderboard.value = extensions.blrRaceManager.getLeaderboard()\nself.pinOut.times.value = extensions.blrRaceManager.getTimes()",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nself.pinOut.leaderboard.value = extensions.blrRaceManager.getLeaderboard()\nself.pinOut.times.value = extensions.blrRaceManager.getTimes()"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -4596,10 +4596,10 @@
         },
         "39":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal racer = self.pinIn.racer.value\nself.pinOut.useMarker.value = extensions.blrRaceManager.blackMarkerCheck(racer)",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal racer = self.pinIn.racer.value\nself.pinOut.useMarker.value = extensions.blrRaceManager.blackMarkerCheck(racer)"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -4654,10 +4654,10 @@
         },
         "40":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal racer = self.pinIn.racer.value\nlocal ccp = extensions.blrRaceManager.getCurrentCheckpoint(racer)\nlocal ncp = extensions.blrRaceManager.getFollowingCheckpoint(racer)\nlocal ccpid = extensions.blrRaceManager.getCCPID(racer)\nlocal clap = extensions.blrRaceManager.getCurrentLap(racer)\nlocal finished = extensions.blrRaceManager.getRacerFinished(racer)\nlocal endpos = extensions.blrRaceManager.getLeaderboardPosition(racer)\nlocal winner = extensions.blrRaceManager.getWinner() == racer\nlocal time = extensions.blrRaceManager.getRacerTime(racer)\nself.pinOut.ccp.value = ccp\nself.pinOut.clap.value = clap\nself.pinOut.finished.value = finished\nself.pinOut.endpos.value = endpos\nself.pinOut.winner.value = winner\nself.pinOut.ncp.value = ncp\nself.pinOut.ccpid.value = ccpid\nself.pinOut.time.value = time/1000.0",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal racer = self.pinIn.racer.value\nlocal ccp = extensions.blrRaceManager.getCurrentCheckpoint(racer)\nlocal ncp = extensions.blrRaceManager.getFollowingCheckpoint(racer)\nlocal ccpid = extensions.blrRaceManager.getCCPID(racer)\nlocal clap = extensions.blrRaceManager.getCurrentLap(racer)\nlocal finished = extensions.blrRaceManager.getRacerFinished(racer)\nlocal endpos = extensions.blrRaceManager.getLeaderboardPosition(racer)\nlocal winner = extensions.blrRaceManager.getWinner() == racer\nlocal time = extensions.blrRaceManager.getRacerTime(racer)\nself.pinOut.ccp.value = ccp\nself.pinOut.clap.value = clap\nself.pinOut.finished.value = finished\nself.pinOut.endpos.value = endpos\nself.pinOut.winner.value = winner\nself.pinOut.ncp.value = ncp\nself.pinOut.ccpid.value = ccpid\nself.pinOut.time.value = time/1000.0"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -4825,7 +4825,7 @@
             "color_in":{
               "type":"color",
               "value":[
-                0.44597768800000375800,
+                0.44597768800000386902,
                 1,
                 0,
                 1
@@ -4919,10 +4919,10 @@
           },
           "hiddenPins":{
             "p_in":{
-              "varName":true,
               "flow":false,
               "suffix":true,
-              "val":true
+              "val":true,
+              "varName":true
             },
             "p_out":{
               "flow":false
@@ -4951,10 +4951,10 @@
         },
         "45":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal running = self.pinIn.running.value\nextensions.blrRaceManager.setRaceRunning(running)",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal running = self.pinIn.running.value\nextensions.blrRaceManager.setRaceRunning(running)"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -5007,10 +5007,10 @@
         },
         "46":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal event = self.pinIn.event.value\nlocal trigger = self.pinIn.trigger.value\nextensions.blrRaceManager.processTriggerUpdate(event,trigger)",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal event = self.pinIn.event.value\nlocal trigger = self.pinIn.trigger.value\nextensions.blrRaceManager.processTriggerUpdate(event,trigger)"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -5158,7 +5158,8 @@
               "volume":true
             },
             "p_out":{
-              "flow":false
+              "flow":false,
+              "sourceID":false
             }
           },
           "pos":[
@@ -5236,10 +5237,10 @@
               "text":false
             },
             "p_out":{
-              "up":true,
               "down":false,
               "flow":false,
-              "hold":true
+              "hold":true,
+              "up":true
             }
           },
           "pos":[
@@ -5265,10 +5266,10 @@
           },
           "hiddenPins":{
             "p_in":{
-              "varName":true,
               "flow":false,
               "suffix":true,
-              "val":false
+              "val":false,
+              "varName":true
             },
             "p_out":{
               "flow":false
@@ -5282,10 +5283,10 @@
         },
         "56":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal toRet = extensions.blrRaceManager.isRaceStarted()\nself.pinOut.started.value = toRet",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal toRet = extensions.blrRaceManager.isRaceStarted()\nself.pinOut.started.value = toRet"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -5351,10 +5352,10 @@
         },
         "58":{
           "code":{
-            "work":"local toRet = {}\nlocal pid = self.pinIn.player.value\nlocal aiveh = self.pinIn.aiveh.value\nfor k,v in pairs(aiveh) do\ntoRet[k] = v\nend\ntoRet[#toRet+1] = pid\nself.pinOut.alltable.value = toRet",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local toRet = {}\nlocal pid = self.pinIn.player.value\nlocal aiveh = self.pinIn.aiveh.value\nfor k,v in pairs(aiveh) do\ntoRet[k] = v\nend\ntoRet[#toRet+1] = pid\nself.pinOut.alltable.value = toRet"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -5420,10 +5421,10 @@
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
-              "value":false,
               "color":true,
               "flow":false,
-              "useGenericMissionDataApp":false
+              "useGenericMissionDataApp":false,
+              "value":false
             },
             "p_out":{
               "flow":false
@@ -5452,10 +5453,10 @@
           },
           "hiddenPins":{
             "p_in":{
-              "varName":true,
               "flow":false,
               "suffix":true,
-              "val":false
+              "val":false,
+              "varName":true
             },
             "p_out":{
               "flow":false
@@ -5469,10 +5470,10 @@
         },
         "61":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal running = self.pinIn.running.value\nextensions.blrRaceManager.setRaceRunning(running)",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal running = self.pinIn.running.value\nextensions.blrRaceManager.setRaceRunning(running)"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -5525,10 +5526,10 @@
         },
         "62":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal models = self.pinIn.models.value\nlocal configs = self.pinIn.configs.value\nlocal pos = self.pinIn.pos.value\nlocal rot = self.pinIn.rot.value\nlocal count = self.pinIn.count.value\nlocal seed = self.pinIn.seed.value or 1234\nmath.randomseed(seed)\n\nextensions.blrRaceManager.resetIDtable()\n\nlocal pick = 0\nlocal cmodel = \"\"\nlocal cconfig = \"\"\nlocal cpos = {}\nlocal crot = {}\nlocal cpaint = {}\nlocal currentSpawnOptions = {}\nlocal currentVeh = {}\nlocal idtable = {}\nlocal spawnPos = {}\nlocal spawnRot = {}\n\nfor i=1,count do\ncpos = extensions.blrutils.ssplitnum(pos[i], \",\")\nspawnPos = vec3(cpos[1], cpos[2], cpos[3])\ncrot = extensions.blrutils.ssplitnum(rot[i], \",\")\nspawnRot = quat(crot[1], crot[2], crot[3], crot[4])\npick = math.random(1,#models)\ncmodel = models[pick]\ncconfig = configs[pick]\ncpaint = extensions.blrutils.createRandomPaint(seed + i)\n\ncurrentSpawnOptions = {config = cconfig, pos = spawnPos, rot = spawnRot, paint = cpaint}\ncurrentVeh = extensions.core_vehicles.spawnNewVehicle(cmodel, currentSpawnOptions)\n\nidtable[i] = currentVeh:getId()\nextensions.blrRaceManager.setRacerID(idtable[i], i+1)\n\ncurrentVeh.obj.playerUsable=false\nend\n\n\nself.pinOut.spawnids.value = idtable\n",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal models = self.pinIn.models.value\nlocal configs = self.pinIn.configs.value\nlocal pos = self.pinIn.pos.value\nlocal rot = self.pinIn.rot.value\nlocal count = self.pinIn.count.value\nlocal seed = self.pinIn.seed.value or 1234\nmath.randomseed(seed)\n\nextensions.blrRaceManager.resetIDtable()\n\nlocal pick = 0\nlocal cmodel = \"\"\nlocal cconfig = \"\"\nlocal cpos = {}\nlocal crot = {}\nlocal cpaint = {}\nlocal currentSpawnOptions = {}\nlocal currentVeh = {}\nlocal idtable = {}\nlocal spawnPos = {}\nlocal spawnRot = {}\n\nfor i=1,count do\ncpos = extensions.blrutils.ssplitnum(pos[i], \",\")\nspawnPos = vec3(cpos[1], cpos[2], cpos[3])\ncrot = extensions.blrutils.ssplitnum(rot[i], \",\")\nspawnRot = quat(crot[1], crot[2], crot[3], crot[4])\npick = math.random(1,#models)\ncmodel = models[pick]\ncconfig = configs[pick]\ncpaint = extensions.blrutils.createRandomPaint(seed + i)\n\ncurrentSpawnOptions = {config = cconfig, pos = spawnPos, rot = spawnRot, paint = cpaint}\ncurrentVeh = extensions.core_vehicles.spawnNewVehicle(cmodel, currentSpawnOptions)\n\nidtable[i] = currentVeh:getId()\nextensions.blrRaceManager.setRacerID(idtable[i], i+1)\n\ncurrentVeh.obj.playerUsable=false\nend\n\n\nself.pinOut.spawnids.value = idtable\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -5697,10 +5698,10 @@
         },
         "65":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal running = self.pinIn.running.value\nextensions.blrRaceManager.setRaceRunning(running)",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal running = self.pinIn.running.value\nextensions.blrRaceManager.setRaceRunning(running)"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -5928,10 +5929,10 @@
         },
         "73":{
           "code":{
-            "work":"local myObj = scenetree.findObject(self.pinIn.name.value)\nlocal objPos = {}\nif myObj ~= nil then\nobjPos = myObj:getPosition()\nend\nself.pinOut.pos.value = {objPos.x, objPos.y, objPos.z}",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local myObj = scenetree.findObject(self.pinIn.name.value)\nlocal objPos = {}\nif myObj ~= nil then\nobjPos = myObj:getPosition()\nend\nself.pinOut.pos.value = {objPos.x, objPos.y, objPos.z}"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -5986,10 +5987,10 @@
         },
         "74":{
           "code":{
-            "work":"local myObj = scenetree.findObject(self.pinIn.name.value)\nlocal objPos = {}\nif myObj ~= nil then\nobjPos = myObj:getPosition()\nend\nself.pinOut.pos.value = {objPos.x, objPos.y, objPos.z}",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local myObj = scenetree.findObject(self.pinIn.name.value)\nlocal objPos = {}\nif myObj ~= nil then\nobjPos = myObj:getPosition()\nend\nself.pinOut.pos.value = {objPos.x, objPos.y, objPos.z}"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -6084,10 +6085,10 @@
         },
         "77":{
           "code":{
-            "work":"local idtable = self.pinIn.idtable.value\nfor k,v in pairs(idtable) do\nscenetree.findObjectById(v):queueLuaCommand(\"extensions.blrVehicleUtils.toggleNitrous()\")\nend",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local idtable = self.pinIn.idtable.value\nfor k,v in pairs(idtable) do\nscenetree.findObjectById(v):queueLuaCommand(\"extensions.blrVehicleUtils.toggleNitrous()\")\nend"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -6174,19 +6175,19 @@
         },
         "79":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal ppos = self.pinIn.ppos.value\nlocal seed = self.pinIn.seed.value\nlocal efile = self.pinIn.efile.value\n\nlocal rewards = {} -- For UI\nrewards[\"moneyreward\"] = 0\nrewards[\"repreward\"] = 0\nrewards[\"partreward\"] = \"None\"\nrewards[\"carreward\"] = \"None\"\nlocal hasRewards = false -- For UI\n\nif ppos <= 3 then -- No rewards after third position\nhasRewards = true -- For UI\n\nlocal edata = extensions.blrutils.loadEventWithRandoms(efile, seed)\nlocal cdata = extensions.blrutils.loadDataTable(\"beamLR/mainData\")\nlocal idata = extensions.blrutils.loadDataTable(\"beamLR/partInv\")\n\n-- Money reward\nif edata[\"moneyreward\"] ~= \"none\" then\nlocal money = extensions.blrutils.ssplitnum(edata[\"moneyreward\"], \",\")\ncdata[\"money\"] = tonumber(cdata[\"money\"]) + (money[ppos] or 0) -- Should handle 1,2,3 and 1,2 and 1\nrewards[\"moneyreward\"] = (money[ppos] or 0) -- For UI\nend\n\n-- Reputation Reward\nif edata[\"repreward\"] ~= \"none\" then\nlocal reputation = extensions.blrutils.ssplitnum(edata[\"repreward\"], \",\")\ncdata[\"rep\"] = tonumber(cdata[\"rep\"]) + (reputation[ppos] or 0) -- Should handle 1,2,3 and 1,2 and 1\nrewards[\"repreward\"] = (reputation[ppos] or 0) -- For UI\nend\n\nif ppos == 1 then -- Some rewards only for first position\n\n-- Part reward\nif edata[\"partreward\"] ~= \"none\" then \nlocal parts = extensions.blrutils.ssplit(edata[\"partreward\"], \",\")\nrewards[\"partreward\"] = edata[\"partreward\"] -- For UI\nfor k,v in pairs(parts) do\nidata[v] = tonumber(idata[v] or \"0\") + 1 --Adds all parts to inventory\nend\nextensions.blrutils.updateDataTable(\"beamLR/partInv\", idata)\nend\n\n-- Car reward\nif edata[\"carreward\"] ~= \"none\" then\nlocal cars = extensions.blrutils.ssplit(edata[\"carreward\"], \",\")\nlocal cardata = {}\nlocal cfirst = true\nlocal seedoffset = 0\nrewards[\"carreward\"] = \"\"\nfor k,v in pairs(cars) do\ncardata = extensions.blrutils.loadDataTable(\"beamLR/shop/car/\" .. v)\nif not cfirst then\nrewards[\"carreward\"] = rewards[\"carreward\"] .. \", \"\nend\nrewards[\"carreward\"] = rewards[\"carreward\"] .. cardata[\"name\"] -- Using proper car name for reward display\nextensions.blrutils.addShopCarToGarage(v, tonumber(cdata[\"carCount\"] or \"0\"), seed+seedoffset)\ncdata[\"carCount\"] = tonumber(cdata[\"carCount\"] or \"0\") + 1\ncfirst=false\nseedoffset=seedoffset+1\nend\nend\n\nend\n\n\nextensions.blrutils.updateDataTable(\"beamLR/mainData\", cdata)\nend\n\nself.pinOut.rewards.value = rewards\nself.pinOut.hasRewards.value = hasRewards",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal ppos = self.pinIn.ppos.value\nlocal seed = self.pinIn.seed.value\nlocal efile = self.pinIn.efile.value\n\nlocal rewards = {} -- For UI\nrewards[\"moneyreward\"] = 0\nrewards[\"repreward\"] = 0\nrewards[\"partreward\"] = \"None\"\nrewards[\"carreward\"] = \"None\"\nlocal hasRewards = false -- For UI\n\nif ppos <= 3 then -- No rewards after third position\nhasRewards = true -- For UI\n\nlocal edata = extensions.blrutils.loadEventWithRandoms(efile, seed)\nlocal cdata = extensions.blrutils.loadDataTable(\"beamLR/mainData\")\nlocal idata = extensions.blrutils.loadDataTable(\"beamLR/partInv\")\n\n-- Money reward\nif edata[\"moneyreward\"] ~= \"none\" then\nlocal money = extensions.blrutils.ssplitnum(edata[\"moneyreward\"], \",\")\ncdata[\"money\"] = tonumber(cdata[\"money\"]) + (money[ppos] or 0) -- Should handle 1,2,3 and 1,2 and 1\nrewards[\"moneyreward\"] = (money[ppos] or 0) -- For UI\nend\n\n-- Reputation Reward\nif edata[\"repreward\"] ~= \"none\" then\nlocal reputation = extensions.blrutils.ssplitnum(edata[\"repreward\"], \",\")\ncdata[\"rep\"] = tonumber(cdata[\"rep\"]) + (reputation[ppos] or 0) -- Should handle 1,2,3 and 1,2 and 1\nrewards[\"repreward\"] = (reputation[ppos] or 0) -- For UI\nend\n\nif ppos == 1 then -- Some rewards only for first position\n\n-- Part reward\nif edata[\"partreward\"] ~= \"none\" then \nlocal parts = extensions.blrutils.ssplit(edata[\"partreward\"], \",\")\nrewards[\"partreward\"] = edata[\"partreward\"] -- For UI\nfor k,v in pairs(parts) do\nidata[v] = tonumber(idata[v] or \"0\") + 1 --Adds all parts to inventory\nend\nextensions.blrutils.updateDataTable(\"beamLR/partInv\", idata)\nend\n\n-- Car reward\nif edata[\"carreward\"] ~= \"none\" then\nlocal cars = extensions.blrutils.ssplit(edata[\"carreward\"], \",\")\nlocal cardata = {}\nlocal cfirst = true\nlocal seedoffset = 0\nrewards[\"carreward\"] = \"\"\nfor k,v in pairs(cars) do\ncardata = extensions.blrutils.loadDataTable(\"beamLR/shop/car/\" .. v)\nif not cfirst then\nrewards[\"carreward\"] = rewards[\"carreward\"] .. \", \"\nend\nrewards[\"carreward\"] = rewards[\"carreward\"] .. cardata[\"name\"] -- Using proper car name for reward display\nextensions.blrutils.addShopCarToGarage(v, tonumber(cdata[\"carCount\"] or \"0\"), seed+seedoffset)\ncdata[\"carCount\"] = tonumber(cdata[\"carCount\"] or \"0\") + 1\ncfirst=false\nseedoffset=seedoffset+1\nend\nend\n\nend\n\n\nextensions.blrutils.updateDataTable(\"beamLR/mainData\", cdata)\nend\n\nself.pinOut.rewards.value = rewards\nself.pinOut.hasRewards.value = hasRewards"
           },
           "data":{},
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
-              "seed":false,
               "efile":false,
               "flow":false,
-              "ppos":false
+              "ppos":false,
+              "seed":false
             },
             "p_out":{
               "flow":false,
@@ -6256,10 +6257,10 @@
         },
         "80":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal dtable = extensions.blrutils.loadDataTable(\"beamLR/currentTrackEvent\")\ndtable[\"status\"] = \"over\"\nextensions.blrutils.updateDataTable(\"beamLR/currentTrackEvent\", dtable)\nextensions.blrglobals.blrFlagSet(\"re_reloadEventData\", true)",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal dtable = extensions.blrutils.loadDataTable(\"beamLR/currentTrackEvent\")\ndtable[\"status\"] = \"over\"\nextensions.blrutils.updateDataTable(\"beamLR/currentTrackEvent\", dtable)\nextensions.blrglobals.blrFlagSet(\"re_reloadEventData\", true)"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -6298,10 +6299,10 @@
         },
         "81":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nself.pinOut.flag.value = extensions.blrglobals.blrFlagGet(self.pinIn.name.value)\n",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nself.pinOut.flag.value = extensions.blrglobals.blrFlagGet(self.pinIn.name.value)\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -6397,10 +6398,10 @@
           },
           "hiddenPins":{
             "p_in":{
-              "varName":true,
               "flow":false,
               "suffix":true,
-              "val":false
+              "val":false,
+              "varName":true
             },
             "p_out":{
               "flow":false
@@ -6414,10 +6415,10 @@
         },
         "84":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(self.pinIn.name.value, self.pinIn.flag.value)\n",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(self.pinIn.name.value, self.pinIn.flag.value)\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -6500,10 +6501,10 @@
         },
         "86":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal im = ui_imgui\nlocal enabled = self.pinIn.enabled.value and (extensions.blrglobals.blrFlagGet(\"imToggle\") or self.pinIn.ignoreToggle.value)\nlocal avail = im.GetContentRegionAvail()\n-- Confirmable button vars\nlocal confirm = self.pinIn.confirm.value\nlocal cid = self.pinIn.cid.value\nlocal cstate = false\nlocal ccancel = self.pinIn.ccancel.value -- Cancel action linked to a confirmable button to reset confirm state on click\nlocal clink = self.pinIn.clink.value\n-- Mouse states\nlocal down = false\nlocal hold = false\nlocal up = false\n\n-- Button display\nif confirm then\ncstate = extensions.blrutils.getButtonConfirm(cid)\nif cstate then\nim.Button(\"Confirm?\"  ..'##'.. tostring(self.id), im.ImVec2(avail.x, 0))\nelse\nim.Button(tostring(self.pinIn.text.value or \"Button\")  ..'##'.. tostring(self.id), im.ImVec2(avail.x, 0))\nend\nelse\nim.Button(tostring(self.pinIn.text.value or \"Button\")  ..'##'.. tostring(self.id), im.ImVec2(avail.x, 0))\nend\n\n-- Button logic\nif enabled then\nif im.IsItemHovered() then\n\ndown = im.IsMouseClicked(0)\nhold = im.IsMouseDown(0)\nup =   im.IsMouseReleased(0)\nif (down or hold or up) then\nif down then hold = false up = false end\nif hold then down = false up = false end\nif up then down = false hold = false end\nend\n\nif confirm then -- Confirmable button\nif cstate then\nself.pinOut.down.value = down\nself.pinOut.hold.value = hold\nself.pinOut.up.value = up\nif down then \nextensions.blrutils.cycleButtonConfirm(cid) \nif ccancel and clink then -- Confirmable button cancel link where cancel button is also confirmable\nextensions.blrutils.setButtonConfirm(clink, false)\nend\nend\nelse\nif down then \nextensions.blrutils.cycleButtonConfirm(cid) \nend\nend\n\nelse -- Regular button\nself.pinOut.down.value = down\nself.pinOut.hold.value = hold\nself.pinOut.up.value = up\n\nif down and ccancel and clink then -- Confirmable button cancel link\nextensions.blrutils.setButtonConfirm(clink, false)\nend\n\nend\n\nelse -- Button not hovered\nself.pinOut.down.value = false\nself.pinOut.hold.value = false\nself.pinOut.up.value = false\nend\n\nelse -- Button not enabled\nself.pinOut.down.value = false\nself.pinOut.hold.value = false\nself.pinOut.up.value = false\nend",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal im = ui_imgui\nlocal enabled = self.pinIn.enabled.value and (extensions.blrglobals.blrFlagGet(\"imToggle\") or self.pinIn.ignoreToggle.value)\nlocal avail = im.GetContentRegionAvail()\n-- Confirmable button vars\nlocal confirm = self.pinIn.confirm.value\nlocal cid = self.pinIn.cid.value\nlocal cstate = false\nlocal ccancel = self.pinIn.ccancel.value -- Cancel action linked to a confirmable button to reset confirm state on click\nlocal clink = self.pinIn.clink.value\n-- Mouse states\nlocal down = false\nlocal hold = false\nlocal up = false\n\n-- Button display\nif confirm then\ncstate = extensions.blrutils.getButtonConfirm(cid)\nif cstate then\nim.Button(\"Confirm?\"  ..'##'.. tostring(self.id), im.ImVec2(avail.x, 0))\nelse\nim.Button(tostring(self.pinIn.text.value or \"Button\")  ..'##'.. tostring(self.id), im.ImVec2(avail.x, 0))\nend\nelse\nim.Button(tostring(self.pinIn.text.value or \"Button\")  ..'##'.. tostring(self.id), im.ImVec2(avail.x, 0))\nend\n\n-- Button logic\nif enabled then\nif im.IsItemHovered() then\n\ndown = im.IsMouseClicked(0)\nhold = im.IsMouseDown(0)\nup =   im.IsMouseReleased(0)\nif (down or hold or up) then\nif down then hold = false up = false end\nif hold then down = false up = false end\nif up then down = false hold = false end\nend\n\nif confirm then -- Confirmable button\nif cstate then\nself.pinOut.down.value = down\nself.pinOut.hold.value = hold\nself.pinOut.up.value = up\nif down then \nextensions.blrutils.cycleButtonConfirm(cid) \nif ccancel and clink then -- Confirmable button cancel link where cancel button is also confirmable\nextensions.blrutils.setButtonConfirm(clink, false)\nend\nend\nelse\nif down then \nextensions.blrutils.cycleButtonConfirm(cid) \nend\nend\n\nelse -- Regular button\nself.pinOut.down.value = down\nself.pinOut.hold.value = hold\nself.pinOut.up.value = up\n\nif down and ccancel and clink then -- Confirmable button cancel link\nextensions.blrutils.setButtonConfirm(clink, false)\nend\n\nend\n\nelse -- Button not hovered\nself.pinOut.down.value = false\nself.pinOut.hold.value = false\nself.pinOut.up.value = false\nend\n\nelse -- Button not enabled\nself.pinOut.down.value = false\nself.pinOut.hold.value = false\nself.pinOut.up.value = false\nend"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -6545,10 +6546,10 @@
               "text":false
             },
             "p_out":{
-              "up":true,
               "down":false,
               "flow":false,
-              "hold":true
+              "hold":true,
+              "up":true
             }
           },
           "name":"BLR IM Button",
@@ -6648,10 +6649,10 @@
         },
         "87":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal im = ui_imgui\nlocal enabled = self.pinIn.enabled.value and (extensions.blrglobals.blrFlagGet(\"imToggle\") or self.pinIn.ignoreToggle.value)\nlocal avail = im.GetContentRegionAvail()\n-- Confirmable button vars\nlocal confirm = self.pinIn.confirm.value\nlocal cid = self.pinIn.cid.value\nlocal cstate = false\nlocal ccancel = self.pinIn.ccancel.value -- Cancel action linked to a confirmable button to reset confirm state on click\nlocal clink = self.pinIn.clink.value\n-- Mouse states\nlocal down = false\nlocal hold = false\nlocal up = false\n\n-- Button display\nif confirm then\ncstate = extensions.blrutils.getButtonConfirm(cid)\nif cstate then\nim.Button(\"Confirm?\"  ..'##'.. tostring(self.id), im.ImVec2(avail.x, 0))\nelse\nim.Button(tostring(self.pinIn.text.value or \"Button\")  ..'##'.. tostring(self.id), im.ImVec2(avail.x, 0))\nend\nelse\nim.Button(tostring(self.pinIn.text.value or \"Button\")  ..'##'.. tostring(self.id), im.ImVec2(avail.x, 0))\nend\n\n-- Button logic\nif enabled then\nif im.IsItemHovered() then\n\ndown = im.IsMouseClicked(0)\nhold = im.IsMouseDown(0)\nup =   im.IsMouseReleased(0)\nif (down or hold or up) then\nif down then hold = false up = false end\nif hold then down = false up = false end\nif up then down = false hold = false end\nend\n\nif confirm then -- Confirmable button\nif cstate then\nself.pinOut.down.value = down\nself.pinOut.hold.value = hold\nself.pinOut.up.value = up\nif down then \nextensions.blrutils.cycleButtonConfirm(cid) \nif ccancel and clink then -- Confirmable button cancel link where cancel button is also confirmable\nextensions.blrutils.setButtonConfirm(clink, false)\nend\nend\nelse\nif down then \nextensions.blrutils.cycleButtonConfirm(cid) \nend\nend\n\nelse -- Regular button\nself.pinOut.down.value = down\nself.pinOut.hold.value = hold\nself.pinOut.up.value = up\n\nif down and ccancel and clink then -- Confirmable button cancel link\nextensions.blrutils.setButtonConfirm(clink, false)\nend\n\nend\n\nelse -- Button not hovered\nself.pinOut.down.value = false\nself.pinOut.hold.value = false\nself.pinOut.up.value = false\nend\n\nelse -- Button not enabled\nself.pinOut.down.value = false\nself.pinOut.hold.value = false\nself.pinOut.up.value = false\nend",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal im = ui_imgui\nlocal enabled = self.pinIn.enabled.value and (extensions.blrglobals.blrFlagGet(\"imToggle\") or self.pinIn.ignoreToggle.value)\nlocal avail = im.GetContentRegionAvail()\n-- Confirmable button vars\nlocal confirm = self.pinIn.confirm.value\nlocal cid = self.pinIn.cid.value\nlocal cstate = false\nlocal ccancel = self.pinIn.ccancel.value -- Cancel action linked to a confirmable button to reset confirm state on click\nlocal clink = self.pinIn.clink.value\n-- Mouse states\nlocal down = false\nlocal hold = false\nlocal up = false\n\n-- Button display\nif confirm then\ncstate = extensions.blrutils.getButtonConfirm(cid)\nif cstate then\nim.Button(\"Confirm?\"  ..'##'.. tostring(self.id), im.ImVec2(avail.x, 0))\nelse\nim.Button(tostring(self.pinIn.text.value or \"Button\")  ..'##'.. tostring(self.id), im.ImVec2(avail.x, 0))\nend\nelse\nim.Button(tostring(self.pinIn.text.value or \"Button\")  ..'##'.. tostring(self.id), im.ImVec2(avail.x, 0))\nend\n\n-- Button logic\nif enabled then\nif im.IsItemHovered() then\n\ndown = im.IsMouseClicked(0)\nhold = im.IsMouseDown(0)\nup =   im.IsMouseReleased(0)\nif (down or hold or up) then\nif down then hold = false up = false end\nif hold then down = false up = false end\nif up then down = false hold = false end\nend\n\nif confirm then -- Confirmable button\nif cstate then\nself.pinOut.down.value = down\nself.pinOut.hold.value = hold\nself.pinOut.up.value = up\nif down then \nextensions.blrutils.cycleButtonConfirm(cid) \nif ccancel and clink then -- Confirmable button cancel link where cancel button is also confirmable\nextensions.blrutils.setButtonConfirm(clink, false)\nend\nend\nelse\nif down then \nextensions.blrutils.cycleButtonConfirm(cid) \nend\nend\n\nelse -- Regular button\nself.pinOut.down.value = down\nself.pinOut.hold.value = hold\nself.pinOut.up.value = up\n\nif down and ccancel and clink then -- Confirmable button cancel link\nextensions.blrutils.setButtonConfirm(clink, false)\nend\n\nend\n\nelse -- Button not hovered\nself.pinOut.down.value = false\nself.pinOut.hold.value = false\nself.pinOut.up.value = false\nend\n\nelse -- Button not enabled\nself.pinOut.down.value = false\nself.pinOut.hold.value = false\nself.pinOut.up.value = false\nend"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -6689,10 +6690,10 @@
               "text":false
             },
             "p_out":{
-              "up":true,
               "down":false,
               "flow":false,
-              "hold":true
+              "hold":true,
+              "up":true
             }
           },
           "name":"BLR IM Button",
@@ -6805,10 +6806,10 @@
               "text":false
             },
             "p_out":{
-              "up":true,
               "down":false,
               "flow":false,
-              "hold":true
+              "hold":true,
+              "up":true
             }
           },
           "pos":[
@@ -6819,10 +6820,10 @@
         },
         "89":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal uileaderboard = self.pinIn.uileaderboard.value\nlocal uidata = extensions.blrRaceManager.getUIData()\nextensions.customGuiStream.toggleTrackEventUI(true)\nextensions.customGuiStream.sendLeaderboard(uileaderboard)\nextensions.customGuiStream.sendEventData(uidata)",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal uileaderboard = self.pinIn.uileaderboard.value\nlocal uidata = extensions.blrRaceManager.getUIData()\nextensions.customGuiStream.toggleTrackEventUI(true)\nextensions.customGuiStream.sendLeaderboard(uileaderboard)\nextensions.customGuiStream.sendEventData(uidata)"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -6869,10 +6870,10 @@
         },
         "90":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nself.pinOut.flag.value = extensions.blrglobals.blrFlagGet(self.pinIn.name.value)\n",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nself.pinOut.flag.value = extensions.blrglobals.blrFlagGet(self.pinIn.name.value)\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -6981,10 +6982,10 @@
         },
         "93":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(self.pinIn.name.value, self.pinIn.flag.value)\n",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(self.pinIn.name.value, self.pinIn.flag.value)\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -7049,10 +7050,10 @@
         },
         "94":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal dtable = extensions.blrutils.loadDataTable(\"beamLR/currentTrackEvent\")\nlocal seed = tonumber(dtable[\"seed\"])\nlocal efile = dtable[\"efile\"]\nlocal etable = extensions.blrutils.loadEventWithRandoms(efile, tonumber(seed))\nlocal cmap = extensions.blrutils.getLevelName()\nlocal tmap = etable[\"map\"]\nlocal status = dtable[\"status\"]\nlocal cround = tonumber(dtable[\"cround\"])\nlocal leaderboard = extensions.blrutils.ssplit(dtable[\"ctimes\"], \",\")\nlocal carid = tonumber(dtable[\"carid\"])\n\nlocal opcount = tonumber(etable[\"opcount\"])\nlocal pname = extensions.blrutils.loadDataTable(\"beamLR/playerName\")[\"playerName\"]\n\nlocal pentrigs = {}\nif etable[\"pentrigs\"] ~= \"none\" then\npentrigs = extensions.blrutils.ssplit(etable[\"pentrigs\"], \",\")\nextensions.blrRaceManager.setPenaltyTriggers(pentrigs)\nend\n\n\nlocal pitlane = etable[\"pitlane\"] == \"true\"\nlocal pittrigs = {}\nlocal pitpos = {}\nlocal pitrot = {}\nlocal cpos = 0\nlocal etime = tonumber(etable[\"timeofday\"])\n\nif pitlane then\npittrigs = extensions.blrutils.ssplit(etable[\"pittrigs\"], \",\")\npitpos = extensions.blrutils.ssplitnum(etable[\"pitpos\"], \",\")\npitrot = extensions.blrutils.ssplitnum(etable[\"pitrot\"], \",\")\nextensions.blrRaceManager.setPitData(pitlane, pittrigs, pitpos, pitrot)\nend\n\n\n\nlocal uidata = {}\nuidata[\"title\"] = etable[\"title\"]\nuidata[\"rounds\"] = etable[\"rounds\"]\nuidata[\"cround\"] = cround\nuidata[\"status\"] = status\nuidata[\"moneyreward\"] = etable[\"moneyreward\"]\nuidata[\"repreward\"] = etable[\"repreward\"]\nuidata[\"partreward\"] = etable[\"partreward\"]\nif etable[\"carreward\"] ~= \"none\" then\nlocal csplit = extensions.blrutils.ssplit(etable[\"carreward\"], \",\")\nlocal ctable = {}\nlocal cfirst = true\nuidata[\"carreward\"] = \"\"\nfor k,v in pairs(csplit) do\nctable = extensions.blrutils.loadDataTable(\"beamLR/shop/car/\" .. v)\nif not cfirst then \nuidata[\"carreward\"] = uidata[\"carreward\"] .. \", \"\nend\nuidata[\"carreward\"] = uidata[\"carreward\"] .. ctable[\"name\"]\ncfirst = false\nend\n\nelse\nuidata[\"carreward\"] = \"none\"\nend\n\n\n\nextensions.customGuiStream.sendEventData(uidata)\n\nextensions.blrRaceManager.resetNameTable()\nextensions.blrRaceManager.generateNameTable(seed, opcount+1)\nextensions.blrRaceManager.setPlayerName(pname)\nextensions.blrRaceManager.setUIData(uidata) -- Still needed for first click on leaderboard button, UI isn't ready to receive yet?\n\nlocal ctimesplit = \"\"\nlocal ctime = 0\nlocal ctimeID = 0\nlocal totaltimes = {}\nlocal sortedtimes = {}\nlocal sti = 2\nlocal uileaderboard = {}\nuileaderboard[\"name\"] = {}\nuileaderboard[\"time\"] = {}\n\nif cround == 0 then -- Resets player position display for new event\nextensions.blrRaceManager.setPlayerPosition(0)\nelse -- Load existing leaderboard\n-- Start with player\nctimesplit = extensions.blrutils.ssplit(leaderboard[1], \":\")\nctime = tonumber(ctimesplit[2])\ntotaltimes[1] = (ctime)\nsortedtimes[1] = (ctime)\n\n-- Now deal with AIs\nfor k,v in pairs(leaderboard) do\nctimesplit = extensions.blrutils.ssplit(v, \":\") -- split format op1:323123,op2:23142,...\nif ctimesplit[1] ~= \"player\" then -- Avoid player\nctimeID = tonumber(string.sub(ctimesplit[1], 3))\nctime = tonumber(ctimesplit[2])\ntotaltimes[ctimeID + 1] = (ctime)\nsortedtimes[sti] = (ctime)\nsti=sti+1\nend\nend\n\n-- Calculate positions\ntable.sort(sortedtimes) -- Begin by creating sorted table, times will be in order\nfor k,v in pairs(totaltimes) do -- Loop over RACERID key, TOTALTIME val table \nfor i=1,#sortedtimes do -- Find position in sorted array for current time\nif v == sortedtimes[i] then -- Found racer time\nuileaderboard[\"name\"][i] = extensions.blrRaceManager.getRacerName(k)\nuileaderboard[\"time\"][i] = extensions.blrRaceManager.raceTimeString(extensions.blrRaceManager.msTimeFormat(v))\nif k == 1 then -- Found player position\ncpos = i -- Set cpos value for flowgraph\nend\nend\nend\nend\nend\n\nextensions.customGuiStream.sendLeaderboard(uileaderboard)\n\nlocal desc = etable[\"title\"] .. \"\\n\\n\"\ndesc = desc .. \"Status: \" .. status .. \"\\n\"\nif cpos ~= 0 then\ndesc = desc .. \"Position: \" .. cpos .. \"\\n\"\nend\ndesc = desc .. \"Completed \" .. cround .. \"/\" .. etable[\"rounds\"] .. \" rounds\\n\"\nlocal btntxt = \"\"\nif status == \"joined\" then\nbtntxt = \"Begin Event\"\nelseif status == \"started\" then\nbtntxt = \"Begin Next Round\"\nelseif status == \"finished\" then\nbtntxt = \"Claim Rewards\"\nend\n\nif tmap ~= cmap or status == \"over\" then\ndesc = \"No ongoing event on this map!\"\nend\n\nself.pinOut.efile.value = efile\nself.pinOut.status.value = status\nself.pinOut.cround.value = cround\nself.pinOut.leaderboard.value = uileaderboard\nself.pinOut.carid.value = carid\nself.pinOut.seed.value = seed\nself.pinOut.desc.value = desc\nself.pinOut.btntxt.value = btntxt\nself.pinOut.hasEvent.value = cmap == tmap and status ~= \"over\"\nself.pinOut.leadbtn.value = status ~= \"finished\"\nself.pinOut.quitbtn.value = status ~= \"finished\"\nself.pinOut.tunebtn.value = status ~= \"finished\" and status ~= \"over\"\nself.pinOut.ppos.value = cpos\nself.pinOut.etime.value = etime",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal dtable = extensions.blrutils.loadDataTable(\"beamLR/currentTrackEvent\")\nlocal seed = tonumber(dtable[\"seed\"])\nlocal efile = dtable[\"efile\"]\nlocal etable = extensions.blrutils.loadEventWithRandoms(efile, tonumber(seed))\nlocal cmap = extensions.blrutils.getLevelName()\nlocal tmap = etable[\"map\"]\nlocal status = dtable[\"status\"]\nlocal cround = tonumber(dtable[\"cround\"])\nlocal leaderboard = extensions.blrutils.ssplit(dtable[\"ctimes\"], \",\")\nlocal carid = tonumber(dtable[\"carid\"])\n\nlocal opcount = tonumber(etable[\"opcount\"])\nlocal pname = extensions.blrutils.loadDataTable(\"beamLR/options\")[\"playername\"]\n\nlocal pentrigs = {}\nif etable[\"pentrigs\"] ~= \"none\" then\npentrigs = extensions.blrutils.ssplit(etable[\"pentrigs\"], \",\")\nextensions.blrRaceManager.setPenaltyTriggers(pentrigs)\nend\n\n\nlocal pitlane = etable[\"pitlane\"] == \"true\"\nlocal pittrigs = {}\nlocal pitpos = {}\nlocal pitrot = {}\nlocal cpos = 0\nlocal etime = tonumber(etable[\"timeofday\"])\n\nif pitlane then\npittrigs = extensions.blrutils.ssplit(etable[\"pittrigs\"], \",\")\npitpos = extensions.blrutils.ssplitnum(etable[\"pitpos\"], \",\")\npitrot = extensions.blrutils.ssplitnum(etable[\"pitrot\"], \",\")\nextensions.blrRaceManager.setPitData(pitlane, pittrigs, pitpos, pitrot)\nend\n\n\n\nlocal uidata = {}\nuidata[\"title\"] = etable[\"title\"]\nuidata[\"rounds\"] = etable[\"rounds\"]\nuidata[\"cround\"] = cround\nuidata[\"status\"] = status\nuidata[\"moneyreward\"] = etable[\"moneyreward\"]\nuidata[\"repreward\"] = etable[\"repreward\"]\nuidata[\"partreward\"] = etable[\"partreward\"]\nif etable[\"carreward\"] ~= \"none\" then\nlocal csplit = extensions.blrutils.ssplit(etable[\"carreward\"], \",\")\nlocal ctable = {}\nlocal cfirst = true\nuidata[\"carreward\"] = \"\"\nfor k,v in pairs(csplit) do\nctable = extensions.blrutils.loadDataTable(\"beamLR/shop/car/\" .. v)\nif not cfirst then \nuidata[\"carreward\"] = uidata[\"carreward\"] .. \", \"\nend\nuidata[\"carreward\"] = uidata[\"carreward\"] .. ctable[\"name\"]\ncfirst = false\nend\n\nelse\nuidata[\"carreward\"] = \"none\"\nend\n\n\n\nextensions.customGuiStream.sendEventData(uidata)\n\nextensions.blrRaceManager.resetNameTable()\nextensions.blrRaceManager.generateNameTable(seed, opcount+1)\nextensions.blrRaceManager.setPlayerName(pname)\nextensions.blrRaceManager.setUIData(uidata) -- Still needed for first click on leaderboard button, UI isn't ready to receive yet?\n\nlocal ctimesplit = \"\"\nlocal ctime = 0\nlocal ctimeID = 0\nlocal totaltimes = {}\nlocal sortedtimes = {}\nlocal sti = 2\nlocal uileaderboard = {}\nuileaderboard[\"name\"] = {}\nuileaderboard[\"time\"] = {}\n\nif cround == 0 then -- Resets player position display for new event\nextensions.blrRaceManager.setPlayerPosition(0)\nelse -- Load existing leaderboard\n-- Start with player\nctimesplit = extensions.blrutils.ssplit(leaderboard[1], \":\")\nctime = tonumber(ctimesplit[2])\ntotaltimes[1] = (ctime)\nsortedtimes[1] = (ctime)\n\n-- Now deal with AIs\nfor k,v in pairs(leaderboard) do\nctimesplit = extensions.blrutils.ssplit(v, \":\") -- split format op1:323123,op2:23142,...\nif ctimesplit[1] ~= \"player\" then -- Avoid player\nctimeID = tonumber(string.sub(ctimesplit[1], 3))\nctime = tonumber(ctimesplit[2])\ntotaltimes[ctimeID + 1] = (ctime)\nsortedtimes[sti] = (ctime)\nsti=sti+1\nend\nend\n\n-- Calculate positions\ntable.sort(sortedtimes) -- Begin by creating sorted table, times will be in order\nfor k,v in pairs(totaltimes) do -- Loop over RACERID key, TOTALTIME val table \nfor i=1,#sortedtimes do -- Find position in sorted array for current time\nif v == sortedtimes[i] then -- Found racer time\nuileaderboard[\"name\"][i] = extensions.blrRaceManager.getRacerName(k)\nuileaderboard[\"time\"][i] = extensions.blrRaceManager.raceTimeString(extensions.blrRaceManager.msTimeFormat(v))\nif k == 1 then -- Found player position\ncpos = i -- Set cpos value for flowgraph\nend\nend\nend\nend\nend\n\nextensions.customGuiStream.sendLeaderboard(uileaderboard)\n\nlocal desc = etable[\"title\"] .. \"\\n\\n\"\ndesc = desc .. \"Status: \" .. status .. \"\\n\"\nif cpos ~= 0 then\ndesc = desc .. \"Position: \" .. cpos .. \"\\n\"\nend\ndesc = desc .. \"Completed \" .. cround .. \"/\" .. etable[\"rounds\"] .. \" rounds\\n\"\nlocal btntxt = \"\"\nif status == \"joined\" then\nbtntxt = \"Begin Event\"\nelseif status == \"started\" then\nbtntxt = \"Begin Next Round\"\nelseif status == \"finished\" then\nbtntxt = \"Claim Rewards\"\nend\n\nif tmap ~= cmap or status == \"over\" then\ndesc = \"No ongoing event on this map!\"\nend\n\nself.pinOut.efile.value = efile\nself.pinOut.status.value = status\nself.pinOut.cround.value = cround\nself.pinOut.leaderboard.value = uileaderboard\nself.pinOut.carid.value = carid\nself.pinOut.seed.value = seed\nself.pinOut.desc.value = desc\nself.pinOut.btntxt.value = btntxt\nself.pinOut.hasEvent.value = cmap == tmap and status ~= \"over\"\nself.pinOut.leadbtn.value = status ~= \"finished\"\nself.pinOut.quitbtn.value = status ~= \"finished\"\nself.pinOut.tunebtn.value = status ~= \"finished\" and status ~= \"over\"\nself.pinOut.ppos.value = cpos\nself.pinOut.etime.value = etime"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -7203,10 +7204,10 @@
         },
         "95":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nself.pinOut.val.value = extensions.blrutils.blrvarGet(self.pinIn.var.value)",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nself.pinOut.val.value = extensions.blrutils.blrvarGet(self.pinIn.var.value)"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -7267,10 +7268,10 @@
         },
         "96":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nself.pinOut.flag.value = extensions.blrglobals.blrFlagGet(self.pinIn.name.value)\n",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nself.pinOut.flag.value = extensions.blrglobals.blrFlagGet(self.pinIn.name.value)\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -7475,10 +7476,10 @@
         },
         "101":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal seed = self.pinIn.seed.value\nlocal dtable = extensions.blrutils.loadDataTable(\"beamLR/currentTrackEvent\")\nlocal etable = extensions.blrutils.loadEventWithRandoms(dtable[\"efile\"], seed)\nlocal ntable = {}\nlocal round = self.pinIn.round.value\nlocal leaderboard = self.pinIn.leaderboard.value\nlocal times = self.pinIn.times.value\nlocal idtable = extensions.blrRaceManager.getIDtable()\nlocal pid = self.pinIn.pid.value\nlocal ctimes = extensions.blrutils.ssplit(dtable[\"ctimes\"], \",\")\nlocal rseed = 0\n\nlocal uidata = {} -- UI leaderboard with name and time, KEY is POSITION for both tables\nuidata[\"name\"] = {}\nuidata[\"time\"] = {}\n\nlocal totaltimes = {}\nlocal sortedtimes = {}\nlocal positions = {}\nlocal ppos = -1\nlocal sti = 2 --Start at 2 for AI loop, player uses 1\n\nlocal finaltimes = {}\nlocal worsttime = 0\nlocal worstfinal = 0\n\n--Find worst time\nfor k,v in pairs(times) do -- VEHID IS KEY, TIME IS VAL\nif v > worsttime then\nworsttime = v\nend\nend\nif worsttime == 0 then -- No one finished, use a base worst time of 1 hour\nworsttime = 3600000\nend\n\n\n--Deal with opponent times\nfinaltimes[1] = 0 -- Need to init player time to avoid nil error during worst time update\nfor k,v in pairs(idtable) do -- VEHID IS KEY, RACERID IS VAL\nif not times[k] and v ~= 1 then -- Detect DNF racer that's not player\nmath.randomseed(seed + (round * 100) + v) -- Offset by 100 each round gives random times for up to 100 racer each round, plenty\nfinaltimes[v] = worsttime + math.random(1000, 60000) -- Add from 1 to 60 seconds to randomize DNF times\nelseif v ~= 1 then -- Racer had finished, use actual time\nfinaltimes[v] = times[k]\nend\nif finaltimes[v] > worstfinal then -- Detects new worst time\nworstfinal = finaltimes[v] -- In case player has DNF to give even worse time than worst AI\nend\nend\n\n-- Deal with player time\nif not times[pid] then\nfinaltimes[1] = worstfinal * 2 -- Player DNF, use worst opponent time * 2\nelse\nfinaltimes[1] = times[pid] -- Player finished, use actual time\nend\n\n\n-- Build updated ctime field for event progress\nlocal ctimestring = \"\"\nlocal ctimesplit = \"\"\nlocal ctimeID = 0\nlocal ctime = 0\n\n-- Start with player\nctimesplit = extensions.blrutils.ssplit(ctimes[1], \":\")\nctime = tonumber(ctimesplit[2])\nctimestring = \"player:\" .. (ctime + finaltimes[1])\ntotaltimes[1] = (ctime + finaltimes[1])\nsortedtimes[1] = (ctime + finaltimes[1])\n\n-- Now deal with AIs\nfor k,v in pairs(ctimes) do\nctimesplit = extensions.blrutils.ssplit(v, \":\") -- split format op1:323123,op2:23142,...\nif ctimesplit[1] ~= \"player\" then -- Avoid player\nctimeID = tonumber(string.sub(ctimesplit[1], 3))\nctime = tonumber(ctimesplit[2])\nctimestring = ctimestring .. \",op\" .. ctimeID .. \":\" .. (ctime + finaltimes[ctimeID + 1]) -- Increment by 1 to find correct time for AI racer\ntotaltimes[ctimeID + 1] = (ctime + finaltimes[ctimeID + 1])\nsortedtimes[sti] = (ctime + finaltimes[ctimeID + 1])\nsti=sti+1\nend\nend\n\n-- Perform current event file updates\nntable[\"ctimes\"] = ctimestring\nntable[\"cround\"] = math.min(round + 1, tonumber(etable[\"rounds\"]))\n\nif round + 1 >= tonumber(etable[\"rounds\"]) then\nntable[\"status\"] = \"finished\"\nelse\nntable[\"status\"] = \"started\"\nend\n\nextensions.blrutils.updateDataTable(\"beamLR/currentTrackEvent\", ntable)\n\n-- Calculate positions\ntable.sort(sortedtimes) -- Begin by creating sorted table, times will be in order\nfor k,v in pairs(totaltimes) do -- Loop over RACERID key, TOTALTIME val table \nfor i=1,#sortedtimes do -- Find position in sorted array for current time\nif v == sortedtimes[i] then -- Found racer time\npositions[k] = i -- Fill position table, RACERID key, POSITION val\nuidata[\"name\"][i] = extensions.blrRaceManager.getRacerName(k)\nuidata[\"time\"][i] = extensions.blrRaceManager.raceTimeString(extensions.blrRaceManager.msTimeFormat(v))\nif k == 1 then -- Found player position\nppos = i -- Set ppos value for flowgraph\nend\nend\nend\nend\n\nextensions.blrRaceManager.setPlayerPosition(ppos)\nextensions.customGuiStream.sendLeaderboard(uidata)\n\nself.pinOut.positions.value = positions\nself.pinOut.ppos.value = ppos",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal seed = self.pinIn.seed.value\nlocal dtable = extensions.blrutils.loadDataTable(\"beamLR/currentTrackEvent\")\nlocal etable = extensions.blrutils.loadEventWithRandoms(dtable[\"efile\"], seed)\nlocal ntable = {}\nlocal round = self.pinIn.round.value\nlocal leaderboard = self.pinIn.leaderboard.value\nlocal times = self.pinIn.times.value\nlocal idtable = extensions.blrRaceManager.getIDtable()\nlocal pid = self.pinIn.pid.value\nlocal ctimes = extensions.blrutils.ssplit(dtable[\"ctimes\"], \",\")\nlocal rseed = 0\n\nlocal uidata = {} -- UI leaderboard with name and time, KEY is POSITION for both tables\nuidata[\"name\"] = {}\nuidata[\"time\"] = {}\n\nlocal totaltimes = {}\nlocal sortedtimes = {}\nlocal positions = {}\nlocal ppos = -1\nlocal sti = 2 --Start at 2 for AI loop, player uses 1\n\nlocal finaltimes = {}\nlocal worsttime = 0\nlocal worstfinal = 0\n\n--Find worst time\nfor k,v in pairs(times) do -- VEHID IS KEY, TIME IS VAL\nif v > worsttime then\nworsttime = v\nend\nend\nif worsttime == 0 then -- No one finished, use a base worst time of 1 hour\nworsttime = 3600000\nend\n\n\n--Deal with opponent times\nfinaltimes[1] = 0 -- Need to init player time to avoid nil error during worst time update\nfor k,v in pairs(idtable) do -- VEHID IS KEY, RACERID IS VAL\nif not times[k] and v ~= 1 then -- Detect DNF racer that's not player\nmath.randomseed(seed + (round * 100) + v) -- Offset by 100 each round gives random times for up to 100 racer each round, plenty\nfinaltimes[v] = worsttime + math.random(1000, 60000) -- Add from 1 to 60 seconds to randomize DNF times\nelseif v ~= 1 then -- Racer had finished, use actual time\nfinaltimes[v] = times[k]\nend\nif finaltimes[v] > worstfinal then -- Detects new worst time\nworstfinal = finaltimes[v] -- In case player has DNF to give even worse time than worst AI\nend\nend\n\n-- Deal with player time\nif not times[pid] then\nfinaltimes[1] = worstfinal * 2 -- Player DNF, use worst opponent time * 2\nelse\nfinaltimes[1] = times[pid] -- Player finished, use actual time\nend\n\n\n-- Build updated ctime field for event progress\nlocal ctimestring = \"\"\nlocal ctimesplit = \"\"\nlocal ctimeID = 0\nlocal ctime = 0\n\n-- Start with player\nctimesplit = extensions.blrutils.ssplit(ctimes[1], \":\")\nctime = tonumber(ctimesplit[2])\nctimestring = \"player:\" .. (ctime + finaltimes[1])\ntotaltimes[1] = (ctime + finaltimes[1])\nsortedtimes[1] = (ctime + finaltimes[1])\n\n-- Now deal with AIs\nfor k,v in pairs(ctimes) do\nctimesplit = extensions.blrutils.ssplit(v, \":\") -- split format op1:323123,op2:23142,...\nif ctimesplit[1] ~= \"player\" then -- Avoid player\nctimeID = tonumber(string.sub(ctimesplit[1], 3))\nctime = tonumber(ctimesplit[2])\nctimestring = ctimestring .. \",op\" .. ctimeID .. \":\" .. (ctime + finaltimes[ctimeID + 1]) -- Increment by 1 to find correct time for AI racer\ntotaltimes[ctimeID + 1] = (ctime + finaltimes[ctimeID + 1])\nsortedtimes[sti] = (ctime + finaltimes[ctimeID + 1])\nsti=sti+1\nend\nend\n\n-- Perform current event file updates\nntable[\"ctimes\"] = ctimestring\nntable[\"cround\"] = math.min(round + 1, tonumber(etable[\"rounds\"]))\n\nif round + 1 >= tonumber(etable[\"rounds\"]) then\nntable[\"status\"] = \"finished\"\nelse\nntable[\"status\"] = \"started\"\nend\n\nextensions.blrutils.updateDataTable(\"beamLR/currentTrackEvent\", ntable)\n\n-- Calculate positions\ntable.sort(sortedtimes) -- Begin by creating sorted table, times will be in order\nfor k,v in pairs(totaltimes) do -- Loop over RACERID key, TOTALTIME val table \nfor i=1,#sortedtimes do -- Find position in sorted array for current time\nif v == sortedtimes[i] then -- Found racer time\npositions[k] = i -- Fill position table, RACERID key, POSITION val\nuidata[\"name\"][i] = extensions.blrRaceManager.getRacerName(k)\nuidata[\"time\"][i] = extensions.blrRaceManager.raceTimeString(extensions.blrRaceManager.msTimeFormat(v))\nif k == 1 then -- Found player position\nppos = i -- Set ppos value for flowgraph\nend\nend\nend\nend\n\nextensions.blrRaceManager.setPlayerPosition(ppos)\nextensions.customGuiStream.sendLeaderboard(uidata)\n\nself.pinOut.positions.value = positions\nself.pinOut.ppos.value = ppos"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -7573,10 +7574,10 @@
         },
         "102":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nextensions.blrRaceManager.setRacerID(self.pinIn.veid.value, 1)",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrRaceManager.setRacerID(self.pinIn.veid.value, 1)"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -7623,10 +7624,10 @@
         },
         "103":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal pdata = extensions.blrRaceManager.getPitMarkerData()\nself.pinOut.pos.value = pdata[\"pos\"]\nself.pinOut.rot.value = pdata[\"rot\"]",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal pdata = extensions.blrRaceManager.getPitMarkerData()\nself.pinOut.pos.value = pdata[\"pos\"]\nself.pinOut.rot.value = pdata[\"rot\"]"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -7734,10 +7735,10 @@
         },
         "106":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal vdata = extensions.blrutils.getVehicleData()\nlocal limit = self.pinIn.spdlimit.value\nlocal racer = self.pinIn.veid.value\nif vdata[\"velocity\"] >= limit then\nextensions.blrRaceManager.onPitOverspeed(racer)\nend",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal vdata = extensions.blrutils.getVehicleData()\nlocal limit = self.pinIn.spdlimit.value\nlocal racer = self.pinIn.veid.value\nif vdata[\"velocity\"] >= limit then\nextensions.blrRaceManager.onPitOverspeed(racer)\nend"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -8023,10 +8024,10 @@
         },
         "111":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nself.pinOut.flag.value = extensions.blrglobals.blrFlagGet(self.pinIn.name.value)\n",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nself.pinOut.flag.value = extensions.blrglobals.blrFlagGet(self.pinIn.name.value)\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -8151,10 +8152,10 @@
         },
         "115":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal model = self.pinIn.model.value\nlocal config = self.pinIn.config.value\nlocal pos = vec3(self.pinIn.pos.value)\nlocal rot = quat(self.pinIn.rot.value)\nlocal paintdata = self.pinIn.paintdata.value\nlocal paintA = extensions.blrutils.createPaint(extensions.blrutils.ssplit(paintdata[\"paintA\"], \",\"))\nif paintdata[\"paintB\"] then\nlocal paintB = extensions.blrutils.createPaint(extensions.blrutils.ssplit(paintdata[\"paintB\"], \",\"))\nend\nif paintdata[\"paintC\"] then\nlocal paintC = extensions.blrutils.createPaint(extensions.blrutils.ssplit(paintdata[\"paintC\"], \",\"))\nend\nlocal spawnOptions = {config = config, pos = pos, rot = rot, paint=paintA, paint2 = paintB, paint3=paintC}\nlocal veh = extensions.core_vehicles.spawnNewVehicle(model, spawnOptions)\nself.pinOut.veid.value = veh:getId()\n",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal model = self.pinIn.model.value\nlocal config = self.pinIn.config.value\nlocal pos = vec3(self.pinIn.pos.value)\nlocal rot = quat(self.pinIn.rot.value)\nlocal paintdata = self.pinIn.paintdata.value\nlocal paintA = extensions.blrutils.createPaint(extensions.blrutils.ssplit(paintdata[\"paintA\"], \",\"))\nif paintdata[\"paintB\"] then\nlocal paintB = extensions.blrutils.createPaint(extensions.blrutils.ssplit(paintdata[\"paintB\"], \",\"))\nend\nif paintdata[\"paintC\"] then\nlocal paintC = extensions.blrutils.createPaint(extensions.blrutils.ssplit(paintdata[\"paintC\"], \",\"))\nend\nlocal spawnOptions = {config = config, pos = pos, rot = rot, paint=paintA, paint2 = paintB, paint3=paintC}\nlocal veh = extensions.core_vehicles.spawnNewVehicle(model, spawnOptions)\nself.pinOut.veid.value = veh:getId()\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -8296,10 +8297,10 @@
         },
         "118":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nself.pinOut.flag.value = extensions.blrglobals.blrFlagGet(self.pinIn.name.value)\n",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nself.pinOut.flag.value = extensions.blrglobals.blrFlagGet(self.pinIn.name.value)\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -8494,10 +8495,10 @@
         },
         "125":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nextensions.customGuiStream.sendRewards(self.pinIn.rewards.value)\nextensions.customGuiStream.toggleTrackEventUI(true)",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.customGuiStream.sendRewards(self.pinIn.rewards.value)\nextensions.customGuiStream.toggleTrackEventUI(true)"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -8564,10 +8565,10 @@
         },
         "127":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal veid = self.pinIn.veid.value\nlocal file = self.pinIn.file.value\nextensions.mechDamageLoader.loadIntegrityFromFile(file,veid)",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal veid = self.pinIn.veid.value\nlocal file = self.pinIn.file.value\nextensions.mechDamageLoader.loadIntegrityFromFile(file,veid)"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -8622,10 +8623,10 @@
         },
         "128":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal veid = self.pinIn.veid.value\nlocal gid = self.pinIn.gid.value\nextensions.blrutils.garagePaintReload(veid, gid)",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal veid = self.pinIn.veid.value\nlocal gid = self.pinIn.gid.value\nextensions.blrutils.garagePaintReload(veid, gid)"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -8698,10 +8699,10 @@
         },
         "130":{
           "code":{
-            "work":"local veid = self.pinIn.veid.value\nlocal cost = self.pinIn.cost.value\nlocal mass = self.pinIn.mass.value\nlocal cap = self.pinIn.cap.value\nlocal fillval = cap - mass\nlocal paid = 0\nlocal ve = scenetree.findObjectById(veid)\nif ve ~= nil then\nve:queueLuaCommand(\"energyStorage.getStorage('mainBottle'):setRemainingMass(\" .. cap .. \")\")\npaid = fillval * cost\nend\n\nself.pinOut.paid.value = paid\n",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local veid = self.pinIn.veid.value\nlocal cost = self.pinIn.cost.value\nlocal mass = self.pinIn.mass.value\nlocal cap = self.pinIn.cap.value\nlocal fillval = cap - mass\nlocal paid = 0\nlocal ve = scenetree.findObjectById(veid)\nif ve ~= nil then\nve:queueLuaCommand(\"energyStorage.getStorage('mainBottle'):setRemainingMass(\" .. cap .. \")\")\npaid = fillval * cost\nend\n\nself.pinOut.paid.value = paid\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -8786,10 +8787,10 @@
         },
         "131":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(self.pinIn.name.value, self.pinIn.flag.value)\n",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(self.pinIn.name.value, self.pinIn.flag.value)\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -8956,10 +8957,10 @@
         },
         "134":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(self.pinIn.name.value, self.pinIn.flag.value)\n",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(self.pinIn.name.value, self.pinIn.flag.value)\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -9024,10 +9025,10 @@
         },
         "135":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal list = {}\nlist = extensions.betterpartmgmt.getTuningUIData(true)\nextensions.customGuiStream.sendTrackTuningData(list)\nlist = extensions.betterpartmgmt.getTuningUIValues()\nextensions.customGuiStream.sendTrackTuningValues(list)\nlocal categories = extensions.betterpartmgmt.getSortedTuningCategories(true)\nextensions.customGuiStream.sendTrackTuningCategories(categories)\nlocal fields = extensions.betterpartmgmt.getSortedTuningFields(true)\nextensions.customGuiStream.sendTrackTuningFields(fields)\n\n\nextensions.customGuiStream.toggleTrackTuningUI(true)\n",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal list = {}\nlist = extensions.betterpartmgmt.getTuningUIData(true)\nextensions.customGuiStream.sendTrackTuningData(list)\nlist = extensions.betterpartmgmt.getTuningUIValues()\nextensions.customGuiStream.sendTrackTuningValues(list)\nlocal categories = extensions.betterpartmgmt.getSortedTuningCategories(true)\nextensions.customGuiStream.sendTrackTuningCategories(categories)\nlocal fields = extensions.betterpartmgmt.getSortedTuningFields(true)\nextensions.customGuiStream.sendTrackTuningFields(fields)\n\n\nextensions.customGuiStream.toggleTrackTuningUI(true)\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -9099,10 +9100,10 @@
               "text":false
             },
             "p_out":{
-              "up":true,
               "down":false,
               "flow":false,
-              "hold":true
+              "hold":true,
+              "up":true
             }
           },
           "pos":[
@@ -9165,10 +9166,10 @@
         },
         "139":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nself.pinOut.flag.value = extensions.blrglobals.blrFlagGet(self.pinIn.name.value)\n",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nself.pinOut.flag.value = extensions.blrglobals.blrFlagGet(self.pinIn.name.value)\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -9508,10 +9509,10 @@
         },
         "145":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal veid = self.pinIn.veid.value\nlocal file = self.pinIn.file.value\nextensions.mechDamageLoader.loadIntegrityFromFile(file,veid)",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal veid = self.pinIn.veid.value\nlocal file = self.pinIn.file.value\nextensions.mechDamageLoader.loadIntegrityFromFile(file,veid)"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -9566,10 +9567,10 @@
         },
         "146":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nextensions.betterpartmgmt.saveConfig(self.pinIn.filename.value)",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.betterpartmgmt.saveConfig(self.pinIn.filename.value)"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -9616,10 +9617,10 @@
         },
         "147":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal veid = self.pinIn.veid.value\nlocal gid = self.pinIn.gid.value\nextensions.blrutils.garagePaintReload(veid, gid)",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal veid = self.pinIn.veid.value\nlocal gid = self.pinIn.gid.value\nextensions.blrutils.garagePaintReload(veid, gid)"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -9674,10 +9675,10 @@
         },
         "148":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(self.pinIn.name.value, self.pinIn.flag.value)\n",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(self.pinIn.name.value, self.pinIn.flag.value)\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -9742,10 +9743,10 @@
         },
         "149":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nself.pinOut.fuel.value = extensions.betterpartmgmt.getTuningFuelLoad()",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nself.pinOut.fuel.value = extensions.betterpartmgmt.getTuningFuelLoad()"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -9792,10 +9793,10 @@
         },
         "150":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nself.pinOut.fuel.value = extensions.betterpartmgmt.getTuningFuelLoad()",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nself.pinOut.fuel.value = extensions.betterpartmgmt.getTuningFuelLoad()"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -9842,10 +9843,10 @@
         },
         "151":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nself.pinOut.fuel.value = extensions.betterpartmgmt.getTuningFuelLoad()",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nself.pinOut.fuel.value = extensions.betterpartmgmt.getTuningFuelLoad()"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -9944,10 +9945,10 @@
         },
         "153":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nself.pinOut.fuel.value = extensions.betterpartmgmt.getTuningFuelLoad()",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nself.pinOut.fuel.value = extensions.betterpartmgmt.getTuningFuelLoad()"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -10066,10 +10067,10 @@
         },
         "156":{
           "code":{
-            "work":"if self.pinIn.hasNos.value then\nlocal extensions = require(\"extensions\")\nlocal cost = self.pinIn.cost.value\nlocal veid = self.pinIn.veid.value\nlocal ve = scenetree.findObjectById(veid)\nlocal cap = 0\nlocal mass = 0\nif ve ~= nil then\nlocal massFetch = \"energyStorage.getStorage('mainBottle').remainingMass\"\nlocal capFetch = \"energyStorage.getStorage('mainBottle').capacity\"\nlocal mfid = \"nosmass\"\nlocal cfid = \"noscap\"\nlocal mcmd = \"obj:queueGameEngineLua(string.format('extensions.vluaFetchModule.fetch(%s,%q)', \" .. massFetch .. \",'\" .. mfid .. \"'))\"\nlocal ccmd = \"obj:queueGameEngineLua(string.format('extensions.vluaFetchModule.fetch(%s,%q)', \" .. capFetch .. \",'\" .. cfid .. \"'))\"\nif ve.queueLuaCommand ~= nil then\nve:queueLuaCommand(mcmd)\nve:queueLuaCommand(ccmd)\nend\nmass = tonumber(extensions.vluaFetchModule.getVal(mfid)) or 0\ncap = tonumber(extensions.vluaFetchModule.getVal(cfid)) or 0\nend\n\nself.pinOut.mass.value = mass\nself.pinOut.cap.value = cap\nself.pinOut.canFill.value = mass < cap\nself.pinOut.info.value = \"N2O Tank: \" .. string.format(\"%.2f\",mass) .. \"/\" .. string.format(\"%.2f\",cap) .. \" kg\"\nself.pinOut.fillinfo.value = \"Refill N2O ($\" .. string.format(\"%.2f\", (cap-mass) * cost ) .. \")\"\nself.pinOut.fillCost.value = (cap-mass) * cost\nelse\nself.pinOut.mass.value = 0.00001\nself.pinOut.cap.value = 0.00001\nself.pinOut.canFill.value = false\nself.pinOut.info.value = \"No N2O System\"\nself.pinOut.fillinfo.value = \"\"\nself.pinOut.fillCost.value = 0\nend\n\n",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"if self.pinIn.hasNos.value then\nlocal extensions = require(\"extensions\")\nlocal cost = self.pinIn.cost.value\nlocal veid = self.pinIn.veid.value\nlocal ve = scenetree.findObjectById(veid)\nlocal cap = 0\nlocal mass = 0\nif ve ~= nil then\nlocal massFetch = \"energyStorage.getStorage('mainBottle').remainingMass\"\nlocal capFetch = \"energyStorage.getStorage('mainBottle').capacity\"\nlocal mfid = \"nosmass\"\nlocal cfid = \"noscap\"\nlocal mcmd = \"obj:queueGameEngineLua(string.format('extensions.vluaFetchModule.fetch(%s,%q)', \" .. massFetch .. \",'\" .. mfid .. \"'))\"\nlocal ccmd = \"obj:queueGameEngineLua(string.format('extensions.vluaFetchModule.fetch(%s,%q)', \" .. capFetch .. \",'\" .. cfid .. \"'))\"\nif ve.queueLuaCommand ~= nil then\nve:queueLuaCommand(mcmd)\nve:queueLuaCommand(ccmd)\nend\nmass = tonumber(extensions.vluaFetchModule.getVal(mfid)) or 0\ncap = tonumber(extensions.vluaFetchModule.getVal(cfid)) or 0\nend\n\nself.pinOut.mass.value = mass\nself.pinOut.cap.value = cap\nself.pinOut.canFill.value = mass < cap\nself.pinOut.info.value = \"N2O Tank: \" .. string.format(\"%.2f\",mass) .. \"/\" .. string.format(\"%.2f\",cap) .. \" kg\"\nself.pinOut.fillinfo.value = \"Refill N2O ($\" .. string.format(\"%.2f\", (cap-mass) * cost ) .. \")\"\nself.pinOut.fillCost.value = (cap-mass) * cost\nelse\nself.pinOut.mass.value = 0.00001\nself.pinOut.cap.value = 0.00001\nself.pinOut.canFill.value = false\nself.pinOut.info.value = \"No N2O System\"\nself.pinOut.fillinfo.value = \"\"\nself.pinOut.fillCost.value = 0\nend\n\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -10081,10 +10082,10 @@
           },
           "hiddenPins":{
             "p_in":{
-              "veid":false,
               "cost":true,
               "flow":false,
-              "hasNos":false
+              "hasNos":false,
+              "veid":false
             },
             "p_out":{
               "canFill":true,
@@ -10204,10 +10205,10 @@
         },
         "158":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nself.pinOut.hasNos.value = extensions.betterpartmgmt.getVehicleParts()[\"n2o_system\"] ~= \"\"",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nself.pinOut.hasNos.value = extensions.betterpartmgmt.getVehicleParts()[\"n2o_system\"] ~= \"\""
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -10258,7 +10259,7 @@
           "hardcodedPins":{
             "duration":{
               "type":"number",
-              "value":0.75000000000000377476
+              "value":0.75000000000000388578
             }
           },
           "hiddenPins":{
@@ -10268,10 +10269,10 @@
               "reset":false
             },
             "p_out":{
-              "incomplete":false,
               "complete":false,
               "completed":false,
-              "flow":false
+              "flow":false,
+              "incomplete":false
             }
           },
           "pos":[
@@ -10302,10 +10303,10 @@
           },
           "hiddenPins":{
             "p_in":{
-              "veid":false,
               "fetchID":false,
               "flow":false,
-              "toFetch":false
+              "toFetch":false,
+              "veid":false
             },
             "p_out":{
               "flow":false,
@@ -10400,10 +10401,10 @@
         },
         "163":{
           "code":{
-            "work":"local toset = {}\ntoset[\"time\"] = self.pinIn.time.value\ntoset[\"play\"] = self.pinIn.play.value\ntoset[\"dayScale\"] = self.pinIn.dayScale.value\ntoset[\"nightScale\"] = self.pinIn.nightScale.value\ntoset[\"dayLength\"] = self.pinIn.dayLength.value\ntoset[\"azimuthOverride\"] = self.pinIn.azimuthOverride.value\ncore_environment.setTimeOfDay(toset)",
             "_executionStarted":"local extensions = require(\"extensions\")\nlocal current = core_environment.getTimeOfDay()\nlocal toset = {}\ntoset[\"time\"] = current[\"time\"]\ntoset[\"play\"] = current[\"play\"]\ntoset[\"dayScale\"] = current[\"dayScale\"]\ntoset[\"nightScale\"] = current[\"nightScale\"]\ntoset[\"dayLength\"] = current[\"dayLength\"]\ntoset[\"azimuthOverride\"] = current[\"azimuthOverride\"]\nextensions.blrutils.blrvarSet(\"toddata\", toset)",
             "_executionStopped":"local extensions = require(\"extensions\")\nlocal oldtime = extensions.blrutils.blrvarGet(\"toddata\")\ncore_environment.setTimeOfDay(oldtime)",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local toset = {}\ntoset[\"time\"] = self.pinIn.time.value\ntoset[\"play\"] = self.pinIn.play.value\ntoset[\"dayScale\"] = self.pinIn.dayScale.value\ntoset[\"nightScale\"] = self.pinIn.nightScale.value\ntoset[\"dayLength\"] = self.pinIn.dayLength.value\ntoset[\"azimuthOverride\"] = self.pinIn.azimuthOverride.value\ncore_environment.setTimeOfDay(toset)"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -10499,10 +10500,10 @@
         },
         "165":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal gforce = tonumber(self.pinIn.gfetch.value or \"0\")\nlocal death = gforce > self.pinIn.max.value\nself.pinOut.msg.value = \"That was fatal (\" .. gforce .. \")\"\nself.pinOut.death.value = death\n\n",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal gforce = tonumber(self.pinIn.gfetch.value or \"0\")\nlocal death = gforce > self.pinIn.max.value\nself.pinOut.msg.value = \"That was fatal (\" .. gforce .. \")\"\nself.pinOut.death.value = death\n\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -10795,10 +10796,10 @@
         },
         "172":{
           "code":{
-            "work":"local idtable = self.pinIn.idtable.value\nlocal automode = self.pinIn.auto.value\nlocal ctime = core_environment.getTimeOfDay().time\nlocal mode = self.pinIn.mode.value -- 0=OFF,1=LOWBEAM,2=HIGHBEAM\n\nif automode then -- Turns on and off at set time (5PM to 7AM)\nif not (ctime >= 0.2083 and ctime <= 0.7916) then\nmode = 0\nend\nend\n\nfor k,v in pairs(idtable) do\nscenetree.findObjectById(v):queueLuaCommand(\"electrics.setLightsState(\" .. mode .. \")\")\nend",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local idtable = self.pinIn.idtable.value\nlocal automode = self.pinIn.auto.value\nlocal ctime = core_environment.getTimeOfDay().time\nlocal mode = self.pinIn.mode.value -- 0=OFF,1=LOWBEAM,2=HIGHBEAM\n\nif automode then -- Turns on and off at set time (5PM to 7AM)\nif not (ctime >= 0.2083 and ctime <= 0.7916) then\nmode = 0\nend\nend\n\nfor k,v in pairs(idtable) do\nscenetree.findObjectById(v):queueLuaCommand(\"electrics.setLightsState(\" .. mode .. \")\")\nend"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -10814,10 +10815,10 @@
           },
           "hiddenPins":{
             "p_in":{
-              "mode":false,
               "auto":false,
               "flow":false,
-              "idtable":false
+              "idtable":false,
+              "mode":false
             },
             "p_out":{
               "flow":false
@@ -10871,19 +10872,19 @@
         },
         "173":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal tosend = {}\ntosend[\"money\"] = self.pinIn.money.value or 0\ntosend[\"reputation\"] = self.pinIn.rep.value or 0\ntosend[\"cars\"] = self.pinIn.cars.value or 0\nextensions.customGuiStream.sendGameOverCareerStats(tosend)",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal tosend = {}\ntosend[\"money\"] = self.pinIn.money.value or 0\ntosend[\"reputation\"] = self.pinIn.rep.value or 0\ntosend[\"cars\"] = self.pinIn.cars.value or 0\nextensions.customGuiStream.sendGameOverCareerStats(tosend)"
           },
           "data":{},
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
-              "rep":false,
               "cars":false,
               "flow":false,
-              "money":false
+              "money":false,
+              "rep":false
             },
             "p_out":{
               "flow":false
@@ -10937,10 +10938,10 @@
         },
         "174":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nextensions.customGuiStream.toggleGameOverUI(self.pinIn.toggle.value)",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.customGuiStream.toggleGameOverUI(self.pinIn.toggle.value)"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -10993,10 +10994,10 @@
         },
         "175":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nextensions.blrutils.resetCareer()",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrutils.resetCareer()"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -11051,10 +11052,10 @@
         },
         "177":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nextensions.blrutils.setDeathScreenBackOpacity(-100,1.0,0.0)\nextensions.blrutils.setDeathScreenTextOpacity(-100,1.0,0.0)\nextensions.customGuiStream.toggleGameOverUI(false)",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrutils.setDeathScreenBackOpacity(-100,1.0,0.0)\nextensions.blrutils.setDeathScreenTextOpacity(-100,1.0,0.0)\nextensions.customGuiStream.toggleGameOverUI(false)"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -11126,10 +11127,10 @@
               "reset":false
             },
             "p_out":{
-              "incomplete":false,
               "complete":false,
               "completed":false,
-              "flow":false
+              "flow":false,
+              "incomplete":false
             }
           },
           "pos":[
@@ -11235,10 +11236,10 @@
               "flow":false
             },
             "p_out":{
-              "value":true,
               "false":false,
               "flow":false,
-              "true":false
+              "true":false,
+              "value":true
             }
           },
           "opSymbol":"==",
@@ -11250,17 +11251,17 @@
         },
         "184":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal dx = self.pinIn.dx.value\nlocal mx = self.pinIn.mx.value\nlocal mn = self.pinIn.mn.value\nlocal toRet = extensions.blrutils.setDeathScreenBackOpacity(dx,mx,mn)\nself.pinOut.out.value = toRet",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal dx = self.pinIn.dx.value\nlocal mx = self.pinIn.mx.value\nlocal mn = self.pinIn.mn.value\nlocal toRet = extensions.blrutils.setDeathScreenBackOpacity(dx,mx,mn)\nself.pinOut.out.value = toRet"
           },
           "data":{},
           "dynamicMode":"repeat",
           "hardcodedPins":{
             "dx":{
               "type":"number",
-              "value":0.05000000074505819153
+              "value":0.05000000074505820541
             },
             "mn":{
               "type":"number",
@@ -11273,10 +11274,10 @@
           },
           "hiddenPins":{
             "p_in":{
-              "mx":false,
               "dx":false,
               "flow":false,
-              "mn":false
+              "mn":false,
+              "mx":false
             },
             "p_out":{
               "flow":false,
@@ -11338,17 +11339,17 @@
         },
         "185":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal dx = self.pinIn.dx.value\nlocal mx = self.pinIn.mx.value\nlocal mn = self.pinIn.mn.value\nlocal toRet = extensions.blrutils.setDeathScreenTextOpacity(dx,mx,mn)\nself.pinOut.out.value = toRet",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal dx = self.pinIn.dx.value\nlocal mx = self.pinIn.mx.value\nlocal mn = self.pinIn.mn.value\nlocal toRet = extensions.blrutils.setDeathScreenTextOpacity(dx,mx,mn)\nself.pinOut.out.value = toRet"
           },
           "data":{},
           "dynamicMode":"repeat",
           "hardcodedPins":{
             "dx":{
               "type":"number",
-              "value":0.05000000074505819153
+              "value":0.05000000074505820541
             },
             "mn":{
               "type":"number",
@@ -11361,10 +11362,10 @@
           },
           "hiddenPins":{
             "p_in":{
-              "mx":false,
               "dx":false,
               "flow":false,
-              "mn":false
+              "mn":false,
+              "mx":false
             },
             "p_out":{
               "flow":false,
@@ -11655,10 +11656,10 @@
         },
         "196":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(self.pinIn.name.value, self.pinIn.flag.value)\n",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(self.pinIn.name.value, self.pinIn.flag.value)\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -11743,10 +11744,10 @@
         },
         "198":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(self.pinIn.name.value, self.pinIn.flag.value)\n",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(self.pinIn.name.value, self.pinIn.flag.value)\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -11811,10 +11812,10 @@
         },
         "199":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nself.pinOut.flag.value = extensions.blrglobals.blrFlagGet(self.pinIn.name.value)\n",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nself.pinOut.flag.value = extensions.blrglobals.blrFlagGet(self.pinIn.name.value)\n"
           },
           "customName":"UI INIT REQ",
           "data":{},
@@ -11914,10 +11915,10 @@
         },
         "202":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nextensions.customGuiStream.gameOverUIinitreload()",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.customGuiStream.gameOverUIinitreload()"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -11956,10 +11957,10 @@
         },
         "203":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nself.pinOut.flag.value = extensions.blrglobals.blrFlagGet(self.pinIn.name.value)\n",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nself.pinOut.flag.value = extensions.blrglobals.blrFlagGet(self.pinIn.name.value)\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -12039,10 +12040,10 @@
         },
         "205":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(self.pinIn.name.value, self.pinIn.flag.value)\n",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(self.pinIn.name.value, self.pinIn.flag.value)\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -12107,10 +12108,10 @@
         },
         "206":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nextensions.blrutils.disableQuickAccess()",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrutils.disableQuickAccess()"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -12183,10 +12184,10 @@
               "reset":true
             },
             "p_out":{
-              "incomplete":true,
               "complete":true,
               "completed":false,
-              "flow":true
+              "flow":true,
+              "incomplete":true
             }
           },
           "pos":[
@@ -12259,10 +12260,10 @@
         },
         "212":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nlocal missionID = extensions.gameplay_missions_missionManager.getForegroundMissionId()\nif missionID then\nlocal missionData = gameplay_missions_missions.getMissionById(missionID)\nextensions.gameplay_missions_missionManager.startFromWithinMission(missionData, {})\nelse\nself.graph.mgr:queueForRestart()\nend",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal missionID = extensions.gameplay_missions_missionManager.getForegroundMissionId()\nif missionID then\nlocal missionData = gameplay_missions_missions.getMissionById(missionID)\nextensions.gameplay_missions_missionManager.startFromWithinMission(missionData, {})\nelse\nself.graph.mgr:queueForRestart()\nend"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -12319,10 +12320,10 @@
         },
         "214":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(self.pinIn.name.value, self.pinIn.flag.value)\n",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(self.pinIn.name.value, self.pinIn.flag.value)\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -12387,10 +12388,10 @@
         },
         "215":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nself.pinOut.flag.value = extensions.blrglobals.blrFlagGet(self.pinIn.name.value)\n",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nself.pinOut.flag.value = extensions.blrglobals.blrFlagGet(self.pinIn.name.value)\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -12504,10 +12505,10 @@
               "reset":true
             },
             "p_out":{
-              "incomplete":true,
               "complete":true,
               "completed":false,
-              "flow":true
+              "flow":true,
+              "incomplete":true
             }
           },
           "pos":[
@@ -12580,10 +12581,10 @@
         },
         "222":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nextensions.blrutils.setGameOption(\"restrictScenarios\", true)\nextensions.blrutils.setGameOption(\"trafficEnableSwitching\", false)",
             "_executionStarted":"",
             "_executionStopped":"local extensions = require(\"extensions\")\nextensions.blrutils.resetGameOptions()",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrutils.setGameOption(\"restrictScenarios\", true)\nextensions.blrutils.setGameOption(\"trafficEnableSwitching\", false)"
           },
           "customName":"SET GAME OPTIONS",
           "data":{},
@@ -12641,10 +12642,10 @@
         },
         "225":{
           "code":{
-            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(self.pinIn.name.value, self.pinIn.flag.value)\n",
             "_executionStarted":"",
             "_executionStopped":"",
-            "onPreRender":""
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(self.pinIn.name.value, self.pinIn.flag.value)\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -12831,10 +12832,10 @@
               "flow":false
             },
             "p_out":{
-              "value":true,
               "false":false,
               "flow":false,
-              "true":false
+              "true":false,
+              "value":true
             }
           },
           "opSymbol":"==",
@@ -12870,10 +12871,10 @@
         "list":{}
       },
       "viewPos":[
-        -1497.15051269531250000000,
-        -397.52050781250000000000
+        -677.67492675781250000000,
+        -762.41723632812500000000
       ],
-      "viewZoom":0.74999982118606567383
+      "viewZoom":0.66623693704605102539
     },
     "3":{
       "description":"This is the description for graph States",
@@ -12889,14 +12890,14 @@
         ],
         [
           4,
-          "fail",
+          "success",
           6,
           "flow",
           false
         ],
         [
           4,
-          "success",
+          "fail",
           6,
           "flow",
           false
@@ -13015,6 +13016,13 @@
     ],
     "list":[
       {
+        "index":3,
+        "mergeStrat":"max",
+        "name":"optarget",
+        "type":"number",
+        "value":10
+      },
+      {
         "index":2,
         "mergeStrat":"last",
         "name":"racestate",
@@ -13034,13 +13042,6 @@
         "name":"uistate",
         "type":"number",
         "value":0
-      },
-      {
-        "index":3,
-        "mergeStrat":"max",
-        "name":"optarget",
-        "type":"number",
-        "value":10
       }
     ]
   },

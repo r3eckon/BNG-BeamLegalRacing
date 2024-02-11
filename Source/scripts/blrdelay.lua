@@ -22,6 +22,7 @@ extensions.customGuiStream.sendGPSDestinationList(list)
 extensions.blrutils.gpsToggleStateUpdate()
 extensions.blrutils.setGPSDestination()
 extensions.customGuiStream.sendGPSPage(0)
+print("GPS INIT DONE")
 end
 
 ftable["guimsg"] = function(p)

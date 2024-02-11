@@ -2,7 +2,7 @@
   "activeGraphId":3,
   "authors":"BeamLR",
   "currentGraphID":3,
-  "date":1703676587,
+  "date":1707626684,
   "debugEnabled":false,
   "description":"Beam Legal Racing Career",
   "difficulty":100,
@@ -11,7 +11,8 @@
     "node_10094":1696795666,
     "node_10257":1698480690,
     "node_1317":1699351847,
-    "node_1407":1698480615
+    "node_1407":1698480615,
+    "node_1423":1705470015
   },
   "graphs":{
     "1":{
@@ -103,15 +104,15 @@
           false
         ],
         [
-          57,
-          "false",
+          60,
+          "flow",
           18,
           "flow",
           false
         ],
         [
-          60,
-          "flow",
+          57,
+          "false",
           18,
           "flow",
           false
@@ -166,15 +167,15 @@
           false
         ],
         [
-          1180,
-          "down",
+          124,
+          "flow",
           21,
           "flow",
           false
         ],
         [
-          124,
-          "flow",
+          1180,
+          "down",
           21,
           "flow",
           false
@@ -278,15 +279,15 @@
           false
         ],
         [
-          979,
-          "completed",
+          494,
+          "flow",
           30,
           "flow",
           false
         ],
         [
-          494,
-          "flow",
+          979,
+          "completed",
           30,
           "flow",
           false
@@ -341,8 +342,15 @@
           true
         ],
         [
-          365,
-          "down",
+          1521,
+          "flow",
+          34,
+          "flow",
+          false
+        ],
+        [
+          1522,
+          "flow",
           34,
           "flow",
           false
@@ -369,14 +377,14 @@
           false
         ],
         [
-          27,
+          1389,
           "down",
           37,
           "flow",
           false
         ],
         [
-          1389,
+          27,
           "down",
           37,
           "flow",
@@ -408,13 +416,6 @@
           "val",
           39,
           "money",
-          false
-        ],
-        [
-          910,
-          "cost",
-          39,
-          "cost",
           false
         ],
         [
@@ -537,14 +538,14 @@
           false
         ],
         [
-          880,
+          1389,
           "flow",
           50,
           "flow",
           false
         ],
         [
-          1389,
+          880,
           "flow",
           50,
           "flow",
@@ -663,8 +664,8 @@
           false
         ],
         [
-          32,
-          "flow",
+          544,
+          "False",
           61,
           "flow",
           false
@@ -691,8 +692,8 @@
           false
         ],
         [
-          912,
-          "flow",
+          958,
+          "true",
           66,
           "flow",
           false
@@ -733,14 +734,14 @@
           false
         ],
         [
-          963,
+          1510,
           "flow",
           69,
           "flow",
           false
         ],
         [
-          1510,
+          963,
           "flow",
           69,
           "flow",
@@ -804,14 +805,14 @@
         ],
         [
           99,
-          "match_2",
+          "match_3",
           76,
           "flow_1",
           false
         ],
         [
           99,
-          "match_3",
+          "match_2",
           76,
           "flow_1",
           false
@@ -824,6 +825,13 @@
           false
         ],
         [
+          613,
+          "flow",
+          77,
+          "flow",
+          false
+        ],
+        [
           585,
           "false",
           77,
@@ -833,13 +841,6 @@
         [
           471,
           "False",
-          77,
-          "flow",
-          false
-        ],
-        [
-          613,
-          "flow",
           77,
           "flow",
           false
@@ -1097,7 +1098,7 @@
           false
         ],
         [
-          1251,
+          1543,
           "flow",
           95,
           "flow",
@@ -1112,6 +1113,13 @@
         ],
         [
           109,
+          "flow",
+          95,
+          "flow",
+          false
+        ],
+        [
+          1251,
           "flow",
           95,
           "flow",
@@ -1293,15 +1301,15 @@
           false
         ],
         [
-          18,
-          "false",
+          10130,
+          "flow",
           109,
           "flow",
           false
         ],
         [
-          10130,
-          "flow",
+          18,
+          "false",
           109,
           "flow",
           false
@@ -1356,15 +1364,15 @@
           false
         ],
         [
-          515,
-          "true",
+          418,
+          "flow",
           114,
           "flow",
           false
         ],
         [
-          418,
-          "flow",
+          515,
+          "true",
           114,
           "flow",
           false
@@ -1552,15 +1560,15 @@
           false
         ],
         [
-          1112,
-          "match_4",
+          844,
+          "mflow",
           119,
           "flow_2",
           false
         ],
         [
-          844,
-          "mflow",
+          1112,
+          "match_4",
           119,
           "flow_2",
           false
@@ -1594,6 +1602,13 @@
           false
         ],
         [
+          9884,
+          "flow",
+          123,
+          "flow",
+          false
+        ],
+        [
           183,
           "flow",
           123,
@@ -1602,13 +1617,6 @@
         ],
         [
           9885,
-          "flow",
-          123,
-          "flow",
-          false
-        ],
-        [
-          9884,
           "flow",
           123,
           "flow",
@@ -1923,14 +1931,14 @@
           false
         ],
         [
-          234,
+          1179,
           "flow",
           152,
           "flow",
           false
         ],
         [
-          1179,
+          234,
           "flow",
           152,
           "flow",
@@ -2049,14 +2057,14 @@
           false
         ],
         [
-          947,
+          877,
           "flow",
           162,
           "flow",
           false
         ],
         [
-          877,
+          947,
           "flow",
           162,
           "flow",
@@ -2245,6 +2253,20 @@
           false
         ],
         [
+          1320,
+          "flow",
+          175,
+          "flow",
+          false
+        ],
+        [
+          1175,
+          "flow",
+          175,
+          "flow",
+          false
+        ],
+        [
           1254,
           "flow",
           175,
@@ -2260,20 +2282,6 @@
         ],
         [
           146,
-          "flow",
-          175,
-          "flow",
-          false
-        ],
-        [
-          1320,
-          "flow",
-          175,
-          "flow",
-          false
-        ],
-        [
-          1175,
           "flow",
           175,
           "flow",
@@ -2462,7 +2470,7 @@
           false
         ],
         [
-          749,
+          1552,
           "flow",
           194,
           "flow",
@@ -2471,6 +2479,13 @@
         [
           1096,
           "False",
+          194,
+          "flow",
+          false
+        ],
+        [
+          749,
+          "flow",
           194,
           "flow",
           false
@@ -2721,15 +2736,15 @@
           false
         ],
         [
-          1175,
-          "down",
+          124,
+          "flow",
           212,
           "flow",
           false
         ],
         [
-          124,
-          "flow",
+          1175,
+          "down",
           212,
           "flow",
           false
@@ -2840,15 +2855,15 @@
           false
         ],
         [
-          10050,
-          "flow",
+          180,
+          "false",
           222,
           "flow",
           false
         ],
         [
-          180,
-          "false",
+          10050,
+          "flow",
           222,
           "flow",
           false
@@ -3288,15 +3303,15 @@
           false
         ],
         [
-          148,
-          "flow",
+          254,
+          "false",
           255,
           "flow",
           false
         ],
         [
-          254,
-          "false",
+          148,
+          "flow",
           255,
           "flow",
           false
@@ -3470,8 +3485,8 @@
           false
         ],
         [
-          191,
-          "flow",
+          1548,
+          "False",
           270,
           "flow",
           false
@@ -3505,7 +3520,7 @@
           false
         ],
         [
-          763,
+          10217,
           "false",
           273,
           "flow",
@@ -3519,7 +3534,7 @@
           false
         ],
         [
-          10217,
+          763,
           "false",
           273,
           "flow",
@@ -3590,14 +3605,14 @@
         ],
         [
           1112,
-          "match_4",
+          "match_3",
           278,
           "flow",
           false
         ],
         [
           1112,
-          "match_3",
+          "match_4",
           278,
           "flow",
           false
@@ -3820,7 +3835,7 @@
           false
         ],
         [
-          353,
+          1529,
           "flow",
           294,
           "flow",
@@ -4408,8 +4423,8 @@
           false
         ],
         [
-          541,
-          "completed",
+          1541,
+          "done",
           343,
           "flow",
           false
@@ -4555,24 +4570,10 @@
           false
         ],
         [
-          695,
+          1538,
           "flow",
           353,
           "flow",
-          false
-        ],
-        [
-          198,
-          "vehId",
-          353,
-          "veid",
-          false
-        ],
-        [
-          402,
-          "output",
-          353,
-          "fuel",
           false
         ],
         [
@@ -4716,22 +4717,22 @@
           false
         ],
         [
-          1080,
+          1535,
           "flow",
           364,
           "flow",
           false
         ],
         [
-          158,
-          "flow",
+          1507,
+          "true",
           365,
           "flow",
           false
         ],
         [
-          1507,
-          "true",
+          158,
+          "flow",
           365,
           "flow",
           false
@@ -4877,6 +4878,13 @@
           false
         ],
         [
+          394,
+          "flow",
+          378,
+          "flow",
+          false
+        ],
+        [
           961,
           "flow",
           378,
@@ -4884,14 +4892,7 @@
           false
         ],
         [
-          1182,
-          "flow",
-          378,
-          "flow",
-          false
-        ],
-        [
-          10011,
+          966,
           "flow",
           378,
           "flow",
@@ -4905,15 +4906,8 @@
           false
         ],
         [
-          966,
+          10011,
           "flow",
-          378,
-          "flow",
-          false
-        ],
-        [
-          1332,
-          "False",
           378,
           "flow",
           false
@@ -4926,8 +4920,15 @@
           false
         ],
         [
-          394,
+          1182,
           "flow",
+          378,
+          "flow",
+          false
+        ],
+        [
+          1332,
+          "False",
           378,
           "flow",
           false
@@ -5262,15 +5263,15 @@
           false
         ],
         [
-          24,
-          "true",
+          1482,
+          "out",
           402,
           "flow",
           false
         ],
         [
-          1482,
-          "out",
+          24,
+          "true",
           402,
           "flow",
           false
@@ -6977,14 +6978,14 @@
           false
         ],
         [
-          539,
+          505,
           "flow",
           533,
           "reset",
           false
         ],
         [
-          505,
+          539,
           "flow",
           533,
           "reset",
@@ -6998,14 +6999,14 @@
           true
         ],
         [
-          505,
+          539,
           "flow",
           534,
           "on",
           false
         ],
         [
-          539,
+          505,
           "flow",
           534,
           "on",
@@ -7082,17 +7083,10 @@
           false
         ],
         [
-          987,
-          "True",
+          32,
+          "flow",
           541,
           "flow",
-          false
-        ],
-        [
-          333,
-          "true",
-          541,
-          "reset",
           false
         ],
         [
@@ -7152,17 +7146,17 @@
           false
         ],
         [
-          361,
+          541,
           "flow",
           544,
           "flow",
           false
         ],
         [
-          142,
-          "flow",
+          541,
+          "flag",
           544,
-          "reset",
+          "condition",
           false
         ],
         [
@@ -7236,8 +7230,8 @@
           true
         ],
         [
-          367,
-          "flow",
+          1551,
+          "true",
           553,
           "flow",
           false
@@ -8104,13 +8098,6 @@
           true
         ],
         [
-          553,
-          "flow",
-          613,
-          "flow",
-          false
-        ],
-        [
           594,
           "False",
           613,
@@ -8118,7 +8105,21 @@
           false
         ],
         [
-          1074,
+          553,
+          "flow",
+          613,
+          "flow",
+          false
+        ],
+        [
+          1551,
+          "false",
+          613,
+          "flow",
+          false
+        ],
+        [
+          1537,
           "flow",
           614,
           "flow",
@@ -9490,15 +9491,15 @@
           false
         ],
         [
-          24,
-          "true",
+          1482,
+          "out",
           713,
           "reset",
           false
         ],
         [
-          1482,
-          "out",
+          24,
+          "true",
           713,
           "reset",
           false
@@ -9553,18 +9554,18 @@
           false
         ],
         [
-          591,
-          "true",
-          717,
-          "on",
-          true
-        ],
-        [
           1516,
           "flow",
           717,
           "on",
           false
+        ],
+        [
+          591,
+          "true",
+          717,
+          "on",
+          true
         ],
         [
           591,
@@ -10260,15 +10261,15 @@
           false
         ],
         [
-          10022,
-          "flow",
+          269,
+          "false",
           773,
           "flow",
           false
         ],
         [
-          269,
-          "false",
+          10022,
+          "flow",
           773,
           "flow",
           false
@@ -10449,15 +10450,15 @@
           false
         ],
         [
-          1298,
-          "flow",
+          167,
+          "true",
           787,
           "on",
           false
         ],
         [
-          167,
-          "true",
+          1298,
+          "flow",
           787,
           "on",
           false
@@ -10624,6 +10625,13 @@
           false
         ],
         [
+          800,
+          "True",
+          803,
+          "reset",
+          false
+        ],
+        [
           10245,
           "down",
           803,
@@ -10633,13 +10641,6 @@
         [
           843,
           "down",
-          803,
-          "reset",
-          false
-        ],
-        [
-          800,
-          "True",
           803,
           "reset",
           false
@@ -10932,13 +10933,6 @@
           false
         ],
         [
-          10245,
-          "flow",
-          823,
-          "flow",
-          false
-        ],
-        [
           1149,
           "flow",
           823,
@@ -10954,6 +10948,13 @@
         ],
         [
           843,
+          "flow",
+          823,
+          "flow",
+          false
+        ],
+        [
+          10245,
           "flow",
           823,
           "flow",
@@ -11198,15 +11199,15 @@
           false
         ],
         [
-          1010,
-          "flow",
+          808,
+          "False",
           843,
           "flow",
           false
         ],
         [
-          808,
-          "False",
+          1010,
+          "flow",
           843,
           "flow",
           false
@@ -11254,13 +11255,6 @@
           false
         ],
         [
-          996,
-          "flow",
-          846,
-          "flow",
-          false
-        ],
-        [
           7,
           "enterState",
           846,
@@ -11268,15 +11262,22 @@
           false
         ],
         [
-          1482,
-          "out",
-          847,
+          996,
+          "flow",
+          846,
           "flow",
           false
         ],
         [
           24,
           "true",
+          847,
+          "flow",
+          false
+        ],
+        [
+          1482,
+          "out",
           847,
           "flow",
           false
@@ -11331,15 +11332,15 @@
           false
         ],
         [
-          870,
-          "False",
+          1462,
+          "flow",
           854,
           "clear",
           false
         ],
         [
-          1462,
-          "flow",
+          870,
+          "False",
           854,
           "clear",
           false
@@ -11464,15 +11465,15 @@
           false
         ],
         [
-          843,
-          "down",
+          812,
+          "flow",
           867,
           "flow",
           false
         ],
         [
-          812,
-          "flow",
+          843,
+          "down",
           867,
           "flow",
           false
@@ -11569,6 +11570,13 @@
           false
         ],
         [
+          171,
+          "down",
+          874,
+          "reset",
+          false
+        ],
+        [
           126,
           "down",
           874,
@@ -11577,13 +11585,6 @@
         ],
         [
           148,
-          "down",
-          874,
-          "reset",
-          false
-        ],
-        [
-          171,
           "down",
           874,
           "reset",
@@ -11667,13 +11668,6 @@
           false
         ],
         [
-          1382,
-          "none",
-          879,
-          "flow",
-          false
-        ],
-        [
           1226,
           "True",
           879,
@@ -11681,14 +11675,21 @@
           false
         ],
         [
+          1382,
+          "none",
           879,
+          "flow",
+          false
+        ],
+        [
+          1387,
           "flow",
           880,
           "flow",
           false
         ],
         [
-          1387,
+          879,
           "flow",
           880,
           "flow",
@@ -11709,7 +11710,7 @@
           false
         ],
         [
-          1133,
+          1536,
           "flow",
           882,
           "flow",
@@ -11891,6 +11892,13 @@
           false
         ],
         [
+          1307,
+          "true",
+          897,
+          "flow",
+          false
+        ],
+        [
           1438,
           "true",
           897,
@@ -11899,13 +11907,6 @@
         ],
         [
           896,
-          "true",
-          897,
-          "flow",
-          false
-        ],
-        [
-          1307,
           "true",
           897,
           "flow",
@@ -12066,17 +12067,17 @@
           false
         ],
         [
-          958,
-          "true",
+          365,
+          "flow",
           912,
           "flow",
           false
         ],
         [
           910,
-          "info",
+          "fueling",
           912,
-          "text",
+          "condition",
           false
         ],
         [
@@ -12220,14 +12221,14 @@
           false
         ],
         [
-          1478,
+          185,
           "flow",
           925,
           "flow",
           false
         ],
         [
-          185,
+          1478,
           "flow",
           925,
           "flow",
@@ -12402,6 +12403,13 @@
           false
         ],
         [
+          10292,
+          "flow",
+          938,
+          "flow",
+          false
+        ],
+        [
           1508,
           "flow",
           938,
@@ -12409,8 +12417,8 @@
           false
         ],
         [
-          365,
-          "flow",
+          912,
+          "True",
           938,
           "flow",
           false
@@ -12423,15 +12431,15 @@
           false
         ],
         [
-          918,
-          "flow",
+          193,
+          "down",
           940,
           "flow",
           false
         ],
         [
-          193,
-          "down",
+          918,
+          "flow",
           940,
           "flow",
           false
@@ -13340,13 +13348,6 @@
           false
         ],
         [
-          146,
-          "down",
-          1025,
-          "flow",
-          false
-        ],
-        [
           1106,
           "flow",
           1025,
@@ -13354,15 +13355,22 @@
           false
         ],
         [
-          1175,
+          146,
           "down",
-          1026,
+          1025,
           "flow",
           false
         ],
         [
           10271,
           "flow",
+          1026,
+          "flow",
+          false
+        ],
+        [
+          1175,
+          "down",
           1026,
           "flow",
           false
@@ -13452,14 +13460,14 @@
           false
         ],
         [
-          843,
+          10245,
           "down",
           1031,
           "reset",
           false
         ],
         [
-          10245,
+          843,
           "down",
           1031,
           "reset",
@@ -13473,13 +13481,6 @@
           false
         ],
         [
-          10245,
-          "down",
-          1032,
-          "reset",
-          false
-        ],
-        [
           1033,
           "False",
           1032,
@@ -13488,6 +13489,13 @@
         ],
         [
           843,
+          "down",
+          1032,
+          "reset",
+          false
+        ],
+        [
+          10245,
           "down",
           1032,
           "reset",
@@ -13746,14 +13754,14 @@
           false
         ],
         [
-          450,
+          10022,
           "flow",
           1058,
           "flow",
           false
         ],
         [
-          10022,
+          450,
           "flow",
           1058,
           "flow",
@@ -13914,15 +13922,15 @@
           false
         ],
         [
-          162,
-          "flow",
+          1514,
+          "True",
           1073,
           "flow",
           false
         ],
         [
-          1514,
-          "True",
+          162,
+          "flow",
           1073,
           "flow",
           false
@@ -14194,14 +14202,14 @@
           false
         ],
         [
-          271,
+          1473,
           "flow",
           1094,
           "flow",
           false
         ],
         [
-          1473,
+          271,
           "flow",
           1094,
           "flow",
@@ -14587,7 +14595,7 @@
         ],
         [
           910,
-          "cost",
+          "cost_selected",
           1127,
           "cost",
           false
@@ -14611,6 +14619,20 @@
           "gas",
           1128,
           "fuel",
+          false
+        ],
+        [
+          214,
+          "fueltype",
+          1128,
+          "fueltype",
+          false
+        ],
+        [
+          214,
+          "fuelratio",
+          1128,
+          "fuelratio",
           false
         ],
         [
@@ -14656,24 +14678,24 @@
           false
         ],
         [
-          730,
-          "flow",
-          1133,
-          "flow",
+          295,
+          "fueltype",
+          1132,
+          "fueltype",
           false
         ],
         [
-          670,
-          "vehId",
-          1133,
-          "veid",
+          295,
+          "fuelratio",
+          1132,
+          "fuelratio",
           false
         ],
         [
-          668,
-          "val",
+          1081,
+          "flow",
           1133,
-          "fuel",
+          "flow",
           false
         ],
         [
@@ -14691,14 +14713,14 @@
           false
         ],
         [
-          1153,
+          1166,
           "False",
           1135,
           "reset",
           false
         ],
         [
-          1166,
+          1153,
           "False",
           1135,
           "reset",
@@ -14845,15 +14867,15 @@
           false
         ],
         [
-          825,
-          "flow",
+          840,
+          "false",
           1149,
           "flow",
           false
         ],
         [
-          840,
-          "false",
+          825,
+          "flow",
           1149,
           "flow",
           false
@@ -15181,15 +15203,15 @@
           false
         ],
         [
-          171,
-          "flow",
+          255,
+          "false",
           1180,
           "flow",
           false
         ],
         [
-          255,
-          "false",
+          171,
+          "flow",
           1180,
           "flow",
           false
@@ -15307,14 +15329,14 @@
           false
         ],
         [
-          9876,
+          210,
           "down",
           1191,
           "flow",
           false
         ],
         [
-          210,
+          9876,
           "down",
           1191,
           "flow",
@@ -16232,13 +16254,6 @@
         ],
         [
           99,
-          "match_5",
-          1285,
-          "flow",
-          false
-        ],
-        [
-          99,
           "match_3",
           1285,
           "flow",
@@ -16254,6 +16269,13 @@
         [
           99,
           "match_2",
+          1285,
+          "flow",
+          false
+        ],
+        [
+          99,
+          "match_5",
           1285,
           "flow",
           false
@@ -16379,14 +16401,14 @@
         ],
         [
           861,
-          "match_2",
+          "match_1",
           1294,
           "flow",
           false
         ],
         [
           861,
-          "match_1",
+          "match_2",
           1294,
           "flow",
           false
@@ -16574,14 +16596,14 @@
           false
         ],
         [
-          1447,
+          1445,
           "flow",
           1312,
           "flow",
           false
         ],
         [
-          1445,
+          1447,
           "flow",
           1312,
           "flow",
@@ -17617,6 +17639,13 @@
           false
         ],
         [
+          637,
+          "false",
+          1423,
+          "flow",
+          false
+        ],
+        [
           846,
           "flow",
           1424,
@@ -17827,14 +17856,14 @@
           false
         ],
         [
-          309,
+          1443,
           "flow",
           1444,
           "flow",
           false
         ],
         [
-          1443,
+          309,
           "flow",
           1444,
           "flow",
@@ -18213,14 +18242,14 @@
         ],
         [
           4986,
-          "match_2",
+          "match_4",
           1481,
           "flow",
           false
         ],
         [
           4986,
-          "match_4",
+          "match_2",
           1481,
           "flow",
           false
@@ -18395,7 +18424,7 @@
         ],
         [
           910,
-          "cost",
+          "cost_selected",
           1496,
           "Z",
           false
@@ -18472,7 +18501,7 @@
         ],
         [
           910,
-          "cost",
+          "cost_selected",
           1502,
           "cost",
           false
@@ -18626,14 +18655,14 @@
         ],
         [
           1514,
-          "True",
+          "False",
           1517,
           "flow",
           false
         ],
         [
           1514,
-          "False",
+          "True",
           1517,
           "flow",
           false
@@ -18671,6 +18700,419 @@
           "num",
           1519,
           "val",
+          false
+        ],
+        [
+          10293,
+          "flow",
+          1520,
+          "flow",
+          false
+        ],
+        [
+          910,
+          "premium",
+          1520,
+          "text",
+          false
+        ],
+        [
+          1524,
+          "flow",
+          1521,
+          "flow",
+          false
+        ],
+        [
+          1525,
+          "flow",
+          1521,
+          "flow",
+          false
+        ],
+        [
+          1523,
+          "flow",
+          1521,
+          "flow",
+          false
+        ],
+        [
+          1525,
+          "flow",
+          1521,
+          "flow",
+          false
+        ],
+        [
+          1523,
+          "flow",
+          1521,
+          "flow",
+          false
+        ],
+        [
+          10292,
+          "down",
+          1522,
+          "flow",
+          false
+        ],
+        [
+          910,
+          "cost_diesel",
+          1522,
+          "cost",
+          false
+        ],
+        [
+          365,
+          "down",
+          1523,
+          "flow",
+          false
+        ],
+        [
+          910,
+          "cost_regular",
+          1523,
+          "cost",
+          false
+        ],
+        [
+          10293,
+          "down",
+          1524,
+          "flow",
+          false
+        ],
+        [
+          910,
+          "cost_midgrade",
+          1524,
+          "cost",
+          false
+        ],
+        [
+          1520,
+          "down",
+          1525,
+          "flow",
+          false
+        ],
+        [
+          910,
+          "cost_premium",
+          1525,
+          "cost",
+          false
+        ],
+        [
+          1133,
+          "flow",
+          1526,
+          "flow",
+          false
+        ],
+        [
+          1531,
+          "flow",
+          1528,
+          "flow",
+          false
+        ],
+        [
+          1530,
+          "vehId",
+          1528,
+          "veid",
+          false
+        ],
+        [
+          695,
+          "flow",
+          1529,
+          "flow",
+          false
+        ],
+        [
+          198,
+          "vehId",
+          1529,
+          "veid",
+          false
+        ],
+        [
+          402,
+          "output",
+          1529,
+          "fuel",
+          false
+        ],
+        [
+          1133,
+          "val",
+          1529,
+          "fueltype",
+          false
+        ],
+        [
+          1526,
+          "val",
+          1529,
+          "fuelratio",
+          false
+        ],
+        [
+          7,
+          "flow",
+          1531,
+          "flow",
+          false
+        ],
+        [
+          1530,
+          "vehId",
+          1531,
+          "veid",
+          false
+        ],
+        [
+          1528,
+          "flow",
+          1532,
+          "flow",
+          false
+        ],
+        [
+          1531,
+          "output",
+          1532,
+          "val",
+          false
+        ],
+        [
+          1532,
+          "flow",
+          1533,
+          "flow",
+          false
+        ],
+        [
+          1528,
+          "output",
+          1533,
+          "val",
+          false
+        ],
+        [
+          1080,
+          "flow",
+          1534,
+          "flow",
+          false
+        ],
+        [
+          1534,
+          "flow",
+          1535,
+          "flow",
+          false
+        ],
+        [
+          730,
+          "flow",
+          1536,
+          "flow",
+          false
+        ],
+        [
+          670,
+          "vehId",
+          1536,
+          "veid",
+          false
+        ],
+        [
+          668,
+          "val",
+          1536,
+          "fuel",
+          false
+        ],
+        [
+          1534,
+          "val",
+          1536,
+          "fueltype",
+          false
+        ],
+        [
+          1535,
+          "val",
+          1536,
+          "fuelratio",
+          false
+        ],
+        [
+          1074,
+          "flow",
+          1537,
+          "flow",
+          false
+        ],
+        [
+          601,
+          "filename",
+          1537,
+          "carfile",
+          false
+        ],
+        [
+          987,
+          "True",
+          1538,
+          "flow",
+          false
+        ],
+        [
+          987,
+          "False",
+          1538,
+          "reset",
+          false
+        ],
+        [
+          1540,
+          "flow",
+          1539,
+          "flow",
+          false
+        ],
+        [
+          361,
+          "flow",
+          1540,
+          "flow",
+          false
+        ],
+        [
+          1541,
+          "done",
+          1540,
+          "reset",
+          false
+        ],
+        [
+          987,
+          "True",
+          1541,
+          "flow",
+          false
+        ],
+        [
+          333,
+          "true",
+          1541,
+          "reset",
+          false
+        ],
+        [
+          361,
+          "flow",
+          1542,
+          "flow",
+          false
+        ],
+        [
+          987,
+          "False",
+          1542,
+          "reset",
+          false
+        ],
+        [
+          1544,
+          "flow",
+          1543,
+          "flow",
+          false
+        ],
+        [
+          544,
+          "True",
+          1544,
+          "flow",
+          false
+        ],
+        [
+          1543,
+          "down",
+          1545,
+          "flow",
+          false
+        ],
+        [
+          7,
+          "enterState",
+          1546,
+          "flow",
+          false
+        ],
+        [
+          191,
+          "flow",
+          1547,
+          "flow",
+          false
+        ],
+        [
+          1547,
+          "flow",
+          1548,
+          "flow",
+          false
+        ],
+        [
+          1547,
+          "flag",
+          1548,
+          "condition",
+          false
+        ],
+        [
+          1552,
+          "down",
+          1549,
+          "flow",
+          false
+        ],
+        [
+          1548,
+          "True",
+          1550,
+          "flow",
+          false
+        ],
+        [
+          367,
+          "flow",
+          1551,
+          "flow",
+          false
+        ],
+        [
+          567,
+          "cost",
+          1551,
+          "A",
+          false
+        ],
+        [
+          1550,
+          "flow",
+          1552,
+          "flow",
           false
         ],
         [
@@ -18856,24 +19298,10 @@
           false
         ],
         [
-          243,
+          10272,
           "flow",
-          10037,
+          10254,
           "flow",
-          false
-        ],
-        [
-          243,
-          "Y",
-          10037,
-          "X",
-          false
-        ],
-        [
-          10029,
-          "val",
-          10037,
-          "DX",
           false
         ],
         [
@@ -18989,13 +19417,6 @@
           false
         ],
         [
-          440,
-          "true",
-          10136,
-          "flow",
-          false
-        ],
-        [
           44,
           "flow",
           10136,
@@ -19003,15 +19424,22 @@
           false
         ],
         [
-          844,
-          "rflow",
-          10008,
-          "flow_1",
+          440,
+          "true",
+          10136,
+          "flow",
           false
         ],
         [
           10235,
           "flow",
+          10008,
+          "flow_1",
+          false
+        ],
+        [
+          844,
+          "rflow",
           10008,
           "flow_1",
           false
@@ -19073,10 +19501,17 @@
           false
         ],
         [
-          339,
+          1193,
           "flow",
-          10041,
+          10258,
           "flow",
+          false
+        ],
+        [
+          829,
+          "gmwp",
+          10258,
+          "val",
           false
         ],
         [
@@ -19158,14 +19593,14 @@
         ],
         [
           204,
-          "True",
+          "False",
           10107,
           "flow",
           false
         ],
         [
           204,
-          "False",
+          "True",
           10107,
           "flow",
           false
@@ -19276,6 +19711,20 @@
           true
         ],
         [
+          912,
+          "False",
+          10293,
+          "flow",
+          false
+        ],
+        [
+          910,
+          "midgrade",
+          10293,
+          "text",
+          false
+        ],
+        [
           10011,
           "down",
           10012,
@@ -19367,15 +19816,15 @@
           false
         ],
         [
-          186,
-          "True",
+          10031,
+          "flow",
           10014,
           "flow",
           false
         ],
         [
-          10031,
-          "flow",
+          186,
+          "True",
           10014,
           "flow",
           false
@@ -19556,8 +20005,8 @@
           true
         ],
         [
-          544,
-          "completed",
+          1542,
+          "done",
           10084,
           "flow",
           false
@@ -20200,10 +20649,24 @@
           false
         ],
         [
-          1181,
-          "down",
-          10034,
+          819,
           "flow",
+          10251,
+          "flow",
+          false
+        ],
+        [
+          819,
+          "Y",
+          10251,
+          "X",
+          false
+        ],
+        [
+          829,
+          "wager",
+          10251,
+          "DX",
           false
         ],
         [
@@ -20291,15 +20754,15 @@
           false
         ],
         [
-          661,
-          "False",
+          10017,
+          "down",
           10164,
           "reset",
           false
         ],
         [
-          10017,
-          "down",
+          661,
+          "False",
           10164,
           "reset",
           false
@@ -20312,9 +20775,9 @@
           false
         ],
         [
-          240,
+          9871,
           "flow",
-          5002,
+          9875,
           "flow",
           false
         ],
@@ -20431,10 +20894,17 @@
           false
         ],
         [
-          10240,
+          10026,
           "flow",
-          10255,
+          10038,
           "flow",
+          false
+        ],
+        [
+          275,
+          "opModel",
+          10038,
+          "val",
           false
         ],
         [
@@ -20474,14 +20944,14 @@
         ],
         [
           1112,
-          "match_2",
+          "match_5",
           10007,
           "flow",
           false
         ],
         [
           1112,
-          "match_5",
+          "match_2",
           10007,
           "flow",
           false
@@ -20592,31 +21062,10 @@
           false
         ],
         [
-          875,
+          10041,
           "flow",
-          10259,
+          10042,
           "flow",
-          false
-        ],
-        [
-          591,
-          "false",
-          10259,
-          "reset",
-          false
-        ],
-        [
-          875,
-          "data",
-          10259,
-          "group",
-          false
-        ],
-        [
-          846,
-          "trucks",
-          10259,
-          "quantity",
           false
         ],
         [
@@ -20652,6 +21101,20 @@
           "val",
           10139,
           "B",
+          false
+        ],
+        [
+          1520,
+          "flow",
+          10292,
+          "flow",
+          false
+        ],
+        [
+          910,
+          "diesel",
+          10292,
+          "text",
           false
         ],
         [
@@ -21096,14 +21559,14 @@
           false
         ],
         [
-          1379,
+          258,
           "flow",
           10271,
           "flow",
           false
         ],
         [
-          258,
+          1379,
           "flow",
           10271,
           "flow",
@@ -21320,10 +21783,17 @@
           false
         ],
         [
-          799,
+          10028,
           "flow",
-          10244,
+          10027,
           "flow",
+          false
+        ],
+        [
+          275,
+          "slips",
+          10027,
+          "val",
           false
         ],
         [
@@ -21432,17 +21902,38 @@
           false
         ],
         [
-          10241,
+          296,
           "flow",
-          10246,
+          10029,
           "flow",
           false
         ],
         [
-          10272,
+          10033,
           "flow",
-          10254,
+          10036,
           "flow",
+          false
+        ],
+        [
+          10033,
+          "Y",
+          10036,
+          "val",
+          false
+        ],
+        [
+          868,
+          "false",
+          10256,
+          "flow",
+          false
+        ],
+        [
+          869,
+          "num",
+          10256,
+          "val",
           false
         ],
         [
@@ -21488,17 +21979,10 @@
           false
         ],
         [
-          10242,
+          339,
           "flow",
-          10243,
+          10041,
           "flow",
-          false
-        ],
-        [
-          809,
-          "True",
-          10243,
-          "reset",
           false
         ],
         [
@@ -21530,24 +22014,10 @@
           false
         ],
         [
-          10251,
+          808,
+          "True",
+          10245,
           "flow",
-          10252,
-          "flow",
-          false
-        ],
-        [
-          10250,
-          "val",
-          10252,
-          "X",
-          false
-        ],
-        [
-          829,
-          "reputation",
-          10252,
-          "DX",
           false
         ],
         [
@@ -21558,16 +22028,16 @@
           false
         ],
         [
-          10238,
-          "flow",
-          10241,
+          1181,
+          "down",
+          10034,
           "flow",
           false
         ],
         [
-          296,
+          10241,
           "flow",
-          10029,
+          10246,
           "flow",
           false
         ],
@@ -21586,17 +22056,24 @@
           false
         ],
         [
-          10026,
+          243,
           "flow",
-          10038,
+          10037,
           "flow",
           false
         ],
         [
-          275,
-          "opModel",
-          10038,
+          243,
+          "Y",
+          10037,
+          "X",
+          false
+        ],
+        [
+          10029,
           "val",
+          10037,
+          "DX",
           false
         ],
         [
@@ -21607,16 +22084,16 @@
           false
         ],
         [
-          808,
-          "True",
-          10245,
+          799,
+          "flow",
+          10244,
           "flow",
           false
         ],
         [
-          10041,
+          10238,
           "flow",
-          10042,
+          10241,
           "flow",
           false
         ],
@@ -21670,31 +22147,52 @@
           false
         ],
         [
-          265,
+          10251,
           "flow",
-          10025,
+          10252,
           "flow",
           false
         ],
         [
-          275,
-          "desc",
-          10025,
+          10250,
           "val",
-          false
-        ],
-        [
-          1193,
-          "flow",
-          10258,
-          "flow",
+          10252,
+          "X",
           false
         ],
         [
           829,
-          "gmwp",
-          10258,
-          "val",
+          "reputation",
+          10252,
+          "DX",
+          false
+        ],
+        [
+          875,
+          "flow",
+          10259,
+          "flow",
+          false
+        ],
+        [
+          591,
+          "false",
+          10259,
+          "reset",
+          false
+        ],
+        [
+          875,
+          "data",
+          10259,
+          "group",
+          false
+        ],
+        [
+          846,
+          "trucks",
+          10259,
+          "quantity",
           false
         ],
         [
@@ -21712,51 +22210,37 @@
           false
         ],
         [
-          868,
-          "false",
-          10256,
+          10242,
+          "flow",
+          10243,
           "flow",
           false
         ],
         [
-          869,
-          "num",
-          10256,
-          "val",
+          809,
+          "True",
+          10243,
+          "reset",
           false
         ],
         [
-          819,
+          10240,
           "flow",
-          10251,
+          10255,
           "flow",
           false
         ],
         [
-          819,
-          "Y",
-          10251,
-          "X",
-          false
-        ],
-        [
-          829,
-          "wager",
-          10251,
-          "DX",
-          false
-        ],
-        [
-          10028,
+          265,
           "flow",
-          10027,
+          10025,
           "flow",
           false
         ],
         [
           275,
-          "slips",
-          10027,
+          "desc",
+          10025,
           "val",
           false
         ],
@@ -21775,17 +22259,10 @@
           false
         ],
         [
-          10033,
+          4994,
           "flow",
-          10036,
+          5006,
           "flow",
-          false
-        ],
-        [
-          10033,
-          "Y",
-          10036,
-          "val",
           false
         ],
         [
@@ -21803,9 +22280,9 @@
           false
         ],
         [
-          4994,
+          240,
           "flow",
-          5006,
+          5002,
           "flow",
           false
         ],
@@ -21813,13 +22290,6 @@
           816,
           "flow",
           10250,
-          "flow",
-          false
-        ],
-        [
-          9871,
-          "flow",
-          9875,
           "flow",
           false
         ]
@@ -22225,7 +22695,7 @@
           "opSymbol":"~=",
           "pos":[
             3482,
-            -62
+            78
           ],
           "type":"logic/compare"
         },
@@ -22245,7 +22715,7 @@
           ],
           "commentSize":[
             1566,
-            1121
+            1278
           ],
           "commentText":"",
           "commentTitle":"Player Garage",
@@ -22254,7 +22724,7 @@
           "moveMode":"withNodes",
           "pos":[
             2604,
-            -630
+            -644
           ],
           "simple":false,
           "textColor":[
@@ -22722,7 +23192,7 @@
           },
           "pos":[
             2810,
-            -594
+            -454
           ],
           "type":"ui/imgui/elemental/imBegin"
         },
@@ -22784,7 +23254,7 @@
           },
           "pos":[
             1998,
-            -1126
+            -1056
           ],
           "type":"logic/branch"
         },
@@ -22812,8 +23282,8 @@
             }
           },
           "pos":[
-            2208,
-            -1154
+            2202,
+            -1098
           ],
           "type":"types/genericValue"
         },
@@ -22915,7 +23385,7 @@
           },
           "pos":[
             2846,
-            106
+            246
           ],
           "type":"types/genericValue"
         },
@@ -22924,13 +23394,12 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nlocal cost = self.pinIn.cost.value\nlocal money = self.pinIn.money.value\nself.pinOut.max.value = money / cost"
+            "work":"local extensions = require(\"extensions\")\nlocal cost = extensions.blrutils.blrvarGet(\"smoothFuelCost\")\nlocal money = self.pinIn.money.value\nself.pinOut.max.value = money / cost"
           },
           "data":{},
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
-              "cost":false,
               "flow":false,
               "money":false
             },
@@ -22965,13 +23434,6 @@
               ""
             ],
             [
-              "in",
-              "number",
-              "cost",
-              null,
-              ""
-            ],
-            [
               "out",
               "number",
               "max",
@@ -22980,8 +23442,8 @@
             ]
           ],
           "pos":[
-            2398,
-            -1154
+            2362,
+            -1098
           ],
           "type":"util/customLua"
         },
@@ -23449,7 +23911,7 @@
           "opSymbol":"<",
           "pos":[
             3286,
-            78
+            218
           ],
           "type":"logic/compare"
         },
@@ -23548,7 +24010,7 @@
           },
           "pos":[
             1557,
-            -1070
+            -958
           ],
           "type":"scene/getPlayerVehicle"
         },
@@ -23577,7 +24039,7 @@
           "opSymbol":">",
           "pos":[
             3496,
-            78
+            218
           ],
           "type":"logic/compare"
         },
@@ -23638,7 +24100,7 @@
           },
           "pos":[
             3076,
-            246
+            386
           ],
           "type":"ui/imgui/elemental/imButton"
         },
@@ -23666,7 +24128,7 @@
           },
           "pos":[
             2740,
-            -398
+            -258
           ],
           "type":"types/genericValue"
         },
@@ -23759,7 +24221,7 @@
           },
           "pos":[
             3076,
-            372
+            512
           ],
           "type":"ui/imgui/elemental/imButton"
         },
@@ -23811,7 +24273,7 @@
           },
           "pos":[
             1788,
-            -1266
+            -1210
           ],
           "type":"logic/branch"
         },
@@ -24002,7 +24464,7 @@
           },
           "pos":[
             2740,
-            -1378
+            -1322
           ],
           "type":"ui/imgui/elemental/imEnd"
         },
@@ -24022,7 +24484,7 @@
           ],
           "commentSize":[
             1594,
-            788
+            872
           ],
           "commentText":"",
           "commentTitle":"Gas Station UI",
@@ -24031,7 +24493,7 @@
           "moveMode":"withNodes",
           "pos":[
             1540,
-            -1582
+            -1610
           ],
           "simple":false,
           "textColor":[
@@ -24406,7 +24868,7 @@
           },
           "pos":[
             3958,
-            372
+            512
           ],
           "type":"types/genericValue"
         },
@@ -24465,7 +24927,7 @@
           ],
           "pos":[
             3748,
-            232
+            372
           ],
           "type":"util/customLua"
         },
@@ -24547,7 +25009,7 @@
           },
           "pos":[
             2628,
-            -300
+            -160
           ],
           "type":"logic/switchcase"
         },
@@ -24602,7 +25064,7 @@
           },
           "pos":[
             2614,
-            -454
+            -314
           ],
           "type":"types/number"
         },
@@ -24798,7 +25260,7 @@
           ],
           "pos":[
             3748,
-            372
+            512
           ],
           "type":"util/customLua"
         },
@@ -24946,7 +25408,7 @@
           ],
           "pos":[
             2782,
-            -272
+            -132
           ],
           "type":"util/customLua"
         },
@@ -24981,7 +25443,7 @@
           },
           "pos":[
             4000,
-            -580
+            -440
           ],
           "type":"ui/imgui/elemental/imEnd"
         },
@@ -24998,7 +25460,7 @@
           },
           "pos":[
             3762,
-            148
+            288
           ],
           "type":"types/number"
         },
@@ -25014,8 +25476,8 @@
             }
           },
           "pos":[
-            3972,
-            613
+            4312,
+            683
           ],
           "type":"logic/bundle"
         },
@@ -25401,7 +25863,7 @@
           ],
           "pos":[
             3104,
-            106
+            246
           ],
           "type":"util/customLua"
         },
@@ -25429,7 +25891,7 @@
           },
           "pos":[
             2860,
-            -20
+            120
           ],
           "type":"types/genericValue"
         },
@@ -25521,7 +25983,7 @@
           ],
           "pos":[
             3636,
-            -510
+            -370
           ],
           "type":"util/customLua"
         },
@@ -25553,7 +26015,7 @@
           },
           "pos":[
             2656,
-            -118
+            22
           ],
           "type":"types/genericValue"
         },
@@ -25580,7 +26042,7 @@
           },
           "pos":[
             3818,
-            -580
+            -440
           ],
           "type":"ui/imgui/elemental/imButton"
         },
@@ -25600,7 +26062,7 @@
           },
           "pos":[
             2908,
-            -398
+            -258
           ],
           "type":"ui/imgui/elemental/imSeparator"
         },
@@ -25657,7 +26119,7 @@
           },
           "pos":[
             2636,
-            106
+            246
           ],
           "type":"types/genericValue"
         },
@@ -25685,7 +26147,7 @@
           },
           "pos":[
             4000,
-            -216
+            -76
           ],
           "type":"types/genericValue"
         },
@@ -25776,7 +26238,7 @@
           ],
           "pos":[
             2860,
-            246
+            386
           ],
           "type":"util/customLua"
         },
@@ -26014,7 +26476,7 @@
           },
           "pos":[
             3090,
-            22
+            162
           ],
           "type":"ui/imgui/elemental/imText"
         },
@@ -27234,8 +27696,8 @@
             ]
           ],
           "pos":[
-            3146,
-            1282
+            3118,
+            1436
           ],
           "type":"util/customLua"
         },
@@ -27321,8 +27783,8 @@
           "dynamicMode":"repeat",
           "moveMode":"withNodes",
           "pos":[
-            -3598,
-            -2674
+            -3794,
+            -2660
           ],
           "simple":false,
           "textColor":[
@@ -27786,8 +28248,8 @@
           "dynamicMode":"repeat",
           "moveMode":"withNodes",
           "pos":[
-            -2114,
-            -2842
+            -2310,
+            -2828
           ],
           "simple":false,
           "textColor":[
@@ -27842,8 +28304,8 @@
             }
           },
           "pos":[
-            -1838,
-            -2582
+            -2034,
+            -2568
           ],
           "type":"util/randomNumber"
         },
@@ -27973,8 +28435,8 @@
             ]
           ],
           "pos":[
-            -1334,
-            -2806
+            -1530,
+            -2792
           ],
           "type":"util/customLua"
         },
@@ -27992,7 +28454,7 @@
           },
           "pos":[
             2202,
-            -1252
+            -1196
           ],
           "type":"ui/imgui/elemental/imText"
         },
@@ -28109,11 +28571,11 @@
             },
             "directionBias":{
               "type":"number",
-              "value":0.80000001200001669144
+              "value":0.80000001200001913393
             },
             "spawnRate":{
               "type":"number",
-              "value":0.00009999999750000357
+              "value":0.00009999999750000399
             }
           },
           "hiddenPins":{
@@ -28181,8 +28643,8 @@
             }
           },
           "pos":[
-            -1082,
-            -2806
+            -1278,
+            -2792
           ],
           "type":"types/genericValue"
         },
@@ -28759,8 +29221,8 @@
           "dynamicMode":"repeat",
           "moveMode":"withNodes",
           "pos":[
-            3958,
-            574
+            4298,
+            644
           ],
           "simple":false,
           "textColor":[
@@ -28815,8 +29277,8 @@
             1
           ],
           "commentSize":[
-            2084,
-            844
+            2294,
+            886
           ],
           "commentText":"",
           "commentTitle":"Repair Shop UI",
@@ -28824,8 +29286,8 @@
           "dynamicMode":"repeat",
           "moveMode":"withNodes",
           "pos":[
-            -812,
-            -2478
+            -1022,
+            -2520
           ],
           "simple":false,
           "textColor":[
@@ -28945,7 +29407,7 @@
           },
           "pos":[
             3188,
-            -258
+            -118
           ],
           "type":"ui/imgui/elemental/imButton"
         },
@@ -29026,7 +29488,7 @@
             }
           },
           "pos":[
-            -774,
+            -970,
             -1837
           ],
           "type":"logic/bundle"
@@ -29077,7 +29539,7 @@
             }
           },
           "pos":[
-            -774,
+            -970,
             -2316
           ],
           "type":"ui/imgui/elemental/imBegin"
@@ -30050,7 +30512,7 @@
           "code":{
             "_executionStarted":"",
             "_executionStopped":"",
-            "work":"local dtable = self.pinIn.data.value\nself.pinOut.name.value = dtable[\"name\"]\nself.pinOut.type.value = dtable[\"type\"]\nself.pinOut.bsfile.value = \"beamLR/beamstate/car\" .. self.pinIn.id.value .. \".save.json\"\nself.pinOut.config.value = \"beamLR/garage/config/car\" .. self.pinIn.id.value\nself.pinOut.mfile.value = \"beamLR/beamstate/mech/car\" .. self.pinIn.id.value\nself.pinOut.ifile.value = \"beamLR/beamstate/integrity/car\" .. self.pinIn.id.value\nself.pinOut.gas.value = tonumber(dtable[\"gas\"])\nself.pinOut.paintdata.value = {paintA=dtable[\"paintA\"], paintB=dtable[\"paintB\"],paintC=dtable[\"paintC\"] }\nself.pinOut.damage.value = tonumber(dtable[\"damage\"])\nself.pinOut.scrapVal.value = tonumber(dtable[\"scrapval\"])\nself.pinOut.nos.value = tonumber(dtable[\"nos\"]) or 0.000000000001\nself.pinOut.avbrdy.value = (tonumber(dtable[\"avbready\"] or \"0\") == 1)"
+            "work":"local dtable = self.pinIn.data.value\nself.pinOut.name.value = dtable[\"name\"]\nself.pinOut.type.value = dtable[\"type\"]\nself.pinOut.bsfile.value = \"beamLR/beamstate/car\" .. self.pinIn.id.value .. \".save.json\"\nself.pinOut.config.value = \"beamLR/garage/config/car\" .. self.pinIn.id.value\nself.pinOut.mfile.value = \"beamLR/beamstate/mech/car\" .. self.pinIn.id.value\nself.pinOut.ifile.value = \"beamLR/beamstate/integrity/car\" .. self.pinIn.id.value\nself.pinOut.gas.value = tonumber(dtable[\"gas\"])\nself.pinOut.paintdata.value = {paintA=dtable[\"paintA\"], paintB=dtable[\"paintB\"],paintC=dtable[\"paintC\"] }\nself.pinOut.damage.value = tonumber(dtable[\"damage\"])\nself.pinOut.scrapVal.value = tonumber(dtable[\"scrapval\"])\nself.pinOut.nos.value = tonumber(dtable[\"nos\"]) or 0.000000000001\nself.pinOut.avbrdy.value = (tonumber(dtable[\"avbready\"] or \"0\") == 1)\nself.pinOut.fueltype.value = dtable[\"fueltype\"]\nself.pinOut.fuelratio.value = dtable[\"fuelratio\"]"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -30066,6 +30528,8 @@
               "config":false,
               "damage":false,
               "flow":false,
+              "fuelratio":false,
+              "fueltype":false,
               "gas":false,
               "ifile":false,
               "mfile":false,
@@ -30183,6 +30647,20 @@
               "out",
               "bool",
               "avbrdy",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "string",
+              "fueltype",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "string",
+              "fuelratio",
               null,
               ""
             ]
@@ -30621,7 +31099,7 @@
             1
           ],
           "commentSize":[
-            950,
+            1090,
             660
           ],
           "commentText":"",
@@ -30630,8 +31108,8 @@
           "dynamicMode":"repeat",
           "moveMode":"withNodes",
           "pos":[
-            2646,
-            672
+            2618,
+            826
           ],
           "simple":false,
           "textColor":[
@@ -33364,8 +33842,8 @@
             ]
           ],
           "pos":[
-            -3560,
-            -2540
+            -3756,
+            -2526
           ],
           "type":"util/customLua"
         },
@@ -33876,7 +34354,7 @@
           "code":{
             "_executionStarted":"",
             "_executionStopped":"",
-            "work":"local dtable = self.pinIn.data.value\nself.pinOut.name.value = dtable[\"name\"]\nself.pinOut.type.value = dtable[\"type\"]\nself.pinOut.bsfile.value = \"beamLR/beamstate/car\" .. self.pinIn.id.value .. \".save.json\"\nself.pinOut.config.value = \"beamLR/garage/config/car\" .. self.pinIn.id.value\nself.pinOut.mfile.value = \"beamLR/beamstate/mech/car\" .. self.pinIn.id.value\nself.pinOut.ifile.value = \"beamLR/beamstate/integrity/car\" .. self.pinIn.id.value\nself.pinOut.gas.value = tonumber(dtable[\"gas\"])\nself.pinOut.paintdata.value = {paintA=dtable[\"paintA\"], paintB=dtable[\"paintB\"],paintC=dtable[\"paintC\"] }\nself.pinOut.damage.value = tonumber(dtable[\"damage\"])\nself.pinOut.scrapVal.value = tonumber(dtable[\"scrapval\"])\nself.pinOut.nos.value = tonumber(dtable[\"nos\"]) or 0.000000000001\nself.pinOut.avbrdy.value = (tonumber(dtable[\"avbready\"] or \"0\") == 1)"
+            "work":"local dtable = self.pinIn.data.value\nself.pinOut.name.value = dtable[\"name\"]\nself.pinOut.type.value = dtable[\"type\"]\nself.pinOut.bsfile.value = \"beamLR/beamstate/car\" .. self.pinIn.id.value .. \".save.json\"\nself.pinOut.config.value = \"beamLR/garage/config/car\" .. self.pinIn.id.value\nself.pinOut.mfile.value = \"beamLR/beamstate/mech/car\" .. self.pinIn.id.value\nself.pinOut.ifile.value = \"beamLR/beamstate/integrity/car\" .. self.pinIn.id.value\nself.pinOut.gas.value = tonumber(dtable[\"gas\"])\nself.pinOut.paintdata.value = {paintA=dtable[\"paintA\"], paintB=dtable[\"paintB\"],paintC=dtable[\"paintC\"] }\nself.pinOut.damage.value = tonumber(dtable[\"damage\"])\nself.pinOut.scrapVal.value = tonumber(dtable[\"scrapval\"])\nself.pinOut.nos.value = tonumber(dtable[\"nos\"]) or 0.000000000001\nself.pinOut.avbrdy.value = (tonumber(dtable[\"avbready\"] or \"0\") == 1)\nself.pinOut.fueltype.value = dtable[\"fueltype\"]\nself.pinOut.fuelratio.value = dtable[\"fuelratio\"]"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -33892,6 +34370,8 @@
               "config":false,
               "damage":false,
               "flow":false,
+              "fuelratio":false,
+              "fueltype":false,
               "gas":false,
               "ifile":false,
               "mfile":false,
@@ -34009,6 +34489,20 @@
               "out",
               "bool",
               "avbrdy",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "string",
+              "fueltype",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "string",
+              "fuelratio",
               null,
               ""
             ]
@@ -34270,8 +34764,8 @@
             }
           },
           "pos":[
-            -3574,
-            -2470
+            -3770,
+            -2456
           ],
           "type":"logic/branch"
         },
@@ -34399,8 +34893,8 @@
             }
           },
           "pos":[
-            -3574,
-            -2579
+            -3770,
+            -2565
           ],
           "type":"logic/bundle"
         },
@@ -34730,8 +35224,8 @@
             }
           },
           "pos":[
-            -3364,
-            -2456
+            -3560,
+            -2442
           ],
           "type":"logic/once"
         },
@@ -34787,8 +35281,8 @@
             }
           },
           "pos":[
-            -2580,
-            -2624
+            -2762,
+            -2456
           ],
           "type":"logic/frameDelay"
         },
@@ -34891,8 +35385,8 @@
             ]
           ],
           "pos":[
-            -3364,
-            -2582
+            -3560,
+            -2568
           ],
           "type":"util/customLua"
         },
@@ -35006,8 +35500,8 @@
             }
           },
           "pos":[
-            -3000,
-            -2470
+            -3196,
+            -2456
           ],
           "type":"types/genericValue"
         },
@@ -35098,8 +35592,8 @@
             }
           },
           "pos":[
-            -3168,
-            -2624
+            -3364,
+            -2610
           ],
           "type":"types/genericValue"
         },
@@ -35127,8 +35621,8 @@
           },
           "opSymbol":"==",
           "pos":[
-            -3182,
-            -2498
+            -3378,
+            -2484
           ],
           "type":"logic/compare"
         },
@@ -35471,8 +35965,8 @@
             }
           },
           "pos":[
-            2894,
-            1268
+            2866,
+            1422
           ],
           "type":"scene/getPlayerVehicle"
         },
@@ -35494,8 +35988,8 @@
           },
           "opSymbol":">=",
           "pos":[
-            2894,
-            918
+            2866,
+            1072
           ],
           "type":"logic/compare"
         },
@@ -35522,8 +36016,8 @@
             }
           },
           "pos":[
-            2894,
-            820
+            2874,
+            988
           ],
           "type":"types/genericValue"
         },
@@ -35557,7 +36051,7 @@
           },
           "pos":[
             1774,
-            -1014
+            -958
           ],
           "type":"ui/imgui/elemental/imBegin"
         },
@@ -35945,8 +36439,8 @@
             ]
           ],
           "pos":[
-            3132,
-            1030
+            3104,
+            1184
           ],
           "type":"util/customLua"
         },
@@ -36083,8 +36577,8 @@
             }
           },
           "pos":[
-            3146,
-            1156
+            3118,
+            1310
           ],
           "type":"types/genericValue"
         },
@@ -36281,51 +36775,55 @@
           "code":{
             "_executionStarted":"",
             "_executionStopped":"",
-            "work":"local ve = scenetree.findObjectById(self.pinIn.veid.value)\nlocal newFuelValue = self.pinIn.fuel.value\nve:queueLuaCommand(string.format(\"extensions.blrVehicleUtils.setFuel(%.12f)\", newFuelValue))"
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrutils.garageTriggerRefresh(self.pinIn.step.value)"
           },
-          "customIcon":"local_gas_station",
           "data":{},
           "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "step":{
+              "type":"number",
+              "value":1
+            }
+          },
           "hiddenPins":{
             "p_in":{
               "flow":false,
-              "fuel":false,
-              "veid":false
+              "step":false
             },
             "p_out":{
               "flow":false
             }
           },
-          "name":"Force Set Fuel",
+          "name":"Tow Trigger Refresh",
           "pins":[
             [
               "in",
               "flow",
-              "flow"
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
             ],
             [
               "out",
               "flow",
-              "flow"
-            ],
-            [
-              "in",
-              "number",
-              "veid",
+              "flow",
               null,
-              ""
+              "Outflow for this node.",
+              true
             ],
             [
               "in",
               "number",
-              "fuel",
+              "step",
               null,
               ""
             ]
           ],
           "pos":[
-            1116,
-            -2288
+            3286,
+            862
           ],
           "type":"util/customLua"
         },
@@ -36705,8 +37203,8 @@
             }
           },
           "pos":[
-            3342,
-            848
+            3286,
+            1100
           ],
           "type":"logic/frameDelay"
         },
@@ -36848,8 +37346,8 @@
             }
           },
           "pos":[
-            2390,
-            -1378
+            2138,
+            -1448
           ],
           "type":"ui/imgui/elemental/imButton"
         },
@@ -37107,7 +37605,7 @@
           ],
           "pos":[
             1788,
-            -1140
+            -1084
           ],
           "type":"util/customLua"
         },
@@ -37141,7 +37639,7 @@
             }
           },
           "pos":[
-            5022,
+            5128,
             -59
           ],
           "type":"logic/bundle"
@@ -37510,8 +38008,8 @@
             ]
           ],
           "pos":[
-            -1866,
-            -2764
+            -2062,
+            -2750
           ],
           "type":"util/customLua"
         },
@@ -37594,7 +38092,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local dtable = self.pinIn.current.value\n\nif self.pinIn.name.value ~= nil then\ndtable[\"name\"] = self.pinIn.name.value\nend\n\nif self.pinIn.type.value ~= nil then\ndtable[\"type\"] = self.pinIn.type.value\nend\n\nif self.pinIn.config.value ~= nil then\ndtable[\"config\"] = self.pinIn.config.value\nend\n\nif self.pinIn.bsfile.value ~= nil then\ndtable[\"bsfile\"] = self.pinIn.bsfile.value\nend\n\nif self.pinIn.mfile.value ~= nil then\ndtable[\"mfile\"] = self.pinIn.mfile.value\nend\n\nif self.pinIn.gas.value ~= nil then\ndtable[\"gas\"] = self.pinIn.gas.value\nend\n\nif self.pinIn.damage.value ~= nil then\ndtable[\"damage\"] = self.pinIn.damage.value\nend\n\nif self.pinIn.nos.value ~= nil then\ndtable[\"nos\"] = self.pinIn.nos.value\nend\n\n-- 1.13 advanced vehicle building\ndtable[\"avbready\"] = 1\n\nself.pinOut.output.value = dtable"
+            "work":"local extensions = require(\"extensions\")\nlocal ftstr = extensions.blrutils.blrvarGet(\"fuelTypeString\") or \"none\"\nlocal frstr = extensions.blrutils.blrvarGet(\"fuelRatioString\") or \"1.0,0.0,0.0\"\nlocal dtable = self.pinIn.current.value\n\nif self.pinIn.name.value ~= nil then\ndtable[\"name\"] = self.pinIn.name.value\nend\n\nif self.pinIn.type.value ~= nil then\ndtable[\"type\"] = self.pinIn.type.value\nend\n\nif self.pinIn.gas.value ~= nil then\ndtable[\"gas\"] = self.pinIn.gas.value\nend\n\nif self.pinIn.damage.value ~= nil then\ndtable[\"damage\"] = self.pinIn.damage.value\nend\n\nif self.pinIn.nos.value ~= nil then\ndtable[\"nos\"] = self.pinIn.nos.value\nend\n\ndtable[\"fueltype\"] = ftstr\ndtable[\"fuelratio\"] = frstr\n\nself.pinOut.output.value = dtable"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -37616,7 +38114,7 @@
               "output":false
             }
           },
-          "name":"Edit BLR Veh Data",
+          "name":"Save Veh Data",
           "pins":[
             [
               "in",
@@ -37792,7 +38290,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local dtable = self.pinIn.current.value\n\nif self.pinIn.name.value ~= nil then\ndtable[\"name\"] = self.pinIn.name.value\nend\n\nif self.pinIn.type.value ~= nil then\ndtable[\"type\"] = self.pinIn.type.value\nend\n\nif self.pinIn.gas.value ~= nil then\ndtable[\"gas\"] = self.pinIn.gas.value\nend\n\nif self.pinIn.damage.value ~= nil then\ndtable[\"damage\"] = self.pinIn.damage.value\nend\n\nif self.pinIn.nos.value ~= nil then\ndtable[\"nos\"] = self.pinIn.nos.value\nend\n\nself.pinOut.output.value = dtable"
+            "work":"local extensions = require(\"extensions\")\nlocal ftstr = extensions.blrutils.blrvarGet(\"fuelTypeString\") or \"none\"\nlocal frstr = extensions.blrutils.blrvarGet(\"fuelRatioString\") or \"1.0,0.0,0.0\"\nlocal dtable = self.pinIn.current.value\n\nif self.pinIn.name.value ~= nil then\ndtable[\"name\"] = self.pinIn.name.value\nend\n\nif self.pinIn.type.value ~= nil then\ndtable[\"type\"] = self.pinIn.type.value\nend\n\nif self.pinIn.gas.value ~= nil then\ndtable[\"gas\"] = self.pinIn.gas.value\nend\n\nif self.pinIn.damage.value ~= nil then\ndtable[\"damage\"] = self.pinIn.damage.value\nend\n\nif self.pinIn.nos.value ~= nil then\ndtable[\"nos\"] = self.pinIn.nos.value\nend\n\ndtable[\"fueltype\"] = ftstr\ndtable[\"fuelratio\"] = frstr\n\nself.pinOut.output.value = dtable"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -37811,7 +38309,7 @@
               "output":false
             }
           },
-          "name":"Edit BLR Veh Data",
+          "name":"Save Veh Data",
           "pins":[
             [
               "in",
@@ -38410,7 +38908,7 @@
             ]
           ],
           "pos":[
-            738,
+            724,
             -1812
           ],
           "type":"util/customLua"
@@ -39157,7 +39655,7 @@
           ],
           "pos":[
             2636,
-            358
+            498
           ],
           "type":"util/customLua"
         },
@@ -39265,7 +39763,7 @@
           ],
           "pos":[
             2636,
-            246
+            386
           ],
           "type":"util/customLua"
         },
@@ -40604,7 +41102,7 @@
           ],
           "pos":[
             2628,
-            -580
+            -440
           ],
           "type":"util/customLua"
         },
@@ -40699,7 +41197,7 @@
             ]
           ],
           "pos":[
-            -774,
+            -970,
             -2078
           ],
           "type":"util/customLua"
@@ -40859,8 +41357,8 @@
           "dynamicMode":"repeat",
           "moveMode":"withNodes",
           "pos":[
-            -1400,
-            -2296
+            -1596,
+            -2142
           ],
           "simple":false,
           "textColor":[
@@ -40978,8 +41476,8 @@
             ]
           ],
           "pos":[
-            -1586,
-            -2778
+            -1782,
+            -2764
           ],
           "type":"util/customLua"
         },
@@ -41177,8 +41675,8 @@
             ]
           ],
           "pos":[
-            -1376,
-            -2204
+            -1572,
+            -2050
           ],
           "type":"util/customLua"
         },
@@ -41462,8 +41960,8 @@
             ]
           ],
           "pos":[
-            -1572,
-            -2666
+            -1768,
+            -2652
           ],
           "type":"util/customLua"
         },
@@ -41479,8 +41977,8 @@
             }
           },
           "pos":[
-            -1376,
-            -2243
+            -1572,
+            -2089
           ],
           "type":"logic/bundle"
         },
@@ -41665,8 +42163,8 @@
             ]
           ],
           "pos":[
-            -1166,
-            -2246
+            -1362,
+            -2092
           ],
           "type":"util/customLua"
         },
@@ -43439,7 +43937,7 @@
           "opSymbol":"==",
           "pos":[
             3272,
-            -62
+            78
           ],
           "type":"logic/compare"
         },
@@ -44549,32 +45047,68 @@
           "type":"types/genericValue"
         },
         "541":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nself.pinOut.flag.value = extensions.blrglobals.blrFlagGet(self.pinIn.name.value)\n"
+          },
           "data":{},
-          "dynamicMode":"once",
+          "dynamicMode":"repeat",
           "hardcodedPins":{
-            "duration":{
-              "type":"number",
-              "value":2
+            "name":{
+              "type":"string",
+              "value":"garageSafeMode"
             }
           },
           "hiddenPins":{
             "p_in":{
-              "duration":false,
               "flow":false,
-              "reset":false
+              "name":false
             },
             "p_out":{
-              "complete":false,
-              "completed":false,
-              "flow":false,
-              "incomplete":false
+              "flag":false,
+              "flow":false
             }
           },
-          "pos":[
-            3104,
-            862
+          "name":"BLR Flag Get",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "bool",
+              "flag",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "string",
+              "name",
+              null,
+              ""
+            ]
           ],
-          "type":"ui/fadeToBlack"
+          "pos":[
+            2642,
+            -580
+          ],
+          "type":"util/customLua"
         },
         "542":{
           "code":{
@@ -44741,31 +45275,23 @@
         },
         "544":{
           "data":{},
-          "dynamicMode":"once",
-          "hardcodedPins":{
-            "duration":{
-              "type":"number",
-              "value":2
-            }
-          },
+          "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
-              "duration":false,
-              "flow":false,
-              "reset":false
+              "condition":false,
+              "flow":false
             },
             "p_out":{
-              "complete":false,
-              "completed":false,
-              "flow":false,
-              "incomplete":false
+              "False":false,
+              "True":false,
+              "flow":true
             }
           },
           "pos":[
-            3356,
-            960
+            2824,
+            -594
           ],
-          "type":"ui/fadeFromBlack"
+          "type":"logic/branch"
         },
         "545":{
           "data":{},
@@ -44787,8 +45313,8 @@
             }
           },
           "pos":[
-            2908,
-            1170
+            2880,
+            1324
           ],
           "type":"vehicle/freeze"
         },
@@ -45168,8 +45694,8 @@
             }
           },
           "pos":[
-            1788,
-            1282
+            1782,
+            1422
           ],
           "type":"ui/imgui/elemental/imButton"
         },
@@ -45705,7 +46231,7 @@
           ],
           "commentSize":[
             824,
-            1556
+            1755
           ],
           "commentText":"",
           "commentTitle":"Police & Tickets",
@@ -45788,7 +46314,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local namelib = self.pinIn.nlib.value\nlocal ticket = \"Utah State Police Ticket\\n--------------------\\nInfractions\\n\"\nlocal cost = 0\nlocal costtable = self.pinIn.cdata.value\nlocal olist = self.pinIn.olist.value\nfor k,v in pairs(olist) do\nticket = ticket .. (namelib[v] or v) .. \": $\" .. string.format(\"%.2f\",costtable[v] or 69) .. \"\\n\"\ncost = cost + (costtable[v] or 69)\nend\nticket = ticket .. \"\\nTotal: $\" .. string.format(\"%.2f\", cost) .. \"\\n\" \nticket = ticket .. \"\\nThe corrupt cops want you to pay in cash or they'll impound your vehicle!\"\n\nself.pinOut.tkttxt.value = ticket\nself.pinOut.cost.value = cost\n\nwriteFile(\"beamLR/policeTicket\", ticket)"
+            "work":"local namelib = self.pinIn.nlib.value\nlocal ticket = \"Utah State Police Ticket\\n--------------------\\nInfractions\\n\"\nlocal cost = 0\nlocal costtable = self.pinIn.cdata.value\nlocal olist = self.pinIn.olist.value\nlocal walking = self.mgr.variables:get(\"playerIsWalking\")\n\nfor k,v in pairs(olist) do\nticket = ticket .. (namelib[v] or v) .. \": $\" .. string.format(\"%.2f\",costtable[v] or 69) .. \"\\n\"\ncost = cost + (costtable[v] or 69)\nend\n\nif walking ~= 1 then\nticket = ticket .. \"\\nTotal: $\" .. string.format(\"%.2f\", cost) .. \"\\n\" \nticket = ticket .. \"\\nThe corrupt cops want you to pay in cash or they'll impound your vehicle!\"\nelse\nticket = \"Cops decided to let it slide this time.\"\ncost = 0\nend\n\nself.pinOut.tkttxt.value = ticket\nself.pinOut.cost.value = cost\n\nwriteFile(\"beamLR/policeTicket\", ticket)"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -46100,8 +46626,8 @@
           },
           "opSymbol":"==",
           "pos":[
-            1788,
-            1492
+            1796,
+            1702
           ],
           "type":"logic/compare"
         },
@@ -46123,8 +46649,8 @@
           },
           "opSymbol":">=",
           "pos":[
-            2180,
-            1492
+            2188,
+            1702
           ],
           "type":"logic/compare"
         },
@@ -46151,8 +46677,8 @@
             }
           },
           "pos":[
-            1984,
-            1492
+            1992,
+            1702
           ],
           "type":"types/genericValue"
         },
@@ -46234,8 +46760,8 @@
             ]
           ],
           "pos":[
-            2418,
-            1422
+            2412,
+            1604
           ],
           "type":"util/customLua"
         },
@@ -46262,8 +46788,8 @@
             }
           },
           "pos":[
-            1788,
-            1660
+            1796,
+            1870
           ],
           "type":"types/genericValue"
         },
@@ -46337,8 +46863,8 @@
             ]
           ],
           "pos":[
-            1942,
-            1660
+            1950,
+            1870
           ],
           "type":"util/customLua"
         },
@@ -46365,7 +46891,7 @@
             }
           },
           "pos":[
-            4462,
+            4568,
             -104
           ],
           "type":"types/genericValue"
@@ -46745,8 +47271,8 @@
             }
           },
           "pos":[
-            2278,
-            1660
+            2286,
+            1870
           ],
           "type":"types/genericValue"
         },
@@ -46885,8 +47411,8 @@
             ]
           ],
           "pos":[
-            2894,
-            1758
+            2880,
+            1912
           ],
           "type":"util/customLua"
         },
@@ -47004,8 +47530,8 @@
             ]
           ],
           "pos":[
-            3412,
-            1912
+            3398,
+            2066
           ],
           "type":"util/customLua"
         },
@@ -47062,8 +47588,8 @@
             ]
           ],
           "pos":[
-            2852,
-            1422
+            2838,
+            1576
           ],
           "type":"util/customLua"
         },
@@ -47193,8 +47719,8 @@
             ]
           ],
           "pos":[
-            2880,
-            1590
+            2866,
+            1744
           ],
           "type":"util/customLua"
         },
@@ -47244,8 +47770,8 @@
             ]
           ],
           "pos":[
-            2670,
-            1786
+            2656,
+            1940
           ],
           "type":"util/customLua"
         },
@@ -47355,8 +47881,8 @@
             }
           },
           "pos":[
-            2656,
-            1436
+            2642,
+            1590
           ],
           "type":"types/genericValue"
         },
@@ -47417,7 +47943,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local mode = self.pinIn.mode.value or 0\nlocal score = self.pinIn.score.value\nlocal sight = self.pinIn.sight.value\nlocal offenses = self.pinIn.offenses.value\nlocal olist = self.pinIn.olist.value\nlocal time = self.pinIn.time.value\nlocal topay = self.pinIn.gottkt.value\nlocal tickettxt = self.pinIn.tkttxt.value\nlocal viewTicket = false\nlocal uiactive = false\n\nlocal txt = \"\"\nlocal btntxt = \"\"\n\nif mode == 0 then\n\nif topay > 0 then\ntxt = self.pinIn.tkttxt.value\nviewTicket=true\nbtntxt = \"Pay Ticket (\" .. string.format(\"$%.2f\", self.pinIn.tktcost.value) .. \")\"\nuiactive = true\nelse\ntxt = \"Not Being Chased\"\nbtntxt = \"Close Menu\"\nuiactive = false\nend\n\nelseif mode >= 1 then\ntxt = \"Police! Stop Right Now!\\n\"\ntxt = txt .. \"Wanted Level : \" .. mode .. \"/3\\n\"\ntxt = txt .. \"Score : \" .. string.format(\"%.2f\",score) .. \"\\n\"\ntxt = txt .. \"Visibility : \" .. string.format(\"%.2f\",sight*100) .. \"%%\\n\"\ntxt = txt .. \"Time : \" .. string.format(\"%.2f\", time) .. \"\\n\"\ntxt = txt .. \"Offenses : \\n\"\n\nfor k,v in pairs(olist) do\ntxt = txt .. k .. \" - \" .. v .. \"\\n\"\nend\nuiactive = true\n\nelseif mode == -1 then\ntxt = \"Busted!\"\nuiactive = true\n\nend\n\nself.pinOut.text.value = txt\nself.pinOut.btntxt.value = btntxt\nself.pinOut.oticket.value = viewTicket\nself.pinOut.uiactive.value = uiactive"
+            "work":"local mode = self.pinIn.mode.value or 0\nlocal score = self.pinIn.score.value\nlocal sight = self.pinIn.sight.value\nlocal offenses = self.pinIn.offenses.value\nlocal olist = self.pinIn.olist.value\nlocal time = self.pinIn.time.value\nlocal topay = self.pinIn.gottkt.value\nlocal tickettxt = self.pinIn.tkttxt.value\nlocal viewTicket = false\nlocal uiactive = false\nlocal cost = self.pinIn.tktcost.value\n\nlocal txt = \"\"\nlocal btntxt = \"\"\n\nif mode == 0 then\n\nif topay > 0 then\ntxt = self.pinIn.tkttxt.value\nviewTicket=true\nif cost > 0 then\nbtntxt = \"Pay Ticket (\" .. string.format(\"$%.2f\", cost) .. \")\"\nelse\nbtntxt = \"Close Menu\"\nend\nuiactive = true\nelse\ntxt = \"Not Being Chased\"\nbtntxt = \"Close Menu\"\nuiactive = false\nend\n\nelseif mode >= 1 then\ntxt = \"Police! Stop Right Now!\\n\"\ntxt = txt .. \"Wanted Level : \" .. mode .. \"/3\\n\"\ntxt = txt .. \"Score : \" .. string.format(\"%.2f\",score) .. \"\\n\"\ntxt = txt .. \"Visibility : \" .. string.format(\"%.2f\",sight*100) .. \"%%\\n\"\ntxt = txt .. \"Time : \" .. string.format(\"%.2f\", time) .. \"\\n\"\ntxt = txt .. \"Offenses : \\n\"\n\nfor k,v in pairs(olist) do\ntxt = txt .. k .. \" - \" .. v .. \"\\n\"\nend\nuiactive = true\n\nelseif mode == -1 then\ntxt = \"Busted!\"\nuiactive = true\n\nend\n\nself.pinOut.text.value = txt\nself.pinOut.btntxt.value = btntxt\nself.pinOut.oticket.value = viewTicket\nself.pinOut.uiactive.value = uiactive"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -47701,8 +48227,8 @@
             }
           },
           "pos":[
-            1788,
-            1394
+            1810,
+            1548
           ],
           "type":"ui/imgui/elemental/imText"
         },
@@ -47776,8 +48302,8 @@
             ]
           ],
           "pos":[
-            2656,
-            1660
+            2642,
+            1814
           ],
           "type":"util/customLua"
         },
@@ -47791,8 +48317,8 @@
             }
           },
           "pos":[
-            2642,
-            1576
+            2628,
+            1730
           ],
           "type":"scene/getPlayerVehicle"
         },
@@ -47833,8 +48359,8 @@
             ]
           ],
           "pos":[
-            3902,
-            1702
+            3888,
+            1856
           ],
           "type":"util/customLua"
         },
@@ -47851,8 +48377,8 @@
             }
           },
           "pos":[
-            3888,
-            1772
+            3874,
+            1926
           ],
           "type":"vehicle/removeVehicle"
         },
@@ -47901,8 +48427,8 @@
             ]
           ],
           "pos":[
-            3132,
-            1604
+            3118,
+            1758
           ],
           "type":"util/customLua"
         },
@@ -47982,8 +48508,8 @@
             ]
           ],
           "pos":[
-            3524,
-            1618
+            3510,
+            1772
           ],
           "type":"util/customLua"
         },
@@ -48034,8 +48560,8 @@
           "dynamicMode":"repeat",
           "moveMode":"withNodes",
           "pos":[
-            2632,
-            1386
+            2618,
+            1540
           ],
           "simple":false,
           "textColor":[
@@ -48073,8 +48599,8 @@
             }
           },
           "pos":[
-            3902,
-            1870
+            3888,
+            2024
           ],
           "type":"types/genericValue"
         },
@@ -48154,8 +48680,8 @@
             ]
           ],
           "pos":[
-            3412,
-            2024
+            3398,
+            2178
           ],
           "type":"util/customLua"
         },
@@ -48184,7 +48710,7 @@
           "opSymbol":">",
           "pos":[
             3678,
-            -48
+            92
           ],
           "type":"logic/compare"
         },
@@ -48207,7 +48733,7 @@
           "opSymbol":">=",
           "pos":[
             3888,
-            64
+            204
           ],
           "type":"logic/compare"
         },
@@ -48235,7 +48761,7 @@
           },
           "pos":[
             3678,
-            22
+            162
           ],
           "type":"types/genericValue"
         },
@@ -48331,7 +48857,7 @@
           ],
           "pos":[
             3888,
-            -188
+            -48
           ],
           "type":"util/customLua"
         },
@@ -48389,7 +48915,7 @@
           ],
           "pos":[
             3888,
-            -34
+            106
           ],
           "type":"util/customLua"
         },
@@ -48460,8 +48986,8 @@
             ]
           ],
           "pos":[
-            3048,
-            1422
+            3034,
+            1576
           ],
           "type":"util/customLua"
         },
@@ -48535,7 +49061,7 @@
             ]
           ],
           "pos":[
-            4266,
+            4372,
             -104
           ],
           "type":"util/customLua"
@@ -48554,8 +49080,8 @@
             }
           },
           "pos":[
-            2656,
-            2024
+            2642,
+            2178
           ],
           "type":"logic/flowSwitch"
         },
@@ -48596,8 +49122,8 @@
             }
           },
           "pos":[
-            3062,
-            2024
+            3048,
+            2178
           ],
           "type":"logic/frameDelay"
         },
@@ -48613,8 +49139,8 @@
             }
           },
           "pos":[
-            2670,
-            1915
+            2656,
+            2069
           ],
           "type":"logic/bundle"
         },
@@ -48671,7 +49197,7 @@
           },
           "opSymbol":"==",
           "pos":[
-            906,
+            1004,
             36
           ],
           "type":"logic/compare"
@@ -48690,8 +49216,8 @@
             }
           },
           "pos":[
-            3132,
-            1884
+            3118,
+            2038
           ],
           "type":"logic/flowSwitch"
         },
@@ -48733,7 +49259,7 @@
           ],
           "pos":[
             1396,
-            120
+            106
           ],
           "type":"util/customLua"
         },
@@ -48873,8 +49399,8 @@
             }
           },
           "pos":[
-            3412,
-            1786
+            3398,
+            1940
           ],
           "type":"logic/frameDelay"
         },
@@ -48966,8 +49492,8 @@
             }
           },
           "pos":[
-            3664,
-            1786
+            3650,
+            1940
           ],
           "type":"logic/once"
         },
@@ -49241,8 +49767,8 @@
           "dynamicMode":"repeat",
           "moveMode":"withoutNodes",
           "pos":[
-            910,
-            -1848
+            1106,
+            -1792
           ],
           "simple":true,
           "textColor":[
@@ -49876,7 +50402,7 @@
           ],
           "commentSize":[
             726,
-            985
+            1013
           ],
           "commentText":"Fixes weird bug with orbit camera using delayed call to restore cam and\\nalso restores gas value after part edit.\\nupdated for odometer & integrity\\nworks with tuning vars apply\\n",
           "commentTitle":"Post Part Edit Actions",
@@ -49917,7 +50443,7 @@
               "key":false
             },
             "p_out":{
-              "flag":false,
+              "flag":true,
               "flow":false,
               "val":false
             }
@@ -50007,7 +50533,7 @@
           },
           "pos":[
             -872,
-            1842
+            1814
           ],
           "type":"scene/getPlayerVehicle"
         },
@@ -50176,8 +50702,8 @@
             }
           },
           "pos":[
-            3104,
-            708
+            3076,
+            960
           ],
           "type":"logic/flowSwitch"
         },
@@ -50448,7 +50974,7 @@
           },
           "pos":[
             3342,
-            -202
+            -62
           ],
           "type":"ui/imgui/elemental/imSeparator"
         },
@@ -51196,7 +51722,7 @@
             ]
           ],
           "pos":[
-            920,
+            892,
             -2288
           ],
           "type":"util/customLua"
@@ -51439,8 +51965,8 @@
             }
           },
           "pos":[
-            -2776,
-            -2624
+            -2958,
+            -2456
           ],
           "type":"logic/flowSwitch"
         },
@@ -51454,8 +51980,8 @@
             }
           },
           "pos":[
-            -1376,
-            -1840
+            -1572,
+            -1686
           ],
           "type":"scene/getPlayerVehicle"
         },
@@ -51483,8 +52009,8 @@
           },
           "opSymbol":"==",
           "pos":[
-            -2524,
-            -2764
+            -2706,
+            -2596
           ],
           "type":"logic/compare"
         },
@@ -51500,8 +52026,8 @@
             }
           },
           "pos":[
-            -2398,
-            -2817
+            -2580,
+            -2649
           ],
           "type":"logic/bundle"
         },
@@ -51528,8 +52054,8 @@
             }
           },
           "pos":[
-            -2734,
-            -2764
+            -2916,
+            -2596
           ],
           "type":"types/genericValue"
         },
@@ -51557,8 +52083,8 @@
           "dynamicMode":"repeat",
           "moveMode":"withNodes",
           "pos":[
-            -2800,
-            -2856
+            -2982,
+            -2688
           ],
           "simple":false,
           "textColor":[
@@ -52498,8 +53024,8 @@
             ]
           ],
           "pos":[
-            -634,
-            1898
+            -746,
+            1968
           ],
           "type":"util/customLua"
         },
@@ -52721,7 +53247,7 @@
           ],
           "pos":[
             -1096,
-            2318
+            2346
           ],
           "type":"util/customLua"
         },
@@ -54217,8 +54743,8 @@
             }
           },
           "pos":[
-            -2090,
-            -2792
+            -2286,
+            -2778
           ],
           "type":"types/genericValue"
         },
@@ -54605,8 +55131,8 @@
             ]
           ],
           "pos":[
-            -2076,
-            -2666
+            -2272,
+            -2652
           ],
           "type":"util/customLua"
         },
@@ -54671,8 +55197,8 @@
             ]
           ],
           "pos":[
-            -2076,
-            -2554
+            -2272,
+            -2540
           ],
           "type":"util/customLua"
         },
@@ -54718,8 +55244,8 @@
             }
           },
           "pos":[
-            2866,
-            2024
+            2852,
+            2178
           ],
           "type":"logic/flowSwitch"
         },
@@ -54743,8 +55269,8 @@
             }
           },
           "pos":[
-            2866,
-            1898
+            2852,
+            2052
           ],
           "type":"logic/frameDelay"
         },
@@ -54772,7 +55298,7 @@
           "dynamicMode":"repeat",
           "moveMode":"withoutNodes",
           "pos":[
-            2618,
+            2352,
             546
           ],
           "simple":true,
@@ -54835,8 +55361,8 @@
             }
           },
           "pos":[
-            2880,
-            1506
+            2866,
+            1660
           ],
           "type":"types/genericValue"
         },
@@ -55628,7 +56154,7 @@
               "value":[
                 1,
                 0,
-                0.00006008148190000253,
+                0.00006008148190000293,
                 1
               ]
             },
@@ -57495,7 +58021,7 @@
             "_executionStarted":"",
             "_executionStopped":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(\"avbToggle\", false)",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nlocal options = extensions.blrutils.loadDataTable(\"beamLR/options\")\nlocal ctraffic = tonumber(options[\"crazytraffic\"])\nlocal ttotal = (tonumber(options[\"traffic\"]) + tonumber(options[\"police\"]) + tonumber(options[\"trucks\"]))\nif ctraffic == 0 then\nself.pinOut.traffic.value = tonumber(options[\"traffic\"])\nself.pinOut.police.value = tonumber(options[\"police\"])\nself.pinOut.trucks.value = tonumber(options[\"trucks\"])\nself.pinOut.pool.value = math.floor(ttotal - (ttotal / 3))--Changed in 0.28, value now used as amount of active vehs when pooling\nelse\nself.pinOut.traffic.value = 8\nself.pinOut.police.value = 8\nself.pinOut.trucks.value = 8\nself.pinOut.pool.value = 18\nend\nself.pinOut.sseed.value = tonumber(options[\"sseed\"])\nself.pinOut.risk.value = tonumber(options[\"trisk\"]) or 0.7\nself.pinOut.copstrict.value = tonumber(options[\"copstrict\"]) or 0.08\nself.pinOut.sleepTime.value = tonumber(options[\"sleeptime\"]) or 8\nself.pinOut.raceRandPaint.value = (tonumber(options[\"raceRandPaint\"]) == 1) or false\n\nlocal copfix = tonumber(options[\"autoCopfix\"] or \"1\")\nextensions.blrglobals.blrFlagSet(\"roleFixToggle\", copfix == 1)\nlocal bstoggle = tonumber(options[\"bstoggle\"] or \"0\") --can turn this default to 1 when issue is fixed, for old option files\nextensions.blrglobals.blrFlagSet(\"beamstateToggle\", bstoggle == 1)\n\nlocal timescale = tonumber(options[\"timescale\"] or \"1\")\nlocal daytime = 86400.000 / timescale\nself.pinOut.daytime.value = daytime\n\n--1.13 advanced vehicle building\nlocal avbtoggle = tonumber(options[\"avbtoggle\"] or \"0\")==1\nextensions.blrglobals.blrFlagSet(\"avbToggle\", avbtoggle)\nself.pinOut.avbtoggle.value = avbtoggle\n\n--1.13 gps (0=default, 1=always on, 2=always off)\nlocal gpsmode = tonumber(options[\"gpsmode\"] or 0)\nextensions.blrutils.blrvarSet(\"gpsmode\", gpsmode)\nextensions.blrglobals.blrFlagSet(\"gpsForceOff\", false)\n\n--1.13 advanced repair cost\nlocal arctoggle = tonumber(options[\"advrepaircost\"] or \"0\")==1\nextensions.blrglobals.blrFlagSet(\"advrepaircost\", arctoggle)\n\n--1.14 imgui layout \nlocal imscale = tonumber(options[\"imscale\"] or \"1\")\nextensions.ui_imguiUtils.changeUIScale(imscale)\nlocal imautosave = tonumber(options[\"imautosave\"] or \"1\")\nextensions.blrglobals.blrFlagSet(\"imautosave\", imautosave == 1)\nextensions.blrutils.loadCustomIMGUILayout()\n\n--1.14 drag cinematic effects\nlocal dragslowmo = tonumber(options[\"dragslowmo\"] or \"1\")\nextensions.blrglobals.blrFlagSet(\"dragslowmo\",dragslowmo  == 1)\n\n--1.14 option file saved target wager\nlocal targetwager = tonumber(options[\"targetwager\"] or \"100\")\nextensions.blrutils.setWager(targetwager)\n\n--1.14 groundmarkers global toggle\nlocal gmtoggle = tonumber(options[\"gmtoggle\"] or \"100\")\nextensions.blrglobals.blrFlagSet(\"gmtoggle\",gmtoggle  == 1)\n\n--1.14 race traffic mode switch\nlocal raceTrafficMode = tonumber(options[\"rtmode\"] or \"0\")\nextensions.blrutils.blrvarSet(\"raceTrafficMode\", raceTrafficMode)\n\n--1.14 floating markers toggle\nlocal fmtoggle = tonumber(options[\"fmtoggle\"] or \"1\")\nextensions.blrglobals.blrFlagSet(\"fmtoggle\",fmtoggle  == 1)\n\n--1.14 advanced repair UI toggle\nlocal aruitoggle = tonumber(options[\"useadvrepairui\"] or \"0\")\nextensions.blrglobals.blrFlagSet(\"useadvrepairui\",aruitoggle  == 1)\n\n--1.14.1 fast traffic toggle\nlocal tfasttoggle = tonumber(options[\"tfasttoggle\"] or \"0\")\nextensions.blrglobals.blrFlagSet(\"fastTrafficToggle\",tfasttoggle  == 1)\n\n-- Finish by sending loaded options to ui\nextensions.customGuiStream.sendCurrentOptionValues()\n\n"
+            "work":"local extensions = require(\"extensions\")\nlocal options = extensions.blrutils.loadDataTable(\"beamLR/options\")\nlocal ctraffic = tonumber(options[\"crazytraffic\"])\nlocal ttotal = (tonumber(options[\"traffic\"]) + tonumber(options[\"police\"]) + tonumber(options[\"trucks\"]))\nif ctraffic == 0 then\nself.pinOut.traffic.value = tonumber(options[\"traffic\"])\nself.pinOut.police.value = tonumber(options[\"police\"])\nself.pinOut.trucks.value = tonumber(options[\"trucks\"])\nself.pinOut.pool.value = math.floor(ttotal - (ttotal / 3))--Changed in 0.28, value now used as amount of active vehs when pooling\nelse\nself.pinOut.traffic.value = 8\nself.pinOut.police.value = 8\nself.pinOut.trucks.value = 8\nself.pinOut.pool.value = 18\nend\nself.pinOut.sseed.value = tonumber(options[\"sseed\"])\nself.pinOut.risk.value = tonumber(options[\"trisk\"]) or 0.7\nself.pinOut.copstrict.value = tonumber(options[\"copstrict\"]) or 0.08\nself.pinOut.sleepTime.value = tonumber(options[\"sleeptime\"]) or 8\nself.pinOut.raceRandPaint.value = (tonumber(options[\"raceRandPaint\"]) == 1) or false\n\nlocal copfix = tonumber(options[\"autoCopfix\"] or \"1\")\nextensions.blrglobals.blrFlagSet(\"roleFixToggle\", copfix == 1)\nlocal bstoggle = tonumber(options[\"bstoggle\"] or \"0\") --can turn this default to 1 when issue is fixed, for old option files\nextensions.blrglobals.blrFlagSet(\"beamstateToggle\", bstoggle == 1)\n\nlocal timescale = tonumber(options[\"timescale\"] or \"1\")\nlocal daytime = 86400.000 / timescale\nself.pinOut.daytime.value = daytime\n\n--1.13 advanced vehicle building\nlocal avbtoggle = tonumber(options[\"avbtoggle\"] or \"0\")==1\nextensions.blrglobals.blrFlagSet(\"avbToggle\", avbtoggle)\nself.pinOut.avbtoggle.value = avbtoggle\n\n--1.13 gps (0=default, 1=always on, 2=always off)\nlocal gpsmode = tonumber(options[\"gpsmode\"] or 0)\nextensions.blrutils.blrvarSet(\"gpsmode\", gpsmode)\nextensions.blrglobals.blrFlagSet(\"gpsForceOff\", false)\n\n--1.13 advanced repair cost\nlocal arctoggle = tonumber(options[\"advrepaircost\"] or \"0\")==1\nextensions.blrglobals.blrFlagSet(\"advrepaircost\", arctoggle)\n\n--1.14 imgui layout \nlocal imscale = tonumber(options[\"imscale\"] or \"1\")\nextensions.ui_imguiUtils.changeUIScale(imscale)\nlocal imautosave = tonumber(options[\"imautosave\"] or \"1\")\nextensions.blrglobals.blrFlagSet(\"imautosave\", imautosave == 1)\nextensions.blrutils.loadCustomIMGUILayout()\n\n--1.14 drag cinematic effects\nlocal dragslowmo = tonumber(options[\"dragslowmo\"] or \"1\")\nextensions.blrglobals.blrFlagSet(\"dragslowmo\",dragslowmo  == 1)\n\n--1.14 option file saved target wager\nlocal targetwager = tonumber(options[\"targetwager\"] or \"100\")\nextensions.blrutils.setWager(targetwager)\n\n--1.14 groundmarkers global toggle\nlocal gmtoggle = tonumber(options[\"gmtoggle\"] or \"100\")\nextensions.blrglobals.blrFlagSet(\"gmtoggle\",gmtoggle  == 1)\n\n--1.14 race traffic mode switch\nlocal raceTrafficMode = tonumber(options[\"rtmode\"] or \"0\")\nextensions.blrutils.blrvarSet(\"raceTrafficMode\", raceTrafficMode)\n\n--1.14 floating markers toggle\nlocal fmtoggle = tonumber(options[\"fmtoggle\"] or \"1\")\nextensions.blrglobals.blrFlagSet(\"fmtoggle\",fmtoggle  == 1)\n\n--1.14 advanced repair UI toggle\nlocal aruitoggle = tonumber(options[\"useadvrepairui\"] or \"0\")\nextensions.blrglobals.blrFlagSet(\"useadvrepairui\",aruitoggle  == 1)\n\n--1.14.1 fast traffic toggle\nlocal tfasttoggle = tonumber(options[\"tfasttoggle\"] or \"0\")\nextensions.blrglobals.blrFlagSet(\"fastTrafficToggle\",tfasttoggle  == 1)\n\n--1.14.2 part edit safe mode toggle\nlocal gsafemode = tonumber(options[\"gsafemode\"] or \"0\")\nextensions.blrglobals.blrFlagSet(\"garageSafeModeToggle\",gsafemode == 1)\n\n-- Finish by sending loaded options to ui\nextensions.customGuiStream.sendCurrentOptionValues()\n\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -57671,7 +58197,7 @@
             ]
           ],
           "pos":[
-            934,
+            1110,
             -1714
           ],
           "type":"util/customLua"
@@ -57727,8 +58253,8 @@
             ]
           ],
           "pos":[
-            1096,
-            -1770
+            1088,
+            -1854
           ],
           "type":"util/customLua"
         },
@@ -57840,7 +58366,7 @@
           ],
           "pos":[
             3832,
-            -272
+            -132
           ],
           "type":"util/customLua"
         },
@@ -58293,8 +58819,8 @@
             ]
           ],
           "pos":[
-            3608,
-            2038
+            3594,
+            2192
           ],
           "type":"util/customLua"
         },
@@ -59526,8 +60052,8 @@
             ]
           ],
           "pos":[
-            -914,
-            2206
+            -886,
+            2192
           ],
           "type":"util/customLua"
         },
@@ -59741,8 +60267,8 @@
             ]
           ],
           "pos":[
-            2670,
-            834
+            2642,
+            988
           ],
           "type":"util/customLua"
         },
@@ -59813,8 +60339,8 @@
             ]
           ],
           "pos":[
-            2670,
-            1002
+            2642,
+            1156
           ],
           "type":"util/customLua"
         },
@@ -59833,8 +60359,8 @@
             }
           },
           "pos":[
-            2670,
-            1142
+            2642,
+            1296
           ],
           "type":"logic/branch"
         },
@@ -60045,8 +60571,8 @@
             }
           },
           "pos":[
-            -1348,
-            -2554
+            -1544,
+            -2540
           ],
           "type":"types/genericValue"
         },
@@ -60369,8 +60895,8 @@
             ]
           ],
           "pos":[
-            1564,
-            -1392
+            1572,
+            -1448
           ],
           "type":"util/customLua"
         },
@@ -60533,8 +61059,8 @@
             ]
           ],
           "pos":[
-            -1908,
-            -2806
+            -2104,
+            -2792
           ],
           "type":"util/customLua"
         },
@@ -60600,7 +61126,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nlocal dtable = self.pinIn.input.value\nlocal units = extensions.blrutils.getSettingValue(\"uiUnits\")\nlocal seed = extensions.blrutils.getDailySeed() + tonumber(dtable[\"id\"])\nlocal processed = extensions.blrutils.processGasStationRandoms(dtable, seed)\nlocal cost = tonumber(processed[\"cost\"])\nlocal fueling = extensions.blrglobals.blrFlagGet(\"smoothFueling\")\n\nlocal infotxt = \"\"\nlocal btntxt = \"\"\n\nif units == \"imperial\" then\ninfotxt = \"Gas Price: $\" .. string.format(\"%.2f\",cost * 3.785) .. \" / Gallon\"\nelse\ninfotxt = \"Gas Price: $\" .. string.format(\"%.2f\",cost) .. \" / Liter\"\nend\n\nif fueling then\nbtntxt = \"Stop Refuel\"\nelse\nbtntxt = \"Begin Refuel\"\nend\n\nself.pinOut.info.value = infotxt\nself.pinOut.name.value = dtable[\"name\"]\nself.pinOut.cost.value = cost\nself.pinOut.btntxt.value = btntxt\nself.pinOut.fueling.value = fueling"
+            "work":"local extensions = require(\"extensions\")\nlocal dtable = self.pinIn.input.value\nlocal units = extensions.blrutils.getSettingValue(\"uiUnits\")\nlocal seed = extensions.blrutils.getDailySeed() + tonumber(dtable[\"id\"])\nlocal processed = extensions.blrutils.processGasStationRandoms(dtable, seed)\nlocal cost_regular = tonumber(processed[\"cost\"])\nlocal cost_midgrade = tonumber(processed[\"cost_midgrade\"])\nlocal cost_premium = tonumber(processed[\"cost_premium\"])\nlocal cost_diesel = tonumber(processed[\"cost_diesel\"])\nlocal cost_selected = extensions.blrutils.blrvarGet(\"smoothFuelSetCost\")\nlocal fueling = extensions.blrglobals.blrFlagGet(\"smoothFueling\")\n\nlocal pricetxt_regular = \"\"\nlocal pricetxt_midgrade = \"\"\nlocal pricetxt_premium = \"\"\nlocal pricetxt_diesel = \"\"\n\nlocal btntxt_regular = \"\"\nlocal btntxt_midgrade = \"\"\nlocal btntxt_premium = \"\"\nlocal btntxt_diesel = \"\"\n\nif units == \"imperial\" then\npricetxt_regular = \"$\" .. string.format(\"%.2f\",math.floor(cost_regular * 3.785 * 100.0) / 100.0) .. \" / Gallon\"\npricetxt_midgrade = \"$\" .. string.format(\"%.2f\",math.floor(cost_midgrade * 3.785 * 100.0) / 100.0) .. \" / Gallon\"\npricetxt_premium = \"$\" .. string.format(\"%.2f\",math.floor(cost_premium * 3.785 * 100.0) / 100.0) .. \" / Gallon\"\npricetxt_diesel = \"$\" .. string.format(\"%.2f\",math.floor(cost_diesel * 3.785 * 100.0) / 100.0) .. \" / Gallon\"\nelse\npricetxt_regular = \"$\" .. string.format(\"%.2f\",cost_regular) .. \" / Liter\"\npricetxt_midgrade = \"$\" .. string.format(\"%.2f\",cost_midgrade) .. \" / Liter\"\npricetxt_premium = \"$\" .. string.format(\"%.2f\",cost_premium) .. \" / Liter\"\npricetxt_diesel = \"$\" .. string.format(\"%.2f\",cost_diesel) .. \" / Liter\"\nend\n\nif fueling then\nbtntxt_regular = \"Stop Refuel\"\nelse\nbtntxt_regular = \"Regular \" .. pricetxt_regular\nbtntxt_midgrade = \"Mid-Grade \" .. pricetxt_midgrade\nbtntxt_premium = \"Premium \" .. pricetxt_premium\nbtntxt_diesel = \"Diesel \" .. pricetxt_diesel\nend\n\nself.pinOut.name.value = dtable[\"name\"]\nself.pinOut.cost_regular.value = cost_regular\nself.pinOut.cost_midgrade.value = cost_midgrade\nself.pinOut.cost_premium.value = cost_premium\nself.pinOut.cost_diesel.value = cost_diesel\nself.pinOut.btntxt.value = btntxt_regular\nself.pinOut.midgrade.value = btntxt_midgrade\nself.pinOut.premium.value = btntxt_premium\nself.pinOut.diesel.value = btntxt_diesel\nself.pinOut.fueling.value = fueling\nself.pinOut.cost_selected.value = cost_selected"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -60611,14 +61137,21 @@
             },
             "p_out":{
               "btntxt":false,
-              "cost":false,
+              "cost_diesel":false,
+              "cost_midgrade":false,
+              "cost_premium":false,
+              "cost_regular":false,
+              "cost_selected":false,
+              "diesel":false,
               "flow":false,
               "fueling":false,
               "info":false,
-              "name":false
+              "midgrade":false,
+              "name":false,
+              "premium":false
             }
           },
-          "name":"Gas Station Data V2",
+          "name":"Gas Station Data V3",
           "pins":[
             [
               "in",
@@ -60653,7 +61186,28 @@
             [
               "out",
               "number",
-              "cost",
+              "cost_regular",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "number",
+              "cost_midgrade",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "number",
+              "cost_premium",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "number",
+              "cost_diesel",
               null,
               ""
             ],
@@ -60673,15 +61227,43 @@
             ],
             [
               "out",
+              "string",
+              "diesel",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "string",
+              "midgrade",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "string",
+              "premium",
+              null,
+              ""
+            ],
+            [
+              "out",
               "bool",
               "fueling",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "number",
+              "cost_selected",
               null,
               ""
             ]
           ],
           "pos":[
-            1564,
-            -1294
+            1558,
+            -1364
           ],
           "type":"util/customLua"
         },
@@ -60709,7 +61291,7 @@
           },
           "pos":[
             3230,
-            -594
+            -454
           ],
           "type":"types/genericValue"
         },
@@ -60718,18 +61300,20 @@
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
-              "flow":false,
-              "text":false
+              "condition":false,
+              "flow":false
             },
             "p_out":{
-              "flow":false
+              "False":false,
+              "True":false,
+              "flow":true
             }
           },
           "pos":[
             2202,
-            -1378
+            -1322
           ],
-          "type":"ui/imgui/elemental/imText"
+          "type":"logic/branch"
         },
         "913":{
           "code":{
@@ -60792,7 +61376,7 @@
           ],
           "pos":[
             3230,
-            -496
+            -356
           ],
           "type":"util/customLua"
         },
@@ -60823,7 +61407,7 @@
             }
           },
           "pos":[
-            4820,
+            4926,
             -104
           ],
           "type":"types/genericValue"
@@ -60852,7 +61436,7 @@
           "dynamicMode":"repeat",
           "moveMode":"withoutNodes",
           "pos":[
-            4620,
+            4726,
             -98
           ],
           "simple":true,
@@ -60991,7 +61575,7 @@
           ],
           "pos":[
             3202,
-            -356
+            -216
           ],
           "type":"util/customLua"
         },
@@ -61066,7 +61650,7 @@
             }
           },
           "pos":[
-            -788,
+            -984,
             -1781
           ],
           "type":"logic/bundle"
@@ -61198,7 +61782,7 @@
           ],
           "pos":[
             3426,
-            -426
+            -286
           ],
           "type":"util/customLua"
         },
@@ -61416,7 +62000,7 @@
           },
           "pos":[
             3440,
-            -594
+            -454
           ],
           "type":"types/genericValue"
         },
@@ -61467,7 +62051,7 @@
           ],
           "pos":[
             3636,
-            -594
+            -454
           ],
           "type":"util/customLua"
         },
@@ -61518,7 +62102,7 @@
           ],
           "pos":[
             3412,
-            -524
+            -384
           ],
           "type":"util/customLua"
         },
@@ -61649,7 +62233,7 @@
           ],
           "pos":[
             3398,
-            -300
+            -160
           ],
           "type":"util/customLua"
         },
@@ -62106,7 +62690,7 @@
           },
           "pos":[
             2390,
-            -1238
+            -1182
           ],
           "type":"ui/imgui/elemental/imSeparator"
         },
@@ -62165,7 +62749,7 @@
             }
           },
           "pos":[
-            -788,
+            -984,
             -1728
           ],
           "type":"types/genericValue"
@@ -62222,7 +62806,7 @@
           },
           "pos":[
             2860,
-            -146
+            -6
           ],
           "type":"types/genericValue"
         },
@@ -62251,7 +62835,7 @@
           "opSymbol":"==",
           "pos":[
             3034,
-            -146
+            -6
           ],
           "type":"logic/compare"
         },
@@ -62728,7 +63312,7 @@
           },
           "pos":[
             1810,
-            -1378
+            -1322
           ],
           "type":"types/genericValue"
         },
@@ -62757,7 +63341,7 @@
           "opSymbol":"==",
           "pos":[
             1998,
-            -1378
+            -1322
           ],
           "type":"logic/compare"
         },
@@ -62897,7 +63481,7 @@
           },
           "pos":[
             2572,
-            -1378
+            -1322
           ],
           "type":"ui/imgui/elemental/imText"
         },
@@ -63321,8 +63905,8 @@
             }
           },
           "pos":[
-            -1516,
-            -2554
+            -1712,
+            -2540
           ],
           "type":"types/genericValue"
         },
@@ -63664,8 +64248,8 @@
             ]
           ],
           "pos":[
-            2670,
-            722
+            2642,
+            876
           ],
           "type":"util/customLua"
         },
@@ -63684,8 +64268,8 @@
             }
           },
           "pos":[
-            2866,
-            722
+            2838,
+            876
           ],
           "type":"logic/branch"
         },
@@ -63752,8 +64336,8 @@
             ]
           ],
           "pos":[
-            2908,
-            1044
+            2880,
+            1198
           ],
           "type":"util/customLua"
         },
@@ -63820,8 +64404,8 @@
             ]
           ],
           "pos":[
-            3412,
-            1198
+            3518,
+            1170
           ],
           "type":"util/customLua"
         },
@@ -64435,8 +65019,8 @@
             ]
           ],
           "pos":[
-            3776,
-            2024
+            3762,
+            2178
           ],
           "type":"util/customLua"
         },
@@ -64980,8 +65564,8 @@
             ]
           ],
           "pos":[
-            2908,
-            1100
+            2880,
+            1254
           ],
           "type":"util/customLua"
         },
@@ -65111,8 +65695,8 @@
             ]
           ],
           "pos":[
-            3412,
-            1254
+            3524,
+            1044
           ],
           "type":"util/customLua"
         },
@@ -66252,7 +66836,7 @@
           ],
           "pos":[
             -38,
-            -146
+            -90
           ],
           "type":"util/customLua"
         },
@@ -67478,8 +68062,8 @@
             ]
           ],
           "pos":[
-            3622,
-            1422
+            3482,
+            1576
           ],
           "type":"util/customLua"
         },
@@ -67688,8 +68272,8 @@
             ]
           ],
           "pos":[
-            -1362,
-            -1966
+            -1558,
+            -1812
           ],
           "type":"util/customLua"
         },
@@ -67714,7 +68298,7 @@
               "key":false
             },
             "p_out":{
-              "flag":false,
+              "flag":true,
               "flow":false,
               "val":false
             }
@@ -67760,8 +68344,8 @@
             ]
           ],
           "pos":[
-            -886,
-            1870
+            -900,
+            1884
           ],
           "type":"util/customLua"
         },
@@ -67818,8 +68402,8 @@
             ]
           ],
           "pos":[
-            738,
-            -1714
+            724,
+            -1700
           ],
           "type":"util/customLua"
         },
@@ -69421,7 +70005,7 @@
             ]
           ],
           "pos":[
-            1508,
+            1040,
             1240
           ],
           "type":"util/customLua"
@@ -69469,7 +70053,7 @@
           },
           "pos":[
             2754,
-            -1308
+            -1252
           ],
           "type":"ui/flashMessage"
         },
@@ -69814,7 +70398,7 @@
           ],
           "pos":[
             2964,
-            -1378
+            -1322
           ],
           "type":"util/customLua"
         },
@@ -69948,7 +70532,7 @@
           ],
           "pos":[
             2006,
-            -1252
+            -1182
           ],
           "type":"util/customLua"
         },
@@ -69956,7 +70540,7 @@
           "code":{
             "_executionStarted":"",
             "_executionStopped":"",
-            "work":"local ve = scenetree.findObjectById(self.pinIn.veid.value)\nlocal newFuelValue = self.pinIn.fuel.value\nve:queueLuaCommand(string.format(\"extensions.blrVehicleUtils.setFuel(%.12f)\", newFuelValue))"
+            "work":"local extensions = require(\"extensions\")\nlocal ve = scenetree.findObjectById(self.pinIn.veid.value)\nlocal newFuelValue = self.pinIn.fuel.value\nlocal ratiostr = self.pinIn.fuelratio.value\nlocal typestr = self.pinIn.fueltype.value\nlocal fueltypes = {}\nlocal fuelratios = {}\nve:queueLuaCommand(\"extensions.blrVehicleUtils.loadFuelType()\")\nif typestr then\nfuelratios = extensions.blrutils.ssplitnum(ratiostr, \",\")\nfueltypes = extensions.blrutils.ssplit(typestr, \",\")\nif #fueltypes == 1 then\nve:queueLuaCommand(string.format(\"extensions.blrVehicleUtils.setFuel(%.12f, %q, %.12f,%.12f,%.12f)\", newFuelValue, fueltypes[1], fuelratios[1],fuelratios[2],fuelratios[3] ))\nelse -- force disable the engine if tank contains mixed fuel types\nve:queueLuaCommand(string.format(\"extensions.blrVehicleUtils.setFuel(%.12f, %q, %.12f,%.12f,%.12f, true)\", newFuelValue, fueltypes[1], fuelratios[1],fuelratios[2],fuelratios[3] ))\nend\nelse\nve:queueLuaCommand(string.format(\"extensions.blrVehicleUtils.setFuel(%.12f)\", newFuelValue))\nend\n"
           },
           "customIcon":"local_gas_station",
           "data":{},
@@ -69965,6 +70549,8 @@
             "p_in":{
               "flow":false,
               "fuel":false,
+              "fuelratio":false,
+              "fueltype":false,
               "veid":false
             },
             "p_out":{
@@ -69996,11 +70582,25 @@
               "fuel",
               null,
               ""
+            ],
+            [
+              "in",
+              "string",
+              "fueltype",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "string",
+              "fuelratio",
+              null,
+              ""
             ]
           ],
           "pos":[
-            4896,
-            456
+            4890,
+            400
           ],
           "type":"util/customLua"
         },
@@ -70239,7 +70839,7 @@
           "code":{
             "_executionStarted":"",
             "_executionStopped":"",
-            "work":"local ve = scenetree.findObjectById(self.pinIn.veid.value)\nlocal newFuelValue = self.pinIn.fuel.value\nve:queueLuaCommand(string.format(\"extensions.blrVehicleUtils.setFuel(%.12f)\", newFuelValue))"
+            "work":"local extensions = require(\"extensions\")\nlocal ve = scenetree.findObjectById(self.pinIn.veid.value)\nlocal newFuelValue = self.pinIn.fuel.value\nlocal ratiostr = self.pinIn.fuelratio.value\nlocal typestr = self.pinIn.fueltype.value\nlocal fueltypes = {}\nlocal fuelratios = {}\nve:queueLuaCommand(\"extensions.blrVehicleUtils.loadFuelType()\")\nif typestr then\nfuelratios = extensions.blrutils.ssplitnum(ratiostr, \",\")\nfueltypes = extensions.blrutils.ssplit(typestr, \",\")\nif #fueltypes == 1 then\nve:queueLuaCommand(string.format(\"extensions.blrVehicleUtils.setFuel(%.12f, %q, %.12f,%.12f,%.12f)\", newFuelValue, fueltypes[1], fuelratios[1],fuelratios[2],fuelratios[3] ))\nelse -- force disable the engine if tank contains mixed fuel types\nve:queueLuaCommand(string.format(\"extensions.blrVehicleUtils.setFuel(%.12f, %q, %.12f,%.12f,%.12f, true)\", newFuelValue, fueltypes[1], fuelratios[1],fuelratios[2],fuelratios[3] ))\nend\nelse\nve:queueLuaCommand(string.format(\"extensions.blrVehicleUtils.setFuel(%.12f)\", newFuelValue))\nend\n"
           },
           "customIcon":"local_gas_station",
           "data":{},
@@ -70248,6 +70848,8 @@
             "p_in":{
               "flow":false,
               "fuel":false,
+              "fuelratio":false,
+              "fueltype":false,
               "veid":false
             },
             "p_out":{
@@ -70277,6 +70879,20 @@
               "in",
               "number",
               "fuel",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "string",
+              "fueltype",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "string",
+              "fuelratio",
               null,
               ""
             ]
@@ -70291,51 +70907,63 @@
           "code":{
             "_executionStarted":"",
             "_executionStopped":"",
-            "work":"local ve = scenetree.findObjectById(self.pinIn.veid.value)\nlocal newFuelValue = self.pinIn.fuel.value\nve:queueLuaCommand(string.format(\"extensions.blrVehicleUtils.setFuel(%.12f)\", newFuelValue))"
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nself.pinOut.val.value = extensions.blrutils.blrvarGet(self.pinIn.var.value)"
           },
-          "customIcon":"local_gas_station",
           "data":{},
           "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "var":{
+              "type":"string",
+              "value":"fuelTypeString"
+            }
+          },
           "hiddenPins":{
             "p_in":{
               "flow":false,
-              "fuel":false,
-              "veid":false
+              "var":false
             },
             "p_out":{
-              "flow":false
+              "flow":false,
+              "val":false
             }
           },
-          "name":"Force Set Fuel",
+          "name":"BLR Var Get",
           "pins":[
             [
               "in",
               "flow",
-              "flow"
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
             ],
             [
               "out",
               "flow",
-              "flow"
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
             ],
             [
               "in",
-              "number",
-              "veid",
+              "string",
+              "var",
               null,
               ""
             ],
             [
-              "in",
-              "number",
-              "fuel",
+              "out",
+              "any",
+              "val",
               null,
               ""
             ]
           ],
           "pos":[
-            -1082,
-            2192
+            914,
+            -1812
           ],
           "type":"util/customLua"
         },
@@ -72567,7 +73195,7 @@
           ],
           "pos":[
             3706,
-            -188
+            -48
           ],
           "type":"util/customLua"
         },
@@ -75152,8 +75780,8 @@
             ]
           ],
           "pos":[
-            3958,
-            2024
+            3944,
+            2178
           ],
           "type":"util/customLua"
         },
@@ -76225,7 +76853,7 @@
           ],
           "pos":[
             3314,
-            -132
+            8
           ],
           "type":"util/customLua"
         },
@@ -76245,7 +76873,7 @@
           },
           "pos":[
             3482,
-            -188
+            -48
           ],
           "type":"logic/branch"
         },
@@ -76269,7 +76897,7 @@
           },
           "pos":[
             3650,
-            -286
+            -146
           ],
           "type":"ui/imgui/elemental/imText"
         },
@@ -76604,8 +77232,8 @@
             }
           },
           "pos":[
-            -1348,
-            -2470
+            -1544,
+            -2456
           ],
           "type":"types/genericValue"
         },
@@ -76632,8 +77260,8 @@
             }
           },
           "pos":[
-            -1516,
-            -2470
+            -1712,
+            -2456
           ],
           "type":"types/genericValue"
         },
@@ -76660,8 +77288,8 @@
             }
           },
           "pos":[
-            -1698,
-            -2470
+            -1894,
+            -2456
           ],
           "type":"types/genericValue"
         },
@@ -76688,8 +77316,8 @@
             }
           },
           "pos":[
-            -1866,
-            -2470
+            -2062,
+            -2456
           ],
           "type":"types/genericValue"
         },
@@ -79249,7 +79877,7 @@
           ],
           "pos":[
             3272,
-            260
+            400
           ],
           "type":"util/customLua"
         },
@@ -79269,7 +79897,7 @@
           },
           "pos":[
             3482,
-            246
+            386
           ],
           "type":"logic/branch"
         },
@@ -79333,7 +79961,7 @@
           ],
           "pos":[
             3272,
-            372
+            512
           ],
           "type":"util/customLua"
         },
@@ -79353,7 +79981,7 @@
           },
           "pos":[
             3482,
-            372
+            512
           ],
           "type":"logic/branch"
         },
@@ -79421,7 +80049,7 @@
           ],
           "pos":[
             4000,
-            -538
+            -398
           ],
           "type":"util/customLua"
         },
@@ -79553,7 +80181,7 @@
           ],
           "pos":[
             3818,
-            -468
+            -328
           ],
           "type":"util/customLua"
         },
@@ -79573,7 +80201,7 @@
           },
           "pos":[
             3846,
-            -370
+            -230
           ],
           "type":"logic/branch"
         },
@@ -81268,7 +81896,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nlocal ve = scenetree.findObjectById(self.pinIn.veid.value)\nlocal maxval = self.pinIn.max.value\nlocal toggle = self.pinIn.toggle.value\nve:queueLuaCommand(string.format(\"extensions.blrVehicleUtils.smoothRefuelToggle(%s, %.2f)\", toggle, maxval))\nif toggle then extensions.blrglobals.blrFlagSet(\"smoothFueling\", true) end"
+            "work":"local extensions = require(\"extensions\")\nlocal ve = scenetree.findObjectById(self.pinIn.veid.value)\nlocal maxval = self.pinIn.max.value\nlocal toggle = self.pinIn.toggle.value\nlocal fueltype = extensions.blrutils.blrvarGet(\"smoothFuelType\") or \"gasoline\"\nlocal fueltier = extensions.blrutils.blrvarGet(\"smoothFuelTier\") or \"regular\"\nlocal fuelcost = extensions.blrutils.blrvarGet(\"smoothFuelCost\") or 1.0\nprint(\"FUEL TYPE: \" .. fueltype)\nve:queueLuaCommand(string.format(\"extensions.blrVehicleUtils.smoothRefuelToggle(%s, %.2f, %q, %q)\", toggle, maxval, fueltype, fueltier))\nif toggle then \nextensions.blrglobals.blrFlagSet(\"smoothFueling\", true) \n-- only set when toggling on smooth fueling to avoid issue with regular button acting as toggle off\n-- which could overwrite actual selected fuel value\nextensions.blrutils.blrvarSet(\"smoothFuelSetCost\", fuelcost)\nend"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -81331,7 +81959,7 @@
           ],
           "pos":[
             2580,
-            -1168
+            -1112
           ],
           "type":"util/customLua"
         },
@@ -83532,8 +84160,8 @@
             ]
           ],
           "pos":[
-            1578,
-            148
+            1558,
+            120
           ],
           "type":"util/customLua"
         },
@@ -83594,7 +84222,7 @@
             ]
           ],
           "pos":[
-            906,
+            438,
             1240
           ],
           "type":"util/customLua"
@@ -83858,7 +84486,7 @@
             ]
           ],
           "pos":[
-            1102,
+            634,
             1226
           ],
           "type":"util/customLua"
@@ -83986,7 +84614,7 @@
             ]
           ],
           "pos":[
-            1284,
+            816,
             1226
           ],
           "type":"util/customLua"
@@ -85441,7 +86069,7 @@
           "moveMode":"withNodes",
           "pos":[
             1750,
-            1820
+            2114
           ],
           "simple":false,
           "textColor":[
@@ -85512,7 +86140,7 @@
           ],
           "pos":[
             1774,
-            1856
+            2150
           ],
           "type":"util/customLua"
         },
@@ -85532,7 +86160,7 @@
           },
           "pos":[
             1950,
-            1856
+            2150
           ],
           "type":"logic/branch"
         },
@@ -85623,7 +86251,7 @@
           ],
           "pos":[
             2160,
-            1856
+            2150
           ],
           "type":"util/customLua"
         },
@@ -85638,7 +86266,7 @@
           },
           "pos":[
             1781,
-            1968
+            2262
           ],
           "type":"scene/getPlayerVehicle"
         },
@@ -85688,7 +86316,7 @@
           ],
           "pos":[
             2012,
-            1968
+            2262
           ],
           "type":"util/customLua"
         },
@@ -85751,7 +86379,7 @@
             ]
           ],
           "pos":[
-            -752,
+            -948,
             -2428
           ],
           "type":"util/customLua"
@@ -85827,7 +86455,7 @@
           },
           "pos":[
             1810,
-            2052
+            2346
           ],
           "type":"types/genericValue"
         },
@@ -85891,7 +86519,7 @@
           ],
           "pos":[
             2964,
-            -328
+            -188
           ],
           "type":"util/customLua"
         },
@@ -85911,7 +86539,7 @@
           },
           "pos":[
             2972,
-            -258
+            -118
           ],
           "type":"logic/branch"
         },
@@ -85961,7 +86589,7 @@
           ],
           "pos":[
             2006,
-            2066
+            2360
           ],
           "type":"util/customLua"
         },
@@ -85988,7 +86616,7 @@
           },
           "pos":[
             3048,
-            -454
+            -314
           ],
           "type":"ui/imgui/elemental/imButton"
         },
@@ -86057,7 +86685,7 @@
           ],
           "pos":[
             3034,
-            -552
+            -412
           ],
           "type":"util/customLua"
         },
@@ -86563,8 +87191,8 @@
             ]
           ],
           "pos":[
-            1998,
-            -1028
+            1992,
+            -930
           ],
           "type":"util/customLua"
         },
@@ -86581,7 +87209,7 @@
           },
           "pos":[
             2006,
-            -857
+            -773
           ],
           "type":"logic/bundle"
         },
@@ -86644,8 +87272,8 @@
             ]
           ],
           "pos":[
-            2174,
-            -874
+            2180,
+            -818
           ],
           "type":"util/customLua"
         },
@@ -86709,7 +87337,7 @@
           ],
           "pos":[
             2412,
-            -1000
+            -944
           ],
           "type":"util/customLua"
         },
@@ -86729,7 +87357,7 @@
           },
           "pos":[
             2370,
-            -888
+            -832
           ],
           "type":"logic/branch"
         },
@@ -86747,7 +87375,7 @@
           },
           "pos":[
             2586,
-            -874
+            -818
           ],
           "type":"logic/once"
         },
@@ -86826,7 +87454,7 @@
           ],
           "pos":[
             2754,
-            -1028
+            -972
           ],
           "type":"util/customLua"
         },
@@ -86899,7 +87527,7 @@
           ],
           "pos":[
             2586,
-            -1000
+            -944
           ],
           "type":"util/customLua"
         },
@@ -86927,7 +87555,7 @@
           },
           "pos":[
             2762,
-            -888
+            -832
           ],
           "type":"types/genericValue"
         },
@@ -86977,7 +87605,7 @@
           ],
           "pos":[
             2944,
-            -874
+            -818
           ],
           "type":"util/customLua"
         },
@@ -87028,7 +87656,7 @@
           },
           "pos":[
             2216,
-            -1028
+            -972
           ],
           "type":"audio/playOnce"
         },
@@ -87063,7 +87691,7 @@
           },
           "pos":[
             2796,
-            -1168
+            -1112
           ],
           "type":"ui/flashMessage"
         },
@@ -87205,7 +87833,7 @@
           ],
           "pos":[
             2936,
-            -1000
+            -944
           ],
           "type":"util/customLua"
         },
@@ -87261,7 +87889,7 @@
           ],
           "pos":[
             2944,
-            -1098
+            -1042
           ],
           "type":"util/customLua"
         },
@@ -87329,7 +87957,7 @@
           ],
           "pos":[
             2958,
-            -1224
+            -1168
           ],
           "type":"util/customLua"
         },
@@ -87429,8 +88057,8 @@
             }
           },
           "pos":[
-            2110,
-            -1490
+            1564,
+            -1546
           ],
           "type":"types/genericValue"
         },
@@ -87440,7 +88068,7 @@
           "hardcodedPins":{
             "B":{
               "type":"number",
-              "value":0.00999999977648260117
+              "value":0.00999999977648268965
             }
           },
           "hiddenPins":{
@@ -87458,8 +88086,8 @@
           },
           "opSymbol":">=",
           "pos":[
-            2292,
-            -1532
+            1740,
+            -1546
           ],
           "type":"logic/compare"
         },
@@ -87482,8 +88110,8 @@
             }
           },
           "pos":[
-            2482,
-            -1518
+            1964,
+            -1434
           ],
           "type":"ui/imgui/elemental/imText"
         },
@@ -87573,8 +88201,8 @@
             ]
           ],
           "pos":[
-            2888,
-            -1504
+            2930,
+            -1448
           ],
           "type":"util/customLua"
         },
@@ -87726,7 +88354,7 @@
           ],
           "pos":[
             2572,
-            -1280
+            -1224
           ],
           "type":"util/customLua"
         },
@@ -88128,6 +88756,1671 @@
           ],
           "type":"types/genericValue"
         },
+        "1520":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "text":false
+            },
+            "p_out":{
+              "down":false,
+              "flow":false,
+              "hold":true,
+              "up":true
+            }
+          },
+          "pos":[
+            2510,
+            -1462
+          ],
+          "type":"ui/imgui/elemental/imButton"
+        },
+        "1521":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrutils.blrvarSet(self.pinIn.var.value, self.pinIn.val.value)"
+          },
+          "customName":"Gasoline Type",
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "val":{
+              "type":"string",
+              "value":"gasoline"
+            },
+            "var":{
+              "type":"string",
+              "value":"smoothFuelType"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "val":true,
+              "var":true
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"BLR Var Set",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "string",
+              "var",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "string",
+              "val",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            2496,
+            -1560
+          ],
+          "type":"util/customLua"
+        },
+        "1522":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrutils.blrvarSet(\"smoothFuelType\", \"diesel\")\nextensions.blrutils.blrvarSet(\"smoothFuelCost\", self.pinIn.cost.value)"
+          },
+          "customName":"Diesel Type",
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "cost":false,
+              "flow":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Select Diesel",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "number",
+              "cost",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            2684,
+            -1560
+          ],
+          "type":"util/customLua"
+        },
+        "1523":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrutils.blrvarSet(\"smoothFuelTier\", self.pinIn.tier.value)\nextensions.blrutils.blrvarSet(\"smoothFuelCost\", self.pinIn.cost.value)"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "tier":{
+              "type":"string",
+              "value":"regular"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "cost":false,
+              "flow":false,
+              "tier":true
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Select Fuel",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "string",
+              "tier",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "number",
+              "cost",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            1950,
+            -1574
+          ],
+          "type":"util/customLua"
+        },
+        "1524":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrutils.blrvarSet(\"smoothFuelTier\", self.pinIn.tier.value)\nextensions.blrutils.blrvarSet(\"smoothFuelCost\", self.pinIn.cost.value)"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "tier":{
+              "type":"string",
+              "value":"midgrade"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "cost":false,
+              "flow":false,
+              "tier":true
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Select Fuel",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "string",
+              "tier",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "number",
+              "cost",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            2124,
+            -1574
+          ],
+          "type":"util/customLua"
+        },
+        "1525":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrutils.blrvarSet(\"smoothFuelTier\", self.pinIn.tier.value)\nextensions.blrutils.blrvarSet(\"smoothFuelCost\", self.pinIn.cost.value)"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "tier":{
+              "type":"string",
+              "value":"premium"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "cost":false,
+              "flow":false,
+              "tier":true
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Select Fuel",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "string",
+              "tier",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "number",
+              "cost",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            2300,
+            -1574
+          ],
+          "type":"util/customLua"
+        },
+        "1526":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nself.pinOut.val.value = extensions.blrutils.blrvarGet(self.pinIn.var.value)"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "var":{
+              "type":"string",
+              "value":"fuelRatioString"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "var":false
+            },
+            "p_out":{
+              "flow":false,
+              "val":false
+            }
+          },
+          "name":"BLR Var Get",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "string",
+              "var",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "any",
+              "val",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            920,
+            -1714
+          ],
+          "type":"util/customLua"
+        },
+        "1527":{
+          "alpha":0.75000000000000000000,
+          "backgroundColor":[
+            0.50000000000000000000,
+            0.50000000000000000000,
+            0.50000000000000000000,
+            0.50000000000000000000
+          ],
+          "borderColor":[
+            0.80000001192092895508,
+            0.80000001192092895508,
+            0.80000001192092895508,
+            1
+          ],
+          "commentSize":[
+            460,
+            355
+          ],
+          "commentText":"",
+          "commentTitle":"Advanced Fuel Data Fetch",
+          "data":{},
+          "dynamicMode":"repeat",
+          "moveMode":"withNodes",
+          "pos":[
+            -350,
+            2618
+          ],
+          "simple":false,
+          "textColor":[
+            1,
+            1,
+            1,
+            1
+          ],
+          "type":"debug/comment"
+        },
+        "1528":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "work":"local extensions = require(\"extensions\")\nlocal veid = self.pinIn.veid.value\nlocal id = self.pinIn.fetchID.value\nlocal toFetch = self.pinIn.toFetch.value\nlocal strfetch = self.pinIn.strfetch.value\nextensions.vluaFetchModule.exec(veid, toFetch, id, strfetch)\nself.pinOut.output.value = extensions.vluaFetchModule.getVal(id)"
+          },
+          "customIcon":"simobject_lightning",
+          "customName":"Fetch VLUA Variable",
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "fetchID":{
+              "type":"string",
+              "value":"fuelratiostring"
+            },
+            "strfetch":{
+              "type":"bool",
+              "value":true
+            },
+            "toFetch":{
+              "type":"string",
+              "value":"extensions.blrVehicleUtils.getFuelRatioString()"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "fetchID":true,
+              "flow":false,
+              "strfetch":true,
+              "toFetch":true,
+              "veid":false
+            },
+            "p_out":{
+              "flow":false,
+              "output":false
+            }
+          },
+          "name":"Fetch VLUA Variable",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow"
+            ],
+            [
+              "out",
+              "flow",
+              "flow"
+            ],
+            [
+              "in",
+              "number",
+              "veid",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "string",
+              "toFetch",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "string",
+              "output",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "string",
+              "fetchID",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "bool",
+              "strfetch",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -318,
+            2878
+          ],
+          "type":"util/customLua"
+        },
+        "1529":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "work":"local extensions = require(\"extensions\")\nlocal ve = scenetree.findObjectById(self.pinIn.veid.value)\nlocal newFuelValue = self.pinIn.fuel.value\nlocal ratiostr = self.pinIn.fuelratio.value\nlocal typestr = self.pinIn.fueltype.value\nlocal fueltypes = {}\nlocal fuelratios = {}\nve:queueLuaCommand(\"extensions.blrVehicleUtils.loadFuelType()\")\nif typestr then\nfuelratios = extensions.blrutils.ssplitnum(ratiostr, \",\")\nfueltypes = extensions.blrutils.ssplit(typestr, \",\")\nif #fueltypes == 1 then\nve:queueLuaCommand(string.format(\"extensions.blrVehicleUtils.setFuel(%.12f, %q, %.12f,%.12f,%.12f)\", newFuelValue, fueltypes[1], fuelratios[1],fuelratios[2],fuelratios[3] ))\nelse -- force disable the engine if tank contains mixed fuel types\nve:queueLuaCommand(string.format(\"extensions.blrVehicleUtils.setFuel(%.12f, %q, %.12f,%.12f,%.12f, true)\", newFuelValue, fueltypes[1], fuelratios[1],fuelratios[2],fuelratios[3] ))\nend\nelse\nve:queueLuaCommand(string.format(\"extensions.blrVehicleUtils.setFuel(%.12f)\", newFuelValue))\nend\n"
+          },
+          "customIcon":"local_gas_station",
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "fuel":false,
+              "fuelratio":false,
+              "fueltype":false,
+              "veid":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Force Set Fuel",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow"
+            ],
+            [
+              "out",
+              "flow",
+              "flow"
+            ],
+            [
+              "in",
+              "number",
+              "veid",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "number",
+              "fuel",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "string",
+              "fueltype",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "string",
+              "fuelratio",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            1088,
+            -2344
+          ],
+          "type":"util/customLua"
+        },
+        "1530":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{},
+            "p_out":{
+              "vehId":false
+            }
+          },
+          "pos":[
+            -326,
+            2794
+          ],
+          "type":"scene/getPlayerVehicle"
+        },
+        "1531":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "work":"local extensions = require(\"extensions\")\nlocal veid = self.pinIn.veid.value\nlocal id = self.pinIn.fetchID.value\nlocal toFetch = self.pinIn.toFetch.value\nlocal strfetch = self.pinIn.strfetch.value\nextensions.vluaFetchModule.exec(veid, toFetch, id, strfetch)\nself.pinOut.output.value = extensions.vluaFetchModule.getVal(id)"
+          },
+          "customIcon":"simobject_lightning",
+          "customName":"Fetch VLUA Variable",
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "fetchID":{
+              "type":"string",
+              "value":"fueltypestring"
+            },
+            "strfetch":{
+              "type":"bool",
+              "value":true
+            },
+            "toFetch":{
+              "type":"string",
+              "value":"extensions.blrVehicleUtils.getFuelTypesString()"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "fetchID":true,
+              "flow":false,
+              "strfetch":true,
+              "toFetch":true,
+              "veid":false
+            },
+            "p_out":{
+              "flow":false,
+              "output":false
+            }
+          },
+          "name":"Fetch VLUA Variable",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow"
+            ],
+            [
+              "out",
+              "flow",
+              "flow"
+            ],
+            [
+              "in",
+              "number",
+              "veid",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "string",
+              "toFetch",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "string",
+              "output",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "string",
+              "fetchID",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "bool",
+              "strfetch",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -318,
+            2668
+          ],
+          "type":"util/customLua"
+        },
+        "1532":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrutils.blrvarSet(self.pinIn.var.value, self.pinIn.val.value)"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "var":{
+              "type":"string",
+              "value":"fuelTypeString"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "val":false,
+              "var":true
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"BLR Var Set",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "string",
+              "var",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "any",
+              "val",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -74,
+            2668
+          ],
+          "type":"util/customLua"
+        },
+        "1533":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrutils.blrvarSet(self.pinIn.var.value, self.pinIn.val.value)"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "var":{
+              "type":"string",
+              "value":"fuelRatioString"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "val":false,
+              "var":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"BLR Var Set",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "string",
+              "var",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "any",
+              "val",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -74,
+            2850
+          ],
+          "type":"util/customLua"
+        },
+        "1534":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal k = self.pinIn.key.value\nlocal flag = extensions.blrglobals.getFlag(k)\nlocal toRet = extensions.blrglobals.fgGetVal(k)\nself.pinOut.val.value = toRet\nself.pinOut.flag.value = flag\n"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "key":{
+              "type":"string",
+              "value":"pftypes"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "key":false
+            },
+            "p_out":{
+              "flag":true,
+              "flow":false,
+              "val":false
+            }
+          },
+          "name":"BLRGlobal Get",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "string",
+              "key",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "any",
+              "val",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "bool",
+              "flag",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -724,
+            1884
+          ],
+          "type":"util/customLua"
+        },
+        "1535":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal k = self.pinIn.key.value\nlocal flag = extensions.blrglobals.getFlag(k)\nlocal toRet = extensions.blrglobals.fgGetVal(k)\nself.pinOut.val.value = toRet\nself.pinOut.flag.value = flag\n"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "key":{
+              "type":"string",
+              "value":"pfratio"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "key":false
+            },
+            "p_out":{
+              "flag":true,
+              "flow":false,
+              "val":false
+            }
+          },
+          "name":"BLRGlobal Get",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "string",
+              "key",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "any",
+              "val",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "bool",
+              "flag",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -556,
+            1884
+          ],
+          "type":"util/customLua"
+        },
+        "1536":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "work":"local extensions = require(\"extensions\")\nlocal ve = scenetree.findObjectById(self.pinIn.veid.value)\nlocal newFuelValue = self.pinIn.fuel.value\nlocal ratiostr = self.pinIn.fuelratio.value\nlocal typestr = self.pinIn.fueltype.value\nlocal fueltypes = {}\nlocal fuelratios = {}\nve:queueLuaCommand(\"extensions.blrVehicleUtils.loadFuelType()\")\nif typestr then\nfuelratios = extensions.blrutils.ssplitnum(ratiostr, \",\")\nfueltypes = extensions.blrutils.ssplit(typestr, \",\")\nif #fueltypes == 1 then\nve:queueLuaCommand(string.format(\"extensions.blrVehicleUtils.setFuel(%.12f, %q, %.12f,%.12f,%.12f)\", newFuelValue, fueltypes[1], fuelratios[1],fuelratios[2],fuelratios[3] ))\nelse -- force disable the engine if tank contains mixed fuel types\nve:queueLuaCommand(string.format(\"extensions.blrVehicleUtils.setFuel(%.12f, %q, %.12f,%.12f,%.12f, true)\", newFuelValue, fueltypes[1], fuelratios[1],fuelratios[2],fuelratios[3] ))\nend\nelse\nve:queueLuaCommand(string.format(\"extensions.blrVehicleUtils.setFuel(%.12f)\", newFuelValue))\nend\n"
+          },
+          "customIcon":"local_gas_station",
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "fuel":false,
+              "fuelratio":false,
+              "fueltype":false,
+              "veid":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Force Set Fuel",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow"
+            ],
+            [
+              "out",
+              "flow",
+              "flow"
+            ],
+            [
+              "in",
+              "number",
+              "veid",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "number",
+              "fuel",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "string",
+              "fueltype",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "string",
+              "fuelratio",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -1088,
+            2178
+          ],
+          "type":"util/customLua"
+        },
+        "1537":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal ftstr = extensions.blrutils.blrvarGet(\"fuelTypeString\") or \"none\"\nlocal frstr = extensions.blrutils.blrvarGet(\"fuelRatioString\") or \"1.0,0.0,0.0\"\nlocal dtable = {}\ndtable[\"fueltype\"] = ftstr\ndtable[\"fuelratio\"] = frstr\nextensions.blrutils.updateDataTable(self.pinIn.carfile.value, dtable)"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "carfile":false,
+              "flow":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Update Fuel Data",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "string",
+              "carfile",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            3678,
+            1576
+          ],
+          "type":"util/customLua"
+        },
+        "1538":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "reset":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            3084,
+            862
+          ],
+          "type":"logic/once"
+        },
+        "1539":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrutils.garageTriggerRefresh(self.pinIn.step.value)"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "step":{
+              "type":"number",
+              "value":2
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "step":true
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Tow Trigger Refresh",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "number",
+              "step",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            3476,
+            1408
+          ],
+          "type":"util/customLua"
+        },
+        "1540":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "reset":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            3308,
+            1408
+          ],
+          "type":"logic/once"
+        },
+        "1541":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"local extensions = require(\"extensions\")\nextensions.blrfade.fadeFromBlack(0)\nextensions.blrfade.setFromReady()\nextensions.blrglobals.blrFlagSet(\"towing\", false)",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal duration = self.pinIn.duration.value\nlocal done = extensions.blrfade.getToDone()\nif self.pinIn.reset.value then\nextensions.blrfade.setToReady()\nend\nif self.pinIn.flow.value then\nextensions.blrfade.fadeToBlack(duration)\nend\nself.pinOut.done.value = self.pinIn.flow.value and done"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "duration":{
+              "type":"number",
+              "value":3
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "duration":true,
+              "flow":false,
+              "reset":false
+            },
+            "p_out":{
+              "done":false,
+              "flow":true
+            }
+          },
+          "name":"Fade To Black",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "number",
+              "duration",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "flow",
+              "done",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "flow",
+              "reset",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            3294,
+            960
+          ],
+          "type":"util/customLua"
+        },
+        "1542":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal duration = self.pinIn.duration.value\nlocal done = extensions.blrfade.getFromDone()\nif self.pinIn.reset.value then\nextensions.blrfade.setFromReady()\nend\nif self.pinIn.flow.value then\nextensions.blrfade.fadeFromBlack(duration)\nend\nself.pinOut.done.value = self.pinIn.flow.value and done"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "duration":{
+              "type":"number",
+              "value":3
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "duration":true,
+              "flow":false,
+              "reset":false
+            },
+            "p_out":{
+              "done":false,
+              "flow":true
+            }
+          },
+          "name":"Fade From Black",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "flow",
+              "reset",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "number",
+              "duration",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "flow",
+              "done",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            3300,
+            1240
+          ],
+          "type":"util/customLua"
+        },
+        "1543":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "text":{
+              "type":"string",
+              "value":"Exit Safe Mode"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "text":false
+            },
+            "p_out":{
+              "down":false,
+              "flow":false,
+              "hold":true,
+              "up":true
+            }
+          },
+          "pos":[
+            3230,
+            -594
+          ],
+          "type":"ui/imgui/elemental/imButton"
+        },
+        "1544":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "text":{
+              "type":"string",
+              "value":"Part edit safe mode enabled. Exit safe mode to access garage and unfreeze vehicle."
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "text":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            3048,
+            -580
+          ],
+          "type":"ui/imgui/elemental/imText"
+        },
+        "1545":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(\"garageSafeMode\", false)\nextensions.blrflags.set(\"garageSafeMode\", false)\nextensions.blrglobals.gmSetVal(\"pgas\", extensions.blrglobals.gmGetVal(\"cgas\")) -- Gets current gas value and stores it for after part edit\nextensions.blrglobals.gmSetVal(\"podo\", extensions.blrglobals.gmGetVal(\"codo\"))-- do same thing with odometer\nextensions.blrglobals.gmSetVal(\"pnos\", extensions.blrglobals.gmGetVal(\"cnos\"))-- do same thing with NOS\nextensions.blrglobals.gmSetVal(\"pftypes\", extensions.blrutils.blrvarGet(\"fuelTypeString\")) -- 1.14.2 addition, fuel types\nextensions.blrglobals.gmSetVal(\"pfratio\", extensions.blrutils.blrvarGet(\"fuelRatioString\")) -- 1.14.2 addition, fuel ratio\nextensions.blrglobals.blrFlagSet(\"hasNos\", false) -- Setting hasNos to false to avoid vlua fetching bug before flag is set by N2O Check node\nextensions.blrhooks.linkHook(\"vehReset\", \"postedit\")\ncore_vehicle_manager.reloadVehicle(0)"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Exit Part Edit Safe Mode",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ]
+          ],
+          "pos":[
+            3454,
+            -566
+          ],
+          "type":"util/customLua"
+        },
+        "1546":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(\"garageSafeMode\", false) -- flag for flowgraph, to remove need for file reading to draw imgui\nextensions.blrflags.set(\"garageSafeMode\", false)-- shared flag for vlua and gelua, using file saved table",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(\"garageSafeMode\", false) -- flag for flowgraph, to remove need for file reading to draw imgui\nextensions.blrflags.set(\"garageSafeMode\", false)-- shared flag for vlua and gelua, using file saved table"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Part Edit Safe Mode Init",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ]
+          ],
+          "pos":[
+            -368,
+            1072
+          ],
+          "type":"util/customLua"
+        },
+        "1547":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nself.pinOut.flag.value = extensions.blrglobals.blrFlagGet(self.pinIn.name.value)\n"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "name":{
+              "type":"string",
+              "value":"garageSafeMode"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "name":false
+            },
+            "p_out":{
+              "flag":false,
+              "flow":false
+            }
+          },
+          "name":"BLR Flag Get",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "bool",
+              "flag",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "string",
+              "name",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -738,
+            -2316
+          ],
+          "type":"util/customLua"
+        },
+        "1548":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "condition":false,
+              "flow":false
+            },
+            "p_out":{
+              "False":false,
+              "True":false,
+              "flow":true
+            }
+          },
+          "pos":[
+            -788,
+            -2204
+          ],
+          "type":"logic/branch"
+        },
+        "1549":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(\"garageSafeMode\", false)\nextensions.blrflags.set(\"garageSafeMode\", false)\nextensions.blrglobals.gmSetVal(\"pgas\", extensions.blrglobals.gmGetVal(\"cgas\")) -- Gets current gas value and stores it for after part edit\nextensions.blrglobals.gmSetVal(\"podo\", extensions.blrglobals.gmGetVal(\"codo\"))-- do same thing with odometer\nextensions.blrglobals.gmSetVal(\"pnos\", extensions.blrglobals.gmGetVal(\"cnos\"))-- do same thing with NOS\nextensions.blrglobals.gmSetVal(\"pftypes\", extensions.blrutils.blrvarGet(\"fuelTypeString\")) -- 1.14.2 addition, fuel types\nextensions.blrglobals.gmSetVal(\"pfratio\", extensions.blrutils.blrvarGet(\"fuelRatioString\")) -- 1.14.2 addition, fuel ratio\nextensions.blrglobals.blrFlagSet(\"hasNos\", false) -- Setting hasNos to false to avoid vlua fetching bug before flag is set by N2O Check node\nextensions.blrhooks.linkHook(\"vehReset\", \"postedit\")\ncore_vehicle_manager.reloadVehicle(0)"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Exit Part Edit Safe Mode",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ]
+          ],
+          "pos":[
+            -808,
+            -1826
+          ],
+          "type":"util/customLua"
+        },
+        "1550":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "text":{
+              "type":"string",
+              "value":"Part edit safe mode enabled. Exit safe mode to access garage and unfreeze vehicle."
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "text":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -774,
+            -2064
+          ],
+          "type":"ui/imgui/elemental/imText"
+        },
+        "1551":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "B":{
+              "type":"number",
+              "value":0
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "A":false,
+              "B":false,
+              "flow":false
+            },
+            "p_out":{
+              "false":false,
+              "flow":false,
+              "true":false,
+              "value":true
+            }
+          },
+          "opSymbol":">",
+          "pos":[
+            1774,
+            1282
+          ],
+          "type":"logic/compare"
+        },
+        "1552":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "text":{
+              "type":"string",
+              "value":"Exit Safe Mode"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "text":false
+            },
+            "p_out":{
+              "down":false,
+              "flow":false,
+              "hold":true,
+              "up":true
+            }
+          },
+          "pos":[
+            -788,
+            -1952
+          ],
+          "type":"ui/imgui/elemental/imButton"
+        },
         "4986":{
           "count":5,
           "customName":"Player Exit",
@@ -88397,8 +90690,8 @@
             }
           },
           "pos":[
-            -1082,
-            -2722
+            -1278,
+            -2708
           ],
           "type":"types/genericValue"
         },
@@ -88587,8 +90880,8 @@
             }
           },
           "pos":[
-            -1082,
-            -2638
+            -1278,
+            -2624
           ],
           "type":"types/genericValue"
         },
@@ -88799,8 +91092,8 @@
             }
           },
           "pos":[
-            -1082,
-            -2554
+            -1278,
+            -2540
           ],
           "type":"types/genericValue"
         },
@@ -88838,7 +91131,7 @@
           },
           "pos":[
             2614,
-            -398
+            -258
           ],
           "type":"types/number"
         },
@@ -88870,7 +91163,7 @@
           },
           "pos":[
             4014,
-            -440
+            -300
           ],
           "type":"types/genericValue"
         },
@@ -88931,7 +91224,7 @@
           },
           "pos":[
             3958,
-            218
+            358
           ],
           "type":"types/genericValue"
         },
@@ -91056,7 +93349,7 @@
           ],
           "pos":[
             1578,
-            -986
+            -902
           ],
           "type":"util/customLua"
         },
@@ -91330,8 +93623,8 @@
             }
           },
           "pos":[
-            3398,
-            1114
+            3496,
+            1268
           ],
           "type":"vehicle/freeze"
         },
@@ -92316,8 +94609,8 @@
             }
           },
           "pos":[
-            2124,
-            1660
+            2132,
+            1870
           ],
           "type":"types/genericValue"
         },
@@ -92431,8 +94724,8 @@
             }
           },
           "pos":[
-            2404,
-            1520
+            2412,
+            1730
           ],
           "type":"vehicle/freeze"
         },
@@ -92463,8 +94756,8 @@
             }
           },
           "pos":[
-            3902,
-            1940
+            3888,
+            2094
           ],
           "type":"types/genericValue"
         },
@@ -92491,7 +94784,7 @@
           },
           "pos":[
             3636,
-            -412
+            -272
           ],
           "type":"ui/imgui/elemental/imButton"
         },
@@ -92549,7 +94842,7 @@
             ]
           ],
           "pos":[
-            4098,
+            4204,
             -104
           ],
           "type":"util/customLua"
@@ -92621,8 +94914,8 @@
             ]
           ],
           "pos":[
-            3230,
-            1422
+            3168,
+            1576
           ],
           "type":"util/customLua"
         },
@@ -94225,8 +96518,8 @@
             ]
           ],
           "pos":[
-            3902,
-            1422
+            3888,
+            1576
           ],
           "type":"util/customLua"
         },
@@ -94313,8 +96606,8 @@
             ]
           ],
           "pos":[
-            3860,
-            1534
+            3846,
+            1688
           ],
           "type":"util/customLua"
         },
@@ -94371,8 +96664,8 @@
             ]
           ],
           "pos":[
-            3622,
-            1912
+            3608,
+            2066
           ],
           "type":"util/customLua"
         },
@@ -95462,8 +97755,8 @@
             ]
           ],
           "pos":[
-            3426,
-            1422
+            3328,
+            1576
           ],
           "type":"util/customLua"
         },
@@ -97259,6 +99552,48 @@
             -440
           ],
           "type":"logic/once"
+        },
+        "10292":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "text":false
+            },
+            "p_out":{
+              "down":false,
+              "flow":false,
+              "hold":true,
+              "up":true
+            }
+          },
+          "pos":[
+            2692,
+            -1462
+          ],
+          "type":"ui/imgui/elemental/imButton"
+        },
+        "10293":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "text":false
+            },
+            "p_out":{
+              "down":false,
+              "flow":false,
+              "hold":true,
+              "up":true
+            }
+          },
+          "pos":[
+            2334,
+            -1462
+          ],
+          "type":"ui/imgui/elemental/imButton"
         }
       },
       "showTab":true,
@@ -97268,10 +99603,10 @@
         "list":{}
       },
       "viewPos":[
-        -52.62210083007812500000,
-        1734.62658691406250000000
+        1740.39257812500000000000,
+        1025.53308105468750000000
       ],
-      "viewZoom":1
+      "viewZoom":1.11174786090850830078
     },
     "3":{
       "description":"This is the description for graph States",
@@ -97392,10 +99727,10 @@
         "list":{}
       },
       "viewPos":[
-        -299.77343750000000000000,
-        356.01486206054687500000
+        2676.39282226562500000000,
+        1025.53308105468750000000
       ],
-      "viewZoom":0.22760283946990966797
+      "viewZoom":1.11174786090850830078
     }
   },
   "isScenario":true,

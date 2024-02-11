@@ -75,6 +75,8 @@ Liam Wood (liamwood15)<br>
 Benjamin Rogers (thisvelologist)<br>
 Leon Makepeace<br>
 Ethan Rapp<br>
+Mattia Morris (Mattia83)<br>
+Michael Mckinley<br>
 </p>
 
 <h2 style="text-align:center;">
@@ -686,6 +688,16 @@ Advanced Repair UI
 <button ng-class="inputData.useadvrepairui == 0 ? 'toggleon' : 'toggleoff'" ng-click="aruiToggle(0)">Off</button>
 </p>
 
+<p style="text-align:center;">  
+Part edit safe mode helps to prevent taking damage during part edits by temporarily increasing beam strength. Useful when removing wheels but can be kept off for most edits.
+</p>
+
+<p style="text-align:center;"> 
+Part Edit Safe Mode
+<button ng-class="inputData.gsafemode == 1 ? 'toggleon' : 'toggleoff'" ng-click="safeModeToggle(1)">On</button>
+<button ng-class="inputData.gsafemode == 0 ? 'toggleon' : 'toggleoff'" ng-click="safeModeToggle(0)">Off</button>
+</p>
+
 
 <br>
 
@@ -865,7 +877,8 @@ Advanced Repair UI
 <tr ng-if="beamlrData['partPrices'][item] == null"><td>Sell value ${{beamlrData['partPrices']['default'] * partSellScale | number:2}}</td></tr>
 <tr><td>
 <button ng-if="partSellConfirm[item] == null || partSellConfirm[item] == false" style="width:90px;" ng-click="garagePartSell(item,beamlrData['partPrices'][item] * partSellScale)">Sell</button>
-<button ng-if="partSellConfirm[item] == true" style="width:90px;" ng-click="garagePartSell(item, beamlrData['partPrices'][item] * partSellScale)">Confirm</button>
+<button ng-if="partSellConfirm[item] == true && beamlrData['partPrices'][item] != null" style="width:90px;" ng-click="garagePartSell(item, beamlrData['partPrices'][item] * partSellScale)">Confirm</button>
+<button ng-if="partSellConfirm[item] == true && beamlrData['partPrices'][item] == null" style="width:90px;" ng-click="garagePartSell(item, beamlrData['partPrices']['default'] * partSellScale)">Confirm</button>
 </td></tr>
 </table>
 </div>

@@ -16,7 +16,7 @@
 <p style="text-align:center; font-weight:bold; font-size:20px; margin-bottom:0px;">Select Destination</p>
 
 <div style="background-color:rgba(0, 0, 0, 0.2); overflow-y:scroll; max-height:120px; width:95%; margin:auto;">
-<div ng-repeat="(k,v) in destinations['names']">
+<div ng-repeat="(k,v) in destinations['names'] track by k">
 <button ng-click="selectDestination(destinations['keys'][k])" style="width:90%; margin-left:15px; margin-top:5px; margin-bottom:5px;">{{v}}</button>
 </div>
 </div>

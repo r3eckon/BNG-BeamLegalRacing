@@ -1,7 +1,7 @@
-money=1000
-carUsed=0
-health=100
-carCount=1
-time=0.0
-rep=0
 day=0
+health=100
+time=0.0
+carCount=2
+carUsed=0
+rep=0
+money=2725.3259977051

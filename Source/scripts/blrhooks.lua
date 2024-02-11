@@ -57,6 +57,15 @@ end
 if extensions.blrglobals.blrFlagGet("advancedVehicleBuilding") then
 extensions.blrglobals.blrFlagSet("avbResetDelayed", true) -- Need to delay reset a bit
 end
+
+--1.14.2 part edit safe mode
+if extensions.blrflags.get("garageSafeMode") then
+be:getPlayerVehicle(0):queueLuaCommand("controller.setFreeze(1)")
+else
+be:getPlayerVehicle(0):queueLuaCommand("controller.setFreeze(0)")
+end
+be:getPlayerVehicle(0):queueLuaCommand("extensions.blrVehicleUtils.buildAdvancedDamageTables()")
+
 print("BLRHOOK: VEHICLE RESETTED")
 end
 end

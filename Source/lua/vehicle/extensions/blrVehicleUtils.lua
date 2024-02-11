@@ -1,93 +1,6 @@
 local M = {}
 
--- Adds fuel in available tanks
-local function addFuel(val)
-local storageData = energyStorage.getStorages()
-local remainToAdd = val
-local currentVal = 0
-local currentCap = 0
-local currentAdd = 0
-
-for k,v in pairs(storageData) do
-if v["type"] == "fuelTank" then
-currentVal = v["remainingVolume"]
-currentCap = v["capacity"]
-currentAdd = math.min(currentCap - currentVal, remainToAdd)
-v:setRemainingVolume(currentVal + currentAdd)
-remainToAdd = math.max(remainToAdd - currentAdd, 0)
-end
-end
-
---Start by filling mainTank if it exists on vehicle
---if storageData["mainTank"] then
---currentVal = storageData["mainTank"].remainingVolume
---currentCap = storageData["mainTank"].capacity
---currentAdd = math.min(currentCap - currentVal, remainToAdd)
---energyStorage.getStorage("mainTank"):setRemainingVolume(currentVal + currentAdd)
---remainToAdd = math.max(remainToAdd - currentAdd, 0)
---end
-
---Now filling auxTank if it exists
---if storageData["auxTank"] then
---currentVal = storageData["auxTank"].remainingVolume
---currentCap = storageData["auxTank"].capacity
---currentAdd = math.min(currentCap - currentVal, remainToAdd)
---energyStorage.getStorage("auxTank"):setRemainingVolume(currentVal + currentAdd)
---remainToAdd = math.max(remainToAdd - currentAdd, 0)
---end
-
---Return remaining value
-return remainToAdd
-end
-
--- Force set fuel total value
-local function setFuel(val)
-local storageData = energyStorage.getStorages()
-local remainToAdd = val
-local currentCap = 0
-local currentAdd = 0
-
--- This should work for all vehicles
-for k,v in pairs(storageData) do
-if v["type"] == "fuelTank" then
-currentCap = v["capacity"]
-currentAdd = math.min(currentCap, remainToAdd)
-v:setRemainingVolume(currentAdd)
-remainToAdd = math.max(remainToAdd - currentAdd, 0)
-end
-end
-
---Start by filling mainTank if it exists on vehicle
---if storageData["mainTank"] then
---currentCap = storageData["mainTank"].capacity
---currentAdd = math.min(currentCap, remainToAdd)
---energyStorage.getStorage("mainTank"):setRemainingVolume(currentAdd)
---remainToAdd = math.max(remainToAdd - currentAdd, 0)
---end
-
---Now filling auxTank if it exists
---if storageData["auxTank"] then
---currentCap = storageData["auxTank"].capacity
---currentAdd = math.min(currentCap, remainToAdd)
---energyStorage.getStorage("auxTank"):setRemainingVolume(currentAdd)
---remainToAdd = math.max(remainToAdd - currentAdd, 0)
---end
-
---Return remaining value
-return remainToAdd
-end
-
-
-local function getEnergyStorageData(storage)
-local toRet = ""
-local storageData = energyStorage.getStorages()[storage]
-if storageData then
-toRet = "true," .. storageData.capacity .. "," .. storageData.remainingVolume
-else
-toRet = "false"
-end
-return toRet
-end
+local engineFuelType = "none"
 
 -- Total fuel in all tanks
 local function getFuelTotal()
@@ -133,6 +46,187 @@ end
 return toRet
 end
 
+local function getEngineFuelType()
+return powertrain.getDevices()["mainEngine"].requiredEnergyType or "gasoline"
+end
+
+-- Need to call this on vehicle loaded and post edits so it handles engine swap
+-- Called from "Force Set Fuel" function in flowgraph, not using unique node
+local function loadFuelType()
+engineFuelType = getEngineFuelType()
+end
+
+local wrongFuel = false
+
+-- Disables/enables engine if incorrect fuel type detected
+-- wont enable engine when tank is drained to prevent infinite fuel exploit
+-- doesn't allow re-enabling engine if wrong fuel is in tank until drained
+local function fuelTypeCheck(toCheck, drained)
+local engine = powertrain.getDevices()["mainEngine"]
+if toCheck == engineFuelType and engine.isDisabled then
+if not drained and not wrongFuel then
+engine:enable()
+end
+elseif toCheck ~= engineFuelType and not engine.isDisabled then
+engine:disable()
+wrongFuel = true
+obj:queueGameEngineLua("guihooks.trigger('Message', {ttl = 10, msg = 'Wrong fuel used! Drain the tank to fix the engine.', icon = 'directions_car'})")
+end
+if drained then
+wrongFuel = false
+end
+end
+
+local fuelTypes = {}
+local fuelQuality = 1.0
+local ratio_regular = 1.0
+local ratio_midgrade = 0.0
+local ratio_premium = 0.0
+
+local function getFuelTypesString()
+local toRet = ""
+for k,v in pairs(fuelTypes) do
+if v then toRet = toRet .. k .. "," end
+end
+return string.sub(toRet, 1,-2)
+end
+
+-- to save fuel ratio in gelua
+local function getFuelRatioString()
+return "" .. ratio_regular .. "," .. ratio_midgrade .. "," .. ratio_premium
+end
+
+local function resetFuelRatio()
+ratio_regular = 1.0
+ratio_midgrade = 0.0
+ratio_premium = 0.0
+end
+
+local function updateFuelRatio(added, tier)
+local total = getFuelTotal()
+local ptotal = total - added
+local quant_regular = ptotal * ratio_regular
+local quant_midgrade = ptotal * ratio_midgrade
+local quant_premium = ptotal * ratio_premium
+if tier == "regular" then
+quant_regular = quant_regular + added
+elseif tier == "midgrade" then
+quant_midgrade = quant_midgrade + added
+elseif tier == "premium" then
+quant_premium = quant_premium + added
+end
+if total > 0 then
+ratio_regular = quant_regular / total
+ratio_midgrade = quant_midgrade / total
+ratio_premium = quant_premium / total
+end
+end
+
+
+local function updateFuelQuality()
+fuelQuality = math.min(1.0 + 0.1 * ratio_midgrade + 0.2 * ratio_premium, 1.2)
+if not powertrain.getDevices()["mainEngine"].isDisabled then
+powertrain.getDevices()["mainEngine"].outputTorqueState = fuelQuality
+end
+end
+
+-- Adds fuel in available tanks
+local function addFuel(val, fueltype, tier)
+local storageData = energyStorage.getStorages()
+local remainToAdd = val
+local currentVal = 0
+local currentCap = 0
+local currentAdd = 0
+
+for k,v in pairs(storageData) do
+if v["type"] == "fuelTank" then
+currentVal = v["remainingVolume"]
+currentCap = v["capacity"]
+currentAdd = math.min(currentCap - currentVal, remainToAdd)
+v:setRemainingVolume(currentVal + currentAdd)
+remainToAdd = math.max(remainToAdd - currentAdd, 0)
+end
+end
+
+--Check fuel type, if wrong type is used engine will be disabled
+if fueltype then 
+fuelTypeCheck(fueltype, false)
+fuelTypes[fueltype] = true
+end
+
+--Update fuel quality ratio
+updateFuelRatio(currentAdd, tier)
+updateFuelQuality()
+
+
+--Return remaining value
+return remainToAdd
+end
+
+-- Force set fuel total value
+local function setFuel(val, fueltype, rratio, mratio, pratio, forceDisable)
+local storageData = energyStorage.getStorages()
+local remainToAdd = val
+local currentCap = 0
+local currentAdd = 0
+
+-- This should work for all vehicles
+for k,v in pairs(storageData) do
+if v["type"] == "fuelTank" then
+currentCap = v["capacity"]
+currentAdd = math.min(currentCap, remainToAdd)
+v:setRemainingVolume(currentAdd)
+remainToAdd = math.max(remainToAdd - currentAdd, 0)
+end
+end
+
+--Check fuel type, if wrong type is used engine will be disabled
+if fueltype then 
+fuelTypeCheck(fueltype, val <= 0) 
+fuelTypes = {} -- Set used fuel types to a single type since this is setFuel
+fuelTypes[fueltype] = true
+else
+fuelTypes = {} -- for loading legacy garage files, assume correct fuel type was stored
+fuelTypes[engineFuelType] = true
+end
+
+--Set fuel ratio, if not specified defaults to 100% regular
+ratio_regular = rratio or 1.0
+ratio_midgrade = mratio or 0.0
+ratio_premium = pratio or 0.0
+
+--Tank drained, force set fuel ratios to 0
+if val <= 0 then 
+resetFuelRatio()
+fuelTypes = {} -- reset fuel types
+end
+
+-- Has to be used when loading vehicle with mixed fuels otherwise
+-- using addFuel bugs the tank volume to max capacity
+if forceDisable then
+fuelTypes = {gasoline = true, diesel = true}
+powertrain.getDevices()["mainEngine"]:disable()
+wrongFuel = true
+end
+
+updateFuelQuality()
+
+--Return remaining value
+return remainToAdd
+end
+
+
+local function getEnergyStorageData(storage)
+local toRet = ""
+local storageData = energyStorage.getStorages()[storage]
+if storageData then
+toRet = "true," .. storageData.capacity .. "," .. storageData.remainingVolume
+else
+toRet = "false"
+end
+return toRet
+end
+
 
 
 local smoothFuel = false
@@ -140,12 +234,16 @@ local smoothFuelLast = 0
 local smoothFuelTotal = 0
 local smoothFuelAllowed = 0
 local smoothFuelStart = 0
-local function smoothRefuelToggle(toggle, allowed)
+local smoothFuelTier = "regular"
+local smoothFuelType = "gasoline"
+local function smoothRefuelToggle(toggle, allowed, fueltype, tier)
 smoothFuel = toggle
 if toggle then 
 smoothFuelTotal = 0
 smoothFuelAllowed = allowed or 999999
 smoothFuelStart = getFuelTotal()
+smoothFuelTier = tier or "regular"
+smoothFuelType = fueltype or "gasoline"
 --print("Smooth fuel start: " .. smoothFuelStart)
 else 
 --print("Refuel Stopped! Total added: " .. smoothFuelTotal .. "L") 
@@ -157,17 +255,17 @@ local function smoothRefuel(addval,delay, ct)
 local capacity = getFuelCapacityTotal()
 local current = getFuelTotal()
 if current >= capacity - addval then
-addFuel(addval * 2) -- makes sure to top off tank in final tick
+addFuel(addval * 2,smoothFuelType, smoothFuelTier) -- makes sure to top off tank in final tick
 smoothFuelTotal = capacity - smoothFuelStart
 smoothRefuelToggle(false)
 --print("Finish car fuel: " .. smoothFuelStart + smoothFuelTotal)
 elseif smoothFuelTotal >= smoothFuelAllowed then
-setFuel(smoothFuelStart + smoothFuelAllowed)
+setFuel(smoothFuelStart + smoothFuelAllowed,smoothFuelType, ratio_regular, ratio_midgrade, ratio_premium)
 smoothFuelTotal = smoothFuelAllowed
 smoothRefuelToggle(false)
 --print("Finish car fuel: " .. smoothFuelStart + smoothFuelAllowed)
 elseif ct - smoothFuelLast >= delay then
-smoothFuelTotal = smoothFuelTotal + (addval - addFuel(addval))
+smoothFuelTotal = smoothFuelTotal + (addval - addFuel(addval,smoothFuelType, smoothFuelTier))
 smoothFuelLast = ct
 --print(getFuelTotal())
 end
@@ -521,8 +619,11 @@ end
 --M.toggleAllProps = toggleAllProps
 
 
-
-
+M.getFuelTypesString = getFuelTypesString
+M.resetFuelRatio = resetFuelRatio
+M.getFuelRatioString = getFuelRatioString
+M.loadFuelType = loadFuelType
+M.getEngineFuelType = getEngineFuelType
 M.smoothRefuelToggle = smoothRefuelToggle
 M.getAdvancedRepairString = getAdvancedRepairString
 M.buildAdvancedDamageTables = buildAdvancedDamageTables

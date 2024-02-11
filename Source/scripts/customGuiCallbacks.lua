@@ -21,10 +21,19 @@ ftable["setPart"] = function(p)
 extensions.blrglobals.gmSetVal("pgas", extensions.blrglobals.gmGetVal("cgas")) 	-- Gets current gas value and stores it for after part edit
 extensions.blrglobals.gmSetVal("podo", extensions.blrglobals.gmGetVal("codo"))	-- do same thing with odometer
 extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-- do same thing with NOS
+extensions.blrglobals.gmSetVal("pftypes", extensions.blrutils.blrvarGet("fuelTypeString")) -- 1.14.2 addition, fuel types
+extensions.blrglobals.gmSetVal("pfratio", extensions.blrutils.blrvarGet("fuelRatioString")) -- 1.14.2 addition, fuel ratio
 extensions.blrglobals.blrFlagSet("hasNos", false) -- Setting hasNos to false to avoid vlua fetching bug before flag is set by N2O Check node
 extensions.blrhooks.linkHook("vehReset", "postedit")							-- Hooks post edit actions to the vehicle restored callback
+																				-- which restores proper camera and gas value
+-- 1.14.2 part edit safe mode
+if extensions.blrglobals.blrFlagGet("garageSafeModeToggle") then
+extensions.blrglobals.blrFlagSet("garageSafeMode", true) -- flag for flowgraph, to remove need for file reading to draw imgui
+extensions.blrflags.set("garageSafeMode", true)	-- shared flag for vlua and gelua, using file saved table
+extensions.customGuiStream.toggleAdvancedRepairUI(false) -- force close advanced repair UI to avoid exploits
+end
 
---1.13 advanced vehicle building edits																				-- which restores proper camera and gas value
+--1.13 advanced vehicle building edits																				
 if extensions.blrglobals.blrFlagGet("avbToggle") then
 extensions.blrglobals.blrFlagSet("advancedVehicleBuilding", true)
 -- BELOW FUNCTION CALL FIXED ISSUE WITH FIRST EDIT NOT USING AVB
@@ -210,6 +219,8 @@ local dtable = extensions.betterpartmgmt.tuningTableFromUIData(p, false)
 extensions.blrglobals.gmSetVal("pgas", extensions.blrglobals.gmGetVal("cgas")) 	-- Gets current gas value and stores it for after tune apply
 extensions.blrglobals.gmSetVal("podo", extensions.blrglobals.gmGetVal("codo"))	-- do same thing with odometer
 extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-- do same thing with NOS
+extensions.blrglobals.gmSetVal("pftypes", extensions.blrutils.blrvarGet("fuelTypeString")) -- 1.14.2 addition, fuel types
+extensions.blrglobals.gmSetVal("pfratio", extensions.blrutils.blrvarGet("fuelRatioString")) -- 1.14.2 addition, fuel ratio
 extensions.blrhooks.linkHook("vehReset", "postedit")							-- Link to post edit action hook, reuse the code for tune
 extensions.betterpartmgmt.applyTuningData(dtable)
 end
@@ -218,6 +229,8 @@ ftable["resetTune"] = function(p)
 extensions.blrglobals.gmSetVal("pgas", extensions.blrglobals.gmGetVal("cgas")) 	-- Gets current gas value and stores it for after tune apply
 extensions.blrglobals.gmSetVal("podo", extensions.blrglobals.gmGetVal("codo"))	-- do same thing with odometer
 extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-- do same thing with NOS
+extensions.blrglobals.gmSetVal("pftypes", extensions.blrutils.blrvarGet("fuelTypeString")) -- 1.14.2 addition, fuel types
+extensions.blrglobals.gmSetVal("pfratio", extensions.blrutils.blrvarGet("fuelRatioString")) -- 1.14.2 addition, fuel ratio
 extensions.blrhooks.linkHook("vehReset", "postedit")							-- Link to post edit action hook, reuse the code for tune
 extensions.betterpartmgmt.resetTuningData()
 end
@@ -511,7 +524,9 @@ if canload then
 -- Below code taken from part edit process, since parts change this should reload UI menus and gas,odo,nos values
 extensions.blrglobals.gmSetVal("pgas", extensions.blrglobals.gmGetVal("cgas"))
 extensions.blrglobals.gmSetVal("podo", extensions.blrglobals.gmGetVal("codo"))
-extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	
+extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))
+extensions.blrglobals.gmSetVal("pftypes", extensions.blrutils.blrvarGet("fuelTypeString")) -- 1.14.2 addition, fuel types
+extensions.blrglobals.gmSetVal("pfratio", extensions.blrutils.blrvarGet("fuelRatioString")) -- 1.14.2 addition, fuel ratio
 extensions.blrglobals.blrFlagSet("hasNos", false)
 extensions.blrhooks.linkHook("vehReset", "postedit")	
 
@@ -675,6 +690,8 @@ local removed = {}
 extensions.blrglobals.gmSetVal("pgas", extensions.blrglobals.gmGetVal("cgas")) 	-- gets current gas value to restore later
 extensions.blrglobals.gmSetVal("podo", extensions.blrglobals.gmGetVal("codo"))	-- do same thing with odometer
 extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-- do same thing with NOS
+extensions.blrglobals.gmSetVal("pftypes", extensions.blrutils.blrvarGet("fuelTypeString")) -- 1.14.2 addition, fuel types
+extensions.blrglobals.gmSetVal("pfratio", extensions.blrutils.blrvarGet("fuelRatioString")) -- 1.14.2 addition, fuel ratio
 extensions.blrhooks.linkHook("vehReset", "postedit")							-- link to post edit action hook
 
 -- charge player for repair
@@ -734,6 +751,13 @@ end
 
 ftable["trafficToggle"] = function(p)
 extensions.blrglobals.blrFlagSet("trafficEnable", p == 1)
+end
+
+ftable["safeModeToggle"] = function(p)
+local dtable = {}
+dtable["gsafemode"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+extensions.blrglobals.blrFlagSet("garageSafeModeToggle", p == 1)
 end
 
 

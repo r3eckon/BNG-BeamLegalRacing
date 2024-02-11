@@ -508,6 +508,10 @@ else
 toRet["cost"] = tonumber(cost[1])
 end
 
+toRet["cost_midgrade"] = math.floor(toRet["cost"] * 1.25 * 100.0) / 100.0
+toRet["cost_premium"] =  math.floor(toRet["cost"] * 1.5 * 100.0) / 100.0
+toRet["cost_diesel"] =  math.floor(toRet["cost"] * 1.15 * 100.0) / 100.0
+
 return toRet
 end
 
@@ -825,27 +829,27 @@ local function resetTimeOfDay() -- For mission end cleanup
 core_environment.setTimeOfDay({time = 0, play = false, dayScale = 1.0, nightScale = 2.0 })
 end
 
-local driftTotal = 0
-local driftCurrent = 0
+locals["driftTotal"]  = 0
+locals["driftCurrent"]  = 0
 
 local function setDriftTotal(score)
-driftTotal = score
+locals["driftTotal"]  = score
 end
 
 local function setDriftCurrent(score)
-driftCurrent = score
+locals["driftCurrent"]  = score
 end
 
 local function getDriftTotal()
-return driftTotal
+return locals["driftTotal"] 
 end
 
 local function getDriftCurrent()
-return driftCurrent
+return locals["driftCurrent"] 
 end
 
 local function getDriftCombined()
-return math.floor(driftTotal + driftCurrent)
+return math.floor(locals["driftTotal"]  + locals["driftCurrent"] )
 end
 
 local buttonConfirmState = {}
@@ -1299,7 +1303,7 @@ local cdata = {}
 local i = 1
 for k,v in pairs(files) do
 cdata = loadDataTable(v)
-if installedLevels[cdata["map"]] then -- Do not offer events on maps that aren't installed
+if installedLevels[cdata["map"]] then -- do not offer events on maps that aren't installed
 toRet[i] = {}
 toRet[i]["title"] = cdata["title"]
 toRet[i]["joincost"] = cdata["joincost"]
@@ -1835,19 +1839,19 @@ end
 end
 
 
-local dsBackOpacity = 0
-local dsTextOpacity = 0
+locals["dsBackOpacity"]  = 0
+locals["dsTextOpacity"]  = 0
 
 local function setDeathScreenBackOpacity(dx, mx, mn)
-dsBackOpacity = math.max(math.min(dsBackOpacity + dx, mx), mn)
-extensions.customGuiStream.sendGameOverUIBackOpacity(dsBackOpacity)
-return dsBackOpacity
+locals["dsBackOpacity"]  = math.max(math.min(locals["dsBackOpacity"]  + dx, mx), mn)
+extensions.customGuiStream.sendGameOverUIBackOpacity(locals["dsBackOpacity"] )
+return locals["dsBackOpacity"] 
 end
 
 local function setDeathScreenTextOpacity(dx, mx, mn)
-dsTextOpacity = math.max(math.min(dsTextOpacity + dx, mx), mn)
-extensions.customGuiStream.sendGameOverUITextOpacity(dsTextOpacity)
-return dsTextOpacity
+locals["dsTextOpacity"]  = math.max(math.min(locals["dsTextOpacity"]  + dx, mx), mn)
+extensions.customGuiStream.sendGameOverUITextOpacity(locals["dsTextOpacity"] )
+return locals["dsTextOpacity"] 
 end
 
 local function playSFX(effect)
@@ -2109,6 +2113,10 @@ for k,v in pairs(gtable) do
 if k ~= "PlayerGarage" then
 csplit = ssplit(v, ",")
 cname = csplit[3]
+if tmap[cname] then 
+cname = cname .. "+" .. i
+i = i+1
+end
 tmap[cname] = k
 table.insert(names, cname)
 end
@@ -2117,7 +2125,7 @@ table.sort(names)
 toRet["names"][1] = "Player Garage"
 toRet["keys"][1] = "PlayerGarage"
 for k,v in ipairs(names) do
-toRet["names"][k+1] = v
+toRet["names"][k+1] = ssplit(v, "+")[1]
 toRet["keys"][k+1] = tmap[v]
 end
 return toRet
@@ -2284,21 +2292,35 @@ local function blrStationDisplays()
 local level = getLevelName()
 local unit = getSettingValue("uiUnits")
 locals["lastGasUnit"] = unit
+if not FS:directoryExists("beamLR/mapdata/" .. level) then
+print("Missing mapdata for level, skipping gas station display init")
+return
+end
 local triggers = loadDataTable("beamLR/mapdata/" .. level .. "/triggers")
 local csplit = {}
 local ctrig = {}
-local cval = 0
+local cdata = {}
+local cval = {}
 for k,v in pairs(triggers) do
 csplit = ssplit(v, ",")
 if csplit[1] == "station" then
 ctrig = loadDataTable("beamLR/mapdata/" .. level .. "/triggerData/" .. csplit[2])
+cdata = processGasStationRandoms(ctrig, getDailySeed() + tonumber(ctrig["id"]))
 if ctrig["display"] then
-cval = tonumber(processGasStationRandoms(ctrig, getDailySeed() + tonumber(ctrig["id"]))["cost"])
-if unit == "imperial" then cval = cval * 3.785 end
-setGasStationDisplayValue(ctrig["display"], "gasoline", cval, true, true)
-setGasStationDisplayValue(ctrig["display"], "gasoline2", 0, false, true)
-setGasStationDisplayValue(ctrig["display"], "gasoline3", 0, false, true)
-setGasStationDisplayValue(ctrig["display"], "diesel", 0, false, true)
+cval[1] = tonumber(cdata["cost"])
+cval[2] = tonumber(cdata["cost_midgrade"])
+cval[3] = tonumber(cdata["cost_premium"])
+cval[4] = tonumber(cdata["cost_diesel"])
+if unit == "imperial" then 
+cval[1] = cval[1] * 3.785
+cval[2] = cval[2] * 3.785
+cval[3] = cval[3] * 3.785
+cval[4] = cval[4] * 3.785
+end
+setGasStationDisplayValue(ctrig["display"], "gasoline", cval[1], true, true)
+setGasStationDisplayValue(ctrig["display"], "gasoline2", cval[2], true, true)
+setGasStationDisplayValue(ctrig["display"], "gasoline3", cval[3], true, true)
+setGasStationDisplayValue(ctrig["display"], "diesel", cval[4], true, true)
 end
 end
 end
@@ -2313,6 +2335,28 @@ blrStationDisplays()
 end
 end
 
+-- Moves the garage trigger up and down to trigger the onEnter event which
+-- sometimes doesn't happen after towing
+locals["refreshOldPos"] = {}
+local function garageTriggerRefresh(step)
+local level = getLevelName()
+local triggers = loadDataTable("beamLR/mapdata/" .. level .. "/triggers")
+local tname = ""
+for k,v in pairs(triggers) do
+if v=="garage" then tname = k break end
+end
+local obj = scenetree.findObject(tname)
+if obj then
+if step == 1 then
+locals["refreshOldPos"] = obj:getPosition():toTable()
+obj:setPosition(vec3(locals["refreshOldPos"][1], locals["refreshOldPos"][2], locals["refreshOldPos"][3] + 10))
+elseif step == 2 then
+obj:setPosition(vec3(locals["refreshOldPos"][1], locals["refreshOldPos"][2], locals["refreshOldPos"][3]))
+end
+end
+end
+
+M.garageTriggerRefresh = garageTriggerRefresh
 M.onSettingsChanged = onSettingsChanged
 M.blrStationDisplays = blrStationDisplays
 M.smoothFuelCharge = smoothFuelCharge

@@ -19,7 +19,7 @@ angular.module('beamng.apps')
 	  scope.visibleSlots = {};
 	  scope.resetConfirm = false;
 	  scope.partSellConfirm = {};
-	  scope.partSellScale = 0.5;
+	  scope.partSellScale = 0.2;
 
 	  if(!scope.initDone)
 	  {
@@ -122,7 +122,7 @@ angular.module('beamng.apps')
 		  scope.inputData['fmtoggle'] = data['fmtoggle'];
 		  scope.inputData['useadvrepairui'] = data['useadvrepairui'] && data['advrepaircost'];
 		  scope.inputData['tfasttoggle'] = data['tfasttoggle'];
-		  
+		  scope.inputData['gsafemode'] = data['gsafemode'];
       })
 	  
 	  
@@ -510,6 +510,13 @@ angular.module('beamng.apps')
 	  {
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("ttoggle", ${toggle})`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("trafficToggle", "ttoggle")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
+	  }
+	  
+	  scope.safeModeToggle = function(toggle)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("stoggle", ${toggle})`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("safeModeToggle", "stoggle")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
 	  

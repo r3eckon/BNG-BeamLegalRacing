@@ -160,7 +160,7 @@ end
 
 
 local function loadConfig(file)
-extensions.core_vehicle_partmgmt.load(file)
+extensions.core_vehicle_partmgmt.loadLocal(file)
 end
 
 
