@@ -1,4 +1,5 @@
 [latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.14.2/beamLegalRacing1.14.2.zip
+[userfolder]: https://documentation.beamng.com/support/userfolder/
 
 # Beam Legal Racing 1.14.2
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
@@ -21,7 +22,7 @@ Perform missions, races and challenges to earn money to buy vehicles and parts. 
 
 Carefully follow the instructions to ensure all features are working properly:
 * [Download the latest release][latest].
-* Extract zip file contents directly to your [BeamNG userfolder](https://documentation.beamng.com/support/userfolder/).
+* Extract zip file contents directly to your [BeamNG userfolder][userfolder].
 * Tell your operating system to replace existing files if asked.
 
 **After installing check the *Read Before Playing* section of this readme for important information and a quick overview of major update features.**
@@ -33,7 +34,7 @@ Modders should back up the userfolder before installing.
 **BEFORE UPDATING**:  Back up the userfolder/beamLR folder to archive your career
 * [Download the latest release][latest].
 * Use the BeamLR options menu to back up your career.
-* Extract updated mod zip contents to the userfolder.
+* Extract updated mod zip contents to the [BeamNG userfolder][userfolder].
 * Tell OS to replace existing files when asked. **This will apply the update.**
 * Use the BeamLR options menu to restore your backup.
 
