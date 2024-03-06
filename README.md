@@ -1,8 +1,9 @@
 
+
 [latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.14.3/beamLegalRacing1.14.3.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.14.2
+# Beam Legal Racing 1.14.3
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -14,7 +15,7 @@ Perform missions, races and challenges to earn money to buy vehicles and parts. 
 
 ### Track Event Maps | [Hirochi Raceway](hirochimap.md) | [Automation Test Track](automationmap.md) | [Nordschleife](map_ks_nord.md)
 
-### [Addons](Addons) | [Nordschleife](Addons/ks_nord)
+### [Addons](Addons) | [Nordschleife](Addons/ks_nord) | [Part Images](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main/Addons/Part%20Images)
 
 ### Enjoying the mod and looking to support the project? [Donate here!](https://www.paypal.com/donate/?hosted_button_id=QQ7SKC6XK7PAE)
 
@@ -106,6 +107,9 @@ Version 1.14 adds West Coast USA map content, part specific repairs, improved UX
 Version 1.14.1 adds smooth refueling, instant traffic toggling and dynamic gas station displays linked with randomly generated gas price. Instant traffic toggling removes lag caused by spawning traffic after races and challenges that disable it but will reduce traffic diversity by keeping the same vehicle pool and may reduce expected performance with disabled traffic on systems with low RAM as it prevents freeing up memory while traffic is disabled.
 
 Version 1.14.2 adds improved fuel system (fuel tiers, diesel) and a safe mode option for part edits used to prevent damage when removing certain parts. Read the [Improved Fuel System](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#improved-fuel-system) and [Part Edit Safe Mode](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#part-edit-safe-mode) section of this readme for more information on these new features. As always make sure to manually back up your current beamLR folder in case the fuel system changes cause issues with your old career files.
+
+Version 1.14.3 adds part images (see [addon](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main/Addons/Part%20Images)) and a rep & reward scaling option.
+
 
 Further instructions and various tips on this mods' various features are listed in the BeamLR UI Main Menu.
 
