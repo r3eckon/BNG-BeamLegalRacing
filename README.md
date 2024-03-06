@@ -1,3 +1,4 @@
+
 [latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.14.2/beamLegalRacing1.14.2.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
@@ -890,3 +891,18 @@ Thank you for playing BeamLR!
 * Trying fix for player garage menu not visible after towing
 * Fixed police tickets while walking (no cost to pay & removed impound button)
 * Decreased part sell value from 50% to 20% of buy value
+
+### 1.14.3
+* Added part images for most vanilla vehicles (see new addon)
+* Added part image preview UI app & options (click thumbnail to view full size)
+* Added race wager & rep reward scaling options
+* Updated part edit & buy UI to load part image overrides for some vehicles
+* Fixed player not frozen during track event countdown
+* Mission cleanup node now resets blrflags to avoid issues
+* Fixed map.objects not containing vehicle in some situations 
+* Fixed errors when loading mechanical damage & odometer of missing devices
+* Wheel damage loading should now work with non 4 wheel vehicles
+* Trying fixes for performance UI showing NaN values
+* Fixed part edit & buy menu layout breaking due to missing slot names
+* Fixed bug causing target wager option not to work
+* Fixed missing script for part edit safe mode

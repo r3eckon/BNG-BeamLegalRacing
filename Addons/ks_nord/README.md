@@ -26,3 +26,5 @@ This addon is currently built for map version **v20231124_v2** (ks_nord_v2023112
 * Fixed mission UI abandon not ending current round
 ### BeamLR 1.14.1
 * Updated base map version to v20231124_v2
+### BeamLR 1.14.3
+* Fixed event loading issue caused by removed playerName file

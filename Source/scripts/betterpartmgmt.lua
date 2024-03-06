@@ -373,13 +373,27 @@ end
 
 local function getPartPreviewImageTable()
 local toRet = {}
-local fullmap = getAvailablePartList()
-local cslot = {}
-for k,v in pairs(fullmap) do
-for _,p in pairs(v) do
-if FS:fileExists("ui/modules/apps/beamlrui/partimg/" .. p .. ".png") then
-toRet[p] = p .. ".png"
+local model = getMainPartName()
+
+--detect format
+local fmt = "png"
+if FS:fileExists("ui/modules/apps/beamlrui/partimg/alder_hubcap_01a_F.jpg") then
+fmt = "jpg"
 end
+
+local images = FS:findFiles("ui/modules/apps/beamlrui/partimg/", "*." .. fmt, 0)
+local cpart = ""
+for k,v in pairs(images) do
+cpart = string.gsub(v, "/ui/modules/apps/beamlrui/partimg/", "")
+cpart = cpart:gsub("." .. fmt, "")
+toRet[cpart] = v
+end
+if FS:directoryExists("ui/modules/apps/beamlrui/partimg_override/" .. model) then
+local overrides = FS:findFiles("ui/modules/apps/beamlrui/partimg_override/" .. model, "*." .. fmt, 0)
+for k,v in pairs(overrides) do
+cpart = string.gsub(v, "/ui/modules/apps/beamlrui/partimg_override/" .. model .. "/", "")
+cpart = cpart:gsub("." .. fmt, "")
+toRet[cpart] = v
 end
 end
 return toRet
@@ -514,8 +528,10 @@ if cslots ~= nil then
 for _,s in pairs(cslots) do
 if newfmt then
 toRet[s["name"]] = s["description"]
+if not s["description"] or s["description"] == "" then toRet[s["name"]] = s["name"] end --1.14.3 fix for missing slot names
 else
 toRet[s["type"]] = s["description"]
+if not s["description"] or s["description"] == "" then toRet[s["type"]] = s["type"] end --1.14.3 fix for missing slot names
 end
 end
 end

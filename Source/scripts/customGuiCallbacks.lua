@@ -479,6 +479,9 @@ local mdata = {}
 mdata["torque"] = tonumber(options["perfmodetorque"] or "0")
 mdata["power"] = tonumber(options["perfmodepower"] or "0")
 mdata["weight"] = tonumber(options["perfmodeweight"] or "0")
+-- 1.14.3 extra fix for NaN performance values, should force reload when perf UI opens
+-- unsure what causes the issue, hard to repro, changed flowgraph a bit hoping to fix main cause
+extensions.customGuiStream.sendPerfUIData(extensions.blrutils.performanceUIData())
 extensions.customGuiStream.sendPerfUIModes(mdata)
 extensions.customGuiStream.togglePerfUI(true)
 else
@@ -758,6 +761,36 @@ local dtable = {}
 dtable["gsafemode"] = p
 extensions.blrutils.updateDataTable("beamLR/options", dtable)
 extensions.blrglobals.blrFlagSet("garageSafeModeToggle", p == 1)
+end
+
+
+ftable["showImageUI"] = function(p)
+extensions.customGuiStream.imageUIFile(p)
+extensions.customGuiStream.imageUIToggle(true)
+end
+
+ftable["setImageUIMode"] = function(p)
+local dtable = {}
+dtable["imgmode"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+extensions.customGuiStream.imageUIMode(p)
+end
+
+
+ftable["setWagerScale"] = function(p)
+local dtable = {}
+dtable["wagerscl"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+extensions.blrutils.blrvarSet("raceWagerScale", p)
+extensions.blrglobals.blrFlagSet("reloadRace", true)
+end
+
+ftable["setRepScale"] = function(p)
+local dtable = {}
+dtable["repscl"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+extensions.blrutils.blrvarSet("raceRepScale", p)
+extensions.blrglobals.blrFlagSet("reloadRace", true)
 end
 
 

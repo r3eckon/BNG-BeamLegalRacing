@@ -52,6 +52,8 @@ if lftable[h] ~= nil then
 rtable[h] = ftable[lftable[h]](lptable[h])
 unlinkHook(h)
 end
+
+if vehicleID == be:getPlayerVehicle(0):getId() then -- 1.15 fix for track event player not frozen, should also prevent other issues with reset hook from other vehicles
 --1.13 advanced vehicle building, reset avb flag to false after spawn
 --to avoid shop cars, race opponents & traffic from missing parts
 if extensions.blrglobals.blrFlagGet("advancedVehicleBuilding") then
@@ -61,12 +63,14 @@ end
 --1.14.2 part edit safe mode
 if extensions.blrflags.get("garageSafeMode") then
 be:getPlayerVehicle(0):queueLuaCommand("controller.setFreeze(1)")
-else
+elseif extensions.blrglobals.blrFlagGet("garageSafeModeToggle") then -- 1.15 fix for track event player not frozen
 be:getPlayerVehicle(0):queueLuaCommand("controller.setFreeze(0)")
 end
 be:getPlayerVehicle(0):queueLuaCommand("extensions.blrVehicleUtils.buildAdvancedDamageTables()")
 
 print("BLRHOOK: VEHICLE RESETTED")
+end
+
 end
 end
 

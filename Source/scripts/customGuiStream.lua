@@ -258,6 +258,7 @@ if tonumber(v) then tosend[k] = tonumber(v) else tosend[k] = v end
 end
 tosend["vehname"] = vehname
 guihooks.trigger("beamlrOptions", tosend)
+guihooks.trigger("beamlrImageUIMode", tonumber(options["imgmode"] or "0"))
 end
 
 local function sendRepairData(damage, partnames, mech, minimum)
@@ -294,6 +295,22 @@ local function advancedRepairUIResetPicks()
 guihooks.trigger("beamlrRepairResetPicks", nil)
 end
 
+local function imageUIToggle(t)
+guihooks.trigger("beamlrToggleImageUI", t)
+end
+
+local function imageUIMode(m)
+guihooks.trigger("beamlrImageUIMode", m)
+end
+
+local function imageUIFile(f)
+guihooks.trigger("beamlrImageUIFile", f)
+end
+
+
+M.imageUIMode = imageUIMode
+M.imageUIFile = imageUIFile
+M.imageUIToggle = imageUIToggle
 M.advancedRepairUIResetPicks = advancedRepairUIResetPicks
 M.sendRepairUIPlayerMoney = sendRepairUIPlayerMoney
 M.sendRepairUIMultiplier = sendRepairUIMultiplier

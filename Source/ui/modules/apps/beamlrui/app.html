@@ -481,6 +481,10 @@ Next Seed
 <button ng-click="setRandomSeed()">Random</button>
 </p>
 
+<p style="text-align:center; margin-top:15px; margin-bottom:15px; margin-left:20px; margin-right:20px;">
+Auto Increment Seed adds 1 to current seed for next seed used after career reset.
+</p>
+
 <p style="text-align:center;"> 
 Auto Increment Seed 
 <button ng-class="inputData.autoseed == 1 ? 'toggleon' : 'toggleoff'" ng-click="setAutoSeed(1)">On</button>
@@ -489,13 +493,29 @@ Auto Increment Seed
 
 <br>
 
-<p style="text-align:center;">  Difficulty takes effect after career reset </p>
+<p style="text-align:center;">Difficulty takes effect after career reset</p>
 
 <p style="text-align:center;"> 
 Difficulty Level
 <button ng-class="inputData.difficulty == 'easy' ? 'toggleon' : 'toggleoff'" ng-click="setDifficulty('easy')">Easy</button>
 <button ng-class="inputData.difficulty == 'medium' ? 'toggleon' : 'toggleoff'" ng-click="setDifficulty('medium')">Medium</button>
 <button ng-class="inputData.difficulty == 'hard' ? 'toggleon' : 'toggleoff'" ng-click="setDifficulty('hard')">Hard</button>
+</p>
+
+<br>
+
+<p style="text-align:center;">Using a custom wager and rep scale will affect<br>career difficulty and progress rate</p>
+
+<p style="text-align:center;"> 
+Race wager scale
+<input type="number" max=5.0 min=0.5 step=0.1 size=5 maxlength=4 ng-model="inputData.wagerscl" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
+<button ng-click="setWagerScale(inputData.wagerscl)">Set</button>
+</p>
+
+<p style="text-align:center;"> 
+Race reputation scale
+<input type="number" max=5.0 min=0.5 step=0.1 size=5 maxlength=4 ng-model="inputData.repscl" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
+<button ng-click="setRepScale(inputData.repscl)">Set</button>
 </p>
 
 <br>
@@ -550,6 +570,16 @@ IMGUI Layout Autosave will save your menu layout when quitting.
 IMGUI Layout Autosave
 <button ng-class="inputData.imautosave == 1 ? 'toggleon' : 'toggleoff'" ng-click="autosaveIMGUI(1)">On</button>
 <button ng-class="inputData.imautosave == 0 ? 'toggleon' : 'toggleoff'" ng-click="autosaveIMGUI(0)">Off</button>
+</p>
+
+
+<p style="text-align:center; margin-top:15px; margin-bottom:10px; margin-left:20px; margin-right:20px;">
+Part Preview Scaling Mode
+</p>
+
+<p style="text-align:center; margin-top:5px; margin-bottom:5px;"> 
+<button ng-class="inputData.imgmode == 0 ? 'toggleon' : 'toggleoff'" ng-click="setImageUIMode(0)">Original Size</button>
+<button ng-class="inputData.imgmode == 1 ? 'toggleon' : 'toggleoff'" ng-click="setImageUIMode(1)">Scale To Fit</button>
 </p>
 
 <h3 style="text-align:center;"> Traffic </h3>
@@ -750,7 +780,7 @@ Part Edit Safe Mode
 <div ng-if="beamlrData['availParts'][key][part] != null">
 
 <span style="float:left; height:90px; transform:translate(0px, 5px);">
-<img ng-if="beamlrData['partpreview'][part] != null" ng-attr-src="/ui/modules/apps/beamlrui/partimg/{{beamlrData['partpreview'][part]}}" width=90px height=90px />
+<img ng-click="imageClicked(beamlrData['partpreview'][part])" ng-if="beamlrData['partpreview'][part] != null" ng-attr-src="{{beamlrData['partpreview'][part]}}" width=90px height=90px />
 <img ng-if="beamlrData['partpreview'][part] == null" src="/ui/modules/apps/beamlrui/partimg/none.png" width=90px height=90px />
 </span>
 
@@ -844,7 +874,7 @@ Part Edit Safe Mode
 
 <div ng-if="visibleSlots[key] == true && beamlrData['usedParts'][key] != ''" style="text-align:center; line-height:120px;">
 <span style="float:left; margin-left:20px; transform:translate(0,15px); height:90px; vertical-align:middle;">
-<img ng-if="beamlrData['partpreview'][beamlrData['usedParts'][key]] != null" ng-attr-src="/ui/modules/apps/beamlrui/partimg/{{beamlrData['partpreview'][beamlrData['usedParts'][key]]}}" width=90px height=90px />
+<img ng-click="imageClicked(beamlrData['partpreview'][beamlrData['usedParts'][key]])" ng-if="beamlrData['partpreview'][beamlrData['usedParts'][key]] != null" ng-attr-src="{{beamlrData['partpreview'][beamlrData['usedParts'][key]]}}" width=90px height=90px />
 <img ng-if="beamlrData['partpreview'][beamlrData['usedParts'][key]] == null" src="/ui/modules/apps/beamlrui/partimg/none.png" width=90px height=90px />
 </span>
 <span ng-if="beamlrData['usedParts'][key] != item && slotNameMode != 1" style="display:inline-block; width: 150px; line-height:20px; vertical-align:middle; overflow-wrap:break-word;">{{beamlrData['partNames'][beamlrData['usedParts'][key]]}}</span>
@@ -859,7 +889,7 @@ Part Edit Safe Mode
 <div ng-if="beamlrData['garageData'][key][item] != null">
 <div ng-if="beamlrData['usedParts'][key] != item" style="text-align:center; line-height:120px;" >
 <span style="float:left; margin-left:20px; transform:translate(0,15px); height:90px; vertical-align:middle;">
-<img ng-if="beamlrData['partpreview'][item] != null" ng-attr-src="/ui/modules/apps/beamlrui/partimg/{{beamlrData['partpreview'][item]}}" width=90px height=90px />
+<img ng-click="imageClicked(beamlrData['partpreview'][item])" ng-if="beamlrData['partpreview'][item] != null" ng-attr-src="{{beamlrData['partpreview'][item]}}" width=90px height=90px />
 <img ng-if="beamlrData['partpreview'][item] == null" src="/ui/modules/apps/beamlrui/partimg/none.png" width=90px height=90px />
 </span>
 

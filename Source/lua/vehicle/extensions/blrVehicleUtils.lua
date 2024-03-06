@@ -47,6 +47,7 @@ return toRet
 end
 
 local function getEngineFuelType()
+if not powertrain.getDevices()["mainEngine"] then return "none" end
 return powertrain.getDevices()["mainEngine"].requiredEnergyType or "gasoline"
 end
 
@@ -63,6 +64,7 @@ local wrongFuel = false
 -- doesn't allow re-enabling engine if wrong fuel is in tank until drained
 local function fuelTypeCheck(toCheck, drained)
 local engine = powertrain.getDevices()["mainEngine"]
+if engineFuelType == "none" then return end
 if toCheck == engineFuelType and engine.isDisabled then
 if not drained and not wrongFuel then
 engine:enable()
@@ -125,8 +127,10 @@ end
 
 local function updateFuelQuality()
 fuelQuality = math.min(1.0 + 0.1 * ratio_midgrade + 0.2 * ratio_premium, 1.2)
+if powertrain.getDevices()["mainEngine"] then
 if not powertrain.getDevices()["mainEngine"].isDisabled then
 powertrain.getDevices()["mainEngine"].outputTorqueState = fuelQuality
+end
 end
 end
 
@@ -619,6 +623,167 @@ end
 --M.toggleAllProps = toggleAllProps
 
 
+--1.14.3 fixes to avoid errors with nil fields
+local function loadOdometer()
+if controller.getAllControllers()['analogOdometer'] then
+controller.getAllControllers()['analogOdometer'].updateGFX(1)
+end
+end
+
+local function setPartCondition(mainDevice, subDevice, odometer, integrity)
+if powertrain.getDevice(mainDevice) then
+powertrain.getDevice(mainDevice):setPartCondition(subDevice,odometer,integrity)
+end
+end
+
+local wheelName = { "wheel_FR", "wheel_FL", "wheel_RR", "wheel_RL"} -- Breakgroups
+local wheelPosName = {"FR", "FL", "RR" , "RL"}
+local wheelID = {FR = 0, FL = 1, RR = 2, RL = 3}
+
+local function buildWheelTables()
+wheelName = {}
+wheelPosName = {}
+wheelID = {}
+for k,v in pairs(wheels.wheels) do
+wheelName = "wheel_" .. v.name
+wheelPosName = v.name
+wheelID[wheelPosName] = v.id
+end
+end
+
+local function ssplit(s, delimiter) 
+local result = {}
+if delimiter == "." then
+for match in (s..delimiter):gmatch("(.-)%"..delimiter) do
+table.insert(result, match)
+end
+else
+for match in (s..delimiter):gmatch("(.-)"..delimiter) do
+table.insert(result, match)
+end
+end
+return result
+end
+
+-- 1.14.3 fix for nil devices when some parts are removed
+local function loadMechanicalDamage(file)
+local dt = loadTableFromFile(file, false)
+local cat = ""
+local dev = ""
+local split = {}
+local valsplt = {}
+local nval = 0
+
+-- 1.13.4 now fetching wheel data to build tables
+buildWheelTables()
+
+for k,v in pairs(dt) do
+	if not string.match(v,"false") then 
+		split = ssplit(k, ".")
+		cat = split[1]
+		dev = split[2]
+
+		if cat == "powertrain" then
+			if powertrain.getDevice(dev) then
+				powertrain.breakDevice(powertrain.getDevice(dev))
+			end
+		elseif cat == "wheels" then
+			if wheels.wheels[wheelID[dev]] then
+				beamstate.breakBreakGroup(wheelName[wheelID[dev]+1])
+			end
+		elseif cat == "tire" then
+			if wheels.wheels[wheelID[dev]] then
+				beamstate.deflateTire(wheelID[dev])
+			end
+		elseif cat == "brake" then
+			if wheels.wheels[wheelID[dev]] then
+				wheels.wheels[wheelID[dev]].isBrakeMolten=true
+				damageTracker.setDamage('wheels', 'brake' .. wheelPosName[wheelID[dev]], true)
+			end
+		elseif cat == "brakeOverHeat" then
+			if wheels.wheels[wheelID[dev]] then
+				wheels.wheels[wheelID[dev]].padGlazingFactor= tonumber(v)
+				damageTracker.setDamage('wheels', 'brakeOverHeat' .. wheelPosName[wheelID[dev]+1],tonumber(v))
+			end
+		elseif cat == "engine" and powertrain.getDevice('mainEngine') then
+			valsplt = ssplit(v, ",") -- true,0.5,etc..											-- Engine Damage Subcategories
+			if dev == "engineReducedTorque" then 																		
+				powertrain.getDevice('mainEngine').outputTorqueState = tonumber(valsplt[2]) 	-- Set output torque state
+				damageTracker.setDamage('engine', 'engineReducedTorque', true)-- Alert damage tracker 					
+			elseif dev == "engineDisabled" then
+				powertrain.getDevice('mainEngine'):disable()
+			elseif dev == "engineLockedUp" then
+				powertrain.getDevice('mainEngine'):lockUp()
+			elseif dev == "engineHydrolocked" then
+				powertrain.getDevice('mainEngine'):lockUp()
+				damageTracker.setDamage('engine', 'engineHydrolocked', true)
+			elseif dev == "catastrophicOverrevDamage" then
+				powertrain.getDevice('mainEngine').overRevDamage = 1
+				powertrain.getDevice('mainEngine'):lockUp()
+				damageTracker.setDamage('engine', 'catastrophicOverrevDamage', true)
+			elseif dev == "mildOverrevDamage" then
+				powertrain.getDevice('mainEngine').overRevDamage = tonumber(valsplt[2]) 		-- Apply overrev damage value
+				powertrain.getDevice('mainEngine'):scaleOutputTorque(0.98, 0.2)					-- Reduce torque
+				damageTracker.setDamage('engine', 'mildOverrevDamage', true)						
+			elseif dev == "catastrophicOverTorqueDamage" then
+				powertrain.getDevice('mainEngine').overTorqueDamage = tonumber(valsplt[2])
+				powertrain.getDevice('mainEngine'):lockUp()
+				damageTracker.setDamage('engine', 'catastrophicOverTorqueDamage', true)
+			elseif dev == "oilpanLeak" then
+				powertrain.getDevice('mainEngine').thermals.applyDeformGroupDamageOilpan(1)
+			elseif dev == "oilRadiatorLeak" then
+				powertrain.getDevice('mainEngine').thermals.applyDeformGroupDamageOilRadiator(1)
+			elseif dev == "radiatorLeak" then
+				powertrain.getDevice('mainEngine').thermals.applyDeformGroupDamageRadiator(1)	
+			elseif dev == "headGasketDamaged" then
+				powertrain.getDevice('mainEngine').thermals.headGasketBlown = true
+				powertrain.getDevice('mainEngine'):scaleOutputTorque(0.8)						-- Might need to process this before output torque state value
+				damageTracker.setDamage('engine', 'headGasketDamaged', true)
+			elseif dev == "pistonRingsDamaged" then
+				powertrain.getDevice('mainEngine').thermals.pistonRingsDamaged = true
+				powertrain.getDevice('mainEngine'):scaleOutputTorque(0.8)						-- Might need to process this before output torque state value
+				damageTracker.setDamage('engine', 'pistonRingsDamaged', true)
+			elseif dev == "rodBearingsDamaged" then
+				powertrain.getDevice('mainEngine').thermals.connectingRodBearingsDamaged = true
+				damageTracker.setDamage('engine', 'rodBearingsDamaged', true)
+			elseif dev == "blockMelted" then
+				powertrain.getDevice('mainEngine'):scaleFriction(10000)	
+				powertrain.getDevice('mainEngine').thermals.engineBlockMelted = true
+				damageTracker.setDamage('engine', 'blockMelted', true)
+			elseif dev == "cylinderWallsMelted" then
+				powertrain.getDevice('mainEngine'):scaleFriction(10000)	
+				powertrain.getDevice('mainEngine').thermals.cylinderWallsMelted = true
+				damageTracker.setDamage('engine', 'cylinderWallsMelted', true)
+			elseif dev == "superchargerDamaged" then
+				powertrain.getDevice('mainEngine').supercharger.applyDeformGroupDamage(1)
+			elseif dev == "turbochargerDamaged " then
+				powertrain.getDevice('mainEngine').turbocharger.applyDeformGroupDamage(1)
+			elseif dev == "impactDamage" then
+				-- A bunch of variables need to be fetched for this one, with minimal impact maybe not worth it for now
+				-- Big enough impacts will break the engine anyway 
+				damageTracker.setDamage('engine', 'impactDamage', true, true)
+			elseif dev == "exhaustBroken" then
+			-- Gotta find a way to break off the exhaust if possible
+			else
+			-- Should not happen unless some sub-devices are forgotten
+			end
+		end
+	end
+end
+end
+
+--Not sure why this is needed but disassembled vehicles aren't registered
+--on map.objects list and return nil position/rotation causing vehicles that
+--spawn from garage after using this one to spawn at 0,0,0 and fall forever
+local function forceMapInit()
+mapmgr.enableTracking("clone")
+mapmgr.sendTracking()
+end
+
+M.forceMapInit = forceMapInit
+M.loadMechanicalDamage = loadMechanicalDamage
+M.setPartCondition = setPartCondition
+M.loadOdometer = loadOdometer
 M.getFuelTypesString = getFuelTypesString
 M.resetFuelRatio = resetFuelRatio
 M.getFuelRatioString = getFuelRatioString

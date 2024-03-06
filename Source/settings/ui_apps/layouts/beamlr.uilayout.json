@@ -1,5 +1,4 @@
 {
-  "type":"beamlr",
   "apps":[
     {
       "appName":"messages",
@@ -52,10 +51,10 @@
     {
       "appName":"tacho2",
       "placement":{
-        "width":"310px",
         "bottom":"20px",
         "height":"310px",
-        "right":"20px"
+        "right":"20px",
+        "width":"310px"
       },
       "settings":{
         "noCockpit":true
@@ -215,8 +214,21 @@
         "top":"0px",
         "width":"500px"
       }
+    },
+    {
+      "appName":"beamlrimageviewer",
+      "placement":{
+        "bottom":"",
+        "height":"460px",
+        "left":"240px",
+        "position":"absolute",
+        "right":"",
+        "top":"0px",
+        "width":"460px"
+      }
     }
   ],
   "description":"BeamLR UI Layout",
-  "title":"BeamLR"
+  "title":"BeamLR",
+  "type":"beamlr"
 }

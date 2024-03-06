@@ -1,7 +1,7 @@
 carid=0
-efile=hirochi_derby_classC
-cround=3
-ctimes=player:8049073.0280728,op1:4064386.5155662,op2:4150481.5179853,op3:4128248.0168355,op4:4178863.5179853
+efile=automation_drag_classA
+cround=2
+ctimes=player:8109546.5321923,op1:4098805.5179073,op2:4185460.0203631,op3:4163699.5192444
 eventid=0
 status=over
-seed=250
+seed=123

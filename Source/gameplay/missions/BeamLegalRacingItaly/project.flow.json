@@ -2,7 +2,7 @@
   "activeGraphId":3,
   "authors":"BeamLR",
   "currentGraphID":3,
-  "date":1707626684,
+  "date":1709639092,
   "debugEnabled":false,
   "description":"Beam Legal Racing Career",
   "difficulty":100,
@@ -10,9 +10,19 @@
     "node_10086":1696795779,
     "node_10094":1696795666,
     "node_10257":1698480690,
+    "node_1218":1709365744,
+    "node_1225":1709366035,
+    "node_1227":1709366179,
+    "node_1228":1709366207,
+    "node_1229":1709366236,
+    "node_1230":1709366259,
+    "node_1231":1709366296,
+    "node_1232":1709366346,
     "node_1317":1699351847,
     "node_1407":1698480615,
-    "node_1423":1705470015
+    "node_1423":1705470015,
+    "node_618":1709352847,
+    "node_736":1709365780
   },
   "graphs":{
     "1":{
@@ -167,15 +177,15 @@
           false
         ],
         [
-          124,
-          "flow",
+          1180,
+          "down",
           21,
           "flow",
           false
         ],
         [
-          1180,
-          "down",
+          124,
+          "flow",
           21,
           "flow",
           false
@@ -231,6 +241,13 @@
         ],
         [
           4986,
+          "match_4",
+          25,
+          "flow",
+          false
+        ],
+        [
+          4986,
           "match_2",
           25,
           "flow",
@@ -239,13 +256,6 @@
         [
           4986,
           "match_3",
-          25,
-          "flow",
-          false
-        ],
-        [
-          4986,
-          "match_4",
           25,
           "flow",
           false
@@ -377,13 +387,6 @@
           false
         ],
         [
-          1389,
-          "down",
-          37,
-          "flow",
-          false
-        ],
-        [
           27,
           "down",
           37,
@@ -392,6 +395,13 @@
         ],
         [
           899,
+          "down",
+          37,
+          "flow",
+          false
+        ],
+        [
+          1389,
           "down",
           37,
           "flow",
@@ -538,14 +548,14 @@
           false
         ],
         [
-          1389,
+          880,
           "flow",
           50,
           "flow",
           false
         ],
         [
-          880,
+          1389,
           "flow",
           50,
           "flow",
@@ -805,14 +815,14 @@
         ],
         [
           99,
-          "match_3",
+          "match_2",
           76,
           "flow_1",
           false
         ],
         [
           99,
-          "match_2",
+          "match_3",
           76,
           "flow_1",
           false
@@ -825,13 +835,6 @@
           false
         ],
         [
-          613,
-          "flow",
-          77,
-          "flow",
-          false
-        ],
-        [
           585,
           "false",
           77,
@@ -841,6 +844,13 @@
         [
           471,
           "False",
+          77,
+          "flow",
+          false
+        ],
+        [
+          613,
+          "flow",
           77,
           "flow",
           false
@@ -1091,21 +1101,14 @@
           false
         ],
         [
-          943,
-          "true",
+          1178,
+          "flow",
           95,
           "flow",
           false
         ],
         [
           1543,
-          "flow",
-          95,
-          "flow",
-          false
-        ],
-        [
-          1178,
           "flow",
           95,
           "flow",
@@ -1121,6 +1124,13 @@
         [
           1251,
           "flow",
+          95,
+          "flow",
+          false
+        ],
+        [
+          943,
+          "true",
           95,
           "flow",
           false
@@ -1301,13 +1311,6 @@
           false
         ],
         [
-          10130,
-          "flow",
-          109,
-          "flow",
-          false
-        ],
-        [
           18,
           "false",
           109,
@@ -1316,6 +1319,13 @@
         ],
         [
           107,
+          "flow",
+          109,
+          "flow",
+          false
+        ],
+        [
+          10130,
           "flow",
           109,
           "flow",
@@ -1546,15 +1556,15 @@
           false
         ],
         [
-          10235,
-          "flow",
+          844,
+          "mflow",
           119,
           "flow_1",
           false
         ],
         [
-          844,
-          "mflow",
+          10235,
+          "flow",
           119,
           "flow_1",
           false
@@ -1595,14 +1605,14 @@
           true
         ],
         [
-          9879,
+          9885,
           "flow",
           123,
           "flow",
           false
         ],
         [
-          9884,
+          9879,
           "flow",
           123,
           "flow",
@@ -1616,7 +1626,7 @@
           false
         ],
         [
-          9885,
+          9884,
           "flow",
           123,
           "flow",
@@ -1910,15 +1920,15 @@
           true
         ],
         [
-          10086,
-          "flow",
+          512,
+          "false",
           151,
           "flow",
           false
         ],
         [
-          512,
-          "false",
+          10086,
+          "flow",
           151,
           "flow",
           false
@@ -1931,14 +1941,14 @@
           false
         ],
         [
-          1179,
+          234,
           "flow",
           152,
           "flow",
           false
         ],
         [
-          234,
+          1179,
           "flow",
           152,
           "flow",
@@ -2057,14 +2067,14 @@
           false
         ],
         [
-          877,
+          947,
           "flow",
           162,
           "flow",
           false
         ],
         [
-          947,
+          877,
           "flow",
           162,
           "flow",
@@ -2260,13 +2270,6 @@
           false
         ],
         [
-          1175,
-          "flow",
-          175,
-          "flow",
-          false
-        ],
-        [
           1254,
           "flow",
           175,
@@ -2276,6 +2279,13 @@
         [
           949,
           "false",
+          175,
+          "flow",
+          false
+        ],
+        [
+          1175,
+          "flow",
           175,
           "flow",
           false
@@ -2470,7 +2480,7 @@
           false
         ],
         [
-          1552,
+          749,
           "flow",
           194,
           "flow",
@@ -2484,14 +2494,14 @@
           false
         ],
         [
-          749,
+          1095,
           "flow",
           194,
           "flow",
           false
         ],
         [
-          1095,
+          1552,
           "flow",
           194,
           "flow",
@@ -2729,7 +2739,7 @@
           false
         ],
         [
-          1180,
+          1175,
           "down",
           212,
           "flow",
@@ -2743,7 +2753,7 @@
           false
         ],
         [
-          1175,
+          1180,
           "down",
           212,
           "flow",
@@ -2855,15 +2865,15 @@
           false
         ],
         [
-          180,
-          "false",
+          10050,
+          "flow",
           222,
           "flow",
           false
         ],
         [
-          10050,
-          "flow",
+          180,
+          "false",
           222,
           "flow",
           false
@@ -3520,7 +3530,7 @@
           false
         ],
         [
-          10217,
+          763,
           "false",
           273,
           "flow",
@@ -3534,7 +3544,7 @@
           false
         ],
         [
-          763,
+          10217,
           "false",
           273,
           "flow",
@@ -4724,15 +4734,15 @@
           false
         ],
         [
-          1507,
-          "true",
+          158,
+          "flow",
           365,
           "flow",
           false
         ],
         [
-          158,
-          "flow",
+          1507,
+          "true",
           365,
           "flow",
           false
@@ -4878,14 +4888,14 @@
           false
         ],
         [
-          394,
+          961,
           "flow",
           378,
           "flow",
           false
         ],
         [
-          961,
+          1182,
           "flow",
           378,
           "flow",
@@ -4906,21 +4916,7 @@
           false
         ],
         [
-          10011,
-          "flow",
-          378,
-          "flow",
-          false
-        ],
-        [
           10017,
-          "flow",
-          378,
-          "flow",
-          false
-        ],
-        [
-          1182,
           "flow",
           378,
           "flow",
@@ -4929,6 +4925,20 @@
         [
           1332,
           "False",
+          378,
+          "flow",
+          false
+        ],
+        [
+          394,
+          "flow",
+          378,
+          "flow",
+          false
+        ],
+        [
+          10011,
+          "flow",
           378,
           "flow",
           false
@@ -5263,15 +5273,15 @@
           false
         ],
         [
-          1482,
-          "out",
+          24,
+          "true",
           402,
           "flow",
           false
         ],
         [
-          24,
-          "true",
+          1482,
+          "out",
           402,
           "flow",
           false
@@ -6425,15 +6435,15 @@
           false
         ],
         [
-          923,
-          "False",
+          924,
+          "flow",
           499,
           "flow",
           false
         ],
         [
-          924,
-          "flow",
+          923,
+          "False",
           499,
           "flow",
           false
@@ -6978,14 +6988,14 @@
           false
         ],
         [
-          505,
+          539,
           "flow",
           533,
           "reset",
           false
         ],
         [
-          539,
+          505,
           "flow",
           533,
           "reset",
@@ -7041,14 +7051,14 @@
           false
         ],
         [
-          505,
+          539,
           "flow",
           537,
           "flow",
           false
         ],
         [
-          539,
+          505,
           "flow",
           537,
           "flow",
@@ -7930,15 +7940,15 @@
           false
         ],
         [
-          48,
-          "false",
+          153,
+          "flow",
           607,
           "on",
           false
         ],
         [
-          153,
-          "flow",
+          48,
+          "false",
           607,
           "on",
           false
@@ -8840,15 +8850,15 @@
           false
         ],
         [
-          735,
-          "True",
+          672,
+          "true",
           671,
           "flow",
           false
         ],
         [
-          672,
-          "true",
+          735,
+          "True",
           671,
           "flow",
           false
@@ -9554,18 +9564,18 @@
           false
         ],
         [
-          1516,
-          "flow",
-          717,
-          "on",
-          false
-        ],
-        [
           591,
           "true",
           717,
           "on",
           true
+        ],
+        [
+          1516,
+          "flow",
+          717,
+          "on",
+          false
         ],
         [
           591,
@@ -10107,14 +10117,14 @@
           false
         ],
         [
-          1388,
+          1259,
           "flow",
           761,
           "flow",
           false
         ],
         [
-          1259,
+          1388,
           "flow",
           761,
           "flow",
@@ -10450,15 +10460,15 @@
           false
         ],
         [
-          167,
-          "true",
+          1298,
+          "flow",
           787,
           "on",
           false
         ],
         [
-          1298,
-          "flow",
+          167,
+          "true",
           787,
           "on",
           false
@@ -10548,15 +10558,15 @@
           false
         ],
         [
-          815,
-          "flow",
+          438,
+          "enter",
           798,
           "flow",
           false
         ],
         [
-          438,
-          "enter",
+          815,
+          "flow",
           798,
           "flow",
           false
@@ -10583,15 +10593,15 @@
           false
         ],
         [
-          1005,
-          "False",
+          1007,
+          "flow",
           801,
           "flow",
           false
         ],
         [
-          1007,
-          "flow",
+          1005,
+          "False",
           801,
           "flow",
           false
@@ -10625,15 +10635,15 @@
           false
         ],
         [
-          800,
-          "True",
+          10245,
+          "down",
           803,
           "reset",
           false
         ],
         [
-          10245,
-          "down",
+          800,
+          "True",
           803,
           "reset",
           false
@@ -10933,20 +10943,6 @@
           false
         ],
         [
-          1149,
-          "flow",
-          823,
-          "flow",
-          false
-        ],
-        [
-          956,
-          "flow",
-          823,
-          "flow",
-          false
-        ],
-        [
           843,
           "flow",
           823,
@@ -10955,6 +10951,20 @@
         ],
         [
           10245,
+          "flow",
+          823,
+          "flow",
+          false
+        ],
+        [
+          1149,
+          "flow",
+          823,
+          "flow",
+          false
+        ],
+        [
+          956,
           "flow",
           823,
           "flow",
@@ -11269,15 +11279,15 @@
           false
         ],
         [
-          24,
-          "true",
+          1482,
+          "out",
           847,
           "flow",
           false
         ],
         [
-          1482,
-          "out",
+          24,
+          "true",
           847,
           "flow",
           false
@@ -11465,15 +11475,15 @@
           false
         ],
         [
-          812,
-          "flow",
+          843,
+          "down",
           867,
           "flow",
           false
         ],
         [
-          843,
-          "down",
+          812,
+          "flow",
           867,
           "flow",
           false
@@ -11549,14 +11559,14 @@
           false
         ],
         [
-          206,
+          9876,
           "down",
           873,
           "flow",
           false
         ],
         [
-          9876,
+          206,
           "down",
           873,
           "flow",
@@ -11577,14 +11587,14 @@
           false
         ],
         [
-          126,
+          148,
           "down",
           874,
           "reset",
           false
         ],
         [
-          148,
+          126,
           "down",
           874,
           "reset",
@@ -11661,14 +11671,14 @@
           false
         ],
         [
-          1385,
+          1226,
           "True",
           879,
           "flow",
           false
         ],
         [
-          1226,
+          1385,
           "True",
           879,
           "flow",
@@ -11682,13 +11692,6 @@
           false
         ],
         [
-          1387,
-          "flow",
-          880,
-          "flow",
-          false
-        ],
-        [
           879,
           "flow",
           880,
@@ -11697,6 +11700,13 @@
         ],
         [
           1257,
+          "flow",
+          880,
+          "flow",
+          false
+        ],
+        [
+          1387,
           "flow",
           880,
           "flow",
@@ -11892,7 +11902,7 @@
           false
         ],
         [
-          1307,
+          896,
           "true",
           897,
           "flow",
@@ -11906,7 +11916,7 @@
           false
         ],
         [
-          896,
+          1307,
           "true",
           897,
           "flow",
@@ -12096,14 +12106,14 @@
         ],
         [
           180,
-          "false",
+          "true",
           914,
           "flow",
           false
         ],
         [
           180,
-          "true",
+          "false",
           914,
           "flow",
           false
@@ -12221,14 +12231,14 @@
           false
         ],
         [
-          185,
+          1478,
           "flow",
           925,
           "flow",
           false
         ],
         [
-          1478,
+          185,
           "flow",
           925,
           "flow",
@@ -12403,8 +12413,8 @@
           false
         ],
         [
-          10292,
-          "flow",
+          912,
+          "True",
           938,
           "flow",
           false
@@ -12417,8 +12427,8 @@
           false
         ],
         [
-          912,
-          "True",
+          10292,
+          "flow",
           938,
           "flow",
           false
@@ -12431,15 +12441,15 @@
           false
         ],
         [
-          193,
-          "down",
+          918,
+          "flow",
           940,
           "flow",
           false
         ],
         [
-          918,
-          "flow",
+          193,
+          "down",
           940,
           "flow",
           false
@@ -13362,15 +13372,15 @@
           false
         ],
         [
-          10271,
-          "flow",
+          1175,
+          "down",
           1026,
           "flow",
           false
         ],
         [
-          1175,
-          "down",
+          10271,
+          "flow",
           1026,
           "flow",
           false
@@ -13397,14 +13407,14 @@
           false
         ],
         [
-          843,
+          10245,
           "down",
           1028,
           "on",
           false
         ],
         [
-          10245,
+          843,
           "down",
           1028,
           "on",
@@ -13418,14 +13428,14 @@
           false
         ],
         [
-          843,
+          10245,
           "down",
           1029,
           "reset",
           false
         ],
         [
-          10245,
+          843,
           "down",
           1029,
           "reset",
@@ -13439,14 +13449,14 @@
           false
         ],
         [
-          10245,
+          843,
           "down",
           1030,
           "reset",
           false
         ],
         [
-          843,
+          10245,
           "down",
           1030,
           "reset",
@@ -13754,14 +13764,14 @@
           false
         ],
         [
-          10022,
+          450,
           "flow",
           1058,
           "flow",
           false
         ],
         [
-          450,
+          10022,
           "flow",
           1058,
           "flow",
@@ -14195,7 +14205,7 @@
           false
         ],
         [
-          193,
+          271,
           "flow",
           1094,
           "flow",
@@ -14209,7 +14219,7 @@
           false
         ],
         [
-          271,
+          193,
           "flow",
           1094,
           "flow",
@@ -14489,15 +14499,15 @@
           false
         ],
         [
-          10017,
-          "down",
+          526,
+          "flow",
           1119,
           "flow",
           false
         ],
         [
-          526,
-          "flow",
+          10017,
+          "down",
           1119,
           "flow",
           false
@@ -14713,14 +14723,14 @@
           false
         ],
         [
-          1166,
+          1153,
           "False",
           1135,
           "reset",
           false
         ],
         [
-          1153,
+          1166,
           "False",
           1135,
           "reset",
@@ -14867,15 +14877,15 @@
           false
         ],
         [
-          840,
-          "false",
+          825,
+          "flow",
           1149,
           "flow",
           false
         ],
         [
-          825,
-          "flow",
+          840,
+          "false",
           1149,
           "flow",
           false
@@ -15112,14 +15122,14 @@
           false
         ],
         [
-          1164,
+          1170,
           "flow",
           1171,
           "flow",
           false
         ],
         [
-          1170,
+          1164,
           "flow",
           1171,
           "flow",
@@ -15169,14 +15179,14 @@
         ],
         [
           4986,
-          "match_2",
+          "match_1",
           1177,
           "flow",
           false
         ],
         [
           4986,
-          "match_1",
+          "match_2",
           1177,
           "flow",
           false
@@ -15252,14 +15262,14 @@
           false
         ],
         [
-          368,
+          10128,
           "flow",
           1185,
           "reset",
           false
         ],
         [
-          10128,
+          368,
           "flow",
           1185,
           "reset",
@@ -15329,13 +15339,6 @@
           false
         ],
         [
-          210,
-          "down",
-          1191,
-          "flow",
-          false
-        ],
-        [
           9876,
           "down",
           1191,
@@ -15343,14 +15346,21 @@
           false
         ],
         [
-          867,
+          210,
+          "down",
+          1191,
+          "flow",
+          false
+        ],
+        [
+          1375,
           "flow",
           1192,
           "flow",
           false
         ],
         [
-          1375,
+          867,
           "flow",
           1192,
           "flow",
@@ -15497,8 +15507,8 @@
           false
         ],
         [
-          1223,
-          "flow",
+          1553,
+          "out",
           1209,
           "flow",
           false
@@ -15560,20 +15570,6 @@
           false
         ],
         [
-          1212,
-          "flow",
-          1215,
-          "flow",
-          false
-        ],
-        [
-          1209,
-          "flow",
-          1215,
-          "reset",
-          false
-        ],
-        [
           1217,
           "flow",
           1216,
@@ -15588,7 +15584,7 @@
           false
         ],
         [
-          1215,
+          1556,
           "flow",
           1217,
           "flow",
@@ -15599,41 +15595,6 @@
           "flow",
           1218,
           "flow",
-          false
-        ],
-        [
-          7,
-          "flow",
-          1221,
-          "flow",
-          false
-        ],
-        [
-          1221,
-          "flow",
-          1222,
-          "flow",
-          false
-        ],
-        [
-          1221,
-          "flag",
-          1222,
-          "condition",
-          false
-        ],
-        [
-          1222,
-          "True",
-          1223,
-          "flow",
-          false
-        ],
-        [
-          1222,
-          "False",
-          1223,
-          "reset",
           false
         ],
         [
@@ -15696,13 +15657,6 @@
           1204,
           "flow",
           1231,
-          "flow",
-          false
-        ],
-        [
-          1216,
-          "flow",
-          1232,
           "flow",
           false
         ],
@@ -16254,7 +16208,14 @@
         ],
         [
           99,
-          "match_3",
+          "match_2",
+          1285,
+          "flow",
+          false
+        ],
+        [
+          99,
+          "match_5",
           1285,
           "flow",
           false
@@ -16268,14 +16229,7 @@
         ],
         [
           99,
-          "match_2",
-          1285,
-          "flow",
-          false
-        ],
-        [
-          99,
-          "match_5",
+          "match_3",
           1285,
           "flow",
           false
@@ -16401,14 +16355,14 @@
         ],
         [
           861,
-          "match_1",
+          "match_2",
           1294,
           "flow",
           false
         ],
         [
           861,
-          "match_2",
+          "match_1",
           1294,
           "flow",
           false
@@ -17618,13 +17572,6 @@
           false
         ],
         [
-          124,
-          "flow",
-          1422,
-          "flow",
-          false
-        ],
-        [
           1180,
           "down",
           1422,
@@ -17632,15 +17579,22 @@
           false
         ],
         [
-          639,
+          124,
           "flow",
-          1423,
+          1422,
           "flow",
           false
         ],
         [
           637,
           "false",
+          1423,
+          "flow",
+          false
+        ],
+        [
+          639,
+          "flow",
           1423,
           "flow",
           false
@@ -17856,14 +17810,14 @@
           false
         ],
         [
-          1443,
+          309,
           "flow",
           1444,
           "flow",
           false
         ],
         [
-          309,
+          1443,
           "flow",
           1444,
           "flow",
@@ -17954,14 +17908,14 @@
           false
         ],
         [
-          1454,
+          1453,
           "flow",
           1450,
           "reset",
           false
         ],
         [
-          1453,
+          1454,
           "flow",
           1450,
           "reset",
@@ -18242,14 +18196,14 @@
         ],
         [
           4986,
-          "match_4",
+          "match_2",
           1481,
           "flow",
           false
         ],
         [
           4986,
-          "match_2",
+          "match_4",
           1481,
           "flow",
           false
@@ -18655,14 +18609,14 @@
         ],
         [
           1514,
-          "False",
+          "True",
           1517,
           "flow",
           false
         ],
         [
           1514,
-          "True",
+          "False",
           1517,
           "flow",
           false
@@ -18717,35 +18671,35 @@
           false
         ],
         [
+          1525,
+          "flow",
+          1521,
+          "flow",
+          false
+        ],
+        [
+          1523,
+          "flow",
+          1521,
+          "flow",
+          false
+        ],
+        [
+          1523,
+          "flow",
+          1521,
+          "flow",
+          false
+        ],
+        [
+          1525,
+          "flow",
+          1521,
+          "flow",
+          false
+        ],
+        [
           1524,
-          "flow",
-          1521,
-          "flow",
-          false
-        ],
-        [
-          1525,
-          "flow",
-          1521,
-          "flow",
-          false
-        ],
-        [
-          1523,
-          "flow",
-          1521,
-          "flow",
-          false
-        ],
-        [
-          1525,
-          "flow",
-          1521,
-          "flow",
-          false
-        ],
-        [
-          1523,
           "flow",
           1521,
           "flow",
@@ -19116,6 +19070,55 @@
           false
         ],
         [
+          7,
+          "flow",
+          1553,
+          "flow",
+          false
+        ],
+        [
+          1114,
+          "flow",
+          1554,
+          "flow",
+          false
+        ],
+        [
+          516,
+          "veid",
+          1554,
+          "vehid",
+          false
+        ],
+        [
+          1458,
+          "flow",
+          1555,
+          "flow",
+          false
+        ],
+        [
+          497,
+          "veid",
+          1555,
+          "vehid",
+          false
+        ],
+        [
+          1212,
+          "flow",
+          1556,
+          "flow",
+          false
+        ],
+        [
+          1209,
+          "flow",
+          1556,
+          "reset",
+          false
+        ],
+        [
           15,
           "flow",
           10194,
@@ -19417,15 +19420,15 @@
           false
         ],
         [
-          44,
-          "flow",
+          440,
+          "true",
           10136,
           "flow",
           false
         ],
         [
-          440,
-          "true",
+          44,
+          "flow",
           10136,
           "flow",
           false
@@ -19501,17 +19504,10 @@
           false
         ],
         [
-          1193,
+          339,
           "flow",
-          10258,
+          10041,
           "flow",
-          false
-        ],
-        [
-          829,
-          "gmwp",
-          10258,
-          "val",
           false
         ],
         [
@@ -19593,14 +19589,14 @@
         ],
         [
           204,
-          "False",
+          "True",
           10107,
           "flow",
           false
         ],
         [
           204,
-          "True",
+          "False",
           10107,
           "flow",
           false
@@ -20180,14 +20176,14 @@
           false
         ],
         [
-          520,
+          639,
           "flow",
           10088,
           "flow",
           false
         ],
         [
-          639,
+          520,
           "flow",
           10088,
           "flow",
@@ -20754,15 +20750,15 @@
           false
         ],
         [
-          10017,
-          "down",
+          661,
+          "False",
           10164,
           "reset",
           false
         ],
         [
-          661,
-          "False",
+          10017,
+          "down",
           10164,
           "reset",
           false
@@ -20894,17 +20890,10 @@
           false
         ],
         [
-          10026,
+          10240,
           "flow",
-          10038,
+          10255,
           "flow",
-          false
-        ],
-        [
-          275,
-          "opModel",
-          10038,
-          "val",
           false
         ],
         [
@@ -20944,14 +20933,14 @@
         ],
         [
           1112,
-          "match_5",
+          "match_2",
           10007,
           "flow",
           false
         ],
         [
           1112,
-          "match_2",
+          "match_5",
           10007,
           "flow",
           false
@@ -21020,6 +21009,13 @@
           false
         ],
         [
+          844,
+          "cflow",
+          10234,
+          "flow_1",
+          false
+        ],
+        [
           10235,
           "flow",
           10234,
@@ -21027,22 +21023,15 @@
           false
         ],
         [
-          844,
-          "cflow",
-          10234,
-          "flow_1",
-          false
-        ],
-        [
-          844,
-          "cflow",
+          1112,
+          "match_7",
           10234,
           "flow_2",
           false
         ],
         [
-          1112,
-          "match_7",
+          844,
+          "cflow",
           10234,
           "flow_2",
           false
@@ -21118,15 +21107,15 @@
           false
         ],
         [
-          1181,
-          "flow",
+          247,
+          "False",
           10011,
           "flow",
           false
         ],
         [
-          247,
-          "False",
+          1181,
+          "flow",
           10011,
           "flow",
           false
@@ -21559,14 +21548,14 @@
           false
         ],
         [
-          258,
+          1379,
           "flow",
           10271,
           "flow",
           false
         ],
         [
-          1379,
+          258,
           "flow",
           10271,
           "flow",
@@ -21706,17 +21695,17 @@
           false
         ],
         [
-          799,
+          265,
           "flow",
-          10242,
+          10025,
           "flow",
           false
         ],
         [
-          809,
-          "True",
-          10242,
-          "on",
+          275,
+          "desc",
+          10025,
+          "val",
           false
         ],
         [
@@ -21797,15 +21786,15 @@
           false
         ],
         [
-          24,
-          "true",
+          1482,
+          "out",
           10188,
           "flow",
           false
         ],
         [
-          1482,
-          "out",
+          24,
+          "true",
           10188,
           "flow",
           false
@@ -21874,13 +21863,6 @@
           false
         ],
         [
-          10239,
-          "flow",
-          10240,
-          "flow",
-          false
-        ],
-        [
           10034,
           "flow",
           10033,
@@ -21902,24 +21884,24 @@
           false
         ],
         [
+          872,
+          "flow",
+          10257,
+          "flow",
+          false
+        ],
+        [
+          157,
+          "gmwp",
+          10257,
+          "val",
+          false
+        ],
+        [
           296,
           "flow",
           10029,
           "flow",
-          false
-        ],
-        [
-          10033,
-          "flow",
-          10036,
-          "flow",
-          false
-        ],
-        [
-          10033,
-          "Y",
-          10036,
-          "val",
           false
         ],
         [
@@ -21934,6 +21916,13 @@
           "num",
           10256,
           "val",
+          false
+        ],
+        [
+          10241,
+          "flow",
+          10246,
+          "flow",
           false
         ],
         [
@@ -21979,23 +21968,23 @@
           false
         ],
         [
-          339,
+          4994,
           "flow",
-          10041,
-          "flow",
-          false
-        ],
-        [
-          872,
-          "flow",
-          10257,
+          5006,
           "flow",
           false
         ],
         [
-          157,
-          "gmwp",
-          10257,
+          10026,
+          "flow",
+          10038,
+          "flow",
+          false
+        ],
+        [
+          275,
+          "opModel",
+          10038,
           "val",
           false
         ],
@@ -22028,17 +22017,38 @@
           false
         ],
         [
-          1181,
-          "down",
-          10034,
+          10251,
+          "flow",
+          10252,
           "flow",
           false
         ],
         [
-          10241,
+          10250,
+          "val",
+          10252,
+          "X",
+          false
+        ],
+        [
+          829,
+          "reputation",
+          10252,
+          "DX",
+          false
+        ],
+        [
+          10033,
           "flow",
-          10246,
+          10036,
           "flow",
+          false
+        ],
+        [
+          10033,
+          "Y",
+          10036,
+          "val",
           false
         ],
         [
@@ -22052,6 +22062,27 @@
           558,
           "flow",
           10095,
+          "flow",
+          false
+        ],
+        [
+          10242,
+          "flow",
+          10243,
+          "flow",
+          false
+        ],
+        [
+          809,
+          "True",
+          10243,
+          "reset",
+          false
+        ],
+        [
+          186,
+          "False",
+          10031,
           "flow",
           false
         ],
@@ -22077,23 +22108,9 @@
           false
         ],
         [
-          186,
-          "False",
-          10031,
-          "flow",
-          false
-        ],
-        [
-          799,
-          "flow",
-          10244,
-          "flow",
-          false
-        ],
-        [
-          10238,
-          "flow",
-          10241,
+          1181,
+          "down",
+          10034,
           "flow",
           false
         ],
@@ -22147,27 +22164,6 @@
           false
         ],
         [
-          10251,
-          "flow",
-          10252,
-          "flow",
-          false
-        ],
-        [
-          10250,
-          "val",
-          10252,
-          "X",
-          false
-        ],
-        [
-          829,
-          "reputation",
-          10252,
-          "DX",
-          false
-        ],
-        [
           875,
           "flow",
           10259,
@@ -22196,6 +22192,13 @@
           false
         ],
         [
+          10239,
+          "flow",
+          10240,
+          "flow",
+          false
+        ],
+        [
           843,
           "down",
           10281,
@@ -22210,38 +22213,31 @@
           false
         ],
         [
-          10242,
+          10238,
           "flow",
-          10243,
+          10241,
+          "flow",
+          false
+        ],
+        [
+          799,
+          "flow",
+          10242,
           "flow",
           false
         ],
         [
           809,
           "True",
-          10243,
-          "reset",
+          10242,
+          "on",
           false
         ],
         [
-          10240,
+          799,
           "flow",
-          10255,
+          10244,
           "flow",
-          false
-        ],
-        [
-          265,
-          "flow",
-          10025,
-          "flow",
-          false
-        ],
-        [
-          275,
-          "desc",
-          10025,
-          "val",
           false
         ],
         [
@@ -22259,10 +22255,17 @@
           false
         ],
         [
-          4994,
+          1193,
           "flow",
-          5006,
+          10258,
           "flow",
+          false
+        ],
+        [
+          829,
+          "gmwp",
+          10258,
+          "val",
           false
         ],
         [
@@ -24984,8 +24987,8 @@
             ]
           ],
           "pos":[
-            1158,
-            946
+            1242,
+            960
           ],
           "type":"util/customLua"
         },
@@ -28571,11 +28574,11 @@
             },
             "directionBias":{
               "type":"number",
-              "value":0.80000001200001913393
+              "value":0.80000001200002102131
             },
             "spawnRate":{
               "type":"number",
-              "value":0.00009999999750000399
+              "value":0.00009999999750000437
             }
           },
           "hiddenPins":{
@@ -33101,7 +33104,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nlocal currentMission = self.pinIn.raceData.value\nif currentMission then\nlocal processedMission = {} \nself.pinOut.reload.value = self.pinIn.reload.value\n\n-- Now using perfclass config loader, set resulting table in currentMission data\nlocal loadedConfigs = extensions.blrutils.perfclassConfigLoader(currentMission.enemyConfig)\ncurrentMission.enemyModel = loadedConfigs[\"models\"]\ncurrentMission.enemyConfig = loadedConfigs[\"configs\"]\n\n\nif self.pinIn.reload.value then\nprocessedMission = extensions.blrutils.getLastProcessedRace(currentMission)\nelse\nprocessedMission = extensions.blrutils.processRaceRandoms(currentMission)\nend\n\nlocal wagerData = extensions.blrutils.ssplitnum(currentMission[\"wager\"], \",\")\nlocal pwager = extensions.blrutils.getWager()\nlocal wmax = processedMission[\"wager\"]\nlocal wmin = wagerData[1]\nlocal cwager = extensions.blrutils.cap(pwager, wmin, wmax)\n\n\nself.pinOut.desc.value = currentMission.desc\n\nself.pinOut.slips.value = processedMission[\"slips\"]\nself.pinOut.wager.value = cwager\n\nself.pinOut.opModel.value = processedMission[\"enemyModel\"]\nself.pinOut.opConfig.value = processedMission[\"enemyConfig\"]\nself.pinOut.opRisk.value = processedMission[\"enemyRisk\"]\n\nlocal opConfigName = processedMission[\"enemyConfig\"]:gsub(\".pc\", \"\")\nopConfigName = opConfigName:gsub(\"vehicles/\" .. processedMission[\"enemyModel\"] .. \"/\", \"\")\nlocal opConfigData = extensions.core_vehicles.getModel(processedMission[\"enemyModel\"])[\"configs\"][opConfigName]\nlocal opValue = 500\n\nif opConfigData then\nopValue = opConfigData[\"Value\"]\nelse\nprint(\"RACE LOADER MISSING CONFIG INFO FOR MODEL \" .. processedMission[\"enemyModel\"] .. \" USING CONFIG \" .. opConfigName)\nend\n\n\nself.pinOut.basePrice.value = opValue * 0.2\nself.pinOut.partPrice.value = 0\nself.pinOut.scrapVal.value = opValue * 0.05\nself.pinOut.paintdata.value = currentMission.enemyPaint\n\nself.pinOut.laps.value = processedMission[\"laps\"]\n\nself.pinOut.triggers.value = currentMission.triggers\nself.pinOut.wayps.value = processedMission.waypoints--changed for 1.14 looping subsection\nself.pinOut.opifile.value = currentMission.ifile\nself.pinOut.useTraffic.value = processedMission[\"traffic\"]\nself.pinOut.opAvoid.value = tonumber(currentMission.enemyAvoid)\n\nlocal ttable = extensions.blrutils.ssplit(currentMission.triggers, \",\")\nlocal wtable = extensions.blrutils.ssplit(currentMission.waypoints, \",\")\n\nself.pinOut.cpcount.value = #ttable\nself.pinOut.destid.value = scenetree.findObject(ttable[1]):getID()\nself.pinOut.aiwp.value = wtable[1]\n\nself.pinOut.parts.value = processedMission[\"parts\"]\nself.pinOut.reputation.value = processedMission[\"rep\"]\nself.pinOut.wpspd.value = currentMission.wpspd\nend"
+            "work":"local extensions = require(\"extensions\")\nlocal currentMission = {}\nlocal wagerscl = extensions.blrutils.blrvarGet(\"raceWagerScale\") or 1.0\nlocal repscl = extensions.blrutils.blrvarGet(\"raceRepScale\") or 1.0\n\n--1.13.4 fix for target wager bug, deep copy input table to keep original data format on reload\nfor k,v in pairs(self.pinIn.raceData.value) do\ncurrentMission[k] = v\nend\n\nif currentMission then\nlocal processedMission = {} \nself.pinOut.reload.value = self.pinIn.reload.value\n\n-- Now using perfclass config loader, set resulting table in currentMission data\nlocal loadedConfigs = extensions.blrutils.perfclassConfigLoader(currentMission.enemyConfig)\ncurrentMission.enemyModel = loadedConfigs[\"models\"]\ncurrentMission.enemyConfig = loadedConfigs[\"configs\"]\n\n\nif self.pinIn.reload.value then\nprocessedMission = extensions.blrutils.getLastProcessedRace(currentMission)\nelse\nprocessedMission = extensions.blrutils.processRaceRandoms(currentMission)\nend\n\nlocal wagerData = extensions.blrutils.ssplitnum(currentMission[\"wager\"], \",\")\nlocal pwager = extensions.blrutils.getWager()\nlocal wmax = processedMission[\"wager\"]\nlocal wmin = wagerData[1]\nlocal cwager = extensions.blrutils.cap(pwager, wmin, wmax)\n\n\nself.pinOut.desc.value = currentMission.desc\n\nself.pinOut.slips.value = processedMission[\"slips\"]\n\n--1.14.3 wager scaling option\nself.pinOut.wager.value = math.floor(cwager * wagerscl * 100.0) / 100.0\n\nself.pinOut.opModel.value = processedMission[\"enemyModel\"]\nself.pinOut.opConfig.value = processedMission[\"enemyConfig\"]\nself.pinOut.opRisk.value = processedMission[\"enemyRisk\"]\n\nlocal opConfigName = processedMission[\"enemyConfig\"]:gsub(\".pc\", \"\")\nopConfigName = opConfigName:gsub(\"vehicles/\" .. processedMission[\"enemyModel\"] .. \"/\", \"\")\nlocal opConfigData = extensions.core_vehicles.getModel(processedMission[\"enemyModel\"])[\"configs\"][opConfigName]\nlocal opValue = 500\n\nif opConfigData then\nopValue = opConfigData[\"Value\"]\nelse\nprint(\"RACE LOADER MISSING CONFIG INFO FOR MODEL \" .. processedMission[\"enemyModel\"] .. \" USING CONFIG \" .. opConfigName)\nend\n\n\nself.pinOut.basePrice.value = opValue * 0.2\nself.pinOut.partPrice.value = 0\nself.pinOut.scrapVal.value = opValue * 0.05\nself.pinOut.paintdata.value = currentMission.enemyPaint\n\nself.pinOut.laps.value = processedMission[\"laps\"]\n\nself.pinOut.triggers.value = currentMission.triggers\nself.pinOut.wayps.value = processedMission.waypoints--changed for 1.14 looping subsection\nself.pinOut.opifile.value = currentMission.ifile\nself.pinOut.useTraffic.value = processedMission[\"traffic\"]\nself.pinOut.opAvoid.value = tonumber(currentMission.enemyAvoid)\n\nlocal ttable = extensions.blrutils.ssplit(currentMission.triggers, \",\")\nlocal wtable = extensions.blrutils.ssplit(currentMission.waypoints, \",\")\n\nself.pinOut.cpcount.value = #ttable\nself.pinOut.destid.value = scenetree.findObject(ttable[1]):getID()\nself.pinOut.aiwp.value = wtable[1]\n\nself.pinOut.parts.value = processedMission[\"parts\"]\nself.pinOut.reputation.value = math.floor(processedMission[\"rep\"] * repscl)\nself.pinOut.wpspd.value = currentMission.wpspd\nend"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -35317,8 +35320,8 @@
             ]
           ],
           "pos":[
-            1572,
-            1170
+            1564,
+            1254
           ],
           "type":"util/customLua"
         },
@@ -35808,7 +35811,7 @@
           "code":{
             "_executionStarted":"",
             "_executionStopped":"",
-            "work":"local filedata = readFile(self.pinIn.filename.value)\nlocal dtable = {}\nfor k,v in string.gmatch(filedata, \"([^%c]+)=([^%c]+)\") do\n    dtable[k] = v\n    print(\"Key : \" .. k .. \"\\nVal : \" .. v)\nend\nself.pinOut.output.value = dtable"
+            "work":"local filedata = readFile(self.pinIn.filename.value)\nlocal dtable = {}\nfor k,v in string.gmatch(filedata, \"([^%c]+)=([^%c]+)\") do\n    dtable[k] = v\nend\nself.pinOut.output.value = dtable"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -36449,7 +36452,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local dtable = {}\ndtable[\"engine\"] = {}\ndtable[\"powertrain\"] = {}\ndtable[\"wheels\"] = {}\n\ntable.insert(dtable[\"engine\"], \"engineReducedTorque\")\ntable.insert(dtable[\"engine\"], \"engineDisabled\")\ntable.insert(dtable[\"engine\"], \"engineLockedUp\")\ntable.insert(dtable[\"engine\"], \"engineIsHydrolocking\")\ntable.insert(dtable[\"engine\"], \"engineHydrolocked\")\ntable.insert(dtable[\"engine\"], \"overRevDanger\")\ntable.insert(dtable[\"engine\"], \"catastrophicOverrevDamage\")\ntable.insert(dtable[\"engine\"], \"mildOverrevDamage\")\ntable.insert(dtable[\"engine\"], \"overTorqueDanger\")\ntable.insert(dtable[\"engine\"], \"catastrophicOverTorqueDamage\")\ntable.insert(dtable[\"engine\"], \"impactDamage\")\ntable.insert(dtable[\"engine\"], \"oilpanLeak\")\ntable.insert(dtable[\"engine\"], \"oilRadiatorLeak\")\ntable.insert(dtable[\"engine\"], \"headGasketDamaged\")\ntable.insert(dtable[\"engine\"], \"pistonRingsDamaged\")\ntable.insert(dtable[\"engine\"], \"rodBearingsDamaged\")\ntable.insert(dtable[\"engine\"], \"blockMelted\")\ntable.insert(dtable[\"engine\"], \"oilHot\")\ntable.insert(dtable[\"engine\"], \"cylinderWallsMelted\")\ntable.insert(dtable[\"engine\"], \"radiatorLeak\")\ntable.insert(dtable[\"engine\"], \"coolantHot\")\ntable.insert(dtable[\"engine\"], \"oilLevelCritical\")\ntable.insert(dtable[\"engine\"], \"oilStarvation\")\ntable.insert(dtable[\"engine\"], \"oilLevelTooHigh\")\ntable.insert(dtable[\"engine\"], \"exhaustBroken\")\n\ntable.insert(dtable[\"powertrain\"], \"mainEngine\")\ntable.insert(dtable[\"powertrain\"], \"torqueConverter\")\ntable.insert(dtable[\"powertrain\"], \"gearbox\")\ntable.insert(dtable[\"powertrain\"], \"rangebox\")\ntable.insert(dtable[\"powertrain\"], \"transfercase\")\ntable.insert(dtable[\"powertrain\"], \"torsionReactorR\")\ntable.insert(dtable[\"powertrain\"], \"driveshaft\")\ntable.insert(dtable[\"powertrain\"], \"differential_R\")\ntable.insert(dtable[\"powertrain\"], \"transfercase_F\")\ntable.insert(dtable[\"powertrain\"], \"driveshaft_F\")\ntable.insert(dtable[\"powertrain\"], \"torsionReactorF\")\ntable.insert(dtable[\"powertrain\"], \"differential_F\")\ntable.insert(dtable[\"powertrain\"], \"halfshaftFR\")\ntable.insert(dtable[\"powertrain\"], \"halfshaftFL\")\ntable.insert(dtable[\"powertrain\"], \"wheelaxleFL\")\ntable.insert(dtable[\"powertrain\"], \"wheelaxleFR\")\ntable.insert(dtable[\"powertrain\"], \"wheelaxleRL\")\ntable.insert(dtable[\"powertrain\"], \"wheelaxleRR\")\ntable.insert(dtable[\"powertrain\"], \"spindleRR\")\ntable.insert(dtable[\"powertrain\"], \"spindleRL\")\ntable.insert(dtable[\"powertrain\"], \"clutch\")\n\ntable.insert(dtable[\"wheels\"], \"FR\")\ntable.insert(dtable[\"wheels\"], \"brakeFR\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatFR\")\ntable.insert(dtable[\"wheels\"], \"tireFR\")\n\ntable.insert(dtable[\"wheels\"], \"FL\")\ntable.insert(dtable[\"wheels\"], \"brakeFL\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatFL\")\ntable.insert(dtable[\"wheels\"], \"tireFL\")\n\ntable.insert(dtable[\"wheels\"], \"RR\")\ntable.insert(dtable[\"wheels\"], \"brakeRR\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatRR\")\ntable.insert(dtable[\"wheels\"], \"tireRR\")\n\ntable.insert(dtable[\"wheels\"], \"RL\")\ntable.insert(dtable[\"wheels\"], \"brakeRL\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatRL\")\ntable.insert(dtable[\"wheels\"], \"tireRL\")\n\n\nself.pinOut.devices.value = dtable"
+            "work":"local dtable = {}\ndtable[\"engine\"] = {}\ndtable[\"powertrain\"] = {}\ndtable[\"wheels\"] = {}\n\ntable.insert(dtable[\"engine\"], \"engineReducedTorque\")\ntable.insert(dtable[\"engine\"], \"engineDisabled\")\ntable.insert(dtable[\"engine\"], \"engineLockedUp\")\ntable.insert(dtable[\"engine\"], \"engineIsHydrolocking\")\ntable.insert(dtable[\"engine\"], \"engineHydrolocked\")\ntable.insert(dtable[\"engine\"], \"overRevDanger\")\ntable.insert(dtable[\"engine\"], \"catastrophicOverrevDamage\")\ntable.insert(dtable[\"engine\"], \"mildOverrevDamage\")\ntable.insert(dtable[\"engine\"], \"overTorqueDanger\")\ntable.insert(dtable[\"engine\"], \"catastrophicOverTorqueDamage\")\ntable.insert(dtable[\"engine\"], \"impactDamage\")\ntable.insert(dtable[\"engine\"], \"oilpanLeak\")\ntable.insert(dtable[\"engine\"], \"oilRadiatorLeak\")\ntable.insert(dtable[\"engine\"], \"headGasketDamaged\")\ntable.insert(dtable[\"engine\"], \"pistonRingsDamaged\")\ntable.insert(dtable[\"engine\"], \"rodBearingsDamaged\")\ntable.insert(dtable[\"engine\"], \"blockMelted\")\ntable.insert(dtable[\"engine\"], \"oilHot\")\ntable.insert(dtable[\"engine\"], \"cylinderWallsMelted\")\ntable.insert(dtable[\"engine\"], \"radiatorLeak\")\ntable.insert(dtable[\"engine\"], \"coolantHot\")\ntable.insert(dtable[\"engine\"], \"oilLevelCritical\")\ntable.insert(dtable[\"engine\"], \"oilStarvation\")\ntable.insert(dtable[\"engine\"], \"oilLevelTooHigh\")\ntable.insert(dtable[\"engine\"], \"exhaustBroken\")\n\ntable.insert(dtable[\"powertrain\"], \"mainEngine\")\ntable.insert(dtable[\"powertrain\"], \"torqueConverter\")\ntable.insert(dtable[\"powertrain\"], \"gearbox\")\ntable.insert(dtable[\"powertrain\"], \"rangebox\")\ntable.insert(dtable[\"powertrain\"], \"transfercase\")\ntable.insert(dtable[\"powertrain\"], \"torsionReactorR\")\ntable.insert(dtable[\"powertrain\"], \"driveshaft\")\ntable.insert(dtable[\"powertrain\"], \"differential_R\")\ntable.insert(dtable[\"powertrain\"], \"transfercase_F\")\ntable.insert(dtable[\"powertrain\"], \"driveshaft_F\")\ntable.insert(dtable[\"powertrain\"], \"torsionReactorF\")\ntable.insert(dtable[\"powertrain\"], \"differential_F\")\ntable.insert(dtable[\"powertrain\"], \"halfshaftFR\")\ntable.insert(dtable[\"powertrain\"], \"halfshaftFL\")\ntable.insert(dtable[\"powertrain\"], \"wheelaxleFL\")\ntable.insert(dtable[\"powertrain\"], \"wheelaxleFR\")\ntable.insert(dtable[\"powertrain\"], \"wheelaxleRL\")\ntable.insert(dtable[\"powertrain\"], \"wheelaxleRR\")\ntable.insert(dtable[\"powertrain\"], \"spindleRR\")\ntable.insert(dtable[\"powertrain\"], \"spindleRL\")\ntable.insert(dtable[\"powertrain\"], \"clutch\")\n\n\n-- Standard 4 wheel vehicles\ntable.insert(dtable[\"wheels\"], \"FR\")\ntable.insert(dtable[\"wheels\"], \"brakeFR\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatFR\")\ntable.insert(dtable[\"wheels\"], \"tireFR\")\n\ntable.insert(dtable[\"wheels\"], \"FL\")\ntable.insert(dtable[\"wheels\"], \"brakeFL\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatFL\")\ntable.insert(dtable[\"wheels\"], \"tireFL\")\n\ntable.insert(dtable[\"wheels\"], \"RR\")\ntable.insert(dtable[\"wheels\"], \"brakeRR\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatRR\")\ntable.insert(dtable[\"wheels\"], \"tireRR\")\n\ntable.insert(dtable[\"wheels\"], \"RL\")\ntable.insert(dtable[\"wheels\"], \"brakeRL\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatRL\")\ntable.insert(dtable[\"wheels\"], \"tireRL\")\n\n--Pigeon\ntable.insert(dtable[\"wheels\"], \"F\")\ntable.insert(dtable[\"wheels\"], \"brakeF\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatF\")\ntable.insert(dtable[\"wheels\"], \"tireF\")\n\n--Gambler covet\ntable.insert(dtable[\"wheels\"], \"R\")\ntable.insert(dtable[\"wheels\"], \"brakeR\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatR\")\ntable.insert(dtable[\"wheels\"], \"tireR\")\n\n--Gambler bolide\ntable.insert(dtable[\"wheels\"], \"RRR\")\ntable.insert(dtable[\"wheels\"], \"brakeRRR\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatRRR\")\ntable.insert(dtable[\"wheels\"], \"tireRRR\")\n\ntable.insert(dtable[\"wheels\"], \"RRL\")\ntable.insert(dtable[\"wheels\"], \"brakeRRL\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatRRL\")\ntable.insert(dtable[\"wheels\"], \"tireRRL\")\n\n--T series\ntable.insert(dtable[\"wheels\"], \"DW1R\")\ntable.insert(dtable[\"wheels\"], \"brakeDW1R\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatDW1R\")\ntable.insert(dtable[\"wheels\"], \"tireDW1R\")\n\ntable.insert(dtable[\"wheels\"], \"DW1L\")\ntable.insert(dtable[\"wheels\"], \"brakeDW1L\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatDW1L\")\ntable.insert(dtable[\"wheels\"], \"tireDW1L\")\n\ntable.insert(dtable[\"wheels\"], \"DW1RR\")\ntable.insert(dtable[\"wheels\"], \"brakeDW1RR\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatDW1RR\")\ntable.insert(dtable[\"wheels\"], \"tireDW1RR\")\n\ntable.insert(dtable[\"wheels\"], \"DW1LL\")\ntable.insert(dtable[\"wheels\"], \"brakeDW1LL\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatDW1LL\")\ntable.insert(dtable[\"wheels\"], \"tireDW1LL\")\n\ntable.insert(dtable[\"wheels\"], \"DW2R\")\ntable.insert(dtable[\"wheels\"], \"brakeDW2R\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatDW2R\")\ntable.insert(dtable[\"wheels\"], \"tireDW2R\")\n\ntable.insert(dtable[\"wheels\"], \"DW2L\")\ntable.insert(dtable[\"wheels\"], \"brakeDW2L\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatDW2L\")\ntable.insert(dtable[\"wheels\"], \"tireDW2L\")\n\ntable.insert(dtable[\"wheels\"], \"DW2RR\")\ntable.insert(dtable[\"wheels\"], \"brakeDW2RR\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatDW2RR\")\ntable.insert(dtable[\"wheels\"], \"tireDW2RR\")\n\ntable.insert(dtable[\"wheels\"], \"DW2LL\")\ntable.insert(dtable[\"wheels\"], \"brakeDW2LL\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatDW2LL\")\ntable.insert(dtable[\"wheels\"], \"tireDW2LL\")\n\n--Dually pickup\ntable.insert(dtable[\"wheels\"], \"RR2\")\ntable.insert(dtable[\"wheels\"], \"brakeRR2\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatRR2\")\ntable.insert(dtable[\"wheels\"], \"tireRR2\")\n\ntable.insert(dtable[\"wheels\"], \"RL2\")\ntable.insert(dtable[\"wheels\"], \"brakeRL2\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatRL2\")\ntable.insert(dtable[\"wheels\"], \"tireRL2\")\n\n\nself.pinOut.devices.value = dtable"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -36672,7 +36675,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local dtable = {}\ndtable[\"engine\"] = {}\ndtable[\"powertrain\"] = {}\ndtable[\"wheels\"] = {}\n\ntable.insert(dtable[\"engine\"], \"engineReducedTorque\")\ntable.insert(dtable[\"engine\"], \"engineDisabled\")\ntable.insert(dtable[\"engine\"], \"engineLockedUp\")\ntable.insert(dtable[\"engine\"], \"engineIsHydrolocking\")\ntable.insert(dtable[\"engine\"], \"engineHydrolocked\")\ntable.insert(dtable[\"engine\"], \"overRevDanger\")\ntable.insert(dtable[\"engine\"], \"catastrophicOverrevDamage\")\ntable.insert(dtable[\"engine\"], \"mildOverrevDamage\")\ntable.insert(dtable[\"engine\"], \"overTorqueDanger\")\ntable.insert(dtable[\"engine\"], \"catastrophicOverTorqueDamage\")\ntable.insert(dtable[\"engine\"], \"impactDamage\")\ntable.insert(dtable[\"engine\"], \"oilpanLeak\")\ntable.insert(dtable[\"engine\"], \"oilRadiatorLeak\")\ntable.insert(dtable[\"engine\"], \"headGasketDamaged\")\ntable.insert(dtable[\"engine\"], \"pistonRingsDamaged\")\ntable.insert(dtable[\"engine\"], \"rodBearingsDamaged\")\ntable.insert(dtable[\"engine\"], \"blockMelted\")\ntable.insert(dtable[\"engine\"], \"oilHot\")\ntable.insert(dtable[\"engine\"], \"cylinderWallsMelted\")\ntable.insert(dtable[\"engine\"], \"radiatorLeak\")\ntable.insert(dtable[\"engine\"], \"coolantHot\")\ntable.insert(dtable[\"engine\"], \"oilLevelCritical\")\ntable.insert(dtable[\"engine\"], \"oilStarvation\")\ntable.insert(dtable[\"engine\"], \"oilLevelTooHigh\")\ntable.insert(dtable[\"engine\"], \"exhaustBroken\")\n\ntable.insert(dtable[\"powertrain\"], \"mainEngine\")\ntable.insert(dtable[\"powertrain\"], \"torqueConverter\")\ntable.insert(dtable[\"powertrain\"], \"gearbox\")\ntable.insert(dtable[\"powertrain\"], \"rangebox\")\ntable.insert(dtable[\"powertrain\"], \"transfercase\")\ntable.insert(dtable[\"powertrain\"], \"torsionReactorR\")\ntable.insert(dtable[\"powertrain\"], \"driveshaft\")\ntable.insert(dtable[\"powertrain\"], \"differential_R\")\ntable.insert(dtable[\"powertrain\"], \"transfercase_F\")\ntable.insert(dtable[\"powertrain\"], \"driveshaft_F\")\ntable.insert(dtable[\"powertrain\"], \"torsionReactorF\")\ntable.insert(dtable[\"powertrain\"], \"differential_F\")\ntable.insert(dtable[\"powertrain\"], \"halfshaftFR\")\ntable.insert(dtable[\"powertrain\"], \"halfshaftFL\")\ntable.insert(dtable[\"powertrain\"], \"wheelaxleFL\")\ntable.insert(dtable[\"powertrain\"], \"wheelaxleFR\")\ntable.insert(dtable[\"powertrain\"], \"wheelaxleRL\")\ntable.insert(dtable[\"powertrain\"], \"wheelaxleRR\")\ntable.insert(dtable[\"powertrain\"], \"spindleRR\")\ntable.insert(dtable[\"powertrain\"], \"spindleRL\")\ntable.insert(dtable[\"powertrain\"], \"clutch\")\n\ntable.insert(dtable[\"wheels\"], \"FR\")\ntable.insert(dtable[\"wheels\"], \"brakeFR\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatFR\")\ntable.insert(dtable[\"wheels\"], \"tireFR\")\n\ntable.insert(dtable[\"wheels\"], \"FL\")\ntable.insert(dtable[\"wheels\"], \"brakeFL\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatFL\")\ntable.insert(dtable[\"wheels\"], \"tireFL\")\n\ntable.insert(dtable[\"wheels\"], \"RR\")\ntable.insert(dtable[\"wheels\"], \"brakeRR\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatRR\")\ntable.insert(dtable[\"wheels\"], \"tireRR\")\n\ntable.insert(dtable[\"wheels\"], \"RL\")\ntable.insert(dtable[\"wheels\"], \"brakeRL\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatRL\")\ntable.insert(dtable[\"wheels\"], \"tireRL\")\n\n\nself.pinOut.devices.value = dtable"
+            "work":"local dtable = {}\ndtable[\"engine\"] = {}\ndtable[\"powertrain\"] = {}\ndtable[\"wheels\"] = {}\n\ntable.insert(dtable[\"engine\"], \"engineReducedTorque\")\ntable.insert(dtable[\"engine\"], \"engineDisabled\")\ntable.insert(dtable[\"engine\"], \"engineLockedUp\")\ntable.insert(dtable[\"engine\"], \"engineIsHydrolocking\")\ntable.insert(dtable[\"engine\"], \"engineHydrolocked\")\ntable.insert(dtable[\"engine\"], \"overRevDanger\")\ntable.insert(dtable[\"engine\"], \"catastrophicOverrevDamage\")\ntable.insert(dtable[\"engine\"], \"mildOverrevDamage\")\ntable.insert(dtable[\"engine\"], \"overTorqueDanger\")\ntable.insert(dtable[\"engine\"], \"catastrophicOverTorqueDamage\")\ntable.insert(dtable[\"engine\"], \"impactDamage\")\ntable.insert(dtable[\"engine\"], \"oilpanLeak\")\ntable.insert(dtable[\"engine\"], \"oilRadiatorLeak\")\ntable.insert(dtable[\"engine\"], \"headGasketDamaged\")\ntable.insert(dtable[\"engine\"], \"pistonRingsDamaged\")\ntable.insert(dtable[\"engine\"], \"rodBearingsDamaged\")\ntable.insert(dtable[\"engine\"], \"blockMelted\")\ntable.insert(dtable[\"engine\"], \"oilHot\")\ntable.insert(dtable[\"engine\"], \"cylinderWallsMelted\")\ntable.insert(dtable[\"engine\"], \"radiatorLeak\")\ntable.insert(dtable[\"engine\"], \"coolantHot\")\ntable.insert(dtable[\"engine\"], \"oilLevelCritical\")\ntable.insert(dtable[\"engine\"], \"oilStarvation\")\ntable.insert(dtable[\"engine\"], \"oilLevelTooHigh\")\ntable.insert(dtable[\"engine\"], \"exhaustBroken\")\n\ntable.insert(dtable[\"powertrain\"], \"mainEngine\")\ntable.insert(dtable[\"powertrain\"], \"torqueConverter\")\ntable.insert(dtable[\"powertrain\"], \"gearbox\")\ntable.insert(dtable[\"powertrain\"], \"rangebox\")\ntable.insert(dtable[\"powertrain\"], \"transfercase\")\ntable.insert(dtable[\"powertrain\"], \"torsionReactorR\")\ntable.insert(dtable[\"powertrain\"], \"driveshaft\")\ntable.insert(dtable[\"powertrain\"], \"differential_R\")\ntable.insert(dtable[\"powertrain\"], \"transfercase_F\")\ntable.insert(dtable[\"powertrain\"], \"driveshaft_F\")\ntable.insert(dtable[\"powertrain\"], \"torsionReactorF\")\ntable.insert(dtable[\"powertrain\"], \"differential_F\")\ntable.insert(dtable[\"powertrain\"], \"halfshaftFR\")\ntable.insert(dtable[\"powertrain\"], \"halfshaftFL\")\ntable.insert(dtable[\"powertrain\"], \"wheelaxleFL\")\ntable.insert(dtable[\"powertrain\"], \"wheelaxleFR\")\ntable.insert(dtable[\"powertrain\"], \"wheelaxleRL\")\ntable.insert(dtable[\"powertrain\"], \"wheelaxleRR\")\ntable.insert(dtable[\"powertrain\"], \"spindleRR\")\ntable.insert(dtable[\"powertrain\"], \"spindleRL\")\ntable.insert(dtable[\"powertrain\"], \"clutch\")\n\n\n-- Standard 4 wheel vehicles\ntable.insert(dtable[\"wheels\"], \"FR\")\ntable.insert(dtable[\"wheels\"], \"brakeFR\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatFR\")\ntable.insert(dtable[\"wheels\"], \"tireFR\")\n\ntable.insert(dtable[\"wheels\"], \"FL\")\ntable.insert(dtable[\"wheels\"], \"brakeFL\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatFL\")\ntable.insert(dtable[\"wheels\"], \"tireFL\")\n\ntable.insert(dtable[\"wheels\"], \"RR\")\ntable.insert(dtable[\"wheels\"], \"brakeRR\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatRR\")\ntable.insert(dtable[\"wheels\"], \"tireRR\")\n\ntable.insert(dtable[\"wheels\"], \"RL\")\ntable.insert(dtable[\"wheels\"], \"brakeRL\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatRL\")\ntable.insert(dtable[\"wheels\"], \"tireRL\")\n\n--Pigeon\ntable.insert(dtable[\"wheels\"], \"F\")\ntable.insert(dtable[\"wheels\"], \"brakeF\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatF\")\ntable.insert(dtable[\"wheels\"], \"tireF\")\n\n--Gambler covet\ntable.insert(dtable[\"wheels\"], \"R\")\ntable.insert(dtable[\"wheels\"], \"brakeR\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatR\")\ntable.insert(dtable[\"wheels\"], \"tireR\")\n\n--Gambler bolide\ntable.insert(dtable[\"wheels\"], \"RRR\")\ntable.insert(dtable[\"wheels\"], \"brakeRRR\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatRRR\")\ntable.insert(dtable[\"wheels\"], \"tireRRR\")\n\ntable.insert(dtable[\"wheels\"], \"RRL\")\ntable.insert(dtable[\"wheels\"], \"brakeRRL\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatRRL\")\ntable.insert(dtable[\"wheels\"], \"tireRRL\")\n\n--T series\ntable.insert(dtable[\"wheels\"], \"DW1R\")\ntable.insert(dtable[\"wheels\"], \"brakeDW1R\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatDW1R\")\ntable.insert(dtable[\"wheels\"], \"tireDW1R\")\n\ntable.insert(dtable[\"wheels\"], \"DW1L\")\ntable.insert(dtable[\"wheels\"], \"brakeDW1L\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatDW1L\")\ntable.insert(dtable[\"wheels\"], \"tireDW1L\")\n\ntable.insert(dtable[\"wheels\"], \"DW1RR\")\ntable.insert(dtable[\"wheels\"], \"brakeDW1RR\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatDW1RR\")\ntable.insert(dtable[\"wheels\"], \"tireDW1RR\")\n\ntable.insert(dtable[\"wheels\"], \"DW1LL\")\ntable.insert(dtable[\"wheels\"], \"brakeDW1LL\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatDW1LL\")\ntable.insert(dtable[\"wheels\"], \"tireDW1LL\")\n\ntable.insert(dtable[\"wheels\"], \"DW2R\")\ntable.insert(dtable[\"wheels\"], \"brakeDW2R\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatDW2R\")\ntable.insert(dtable[\"wheels\"], \"tireDW2R\")\n\ntable.insert(dtable[\"wheels\"], \"DW2L\")\ntable.insert(dtable[\"wheels\"], \"brakeDW2L\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatDW2L\")\ntable.insert(dtable[\"wheels\"], \"tireDW2L\")\n\ntable.insert(dtable[\"wheels\"], \"DW2RR\")\ntable.insert(dtable[\"wheels\"], \"brakeDW2RR\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatDW2RR\")\ntable.insert(dtable[\"wheels\"], \"tireDW2RR\")\n\ntable.insert(dtable[\"wheels\"], \"DW2LL\")\ntable.insert(dtable[\"wheels\"], \"brakeDW2LL\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatDW2LL\")\ntable.insert(dtable[\"wheels\"], \"tireDW2LL\")\n\n--Dually pickup\ntable.insert(dtable[\"wheels\"], \"RR2\")\ntable.insert(dtable[\"wheels\"], \"brakeRR2\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatRR2\")\ntable.insert(dtable[\"wheels\"], \"tireRR2\")\n\ntable.insert(dtable[\"wheels\"], \"RL2\")\ntable.insert(dtable[\"wheels\"], \"brakeRL2\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatRL2\")\ntable.insert(dtable[\"wheels\"], \"tireRL2\")\n\n\nself.pinOut.devices.value = dtable"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -38050,8 +38053,8 @@
             ]
           ],
           "pos":[
-            1522,
-            1114
+            1508,
+            1198
           ],
           "type":"util/customLua"
         },
@@ -38796,8 +38799,8 @@
             ]
           ],
           "pos":[
-            1522,
-            778
+            1536,
+            750
           ],
           "type":"util/customLua"
         },
@@ -44034,8 +44037,8 @@
             ]
           ],
           "pos":[
-            1396,
-            190
+            1320,
+            218
           ],
           "type":"util/customLua"
         },
@@ -48387,7 +48390,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local dtable = {}\ndtable[\"engine\"] = {}\ndtable[\"powertrain\"] = {}\ndtable[\"wheels\"] = {}\n\ntable.insert(dtable[\"engine\"], \"engineReducedTorque\")\ntable.insert(dtable[\"engine\"], \"engineDisabled\")\ntable.insert(dtable[\"engine\"], \"engineLockedUp\")\ntable.insert(dtable[\"engine\"], \"engineIsHydrolocking\")\ntable.insert(dtable[\"engine\"], \"engineHydrolocked\")\ntable.insert(dtable[\"engine\"], \"overRevDanger\")\ntable.insert(dtable[\"engine\"], \"catastrophicOverrevDamage\")\ntable.insert(dtable[\"engine\"], \"mildOverrevDamage\")\ntable.insert(dtable[\"engine\"], \"overTorqueDanger\")\ntable.insert(dtable[\"engine\"], \"catastrophicOverTorqueDamage\")\ntable.insert(dtable[\"engine\"], \"impactDamage\")\ntable.insert(dtable[\"engine\"], \"oilpanLeak\")\ntable.insert(dtable[\"engine\"], \"oilRadiatorLeak\")\ntable.insert(dtable[\"engine\"], \"headGasketDamaged\")\ntable.insert(dtable[\"engine\"], \"pistonRingsDamaged\")\ntable.insert(dtable[\"engine\"], \"rodBearingsDamaged\")\ntable.insert(dtable[\"engine\"], \"blockMelted\")\ntable.insert(dtable[\"engine\"], \"oilHot\")\ntable.insert(dtable[\"engine\"], \"cylinderWallsMelted\")\ntable.insert(dtable[\"engine\"], \"radiatorLeak\")\ntable.insert(dtable[\"engine\"], \"coolantHot\")\ntable.insert(dtable[\"engine\"], \"oilLevelCritical\")\ntable.insert(dtable[\"engine\"], \"oilStarvation\")\ntable.insert(dtable[\"engine\"], \"oilLevelTooHigh\")\ntable.insert(dtable[\"engine\"], \"exhaustBroken\")\n\ntable.insert(dtable[\"powertrain\"], \"mainEngine\")\ntable.insert(dtable[\"powertrain\"], \"torqueConverter\")\ntable.insert(dtable[\"powertrain\"], \"gearbox\")\ntable.insert(dtable[\"powertrain\"], \"rangebox\")\ntable.insert(dtable[\"powertrain\"], \"transfercase\")\ntable.insert(dtable[\"powertrain\"], \"torsionReactorR\")\ntable.insert(dtable[\"powertrain\"], \"driveshaft\")\ntable.insert(dtable[\"powertrain\"], \"differential_R\")\ntable.insert(dtable[\"powertrain\"], \"transfercase_F\")\ntable.insert(dtable[\"powertrain\"], \"driveshaft_F\")\ntable.insert(dtable[\"powertrain\"], \"torsionReactorF\")\ntable.insert(dtable[\"powertrain\"], \"differential_F\")\ntable.insert(dtable[\"powertrain\"], \"halfshaftFR\")\ntable.insert(dtable[\"powertrain\"], \"halfshaftFL\")\ntable.insert(dtable[\"powertrain\"], \"wheelaxleFL\")\ntable.insert(dtable[\"powertrain\"], \"wheelaxleFR\")\ntable.insert(dtable[\"powertrain\"], \"wheelaxleRL\")\ntable.insert(dtable[\"powertrain\"], \"wheelaxleRR\")\ntable.insert(dtable[\"powertrain\"], \"spindleRR\")\ntable.insert(dtable[\"powertrain\"], \"spindleRL\")\ntable.insert(dtable[\"powertrain\"], \"clutch\")\n\ntable.insert(dtable[\"wheels\"], \"FR\")\ntable.insert(dtable[\"wheels\"], \"brakeFR\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatFR\")\ntable.insert(dtable[\"wheels\"], \"tireFR\")\n\ntable.insert(dtable[\"wheels\"], \"FL\")\ntable.insert(dtable[\"wheels\"], \"brakeFL\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatFL\")\ntable.insert(dtable[\"wheels\"], \"tireFL\")\n\ntable.insert(dtable[\"wheels\"], \"RR\")\ntable.insert(dtable[\"wheels\"], \"brakeRR\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatRR\")\ntable.insert(dtable[\"wheels\"], \"tireRR\")\n\ntable.insert(dtable[\"wheels\"], \"RL\")\ntable.insert(dtable[\"wheels\"], \"brakeRL\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatRL\")\ntable.insert(dtable[\"wheels\"], \"tireRL\")\n\n\nself.pinOut.devices.value = dtable"
+            "work":"local dtable = {}\ndtable[\"engine\"] = {}\ndtable[\"powertrain\"] = {}\ndtable[\"wheels\"] = {}\n\ntable.insert(dtable[\"engine\"], \"engineReducedTorque\")\ntable.insert(dtable[\"engine\"], \"engineDisabled\")\ntable.insert(dtable[\"engine\"], \"engineLockedUp\")\ntable.insert(dtable[\"engine\"], \"engineIsHydrolocking\")\ntable.insert(dtable[\"engine\"], \"engineHydrolocked\")\ntable.insert(dtable[\"engine\"], \"overRevDanger\")\ntable.insert(dtable[\"engine\"], \"catastrophicOverrevDamage\")\ntable.insert(dtable[\"engine\"], \"mildOverrevDamage\")\ntable.insert(dtable[\"engine\"], \"overTorqueDanger\")\ntable.insert(dtable[\"engine\"], \"catastrophicOverTorqueDamage\")\ntable.insert(dtable[\"engine\"], \"impactDamage\")\ntable.insert(dtable[\"engine\"], \"oilpanLeak\")\ntable.insert(dtable[\"engine\"], \"oilRadiatorLeak\")\ntable.insert(dtable[\"engine\"], \"headGasketDamaged\")\ntable.insert(dtable[\"engine\"], \"pistonRingsDamaged\")\ntable.insert(dtable[\"engine\"], \"rodBearingsDamaged\")\ntable.insert(dtable[\"engine\"], \"blockMelted\")\ntable.insert(dtable[\"engine\"], \"oilHot\")\ntable.insert(dtable[\"engine\"], \"cylinderWallsMelted\")\ntable.insert(dtable[\"engine\"], \"radiatorLeak\")\ntable.insert(dtable[\"engine\"], \"coolantHot\")\ntable.insert(dtable[\"engine\"], \"oilLevelCritical\")\ntable.insert(dtable[\"engine\"], \"oilStarvation\")\ntable.insert(dtable[\"engine\"], \"oilLevelTooHigh\")\ntable.insert(dtable[\"engine\"], \"exhaustBroken\")\n\ntable.insert(dtable[\"powertrain\"], \"mainEngine\")\ntable.insert(dtable[\"powertrain\"], \"torqueConverter\")\ntable.insert(dtable[\"powertrain\"], \"gearbox\")\ntable.insert(dtable[\"powertrain\"], \"rangebox\")\ntable.insert(dtable[\"powertrain\"], \"transfercase\")\ntable.insert(dtable[\"powertrain\"], \"torsionReactorR\")\ntable.insert(dtable[\"powertrain\"], \"driveshaft\")\ntable.insert(dtable[\"powertrain\"], \"differential_R\")\ntable.insert(dtable[\"powertrain\"], \"transfercase_F\")\ntable.insert(dtable[\"powertrain\"], \"driveshaft_F\")\ntable.insert(dtable[\"powertrain\"], \"torsionReactorF\")\ntable.insert(dtable[\"powertrain\"], \"differential_F\")\ntable.insert(dtable[\"powertrain\"], \"halfshaftFR\")\ntable.insert(dtable[\"powertrain\"], \"halfshaftFL\")\ntable.insert(dtable[\"powertrain\"], \"wheelaxleFL\")\ntable.insert(dtable[\"powertrain\"], \"wheelaxleFR\")\ntable.insert(dtable[\"powertrain\"], \"wheelaxleRL\")\ntable.insert(dtable[\"powertrain\"], \"wheelaxleRR\")\ntable.insert(dtable[\"powertrain\"], \"spindleRR\")\ntable.insert(dtable[\"powertrain\"], \"spindleRL\")\ntable.insert(dtable[\"powertrain\"], \"clutch\")\n\n\n-- Standard 4 wheel vehicles\ntable.insert(dtable[\"wheels\"], \"FR\")\ntable.insert(dtable[\"wheels\"], \"brakeFR\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatFR\")\ntable.insert(dtable[\"wheels\"], \"tireFR\")\n\ntable.insert(dtable[\"wheels\"], \"FL\")\ntable.insert(dtable[\"wheels\"], \"brakeFL\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatFL\")\ntable.insert(dtable[\"wheels\"], \"tireFL\")\n\ntable.insert(dtable[\"wheels\"], \"RR\")\ntable.insert(dtable[\"wheels\"], \"brakeRR\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatRR\")\ntable.insert(dtable[\"wheels\"], \"tireRR\")\n\ntable.insert(dtable[\"wheels\"], \"RL\")\ntable.insert(dtable[\"wheels\"], \"brakeRL\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatRL\")\ntable.insert(dtable[\"wheels\"], \"tireRL\")\n\n--Pigeon\ntable.insert(dtable[\"wheels\"], \"F\")\ntable.insert(dtable[\"wheels\"], \"brakeF\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatF\")\ntable.insert(dtable[\"wheels\"], \"tireF\")\n\n--Gambler covet\ntable.insert(dtable[\"wheels\"], \"R\")\ntable.insert(dtable[\"wheels\"], \"brakeR\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatR\")\ntable.insert(dtable[\"wheels\"], \"tireR\")\n\n--Gambler bolide\ntable.insert(dtable[\"wheels\"], \"RRR\")\ntable.insert(dtable[\"wheels\"], \"brakeRRR\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatRRR\")\ntable.insert(dtable[\"wheels\"], \"tireRRR\")\n\ntable.insert(dtable[\"wheels\"], \"RRL\")\ntable.insert(dtable[\"wheels\"], \"brakeRRL\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatRRL\")\ntable.insert(dtable[\"wheels\"], \"tireRRL\")\n\n--T series\ntable.insert(dtable[\"wheels\"], \"DW1R\")\ntable.insert(dtable[\"wheels\"], \"brakeDW1R\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatDW1R\")\ntable.insert(dtable[\"wheels\"], \"tireDW1R\")\n\ntable.insert(dtable[\"wheels\"], \"DW1L\")\ntable.insert(dtable[\"wheels\"], \"brakeDW1L\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatDW1L\")\ntable.insert(dtable[\"wheels\"], \"tireDW1L\")\n\ntable.insert(dtable[\"wheels\"], \"DW1RR\")\ntable.insert(dtable[\"wheels\"], \"brakeDW1RR\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatDW1RR\")\ntable.insert(dtable[\"wheels\"], \"tireDW1RR\")\n\ntable.insert(dtable[\"wheels\"], \"DW1LL\")\ntable.insert(dtable[\"wheels\"], \"brakeDW1LL\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatDW1LL\")\ntable.insert(dtable[\"wheels\"], \"tireDW1LL\")\n\ntable.insert(dtable[\"wheels\"], \"DW2R\")\ntable.insert(dtable[\"wheels\"], \"brakeDW2R\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatDW2R\")\ntable.insert(dtable[\"wheels\"], \"tireDW2R\")\n\ntable.insert(dtable[\"wheels\"], \"DW2L\")\ntable.insert(dtable[\"wheels\"], \"brakeDW2L\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatDW2L\")\ntable.insert(dtable[\"wheels\"], \"tireDW2L\")\n\ntable.insert(dtable[\"wheels\"], \"DW2RR\")\ntable.insert(dtable[\"wheels\"], \"brakeDW2RR\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatDW2RR\")\ntable.insert(dtable[\"wheels\"], \"tireDW2RR\")\n\ntable.insert(dtable[\"wheels\"], \"DW2LL\")\ntable.insert(dtable[\"wheels\"], \"brakeDW2LL\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatDW2LL\")\ntable.insert(dtable[\"wheels\"], \"tireDW2LL\")\n\n--Dually pickup\ntable.insert(dtable[\"wheels\"], \"RR2\")\ntable.insert(dtable[\"wheels\"], \"brakeRR2\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatRR2\")\ntable.insert(dtable[\"wheels\"], \"tireRR2\")\n\ntable.insert(dtable[\"wheels\"], \"RL2\")\ntable.insert(dtable[\"wheels\"], \"brakeRL2\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatRL2\")\ntable.insert(dtable[\"wheels\"], \"tireRL2\")\n\n\nself.pinOut.devices.value = dtable"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -49086,7 +49089,9 @@
           "type":"logic/flowSwitch"
         },
         "633":{
-          "data":{},
+          "data":{
+            "name":"BeamNGTrigger_HighwayDragFinish"
+          },
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
@@ -50802,8 +50807,8 @@
             ]
           ],
           "pos":[
-            1004,
-            918
+            942,
+            862
           ],
           "type":"util/customLua"
         },
@@ -51335,8 +51340,8 @@
             ]
           ],
           "pos":[
-            990,
-            988
+            976,
+            904
           ],
           "type":"util/customLua"
         },
@@ -53380,7 +53385,7 @@
           "code":{
             "_executionStarted":"",
             "_executionStopped":"",
-            "work":"local extensions = require(\"extensions\")\nextensions.betterpartmgmt.setFilter(\"all\")\n\nlocal walking = self.pinIn.walking.value == 1\n\nif not walking then\nlocal list = extensions.betterpartmgmt.getPartShopList()\nlist = extensions.betterpartmgmt.categoryFilter(list, true)\nextensions.customGuiStream.sendDataToUI(\"availParts\", list)\n\nlist = extensions.betterpartmgmt.getGarageUIData()\nlist = extensions.betterpartmgmt.categoryFilter(list, true)\nextensions.customGuiStream.sendDataToUI(\"garageData\", list)\n\nlist = extensions.betterpartmgmt.getFullPartPrices()\nextensions.customGuiStream.sendDataToUI(\"partPrices\", list)\n\nlist = extensions.betterpartmgmt.getPartNameLibrary()\nextensions.customGuiStream.sendDataToUI(\"partNames\", list)\nextensions.customGuiStream.sendRepairData(nil, list, nil)\n\nlist = extensions.betterpartmgmt.getSlotNameLibrary()\nextensions.customGuiStream.sendDataToUI(\"slotNames\", list)\n\nlist = extensions.betterpartmgmt.getVehicleParts()\nextensions.customGuiStream.sendDataToUI(\"usedParts\", list)\n\nlist = extensions.betterpartmgmt.getTuningUIData()\nextensions.customGuiStream.sendDataToUI(\"tuningData\", list)\n\nlist = extensions.betterpartmgmt.getTuningUIValues()\nextensions.customGuiStream.sendDataToUI(\"tuningValues\", list)\nextensions.customGuiStream.sendDataToUI(\"tuningValuesSlider\", list)\nextensions.customGuiStream.sendDataToUI(\"tuningValuesNumfield\", list)\n\nlist = extensions.betterpartmgmt.getSortedTuningCategories(false)\nextensions.customGuiStream.sendDataToUI(\"tuningSortedCategories\", list)\nlist = extensions.betterpartmgmt.getSortedTuningFields(false)\nextensions.customGuiStream.sendDataToUI(\"tuningSortedFields\", list)\n\n\nextensions.customGuiCallbacks.exec(\"reloadPaint\")\n\nlist = extensions.betterpartmgmt.getPartPreviewImageTable()\nextensions.customGuiStream.sendDataToUI(\"partpreview\", list )\n\nlocal seed = extensions.blrutils.getCareerSeed()\nextensions.customGuiStream.sendDataToUI(\"seed\", seed)\n\nlocal inventory = extensions.betterpartmgmt.getPartInventory()\nextensions.customGuiStream.sendDataToUI(\"ownedParts\", inventory)\n\nlocal extras = self.pinIn.extras.value\nlocal triggerExtras = {}\nlocal scalevals = {}\nlocal shopID = 0\nlocal priceScale = 1.5\nif extras and extras ~= \"\" then\nif FS:fileExists(extras) then\ntriggerExtras = extensions.blrutils.loadDataTable(self.pinIn.extras.value)\nif triggerExtras[\"shopID\"] and triggerExtras[\"scale\"] then\nshopID = tonumber(triggerExtras[\"shopID\"])\nscalevals = extensions.blrutils.ssplitnum(triggerExtras[\"scale\"], \",\")\npriceScale = extensions.blrutils.getPartShopPriceScale(shopID, scalevals[1], scalevals[2])\nend\nend\nend\n\nextensions.customGuiStream.sendDataToUI(\"shopPriceScale\", priceScale or 1.5)\n\nlocal selected = extensions.blrutils.blrvarGet(\"uiinitSelectedEventFile\")\nlocal uid = extensions.blrutils.blrvarGet(\"uiinitSelectedEventUID\")\nextensions.customGuiStream.sendEventBrowserList(extensions.blrutils.eventBrowserGetList())\nif selected then\nlocal eseed = extensions.blrutils.getEventSeed(uid)\nextensions.customGuiStream.sendEventBrowserData(extensions.blrutils.eventBrowserGetData(selected, eseed))\nextensions.customGuiStream.sendEventBrowserSelectedUID(uid)\nend\nextensions.blrglobals.blrFlagSet(\"eventBrowserReloadCar\", true)\nlocal inspection = extensions.blrutils.getEventInspectionStatus()\nextensions.customGuiStream.sendEventBrowserInspectionStatus(inspection)\n\nextensions.blrglobals.blrFlagSet(\"eventRestrictUpdate\", true) -- Request update for vehicle restriction state\n\nlist = extensions.betterpartmgmt.getSortedShopSlots()\nextensions.customGuiStream.sendDataToUI(\"sortedShopSlots\", list)\nlist = extensions.betterpartmgmt.getSortedShopParts()\nextensions.customGuiStream.sendDataToUI(\"sortedShopParts\", list)\nlist = extensions.betterpartmgmt.getSortedGarageSlots()\nextensions.customGuiStream.sendDataToUI(\"sortedGarageSlots\", list)\nlist = extensions.betterpartmgmt.getSortedGarageParts()\nextensions.customGuiStream.sendDataToUI(\"sortedGarageParts\", list)\nend\n\nextensions.blrutils.uiRefreshTemplates()\n\n-- 1.11 fix for score keeping UIs not reloading during init\nextensions.customGuiStream.driftUIinitreload()\nextensions.customGuiStream.deliveryUIinitreload()\nextensions.customGuiStream.gameOverUIinitreload()\n\n\n-- 1.13 advanced vehicle building toggle\nlocal avbtoggle = extensions.blrglobals.blrFlagGet(\"avbToggle\")\nextensions.customGuiStream.sendDataToUI(\"avbToggle\", avbtoggle)\n\n\n--1.13 gps\nextensions.customGuiStream.gpsUIInitReload()\n\n--game options\nextensions.customGuiStream.sendCurrentOptionValues()\n\n--1.14 selective repair maps\nlocal cmap = extensions.betterpartmgmt.getChildMap()\nlocal pmap = extensions.betterpartmgmt.getParentMap()\nextensions.customGuiStream.sendRepairUIMaps(pmap, cmap)\nlocal mainpart = extensions.betterpartmgmt.getMainPartChild()\nextensions.customGuiStream.sendRepairUIMainPart(mainpart)\n\n-- 1.14 fix to prevent removing main part (bugs the game)\nlocal mainpart = extensions.betterpartmgmt.getMainPartChild()\nextensions.customGuiStream.sendDataToUI(\"mainpart\", mainpart)"
+            "work":"local extensions = require(\"extensions\")\nextensions.betterpartmgmt.setFilter(\"all\")\n\nlocal walking = self.pinIn.walking.value == 1\n\nif not walking then\nlocal list = extensions.betterpartmgmt.getPartShopList()\nlist = extensions.betterpartmgmt.categoryFilter(list, true)\nextensions.customGuiStream.sendDataToUI(\"availParts\", list)\n\nlist = extensions.betterpartmgmt.getGarageUIData()\nlist = extensions.betterpartmgmt.categoryFilter(list, true)\nextensions.customGuiStream.sendDataToUI(\"garageData\", list)\n\nlist = extensions.betterpartmgmt.getFullPartPrices()\nextensions.customGuiStream.sendDataToUI(\"partPrices\", list)\n\nlist = extensions.betterpartmgmt.getPartNameLibrary()\nextensions.customGuiStream.sendDataToUI(\"partNames\", list)\nextensions.customGuiStream.sendRepairData(nil, list, nil)\n\nlist = extensions.betterpartmgmt.getSlotNameLibrary()\nextensions.customGuiStream.sendDataToUI(\"slotNames\", list)\n\nlist = extensions.betterpartmgmt.getVehicleParts()\nextensions.customGuiStream.sendDataToUI(\"usedParts\", list)\n\nlist = extensions.betterpartmgmt.getTuningUIData()\nextensions.customGuiStream.sendDataToUI(\"tuningData\", list)\n\nlist = extensions.betterpartmgmt.getTuningUIValues()\nextensions.customGuiStream.sendDataToUI(\"tuningValues\", list)\nextensions.customGuiStream.sendDataToUI(\"tuningValuesSlider\", list)\nextensions.customGuiStream.sendDataToUI(\"tuningValuesNumfield\", list)\n\nlist = extensions.betterpartmgmt.getSortedTuningCategories(false)\nextensions.customGuiStream.sendDataToUI(\"tuningSortedCategories\", list)\nlist = extensions.betterpartmgmt.getSortedTuningFields(false)\nextensions.customGuiStream.sendDataToUI(\"tuningSortedFields\", list)\n\n\nextensions.customGuiCallbacks.exec(\"reloadPaint\")\n\nlist = extensions.betterpartmgmt.getPartPreviewImageTable()\nextensions.customGuiStream.sendDataToUI(\"partpreview\", list )\n\nlocal seed = extensions.blrutils.getCareerSeed()\nextensions.customGuiStream.sendDataToUI(\"seed\", seed)\n\nlocal inventory = extensions.betterpartmgmt.getPartInventory()\nextensions.customGuiStream.sendDataToUI(\"ownedParts\", inventory)\n\nlocal extras = self.pinIn.extras.value\nlocal triggerExtras = {}\nlocal scalevals = {}\nlocal shopID = 0\nlocal priceScale = 1.5\nif extras and extras ~= \"\" then\nif FS:fileExists(extras) then\ntriggerExtras = extensions.blrutils.loadDataTable(self.pinIn.extras.value)\nif triggerExtras[\"shopID\"] and triggerExtras[\"scale\"] then\nshopID = tonumber(triggerExtras[\"shopID\"])\nscalevals = extensions.blrutils.ssplitnum(triggerExtras[\"scale\"], \",\")\npriceScale = extensions.blrutils.getPartShopPriceScale(shopID, scalevals[1], scalevals[2])\nend\nend\nend\n\nextensions.customGuiStream.sendDataToUI(\"shopPriceScale\", priceScale or 1.5)\n\nlocal selected = extensions.blrutils.blrvarGet(\"uiinitSelectedEventFile\")\nlocal uid = extensions.blrutils.blrvarGet(\"uiinitSelectedEventUID\")\nextensions.customGuiStream.sendEventBrowserList(extensions.blrutils.eventBrowserGetList())\nif selected then\nlocal eseed = extensions.blrutils.getEventSeed(uid)\nextensions.customGuiStream.sendEventBrowserData(extensions.blrutils.eventBrowserGetData(selected, eseed))\nextensions.customGuiStream.sendEventBrowserSelectedUID(uid)\nend\nextensions.blrglobals.blrFlagSet(\"eventBrowserReloadCar\", true)\nlocal inspection = extensions.blrutils.getEventInspectionStatus()\nextensions.customGuiStream.sendEventBrowserInspectionStatus(inspection)\n\nextensions.blrglobals.blrFlagSet(\"eventRestrictUpdate\", true) -- Request update for vehicle restriction state\n\nlist = extensions.betterpartmgmt.getSortedShopSlots()\nextensions.customGuiStream.sendDataToUI(\"sortedShopSlots\", list)\nlist = extensions.betterpartmgmt.getSortedShopParts()\nextensions.customGuiStream.sendDataToUI(\"sortedShopParts\", list)\nlist = extensions.betterpartmgmt.getSortedGarageSlots()\nextensions.customGuiStream.sendDataToUI(\"sortedGarageSlots\", list)\nlist = extensions.betterpartmgmt.getSortedGarageParts()\nextensions.customGuiStream.sendDataToUI(\"sortedGarageParts\", list)\nend\n\nextensions.blrutils.uiRefreshTemplates()\n\n-- 1.11 fix for score keeping UIs not reloading during init\nextensions.customGuiStream.driftUIinitreload()\nextensions.customGuiStream.deliveryUIinitreload()\nextensions.customGuiStream.gameOverUIinitreload()\n\n\n-- 1.13 advanced vehicle building toggle\nlocal avbtoggle = extensions.blrglobals.blrFlagGet(\"avbToggle\")\nextensions.customGuiStream.sendDataToUI(\"avbToggle\", avbtoggle)\n\n\n--1.13 gps\nextensions.customGuiStream.gpsUIInitReload()\n\n--game options\nextensions.customGuiStream.sendCurrentOptionValues()\n\n--1.14 selective repair maps\nlocal cmap = extensions.betterpartmgmt.getChildMap()\nlocal pmap = extensions.betterpartmgmt.getParentMap()\nextensions.customGuiStream.sendRepairUIMaps(pmap, cmap)\nlocal mainpart = extensions.betterpartmgmt.getMainPartChild()\nextensions.customGuiStream.sendRepairUIMainPart(mainpart)\n\n-- 1.14 fix to prevent removing main part (bugs the game)\nlocal mainpart = extensions.betterpartmgmt.getMainPartChild()\nextensions.customGuiStream.sendDataToUI(\"mainpart\", mainpart)\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -54491,7 +54496,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local veh = scenetree.findObjectById(self.pinIn.veid.value)\nself.pinOut.damage.value = map.objects[veh:getId()].damage"
+            "work":"local veh = scenetree.findObjectById(self.pinIn.veid.value)\nif veh and map.objects[veh:getId()] then\nself.pinOut.damage.value = map.objects[veh:getId()].damage\nelse \nself.pinOut.damage.value = 0\nend"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -54558,8 +54563,8 @@
             }
           },
           "pos":[
-            1284,
-            1100
+            1368,
+            1114
           ],
           "type":"vehicle/recoverInPlace"
         },
@@ -54952,8 +54957,8 @@
           },
           "opSymbol":"==",
           "pos":[
-            906,
-            1086
+            934,
+            1072
           ],
           "type":"logic/compare"
         },
@@ -54962,7 +54967,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local veh = scenetree.findObjectById(self.pinIn.veid.value)\nself.pinOut.damage.value = map.objects[veh:getId()].damage"
+            "work":"local veh = scenetree.findObjectById(self.pinIn.veid.value)\nif veh and map.objects[veh:getId()] then\nself.pinOut.damage.value = map.objects[veh:getId()].damage\nelse \nself.pinOut.damage.value = 0\nend"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -55035,7 +55040,7 @@
             }
           },
           "pos":[
-            556,
+            570,
             1114
           ],
           "type":"logic/frameDelay"
@@ -55053,8 +55058,8 @@
             }
           },
           "pos":[
-            752,
-            1128
+            780,
+            1114
           ],
           "type":"logic/once"
         },
@@ -56154,7 +56159,7 @@
               "value":[
                 1,
                 0,
-                0.00006008148190000293,
+                0.00006008148190000325,
                 1
               ]
             },
@@ -58021,7 +58026,7 @@
             "_executionStarted":"",
             "_executionStopped":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(\"avbToggle\", false)",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nlocal options = extensions.blrutils.loadDataTable(\"beamLR/options\")\nlocal ctraffic = tonumber(options[\"crazytraffic\"])\nlocal ttotal = (tonumber(options[\"traffic\"]) + tonumber(options[\"police\"]) + tonumber(options[\"trucks\"]))\nif ctraffic == 0 then\nself.pinOut.traffic.value = tonumber(options[\"traffic\"])\nself.pinOut.police.value = tonumber(options[\"police\"])\nself.pinOut.trucks.value = tonumber(options[\"trucks\"])\nself.pinOut.pool.value = math.floor(ttotal - (ttotal / 3))--Changed in 0.28, value now used as amount of active vehs when pooling\nelse\nself.pinOut.traffic.value = 8\nself.pinOut.police.value = 8\nself.pinOut.trucks.value = 8\nself.pinOut.pool.value = 18\nend\nself.pinOut.sseed.value = tonumber(options[\"sseed\"])\nself.pinOut.risk.value = tonumber(options[\"trisk\"]) or 0.7\nself.pinOut.copstrict.value = tonumber(options[\"copstrict\"]) or 0.08\nself.pinOut.sleepTime.value = tonumber(options[\"sleeptime\"]) or 8\nself.pinOut.raceRandPaint.value = (tonumber(options[\"raceRandPaint\"]) == 1) or false\n\nlocal copfix = tonumber(options[\"autoCopfix\"] or \"1\")\nextensions.blrglobals.blrFlagSet(\"roleFixToggle\", copfix == 1)\nlocal bstoggle = tonumber(options[\"bstoggle\"] or \"0\") --can turn this default to 1 when issue is fixed, for old option files\nextensions.blrglobals.blrFlagSet(\"beamstateToggle\", bstoggle == 1)\n\nlocal timescale = tonumber(options[\"timescale\"] or \"1\")\nlocal daytime = 86400.000 / timescale\nself.pinOut.daytime.value = daytime\n\n--1.13 advanced vehicle building\nlocal avbtoggle = tonumber(options[\"avbtoggle\"] or \"0\")==1\nextensions.blrglobals.blrFlagSet(\"avbToggle\", avbtoggle)\nself.pinOut.avbtoggle.value = avbtoggle\n\n--1.13 gps (0=default, 1=always on, 2=always off)\nlocal gpsmode = tonumber(options[\"gpsmode\"] or 0)\nextensions.blrutils.blrvarSet(\"gpsmode\", gpsmode)\nextensions.blrglobals.blrFlagSet(\"gpsForceOff\", false)\n\n--1.13 advanced repair cost\nlocal arctoggle = tonumber(options[\"advrepaircost\"] or \"0\")==1\nextensions.blrglobals.blrFlagSet(\"advrepaircost\", arctoggle)\n\n--1.14 imgui layout \nlocal imscale = tonumber(options[\"imscale\"] or \"1\")\nextensions.ui_imguiUtils.changeUIScale(imscale)\nlocal imautosave = tonumber(options[\"imautosave\"] or \"1\")\nextensions.blrglobals.blrFlagSet(\"imautosave\", imautosave == 1)\nextensions.blrutils.loadCustomIMGUILayout()\n\n--1.14 drag cinematic effects\nlocal dragslowmo = tonumber(options[\"dragslowmo\"] or \"1\")\nextensions.blrglobals.blrFlagSet(\"dragslowmo\",dragslowmo  == 1)\n\n--1.14 option file saved target wager\nlocal targetwager = tonumber(options[\"targetwager\"] or \"100\")\nextensions.blrutils.setWager(targetwager)\n\n--1.14 groundmarkers global toggle\nlocal gmtoggle = tonumber(options[\"gmtoggle\"] or \"100\")\nextensions.blrglobals.blrFlagSet(\"gmtoggle\",gmtoggle  == 1)\n\n--1.14 race traffic mode switch\nlocal raceTrafficMode = tonumber(options[\"rtmode\"] or \"0\")\nextensions.blrutils.blrvarSet(\"raceTrafficMode\", raceTrafficMode)\n\n--1.14 floating markers toggle\nlocal fmtoggle = tonumber(options[\"fmtoggle\"] or \"1\")\nextensions.blrglobals.blrFlagSet(\"fmtoggle\",fmtoggle  == 1)\n\n--1.14 advanced repair UI toggle\nlocal aruitoggle = tonumber(options[\"useadvrepairui\"] or \"0\")\nextensions.blrglobals.blrFlagSet(\"useadvrepairui\",aruitoggle  == 1)\n\n--1.14.1 fast traffic toggle\nlocal tfasttoggle = tonumber(options[\"tfasttoggle\"] or \"0\")\nextensions.blrglobals.blrFlagSet(\"fastTrafficToggle\",tfasttoggle  == 1)\n\n--1.14.2 part edit safe mode toggle\nlocal gsafemode = tonumber(options[\"gsafemode\"] or \"0\")\nextensions.blrglobals.blrFlagSet(\"garageSafeModeToggle\",gsafemode == 1)\n\n-- Finish by sending loaded options to ui\nextensions.customGuiStream.sendCurrentOptionValues()\n\n"
+            "work":"local extensions = require(\"extensions\")\nlocal options = extensions.blrutils.loadDataTable(\"beamLR/options\")\nlocal ctraffic = tonumber(options[\"crazytraffic\"])\nlocal ttotal = (tonumber(options[\"traffic\"]) + tonumber(options[\"police\"]) + tonumber(options[\"trucks\"]))\nif ctraffic == 0 then\nself.pinOut.traffic.value = tonumber(options[\"traffic\"])\nself.pinOut.police.value = tonumber(options[\"police\"])\nself.pinOut.trucks.value = tonumber(options[\"trucks\"])\nself.pinOut.pool.value = math.floor(ttotal - (ttotal / 3))--Changed in 0.28, value now used as amount of active vehs when pooling\nelse\nself.pinOut.traffic.value = 8\nself.pinOut.police.value = 8\nself.pinOut.trucks.value = 8\nself.pinOut.pool.value = 18\nend\nself.pinOut.sseed.value = tonumber(options[\"sseed\"])\nself.pinOut.risk.value = tonumber(options[\"trisk\"]) or 0.7\nself.pinOut.copstrict.value = tonumber(options[\"copstrict\"]) or 0.08\nself.pinOut.sleepTime.value = tonumber(options[\"sleeptime\"]) or 8\nself.pinOut.raceRandPaint.value = (tonumber(options[\"raceRandPaint\"]) == 1) or false\n\nlocal copfix = tonumber(options[\"autoCopfix\"] or \"1\")\nextensions.blrglobals.blrFlagSet(\"roleFixToggle\", copfix == 1)\nlocal bstoggle = tonumber(options[\"bstoggle\"] or \"0\") --can turn this default to 1 when issue is fixed, for old option files\nextensions.blrglobals.blrFlagSet(\"beamstateToggle\", bstoggle == 1)\n\nlocal timescale = tonumber(options[\"timescale\"] or \"1\")\nlocal daytime = 86400.000 / timescale\nself.pinOut.daytime.value = daytime\n\n--1.13 advanced vehicle building\nlocal avbtoggle = tonumber(options[\"avbtoggle\"] or \"0\")==1\nextensions.blrglobals.blrFlagSet(\"avbToggle\", avbtoggle)\nself.pinOut.avbtoggle.value = avbtoggle\n\n--1.13 gps (0=default, 1=always on, 2=always off)\nlocal gpsmode = tonumber(options[\"gpsmode\"] or 0)\nextensions.blrutils.blrvarSet(\"gpsmode\", gpsmode)\nextensions.blrglobals.blrFlagSet(\"gpsForceOff\", false)\n\n--1.13 advanced repair cost\nlocal arctoggle = tonumber(options[\"advrepaircost\"] or \"0\")==1\nextensions.blrglobals.blrFlagSet(\"advrepaircost\", arctoggle)\n\n--1.14 imgui layout \nlocal imscale = tonumber(options[\"imscale\"] or \"1\")\nextensions.ui_imguiUtils.changeUIScale(imscale)\nlocal imautosave = tonumber(options[\"imautosave\"] or \"1\")\nextensions.blrglobals.blrFlagSet(\"imautosave\", imautosave == 1)\nextensions.blrutils.loadCustomIMGUILayout()\n\n--1.14 drag cinematic effects\nlocal dragslowmo = tonumber(options[\"dragslowmo\"] or \"1\")\nextensions.blrglobals.blrFlagSet(\"dragslowmo\",dragslowmo  == 1)\n\n--1.14 option file saved target wager\nlocal targetwager = tonumber(options[\"targetwager\"] or \"100\")\nextensions.blrutils.setWager(targetwager)\n\n--1.14 groundmarkers global toggle\nlocal gmtoggle = tonumber(options[\"gmtoggle\"] or \"100\")\nextensions.blrglobals.blrFlagSet(\"gmtoggle\",gmtoggle  == 1)\n\n--1.14 race traffic mode switch\nlocal raceTrafficMode = tonumber(options[\"rtmode\"] or \"0\")\nextensions.blrutils.blrvarSet(\"raceTrafficMode\", raceTrafficMode)\n\n--1.14 floating markers toggle\nlocal fmtoggle = tonumber(options[\"fmtoggle\"] or \"1\")\nextensions.blrglobals.blrFlagSet(\"fmtoggle\",fmtoggle  == 1)\n\n--1.14 advanced repair UI toggle\nlocal aruitoggle = tonumber(options[\"useadvrepairui\"] or \"0\")\nextensions.blrglobals.blrFlagSet(\"useadvrepairui\",aruitoggle  == 1)\n\n--1.14.1 fast traffic toggle\nlocal tfasttoggle = tonumber(options[\"tfasttoggle\"] or \"0\")\nextensions.blrglobals.blrFlagSet(\"fastTrafficToggle\",tfasttoggle  == 1)\n\n--1.14.2 part edit safe mode toggle\nlocal gsafemode = tonumber(options[\"gsafemode\"] or \"0\")\nextensions.blrglobals.blrFlagSet(\"garageSafeModeToggle\",gsafemode == 1)\n\n--1.14.3 part image viewer mode\nlocal imgmode = tonumber(options[\"imgmode\"] or \"0\")\nextensions.customGuiStream.imageUIMode(imgmode)\n\n--1.14.3 race wager & rep scale\nlocal wagerscl = tonumber(options[\"wagerscl\"] or \"1.0\")\nextensions.blrutils.blrvarSet(\"raceWagerScale\", wagerscl)\nlocal repscl = tonumber(options[\"repscl\"] or \"1.0\")\nextensions.blrutils.blrvarSet(\"raceRepScale\", repscl)\n\n\n-- Finish by sending loaded options to ui\nextensions.customGuiStream.sendCurrentOptionValues()\n\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -68611,8 +68616,8 @@
             ]
           ],
           "pos":[
-            1550,
-            862
+            1530,
+            834
           ],
           "type":"util/customLua"
         },
@@ -68783,8 +68788,8 @@
             ]
           ],
           "pos":[
-            1396,
-            1016
+            1390,
+            1002
           ],
           "type":"util/customLua"
         },
@@ -70898,7 +70903,7 @@
             ]
           ],
           "pos":[
-            1396,
+            1348,
             862
           ],
           "type":"util/customLua"
@@ -71760,7 +71765,7 @@
         "1150":{
           "code":{
             "_executionStarted":"",
-            "_executionStopped":"local extensions = require(\"extensions\")\nextensions.blrutils.resetTimeOfDay()\nextensions.blrutils.deleteMarkers()",
+            "_executionStopped":"local extensions = require(\"extensions\")\nextensions.blrutils.resetTimeOfDay()\nextensions.blrutils.deleteMarkers()\nextensions.blrglobals.blrFlagsInit()",
             "onPreRender":"",
             "work":"-- Add cleanup code in _executionStopped"
           },
@@ -74465,8 +74470,8 @@
             ]
           ],
           "pos":[
-            5848,
-            302
+            5842,
+            288
           ],
           "type":"util/customLua"
         },
@@ -75081,8 +75086,8 @@
             ]
           ],
           "pos":[
-            -3266,
-            1716
+            -3252,
+            1548
           ],
           "type":"util/customLua"
         },
@@ -75190,8 +75195,8 @@
             }
           },
           "pos":[
-            -3476,
-            1940
+            -3462,
+            1758
           ],
           "type":"logic/frameDelay"
         },
@@ -75265,35 +75270,17 @@
             }
           },
           "pos":[
-            -3476,
-            1800
+            -3462,
+            1632
           ],
           "type":"logic/flowSwitch"
-        },
-        "1215":{
-          "data":{},
-          "dynamicMode":"repeat",
-          "hiddenPins":{
-            "p_in":{
-              "flow":false,
-              "reset":false
-            },
-            "p_out":{
-              "flow":false
-            }
-          },
-          "pos":[
-            -3238,
-            1912
-          ],
-          "type":"logic/once"
         },
         "1216":{
           "code":{
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nlocal gid = self.pinIn.gid.value\nlocal data = extensions.blrutils.eventBrowserGetCarData(gid)\nextensions.customGuiStream.sendEventBrowserCarData(data)\nextensions.customGuiStream.sendEventBrowserInspectionStatus(extensions.blrutils.getEventInspectionStatus())\nlocal perfdata = extensions.blrutils.performanceUIData()\nextensions.customGuiStream.sendPerfUIData(perfdata)"
+            "work":"local extensions = require(\"extensions\")\nlocal gid = self.pinIn.gid.value\nlocal data = extensions.blrutils.eventBrowserGetCarData(gid)\nextensions.customGuiStream.sendEventBrowserCarData(data)\nextensions.customGuiStream.sendEventBrowserInspectionStatus(extensions.blrutils.getEventInspectionStatus())\nlocal perfdata = extensions.blrutils.performanceUIData()\nextensions.customGuiStream.sendPerfUIData(perfdata)\nprint(\"Should have reloaded perfdata\")\ndump(perfdata)"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -75333,8 +75320,8 @@
             ]
           ],
           "pos":[
-            -3252,
-            2024
+            -3230,
+            1842
           ],
           "type":"util/customLua"
         },
@@ -75361,8 +75348,8 @@
             }
           },
           "pos":[
-            -3476,
-            2080
+            -3210,
+            1730
           ],
           "type":"types/genericValue"
         },
@@ -75444,8 +75431,8 @@
             }
           },
           "pos":[
-            -3266,
-            1828
+            -3259,
+            1646
           ],
           "type":"scene/getPlayerVehicle"
         },
@@ -75465,7 +75452,7 @@
           ],
           "commentSize":[
             460,
-            646
+            453
           ],
           "commentText":"",
           "commentTitle":"Event Browser Car Data Update",
@@ -75473,8 +75460,8 @@
           "dynamicMode":"repeat",
           "moveMode":"withNodes",
           "pos":[
-            -3500,
-            1526
+            -3486,
+            1512
           ],
           "simple":false,
           "textColor":[
@@ -75484,108 +75471,6 @@
             1
           ],
           "type":"debug/comment"
-        },
-        "1221":{
-          "code":{
-            "_executionStarted":"",
-            "_executionStopped":"",
-            "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nself.pinOut.flag.value = extensions.blrglobals.blrFlagGet(self.pinIn.name.value)\n"
-          },
-          "data":{},
-          "dynamicMode":"repeat",
-          "hardcodedPins":{
-            "name":{
-              "type":"string",
-              "value":"eventBrowserReloadCar"
-            }
-          },
-          "hiddenPins":{
-            "p_in":{
-              "flow":false,
-              "name":false
-            },
-            "p_out":{
-              "flag":false,
-              "flow":false
-            }
-          },
-          "name":"BLR Flag Get",
-          "pins":[
-            [
-              "in",
-              "flow",
-              "flow",
-              null,
-              "Inflow for this node.",
-              true
-            ],
-            [
-              "out",
-              "flow",
-              "flow",
-              null,
-              "Outflow for this node.",
-              true
-            ],
-            [
-              "out",
-              "bool",
-              "flag",
-              null,
-              ""
-            ],
-            [
-              "in",
-              "string",
-              "name",
-              null,
-              ""
-            ]
-          ],
-          "pos":[
-            -3476,
-            1576
-          ],
-          "type":"util/customLua"
-        },
-        "1222":{
-          "data":{},
-          "dynamicMode":"repeat",
-          "hiddenPins":{
-            "p_in":{
-              "condition":false,
-              "flow":false
-            },
-            "p_out":{
-              "False":false,
-              "True":false,
-              "flow":true
-            }
-          },
-          "pos":[
-            -3280,
-            1576
-          ],
-          "type":"logic/branch"
-        },
-        "1223":{
-          "data":{},
-          "dynamicMode":"repeat",
-          "hiddenPins":{
-            "p_in":{
-              "flow":false,
-              "reset":false
-            },
-            "p_out":{
-              "flow":false
-            }
-          },
-          "pos":[
-            -3476,
-            1688
-          ],
-          "type":"logic/once"
         },
         "1224":{
           "code":{
@@ -75625,7 +75510,7 @@
           ],
           "pos":[
             1536,
-            1002
+            1086
           ],
           "type":"util/customLua"
         },
@@ -75692,8 +75577,8 @@
             ]
           ],
           "pos":[
-            1564,
-            946
+            1558,
+            1002
           ],
           "type":"util/customLua"
         },
@@ -76057,74 +75942,6 @@
           ],
           "type":"util/customLua"
         },
-        "1232":{
-          "code":{
-            "_executionStarted":"",
-            "_executionStopped":"",
-            "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(self.pinIn.name.value, self.pinIn.flag.value)\n"
-          },
-          "data":{},
-          "dynamicMode":"repeat",
-          "hardcodedPins":{
-            "flag":{
-              "type":"bool",
-              "value":false
-            },
-            "name":{
-              "type":"string",
-              "value":"eventBrowserReloadCar"
-            }
-          },
-          "hiddenPins":{
-            "p_in":{
-              "flag":true,
-              "flow":false,
-              "name":true
-            },
-            "p_out":{
-              "flow":false
-            }
-          },
-          "name":"BLR Flag Set",
-          "pins":[
-            [
-              "in",
-              "flow",
-              "flow",
-              null,
-              "Inflow for this node.",
-              true
-            ],
-            [
-              "out",
-              "flow",
-              "flow",
-              null,
-              "Outflow for this node.",
-              true
-            ],
-            [
-              "in",
-              "string",
-              "name",
-              null,
-              ""
-            ],
-            [
-              "in",
-              "bool",
-              "flag",
-              null,
-              ""
-            ]
-          ],
-          "pos":[
-            -3210,
-            2108
-          ],
-          "type":"util/customLua"
-        },
         "1233":{
           "alpha":0.75000000000000000000,
           "backgroundColor":[
@@ -76454,8 +76271,8 @@
             ]
           ],
           "pos":[
-            1550,
-            1058
+            1544,
+            1128
           ],
           "type":"util/customLua"
         },
@@ -88068,7 +87885,7 @@
           "hardcodedPins":{
             "B":{
               "type":"number",
-              "value":0.00999999977648268965
+              "value":0.00999999977648276597
             }
           },
           "hiddenPins":{
@@ -90420,6 +90237,200 @@
             -1952
           ],
           "type":"ui/imgui/elemental/imButton"
+        },
+        "1553":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal flag = self.pinIn.flag.value\nlocal onceMode = self.pinIn.onceMode.value\nlocal state = extensions.blrglobals.blrFlagGet(flag)\nlocal outflow = state\nif state and onceMode then extensions.blrglobals.blrFlagSet(flag, false) end\nself.pinOut.out.value = outflow and self.pinIn.flow.value"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "flag":{
+              "type":"string",
+              "value":"eventBrowserReloadCar"
+            },
+            "onceMode":{
+              "type":"bool",
+              "value":true
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flag":true,
+              "flow":false,
+              "onceMode":true
+            },
+            "p_out":{
+              "flow":true,
+              "out":false
+            }
+          },
+          "name":"BLR Flag Flow",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "out",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "string",
+              "flag",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "bool",
+              "onceMode",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -3440,
+            1548
+          ],
+          "type":"util/customLua"
+        },
+        "1554":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal vehid = self.pinIn.vehid.value\nlocal veh = scenetree.findObjectById(vehid)\nif not map.objects[vehid] then\nveh:queueLuaCommand(\"extensions.blrVehicleUtils.forceMapInit()\")\nend"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "vehid":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Force Send Tracking",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "number",
+              "vehid",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            1250,
+            1226
+          ],
+          "type":"util/customLua"
+        },
+        "1555":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal vehid = self.pinIn.vehid.value\nlocal veh = scenetree.findObjectById(vehid)\nif not map.objects[vehid] then\nveh:queueLuaCommand(\"extensions.blrVehicleUtils.forceMapInit()\")\nend"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "vehid":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Force Send Tracking",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "number",
+              "vehid",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            6212,
+            288
+          ],
+          "type":"util/customLua"
+        },
+        "1556":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "reset":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -3440,
+            1884
+          ],
+          "type":"logic/once"
         },
         "4986":{
           "count":5,
@@ -95465,7 +95476,9 @@
           "type":"types/genericValue"
         },
         "10149":{
-          "data":{},
+          "data":{
+            "name":"BeamNGTrigger_HighwayDragFinish"
+          },
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
@@ -95948,7 +95961,9 @@
           "type":"scene/singleMarker"
         },
         "10165":{
-          "data":{},
+          "data":{
+            "name":"none"
+          },
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
@@ -99603,10 +99618,10 @@
         "list":{}
       },
       "viewPos":[
-        1740.39257812500000000000,
-        1025.53308105468750000000
+        -1574.90100097656250000000,
+        -611.85131835937500000000
       ],
-      "viewZoom":1.11174786090850830078
+      "viewZoom":0.25797852873802185059
     },
     "3":{
       "description":"This is the description for graph States",
@@ -99622,14 +99637,14 @@
         ],
         [
           4,
-          "success",
+          "fail",
           6,
           "flow",
           false
         ],
         [
           4,
-          "fail",
+          "success",
           6,
           "flow",
           false
@@ -99727,10 +99742,10 @@
         "list":{}
       },
       "viewPos":[
-        2676.39282226562500000000,
-        1025.53308105468750000000
+        -1055.40100097656250000000,
+        -611.85137939453125000000
       ],
-      "viewZoom":1.11174786090850830078
+      "viewZoom":0.25797855854034423828
     }
   },
   "isScenario":true,

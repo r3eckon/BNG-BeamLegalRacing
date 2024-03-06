@@ -123,6 +123,9 @@ angular.module('beamng.apps')
 		  scope.inputData['useadvrepairui'] = data['useadvrepairui'] && data['advrepaircost'];
 		  scope.inputData['tfasttoggle'] = data['tfasttoggle'];
 		  scope.inputData['gsafemode'] = data['gsafemode'];
+		  scope.inputData['imgmode'] = data['imgmode'];
+		  scope.inputData['wagerscl'] = data['wagerscl']
+		  scope.inputData['repscl'] = data['repscl']
       })
 	  
 	  
@@ -520,7 +523,32 @@ angular.module('beamng.apps')
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
 	  
+	  scope.setImageUIMode = function(mode)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("imgmode", ${mode})`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setImageUIMode", "imgmode")`);
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
+	  }
 	  
+	  scope.imageClicked = function(file)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("imgfile", "${file}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("showImageUI", "imgfile")`);
+	  }
+	  
+	  scope.setWagerScale = function(d)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("wagerscl", "${d}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setWagerScale", "wagerscl")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
+	  }
+	  
+	  scope.setRepScale = function(d)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("repscl", "${d}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setRepScale", "repscl")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
+	  }
 	  
 	  
     }
