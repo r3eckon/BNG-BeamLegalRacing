@@ -19,3 +19,5 @@ Files inside **userfolder/ui/modules/apps/beamlrui/partimg** are made obsolete b
 
 ### BeamLR 1.14.3
 * Initial Release
+### BeamLR 1.15 (BeamNG 0.32)
+* Replaced 200BX images with new BX-Series
