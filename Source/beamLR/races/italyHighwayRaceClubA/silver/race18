@@ -1,8 +1,8 @@
 desc=Quick highway drag race
 wager=500,1000
 slips=0.04
-enemyModel=coupe
-enemyConfig=vehicles/coupe/custom.pc
+enemyModel=bx
+enemyConfig=vehicles/bx/street_tuned_A.pc,vehicles/bx/vspecial_A.pc
 enemyRisk=1.0
 enemyBasePrice=0
 enemyPartPrice=0

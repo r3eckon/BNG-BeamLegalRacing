@@ -22,6 +22,110 @@ local markersOriginPos = {}      -- To fix markers moving downwards, likely due 
 
 local blrtime = 0				-- Not time of day, used for race timers
 
+-- Iterator for sorted linked tables
+function linkedpairs(keys, values)
+local current = 0    
+return function()
+    current = current + 1
+    if not keys[current] then return nil end
+    return current,keys[current],values[current]
+end
+end
+
+-- global linked sort function, returns sorted key/value pairs in static order tables
+function linkedsort(t, keymode)
+local added = {}
+local keys = {}
+local values = {}
+local sortedValues = {}
+local sortedKeys = {}
+
+-- Fill up arrays for sorting
+for k,v in pairs(t) do
+table.insert(values, v)
+table.insert(keys, k)
+end
+
+-- Sort array based on mode
+if keymode then
+table.sort(keys)
+for index,item in ipairs(keys) do
+for key,val in pairs(t) do
+    if not added[key] and item == key then
+        sortedKeys[index] = key
+        sortedValues[index] = val
+        added[key] = true
+        break
+    end
+end
+end
+else 
+table.sort(values)
+for index,item in ipairs(values) do
+for key,val in pairs(t) do
+    if not added[key] and item == val then
+        sortedKeys[index] = key
+        sortedValues[index] = val
+        added[key] = true
+        break
+    end
+end
+end
+end
+
+--for k,v in ipairs(sortedKeys) do print(k .. "=" .. v) end
+--for k,v in ipairs(sortedValues) do print(k .. "=" .. v) end
+
+return sortedKeys, sortedValues
+end
+
+--global key sorted table iterator
+function keySortedPairs(tab)
+    local ordered = {}
+    local ckey = 0
+    for k,v in pairs(tab) do
+       table.insert(ordered, k)
+    end
+    table.sort(ordered)
+    return function()
+        if ckey > #ordered then return nil end
+        ckey = ckey+1
+        return ordered[ckey],tab[ordered[ckey]]
+    end
+end
+
+--global value sorted table iterator
+function valueSortedPairs(t)
+local values = {}
+local keys = {}
+local added = {}
+
+for k,v in pairs(t) do
+    table.insert(values, v)
+end
+table.sort(values)
+
+for index,item in ipairs(values) do
+for k,v in pairs(t) do
+    if not added[k] and v==item then
+        keys[index] = k
+        added[k] = true
+        break
+    end
+end
+end
+
+
+local ckey = 0
+
+return function()
+    ckey = ckey+1
+    if ckey > #keys then return nil end
+    return keys[ckey], t[keys[ckey]]
+    end
+end
+
+
 local function deleteFile(filename)
 if FS:fileExists(filename) then 
 FS:removeFile(filename)
@@ -227,13 +331,13 @@ if append then filedata = readFile("beamLR/slotHelper") end
 if autoindex then index = locals["shautoindex"] end
 
 filedata = filedata .. (spprefix) .. index .. "=" .. pos[1] .. "," .. pos[2] .. "," .. pos[3] .. "\n"
-filedata = filedata .. (srprefix) .. index .. "=" .. rot[1] .. "," .. rot[2] .. "," .. rot[3] .. "," .. rot[4] .. "\n"
+filedata = filedata .. (srprefix) .. index .. "=" .. rot[1] .. "," .. rot[2] .. "," .. -rot[4] .. "," .. rot[3] .. "\n"
 
 if cam then 
 pos = getCameraPosition():toTable()
 rot = getCameraQuat():toTable()
 filedata = filedata .. (cpprefix) .. index .. "=" .. pos[1] .. "," .. pos[2] .. "," .. pos[3] .. "\n"
-filedata = filedata .. (crprefix) .. index .. "=" .. rot[1] .. "," .. rot[2] .. "," .. rot[3] .. "," .. rot[4] .. "\n"
+filedata = filedata .. (crprefix) .. index .. "=" .. rot[1] .. "," .. rot[2] .. "," .. -rot[4] .. "," .. rot[3] .. "\n"
 end
 writeFile("beamLR/slotHelper", filedata)
 if autoindex then locals["shautoindex"] = locals["shautoindex"]+1 end
@@ -757,12 +861,13 @@ toRet["rot"] = ssplitnum(dtable["rot"], ",")
 return toRet
 end
 
-local function getMapTowSpot()
+-- location can be home, gas or garage
+local function getMapTowSpot(location)
 local toRet = {}
 local path = "beamLR/mapdata/" .. getLevelName() .. "/towing"
 local dtable = loadDataTable(path)
-toRet["pos"] = ssplitnum(dtable["pos"], ",")
-toRet["rot"] = ssplitnum(dtable["rot"], ",")
+toRet["pos"] = ssplitnum(dtable[location .. "_pos"], ",")
+toRet["rot"] = ssplitnum(dtable[location .. "_rot"], ",")
 return toRet
 end
 
@@ -896,7 +1001,7 @@ end
 return toRet
 end
 
-local function createPerformanceFiles(officialModels, officialConfigs)
+local function createPerformanceFiles(officialModels, officialConfigs, ignored)
 local data = {}
 data["X"] = ""
 data["S"] = ""
@@ -925,14 +1030,20 @@ local brand = ""
 local ccpath = ""
 local ckey = ""
 
+local ignoreModels = {}
+for k,v in pairs(ignored) do
+ignoreModels[v] = true
+end
+
+
 -- Filter models
 for k,v in pairs(models) do
 ctype = v["Type"]
 if ctype == "Car" or ctype == "Truck" then
 cauthor = v["Author"]
-if not officialModels then
+if not officialModels and not ignoreModels[k] then
 table.insert(filteredModels, k)
-elseif cauthor == "BeamNG" then
+elseif cauthor == "BeamNG" and not ignoreModels[k] then
 table.insert(filteredModels, k)
 end
 end
@@ -1293,8 +1404,29 @@ return "MISSING_LEVEL"
 end
 end
 
+locals["clubCompletionStatus"] = function()
+local complete = true
+local list = FS:directoryList("beamLR/races")
+local current = {}
+for k,v in pairs(list) do
+if v ~= "/beamLR/races/integrity" then
+current = loadDataTable(v .. "/progress" )["current"]
+complete = current == "hero"
+if not complete then break end
+end
+end
+return complete
+end
+
+
 local function eventBrowserGetList() -- Returns event list for browser UI
 local toRet = {}
+local sortedRep = {}
+local sortedName = {}
+local sortedRepKeys = {}
+local sortedNameKeys = {}
+local packedRep = {}
+local toRetSorted = {}
 local files = FS:findFiles("beamLR/trackEvents/", "*", 0)
 local pdata = loadDataTable("beamLR/mainData")
 local currentEvent = loadDataTable("beamLR/currentTrackEvent")
@@ -1310,13 +1442,52 @@ toRet[i]["joincost"] = cdata["joincost"]
 toRet[i]["map"] = getLevelUITitle(cdata["map"]) -- Using UI level name
 toRet[i]["joined"] = (v:sub(21) == currentEvent["efile"] and currentEvent["status"] ~= "over")
 toRet[i]["unlocked"] = extensions.blrglobals.gmGetVal("playerRep") >= tonumber(cdata["reputation"])
+toRet[i]["bossevent"] = cdata["bossevent"]
+toRet[i]["bossunlocked"] = locals["clubCompletionStatus"]()
+if(cdata["bossevent"] == "true") then
+toRet[i]["unlocked"] = toRet[i]["unlocked"] and locals["clubCompletionStatus"]()
+end
 toRet[i]["repunlock"] = tonumber(cdata["reputation"])
 toRet[i]["file"] = v:sub(21)
 i = i+1
 end
 end
 
-return toRet
+--Event sorting, first by rep then by name
+--Step 1, build sorted tables
+for k,v in pairs(toRet) do
+table.insert(sortedRep, v["repunlock"])
+table.insert(sortedName, v["title"])
+end
+local sortedRepKeys, sortedRepValues = linkedsort(sortedRep)
+local sortedNameKeys, sortedNameValues = linkedsort(sortedName)
+
+--Step 2, pack events keys with same amount of rep into rep amount keyed tables
+for i,k,v in linkedpairs(sortedRepKeys, sortedRepValues) do
+if not packedRep["" .. v] then packedRep["" .. v] = {} end
+table.insert(packedRep["" .. v], k)
+end
+
+local cpack = {}
+local cdone = {}
+
+--Step 3, build final table
+for rep_i,rep_k,rep_v in linkedpairs(sortedRepKeys, sortedRepValues) do
+if not cdone["" .. rep_v] then
+cpack = packedRep["" .. rep_v]
+for name_i,name_k,name_v in linkedpairs(sortedNameKeys, sortedNameValues) do
+for pack_k,pack_v in pairs(cpack) do
+if name_k == pack_v then
+table.insert(toRetSorted, toRet[pack_v])
+end
+end
+end
+cdone["" .. rep_v] = true
+end
+end
+
+
+return toRetSorted
 end
 
 local function eventBrowserGetPlayerData() -- Returns player data for browser UI
@@ -1324,6 +1495,8 @@ local toRet = {}
 local pdata = loadDataTable("beamLR/mainData")
 toRet["money"] = extensions.blrglobals.gmGetVal("playerMoney")
 toRet["rep"] = extensions.blrglobals.gmGetVal("playerRep")
+toRet["bossunlock"] = locals["clubCompletionStatus"]()
+dump(toRet)
 return toRet
 end
 
@@ -1455,6 +1628,7 @@ end
 toRet["allowedbrand"] = edata["allowedbrand"]
 toRet["induction"] = edata["induction"]
 toRet["reputation"] = tonumber(edata["reputation"])
+toRet["bossevent"] = edata["bossevent"] -- for 1.15 race of heroes event
 toRet["joincost"] = tonumber(edata["joincost"])
 toRet["laps"] = edata["laps"]
 toRet["rounds"] = edata["rounds"]
@@ -1702,9 +1876,9 @@ extensions.customGuiStream.sendDataToUI("vehicleRestricted", restrict)
 end
 
 
-local function towPlayerNoReset()
+local function towPlayerNoReset(location)
 local playerVehicle = be:getPlayerVehicle(0)
-local spot = getMapTowSpot()
+local spot = getMapTowSpot(location)
 if not playerVehicle then return end
 local vehRot = quat(playerVehicle:getClusterRotationSlow(playerVehicle:getRefNodeId()))
 local pos = vec3(spot["pos"][1], spot["pos"][2], spot["pos"][3])
@@ -2199,6 +2373,10 @@ end
 setGPSDestination(cbestkey)
 end
 
+locals["gpsCheck"] = function()
+local parts = extensions.betterpartmgmt.getVehicleParts()
+return (parts["gps"] and parts["gps"] ~= "") or (parts["gps_alt"] and parts["gps_alt"] ~= "")
+end
 
 local function gpsToggleStateUpdate()
 local playerWalking = extensions.betterpartmgmt.getMainPartName() == "unicycle" -- force off when walking
@@ -2206,7 +2384,7 @@ local forcedOff = extensions.blrglobals.blrFlagGet("gpsForceOff") -- Used in mis
 local mode = blrvarGet("gpsmode")
 if not (forcedOff or playerWalking) then
 if mode == 0 then --default mode, checks vehicle to make sure gps is installed
-local hasGPS = extensions.betterpartmgmt.getVehicleParts()["gps"] ~= ""
+local hasGPS = locals["gpsCheck"]()
 extensions.customGuiStream.sendGPSToggleState(hasGPS)
 if not hasGPS then 
 setGPSDestination() -- to remove groundmarkers if part edit done with gps active
@@ -2335,17 +2513,11 @@ blrStationDisplays()
 end
 end
 
--- Moves the garage trigger up and down to trigger the onEnter event which
+-- Moves the trigger up and down to trigger the onEnter event which
 -- sometimes doesn't happen after towing
 locals["refreshOldPos"] = {}
-local function garageTriggerRefresh(step)
-local level = getLevelName()
-local triggers = loadDataTable("beamLR/mapdata/" .. level .. "/triggers")
-local tname = ""
-for k,v in pairs(triggers) do
-if v=="garage" then tname = k break end
-end
-local obj = scenetree.findObject(tname)
+local function towingTriggerRefresh(step, trig)
+local obj = scenetree.findObject(trig)
 if obj then
 if step == 1 then
 locals["refreshOldPos"] = obj:getPosition():toTable()
@@ -2356,7 +2528,9 @@ end
 end
 end
 
-M.garageTriggerRefresh = garageTriggerRefresh
+M.gpsCheck = locals["gpsCheck"]
+M.clubCompletionStatus = locals["clubCompletionStatus"]
+M.towingTriggerRefresh = towingTriggerRefresh
 M.onSettingsChanged = onSettingsChanged
 M.blrStationDisplays = blrStationDisplays
 M.smoothFuelCharge = smoothFuelCharge

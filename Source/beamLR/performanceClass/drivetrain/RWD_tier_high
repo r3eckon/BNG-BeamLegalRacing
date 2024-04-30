@@ -21,9 +21,6 @@
 /vehicles/pickup/d15_longbed_drag_A.pc
 /vehicles/etkc/kc8_drift_M.pc
 /vehicles/etkc/kc8_ttsport_heritage_M.pc
-/vehicles/coupe/demon.pc
-/vehicles/coupe/race.pc
-/vehicles/coupe/powerglow.pc
 /vehicles/covet/turbo_race.pc
 /vehicles/roamer/drag.pc
 /vehicles/fullsize/drift.pc
@@ -62,10 +59,14 @@
 /vehicles/barstow/drag.pc
 /vehicles/burnside/drag.pc
 /vehicles/hopper/drag.pc
-/vehicles/coupe/drag.pc
 /vehicles/fullsize/drag.pc
 /vehicles/moonhawk/drag.pc
 /vehicles/bastion/drag.pc
 /vehicles/bolide/topspeed.pc
 /vehicles/scintilla/drag.pc
 /vehicles/bluebuck/drag.pc
+/vehicles/bx/street_tuned_M.pc
+/vehicles/bx/pro_drift_M.pc
+/vehicles/bx/track_M.pc
+/vehicles/bx/runner_M.pc
+/vehicles/bx/drag_A.pc

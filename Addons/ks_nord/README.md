@@ -28,3 +28,6 @@ This addon is currently built for map version **v20231124_v2** (ks_nord_v2023112
 * Updated base map version to v20231124_v2
 ### BeamLR 1.14.3
 * Fixed event loading issue caused by removed playerName file
+### BeamLR 1.15
+* Added "Teleport To Start" button in track event UI
+* Updated track event system to work with point system

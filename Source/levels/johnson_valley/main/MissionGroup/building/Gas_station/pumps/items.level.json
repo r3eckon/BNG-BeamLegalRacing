@@ -1,0 +1,8 @@
+{"name":"fuel_tyrannos_pump_icon_1","class":"BeamNGPointOfInterest","persistentId":"aa38a82c-fc7e-4172-9f40-6270e2c598ab","__parent":"pumps","position":[1384.39551,1355.09644,120.372498]}
+{"name":"fuel_tyrannos_pump_icon_2","class":"BeamNGPointOfInterest","persistentId":"40c52517-86b7-4104-b463-46c36872c5d6","__parent":"pumps","position":[1384.39172,1346.77771,120.372498]}
+{"name":"fuel_tyrannos_pump_icon_3","class":"BeamNGPointOfInterest","persistentId":"f28d2428-3224-4dd0-a5c0-de622b2cc8f9","__parent":"pumps","position":[1370.69482,1355.09058,120.37159]}
+{"name":"fuel_tyrannos_pump_icon_4","class":"BeamNGPointOfInterest","persistentId":"b3c43f37-3ee0-4e98-8dd7-cc6913d68a63","__parent":"pumps","position":[1370.68823,1346.77686,120.371597]}
+{"name":"fuel_tyrannos_pump_area_1","class":"BeamNGGameplayArea","persistentId":"ed8490ca-abe6-4123-b264-febf78f2d332","__parent":"pumps","position":[1384.42517,1355.10095,118.669205],"scale":[2.06999993,0.516406298,1]}
+{"name":"fuel_tyrannos_pump_area_2","class":"BeamNGGameplayArea","persistentId":"6eac749d-fb14-4e88-8d11-d9893e3d69fe","__parent":"pumps","position":[1384.42517,1346.79541,118.669205],"scale":[2.06999993,0.516406298,1]}
+{"name":"fuel_tyrannos_pump_area_3","class":"BeamNGGameplayArea","persistentId":"f8ae7822-e327-4259-8dd2-a24a634d3705","__parent":"pumps","position":[1370.71021,1355.08582,118.669205],"scale":[2.06999993,0.516406298,1]}
+{"name":"fuel_tyrannos_pump_area_4","class":"BeamNGGameplayArea","persistentId":"d3802401-2cf7-49f3-a372-856bdb384112","__parent":"pumps","position":[1370.71021,1346.78137,118.669205],"scale":[2.06999993,0.516406298,1]}

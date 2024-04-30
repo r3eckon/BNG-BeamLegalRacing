@@ -1,0 +1,15 @@
+{"name":"Audio","class":"SimGroup","persistentId":"c3d6870c-5acb-4dba-9e68-df2bbd45008d","__parent":"MissionGroup"}
+{"name":"CameraBookmarks","class":"SimGroup","persistentId":"496caae2-b60e-489f-b71e-53ac9c7f40fd","__parent":"MissionGroup"}
+{"name":"level_object","class":"SimGroup","persistentId":"203efdc9-88a8-4d47-8ee4-9bef18448ee2","__parent":"MissionGroup"}
+{"name":"PlayerDropPoints","class":"SimGroup","persistentId":"e3afa1a3-5a53-4c08-a73f-a74ca7ca30ef","__parent":"MissionGroup","enabled":"1"}
+{"name":"building","class":"SimGroup","persistentId":"af72b89d-76a5-4b9a-929d-4501594c4a47","__parent":"MissionGroup"}
+{"name":"rocks","class":"SimGroup","persistentId":"ff03e785-fce5-44f4-b92f-eca442775fdd","__parent":"MissionGroup"}
+{"name":"prop","class":"SimGroup","persistentId":"bd886f29-6e28-49d4-bf6c-a9102106baa7","__parent":"MissionGroup"}
+{"name":"electric_lines","class":"SimGroup","persistentId":"25dfcf1f-15d0-4421-92a2-35fb36aeda4d","__parent":"MissionGroup"}
+{"name":"event_city","class":"SimGroup","persistentId":"a28a9e0f-8ece-4498-b55c-131adafb7f9d","__parent":"MissionGroup"}
+{"name":"decal_road","class":"SimGroup","persistentId":"125e7332-6ea9-40a2-9f5d-2b4778ec3748","__parent":"MissionGroup"}
+{"name":"jv_crawling_trails_external","class":"SimGroup","persistentId":"35390654-f41b-450b-9618-e1ce9fea42db","__parent":"MissionGroup"}
+{"name":"jv_crawling_trails_internal","class":"SimGroup","persistentId":"35390654-f41b-450b-9618-e1ce9fea42nm","__parent":"MissionGroup"}
+{"name":"set_dress_trails","class":"SimGroup","persistentId":"c8a04f15-81a2-4ac6-a5a7-916814c52f78","__parent":"MissionGroup"}
+{"name":"night_light","class":"SimGroup","persistentId":"593da278-e3d6-4fd2-8c9f-9fb2bd7ce4cf","__parent":"MissionGroup"}
+{"name":"BeamLR","class":"SimGroup","persistentId":"b1543a40-81be-4846-8103-c702999a4414","__parent":"MissionGroup"}

@@ -15,9 +15,6 @@
 /vehicles/etkc/kc4_250_M.pc
 /vehicles/etkc/kc6_360_M.pc
 /vehicles/etkc/kc6_360_A.pc
-/vehicles/coupe/police.pc
-/vehicles/coupe/custom.pc
-/vehicles/coupe/drift.pc
 /vehicles/covet/turbo_evolution.pc
 /vehicles/fullsize/roadsport.pc
 /vehicles/moonhawk/v8special.pc
@@ -79,7 +76,6 @@
 /vehicles/pickup/d35_longbed_dually_A.pc
 /vehicles/etkc/kc4_250_A.pc
 /vehicles/hopper/race.pc
-/vehicles/coupe/malodorous.pc
 /vehicles/covet/turbo.pc
 /vehicles/roamer/facelift.pc
 /vehicles/roamer/xt_facelift.pc
@@ -145,3 +141,14 @@
 /vehicles/bluebuck/drift.pc
 /vehicles/sbr/base_RWD_DCT.pc
 /vehicles/sbr/base_RWD_M.pc
+/vehicles/bx/police_alt_A.pc
+/vehicles/bx/street_drift_M.pc
+/vehicles/bx/200bx_type_ls_M.pc
+/vehicles/bx/200bx_gtz_M.pc
+/vehicles/bx/240bx_coupe_rally_sq.pc
+/vehicles/bx/vspecial_M.pc
+/vehicles/bx/200bx_type_ls_A.pc
+/vehicles/bx/diana_type_ls_M.pc
+/vehicles/bx/diana_type_ls_A.pc
+/vehicles/bx/diana_gtz_M.pc
+/vehicles/bx/police_A.pc

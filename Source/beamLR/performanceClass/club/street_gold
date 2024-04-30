@@ -14,7 +14,6 @@ vehicles/etk800/846x_ttsport_plus_DCT.pc
 vehicles/etk800/846_ttSport_custom_DCT.pc
 vehicles/etk800/846_ttsport_heritage_M.pc
 vehicles/legran/race.pc
-vehicles/coupe/demon.pc
 vehicles/bastion/street_tuned.pc
 vehicles/etkc/kc6_360_A.pc
 vehicles/etkc/kc6x_360_A.pc
@@ -34,3 +33,5 @@ vehicles/autobello/150_track.pc
 vehicles/van/street_tuned.pc
 vehicles/lansdale/44_tuner_special_AWD_SC_M.pc
 vehicles/lansdale/38_race_late_M.pc
+vehicles/bx/track_M.pc
+vehicles/bx/runner_M.pc

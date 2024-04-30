@@ -1,7 +1,6 @@
 {"name":"Amb_2D","class":"SimGroup","persistentId":"3c9077c1-a7f7-428a-9efe-6c23d59f32dc","__parent":"Audio"}
 {"name":"Amb_3D","class":"SimGroup","persistentId":"fddbccc6-053b-4f9b-8663-f87338c471c4","__parent":"Audio"}
 {"name":"Snapshots","class":"SimGroup","persistentId":"774bc190-2611-4125-a4d4-36232e480852","__parent":"Audio"}
-{"name":"Whooshes","class":"SimGroup","persistentId":"b41b5cd2-156b-41bf-8e38-087fc8290959","__parent":"Audio"}
 {"name":"Wind","class":"SimGroup","persistentId":"1d6739f7-486e-44b6-8b53-c489b67abdcf","__parent":"Audio"}
 {"name":"Airplanes","class":"SFXEmitter","persistentId":"8b650ef6-5e55-4734-839f-e2d2cbc03f9d","__parent":"Audio","position":[33.6031418,-35.776062,120.528595],"fadeInTime":0,"fadeOutTime":0,"isLooping":false,"maxDistance":5000,"referenceDistance":2000,"scale":[5000,5000,5000]}
 {"name":"Generic_Air","class":"SFXEmitter","persistentId":"c9a0c181-5a52-4402-a866-0398019929f4","__parent":"Audio","position":[-385.967896,-218.039124,1344.69641],"cloneOrigin":"Animal_QP12_1453_1","fadeInTime":0,"fadeOutTime":0,"is3D":false,"isLooping":false,"maxDistance":20,"rotationMatrix":[1,0,0,0,0.999999762,-0.000690533896,0,0.000690533896,0.999999762],"scale":[20,20,20],"track":"event:>Ambient>2D>Generic_Air","useTrackDescriptionOnly":true}

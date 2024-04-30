@@ -67,7 +67,6 @@
 /vehicles/pickup/d35_longbed_dually_A.pc
 /vehicles/pickup/deserttruck_crawler_A.pc
 /vehicles/hopper/race.pc
-/vehicles/coupe/malodorous.pc
 /vehicles/covet/gtz.pc
 /vehicles/roamer/unmarked.pc
 /vehicles/roamer/facelift.pc
@@ -145,3 +144,8 @@
 /vehicles/bluebuck/drift.pc
 /vehicles/sbr/base_RWD_DCT.pc
 /vehicles/sbr/base_RWD_M.pc
+/vehicles/bx/200bx_type_ls_M.pc
+/vehicles/bx/240bx_coupe_rally_sq.pc
+/vehicles/bx/200bx_type_ls_A.pc
+/vehicles/bx/diana_type_ls_M.pc
+/vehicles/bx/diana_type_ls_A.pc

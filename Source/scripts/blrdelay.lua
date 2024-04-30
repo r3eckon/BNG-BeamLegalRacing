@@ -41,6 +41,25 @@ ftable["uioptionsreload"] = function(p)
 extensions.customGuiStream.sendCurrentOptionValues()
 end
 
+ftable["onswitch"] = function(p)
+local oldid = p
+local shopmode = extensions.blrglobals.blrFlagGet("shopmode")
+local walking = extensions.betterpartmgmt.getMainPartName() == "unicycle"
+if (not shopmode) and walking then
+extensions.blrglobals.blrFlagSet("shopWalkingMode", true)
+extensions.blrutils.blrvarSet("playervehid", oldid)
+elseif (not shopmode) then
+extensions.blrglobals.blrFlagSet("shopWalkingMode", false)
+end
+end
+
+ftable["updateOilLeak"] = function(p)
+local veh = scenetree.findObjectById(p)
+if veh then
+veh:queueLuaCommand("extensions.blrVehicleUtils.updateOilLeakRate()")
+end
+end
+
 
 
 local fqueue = {} -- frame delay queue

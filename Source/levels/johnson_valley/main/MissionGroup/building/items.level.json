@@ -1,0 +1,3 @@
+{"class":"TSStatic","persistentId":"6939e0e6-d6b0-4bc6-8e7b-fc7c390ecaa4","__parent":"building","position":[-899.59082,-832.634766,171.543488],"annotation":"BUILDINGS","isRenderEnabled":false,"rotationMatrix":[-0.0949807167,-0.995479047,0,0.995479047,-0.0949807167,0,0,0,1],"shapeName":"/levels/johnson_valley/art/shapes/building/s_building_radio_tower.dae","useInstanceRenderData":true}
+{"name":"settlement","class":"SimGroup","persistentId":"30621433-b749-4bd0-92f5-4f3463988b55","__parent":"building"}
+{"name":"Gas_station","class":"SimGroup","persistentId":"e12d541c-c591-48e8-94b5-0e2ffbd08b60","__parent":"building"}

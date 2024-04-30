@@ -1,8 +1,8 @@
 desc=Another long drag race
 wager=1500,3000
 slips=0.08
-enemyModel=coupe
-enemyConfig=vehicles/coupe/demon.pc
+enemyModel=bx
+enemyConfig=vehicles/bx/runner_M.pc,vehicles/bx/track_M.pc
 enemyRisk=2.0
 enemyBasePrice=0
 enemyPartPrice=0

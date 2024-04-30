@@ -13,7 +13,9 @@
 <div style="text-align:center">
 <span style="transform:translate(-80px, 0px); display:inline-block; font-size:20px; width:100px;">Position</span>
 <span style="display:inline-block; font-size:20px; width:300px;">Name</span>
-<span style="transform:translate(50px, 0px); display:inline-block; font-size:20px; width:100px;">Time</span>
+<span ng-if="eventdata['bossmode'] != true" style="transform:translate(50px, 0px); display:inline-block; font-size:20px; width:100px;">Time</span>
+<span ng-if="eventdata['bossmode'] == true" style="transform:translate(50px, 0px); display:inline-block; font-size:20px; width:100px;">Score</span>
+
 </div>
 
 <div style="overflow-y:scroll; max-height:200px; min-height:200px; max-width:700px; min-width:700px; margin: 0 auto; background-color:rgba(0.0,0.0,0.0,0.5);">
@@ -22,7 +24,8 @@
 <div style="text-align:center; line-height:40px;">
 <span style="transform:translate(-80px, 0px); display:inline-block; font-size:20px; width:100px;">{{position + 1}}</span>
 <span style="display:inline-block; font-size:20px; width:300px;">{{name}}</span>
-<span style="transform:translate(50px, 0px); display:inline-block; font-size:20px; width:120px;">{{leaderboard['time'][position]}}</span>
+<span ng-if="eventdata['bossmode'] != true" style="transform:translate(50px, 0px); display:inline-block; font-size:20px; width:120px;">{{leaderboard['time'][position]}}</span>
+<span ng-if="eventdata['bossmode'] == true" style="transform:translate(50px, 0px); display:inline-block; font-size:20px; width:120px;">{{leaderboard['score'][position]}}</span>
 </div>
 
 </div>

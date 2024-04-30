@@ -242,6 +242,8 @@ guihooks.trigger("beamlrGPSCurrentDestination", lastdata["gpsdest"])
 guihooks.trigger("beamlrGPSCurrentDistance", extensions.blrutils.getGPSDistance())
 guihooks.trigger("beamlrGPSDistanceUnit", extensions.blrutils.gpsGetUnit())
 guihooks.trigger("beamlrGPSToggleState", lastdata["gpstoggle"])
+-- sticking towing UI init in here also
+guihooks.trigger("beamlrToggleTowUI",lastdata["towtoggle"])
 end
 
 local function sendCurrentOptionValues()
@@ -308,6 +310,61 @@ guihooks.trigger("beamlrImageUIFile", f)
 end
 
 
+local function towingUIToggle(toggle)
+lastdata["towtoggle"] = toggle
+guihooks.trigger("beamlrToggleTowUI", toggle)
+end
+
+local function firstToUpper(str)
+return (str:gsub("^%l", string.upper))
+end
+
+local function sendItemInventory()
+local uidata = {}
+local inventory = extensions.blrItemInventory.getInventory()
+local units = extensions.blrutils.getSettingValue("uiUnits")
+local ctype = ""
+local cname = ""
+local cdata = ""
+local cimage = ""
+local ksplit = {}
+local vsplit = {}
+for k,v in keySortedPairs(inventory) do
+ksplit = extensions.blrutils.ssplit(k, "_")
+ctype = ksplit[2]
+cname = extensions.blrItemInventory.getUIName(ctype)
+cimage = "/ui/modules/apps/beamlrui/itemimg/" .. extensions.blrItemInventory.getUIImage(ctype)
+
+--type specific stuff
+if(ctype == "fuelcan") then
+cdata = "" .. firstToUpper(v.ftype) .. ", " .. firstToUpper(v.ftier) .. ", "
+if units == "imperial" then
+cdata = cdata .. (string.format("%.2f", tonumber(v.quantity) / 3.785)) .. " Gallons"
+else
+cdata = cdata .. (string.format("%.2f", tonumber(v.quantity))) .. " Liters"
+end
+
+elseif (ctype == "oilbottle") then
+cdata = "" .. v.brand .. ", " .. v.grade .. ", "
+if units == "imperial" then
+cdata = cdata .. (string.format("%.2f", tonumber(v.quantity) / 3.785)) .. " Gallons"
+else
+cdata = cdata .. (string.format("%.2f", tonumber(v.quantity))) .. " Liters"
+end
+
+end
+
+--building table to send to ui
+uidata[k] = {itype=ctype, iname=cname, idata=cdata, image=cimage}
+
+end
+
+sendDataToUI("itemInventory", uidata)
+
+end
+
+M.sendItemInventory = sendItemInventory
+M.towingUIToggle = towingUIToggle
 M.imageUIMode = imageUIMode
 M.imageUIFile = imageUIFile
 M.imageUIToggle = imageUIToggle

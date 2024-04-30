@@ -1,9 +1,7 @@
-
-
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.14.3/beamLegalRacing1.14.3.zip
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.15/beamLegalRacing1.15.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.14.3
+# Beam Legal Racing 1.15
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -13,7 +11,7 @@ Perform missions, races and challenges to earn money to buy vehicles and parts. 
 
 ### Career Maps | [Utah](utahmap.md) | [East Coast](eastcoastmap.md) | [Italy](italymap.md) | [West Coast](westcoastmap.md)
 
-### Track Event Maps | [Hirochi Raceway](hirochimap.md) | [Automation Test Track](automationmap.md) | [Nordschleife](map_ks_nord.md)
+### Track Event Maps | [Hirochi Raceway](hirochimap.md) | [Automation Test Track](automationmap.md) | [Johnson Valley](map_johnson.md) | [Nordschleife](map_ks_nord.md)
 
 ### [Addons](Addons) | [Nordschleife](Addons/ks_nord) | [Part Images](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main/Addons/Part%20Images)
 
@@ -109,6 +107,8 @@ Version 1.14.1 adds smooth refueling, instant traffic toggling and dynamic gas s
 Version 1.14.2 adds improved fuel system (fuel tiers, diesel) and a safe mode option for part edits used to prevent damage when removing certain parts. Read the [Improved Fuel System](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#improved-fuel-system) and [Part Edit Safe Mode](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#part-edit-safe-mode) section of this readme for more information on these new features. As always make sure to manually back up your current beamLR folder in case the fuel system changes cause issues with your old career files.
 
 Version 1.14.3 adds part images (see [addon](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main/Addons/Part%20Images)) and a rep & reward scaling option.
+
+Version 1.15 adds walk mode integration, consumable item inventory system, oil value persistence, slow oil leaks for high odometer vehicles, ability to tow to specific locations and "The Race of Heroes" endgame track event. See [improved oil system](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#improved-oil-system) and [consumable item inventory](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#consumable-item-inventory) for more information.
 
 
 Further instructions and various tips on this mods' various features are listed in the BeamLR UI Main Menu.
@@ -244,311 +244,24 @@ For example, if a fuel tank contains a 50/50 mix of premium and mid-grade the in
 ## Part Edit Safe Mode
 Added in version 1.14.2 part edit safe mode is a new advanced option used to help prevent damage during part edits. Certain parts may cause damage when removed, for instance wheels, which cause the vehicle to fall and damage the bumper. This option will temporarily increase beam strength to help prevent taking damage. While in safe mode, the vehicle will be frozen in place. To unfreeze the vehicle you must exit safe mode, at which point the game will reload the normal beam strength values. This option can be kept off for the vast majority of part edits but should help with certain edits that tend to cause damage.
 
+## Walk Mode Integration
+Walk mode is now integrated with certain mod features as of version 1.15 allowing you to exit your own vehicle, to interact with the controls of gooseneck trailers, to interact with shop vehicles (which will properly reflect currently entered vehicle details in UI) and to access a new consumable item shop at gas stations.
+
+## Consumable Item Inventory
+Added in version 1.15 is a new inventory system for "consumable" type items. The first iteration of this system comes with two consumable items: fuel canisters and oil bottles. Both can be used to refill your vehicle in an emergency. Items can be purchased by walking at a gas station ("convenience store" menu). Gas canisters can contain gasoline or diesel and like regular gas station refuelling using the incorrect fuel type will disable the engine. 
+
+## Improved Oil System
+Added in version 1.15 is an improved oil system that now saves oil value for your vehicles. This improved system also simulates a slow oil leak on vehicles with high odometer (above 100,000 km). The first iteration of this system is designed to leak all the oil in 2 hours for 100,000 km, 1 hour for 200,000 km and 30 minutes for 400,000 km. While this may not be realistic it is to give an incentive to upgrade to low mileage vehicles by having oil leak fully within the span of a play session. 
+
+Breaking the oilpan will now require refilling the oil as the emptied out value is restored even after repairing. Refill bottles can be purchased at gas stations with the walk mode menu.
+
+
 ## WIP Notice
 This mod is a work in progress. At this stage it is a decent vertical slice of the gameplay the project is trying to achieve with some bugs and quirks remaining that should get better as BeamNG and the mod are updated. That being said a lot of content is missing and reward values may be unbalanced relative to part prices.
 
 Due to the nature of BeamNG some features available to players may break the experience when playing BeamLR, such as the circular menu, world editor and other UI apps. If playing seriously (not actively trying to break stuff) try avoiding features that aren't directly offered in UI menus from the mod. While I still appreciate bug reports related to said features, some of them simply can't be disabled and related issues won't be prioritized.
 
 Beamstate is a very experimental BeamNG feature being used by this project for damage saving. If a vehicle suddenly breaks after being stored in good condition, the beamstate file got corrupted. Flowgraph has been added to detect and fix this, however it may not always work properly. You can fix this two ways: move your vehicle using the F11 world editor (will force a vehicle reset) or delete the vehicle beamstate file before launching the scenario to force a fresh vehicle beamstate. Beamstate also breaks Covet "advanced hinges" and may cause game crashes with the Scintilla.
-
-## Modding & Cheating
-It is easy to change or add to the mod since BeamLR relies on plaintext files to define things such as:
-* Player Money
-* Player Health
-* Player Reputation
-* Owned Vehicles (Model, Config, Gas in tank, Impound Cost, Sell values)
-* Race Parameters (Opponent Model, Config, Risk, Race Path, Rewards)
-* Store Vehicles (Model, Config, Cost, Odometer)
-* Store Vehicle Availability (Which stores sell which vehicles)
-* Race Club Completion
-
-### Money cheat
-* Open beamLR/mainData with notepad.
-* Add a bunch of 0s to your money value.
-*  Save the file.
-* Restart the scenario for changes to take effect.
-
-### Adding new races
-
-Brand new races are created by adding triggers to the map where you want checkpoints. The AI uses waypoints to define the race path, make sure waypoint path takes the AI through checkpoint triggers.
-
-Race files also define opponent parameters like what vehicle and config to use, risk value, wager amounts, etc.
-
-Here is an example from one of the included race files:
-```
-desc=Drag race to the end of the highway
-wager=50,100
-slips=0
-enemyModel=sunburst
-enemyConfig=vehicles/sunburst/base_M.pc
-enemyRisk=0.98
-enemyBasePrice=0
-enemyPartPrice=0
-enemyScrapVal=0
-enemyPaint=0,0,0,0,0.1,0.1,0.1,0.1
-enemyAvoid=1
-triggers=BeamNGTrigger_HighwayDragFinish
-waypoints=ut_wp_53
-laps=1
-ifile=beamLR/races/integrity/bad
-traffic=1
-parts=none
-rep=5,20
-```
-The easiest way to create a new race is to copy a race file and giving it the next available file name.
-
-If the folder contains race0, race1 and race2 the copied file is renamed to **race3**.
-
-Then it is trivial to change the model and config. 
-
-Model name is the name of the zip file for that vehicle
-
-Config files are found in the zip files for each vehicle.
-
-Values separated by commas are interpreted as random ranges or choices.
-
-Works with wager, rep, laps and enemyRisk, enemyModel and enemyConfig.
-
-This is used to create randomized races that still use the same path. Used to make the endless "hero" race league more interesting.
-
-Since version 1.7 race files can contain a **waypoint speed** value list to set a target speed for the AI at a particular waypoint. This feature can be used to fix or refine AI behavior. For instance, adding brake zones at a spot where the AI keeps crashing due to high speeds.
-
-Format for this list is **wpspd=WPNAME:SPEED,WPNAME:SPEED, ...** 
-
-Since version 1.10 race files have been simplified, model list is no longer required as it is parsed from the config list. Configs for most races are now passed as **config=class:PATH_TO_CLASS_FILE** to help organize race opponents in easy to edit files for each club tier, as well as other track event related config categories which can be sorted by induction type, drivetrain type and vehicle brand.
-
-Version 1.11 makes the **slips** field a float value working as percent chance for a race to offer a pink slips bet.
-
-Also new in 1.11 is the ability to set race club open hours. The below trigger data file example is for a night only race club on east coast, open from 20:00 to 07:00. 
-
-```
-club=eastCoastNightRaceClub
-opsp=-755.02685546875,506.66494750977,23.37056350708
-opsr=0.0096882955460253,-0.018372787351004,0.89616867455903,0.44322712501998
-pspos=-758.22436523438,503.17645263672,23.403123855591
-psrot=0.010362435751454,-0.016063638166846,0.89713974366614,0.44133304860252
-psscl=3.5,5.8,10
-cname=Night Drag Race Club
-hours=20,7
-```
-Format is 24 hours with minutes as fraction of 1 hour so 30 minutes is 0.5 added to the hour value.
-For example to set the club open time from 20:30 to 7:30 use **hours=20.5,7.5**
-To keep race clubs open all the time use **hours=0,0**
-
-Since version 1.14 the **traffic** parameter works as a random chance to use traffic in a certain race.
-
-Also new in 1.14 is the ability to define looping subsections with **lstrig** and **lswp**. For example setting lstrig to 2 and lswp to 3 would mean the looping part of this race begins at checkpoint 2, with waypoint 3 used as the start of the looping path for the AI. This allows for a starting area that doesn't need to be traversed to complete extra laps.
-
-### UI Modding
-Part Images can be added to enhance the UX of the part shop.
-To add more part images:
-* Navigate to **userfolder/ui/modules/apps/beamlrui/partimg**
-* Inside BeamNG grab a small screencap of the part
-* Crop or resize the image to be square 200x200 resolution
-* Save the image in PNG format using the internal name of the part (**pickup_bed.png**)
-
-The UI will automatically look for PNG files with the various part names in order to show previews.
-
-Internal names for parts are shown in the part shop and part edit UI for now as reference to help this process
-
-
-Part Categories can be added to make it easier to navigate the list of available parts.
-The **userfolder/beamLR/partCategories** file contains the data needed for category matching:
-```
-sparetire=misc
-bed=body
-bumper=body
-radiator=engine
-...
-TEXT_TO_MATCH=CATEGORY
-```
-
-It relies on basic string matching so all part names with the text to match will be listed under that category.
-
-The UI is overall a heavy WIP and will need a ton of work to become more user friendly. 
-
-### Adding New Missions
-
-For small item delivery you need to add a trigger on the map where you want the destination to be so just open world editor and duplicate an existing delivery destination so you get the correct settings. Rename then move it where you want the destination and add a waypoint for the GPS system (or just pick one that's close enough). Save the map and restart the game (otherwise the trigger doesn't work). Copy a delivery file and alter the values to reflect your new destination.
-
-```
-dest=DESTINATION_TRIGGER
-desc=Deliver $item to DESTINATION
-reward=200
-items=list_all
-gmwp=DESTINATION_GPS_WAYPOINT
-type=small
-```
-
-For trailer deliveries you don't need triggers. Drive up to the location where the trailer should be placed. In lua console use **extensions.blrutils.slotHelper()** to dump vehicle and camera positions in the **beamLR/slotHelper** file (which will be created if it doesn't exist yet). Some vehicles tend to have slight offset when using this code but the ETK 800 works well enough. File will look like this:
-
-```
-slotp=-767.92095947266,474.75573730469,23.898416519165
-slotr=0.0077511852342431,0.0054148582438654,0.344295775316,0.93881362236454
-```
-
-Use the values to replace data in an existing trailer delivery file and fill in the remaining values accordingly.
-
-```
-destpos=SLOT_HELPER_SLOTP
-destrot=SLOT_HELPER_SLOTR
-desc=Deliver $item to DESTINATION
-reward=350
-items=list_all
-gmwp=DESTINATION_GPS_WAYPOINT
-type=trailer
-```
-
-Then last step so your mission is available in game is to add it to a mission giver. As of version 1.12 mission givers use list files to make it easier to add new missions. For this example we'll take a look at the mission giver file **beamLR/missions/utah/utahGiver0**:
-
-```
-tspos=775.04846191406,-168.5132598877,144.50952148438
-tsrot=0.0033254586916255,-0.0011244714208908,0.1608575760131,0.98697138617475
-slist=list_small
-tlist=list_trailer
-```
-
-The fields **tlist** and **slist** point to list files for trailer missions and small item missions respectively. The other two fields are the spawn position of trailers so should not be changed unless you're adding a new mission giver. Now taking a look at the file **list_small** you can see mission files are listed one by one:
-
-```
-caravanDelivery
-airfieldDelivery
-topshopDelivery
-constructionDelivery
-parkingLotDelivery
-touristAreaDelivery
-rangerCabinDelivery
-```
-Simply add your mission file to this file and your mission will now be available from the mission giver. To test your mission, create a temporary list file containing only your mission and use that list for a mission giver to force that mission to be offered immediately.
-
-
-You can also add extra delivery items. Item files for small deliveries are very simple, only item name which will be used to replace $item in the mission description and a G force value where the mission fails, basically the fragility of the item being delivered. Mission reward bonus scales with fragility. Just copy a file and change the values. Trailer items have an extra parameter for what trailer config should spawn, usually it will be one of the crate trailers for generic items but specific configs are also be used.
-
-```
-name=a couch
-failg=20.0
-trailer=vehicles/tsfb/loaded_couch.pc
-```
-
-After adding an item file you need to point to it in the mission files. As of version 1.12 items are also stored in list files which can quickly be edited with new items. Below is the item list **beamLR/missions/items/small/list_all** which is used for most small item delivery missions.
-
-```
-beer
-books
-coffee_lid
-coffee_nolid
-fastfood
-fishingequipment
-gameconsoles
-graphicscards
-monitors
-motoroil
-mufflers
-pistons
-pizza
-powertools
-scrapmetal
-soda
-sparkplugs
-tools
-```
-Simply add your item file to a list file to make it available in missions which use this list file. The **items** field of a mission file can be changed to point to different or more specific item list files such as the small item list **list_food** which only contains food items. Make sure not to use trailer item files/lists for small item deliveries.
-
-### Adding modded vehicles and custom configs to shops
-
-First step is to copy a file in the **beamLR/shop/car** folder so you have a new car file ready to replace values. Rename it to a unique file name.
-Opening that file you then replace the fields for your modded cars or custom configs. For this example the file used is **autobello_110AM**.
-
-```
-name=Autobello Piccolina (text value shown in car shop UI)
-type=autobello (internal BeamNG model of the vehicle)
-config=vehicles/autobello/110_m.pc (actual config file to spawn)
-baseprice=1000,3000 (price range, calculated as inverse of odometer so small odometer means higher price, for new vehicle use a single value)
-odometer=80000000,130000000 (odometer range in meters, for new vehicle use 0)
-scrapval=300 (value of vehicle when sold as scrap)
-partprice=0 (no longer used, can be ignored)
-paint=0,0,0,0,0.1,0.1,0.1,0.1 (only used as fallback paint color if random paints are turned off)
-randslots=autobello_fender_FL,autobello_bumper_F,...,..., (list of internal slot names to be randomized, usually only body panels)
-```
-
-The **randslots** line simply isn't there on new cars as they do not spawn with randomized parts. To use randomized parts use the following process:
-
-First step is to get a list of vehicle slots to find all the slots for body panels: 
-
-* Spawn the config in game
-* In lua console use the line **extensions.blrutils.actualSlotDebug()**
-
-This will dump the slots of that vehicle in the file **beamLR/actualSlotsDebug** so you can create the list of body panel slots. 
-
-Here is one way to accomplish this:
-
-* Look through the list to remove slots you don't want randomized (such as engine parts, wheels, other important parts)
-* Use Notepad++ search and replace **extended mode** to replace **\n** with a **comma**
-* Append that list to the **randslots** field.
-
-Keep in mind if you hit enter when removing slots it might add **\r\n** so if the list isn't in a single line that's probably why.
-
-Once you're done with the car file itself the next step is to make it available in shops. That's done within shop files in **beamLR/shops**.  As of version 1.12 list files are used to easily manage which vehicles are available in each shop. Shop files contain a link to the list file set using the **models** field. List files are stored in **beamLR/shop/car** and are simple one value per line files pointing to vehicle files. As an example here is the file **utahUsedCarShop** which uses the **list_used_all** list file:
-
-```
-name=Used Car Shop
-slots=4
-chance=0.9
-rpchance=0.3
-shopid=0
-models=list_used_all
-slotp0=824.29364013672,-0.1175025672017,147.83654785156
-slotr0=0.0019109094749717,0.034539506349485,-0.82961584485164,0.55832066827696
-slotp1=825.71472167969,-3.5963778495789,147.83418644531
-slotr1=0.0033082890440838,0.0027348922892865,-0.82524905499833,0.56475266903957
-slotp2=826.95849609375,-6.9461436271667,147.83628845215
-slotr2=0.0027869357604591,0.0029588866532912,-0.82071921700846,0.57131728908887
-slotp3=827.56097412109,-10.998514175415,147.83543395996
-slotr3=0.0033683123225928,0.0022886268196966,-0.6751874490874,0.73763495392656
-camp0=819.196,-0.168,149.798
-camr0=0.070,-0.080,0.749,0.654
-camp1=820.313,-4.253,149.607
-camr1=0.069,-0.069,0.706,0.702
-camp2=822.327,-7.880,149.303
-camr2=0.057,-0.057,0.707,0.703
-camp3=823.124,-11.839,149.786
-camr3=0.125,-0.112,0.660,0.732
-```
-Part of the file **list_used_all** can be seen below. Each line must point to a vehicle files in **beamLR/shop/car**. Add your previously created vehicle file to the list file for the shop you want your vehicle to be available in.
-
-```
-coupe_baseM
-coupe_malodorous
-coupe_typeLSM
-barstow_awful
-barstow_232I6M
-bluebuck_horrible
-bluebuck_291V8
-covet_pointless
-covet_13SM
-covet_typeLSM
-vivace_100M_used
-fullsize_miserable
-fullsize_V8A
-etki_2400M
-...
-```
-
-Your car should now be spawning in shops you added it to. While by default list files are mostly shared between shops of a similar type (scrap,used,new) shops can also have their own specific list files which can used to create more specific shops, for instance brand or country specific shops.
-
-With list files to test if your vehicle is working you can force it to spawn by creating a temporary list file containing only your vehicle and set a shop to use that list file. This will force the vehicle to spawn at that shop on the first attempt and will save you having to re-roll shops until your new vehicle spawns.
-
-
-### Other modding
-Start money can be customized, check the **beamLR/init** folder for the various start difficulties.
-
-Mod vehicles *should* also work but beamstate loading is a very unstable feature so some may have issues and I will not focus on fixing issues related to other mods.
-
-The flowgraph mission can also be tweaked, this is for advanced users only as it's very easy to break things.
-
-Same things goes for LUA scripts.
-
-As of version 1.12 pink slip races are now restricted for certain vehicle models listed in the file **beamLR/pinkslipsBlacklist**. Blacklisted (fancy) vehicles will only allow pink slips when player is also using a blacklisted vehicle. This list can be edited.
 
 ## Final Word
 Feedback and bug reports are appreciated! 
@@ -571,6 +284,8 @@ Thank you for playing BeamLR!
 * Ethan Rapp
 * Mattia Morris (Mattia83)
 * Michael Mckinley
+* Ecril
+* Jude Thaddeus Persia
 
 ## Known Issues 
 
@@ -910,3 +625,27 @@ Thank you for playing BeamLR!
 * Fixed part edit & buy menu layout breaking due to missing slot names
 * Fixed bug causing target wager option not to work
 * Fixed missing script for part edit safe mode
+
+### 1.15
+* Added "Race of Heroes" endgame track event on Johnson Valley
+* Added different tow locations (gas station, garage, used car shop, part shop)
+* Added walk mode integration (freely exit car, immersive car shop, gas station)
+* Added item inventory system (accessed using new BeamLR Main Menu page)
+* Added fuel canisters item (bought at gas station while walking)
+* Added oil systems (saved quantity, leaks at high odometer, oil bottle item to fill)
+* Added "Teleport To Start" button in track event UI
+* Fixed engine not disabled after removing fuel tank part (check loops over tanks)
+* Fixed condition checking part count before removing from inventory
+* Track event list now sorted by rep required (also sorted by name at same rep values)
+* Lowered rep required for Automation Drag Class X event (from 25k to 15k)
+* Updated modified lua/vehicle/jbeam/stage2.lua with 0.32 edits
+* Updated modified lua/vehicle/beamstate.lua with 0.32 edits
+* Replaced all "coupe" configs with remastered BX-series (shops, traffic, opponents)
+* Updated traffic spawngroups with new simple traffic configs
+* Updated WCUSA concrete plant delivery mission for 0.32 edits
+* Updated part images addon with BX-Series parts
+* Updated track event mission file to work with point based leaderboard system
+* Fixed incorrect orbit cam initial angle in car shops (caused by 0.32 edits)
+* Updated gps detection system for new gps_alt slot (used in BX-Series)
+* Temporary fix for audio "blur" effect bug in 0.32
+* Fixed incorrect default value for IMGUI scale

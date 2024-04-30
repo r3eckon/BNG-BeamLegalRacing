@@ -23,6 +23,7 @@ extensions.blrglobals.gmSetVal("podo", extensions.blrglobals.gmGetVal("codo"))	-
 extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-- do same thing with NOS
 extensions.blrglobals.gmSetVal("pftypes", extensions.blrutils.blrvarGet("fuelTypeString")) -- 1.14.2 addition, fuel types
 extensions.blrglobals.gmSetVal("pfratio", extensions.blrutils.blrvarGet("fuelRatioString")) -- 1.14.2 addition, fuel ratio
+extensions.blrglobals.gmSetVal("poil", extensions.blrglobals.gmGetVal("coil"))	-- 1.15 addition, oil 
 extensions.blrglobals.blrFlagSet("hasNos", false) -- Setting hasNos to false to avoid vlua fetching bug before flag is set by N2O Check node
 extensions.blrhooks.linkHook("vehReset", "postedit")							-- Hooks post edit actions to the vehicle restored callback
 																				-- which restores proper camera and gas value
@@ -221,6 +222,7 @@ extensions.blrglobals.gmSetVal("podo", extensions.blrglobals.gmGetVal("codo"))	-
 extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-- do same thing with NOS
 extensions.blrglobals.gmSetVal("pftypes", extensions.blrutils.blrvarGet("fuelTypeString")) -- 1.14.2 addition, fuel types
 extensions.blrglobals.gmSetVal("pfratio", extensions.blrutils.blrvarGet("fuelRatioString")) -- 1.14.2 addition, fuel ratio
+extensions.blrglobals.gmSetVal("poil", extensions.blrglobals.gmGetVal("coil"))	-- 1.15 addition, oil 
 extensions.blrhooks.linkHook("vehReset", "postedit")							-- Link to post edit action hook, reuse the code for tune
 extensions.betterpartmgmt.applyTuningData(dtable)
 end
@@ -231,6 +233,7 @@ extensions.blrglobals.gmSetVal("podo", extensions.blrglobals.gmGetVal("codo"))	-
 extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-- do same thing with NOS
 extensions.blrglobals.gmSetVal("pftypes", extensions.blrutils.blrvarGet("fuelTypeString")) -- 1.14.2 addition, fuel types
 extensions.blrglobals.gmSetVal("pfratio", extensions.blrutils.blrvarGet("fuelRatioString")) -- 1.14.2 addition, fuel ratio
+extensions.blrglobals.gmSetVal("poil", extensions.blrglobals.gmGetVal("coil"))	-- 1.15 addition, oil 
 extensions.blrhooks.linkHook("vehReset", "postedit")							-- Link to post edit action hook, reuse the code for tune
 extensions.betterpartmgmt.resetTuningData()
 end
@@ -530,6 +533,7 @@ extensions.blrglobals.gmSetVal("podo", extensions.blrglobals.gmGetVal("codo"))
 extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))
 extensions.blrglobals.gmSetVal("pftypes", extensions.blrutils.blrvarGet("fuelTypeString")) -- 1.14.2 addition, fuel types
 extensions.blrglobals.gmSetVal("pfratio", extensions.blrutils.blrvarGet("fuelRatioString")) -- 1.14.2 addition, fuel ratio
+extensions.blrglobals.gmSetVal("poil", extensions.blrglobals.gmGetVal("coil"))	-- 1.15 addition, oil 
 extensions.blrglobals.blrFlagSet("hasNos", false)
 extensions.blrhooks.linkHook("vehReset", "postedit")	
 
@@ -695,6 +699,7 @@ extensions.blrglobals.gmSetVal("podo", extensions.blrglobals.gmGetVal("codo"))	-
 extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-- do same thing with NOS
 extensions.blrglobals.gmSetVal("pftypes", extensions.blrutils.blrvarGet("fuelTypeString")) -- 1.14.2 addition, fuel types
 extensions.blrglobals.gmSetVal("pfratio", extensions.blrutils.blrvarGet("fuelRatioString")) -- 1.14.2 addition, fuel ratio
+extensions.blrglobals.gmSetVal("poil", extensions.blrglobals.gmGetVal("coil"))	-- 1.15 addition, oil 
 extensions.blrhooks.linkHook("vehReset", "postedit")							-- link to post edit action hook
 
 -- charge player for repair
@@ -793,6 +798,29 @@ extensions.blrutils.blrvarSet("raceRepScale", p)
 extensions.blrglobals.blrFlagSet("reloadRace", true)
 end
 
+ftable["towSelectDestination"] = function(p)
+local level = extensions.blrutils.getLevelName()
+local towdata = extensions.blrutils.loadDataTable("beamLR/mapdata/" .. level .. "/towing")
+local towtrig = towdata[p .. "_trigger"]
+extensions.blrutils.blrvarSet("towtrig", towtrig)
+extensions.blrutils.blrvarSet("towdest", p)
+extensions.blrglobals.blrFlagSet("towQueued", true)
+end
+
+ftable["itemUse"] = function(p)
+local itype = extensions.blrutils.ssplit(p, "_")[2]
+local item = extensions.blrItemInventory.getInventoryItem(p)
+extensions.blrutils.blrvarSet("item_ikey", p)
+extensions.blrutils.blrvarSet("item_itype", itype)
+extensions.blrutils.blrvarSet("item_idata", item)
+extensions.blrglobals.blrFlagSet("itemUseQueued", true)
+end
+
+ftable["itemDiscard"] = function(p)
+extensions.blrItemInventory.removeFromInventory(p)
+extensions.blrItemInventory.saveInventory()
+extensions.customGuiStream.sendItemInventory()
+end
 
 
 local ptable = {}

@@ -1,0 +1,5 @@
+{"name":"ai_dirt_roads","class":"SimGroup","persistentId":"db551bc9-70cd-4a57-9b79-cdcf741b2839","__parent":"ai"}
+{"name":"ai_asphalt_roads","class":"SimGroup","persistentId":"c7b0c4a6-7420-4040-b706-6a6d02165575","__parent":"ai"}
+{"name":"ai_trails_easy","class":"SimGroup","persistentId":"2d3fc64b-d977-4fd2-8c8c-d7ed4d5f52e4","__parent":"ai"}
+{"name":"ai_trails_medium","class":"SimGroup","persistentId":"b0313e68-4df9-4cc2-9841-80f714a9e410","__parent":"ai"}
+{"name":"ai_trails_hard","class":"SimGroup","persistentId":"ba2705a9-5296-4889-8e89-a4d79c63d3a9","__parent":"ai"}

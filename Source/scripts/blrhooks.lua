@@ -120,7 +120,13 @@ function onCouplerDetached(objId1, objId2, nodeId, obj2nodeId)
 extensions.blrTrailerManager.couplerDetached(objId1, objId2, nodeId, obj2nodeId)
 end
 
+function onVehicleSwitched(old, new, player)
+extensions.blrdelay.setParam("oldid", old)
+extensions.blrdelay.queue("onswitch", "oldid", 10)
+end
 
+
+M.onVehicleSwitched = onVehicleSwitched
 M.onCouplerDetached = onCouplerDetached
 M.onCouplerAttached = onCouplerAttached
 M.onMenuToggled = onMenuToggled

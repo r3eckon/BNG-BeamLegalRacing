@@ -1,5 +1,4 @@
 {"name":"CBF_noiseblockers","class":"SimGroup","persistentId":"1725523d-14c2-4d43-ac02-b032a74d5760","__parent":"concrete_batch_factory"}
-{"name":"CBF_additional_temp_details","class":"SimGroup","persistentId":"73c750fa-1e5f-4888-b0e4-df751573fca6","__parent":"concrete_batch_factory"}
 {"name":"CBF_precast_walls","class":"SimGroup","persistentId":"25468caf-075e-4f62-a62b-706602222ab5","__parent":"concrete_batch_factory"}
 {"name":"CBF_entranceFence","class":"SimGroup","persistentId":"ae7507b8-7b75-4cb0-9bf6-39dd6174889a","__parent":"concrete_batch_factory"}
-{"name":"CBF_assets","class":"SimGroup","persistentId":"be409572-a553-47d2-b6c1-16390e6205fb","__parent":"concrete_batch_factory","hidden":true}
+{"name":"CBF_assets","class":"SimGroup","persistentId":"be409572-a553-47d2-b6c1-16390e6205fb","__parent":"concrete_batch_factory"}

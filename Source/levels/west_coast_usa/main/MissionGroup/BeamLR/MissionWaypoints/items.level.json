@@ -11,7 +11,7 @@
 {"name":"blrwp_studiowarehouse","class":"BeamNGWaypoint","persistentId":"68971d73-d097-403d-8db2-a2f6281c375a","__parent":"MissionWaypoints","position":[-795.59967,-561.981323,100.883163]}
 {"name":"blrwp_steelmill1","class":"BeamNGWaypoint","persistentId":"d6c1206a-80a8-4248-abd8-4f30ca2acd6f","__parent":"MissionWaypoints","position":[-1129.74634,-490.077332,104.358994]}
 {"name":"blrwp_steelmill2","class":"BeamNGWaypoint","persistentId":"5e585ac5-93ea-44f4-a323-c57c762f7f22","__parent":"MissionWaypoints","position":[-1404.4502,-928.328064,104.358994]}
-{"name":"blrwp_concreteparking","class":"BeamNGWaypoint","persistentId":"0a3f26b5-1d3d-4047-829e-10910f93688e","__parent":"MissionWaypoints","position":[-673.904236,22.2798119,102.837585]}
+{"name":"blrwp_concreteparking","class":"BeamNGWaypoint","persistentId":"0a3f26b5-1d3d-4047-829e-10910f93688e","__parent":"MissionWaypoints","position":[-579.822998,8.80678654,100.615273]}
 {"name":"blrwp_delifoodmart","class":"BeamNGWaypoint","persistentId":"ddcbfead-4e88-415d-9f98-a3079d61bdd2","__parent":"MissionWaypoints","position":[-623.213501,73.6200714,102.699127]}
 {"name":"blrwp_restaurant","class":"BeamNGWaypoint","persistentId":"80fec844-4ac3-47bd-afc0-514a826b1629","__parent":"MissionWaypoints","position":[-662.307373,113.941849,116.741501]}
 {"name":"blrwp_motel","class":"BeamNGWaypoint","persistentId":"7c415d3e-5792-4a9f-8b76-a9e9a333e7bb","__parent":"MissionWaypoints","position":[-548.067078,148.869614,100.395142]}

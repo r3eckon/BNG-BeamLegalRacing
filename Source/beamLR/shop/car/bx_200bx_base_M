@@ -1,0 +1,9 @@
+name=Ibishu BX-Series (200BX Base Model,Manual)
+type=bx
+config=vehicles/bx/200bx_base_M.pc
+baseprice=5000,7000
+odometer=50000000,100000000
+scrapval=500
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1
+randslots=bx_doorpanel_L,bx_door_L,bx_underglow,bx_lightbar,bx_sideskirt_L,bx_towhitch,bx_bumperbar_F,bx_skidplate,bx_mudflap_FR,bx_bumper_R,bx_doorpanel_R,bx_sideskirt_R,bx_fenderflare_RR,bx_rollcage,bx_trim_bumper_R,bx_doorglass_L,bx_seats_R,bx_mirror_L,bx_tubs_FR,skin_interior,bx_mudflap_FL,bx_mirror_R,bx_trim_body,bx_fenderflare_RL,bx_doorglass_R,bx_mudflap_R,bx_tubs_FL,bx_door_R,bx_spoiler_hatch,bx_roof_accessory_hatch

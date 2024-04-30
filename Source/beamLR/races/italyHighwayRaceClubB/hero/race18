@@ -1,8 +1,8 @@
 desc=Another highway run
 wager=1000,2500
 slips=0.01
-enemyModel=coupe
-enemyConfig=vehicles/coupe/drag.pc
+enemyModel=bx
+enemyConfig=vehicles/bx/drag_A.pc
 enemyRisk=1.0
 enemyBasePrice=0
 enemyPartPrice=0

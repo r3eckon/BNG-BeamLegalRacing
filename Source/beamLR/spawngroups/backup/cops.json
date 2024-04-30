@@ -1,8 +1,12 @@
 {
   "data":[
     {
-      "config":"police",
-      "model":"coupe"
+      "config":"police_A",
+      "model":"bx"
+    },
+	{
+      "config":"police_alt_A",
+      "model":"bx"
     },
     {
       "config":"police",

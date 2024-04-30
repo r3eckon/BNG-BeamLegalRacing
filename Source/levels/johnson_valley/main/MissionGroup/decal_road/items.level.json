@@ -1,0 +1,7 @@
+{"name":"antenna_decalroads","class":"SimGroup","persistentId":"60021124-23b2-4947-b408-84d351957152","__parent":"decal_road"}
+{"name":"map_edges","class":"SimGroup","persistentId":"87e66bb4-3b35-489a-8051-8e01b4642c99","__parent":"decal_road"}
+{"name":"event_city_decal","class":"SimGroup","persistentId":"e9dff3ec-bb3e-4a8b-9129-ac7b86647c3a","__parent":"decal_road"}
+{"name":"event_city_track_decal","class":"SimGroup","persistentId":"ed640340-2be8-4c76-91cc-de266d7536c3","__parent":"decal_road"}
+{"name":"ai","class":"SimGroup","persistentId":"e600096f-3d69-46f2-91bf-8acd70fdc489","__parent":"decal_road"}
+{"name":"dirtroads","class":"SimGroup","persistentId":"67fae898-6ddd-428b-90d4-03e7cf364820","__parent":"decal_road"}
+{"name":"remote_pits_decalroads","class":"SimGroup","persistentId":"7e36e31d-878a-44a4-b5c3-091d4ffb53b1","__parent":"decal_road"}

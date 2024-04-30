@@ -384,8 +384,9 @@ end
 local function processTorsionhydros(vehicle)
   if vehicle.torsionHydros == nil then return end
   vehicle.torsionbars = vehicle.torsionbars or {}
+  local tbi = tableEndC(vehicle.torsionbars)
   for i, hydro in pairs(vehicle.torsionHydros) do
-    table.insert(vehicle.torsionbars, hydro)
+    vehicle.torsionbars[tbi] = hydro; tbi = tbi + 1
     hydro.inRate = hydro.inRate or 2
     hydro.outRate = hydro.outRate or hydro.inRate
     hydro.inLimit = checkNum(hydro.inExtent, hydro.inLimit or -1)
@@ -455,9 +456,15 @@ local function processTriangles(vehicle)
       end
 
       if triangle.pressure ~= nil or triangle.pressurePSI ~= nil then
-        triangle.pressure = math.max(triangle.pressure or PSItoPascal(triangle.pressurePSI), 0) -- From PSI to Pa
-        triangle.pressurePSI = (triangle.pressure - 101325) / 6894.757
-        pressure = triangle.pressure
+        if triangle.pressure == false or triangle.pressurePSI == false then
+          triangle.pressure = false
+          triangle.pressurePSI = false
+          pressure = -1
+        else
+          triangle.pressure = triangle.pressure or PSItoPascal(triangle.pressurePSI) -- From PSI to Pa
+          triangle.pressurePSI = (triangle.pressure - 101325) / 6894.757
+          pressure = triangle.pressure
+        end
       end
     end
 
@@ -471,9 +478,9 @@ local function processTriangles(vehicle)
       log('E', "jbeam.pushToPhysics", "Found degenerate collision triangle with nodes: "..t1..', '..t2..', '..t3)
     end
 
-    triangle.cid = obj:setTriangle(-1, triangle.id1, triangle.id2, triangle.id3, dragCoef * 0.01, liftCoef * 0.01, (triangle.skinDragCoef or 0) * 0.01,
-      type(triangle.stallAngle) == 'number' and triangle.stallAngle or 0.58, pressure, pressureGroup, externalCollision,
-      triangle.triangleType, triangle.groundModel or "asphalt")
+    triangle.cid = obj:setTriangle(-1, triangle.id1, triangle.id2, triangle.id3, dragCoef * 0.01, liftCoef * 0.01,
+      (triangle.skinDragCoef or 0) * 0.01, type(triangle.stallAngle) == 'number' and triangle.stallAngle or 0.58,
+      pressure, pressureGroup, externalCollision, triangle.triangleType, triangle.groundModel or "asphalt")
   end
 end
 

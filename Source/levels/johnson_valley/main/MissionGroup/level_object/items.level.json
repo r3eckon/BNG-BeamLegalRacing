@@ -1,0 +1,5 @@
+{"name":"sky","class":"SimGroup","persistentId":"1e21ad5d-80fe-45c7-a07b-a27102cce0ec","__parent":"level_object"}
+{"name":"terrain","class":"SimGroup","persistentId":"f209b43f-00cc-4dc1-a3e2-81a7f7ba6e4a","__parent":"level_object"}
+{"name":"vegetation","class":"SimGroup","persistentId":"5771d647-1034-4e1d-90c8-d47875277113","__parent":"level_object"}
+{"name":"volume","class":"SimGroup","persistentId":"caa2e8d6-af5d-4ce7-86ff-9bcff458429d","__parent":"level_object"}
+{"name":"Water","class":"SimGroup","persistentId":"d9f8d5b4-f50c-47b8-8ed7-91d786f5d4c0","__parent":"level_object"}

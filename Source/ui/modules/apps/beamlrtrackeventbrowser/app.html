@@ -15,12 +15,16 @@
 <div ng-repeat="(key,value) in eventlist">
 <div ng-click="eventSelected(value['file'], key)" style="margin-right:5px; margin-top: 10px; margin-bottom:10px; overflow:auto; border:2px solid white; border-radius:5px;" >
 <div>
-<p style="margin-left: 10px; margin-right: 10px; margin-top:0px; margin-bottom:0px; text-align:left; font-size:21px; font-weight:bold;">{{value["title"]}}</p>
+<p ng-if="value['bossevent'] != 'true'" style="margin-left: 10px; margin-right: 10px; margin-top:0px; margin-bottom:0px; text-align:left; font-size:21px; font-weight:bold;">{{value["title"]}}</p>
+<p ng-if="value['bossevent'] == 'true'" style="color:#eaf274; margin-left: 10px; margin-right: 10px; margin-top:0px; margin-bottom:0px; text-align:left; font-size:21px; font-weight:bold;">{{value["title"]}}</p>
 <p style="margin-left: 10px; margin-top:0px; margin-bottom:0px; text-align:left; font-size:15px; font-weight:bold;">Map: {{value["map"]}}</p>
 <p style="margin-top: 0px; margin-bottom:0px;"> 
 <span style="margin-left: 10px; float:left; font-size:15px; font-weight:bold;">Cost: {{value["joincost"]}}</span>
-<span ng-if="eventlist[key]['joined'] == false && playerdata['rep'] >= eventlist[key]['repunlock']" style="float:right; font-size:20px; font-weight:bold; margin-right:10px; color:green;">Unlocked</span>
-<span ng-if="eventlist[key]['joined'] == false && playerdata['rep'] < eventlist[key]['repunlock']" style="float:right; font-size:20px; font-weight:bold; margin-right:10px; color:red;">Locked (Need {{value["repunlock"]}} rep)</span>
+<span ng-if="eventlist[key]['joined'] == false && playerdata['rep'] >= eventlist[key]['repunlock'] && (value['bossevent'] != 'true' || playerdata['bossunlock'] == true)" style="float:right; font-size:20px; font-weight:bold; margin-right:10px; color:green;">Unlocked</span>
+<span ng-if="eventlist[key]['joined'] == false && playerdata['rep'] < eventlist[key]['repunlock'] && value['bossevent'] != 'true'" style="float:right; font-size:20px; font-weight:bold; margin-right:10px; color:red;">Locked (Reach {{value["repunlock"]}} rep)</span>
+<span ng-if="eventlist[key]['joined'] == false && playerdata['rep'] < eventlist[key]['repunlock'] && value['bossevent'] == 'true' && playerdata['bossunlock'] == true" style="float:right; font-size:20px; font-weight:bold; margin-right:10px; color:red;">Locked (Reach {{value["repunlock"]}} rep)</span>
+<span ng-if="eventlist[key]['joined'] == false && playerdata['rep'] < eventlist[key]['repunlock'] && value['bossevent'] == 'true' && playerdata['bossunlock'] != true" style="float:right; font-size:15px; font-weight:bold; margin-right:10px; color:red; text-align:right;">Locked (Reach Hero league in all clubs &amp {{value["repunlock"]}} rep)</span>
+<span ng-if="eventlist[key]['joined'] == false && playerdata['rep'] >= eventlist[key]['repunlock'] && value['bossevent'] == 'true' && playerdata['bossunlock'] != true" style="float:right; font-size:15px; font-weight:bold; margin-right:10px; color:red;">Locked (Reach Hero league in all clubs)</span>
 <span ng-if="eventlist[key]['joined'] == true" style="float:right; font-size:20px; font-weight:bold; margin-right:10px; text-color:green;">Joined</span>
 </p>
 </div>
@@ -71,8 +75,8 @@
 <div ng-if="playerdata['rep'] >= eventdata['reputation']">
 <div ng-if="playerdata['money'] >= eventdata['joincost']">
 <div ng-if="currentevent['status'] == 'over'">
+<div ng-if="eventdata['bossevent'] != 'true' || playerdata['bossunlock'] == true">
 <p><button ng-click="joinEvent(eventdata['efile'], selectedID)">Join Event (Cost: {{eventdata['joincost']}})</button></p>
-</div>
 <div ng-if="currentevent['status'] != 'over' && eventdata['efile'] == currentevent['efile']">
 <h3>Event joined!</h3>
 </div>
@@ -80,12 +84,20 @@
 <h3>Already joined another event!</h3>
 </div>
 </div>
+</div>
+</div>
 <div ng-if="playerdata['money'] < eventdata['joincost']">
 <h3>Need ${{eventdata['joincost']}} to join</h2>
 </div>
 </div>
-<div ng-if="playerdata['rep'] < eventdata['reputation']">
-<h3>Need {{eventdata['reputation']}} rep to unlock</h2>
+<div ng-if="playerdata['rep'] < eventdata['reputation'] && (eventdata['bossevent'] != 'true' || playerdata['bossunlock'] == true)">
+<h3>Reach {{eventdata['reputation']}} rep to unlock</h2>
+</div>
+<div ng-if="playerdata['rep'] < eventdata['reputation'] && eventdata['bossevent'] == 'true' && playerdata['bossunlock'] != true">
+<h3>Must reach Hero league in all race clubs<br>&amp {{eventdata['reputation']}} rep to unlock</h2>
+</div>
+<div ng-if="playerdata['rep'] >= eventdata['reputation'] && eventdata['bossevent'] == 'true' && playerdata['bossunlock'] != true">
+<h3>Must reach Hero league in all race clubs to unlock</h2>
 </div>
 </div>
 

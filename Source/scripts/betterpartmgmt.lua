@@ -11,12 +11,12 @@ local partPrice = {}
 local categoryData = {}
 local currentFilter = ""
 
-local function getVehicleData(veid)
+local function getVehicleData(veid, ignoreShopMode)
 local toRet = {}
 local shopmode = extensions.blrglobals.blrFlagGet("shopmode")
 local shopmodeid = extensions.blrutils.blrvarGet("playervehid")
 if not veid then
-if shopmode then
+if shopmode and (not ignoreShopMode) then
 toRet = vehManager.getVehicleData(shopmodeid)
 else
 toRet = vehManager.getPlayerVehicleData()
@@ -57,8 +57,8 @@ end
 return slotMap
 end
 
-local function getMainPartName()
-return jbeamIO.getMainPartName(getVehicleData().ioCtx)
+local function getMainPartName(raw)
+return jbeamIO.getMainPartName(getVehicleData(nil, raw).ioCtx)
 end
 
 local function getAvailablePartList()
@@ -141,7 +141,7 @@ end
 end
 
 local function removeFromInventory(p)
-if partInventory[p] ~= nil or 0 then
+if partInventory[p] ~= nil and partInventory[p] > 0 then
 partInventory[p] = partInventory[p] - 1
 end
 end

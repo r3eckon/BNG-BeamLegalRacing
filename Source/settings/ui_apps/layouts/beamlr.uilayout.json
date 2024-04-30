@@ -226,6 +226,18 @@
         "top":"0px",
         "width":"460px"
       }
+    },
+    {
+      "appName":"beamlrtowui",
+      "placement":{
+        "bottom":"",
+        "height":"260px",
+        "left":"240px",
+        "position":"absolute",
+        "right":"",
+        "top":"0px",
+        "width":"190px"
+      }
     }
   ],
   "description":"BeamLR UI Layout",

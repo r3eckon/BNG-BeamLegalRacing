@@ -1,0 +1,7 @@
+{"name":"event_city_fences","class":"SimGroup","persistentId":"1fffd3df-519d-491f-9cc9-64934a02145f","__parent":"event_city"}
+{"name":"truck_terrace","class":"SimGroup","persistentId":"c027c19b-6430-4cb8-8649-c53c60661337","__parent":"event_city"}
+{"name":"event_city_props","class":"SimGroup","persistentId":"7c342355-979b-4f3e-8180-f67783a8ba10","__parent":"event_city"}
+{"name":"event_city_track_props","class":"SimGroup","persistentId":"06a0f14d-93db-4cb7-a80c-29f704ec0448","__parent":"event_city"}
+{"name":"tent_gazebo","class":"SimGroup","persistentId":"78311213-9d6d-4296-ad31-bb75af5f3746","__parent":"event_city"}
+{"name":"RV_trailers","class":"SimGroup","persistentId":"55e7173b-f08a-42e1-9234-5f354f3f7e2f","__parent":"event_city"}
+{"name":"event_city_garage","class":"SimGroup","persistentId":"ffbab8f3-b2da-41dc-9cae-295a67f09c09","__parent":"event_city"}

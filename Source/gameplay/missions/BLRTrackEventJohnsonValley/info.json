@@ -1,0 +1,40 @@
+{
+  "additionalAttributes":{},
+  "customAdditionalAttributes":{},
+  "description":"Beam Legal Racing Track Event",
+  "devNotes":{
+    "devMission":false,
+    "mode":"silent",
+    "text":""
+  },
+  "grouping":{
+    "id":"",
+    "label":""
+  },
+  "missionType":"flowgraph",
+  "missionTypeData":{},
+  "name":"BLR Track Event",
+  "retryBehaviour":"infiniteRetries",
+  "startCondition":{
+    "type":"always"
+  },
+  "startTrigger":{
+    "level":"johnson_valley",
+    "pos":[
+      1890.292847,
+      4646.922852,
+      111.6689835
+    ],
+    "radius":3,
+    "rot":[
+      0,
+      0,
+      0.9575513601,
+      0.2882624865
+    ],
+    "type":"coordinates"
+  },
+  "visibleCondition":{
+    "type":"automatic"
+  }
+}

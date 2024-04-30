@@ -1,7 +1,7 @@
 carid=0
-efile=automation_drag_classA
-cround=2
-ctimes=player:8109546.5321923,op1:4098805.5179073,op2:4185460.0203631,op3:4163699.5192444
+efile=johnson_ROH
+cround=7
+ctimes=player:3,op1:4
 eventid=0
 status=over
-seed=123
+seed=1234

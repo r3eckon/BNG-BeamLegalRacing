@@ -65,6 +65,21 @@ local wrongFuel = false
 local function fuelTypeCheck(toCheck, drained)
 local engine = powertrain.getDevices()["mainEngine"]
 if engineFuelType == "none" then return end
+
+--1.15 fix for removing tank not disabling engine
+--properly checks for fuel tank energy type in fuel type check
+local storage = energyStorage.getStorages()
+local foundTank = false
+for k,v in pairs(storage) do 
+foundTank = v.energyType == toCheck
+if foundTank then break end
+end
+if not foundTank then 
+obj:queueGameEngineLua("guihooks.trigger('Message', {ttl = 10, msg = 'Wrong fuel used! Drain the tank to fix the engine.', icon = 'directions_car'})")
+engine:disable()
+return
+end
+
 if toCheck == engineFuelType and engine.isDisabled then
 if not drained and not wrongFuel then
 engine:enable()
@@ -90,6 +105,7 @@ local toRet = ""
 for k,v in pairs(fuelTypes) do
 if v then toRet = toRet .. k .. "," end
 end
+if toRet == "" then toRet = "none," end
 return string.sub(toRet, 1,-2)
 end
 
@@ -780,6 +796,90 @@ mapmgr.enableTracking("clone")
 mapmgr.sendTracking()
 end
 
+-- Called from item use flowgraph, calls back to GE to update item after usage
+local function useFuelCanister(itemkey, ftype, ftier, quantity)
+local remain = addFuel(quantity, ftype, ftier)
+local used = quantity-remain
+local engine = powertrain.getDevices()["mainEngine"]
+local disabled = "false"
+if engine.isDisabled then disabled = "true" end
+obj:queueGameEngineLua("extensions.blrVehicleCallbacks.usedFuelcan('" .. itemkey .. "'," .. used .. "," .. disabled .. ")")
+end
+
+local function setOilLeak(rate)
+if powertrain and powertrain.getDevice("mainEngine") then
+local current = powertrain.getDevice("mainEngine").thermals.fluidLeakRates.oil.oilpan --math.max so if oilpan is damaged odometer leak doesn't reset it
+powertrain.getDevice("mainEngine").thermals.fluidLeakRates.oil.oilpan = math.max(rate, current)
+end
+end
+
+local function getOilLeak()
+if powertrain and powertrain.getDevice("mainEngine") then
+return powertrain.getDevice("mainEngine").thermals.fluidLeakRates.oil.oilpan
+end
+end
+
+-- 1kg = ~1.1L
+local function getOilVolumeCurrent()
+if powertrain and powertrain.getDevice("mainEngine") then
+return powertrain.getDevice("mainEngine").thermals.fluidReservoirs.oil.currentMass * 1.1
+end
+end
+
+-- This is the quantity used when refilling oil
+local function getOilVolumeInitial()
+if powertrain and powertrain.getDevice("mainEngine") then
+return powertrain.getDevice("mainEngine").thermals.fluidReservoirs.oil.initialMass * 1.1
+end
+end
+
+local function setOilVolume(liters)
+if liters < 0 then -- for compatibility with old saves, -1 val to use initial value
+liters = getOilVolumeInitial()
+end
+if powertrain and powertrain.getDevice("mainEngine") then
+powertrain.getDevice("mainEngine").thermals.fluidReservoirs.oil.currentMass = (liters / 1.1)
+end
+end
+
+local function refillOil(toadd)
+local target = getOilVolumeInitial()
+local current = getOilVolumeCurrent()
+local needed = target - current
+local added = math.min(toadd, needed)
+setOilVolume(current + added)
+return toadd - added -- return quantity remaining in bottle
+end
+
+-- calculates and applies oil leak rate from odometer value specific to each engine so
+-- at 200k all oil leaks within an hour, probably not realistic but more balanced for gameplay
+local function updateOilLeakRate()
+local odometer = electrics.values.odometer
+if odometer < 100000000.0 then
+setOilLeak(0)
+else
+local ratio = math.min(odometer / 200000000.0, 2.0) -- max oil leak rate at 400k (200k = empty in 1 hour, 400k = empty in 30 minutes)
+local baserate = getOilVolumeInitial() / 3600.0 -- calculate a base leak rate for engine which leaks all oil in 1 hour
+local leak = ratio * baserate
+setOilLeak(leak)
+end
+end
+
+
+local function useOilBottle(itemkey, brand, grade, quantity)
+local remain = refillOil(quantity)
+local used = quantity-remain
+obj:queueGameEngineLua("extensions.blrVehicleCallbacks.usedOilBottle('" .. itemkey .. "'," .. used .. ")")
+end
+
+M.useOilBottle = useOilBottle
+M.updateOilLeakRate = updateOilLeakRate
+M.refillOil = refillOil
+M.getOilVolumeInitial = getOilVolumeInitial
+M.getOilVolumeCurrent = getOilVolumeCurrent
+M.setOilVolume = setOilVolume
+M.setOilLeak = setOilLeak
+M.useFuelCanister = useFuelCanister
 M.forceMapInit = forceMapInit
 M.loadMechanicalDamage = loadMechanicalDamage
 M.setPartCondition = setPartCondition

@@ -13,6 +13,10 @@ local leaderboard = {}
 local finishTime = {}
 local finishCount = 0
 
+-- Final boss event mode, uses victory count instead of time for leaderboard
+local bossmode = false
+local points = {}
+
 local idtable = {}
 local nametable = {}
 
@@ -126,6 +130,7 @@ finishCount = finishCount+1  -- increment finish counter (val init at 0, first i
 leaderboard[finishCount] = racer -- add racer to leaderboard
 finishState[racer] = true	 -- set racer finish state
 finishTime[racer] = (blrtime - startTime) + (pentimes[racer] or 0)  -- set finish time, now with penalty time added
+if bossmode and finishCount == 1 then points[idtable[racer] or racer] = 1 end
 end
 
 local function onCheckpointReached(racer, checkpoint)
@@ -252,6 +257,7 @@ raceCheckpoints = checkpoints
 claptable = {}
 finishState = {}
 finishTime = {}
+points = {}
 pentimes = {}
 pentracker = {}
 ccptable = {}
@@ -266,6 +272,7 @@ ccptable[v] = 1
 claptable[v] = 1
 finishState[v] = false
 pentracker[v] = {} -- Reset penalty tracker
+points[k] = 0
 end
 end
 
@@ -387,6 +394,17 @@ local function getPenaltyTriggers()
 return pentrigs
 end
 
+local function getPointCounts()
+return points
+end
+
+local function setBossMode(mode)
+bossmode = mode
+end
+
+M.racerFinished = racerFinished
+M.setBossMode = setBossMode
+M.getPointCounts = getPointCounts
 M.getPenaltyTriggers = getPenaltyTriggers
 M.getPitMarkerData = getPitMarkerData
 M.onPitOverspeed = onPitOverspeed

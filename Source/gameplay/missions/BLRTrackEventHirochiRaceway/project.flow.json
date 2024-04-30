@@ -2,7 +2,7 @@
   "activeGraphId":1,
   "authors":"BeamLR",
   "currentGraphID":1,
-  "date":1705442948,
+  "date":1714444682,
   "debugEnabled":false,
   "description":"Beam Legal Racing Track Event",
   "difficulty":100,
@@ -181,6 +181,20 @@
           false
         ],
         [
+          126,
+          "False",
+          16,
+          "flow",
+          false
+        ],
+        [
+          100,
+          "False",
+          16,
+          "flow",
+          false
+        ],
+        [
           54,
           "flow",
           16,
@@ -197,20 +211,6 @@
         [
           37,
           "flow",
-          16,
-          "flow",
-          false
-        ],
-        [
-          100,
-          "False",
-          16,
-          "flow",
-          false
-        ],
-        [
-          126,
-          "False",
           16,
           "flow",
           false
@@ -671,15 +671,15 @@
           false
         ],
         [
-          37,
-          "down",
+          33,
+          "match_1",
           51,
           "reset",
           false
         ],
         [
-          33,
-          "match_1",
+          37,
+          "down",
           51,
           "reset",
           false
@@ -846,15 +846,15 @@
           false
         ],
         [
-          231,
-          "true",
+          54,
+          "down",
           63,
           "flow",
           false
         ],
         [
-          54,
-          "down",
+          231,
+          "true",
           63,
           "flow",
           false
@@ -965,15 +965,15 @@
           false
         ],
         [
-          69,
-          "flow",
+          75,
+          "False",
           70,
           "flow",
           false
         ],
         [
-          75,
-          "False",
+          69,
+          "flow",
           70,
           "flow",
           false
@@ -1134,7 +1134,7 @@
         ],
         [
           94,
-          "seed",
+          "oseed",
           79,
           "seed",
           false
@@ -1176,14 +1176,14 @@
         ],
         [
           78,
-          "match_1",
+          "match_2",
           83,
           "flow",
           false
         ],
         [
           78,
-          "match_2",
+          "match_1",
           83,
           "flow",
           false
@@ -1211,14 +1211,14 @@
         ],
         [
           33,
-          "match_2",
+          "match_3",
           85,
           "reset",
           false
         ],
         [
           33,
-          "match_3",
+          "match_2",
           85,
           "reset",
           false
@@ -1274,14 +1274,14 @@
         ],
         [
           78,
-          "match_1",
+          "match_2",
           91,
           "flow",
           false
         ],
         [
           78,
-          "match_2",
+          "match_1",
           91,
           "flow",
           false
@@ -1414,7 +1414,7 @@
         ],
         [
           94,
-          "seed",
+          "oseed",
           101,
           "seed",
           false
@@ -1505,6 +1505,13 @@
         ],
         [
           78,
+          "match_1",
+          108,
+          "flow",
+          false
+        ],
+        [
+          78,
           "match_2",
           108,
           "flow",
@@ -1512,21 +1519,14 @@
         ],
         [
           78,
-          "match_1",
-          108,
-          "flow",
-          false
-        ],
-        [
-          78,
-          "match_1",
+          "match_2",
           108,
           "reset",
           false
         ],
         [
           78,
-          "match_2",
+          "match_1",
           108,
           "reset",
           false
@@ -1812,7 +1812,7 @@
           false
         ],
         [
-          137,
+          223,
           "flow",
           126,
           "flow",
@@ -2918,6 +2918,13 @@
           false
         ],
         [
+          137,
+          "flow",
+          223,
+          "flow",
+          false
+        ],
+        [
           217,
           "flow",
           224,
@@ -2988,10 +2995,73 @@
           false
         ],
         [
+          223,
+          "down",
+          232,
+          "flow",
+          false
+        ],
+        [
+          44,
+          "vehId",
+          232,
+          "vehId",
+          false
+        ],
+        [
+          94,
+          "espos",
+          232,
+          "pos",
+          false
+        ],
+        [
+          94,
+          "esrot",
+          232,
+          "rot",
+          false
+        ],
+        [
+          236,
+          "flow",
+          233,
+          "flow",
+          false
+        ],
+        [
+          159,
+          "complete",
+          234,
+          "flow",
+          false
+        ],
+        [
+          2,
+          "enterState",
+          234,
+          "reset",
+          false
+        ],
+        [
           218,
           "completed",
           235,
           "flow",
+          false
+        ],
+        [
+          234,
+          "flow",
+          236,
+          "flow",
+          false
+        ],
+        [
+          2,
+          "enterState",
+          236,
+          "reset",
           false
         ]
       ],
@@ -4825,7 +4895,7 @@
             "color_in":{
               "type":"color",
               "value":[
-                0.44597768800000386902,
+                0.44597768800000525680,
                 1,
                 0,
                 1
@@ -5784,8 +5854,8 @@
             }
           },
           "pos":[
-            -284,
-            -1112
+            -458,
+            -1042
           ],
           "type":"ui/imgui/elemental/imText"
         },
@@ -6078,8 +6148,8 @@
             }
           },
           "pos":[
-            -284,
-            -734
+            -458,
+            -888
           ],
           "type":"logic/branch"
         },
@@ -6168,8 +6238,8 @@
             }
           },
           "pos":[
-            -46,
-            -944
+            122,
+            -1056
           ],
           "type":"logic/switchcase"
         },
@@ -6642,8 +6712,8 @@
             ]
           ],
           "pos":[
-            -270,
-            -118
+            -220,
+            -440
           ],
           "type":"util/customLua"
         },
@@ -6786,8 +6856,8 @@
             ]
           ],
           "pos":[
-            -270,
-            -860
+            -66,
+            -1028
           ],
           "type":"util/customLua"
         },
@@ -6813,8 +6883,8 @@
             }
           },
           "pos":[
-            -270,
-            -608
+            -242,
+            -888
           ],
           "type":"ui/imgui/elemental/imButton"
         },
@@ -6863,8 +6933,8 @@
             ]
           ],
           "pos":[
-            -32,
-            -608
+            -52,
+            -874
           ],
           "type":"util/customLua"
         },
@@ -7053,7 +7123,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nlocal dtable = extensions.blrutils.loadDataTable(\"beamLR/currentTrackEvent\")\nlocal seed = tonumber(dtable[\"seed\"])\nlocal efile = dtable[\"efile\"]\nlocal etable = extensions.blrutils.loadEventWithRandoms(efile, tonumber(seed))\nlocal cmap = extensions.blrutils.getLevelName()\nlocal tmap = etable[\"map\"]\nlocal status = dtable[\"status\"]\nlocal cround = tonumber(dtable[\"cround\"])\nlocal leaderboard = extensions.blrutils.ssplit(dtable[\"ctimes\"], \",\")\nlocal carid = tonumber(dtable[\"carid\"])\n\nlocal opcount = tonumber(etable[\"opcount\"])\nlocal pname = extensions.blrutils.loadDataTable(\"beamLR/options\")[\"playername\"]\n\nlocal pentrigs = {}\nif etable[\"pentrigs\"] ~= \"none\" then\npentrigs = extensions.blrutils.ssplit(etable[\"pentrigs\"], \",\")\nextensions.blrRaceManager.setPenaltyTriggers(pentrigs)\nend\n\n\nlocal pitlane = etable[\"pitlane\"] == \"true\"\nlocal pittrigs = {}\nlocal pitpos = {}\nlocal pitrot = {}\nlocal cpos = 0\nlocal etime = tonumber(etable[\"timeofday\"])\n\nif pitlane then\npittrigs = extensions.blrutils.ssplit(etable[\"pittrigs\"], \",\")\npitpos = extensions.blrutils.ssplitnum(etable[\"pitpos\"], \",\")\npitrot = extensions.blrutils.ssplitnum(etable[\"pitrot\"], \",\")\nextensions.blrRaceManager.setPitData(pitlane, pittrigs, pitpos, pitrot)\nend\n\n\n\nlocal uidata = {}\nuidata[\"title\"] = etable[\"title\"]\nuidata[\"rounds\"] = etable[\"rounds\"]\nuidata[\"cround\"] = cround\nuidata[\"status\"] = status\nuidata[\"moneyreward\"] = etable[\"moneyreward\"]\nuidata[\"repreward\"] = etable[\"repreward\"]\nuidata[\"partreward\"] = etable[\"partreward\"]\nif etable[\"carreward\"] ~= \"none\" then\nlocal csplit = extensions.blrutils.ssplit(etable[\"carreward\"], \",\")\nlocal ctable = {}\nlocal cfirst = true\nuidata[\"carreward\"] = \"\"\nfor k,v in pairs(csplit) do\nctable = extensions.blrutils.loadDataTable(\"beamLR/shop/car/\" .. v)\nif not cfirst then \nuidata[\"carreward\"] = uidata[\"carreward\"] .. \", \"\nend\nuidata[\"carreward\"] = uidata[\"carreward\"] .. ctable[\"name\"]\ncfirst = false\nend\n\nelse\nuidata[\"carreward\"] = \"none\"\nend\n\n\n\nextensions.customGuiStream.sendEventData(uidata)\n\nextensions.blrRaceManager.resetNameTable()\nextensions.blrRaceManager.generateNameTable(seed, opcount+1)\nextensions.blrRaceManager.setPlayerName(pname)\nextensions.blrRaceManager.setUIData(uidata) -- Still needed for first click on leaderboard button, UI isn't ready to receive yet?\n\nlocal ctimesplit = \"\"\nlocal ctime = 0\nlocal ctimeID = 0\nlocal totaltimes = {}\nlocal sortedtimes = {}\nlocal sti = 2\nlocal uileaderboard = {}\nuileaderboard[\"name\"] = {}\nuileaderboard[\"time\"] = {}\n\nif cround == 0 then -- Resets player position display for new event\nextensions.blrRaceManager.setPlayerPosition(0)\nelse -- Load existing leaderboard\n-- Start with player\nctimesplit = extensions.blrutils.ssplit(leaderboard[1], \":\")\nctime = tonumber(ctimesplit[2])\ntotaltimes[1] = (ctime)\nsortedtimes[1] = (ctime)\n\n-- Now deal with AIs\nfor k,v in pairs(leaderboard) do\nctimesplit = extensions.blrutils.ssplit(v, \":\") -- split format op1:323123,op2:23142,...\nif ctimesplit[1] ~= \"player\" then -- Avoid player\nctimeID = tonumber(string.sub(ctimesplit[1], 3))\nctime = tonumber(ctimesplit[2])\ntotaltimes[ctimeID + 1] = (ctime)\nsortedtimes[sti] = (ctime)\nsti=sti+1\nend\nend\n\n-- Calculate positions\ntable.sort(sortedtimes) -- Begin by creating sorted table, times will be in order\nfor k,v in pairs(totaltimes) do -- Loop over RACERID key, TOTALTIME val table \nfor i=1,#sortedtimes do -- Find position in sorted array for current time\nif v == sortedtimes[i] then -- Found racer time\nuileaderboard[\"name\"][i] = extensions.blrRaceManager.getRacerName(k)\nuileaderboard[\"time\"][i] = extensions.blrRaceManager.raceTimeString(extensions.blrRaceManager.msTimeFormat(v))\nif k == 1 then -- Found player position\ncpos = i -- Set cpos value for flowgraph\nend\nend\nend\nend\nend\n\nextensions.customGuiStream.sendLeaderboard(uileaderboard)\n\nlocal desc = etable[\"title\"] .. \"\\n\\n\"\ndesc = desc .. \"Status: \" .. status .. \"\\n\"\nif cpos ~= 0 then\ndesc = desc .. \"Position: \" .. cpos .. \"\\n\"\nend\ndesc = desc .. \"Completed \" .. cround .. \"/\" .. etable[\"rounds\"] .. \" rounds\\n\"\nlocal btntxt = \"\"\nif status == \"joined\" then\nbtntxt = \"Begin Event\"\nelseif status == \"started\" then\nbtntxt = \"Begin Next Round\"\nelseif status == \"finished\" then\nbtntxt = \"Claim Rewards\"\nend\n\nif tmap ~= cmap or status == \"over\" then\ndesc = \"No ongoing event on this map!\"\nend\n\nself.pinOut.efile.value = efile\nself.pinOut.status.value = status\nself.pinOut.cround.value = cround\nself.pinOut.leaderboard.value = uileaderboard\nself.pinOut.carid.value = carid\nself.pinOut.seed.value = seed\nself.pinOut.desc.value = desc\nself.pinOut.btntxt.value = btntxt\nself.pinOut.hasEvent.value = cmap == tmap and status ~= \"over\"\nself.pinOut.leadbtn.value = status ~= \"finished\"\nself.pinOut.quitbtn.value = status ~= \"finished\"\nself.pinOut.tunebtn.value = status ~= \"finished\" and status ~= \"over\"\nself.pinOut.ppos.value = cpos\nself.pinOut.etime.value = etime"
+            "work":"local extensions = require(\"extensions\")\nlocal dtable = extensions.blrutils.loadDataTable(\"beamLR/currentTrackEvent\")\nlocal seed = tonumber(dtable[\"seed\"])\nlocal efile = dtable[\"efile\"]\nlocal etable = extensions.blrutils.loadEventWithRandoms(efile, tonumber(seed))\nlocal cround = tonumber(dtable[\"cround\"])\nlocal rbseed = (etable[\"rbseed\"] or \"false\") == \"true\"\nif rbseed then seed = seed + cround end -- round based seed, to get different opponents on RoH event\nlocal cmap = extensions.blrutils.getLevelName()\nlocal tmap = etable[\"map\"]\nlocal status = dtable[\"status\"]\n\nlocal leaderboard = extensions.blrutils.ssplit(dtable[\"ctimes\"], \",\")\n\nlocal bossmode = etable[\"bossevent\"] == \"true\"\n\nlocal carid = tonumber(dtable[\"carid\"])\n\nlocal espos = extensions.blrutils.ssplitnum(etable[\"espos\"], \",\")\nlocal esrot = extensions.blrutils.ssplitnum(etable[\"esrot\"], \",\")\n\nlocal opcount = tonumber(etable[\"opcount\"])\nlocal pname = extensions.blrutils.loadDataTable(\"beamLR/options\")[\"playername\"]\n\nlocal pentrigs = {}\nif etable[\"pentrigs\"] ~= \"none\" then\npentrigs = extensions.blrutils.ssplit(etable[\"pentrigs\"], \",\")\nextensions.blrRaceManager.setPenaltyTriggers(pentrigs)\nend\n\n\nlocal pitlane = etable[\"pitlane\"] == \"true\"\nlocal pittrigs = {}\nlocal pitpos = {}\nlocal pitrot = {}\nlocal cpos = 0\nlocal etime = tonumber(etable[\"timeofday\"])\n\nif pitlane then\npittrigs = extensions.blrutils.ssplit(etable[\"pittrigs\"], \",\")\npitpos = extensions.blrutils.ssplitnum(etable[\"pitpos\"], \",\")\npitrot = extensions.blrutils.ssplitnum(etable[\"pitrot\"], \",\")\nextensions.blrRaceManager.setPitData(pitlane, pittrigs, pitpos, pitrot)\nend\n\nlocal uidata = {}\nuidata[\"title\"] = etable[\"title\"]\nuidata[\"rounds\"] = etable[\"rounds\"]\nuidata[\"cround\"] = cround\nuidata[\"status\"] = status\nuidata[\"moneyreward\"] = etable[\"moneyreward\"]\nuidata[\"repreward\"] = etable[\"repreward\"]\nuidata[\"partreward\"] = etable[\"partreward\"]\nuidata[\"bossmode\"] = bossmode\nif etable[\"carreward\"] ~= \"none\" then\nlocal csplit = extensions.blrutils.ssplit(etable[\"carreward\"], \",\")\nlocal ctable = {}\nlocal cfirst = true\nuidata[\"carreward\"] = \"\"\nfor k,v in pairs(csplit) do\nctable = extensions.blrutils.loadDataTable(\"beamLR/shop/car/\" .. v)\nif not cfirst then \nuidata[\"carreward\"] = uidata[\"carreward\"] .. \", \"\nend\nuidata[\"carreward\"] = uidata[\"carreward\"] .. ctable[\"name\"]\ncfirst = false\nend\n\nelse\nuidata[\"carreward\"] = \"none\"\nend\n\nextensions.customGuiStream.sendEventData(uidata)\n\nextensions.blrRaceManager.resetNameTable()\nif bossmode then -- Stick with same opponent name even if boss event seed changes for each round\nextensions.blrRaceManager.generateNameTable(tonumber(dtable[\"seed\"]), opcount+1)\nelse\nextensions.blrRaceManager.generateNameTable(seed, opcount+1)\nend\nextensions.blrRaceManager.setPlayerName(pname)\nextensions.blrRaceManager.setUIData(uidata) -- Still needed for first click on leaderboard button, UI isn't ready to receive yet?\nextensions.blrRaceManager.setBossMode(bossmode)\n\nlocal ctimesplit = \"\"\nlocal ctime = 0\nlocal ctimeID = 0\nlocal totaltimes = {}\nlocal sortedtimes = {}\nlocal sti = 2\nlocal uileaderboard = {}\n\nlocal cscoresplit = \"\"\nlocal cscore = 0\nlocal cscoreID = 0\nlocal totalscores = {}\nlocal sortedscores = {}\nlocal scoreused = {}\n\n\nuileaderboard[\"name\"] = {}\nuileaderboard[\"time\"] = {}\nuileaderboard[\"score\"] = {}\n\nif not bossmode then\nif cround == 0 then -- Resets player position display for new event\nextensions.blrRaceManager.setPlayerPosition(0)\nelse -- Load existing leaderboard\n-- Start with player\nctimesplit = extensions.blrutils.ssplit(leaderboard[1], \":\")\nctime = tonumber(ctimesplit[2])\ntotaltimes[1] = (ctime)\nsortedtimes[1] = (ctime)\n\n-- Now deal with AIs\nfor k,v in pairs(leaderboard) do\nctimesplit = extensions.blrutils.ssplit(v, \":\") -- split format op1:323123,op2:23142,...\nif ctimesplit[1] ~= \"player\" then -- Avoid player\nctimeID = tonumber(string.sub(ctimesplit[1], 3))\nctime = tonumber(ctimesplit[2])\ntotaltimes[ctimeID + 1] = (ctime)\nsortedtimes[sti] = (ctime)\nsti=sti+1\nend\nend\n\n-- Calculate positions\ntable.sort(sortedtimes) -- Begin by creating sorted table, times will be in order\nfor k,v in pairs(totaltimes) do -- Loop over RACERID key, TOTALTIME val table \nfor i=1,#sortedtimes do -- Find position in sorted array for current time\nif v == sortedtimes[i] then -- Found racer time\nuileaderboard[\"name\"][i] = extensions.blrRaceManager.getRacerName(k)\nuileaderboard[\"time\"][i] = extensions.blrRaceManager.raceTimeString(extensions.blrRaceManager.msTimeFormat(v))\nif k == 1 then -- Found player position\ncpos = i -- Set cpos value for flowgraph\nend\nend\nend\nend\nend\n\nelse -- boss event mode, use point leaderboard not times\n\n\nif cround == 0 then -- Resets player position display for new event\nextensions.blrRaceManager.setPlayerPosition(0)\nelse\n-- start with player\ncscoresplit = extensions.blrutils.ssplit(leaderboard[1], \":\")\ncscore = tonumber(cscoresplit[2])\ntotalscores[1] = (cscore)\nsortedscores[1] = (cscore)\n\n\n-- Now deal with AIs\nfor k,v in pairs(leaderboard) do\ncscoresplit = extensions.blrutils.ssplit(v, \":\") -- split format op1:323123,op2:23142,...\nif cscoresplit[1] ~= \"player\" then -- Avoid player\ncscoreID = tonumber(string.sub(cscoresplit[1], 3))\ncscore = tonumber(cscoresplit[2])\ntotalscores[cscoreID + 1] = (cscore)\nsortedscores[sti] = (cscore)\nsti=sti+1\nend\nend\n\n\ntable.sort(sortedscores) -- Begin by creating sorted table, scores will be in order\n\nfor k,v in pairs(totalscores) do -- Loop over RACERID key, totalscores val table \nfor i=1,#sortedscores do -- Find position in sorted array for current score\nif v == sortedscores[i] and not scoreused[i] then -- Found racer score\nuileaderboard[\"name\"][(#sortedscores + 1) - i] = extensions.blrRaceManager.getRacerName(k)\nuileaderboard[\"score\"][(#sortedscores + 1) - i] = v\nscoreused[i] = true -- Makes sure equal score doesn't result in overwritten leaderboard values\nif k == 1 then -- Found player position\ncpos = (#sortedscores + 1) - i -- Set cpos value for flowgraph\nend\nbreak\nend\nend\nend\n\n\nend\nend\n\n\nextensions.customGuiStream.sendLeaderboard(uileaderboard)\n\nlocal desc = etable[\"title\"] .. \"\\n\\n\"\ndesc = desc .. \"Status: \" .. status .. \"\\n\"\nif cpos ~= 0 then\ndesc = desc .. \"Position: \" .. cpos .. \"\\n\"\nend\ndesc = desc .. \"Completed \" .. cround .. \"/\" .. etable[\"rounds\"] .. \" rounds\\n\"\nlocal btntxt = \"\"\nif status == \"joined\" then\nbtntxt = \"Begin Event\"\nelseif status == \"started\" then\nbtntxt = \"Begin Next Round\"\nelseif status == \"finished\" then\nbtntxt = \"Claim Rewards\"\nend\n\nif tmap ~= cmap or status == \"over\" then\ndesc = \"No ongoing event on this map!\"\nend\n\nself.pinOut.efile.value = efile\nself.pinOut.status.value = status\nself.pinOut.cround.value = cround\nself.pinOut.leaderboard.value = uileaderboard\nself.pinOut.carid.value = carid\nself.pinOut.seed.value = seed\nself.pinOut.desc.value = desc\nself.pinOut.btntxt.value = btntxt\nself.pinOut.hasEvent.value = cmap == tmap and status ~= \"over\"\nself.pinOut.leadbtn.value = status ~= \"finished\"\nself.pinOut.quitbtn.value = status ~= \"finished\"\nself.pinOut.tunebtn.value = status ~= \"finished\" and status ~= \"over\"\nself.pinOut.ppos.value = cpos\nself.pinOut.etime.value = etime\nself.pinOut.oseed.value = tonumber(dtable[\"seed\"]) -- original seed needed if Round Based Seeding \nself.pinOut.espos.value = {espos[1], espos[2], espos[3]}\nself.pinOut.esrot.value = {esrot[1], esrot[2], esrot[3], esrot[4]}"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -7067,11 +7137,14 @@
               "cround":false,
               "desc":false,
               "efile":false,
+              "espos":false,
+              "esrot":false,
               "etime":false,
               "flow":false,
               "hasEvent":false,
               "leadbtn":false,
               "leaderboard":false,
+              "oseed":false,
               "ppos":false,
               "quitbtn":false,
               "seed":false,
@@ -7192,6 +7265,27 @@
               "out",
               "number",
               "etime",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "number",
+              "oseed",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "vec3",
+              "espos",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "quat",
+              "esrot",
               null,
               ""
             ]
@@ -7469,8 +7563,8 @@
             }
           },
           "pos":[
-            -284,
-            -1000
+            -276,
+            -1028
           ],
           "type":"logic/branch"
         },
@@ -7479,7 +7573,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nlocal seed = self.pinIn.seed.value\nlocal dtable = extensions.blrutils.loadDataTable(\"beamLR/currentTrackEvent\")\nlocal etable = extensions.blrutils.loadEventWithRandoms(dtable[\"efile\"], seed)\nlocal ntable = {}\nlocal round = self.pinIn.round.value\nlocal leaderboard = self.pinIn.leaderboard.value\nlocal times = self.pinIn.times.value\nlocal idtable = extensions.blrRaceManager.getIDtable()\nlocal pid = self.pinIn.pid.value\nlocal ctimes = extensions.blrutils.ssplit(dtable[\"ctimes\"], \",\")\nlocal rseed = 0\n\nlocal uidata = {} -- UI leaderboard with name and time, KEY is POSITION for both tables\nuidata[\"name\"] = {}\nuidata[\"time\"] = {}\n\nlocal totaltimes = {}\nlocal sortedtimes = {}\nlocal positions = {}\nlocal ppos = -1\nlocal sti = 2 --Start at 2 for AI loop, player uses 1\n\nlocal finaltimes = {}\nlocal worsttime = 0\nlocal worstfinal = 0\n\n--Find worst time\nfor k,v in pairs(times) do -- VEHID IS KEY, TIME IS VAL\nif v > worsttime then\nworsttime = v\nend\nend\nif worsttime == 0 then -- No one finished, use a base worst time of 1 hour\nworsttime = 3600000\nend\n\n\n--Deal with opponent times\nfinaltimes[1] = 0 -- Need to init player time to avoid nil error during worst time update\nfor k,v in pairs(idtable) do -- VEHID IS KEY, RACERID IS VAL\nif not times[k] and v ~= 1 then -- Detect DNF racer that's not player\nmath.randomseed(seed + (round * 100) + v) -- Offset by 100 each round gives random times for up to 100 racer each round, plenty\nfinaltimes[v] = worsttime + math.random(1000, 60000) -- Add from 1 to 60 seconds to randomize DNF times\nelseif v ~= 1 then -- Racer had finished, use actual time\nfinaltimes[v] = times[k]\nend\nif finaltimes[v] > worstfinal then -- Detects new worst time\nworstfinal = finaltimes[v] -- In case player has DNF to give even worse time than worst AI\nend\nend\n\n-- Deal with player time\nif not times[pid] then\nfinaltimes[1] = worstfinal * 2 -- Player DNF, use worst opponent time * 2\nelse\nfinaltimes[1] = times[pid] -- Player finished, use actual time\nend\n\n\n-- Build updated ctime field for event progress\nlocal ctimestring = \"\"\nlocal ctimesplit = \"\"\nlocal ctimeID = 0\nlocal ctime = 0\n\n-- Start with player\nctimesplit = extensions.blrutils.ssplit(ctimes[1], \":\")\nctime = tonumber(ctimesplit[2])\nctimestring = \"player:\" .. (ctime + finaltimes[1])\ntotaltimes[1] = (ctime + finaltimes[1])\nsortedtimes[1] = (ctime + finaltimes[1])\n\n-- Now deal with AIs\nfor k,v in pairs(ctimes) do\nctimesplit = extensions.blrutils.ssplit(v, \":\") -- split format op1:323123,op2:23142,...\nif ctimesplit[1] ~= \"player\" then -- Avoid player\nctimeID = tonumber(string.sub(ctimesplit[1], 3))\nctime = tonumber(ctimesplit[2])\nctimestring = ctimestring .. \",op\" .. ctimeID .. \":\" .. (ctime + finaltimes[ctimeID + 1]) -- Increment by 1 to find correct time for AI racer\ntotaltimes[ctimeID + 1] = (ctime + finaltimes[ctimeID + 1])\nsortedtimes[sti] = (ctime + finaltimes[ctimeID + 1])\nsti=sti+1\nend\nend\n\n-- Perform current event file updates\nntable[\"ctimes\"] = ctimestring\nntable[\"cround\"] = math.min(round + 1, tonumber(etable[\"rounds\"]))\n\nif round + 1 >= tonumber(etable[\"rounds\"]) then\nntable[\"status\"] = \"finished\"\nelse\nntable[\"status\"] = \"started\"\nend\n\nextensions.blrutils.updateDataTable(\"beamLR/currentTrackEvent\", ntable)\n\n-- Calculate positions\ntable.sort(sortedtimes) -- Begin by creating sorted table, times will be in order\nfor k,v in pairs(totaltimes) do -- Loop over RACERID key, TOTALTIME val table \nfor i=1,#sortedtimes do -- Find position in sorted array for current time\nif v == sortedtimes[i] then -- Found racer time\npositions[k] = i -- Fill position table, RACERID key, POSITION val\nuidata[\"name\"][i] = extensions.blrRaceManager.getRacerName(k)\nuidata[\"time\"][i] = extensions.blrRaceManager.raceTimeString(extensions.blrRaceManager.msTimeFormat(v))\nif k == 1 then -- Found player position\nppos = i -- Set ppos value for flowgraph\nend\nend\nend\nend\n\nextensions.blrRaceManager.setPlayerPosition(ppos)\nextensions.customGuiStream.sendLeaderboard(uidata)\n\nself.pinOut.positions.value = positions\nself.pinOut.ppos.value = ppos"
+            "work":"local extensions = require(\"extensions\")\nlocal seed = self.pinIn.seed.value\nlocal dtable = extensions.blrutils.loadDataTable(\"beamLR/currentTrackEvent\")\nlocal etable = extensions.blrutils.loadEventWithRandoms(dtable[\"efile\"], seed)\nlocal ntable = {}\nlocal round = self.pinIn.round.value\nlocal leaderboard = self.pinIn.leaderboard.value\nlocal times = self.pinIn.times.value\nlocal idtable = extensions.blrRaceManager.getIDtable()\nlocal pid = self.pinIn.pid.value\nlocal ctimes = extensions.blrutils.ssplit(dtable[\"ctimes\"], \",\")\nlocal rseed = 0\nlocal bossmode = etable[\"bossevent\"] == \"true\"\nlocal points = extensions.blrRaceManager.getPointCounts()\n\n\nlocal uidata = {} -- UI leaderboard with name and time, KEY is POSITION for both tables\nuidata[\"name\"] = {}\nuidata[\"time\"] = {}\nuidata[\"score\"] = {}\n\nlocal totaltimes = {}\nlocal sortedtimes = {}\nlocal positions = {}\nlocal ppos = -1\nlocal sti = 2 --Start at 2 for AI loop, player uses 1\n\n\nif not bossmode then\n\nlocal finaltimes = {}\nlocal worsttime = 0\nlocal worstfinal = 0\n\n--Find worst time\nfor k,v in pairs(times) do -- VEHID IS KEY, TIME IS VAL\nif v > worsttime then\nworsttime = v\nend\nend\nif worsttime == 0 then -- No one finished, use a base worst time of 1 hour\nworsttime = 3600000\nend\n\n\n--Deal with opponent times\nfinaltimes[1] = 0 -- Need to init player time to avoid nil error during worst time update\nfor k,v in pairs(idtable) do -- VEHID IS KEY, RACERID IS VAL\nif not times[k] and v ~= 1 then -- Detect DNF racer that's not player\nmath.randomseed(seed + (round * 100) + v) -- Offset by 100 each round gives random times for up to 100 racer each round, plenty\nfinaltimes[v] = worsttime + math.random(1000, 60000) -- Add from 1 to 60 seconds to randomize DNF times\nelseif v ~= 1 then -- Racer had finished, use actual time\nfinaltimes[v] = times[k]\nend\nif finaltimes[v] > worstfinal then -- Detects new worst time\nworstfinal = finaltimes[v] -- In case player has DNF to give even worse time than worst AI\nend\nend\n\n-- Deal with player time\nif not times[pid] then\nfinaltimes[1] = worstfinal * 2 -- Player DNF, use worst opponent time * 2\nelse\nfinaltimes[1] = times[pid] -- Player finished, use actual time\nend\n\n\n-- Build updated ctime field for event progress\nlocal ctimestring = \"\"\nlocal ctimesplit = \"\"\nlocal ctimeID = 0\nlocal ctime = 0\n\n-- Start with player\nctimesplit = extensions.blrutils.ssplit(ctimes[1], \":\")\nctime = tonumber(ctimesplit[2])\nctimestring = \"player:\" .. (ctime + finaltimes[1])\ntotaltimes[1] = (ctime + finaltimes[1])\nsortedtimes[1] = (ctime + finaltimes[1])\n\n-- Now deal with AIs\nfor k,v in pairs(ctimes) do\nctimesplit = extensions.blrutils.ssplit(v, \":\") -- split format op1:323123,op2:23142,...\nif ctimesplit[1] ~= \"player\" then -- Avoid player\nctimeID = tonumber(string.sub(ctimesplit[1], 3))\nctime = tonumber(ctimesplit[2])\nctimestring = ctimestring .. \",op\" .. ctimeID .. \":\" .. (ctime + finaltimes[ctimeID + 1]) -- Increment by 1 to find correct time for AI racer\ntotaltimes[ctimeID + 1] = (ctime + finaltimes[ctimeID + 1])\nsortedtimes[sti] = (ctime + finaltimes[ctimeID + 1])\nsti=sti+1\nend\nend\n\n-- Perform current event file updates\nntable[\"ctimes\"] = ctimestring\nntable[\"cround\"] = math.min(round + 1, tonumber(etable[\"rounds\"]))\n\nif round + 1 >= tonumber(etable[\"rounds\"]) then\nntable[\"status\"] = \"finished\"\nelse\nntable[\"status\"] = \"started\"\nend\n\nextensions.blrutils.updateDataTable(\"beamLR/currentTrackEvent\", ntable)\n\n-- Calculate positions\ntable.sort(sortedtimes) -- Begin by creating sorted table, times will be in order\nfor k,v in pairs(totaltimes) do -- Loop over RACERID key, TOTALTIME val table \nfor i=1,#sortedtimes do -- Find position in sorted array for current time\nif v == sortedtimes[i] then -- Found racer time\npositions[k] = i -- Fill position table, RACERID key, POSITION val\nuidata[\"name\"][i] = extensions.blrRaceManager.getRacerName(k)\nuidata[\"time\"][i] = extensions.blrRaceManager.raceTimeString(extensions.blrRaceManager.msTimeFormat(v))\nif k == 1 then -- Found player position\nppos = i -- Set ppos value for flowgraph\nend\nend\nend\nend\n\nelse -- boss mode event, no need for time based stuff\n\n-- if no one finished, give point to random AI racer\nlocal finishfound = false\nlocal topid = 0\nfor k,v in pairs(idtable) do\nfinishfound = finishfound or times[k]\nif v > topid then topid = v end\nend\nif not finishfound then \nextensions.blrRaceManager.racerFinished(math.random(2,topid))\nend\n\n\nlocal cpointsplit = extensions.blrutils.ssplit(ctimes[1], \":\")--ctimes is line in currentTrackEvent file dont get confused\nlocal cpointID = 0\nlocal sortedpoints = {}\nlocal cpointstring = \"\"\nlocal pointused = {}\nlocal cid = cpointsplit[1]\nlocal cval = tonumber(cpointsplit[2])\n\nlocal cpoints = {}\n\ncpoints[1] = cval + (points[1] or 0)\nsortedpoints[1] = cpoints[1]\ncpointstring = \"player:\" .. cpoints[1]\n\nprint(\"points\")\ndump(points)\nprint(\"ctimes\")\ndump(ctimes)\n\n\nfor k,v in pairs(points) do\ncpointsplit = extensions.blrutils.ssplit(ctimes[k], \":\")\ncid = tonumber(string.sub(cpointsplit[1], 3))\ncval = tonumber(cpointsplit[2])\nif cpointsplit[1] ~= \"player\" then\ncpoints[cid+1] = cval + (points[k] or 0)\nsortedpoints[k] = cpoints[cid+1]\ncpointstring = cpointstring .. \",op\" .. cid .. \":\" .. cpoints[cid+1]\nend\nend\n\nprint(\"sortedpoints BEFORE SORTING\")\ndump(sortedpoints)\n\ntable.sort(sortedpoints)\n\nprint(\"sortedpoints AFTER SORTING\")\ndump(sortedpoints)\nfor k,v in pairs(cpoints) do\nfor i=1,#sortedpoints do\nif sortedpoints[i] == v and not pointused[i] then\npositions[k] = (#sortedpoints + 1) - i -- Fill position table, RACERID key, POSITION val\nuidata[\"name\"][(#sortedpoints + 1) - i] = extensions.blrRaceManager.getRacerName(k)\nuidata[\"score\"][(#sortedpoints + 1) - i] = v\npointused[i] = true\nif k == 1 then\nppos = (#sortedpoints + 1) - i\nend\nbreak\nend\nend\nend\n\n-- Perform current event file updates\nntable[\"ctimes\"] = cpointstring\nntable[\"cround\"] = math.min(round + 1, tonumber(etable[\"rounds\"]))\n\nif round + 1 >= tonumber(etable[\"rounds\"]) then\nntable[\"status\"] = \"finished\"\nelse\nntable[\"status\"] = \"started\"\nend\n\nextensions.blrutils.updateDataTable(\"beamLR/currentTrackEvent\", ntable)\n\n\nend\n\nprint(\"UIDATA DUMP\")\ndump(uidata)\n\n\nextensions.blrRaceManager.setPlayerPosition(ppos)\nextensions.customGuiStream.sendLeaderboard(uidata)\n\nself.pinOut.positions.value = positions\nself.pinOut.ppos.value = ppos"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -8558,8 +8652,8 @@
             }
           },
           "pos":[
-            -284,
-            -244
+            -438,
+            -440
           ],
           "type":"logic/branch"
         },
@@ -9060,8 +9154,8 @@
             ]
           ],
           "pos":[
-            -18,
-            -440
+            -44,
+            -678
           ],
           "type":"util/customLua"
         },
@@ -9080,8 +9174,8 @@
             }
           },
           "pos":[
-            -284,
-            -482
+            -444,
+            -734
           ],
           "type":"logic/branch"
         },
@@ -9107,8 +9201,8 @@
             }
           },
           "pos":[
-            -270,
-            -370
+            -226,
+            -734
           ],
           "type":"ui/imgui/elemental/imButton"
         },
@@ -10259,7 +10353,7 @@
           "hardcodedPins":{
             "duration":{
               "type":"number",
-              "value":0.75000000000000388578
+              "value":0.75000000000000577316
             }
           },
           "hiddenPins":{
@@ -10276,7 +10370,7 @@
             }
           },
           "pos":[
-            -928,
+            -976,
             -426
           ],
           "type":"ui/fadeFromBlack"
@@ -11261,7 +11355,7 @@
           "hardcodedPins":{
             "dx":{
               "type":"number",
-              "value":0.05000000074505820541
+              "value":0.05000000074505852460
             },
             "mn":{
               "type":"number",
@@ -11349,7 +11443,7 @@
           "hardcodedPins":{
             "dx":{
               "type":"number",
-              "value":0.05000000074505820541
+              "value":0.05000000074505852460
             },
             "mn":{
               "type":"number",
@@ -12622,6 +12716,33 @@
           ],
           "type":"util/customLua"
         },
+        "223":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "text":{
+              "type":"string",
+              "value":"Teleport To Start"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "text":false
+            },
+            "p_out":{
+              "down":false,
+              "flow":false,
+              "hold":true,
+              "up":true
+            }
+          },
+          "pos":[
+            -430,
+            -580
+          ],
+          "type":"ui/imgui/elemental/imButton"
+        },
         "224":{
           "data":{},
           "dynamicMode":"repeat",
@@ -12845,6 +12966,115 @@
           ],
           "type":"logic/compare"
         },
+        "232":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "repairVehicle":{
+              "type":"bool",
+              "value":true
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "pos":false,
+              "repairVehicle":true,
+              "rot":false,
+              "safeTeleport":true,
+              "vehId":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -220,
+            -608
+          ],
+          "type":"vehicle/moveTo"
+        },
+        "233":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"core_sounds.setAudioBlur(self.pinIn.value.value or 0)"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "value":{
+              "type":"number",
+              "value":0
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "value":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Set Audio Blur",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "number",
+              "value",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -416,
+            -286
+          ],
+          "type":"util/customLua"
+        },
+        "234":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "frames":{
+              "type":"number",
+              "value":10
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "frames":true,
+              "reset":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -732,
+            -426
+          ],
+          "type":"logic/frameDelay"
+        },
         "235":{
           "data":{},
           "dynamicMode":"repeat",
@@ -12862,6 +13092,24 @@
             1352
           ],
           "type":"vehicle/beamstate/reset"
+        },
+        "236":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "reset":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -612,
+            -300
+          ],
+          "type":"logic/once"
         }
       },
       "showTab":true,
@@ -12871,10 +13119,10 @@
         "list":{}
       },
       "viewPos":[
-        -677.67492675781250000000,
-        -762.41723632812500000000
+        -805.95434570312500000000,
+        -323.14419555664062500000
       ],
-      "viewZoom":0.66623693704605102539
+      "viewZoom":0.50000000000000000000
     },
     "3":{
       "description":"This is the description for graph States",
@@ -12890,14 +13138,14 @@
         ],
         [
           4,
-          "success",
+          "fail",
           6,
           "flow",
           false
         ],
         [
           4,
-          "fail",
+          "success",
           6,
           "flow",
           false

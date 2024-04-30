@@ -20,6 +20,7 @@ angular.module('beamng.apps')
 	  scope.resetConfirm = false;
 	  scope.partSellConfirm = {};
 	  scope.partSellScale = 0.2;
+	  scope.sortedItemInventoryKeys = {};
 
 	  if(!scope.initDone)
 	  {
@@ -29,7 +30,7 @@ angular.module('beamng.apps')
 		  scope.initDone=true;
 		  scope.partSellConfirm = {};
 	  }
-	  
+	 
 	  
 	  scope.menuButtons = [
 		{type: "home", svg:"homebutton.svg", id:0, name:"Main Menu"},
@@ -37,6 +38,7 @@ angular.module('beamng.apps')
 		{type: "buyparts", svg:"partshopbutton.svg", id:2, name:"Buy Parts"},
 		{type: "editcar", svg:"editcarbutton.svg", id:3, name:"Edit Car"},
 		{type: "tuning", svg:"tuningbutton.svg", id:4, name:"Tuning"},
+		{type: "inventory", svg:"inventorybutton.svg", id:6, name:"Items"},
 		{type: "events", svg:"eventbrowserbutton.svg", id:5, name:"Track Events"}
 	  ];
 	  
@@ -92,6 +94,10 @@ angular.module('beamng.apps')
 
 	  scope.$on('beamlrData', function (event, data) {
           scope.beamlrData[data.key] = data.val;
+		  if(data.key == "itemInventory")
+		  {
+			  scope.sortedItemInventoryKeys = Object.keys(scope.beamlrData['itemInventory']).sort()
+		  }
       })
 	  
 	  scope.$on('beamlrOptions', function (event, data) {
@@ -548,6 +554,18 @@ angular.module('beamng.apps')
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("repscl", "${d}")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setRepScale", "repscl")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
+	  }
+	  
+	  scope.inventoryUse = function(id)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("itemid", "${id}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("itemUse", "itemid")`)
+	  }
+	  
+	  scope.inventoryDiscard = function(id)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("itemid", "${id}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("itemDiscard", "itemid")`)
 	  }
 	  
 	  
