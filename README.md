@@ -210,6 +210,10 @@ This system will be used in a future version to create a final boss type race li
 
 As of version 1.12 mod levels are now supported for track events. Events for maps you do not have installed will not be offered in the browser. You must also install the **addon** for a specific map otherwise events will not work properly.
 
+### The Race of Heroes
+Version 1.15 adds a SLRR "Race of Champions" inspired endgame track event called "The Race of Heroes". This event takes place on the Johnson Valley  map and requires the player to have completed every other race club in the game (completion means "Hero" league has been reached). The race is point based unlike time based events and is against the same opponent using a different vehicle each round. Winning this event basically means the player has beat the mod and rewards a large sum of money, rep as well as a supercar.
+
+
 ## Advanced Vehicle Building
 ### NOTE: As of version 1.14 advanced vehicle building is enabled by default.
 Added in version 1.13, advanced vehicle building (AVB) allows for a more realistic or SLRR-like vehicle building experience. Jbeam loading scripts have been modified to remove all slot defaults, which for instance makes it so  wheels spawn without tires, pickup bed spawns without tailgate, taillights or bed accessory. Sub-parts must therefore be purchased and added manually. 
