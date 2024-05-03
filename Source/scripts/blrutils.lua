@@ -678,6 +678,8 @@ local ctemplates = {}
 
 deleteFile("beamLR/mainData")
 deleteFile("beamLR/partInv")
+deleteFile("beamLR/itemInventory") -- 1.15 item inventory needs deletion
+extensions.blrItemInventory.resetInventory() -- need to do this to avoit items staying after reset
 
 local count = #FS:findFiles("beamLR/garage/", "*", 0)
 
@@ -705,6 +707,7 @@ resetShopDailyData()
 copyFile("beamLR/init/mainData_" .. difficulty ,  "beamLR/mainData")
 -- Just copy empty starter inventory no matter difficulty level
 copyFile("beamLR/init/partInv",  "beamLR/partInv")
+copyFile("beamLR/init/itemInventory",  "beamLR/itemInventory")
 -- Uses seed based random starter car ID out of available setups, not based on difficulty
 copyFile("beamLR/init/garage/car" .. carid , "beamLR/garage/car0")
 copyFile("beamLR/init/garage/config/car" .. carid , "beamLR/garage/config/car0")

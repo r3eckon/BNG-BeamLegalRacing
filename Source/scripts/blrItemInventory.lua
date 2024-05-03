@@ -168,6 +168,8 @@ end
 
 local function loadInventory()
 local dtable = loadDataTable("beamLR/itemInventory")
+inventory = {}
+iidstore = {}
 local csplit_key = {}
 local csplit_idata = {}
 local iid = -1
@@ -177,8 +179,11 @@ csplit_key = ssplit(k, "_")
 csplit_idata = ssplit(v, ",")
 iid = tonumber(csplit_key[1])
 itype = csplit_key[2]
+iidstore[iid] = true
 														-- fuel type  ,  fuel tier   , fuel quantity
 if itype == "fuelcan" then inventory[k] = fuelcan:new(csplit_idata[1],csplit_idata[2],tonumber(csplit_idata[3])) end
+														-- brand         ,    grade      ,  quantity
+if itype == "oilbottle" then inventory[k] = oilbottle:new(csplit_idata[1],csplit_idata[2],tonumber(csplit_idata[3])) end
 
 end
 end
@@ -203,9 +208,15 @@ local function getUIImage(t)
 return uiimages[t]
 end
 
+local function resetInventory()
+inventory = {}
+iidstore = {}
+end
+
 M.oilbottle = oilbottle
 M.fuelcan = fuelcan
 
+M.resetInventory = resetInventory
 M.getKeyByID = getKeyByID
 M.getUIImage = getUIImage
 M.getUIName = getUIName

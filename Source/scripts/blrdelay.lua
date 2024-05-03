@@ -60,6 +60,10 @@ veh:queueLuaCommand("extensions.blrVehicleUtils.updateOilLeakRate()")
 end
 end
 
+ftable["updatevehid"] = function(p)
+extensions.blrutils.blrvarSet("playervehid",be:getPlayerVehicle(0):getId())
+end
+
 
 
 local fqueue = {} -- frame delay queue

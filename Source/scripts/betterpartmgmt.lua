@@ -57,8 +57,11 @@ end
 return slotMap
 end
 
-local function getMainPartName(raw)
-return jbeamIO.getMainPartName(getVehicleData(nil, raw).ioCtx)
+local function getMainPartName(raw, vehid)
+local data = getVehicleData(vehid, raw)
+if data then
+return jbeamIO.getMainPartName(data.ioCtx)
+end
 end
 
 local function getAvailablePartList()
@@ -148,13 +151,15 @@ end
 
 
 
-local function saveConfig(file)
+local function saveConfig(file, vehid)
 extensions.core_vehicle_partmgmt.save(file) 
 local ctable = jsonReadFile(file)
 ctable["paints"] = nil
+ctable["mainPartName"] = getMainPartName(false, vehid)
+ctable["model"] = getMainPartName(false, vehid)
 -- need this for advanced vehicle building, adds missing slots relying on defaults
 -- with actual part used so bought cars aren't missing parts after being avbready
-ctable["parts"] = getVehicleParts()
+ctable["parts"] = getVehicleParts(vehid)
 jsonWriteFile(file,ctable,true)
 end
 

@@ -1,7 +1,7 @@
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.15/beamLegalRacing1.15.zip
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.15.1/beamLegalRacing1.15.1.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.15
+# Beam Legal Racing 1.15.1
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -653,3 +653,10 @@ Thank you for playing BeamLR!
 * Updated gps detection system for new gps_alt slot (used in BX-Series)
 * Temporary fix for audio "blur" effect bug in 0.32
 * Fixed incorrect default value for IMGUI scale
+
+### 1.15.1
+* Fixed item inventory not cleared after career reset
+* Fixed game crash when trying to pull out car from garage from walk mode
+* Fixed garage saving incorrect AVB config when walking
+* Fixed garage not saving fuel, oil, nos, etc. values when walking
+* Fixed item inventory not loading oil bottles from save file
