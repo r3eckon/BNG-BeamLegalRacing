@@ -735,6 +735,7 @@ copyFile("beamLR/mainData", "beamLR/backup/mainData")
 copyFile("beamLR/partInv", "beamLR/backup/partInv")
 copyFile("beamLR/options", "beamLR/backup/options")
 copyFile("beamLR/currentTrackEvent", "beamLR/backup/currentTrackEvent")
+copyFile("beamLR/itemInventory", "beamLR/backup/itemInventory")
 
 -- Garage data
 local count = #FS:findFiles("beamLR/garage/", "*", 0)
@@ -785,6 +786,9 @@ copyFile("beamLR/backup/mainData","beamLR/mainData")
 copyFile("beamLR/backup/partInv","beamLR/partInv")
 copyFile("beamLR/backup/options","beamLR/options")
 copyFile("beamLR/backup/currentTrackEvent","beamLR/currentTrackEvent")
+copyFile("beamLR/backup/itemInventory", "beamLR/itemInventory")
+extensions.blrItemInventory.loadInventory() -- need to load inventory right now otherwise empty
+											-- inventory table will overwrite restored backup
 
 -- Garage data
 local count = #FS:findFiles("beamLR/backup/garage/", "*", 0)

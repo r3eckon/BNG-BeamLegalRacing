@@ -132,6 +132,7 @@ angular.module('beamng.apps')
 		  scope.inputData['imgmode'] = data['imgmode'];
 		  scope.inputData['wagerscl'] = data['wagerscl']
 		  scope.inputData['repscl'] = data['repscl']
+		  scope.beamlrData['seed'] = data['sseed']
       })
 	  
 	  

@@ -660,3 +660,9 @@ Thank you for playing BeamLR!
 * Fixed garage saving incorrect AVB config when walking
 * Fixed garage not saving fuel, oil, nos, etc. values when walking
 * Fixed item inventory not loading oil bottles from save file
+
+### 1.15.2
+* Fixed West Coast USA issues (old decals, garage trigger name change)
+* Fixed vehicle scrapping not deleting vehicle when not walking
+* Fixed options menu not reloading current seed during UI init
+* Fixed item inventory not saved during career backup
