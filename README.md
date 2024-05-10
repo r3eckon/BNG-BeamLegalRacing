@@ -33,7 +33,6 @@ Modders should back up the userfolder before installing.
 ## Update Instructions
 **BEFORE UPDATING**:  Back up the userfolder/beamLR folder to archive your career
 * [Download the latest release][latest].
-* Use the BeamLR options menu to back up your career.
 * Extract updated mod zip contents to the [BeamNG userfolder][userfolder].
 * Tell OS to replace existing files when asked. **This will apply the update.**
 * Use the BeamLR options menu to restore your backup.
