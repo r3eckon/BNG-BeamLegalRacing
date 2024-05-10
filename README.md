@@ -47,6 +47,9 @@ If the backup system fails to work properly you can manually replace the followi
 * beamLR/shop/daydata                                 (Vehicle shop daily data, aka bought slots)
 * beamLR/races/INSERT RACE CLUB/progress              (Race club progress, repeat for each club)
 * beamLR/currentTrackEvent                            (Current track event progress)
+* beamLR/partInv                                      (Part inventory)
+* beamLR/itemInventory                                (Item inventory)
+* beamLR/options                                      (User settings)
 
 **After updating check the *Read Before Playing* section of this readme for important information and a quick overview of major update features**
 
