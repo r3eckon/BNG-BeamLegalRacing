@@ -2,11 +2,13 @@
   "activeGraphId":1,
   "authors":"BeamLR",
   "currentGraphID":1,
-  "date":1714444154,
+  "date":1716353685,
   "debugEnabled":false,
   "description":"Beam Legal Racing Track Event",
   "difficulty":100,
-  "frecency":{},
+  "frecency":{
+    "node_199":1716256496
+  },
   "graphs":{
     "1":{
       "description":"This is the description for graph New State",
@@ -28,14 +30,14 @@
         ],
         [
           78,
-          "match_2",
+          "match_1",
           9,
           "flow",
           false
         ],
         [
           78,
-          "match_1",
+          "match_2",
           9,
           "flow",
           false
@@ -181,6 +183,13 @@
           false
         ],
         [
+          37,
+          "flow",
+          16,
+          "flow",
+          false
+        ],
+        [
           100,
           "False",
           16,
@@ -195,13 +204,6 @@
           false
         ],
         [
-          126,
-          "False",
-          16,
-          "flow",
-          false
-        ],
-        [
           86,
           "flow",
           16,
@@ -209,8 +211,8 @@
           false
         ],
         [
-          37,
-          "flow",
+          126,
+          "False",
           16,
           "flow",
           false
@@ -671,13 +673,6 @@
           false
         ],
         [
-          33,
-          "match_1",
-          51,
-          "reset",
-          false
-        ],
-        [
           37,
           "down",
           51,
@@ -686,14 +681,21 @@
         ],
         [
           33,
-          "match_3",
+          "match_1",
+          51,
+          "reset",
+          false
+        ],
+        [
+          33,
+          "match_1",
           52,
           "flow",
           false
         ],
         [
           33,
-          "match_1",
+          "match_3",
           52,
           "flow",
           false
@@ -846,15 +848,15 @@
           false
         ],
         [
-          231,
-          "true",
+          54,
+          "down",
           63,
           "flow",
           false
         ],
         [
-          54,
-          "down",
+          231,
+          "true",
           63,
           "flow",
           false
@@ -1176,14 +1178,14 @@
         ],
         [
           78,
-          "match_2",
+          "match_1",
           83,
           "flow",
           false
         ],
         [
           78,
-          "match_1",
+          "match_2",
           83,
           "flow",
           false
@@ -1203,8 +1205,8 @@
           false
         ],
         [
-          82,
-          "True",
+          33,
+          "match_3",
           85,
           "reset",
           false
@@ -1217,8 +1219,8 @@
           false
         ],
         [
-          33,
-          "match_3",
+          82,
+          "True",
           85,
           "reset",
           false
@@ -1274,14 +1276,14 @@
         ],
         [
           78,
-          "match_2",
+          "match_1",
           91,
           "flow",
           false
         ],
         [
           78,
-          "match_1",
+          "match_2",
           91,
           "flow",
           false
@@ -1805,15 +1807,15 @@
           false
         ],
         [
-          136,
-          "False",
+          223,
+          "flow",
           126,
           "flow",
           false
         ],
         [
-          223,
-          "flow",
+          136,
+          "False",
           126,
           "flow",
           false
@@ -1959,15 +1961,15 @@
           false
         ],
         [
-          76,
-          "False",
+          88,
+          "flow",
           136,
           "flow",
           false
         ],
         [
-          88,
-          "flow",
+          76,
+          "False",
           136,
           "flow",
           false
@@ -2696,41 +2698,27 @@
         [
           2,
           "flow",
-          199,
-          "flow",
-          false
-        ],
-        [
-          199,
-          "flow",
           200,
           "flow",
           false
         ],
         [
-          199,
-          "flag",
           200,
-          "condition",
-          false
-        ],
-        [
-          200,
-          "True",
+          "flow",
           201,
           "flow",
           false
         ],
         [
           200,
-          "False",
+          "val",
           201,
-          "reset",
+          "A",
           false
         ],
         [
-          201,
-          "flow",
+          240,
+          "out",
           202,
           "flow",
           false
@@ -2754,13 +2742,6 @@
           "True",
           204,
           "on",
-          false
-        ],
-        [
-          202,
-          "flow",
-          205,
-          "flow",
           false
         ],
         [
@@ -3062,6 +3043,41 @@
           "enterState",
           236,
           "reset",
+          false
+        ],
+        [
+          55,
+          "flow",
+          237,
+          "flow",
+          false
+        ],
+        [
+          2,
+          "flow",
+          240,
+          "flow",
+          false
+        ],
+        [
+          87,
+          "down",
+          241,
+          "flow",
+          false
+        ],
+        [
+          201,
+          "true",
+          244,
+          "flow",
+          false
+        ],
+        [
+          244,
+          "flow",
+          245,
+          "flow",
           false
         ]
       ],
@@ -4895,7 +4911,7 @@
             "color_in":{
               "type":"color",
               "value":[
-                0.44597768800000514577,
+                0.44597768800000564537,
                 1,
                 0,
                 1
@@ -5489,11 +5505,18 @@
         "59":{
           "data":{},
           "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "raceMode":{
+              "type":"bool",
+              "value":true
+            }
+          },
           "hiddenPins":{
             "p_in":{
               "color":true,
               "flow":false,
-              "useGenericMissionDataApp":false,
+              "raceMode":true,
+              "useGenericMissionDataApp":true,
               "value":false
             },
             "p_out":{
@@ -5501,10 +5524,10 @@
             }
           },
           "pos":[
-            2530,
+            2510,
             512
           ],
-          "type":"ui/cornerTimer"
+          "type":"ui/cornerTimerBLR"
         },
         "60":{
           "data":{},
@@ -10353,7 +10376,7 @@
           "hardcodedPins":{
             "duration":{
               "type":"number",
-              "value":0.75000000000000566214
+              "value":0.75000000000000632827
             }
           },
           "hiddenPins":{
@@ -11355,7 +11378,7 @@
           "hardcodedPins":{
             "dx":{
               "type":"number",
-              "value":0.05000000074505851072
+              "value":0.05000000074505862174
             },
             "mn":{
               "type":"number",
@@ -11443,7 +11466,7 @@
           "hardcodedPins":{
             "dx":{
               "type":"number",
-              "value":0.05000000074505851072
+              "value":0.05000000074505862174
             },
             "mn":{
               "type":"number",
@@ -11905,114 +11928,95 @@
           "type":"util/customLua"
         },
         "199":{
-          "code":{
-            "_executionStarted":"",
-            "_executionStopped":"",
-            "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nself.pinOut.flag.value = extensions.blrglobals.blrFlagGet(self.pinIn.name.value)\n"
-          },
-          "customName":"UI INIT REQ",
           "data":{},
           "dynamicMode":"repeat",
           "hardcodedPins":{
-            "name":{
-              "type":"string",
-              "value":"uiInitRequest"
+            "raceMode":{
+              "type":"bool",
+              "value":true
             }
           },
           "hiddenPins":{
             "p_in":{
+              "color":true,
               "flow":false,
-              "name":false
+              "raceMode":false,
+              "useGenericMissionDataApp":true,
+              "value":true
             },
             "p_out":{
-              "flag":false,
               "flow":false
             }
           },
-          "name":"BLR Flag Get",
-          "pins":[
-            [
-              "in",
-              "flow",
-              "flow",
-              null,
-              "Inflow for this node.",
-              true
-            ],
-            [
-              "out",
-              "flow",
-              "flow",
-              null,
-              "Outflow for this node.",
-              true
-            ],
-            [
-              "out",
-              "bool",
-              "flag",
-              null,
-              ""
-            ],
-            [
-              "in",
-              "string",
-              "name",
-              null,
-              ""
-            ]
-          ],
           "pos":[
-            -1152,
-            582
+            -1124,
+            -580
           ],
-          "type":"util/customLua"
+          "type":"ui/cornerTimerBLR"
         },
         "200":{
           "data":{},
           "dynamicMode":"repeat",
+          "getter":true,
+          "global":true,
+          "hardcodedPins":{
+            "varName":{
+              "type":"string",
+              "value":"uistate"
+            }
+          },
           "hiddenPins":{
             "p_in":{
-              "condition":false,
-              "flow":false
+              "flow":false,
+              "suffix":false,
+              "varName":false
             },
             "p_out":{
-              "False":false,
-              "True":false,
-              "flow":true
+              "flow":false,
+              "val":false
             }
           },
           "pos":[
-            -1166,
-            694
+            -1550,
+            372
           ],
-          "type":"logic/branch"
+          "type":"types/genericValue"
         },
         "201":{
           "data":{},
           "dynamicMode":"repeat",
-          "hiddenPins":{
-            "p_in":{
-              "flow":false,
-              "reset":false
-            },
-            "p_out":{
-              "flow":false
+          "hardcodedPins":{
+            "B":{
+              "type":"number",
+              "value":0
             }
           },
+          "hiddenPins":{
+            "p_in":{
+              "A":false,
+              "B":false,
+              "flow":false
+            },
+            "p_out":{
+              "false":false,
+              "flow":false,
+              "true":false,
+              "value":true
+            }
+          },
+          "opSymbol":"==",
           "pos":[
-            -956,
-            694
+            -1340,
+            386
           ],
-          "type":"logic/once"
+          "type":"logic/compare"
         },
         "202":{
           "code":{
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nextensions.customGuiStream.gameOverUIinitreload()"
+            "work":"local extensions = require(\"extensions\")\nextensions.customGuiStream.gameOverUIinitreload()\nextensions.customGuiStream.sendTimerData()"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -12024,7 +12028,7 @@
               "flow":false
             }
           },
-          "name":"Death Screen UI Init",
+          "name":"Track Event UI Init",
           "pins":[
             [
               "in",
@@ -12044,8 +12048,8 @@
             ]
           ],
           "pos":[
-            -816,
-            596
+            -774,
+            624
           ],
           "type":"util/customLua"
         },
@@ -12131,74 +12135,6 @@
             848
           ],
           "type":"logic/flowSwitch"
-        },
-        "205":{
-          "code":{
-            "_executionStarted":"",
-            "_executionStopped":"",
-            "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(self.pinIn.name.value, self.pinIn.flag.value)\n"
-          },
-          "data":{},
-          "dynamicMode":"repeat",
-          "hardcodedPins":{
-            "flag":{
-              "type":"bool",
-              "value":false
-            },
-            "name":{
-              "type":"string",
-              "value":"uiInitRequest"
-            }
-          },
-          "hiddenPins":{
-            "p_in":{
-              "flag":true,
-              "flow":false,
-              "name":false
-            },
-            "p_out":{
-              "flow":false
-            }
-          },
-          "name":"BLR Flag Set",
-          "pins":[
-            [
-              "in",
-              "flow",
-              "flow",
-              null,
-              "Inflow for this node.",
-              true
-            ],
-            [
-              "out",
-              "flow",
-              "flow",
-              null,
-              "Outflow for this node.",
-              true
-            ],
-            [
-              "in",
-              "string",
-              "name",
-              null,
-              ""
-            ],
-            [
-              "in",
-              "bool",
-              "flag",
-              null,
-              ""
-            ]
-          ],
-          "pos":[
-            -746,
-            694
-          ],
-          "type":"util/customLua"
         },
         "206":{
           "code":{
@@ -13110,6 +13046,281 @@
             -300
           ],
           "type":"logic/once"
+        },
+        "237":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "raceMode":{
+              "type":"bool",
+              "value":true
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "color":true,
+              "flow":false,
+              "raceMode":true,
+              "useGenericMissionDataApp":true,
+              "value":true
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            1242,
+            -1098
+          ],
+          "type":"ui/cornerTimerBLR"
+        },
+        "238":{
+          "alpha":0.75000000000000000000,
+          "backgroundColor":[
+            0.50000000000000000000,
+            0.50000000000000000000,
+            0.50000000000000000000,
+            0.50000000000000000000
+          ],
+          "borderColor":[
+            0.80000001192092895508,
+            0.80000001192092895508,
+            0.80000001192092895508,
+            1
+          ],
+          "commentSize":[
+            200,
+            200
+          ],
+          "commentText":"almost perfect needs to\\nget UI init data back (loses delta and lap time info)\\nalso doesn't seem to update delta for last lap",
+          "commentTitle":"Updated timer app",
+          "data":{},
+          "dynamicMode":"repeat",
+          "moveMode":"withoutNodes",
+          "pos":[
+            2436,
+            644
+          ],
+          "simple":true,
+          "textColor":[
+            1,
+            1,
+            1,
+            1
+          ],
+          "type":"debug/comment"
+        },
+        "240":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal flag = self.pinIn.flag.value\nlocal onceMode = self.pinIn.onceMode.value\nlocal state = extensions.blrglobals.blrFlagGet(flag)\nlocal outflow = state\nif state and onceMode then extensions.blrglobals.blrFlagSet(flag, false) end\nself.pinOut.out.value = outflow and self.pinIn.flow.value"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "flag":{
+              "type":"string",
+              "value":"uiInitRequest"
+            },
+            "onceMode":{
+              "type":"bool",
+              "value":true
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flag":true,
+              "flow":false,
+              "onceMode":true
+            },
+            "p_out":{
+              "flow":true,
+              "out":false
+            }
+          },
+          "name":"BLR Flag Flow",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "out",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "string",
+              "flag",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "bool",
+              "onceMode",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -962,
+            610
+          ],
+          "type":"util/customLua"
+        },
+        "241":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.customGuiStream.resetTimerData()"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Reset Timer Data",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ]
+          ],
+          "pos":[
+            130,
+            -1140
+          ],
+          "type":"util/customLua"
+        },
+        "244":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "raceMode":{
+              "type":"bool",
+              "value":true
+            },
+            "value":{
+              "type":"number",
+              "value":0
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "color":true,
+              "flow":false,
+              "raceMode":false,
+              "useGenericMissionDataApp":true,
+              "value":true
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -1564,
+            526
+          ],
+          "type":"ui/cornerTimerBLR"
+        },
+        "245":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "raceMode":{
+              "type":"bool",
+              "value":true
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "color":true,
+              "flow":false,
+              "raceMode":false,
+              "useGenericMissionDataApp":true,
+              "value":true
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -1326,
+            540
+          ],
+          "type":"ui/cornerTimerBLR"
+        },
+        "246":{
+          "alpha":0.75000000000000000000,
+          "backgroundColor":[
+            0.50000000000000000000,
+            0.50000000000000000000,
+            0.50000000000000000000,
+            0.50000000000000000000
+          ],
+          "borderColor":[
+            0.80000001192092895508,
+            0.80000001192092895508,
+            0.80000001192092895508,
+            1
+          ],
+          "commentSize":[
+            200,
+            200
+          ],
+          "commentText":"--:--:--- when not racing and\\nsets timer to race mode instead\\nof clock by default after starting",
+          "commentTitle":"Above FG forces timer to be",
+          "data":{},
+          "dynamicMode":"repeat",
+          "moveMode":"withoutNodes",
+          "pos":[
+            -1456,
+            658
+          ],
+          "simple":true,
+          "textColor":[
+            1,
+            1,
+            1,
+            1
+          ],
+          "type":"debug/comment"
         }
       },
       "showTab":true,
@@ -13119,10 +13330,10 @@
         "list":{}
       },
       "viewPos":[
-        -805.95434570312500000000,
-        -323.14419555664062500000
+        -1325.17016601562500000000,
+        186.81665039062500000000
       ],
-      "viewZoom":0.50000000000000000000
+      "viewZoom":0.75000000000000000000
     },
     "3":{
       "description":"This is the description for graph States",

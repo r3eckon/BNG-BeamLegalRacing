@@ -425,19 +425,38 @@ local function getFullSlotMap()
 local allParts = getAllAvailableParts(true)
 local toRet = {}
 local cpart = {}
+local ctype = ""
 for k,v in pairs(allParts) do
 cpart = getPartJbeam(k)
-if not string.match(cpart["slotType"], "simple_traffic") then
-if cpart["slotType"] ~= "main" then
+ctype = cpart["slotType"]
+
+-- 0.32.2 fix for table format in slotType (found in BX series bx_bashbar_R.jbeam)
+-- parts with multiple compatible slots, add to slot map for each one
+if type(ctype) == "table" then
+for _,t in pairs(ctype) do
+if not string.match(t, "simple_traffic") then
+if t ~= "main" then
 if not string.match(k, "simple_traffic") then
-if toRet[cpart["slotType"]] ~= nil then
-table.insert(toRet[cpart["slotType"]], k)
+if toRet[t] == nil then toRet[t] = {} end
+table.insert(toRet[t], k)
+end
+end
+end
+end
 else
-toRet[cpart["slotType"]] = {k}
+if not string.match(ctype, "simple_traffic") then
+if ctype ~= "main" then
+if not string.match(k, "simple_traffic") then
+if toRet[ctype] ~= nil then
+table.insert(toRet[ctype], k)
+else
+toRet[ctype] = {k}
 end
 end
 end
 end
+end
+
 end
 return toRet
 end
@@ -582,10 +601,25 @@ local function getCustomIOCTX(model)  -- Returns IOCTX based on model to use for
 return {preloadedDirs = {"/vehicles/" .. model .. "/", "/vehicles/common/"}}
 end
 
-local function getFilteredSlotMap(fullmap, filters)	-- Returns slot map containing data only for specific slots
+-- Returns slot map containing data only for specific slots
+-- 1.15.3 added param: avoid, list of terms to avoid when looking for parts 
+-- (ex: cargo boxes cause issues with rollcage, avoid when randomizing shop parts)
+local function getFilteredSlotMap(fullmap, filters, avoid) 
 local toRet = {}
+local skip = false
 for k,v in pairs(filters) do
+if avoid then
+toRet[v] = {}
+for _,p in pairs(fullmap[v]) do
+skip = false
+for _,a in pairs(avoid) do
+if string.match(p, a) then skip=true break end
+end
+if not skip then table.insert(toRet[v], p) end
+end
+else
 toRet[v] = fullmap[v]
+end
 end
 return toRet
 end

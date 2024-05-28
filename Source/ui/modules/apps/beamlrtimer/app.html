@@ -1,0 +1,24 @@
+<div class="bngApp beamlrtimer" style="font-size:1.4em; background-color:transparent; height:100%; position:relative; transform:translate(2px,-2px);" >
+
+<div ng-if="enabled==true" style="height:100%; z-index:9999; position:relative;">
+
+
+<div ng-if="racemode == true" style="background-color:rgba(0.0,0.0,0.0,0.44); text-align:center; font-size:100%; vertical-align:center; font-weight:bold; width:100%; height:100%;">
+<table style="width:100%; height:100%;">
+<tr><td>Lap</td><td>{{(laptime | date: "mm:ss:sss") || "--:--:---"}}</td></tr>
+<tr style="font-size:50%;"><td>Delta</td><td style="font-size:130%;" ng-style="{color:deltacolor}" >{{deltasymbol}} {{(deltatime | date: "mm:ss:sss")|| "--:--:---"}}</td></tr>
+<tr><td>Total</td><td>{{(totaltime | date: "mm:ss:sss") || "--:--:---"}}</td></tr>
+</table>
+</div>
+
+
+<div ng-if="racemode == false" style="background-color:rgba(0.0,0.0,0.0,0.5); text-align:center; font-size:130%; vertical-align:center; font-weight:bold; width:100%; height:50%;">
+<table style="width:100%; height:100%;">
+<tr><td>{{(totaltime | date: "HH:mm:ss" : "+000") || "--:--:--"}}</td></tr>
+</table>
+</div>
+
+
+</div>
+
+</div>

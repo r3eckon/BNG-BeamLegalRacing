@@ -13,18 +13,6 @@
       }
     },
     {
-      "appName":"raceTime",
-      "placement":{
-        "bottom":"",
-        "height":"80px",
-        "left":"",
-        "position":"absolute",
-        "right":"0px",
-        "top":"0px",
-        "width":"150px"
-      }
-    },
-    {
       "appName":"raceLaps",
       "placement":{
         "bottom":"",
@@ -32,7 +20,7 @@
         "left":"",
         "position":"absolute",
         "right":"0px",
-        "top":"120px",
+        "top":"135px",
         "width":"150px"
       }
     },
@@ -44,7 +32,7 @@
         "left":"",
         "position":"absolute",
         "right":"0px",
-        "top":"80px",
+        "top":"95px",
         "width":"150px"
       }
     },
@@ -237,6 +225,18 @@
         "right":"",
         "top":"0px",
         "width":"190px"
+      }
+    },
+    {
+      "appName":"beamlrtimer",
+      "placement":{
+        "bottom":"",
+        "height":"99px",
+        "left":"",
+        "position":"absolute",
+        "right":"0px",
+        "top":"0px",
+        "width":"200px"
       }
     }
   ],

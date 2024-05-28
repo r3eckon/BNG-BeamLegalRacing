@@ -10,6 +10,15 @@ angular.module('beamng.apps')
 	  scope.eventdata = {}
 	  scope.enabled = false
 	  scope.rewards = {}
+	  scope.initDone = false
+	  
+	  //1.15.3 fix, makes sure UI init is called in track event even though this
+	  //specific app doesn't use it, will call ui init for timer which needs it
+	  if(!scope.initDone)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("uiinit")`);
+		  scope.initDone = true
+	  }
 	  
 	  scope.$on('beamlrEventLeaderboard', function (event, data) {
           scope.leaderboard = data

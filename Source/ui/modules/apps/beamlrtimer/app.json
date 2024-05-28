@@ -1,0 +1,18 @@
+{
+  "domElement": "<beamlrtimer></beamlrtimer>",
+  "name": "BeamLR Timer UI",
+  "types": [
+    "ui.apps.categories.vehicle_info"
+  ],
+  "description": "Timer UI for Beam Legal Racing Mod",
+  "css": {
+    "left": "200px",
+    "height": "150px",
+    "top": "200px",
+    "width": "150px",
+  },
+  "author": "Revision3",
+  "version": "0.1",
+  "preserveAspectRatio" : false,
+  "directive": "beamlrtimer"
+}

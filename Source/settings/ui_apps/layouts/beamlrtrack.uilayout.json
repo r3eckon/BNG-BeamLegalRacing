@@ -1,5 +1,4 @@
 {
-  "type":"beamlrtrack",
   "apps":[
     {
       "appName":"messages",
@@ -11,18 +10,6 @@
         "right":"200px",
         "top":"0px",
         "width":"490px"
-      }
-    },
-    {
-      "appName":"raceTime",
-      "placement":{
-        "bottom":"",
-        "height":"80px",
-        "left":"",
-        "position":"absolute",
-        "right":"0px",
-        "top":"0px",
-        "width":"150px"
       }
     },
     {
@@ -53,10 +40,10 @@
     {
       "appName":"tacho2",
       "placement":{
-        "width":"300px",
         "bottom":"20px",
         "height":"300px",
-        "right":"20px"
+        "right":"20px",
+        "width":"300px"
       },
       "settings":{
         "noCockpit":true
@@ -65,10 +52,10 @@
     {
       "appName":"forcedInduction",
       "placement":{
-        "width":"150px",
         "bottom":"320px",
         "height":"150px",
-        "right":"20px"
+        "right":"20px",
+        "width":"150px"
       },
       "settings":{
         "noCockpit":true
@@ -150,8 +137,21 @@
         "top":"130px",
         "width":"450px"
       }
+    },
+    {
+      "appName":"beamlrtimer",
+      "placement":{
+        "bottom":"",
+        "height":"100px",
+        "left":"",
+        "position":"absolute",
+        "right":"0px",
+        "top":"0px",
+        "width":"200px"
+      }
     }
   ],
   "description":"BeamLR Track Event UI Layout",
-  "title":"BeamLR Track"
+  "title":"BeamLR Track",
+  "type":"beamlrtrack"
 }

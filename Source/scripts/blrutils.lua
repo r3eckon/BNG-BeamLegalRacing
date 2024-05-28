@@ -2535,6 +2535,42 @@ end
 end
 end
 
+-- Util function to check for missing or unreachable waypoints
+locals["validateWaypoints"] = function(club, league, ignore)
+local dtable = {}
+local waypoints = {}
+local cwp = ""
+local pwp = ""
+local nwp = ""
+local basepath = "/beamLR/races/" .. club .. "/" .. league .. "/"
+local rfiles = FS:findFiles(basepath, "*", 0)
+local toskip = {}
+if ignore then
+for k,v in pairs(ignore) do
+toskip[v] = true
+end
+end
+for k,v in pairs(rfiles) do
+if not toskip[v:gsub(basepath, "")] then
+dtable = loadDataTable(v)
+waypoints = ssplit(dtable["waypoints"], ",")
+for i=1,#waypoints do
+cwp = waypoints[i]
+if i > 1 then pwp = waypoints[i-1] else pwp = "START" end
+if i < #waypoints then nwp = waypoints[i+1] else nwp = "FINISH" end
+if not scenetree.findObject(cwp) then -- Found waypoint missing from map entirely (removed by game update)
+print("MISSING " .. cwp .. " (BETWEEN " .. pwp .. " & " .. nwp .. ") IN FILE " .. v:gsub(basepath, ""))
+elseif pwp ~= "START" then 
+if #map.getPath(pwp, cwp) < 1 then -- Found existing waypoint with no path between itself and previous waypoint
+print("NO PATH BETWEEN " .. pwp .. " AND " .. cwp .. " IN FILE " .. v:gsub(basepath, ""))
+end
+end
+end
+end
+end
+end
+
+M.validateWaypoints = locals["validateWaypoints"]
 M.gpsCheck = locals["gpsCheck"]
 M.clubCompletionStatus = locals["clubCompletionStatus"]
 M.towingTriggerRefresh = towingTriggerRefresh

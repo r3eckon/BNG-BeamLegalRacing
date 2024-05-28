@@ -363,6 +363,30 @@ sendDataToUI("itemInventory", uidata)
 
 end
 
+local timerdata = {}
+
+local function consumeTimerData(data)
+timerdata = data
+end
+
+local function sendTimerData()
+guihooks.trigger("BeamLRTimerData", timerdata)
+end
+
+local function resetTimerData()
+timerdata = {}
+timerdata.offset = 0
+timerdata.clap = 0
+timerdata.sentforlap = 0
+timerdata.deltacolor = "white"
+timerdata.deltasymbol = ""
+sendTimerData()
+end
+
+
+M.resetTimerData = resetTimerData
+M.sendTimerData = sendTimerData
+M.consumeTimerData = consumeTimerData
 M.sendItemInventory = sendItemInventory
 M.towingUIToggle = towingUIToggle
 M.imageUIMode = imageUIMode

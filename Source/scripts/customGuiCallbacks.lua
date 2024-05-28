@@ -822,6 +822,11 @@ extensions.blrItemInventory.saveInventory()
 extensions.customGuiStream.sendItemInventory()
 end
 
+ftable["timerSavedData"] = function(p)
+dump(p)
+extensions.customGuiStream.consumeTimerData(p)
+end
+
 
 local ptable = {}
 local rtable = {}

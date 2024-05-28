@@ -12,6 +12,21 @@ local ctime = 0
 
 local ftable = {}
 
+local fqueue = {} -- frame delay queue
+local squeue = {} -- time delay queue
+
+local ptable = {}
+local rtable = {}
+
+local function queue(f,p,d, mode)
+if (not mode) or (mode == "frame") then
+table.insert(fqueue, {f, p, cframe+d})
+elseif mode == "time" then
+table.insert(squeue, {f, p, ctime+d})
+end
+end
+
+
 ftable["test"] = function(p)
 print(p)
 end
@@ -61,16 +76,13 @@ end
 end
 
 ftable["updatevehid"] = function(p)
+if be:getPlayerVehicle(0) then
 extensions.blrutils.blrvarSet("playervehid",be:getPlayerVehicle(0):getId())
+else -- 1.15.3 fix, be:getPlayerVehicle(0) can returns nil after scrapping so trying to re-queue 
+print("Delayed vehid update encountered nil be:getPlayerVehicle(0) result, re-queuing...")
+queue("updatevehid",nil, 10)
 end
-
-
-
-local fqueue = {} -- frame delay queue
-local squeue = {} -- time delay queue
-
-local ptable = {}
-local rtable = {}
+end
 
 local function setParamTableValue(p,ti,v)
 if ptable[p] == nil then ptable[p] = {} end
@@ -79,14 +91,6 @@ end
 
 local function setParam(p,v)
 ptable[p] = v
-end
-
-local function queue(f,p,d, mode)
-if (not mode) or (mode == "frame") then
-table.insert(fqueue, {f, p, cframe+d})
-elseif mode == "time" then
-table.insert(squeue, {f, p, ctime+d})
-end
 end
 
 

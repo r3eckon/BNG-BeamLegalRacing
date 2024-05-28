@@ -1,7 +1,7 @@
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.15.2/beamLegalRacing1.15.2.zip
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.15.3/beamLegalRacing1.15.3.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.15.2
+# Beam Legal Racing 1.15.3
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -668,3 +668,14 @@ Thank you for playing BeamLR!
 * Fixed vehicle scrapping not deleting vehicle when not walking
 * Fixed options menu not reloading current seed during UI init
 * Fixed item inventory not saved during career backup
+
+### 1.15.3
+* Added custom timer UI app to fix vanilla app (clock & race modes, lap & delta time)
+* Fixed waypoint & AI roads issues for some WCUSA race files
+* Fixed checkpoint & lap counter UI apps not appearing
+* Trying fix for delayed updatevehid function error (be:getPlayerVehicle(0) is nil) 
+* Fixed "Set UI Timer" fg node stuck at 0 after first lap (using BLR modified version)
+* Fixed jbeam table causing issue with slotType field on BX-Series
+* Fixed AI pathing issues on Utah near ranger cabin
+* Fixed vanilla traffic script collision bug (added edited script to userfolder lua)
+* Used car shop random parts now avoids cargo boxes (caused issues with rollcage)
