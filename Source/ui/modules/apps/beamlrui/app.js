@@ -130,9 +130,14 @@ angular.module('beamng.apps')
 		  scope.inputData['tfasttoggle'] = data['tfasttoggle'];
 		  scope.inputData['gsafemode'] = data['gsafemode'];
 		  scope.inputData['imgmode'] = data['imgmode'];
-		  scope.inputData['wagerscl'] = data['wagerscl']
-		  scope.inputData['repscl'] = data['repscl']
-		  scope.beamlrData['seed'] = data['sseed']
+		  scope.inputData['wagerscl'] = data['wagerscl'];
+		  scope.inputData['repscl'] = data['repscl'];
+		  scope.beamlrData['seed'] = data['sseed'];
+		  scope.inputData['ccvar'] = data['ccvar'];
+		  scope.inputData['wsvar'] = data['wsvar'];
+		  scope.inputData['fdvar'] = data['fdvar'];
+		  scope.inputData['dwtoggle'] = data['dwtoggle'];
+		  scope.inputData['allowinjury'] = data['allowinjury'];
       })
 	  
 	  
@@ -567,6 +572,41 @@ angular.module('beamng.apps')
 	  {
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("itemid", "${id}")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("itemDiscard", "itemid")`)
+	  }
+	  
+	  scope.dwtoggle = function(t)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("dwtoggle", ${t})`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("toggleDynamicWeather", "dwtoggle")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
+	  }
+	  
+	  scope.setCloudCoverVar = function(t)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("ccvar", ${t})`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setCloudCoverVar", "ccvar")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
+	  }
+	  
+	  scope.setWindSpeedVar = function(t)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("wsvar", ${t})`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setWindSpeedVar", "wsvar")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
+	  }
+	  
+	  scope.setFogDensityVar = function(t)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("fdvar", ${t})`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setFogDensityVar", "fdvar")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
+	  }
+	  
+	  scope.toggleHealth = function(t)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("togglehealth", ${t})`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("toggleHealthSystem", "togglehealth")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
 	  
 	  

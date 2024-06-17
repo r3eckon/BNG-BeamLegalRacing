@@ -608,18 +608,26 @@ local function getFilteredSlotMap(fullmap, filters, avoid)
 local toRet = {}
 local skip = false
 for k,v in pairs(filters) do
-if avoid then
-toRet[v] = {}
-for _,p in pairs(fullmap[v]) do
-skip = false
-for _,a in pairs(avoid) do
-if string.match(p, a) then skip=true break end
-end
-if not skip then table.insert(toRet[v], p) end
-end
-else
-toRet[v] = fullmap[v]
-end
+	if avoid then
+		toRet[v] = {}
+		if fullmap[v] then
+		for _,p in pairs(fullmap[v]) do
+			skip = false
+				for _,a in pairs(avoid) do
+					if string.match(p, a) then skip=true break end
+				end
+			if not skip then table.insert(toRet[v], p) end
+		end
+		else
+		-- Issue fixed for 1.15.4, bx has "bx_underglow" in actualSlotDebug output but
+		-- slot doesn't actually exist (missing in part editor and slotMap) this should
+		-- prevent issue without having to remove item from random slots which means
+		-- if devs add underglow slot to bx it should be allowed to spawn on used cars
+		print("getFilteredSlotMap missing item (" .. v .. ") from filters. Check slotMap for missing random slot.")
+		end
+	else
+		toRet[v] = fullmap[v]
+	end
 end
 return toRet
 end

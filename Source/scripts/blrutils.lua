@@ -563,6 +563,10 @@ local function getDailySeed()
 return startSeed + day * dailySeedOffset
 end
 
+locals["getDailySeedOffset"] = function()
+return dailySeedOffset
+end
+
 local function initStartSeed(s)
 startSeed = s
 end
@@ -2570,6 +2574,7 @@ end
 end
 end
 
+M.getDailySeedOffset = locals["getDailySeedOffset"]
 M.validateWaypoints = locals["validateWaypoints"]
 M.gpsCheck = locals["gpsCheck"]
 M.clubCompletionStatus = locals["clubCompletionStatus"]

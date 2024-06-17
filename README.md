@@ -1,7 +1,8 @@
+
 [latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.15.3/beamLegalRacing1.15.3.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.15.3
+# Beam Legal Racing 1.15.4
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -112,6 +113,7 @@ Version 1.14.3 adds part images (see [addon](https://github.com/r3eckon/BNG-Beam
 
 Version 1.15 adds walk mode integration, consumable item inventory system, oil value persistence, slow oil leaks for high odometer vehicles, ability to tow to specific locations and "The Race of Heroes" endgame track event. See [improved oil system](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#improved-oil-system) and [consumable item inventory](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#consumable-item-inventory) for more information.
 
+Version 1.15.4 adds dynamic weather controlled from options menu (cloud cover, wind speed & fog density slowly change) and restored the injury system that was disabled in a previous update. Injury is disabled by default and must be enabled through the options menu. BeamNG G force sensors are still buggy, use the injury system at your own risk!
 
 Further instructions and various tips on this mods' various features are listed in the BeamLR UI Main Menu.
 
@@ -301,9 +303,9 @@ Thank you for playing BeamLR!
 * ~~Various UI problems, input fields stop registering keystrokes, whole UI can refuse to work. Workaround is to keep cursor above input fields.~~ Seems fixed as of 1.11 if any issues arise try CTRL+F5.
 * ~~Race checkpoints sometimes fail to trigger properly.~~ Should be fixed as of version 1.6
 * ~~Beamstate file corruption breaking pristine vehicles. Workaround is implemented but may fail. Use world editor for repair or delete the corrupted beamstate file.~~ Seems fixed.
-* Player can get stuck in place while walking and trying to take bus home. Currently investigating this issue. Reload the mission to get unstuck.
+* ~~Player can get stuck in place while walking and trying to take bus home. Currently investigating this issue. Reload the mission to get unstuck.~~ Seems fixed.
 * Pausing the game during part edits will reset your vehicle odometer. Try to make sure the game isn't paused when interacting with BeamLR features to prevent issues.
-* Health mechanic is temporarily removed due to vehicle "wiggle" after crashes causing erroneous high enough G forces to injure the player. Fatal crashes from a single high G impact are still enabled like track events.
+* ~~Health mechanic is temporarily removed due to vehicle "wiggle" after crashes causing erroneous high enough G forces to injure the player. Fatal crashes from a single high G impact are still enabled like track events.~~ As of version 1.15.4 the health mechanic has been re-introduced into the mod. This feature is disabled by default as G force sensors are still buggy and may lead to unfair deaths. Use at your own risk!
 
 
 ## Changelog
@@ -679,3 +681,10 @@ Thank you for playing BeamLR!
 * Fixed AI pathing issues on Utah near ranger cabin
 * Fixed vanilla traffic script collision bug (added edited script to userfolder lua)
 * Used car shop random parts now avoids cargo boxes (caused issues with rollcage)
+
+### 1.15.4
+* Added dynamic weather system (Cloud cover, wind speed & fog slowly change over time)
+* Added injury screen effect (red corners on impact or health below 50%)
+* Fixed clock timer not updating fast enough with increased time scale
+* Restored health/injury system (off by default, can be turned on in options)
+* Fixed used car shop random slots bug due to missing BX-Series underglow 

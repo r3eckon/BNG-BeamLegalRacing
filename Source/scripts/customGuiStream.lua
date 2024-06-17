@@ -383,7 +383,6 @@ timerdata.deltasymbol = ""
 sendTimerData()
 end
 
-
 M.resetTimerData = resetTimerData
 M.sendTimerData = sendTimerData
 M.consumeTimerData = consumeTimerData

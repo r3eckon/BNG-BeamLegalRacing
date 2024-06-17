@@ -38,6 +38,8 @@ angular.module('beamng.apps')
 	  scope.$on('raceTime', function (event, data) {
 		scope.racemode = data.racemode
 		
+		//console.log("RECEIVED TIME " + data.time * 1000.0 )
+		
         if (scope.newLap) {
 		  scope.laptime = Math.floor((data.time - scope.offset) * 1000)//FIXES ISSUE WITH INCORRECT DELTA, LAP TIME OFFSET WAS SET TO data.time FROM PREVIOUS CALL OF raceTime SO THIS UPDATES TO NEWEST VALUE
           scope.offset = Math.floor(data.time * 1000) / 1000//MATH.FLOOR NEEDED TO FIX SMALL INCONSISTENCIES WITH UI VALUE
@@ -94,6 +96,10 @@ angular.module('beamng.apps')
 			bngApi.engineLua(`extensions.customGuiCallbacks.exec("timerSavedData", "timerdata")`);
 			//console.log("SENT DELTA COLOR " + scope.deltacolor + "\nSENT DELTA SYMBOL " + scope.deltasymbol)
 		}
+		
+		//Need this to force timer app to update as fast as data is received
+		//Wasn't an issue with race timer but happened with clock + increased time scale
+		scope.$apply()
 		
       })
 	  

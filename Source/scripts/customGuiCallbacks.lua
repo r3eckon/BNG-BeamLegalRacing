@@ -823,8 +823,60 @@ extensions.customGuiStream.sendItemInventory()
 end
 
 ftable["timerSavedData"] = function(p)
-dump(p)
 extensions.customGuiStream.consumeTimerData(p)
+end
+
+ftable["toggleDynamicWeather"] = function(p)
+local dtable = {}
+local changed = extensions.blrglobals.blrFlagGet("dynamicWeatherToggle") ~= (p==1)
+
+dtable["dwtoggle"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+extensions.blrglobals.blrFlagSet("dynamicWeatherToggle", p == 1) -- probably useless, only used on scenario start
+
+if changed then
+if p ~= 1 then
+extensions.blrDynamicWeather.toggle(false)
+extensions.blrDynamicWeather.restoreSavedState()
+else
+extensions.blrDynamicWeather.saveCurrentState()
+extensions.blrDynamicWeather.initcache()
+extensions.blrDynamicWeather.generateWeatherFrames()
+extensions.blrDynamicWeather.toggle(true)
+end
+end
+end
+
+ftable["setCloudCoverVar"] = function(p)
+local dtable = {}
+dtable["ccvar"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+extensions.blrutils.blrvarSet("ccvar", p)
+extensions.blrDynamicWeather.generateWeatherFrames()
+end
+
+ftable["setWindSpeedVar"] = function(p)
+local dtable = {}
+dtable["wsvar"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+extensions.blrutils.blrvarSet("wsvar", p)
+extensions.blrDynamicWeather.generateWeatherFrames()
+end
+
+ftable["setFogDensityVar"] = function(p)
+local dtable = {}
+dtable["fdvar"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+extensions.blrutils.blrvarSet("fdvar", p)
+extensions.blrDynamicWeather.generateWeatherFrames()
+end
+
+ftable["toggleHealthSystem"] = function(p)
+local dtable = {}
+dtable["allowinjury"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+extensions.blrglobals.blrFlagSet("healthToggle", p == 1)
+extensions.blroverlay.toggle(p == 1)
 end
 
 

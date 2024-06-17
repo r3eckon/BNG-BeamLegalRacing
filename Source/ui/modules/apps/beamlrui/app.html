@@ -468,6 +468,16 @@ Show Floating Markers
 <button ng-class="inputData.fmtoggle == 0 ? 'toggleon' : 'toggleoff'" ng-click="toggleMarkers(0)">Off</button>
 </p>
 
+<p style="text-align:center; margin-top:15px; margin-bottom:15px; margin-left:20px; margin-right:20px;">
+<strong>Use health system at your own risk!</strong> G force sensors are prone to glitches and may result in unfair deaths.
+</p>
+
+<p style="text-align:center; transform:translate(60px,0px); width:350px;"> 
+Toggle Health System
+<button ng-class="inputData.allowinjury == 1 ? 'toggleon' : 'toggleoff'" ng-click="toggleHealth(1)">On</button>
+<button ng-class="inputData.allowinjury == 0 ? 'toggleon' : 'toggleoff'" ng-click="toggleHealth(0)">Off</button>
+</p>
+
 <h3 style="text-align:center;"> Career </h3>
 
 <p style="text-align:center;"> 
@@ -651,6 +661,38 @@ Manual Traffic Toggle
 <button class="toggleoff" ng-click="trafficToggle(1)">On</button>
 <button class="toggleoff" ng-click="trafficToggle(0)">Off</button>
 </p>
+
+<h3 style="text-align:center;"> Dynamic Weather </h3>
+
+<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >Dynamic weather will smoothly change weather condition throughout the day. Weather changes from day to day using career seed. Time scale affects weather change rate.<p>
+
+<p style="text-align:center; margin-top:5px; margin-bottom:5px;"> 
+Dynamic Weather Toggle
+<button ng-class="inputData.dwtoggle == 1 ? 'toggleon' : 'toggleoff'" ng-click="dwtoggle(1)">On</button>
+<button ng-class="inputData.dwtoggle == 0 ? 'toggleon' : 'toggleoff'" ng-click="dwtoggle(0)">Off</button>
+</p>
+
+<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >Variability values control chance of bad weather. Lower values will make clear sky, low wind and low fog more likely. Set value to 0 to disable dynamic weather for a specific weather element (will use values set in freeroam).<p>
+
+
+<p style="text-align:center;"> 
+Cloud Cover Variability
+<input type="number" min=0 max=1 step=0.01 maxlength=10 size=5 ng-model="inputData.ccvar" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
+<button ng-click="setCloudCoverVar(inputData.ccvar)">Set</button>
+</p>
+
+<p style="text-align:center;"> 
+Wind Speed Variability
+<input type="number" min=0 max=1 step=0.01 maxlength=10 size=5 ng-model="inputData.wsvar" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
+<button ng-click="setWindSpeedVar(inputData.wsvar)">Set</button>
+</p>
+
+<p style="text-align:center;"> 
+Fog Density Variability
+<input type="number" min=0 max=1 step=0.01 maxlength=10 size=5 ng-model="inputData.fdvar" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
+<button ng-click="setFogDensityVar(inputData.fdvar)">Set</button>
+</p>
+
 
 <h3 style="text-align:center;"> Advanced </h3>
 
