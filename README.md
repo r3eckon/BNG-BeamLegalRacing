@@ -1,5 +1,5 @@
 
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.15.3/beamLegalRacing1.15.3.zip
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.15.4/beamLegalRacing1.15.4.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
 # Beam Legal Racing 1.15.4
