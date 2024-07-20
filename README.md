@@ -18,6 +18,8 @@ Perform missions, races and challenges to earn money to buy vehicles and parts. 
 
 ### Enjoying the mod and looking to support the project? [Donate here!](https://www.paypal.com/donate/?hosted_button_id=QQ7SKC6XK7PAE)
 
+### Having issues with the mod? [Please follow this troubleshooting guide.](troubleshooting.md)
+
 ## Install Instructions
 **BeamLR cannot be installed like a normal mod due to data persistence issues when zipped**. 
 
