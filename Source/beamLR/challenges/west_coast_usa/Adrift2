@@ -1,9 +1,9 @@
-desc=Quick drift challenge to the city dockyard
-wager=1000,5000
-triggers=BeamLRTrigger_RaceACP42,BeamLRTrigger_RaceACP43,BeamLRTrigger_RaceACP44,BeamLRTrigger_RaceACP90,BeamLRTrigger_RaceDCP93,BeamLRTrigger_RaceDCP94,BeamLRTrigger_RaceDCP95
-type=drift
-targettime=91000,120000
-driftpts=4000,8000
-rep=50,100
 gmwp=blrwp_raceA58
+targettime=91000,120000
+type=drift
+triggers=BeamLRTrigger_RaceACP42,BeamLRTrigger_RaceACP43,BeamLRTrigger_RaceACP44,BeamLRTrigger_RaceACP90,BeamLRTrigger_RaceDCP93,BeamLRTrigger_RaceDCP94,BeamLRTrigger_RaceDCP95
+driftpts=4000,8000
+wager=3000,10000
 traffic=0
+rep=50,100
+desc=Quick drift challenge to the city dockyard

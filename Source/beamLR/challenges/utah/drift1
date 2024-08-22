@@ -1,9 +1,9 @@
-desc=Highway freestyle drift challenge
-wager=400,800
-triggers=BeamNGTrigger_RaceEnd,BeamNGTrigger_HighwayDragFinish
-type=drift
-targettime=150000,180000
 driftpts=5000,10000
-rep=50,100
+desc=Highway freestyle drift challenge
 gmwp=blrwp_raceend
+triggers=BeamNGTrigger_RaceEnd,BeamNGTrigger_HighwayDragFinish
+targettime=150000,180000
+type=drift
 traffic=1
+rep=50,100
+wager=1200,2400

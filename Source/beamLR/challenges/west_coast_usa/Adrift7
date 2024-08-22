@@ -1,9 +1,9 @@
-desc=Looping highway drift challenge
-wager=1000,5000
-triggers=BeamLRTrigger_RaceACP71,BeamLRTrigger_RaceACP72,BeamLRTrigger_RaceACP22,BeamLRTrigger_RaceACP2,BeamLRTrigger_RaceACP3,BeamLRTrigger_RaceACP4,BeamLRTrigger_RaceACP5,BeamLRTrigger_RaceACP68,BeamLRTrigger_RaceACP69,BeamLRTrigger_RaceACP70,BeamLRTrigger_RaceACP71
-type=drift
-targettime=240000,300000
-driftpts=8000,15000
-rep=50,100
 gmwp=blrwp_raceA100
+targettime=240000,300000
+type=drift
+triggers=BeamLRTrigger_RaceACP71,BeamLRTrigger_RaceACP72,BeamLRTrigger_RaceACP22,BeamLRTrigger_RaceACP2,BeamLRTrigger_RaceACP3,BeamLRTrigger_RaceACP4,BeamLRTrigger_RaceACP5,BeamLRTrigger_RaceACP68,BeamLRTrigger_RaceACP69,BeamLRTrigger_RaceACP70,BeamLRTrigger_RaceACP71
+driftpts=8000,15000
+wager=3000,10000
 traffic=0
+rep=50,100
+desc=Looping highway drift challenge

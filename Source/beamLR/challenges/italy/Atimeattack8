@@ -1,8 +1,8 @@
+wager=1200,4500
 desc=Time attack to a gas station
-type=time
-wager=400,1500
-rep=20,40
-triggers=BeamLRTrigger_TougeCP18,BeamLRTrigger_TougeCP38,BeamLRTrigger_TougeCP39,BeamLRTrigger_TougeCP40,BeamLRTrigger_CrossroadsRaceCP80,BeamLRTrigger_CrossroadsRaceCP78,BeamLRTrigger_TougeCP41,BeamLRTrigger_TougeCP42,BeamLRTrigger_TougeCP43,BeamLRTrigger_TougeCP44
 gmwp=blrwp_topdirtparking
+type=time
 targettime=150000,195000
 traffic=0
+rep=40,80
+triggers=BeamLRTrigger_TougeCP18,BeamLRTrigger_TougeCP38,BeamLRTrigger_TougeCP39,BeamLRTrigger_TougeCP40,BeamLRTrigger_CrossroadsRaceCP80,BeamLRTrigger_CrossroadsRaceCP78,BeamLRTrigger_TougeCP41,BeamLRTrigger_TougeCP42,BeamLRTrigger_TougeCP43,BeamLRTrigger_TougeCP44

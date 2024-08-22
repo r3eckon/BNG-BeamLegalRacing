@@ -164,6 +164,10 @@ function C:resetElectrics()
   obj:queueLuaCommand('electrics.set_lightbar_signal(0)')
   obj:queueLuaCommand('electrics.set_warn_signal(0)')
   obj:queueLuaCommand('electrics.horn(false)')
+  -- BEAMLR FIX START (for no lights at night after traffic cycles)
+  obj:queueLuaCommand('electrics.setLightsState(0)')
+  self.headlights = false
+  -- BEAMLR FIX END
 end
 
 function C:resetAll() -- resets everything
@@ -171,6 +175,9 @@ function C:resetAll() -- resets everything
   self:resetPursuit()
   self:resetTracking()
   self:resetValues()
+  -- BEAMLR FIX START (for no lights at night after traffic cycles)
+  self:resetElectrics()
+  -- BEAMLR FIX END
 end
 
 function C:honkHorn(duration) -- set horn with duration

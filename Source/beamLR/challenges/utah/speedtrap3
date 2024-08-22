@@ -1,8 +1,8 @@
-desc=Speed trap challenge near the caravan area
-wager=400,2000
 triggers=BeamLRTrigger_NearCaravanST
-type=speed
-targetspd=40,50
-rep=10,30
+rep=30,90
 gmwp=blrwp_cgm_caravanST
+wager=900,6000
+type=speed
 traffic=1
+targetspd=40,50
+desc=Speed trap challenge near the caravan area

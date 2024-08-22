@@ -681,9 +681,13 @@ local event = loadDataTable("beamLR/currentTrackEvent")
 local ctemplates = {}
 
 deleteFile("beamLR/mainData")
-deleteFile("beamLR/partInv")
+deleteFile("beamLR/partInv") -- keeping this in for 1.16 so defunct inventory files are deleted
+deleteFile("beamLR/partInventory") -- 1.16 advanced part inventory
 deleteFile("beamLR/itemInventory") -- 1.15 item inventory needs deletion
+deleteFile("beamLR/usedPartDayData") -- 1.16 used part day data
 extensions.blrItemInventory.resetInventory() -- need to do this to avoit items staying after reset
+extensions.blrPartInventory.reset() -- same thing with part inventory
+extensions.blrPartInventory.resetUsedPartShopDayData() -- same thing with used part day data
 
 local count = #FS:findFiles("beamLR/garage/", "*", 0)
 
@@ -710,8 +714,10 @@ resetShopDailyData()
 -- Difficulty setting based
 copyFile("beamLR/init/mainData_" .. difficulty ,  "beamLR/mainData")
 -- Just copy empty starter inventory no matter difficulty level
-copyFile("beamLR/init/partInv",  "beamLR/partInv")
+--copyFile("beamLR/init/partInv",  "beamLR/partInv") -- no longer needed as of 1.16
+copyFile("beamLR/init/partInventory",  "beamLR/partInventory") -- 1.16 advanced part inventory
 copyFile("beamLR/init/itemInventory",  "beamLR/itemInventory")
+copyFile("beamLR/init/usedPartDayData",  "beamLR/usedPartDayData") -- 1.16 part shop day data
 -- Uses seed based random starter car ID out of available setups, not based on difficulty
 copyFile("beamLR/init/garage/car" .. carid , "beamLR/garage/car0")
 copyFile("beamLR/init/garage/config/car" .. carid , "beamLR/garage/config/car0")
@@ -736,10 +742,15 @@ deleteDir("beamLR/backup")
 
 -- Root folder data
 copyFile("beamLR/mainData", "beamLR/backup/mainData")
-copyFile("beamLR/partInv", "beamLR/backup/partInv")
+-- copyFile("beamLR/partInv", "beamLR/backup/partInv") -- no longer needed as of 1.16
+extensions.blrPartInventory.save() -- need to save before copying file otherwise last changes arent in file
+copyFile("beamLR/partInventory", "beamLR/backup/partInventory") -- 1.16 advanced part inventory
 copyFile("beamLR/options", "beamLR/backup/options")
 copyFile("beamLR/currentTrackEvent", "beamLR/backup/currentTrackEvent")
+extensions.blrItemInventory.saveInventory()
 copyFile("beamLR/itemInventory", "beamLR/backup/itemInventory")
+extensions.blrPartInventory.saveUsedPartShopDayData()
+copyFile("beamLR/usedPartDayData", "beamLR/backup/usedPartDayData") -- 1.16 used part day data
 
 -- Garage data
 local count = #FS:findFiles("beamLR/garage/", "*", 0)
@@ -787,12 +798,16 @@ resetCareer()
 
 -- Root folder data
 copyFile("beamLR/backup/mainData","beamLR/mainData")
-copyFile("beamLR/backup/partInv","beamLR/partInv")
+--copyFile("beamLR/backup/partInv","beamLR/partInv") -- no longer needed as of 1.16
+copyFile("beamLR/backup/partInventory", "beamLR/partInventory") -- 1.16 advanced part inventory
 copyFile("beamLR/backup/options","beamLR/options")
 copyFile("beamLR/backup/currentTrackEvent","beamLR/currentTrackEvent")
 copyFile("beamLR/backup/itemInventory", "beamLR/itemInventory")
-extensions.blrItemInventory.loadInventory() -- need to load inventory right now otherwise empty
-											-- inventory table will overwrite restored backup
+copyFile("beamLR/backup/usedPartDayData", "beamLR/usedPartDayData") -- 1.16 used part day data
+
+extensions.blrItemInventory.loadInventory() -- need to load inventory right now otherwise empty inventory table will overwrite restored backup
+extensions.blrPartInventory.load() -- probably should do the same for new part inventory system
+extensions.blrPartInventory.loadUsedPartShopDayData() -- and used part day data
 
 -- Garage data
 local count = #FS:findFiles("beamLR/backup/garage/", "*", 0)
@@ -1922,28 +1937,69 @@ extensions.customGuiStream.sendDataToUI("vehicleTemplateList", templates)
 extensions.customGuiStream.sendDataToUI("vehicleTemplateFolder", tempfolder)
 end
 
-local function templateLoadCheck(current, target)
-local inventory = extensions.betterpartmgmt.getPartInventory()
-local fullinv = {}
-
+-- updated for 1.16 advanced part inventory
+-- set detailed to true to get list of missing parts
+local function templateLoadCheck(current, target, detailed)
 local toRet = true
--- Add actual inventory first
-for k,v in pairs(inventory) do
-fullinv[k] = v
+local toRetDetailed = {}
+local clinks = current["ilinks"]
+local tlinks = target["ilinks"]
+local inventory = extensions.blrPartInventory.getInventory()
+
+local csplit = {}
+local tsplit = {}
+
+local cid = 0
+local tid = 0
+
+for k,v in pairs(tlinks) do
+tsplit = ssplit(v, ",")
+tid = tonumber(tsplit[1])
+
+
+if clinks[k] then -- current config contains target part 
+	csplit = ssplit(v, ",")
+	cid = tonumber(csplit[1])
+	if tid ~= cid then -- not same part ID, check inventory if target part is in use
+		if not inventory[tid] then toRet = false break end -- part ID doesn't exist in inventory, can't load
+		if inventory[tid][1] ~= k then toRet = false break end -- part at target inventory ID changed, can't load
+		if inventory[tid][4] == 1 then toRet = false break end -- target part in use, can't load
+	end
+else -- current config doesn't contain target part, check inventory
+	if not inventory[tid] then toRet = false break end -- part ID doesn't exist in inventory, can't load
+	if inventory[tid][1] ~= k then toRet = false break end -- part at target inventory ID changed, can't load
+	if inventory[tid][4] == 1 then toRet = false break end -- target part in use, can't load
 end
--- Add current config parts to fullinv table so target loop sees them as available parts
-for k,v in pairs(current) do 
-fullinv[v] = (fullinv[v] or 0) + 1
+
 end
--- Perform check
-for k,v in pairs(target) do
-if ((not fullinv[v]) or fullinv[v] <= 0) then
-toRet = false
-break
+
+-- detailed mode builds list of inventory IDs for missing parts in template
+if detailed then
+for k,v in pairs(tlinks) do
+tsplit = ssplit(v, ",")
+tid = tonumber(tsplit[1])
+	if clinks[k] then -- current config contains target part 
+	csplit = ssplit(v, ",")
+	cid = tonumber(csplit[1])
+	if tid ~= cid then -- not same part ID, check inventory if target part is in use
+		if (not inventory[tid]) or (inventory[tid][1] ~= k) or (inventory[tid][4] == 1) then
+			table.insert(toRetDetailed, k)
+		end
+	end
+	else -- current config doesn't contain target part, check inventory
+		if (not inventory[tid]) or (inventory[tid][1] ~= k) or (inventory[tid][4] == 1) then
+			table.insert(toRetDetailed, k)
+		end
+	end
 end
 end
 
+if not detailed then
 return toRet
+else
+return toRet, toRetDetailed
+end
+
 end
 
 
@@ -2517,10 +2573,12 @@ applyGasStationsDisplays()
 end
 
 -- Force refresh gas station displays if uiUnit setting changed
+-- 1.16 send unit to UI for part odometer display
 local function onSettingsChanged()
 local nunit = getSettingValue("uiUnits")
 if locals["lastGasUnit"] ~= nunit then
 blrStationDisplays()
+extensions.customGuiStream.sendDataToUI("advinvUnits", nunit)
 end
 end
 
@@ -2574,6 +2632,56 @@ end
 end
 end
 
+locals["rewardScaler"] = function(folder, filter, field, lowscale, highscale)
+local files = {}
+local cdata = {}
+local cfield = ""
+local csplit = {}
+local clow = 0
+local chigh = 0
+local ccount = 0
+
+if filter then 
+files = FS:findFiles(folder, filter .. "*", 0)
+else
+files = FS:findFiles(folder, "*", 0)
+end
+
+for k,v in pairs(files) do
+if FS:fileExists(v) then
+	cdata = loadDataTable(v)
+	cfield = cdata[field]
+	if cfield and cfield ~= "" then
+		csplit = ssplit(cfield, ",")
+		ccount = #csplit
+		if ccount > 1 then
+			clow = tonumber(csplit[1])
+			chigh = tonumber(csplit[2])
+		else
+			chigh = tonumber(csplit[1])
+		end
+		clow = clow * lowscale
+		chigh = chigh * highscale
+		
+		if ccount > 1 then
+			cdata[field] = clow .. "," .. chigh
+		else
+			cdata[field] = chigh
+		end
+		
+		saveDataTable(v, cdata)
+	end
+end
+
+end
+
+
+
+end
+
+
+
+M.rewardScaler = locals["rewardScaler"]
 M.getDailySeedOffset = locals["getDailySeedOffset"]
 M.validateWaypoints = locals["validateWaypoints"]
 M.gpsCheck = locals["gpsCheck"]

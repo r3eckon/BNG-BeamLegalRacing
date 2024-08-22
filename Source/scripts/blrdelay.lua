@@ -84,6 +84,29 @@ queue("updatevehid",nil, 10)
 end
 end
 
+ftable["loadAdvancedIntegrity"] = function(p)
+local params = extensions.blrutils.blrvarGet("integrityLoadingData")
+extensions.mechDamageLoader.loadAdvancedIntegrityData(params["vid"], params["cfile"], params["vehOdoOverride"], true)
+end
+
+
+ftable["initInventoryLinks"] = function(p)
+extensions.betterpartmgmt.initVehicleInventoryLinks()
+extensions.blrglobals.blrFlagSet("uiInitRequest", true)
+
+-- This flag is turned on from integrity loading function when ilinks are missing
+-- and waits for ilinks to be ready before retrying to load integrity data
+if extensions.blrglobals.blrFlagGet("integrityLoadingQueued") then
+print("Detected request for delayed integrity loading, queuing...")
+queue("loadAdvancedIntegrity", nil, 10)
+end
+
+end
+
+
+
+
+
 local function setParamTableValue(p,ti,v)
 if ptable[p] == nil then ptable[p] = {} end
 ptable[p][ti] = v

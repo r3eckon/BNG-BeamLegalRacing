@@ -1,7 +1,7 @@
 destpos=-529.25207519531,136.24353027344,100.60354614258
-destrot=0.0038691882987478,-0.0020554921296679,0.92610904572435,0.37723048625681
-desc=Deliver $item to the Mountainview Motel
-reward=850
 items=list_all
-gmwp=blrwp_motel
+desc=Deliver $item to the Mountainview Motel
 type=gooseneck
+destrot=0.0038691882987478,-0.0020554921296679,0.92610904572435,0.37723048625681
+gmwp=blrwp_motel
+reward=1062.5

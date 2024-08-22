@@ -1,7 +1,7 @@
-desc=Crazy jump from wooden structure!
-wager=300,500
 triggers=BeamLRTrigger_CrazyJump
-type=jump
-rep=40,80
+desc=Crazy jump from wooden structure!
 gmwp=blrwp_cgm_crazyjump
+wager=3000,5000
 traffic=1
+rep=40,80
+type=jump

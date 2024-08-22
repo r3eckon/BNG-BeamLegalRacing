@@ -1,7 +1,7 @@
 destpos=-1424.4953613281,-936.12200927734,104.56343841553
-destrot=0.0033247996279215,0.0006660649563866,-0.3665812047375,0.93037988069289
-desc=Deliver $item to the Hot Rolled Inc. steel mill
-reward=350
 items=list_all
-gmwp=blrwp_steelmill2
+desc=Deliver $item to the Hot Rolled Inc. steel mill
 type=trailer
+destrot=0.0033247996279215,0.0006660649563866,-0.3665812047375,0.93037988069289
+gmwp=blrwp_steelmill2
+reward=700

@@ -1,8 +1,8 @@
-desc=Very high risk trap challenge near the seaside road bus stop
-wager=2000,8000
-triggers=BeamLRTrigger_TownBusStopCP1
 type=speed
 targetspd=70,84
-rep=100,600
+desc=Very high risk trap challenge near the seaside road bus stop
 gmwp=blrwp_townbusstopcp1
+wager=8000,12000
 traffic=1
+rep=200,1800
+triggers=BeamLRTrigger_TownBusStopCP1

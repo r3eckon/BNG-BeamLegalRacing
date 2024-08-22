@@ -1,7 +1,7 @@
 destpos=-368.62069702148,-586.9111328125,127.25389099121
-destrot=0.0050660561433273,0.00072323476487673,-0.41661987326825,0.90906638547719
-desc=Deliver $item to a house in the suburb
-reward=850
 items=list_all
-gmwp=blrwp_trailersuburb
+desc=Deliver $item to a house in the suburb
 type=gooseneck
+destrot=0.0050660561433273,0.00072323476487673,-0.41661987326825,0.90906638547719
+gmwp=blrwp_trailersuburb
+reward=1062.5

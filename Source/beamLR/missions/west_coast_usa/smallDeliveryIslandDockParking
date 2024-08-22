@@ -1,6 +1,6 @@
 dest=BeamLRTrigger_IslandDockParking
 desc=Deliver $item to the island dock parking lot
-reward=400
+reward=500
 items=list_all
 gmwp=blrwp_islanddockparking
 type=small

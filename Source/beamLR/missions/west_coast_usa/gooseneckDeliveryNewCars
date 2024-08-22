@@ -1,7 +1,7 @@
 destpos=-860.69592285156,905.39489746094,75.076110839844
-destrot=0.00407339686347,-0.00043445364061737,0.0031108055723521,0.99998677070085
-desc=Deliver $item to Rich's Motor Company
-reward=850
 items=list_all
-gmwp=blrwp_trailernewcars
+desc=Deliver $item to Rich's Motor Company
 type=gooseneck
+destrot=0.00407339686347,-0.00043445364061737,0.0031108055723521,0.99998677070085
+gmwp=blrwp_trailernewcars
+reward=1062.5

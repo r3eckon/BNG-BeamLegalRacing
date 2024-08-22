@@ -1,7 +1,7 @@
 destpos=828.08374023438,-512.66760253906,165.3737487793
-destrot=0.0037273723166679,0.0033524396235996,-0.69802315341267,0.71605764093682
-desc=Deliver $item to the Quarryside car shop
-reward=850
 items=list_all
-gmwp=blrgps_usedcarsA
+desc=Deliver $item to the Quarryside car shop
 type=gooseneck
+destrot=0.0037273723166679,0.0033524396235996,-0.69802315341267,0.71605764093682
+gmwp=blrgps_usedcarsA
+reward=1062.5

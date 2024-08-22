@@ -3,6 +3,7 @@
   "licenseName":"BeamLR",
   "mainPartName":"miramar",
   "model":"miramar",
+  "odometer":200000000,
   "paints":[
     {
       "baseColor":[

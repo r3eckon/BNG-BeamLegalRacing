@@ -1,7 +1,7 @@
 destpos=-618.53125,1976.4250488281,80.627113342285
-destrot=0.0041009152444939,-8.782491372553e-05,-0.62449644170013,0.78101688143395
-desc=Deliver $item to Spearleaf Refinery
-reward=350
 items=list_all
-gmwp=blrwp_refinery
+desc=Deliver $item to Spearleaf Refinery
 type=trailer
+destrot=0.0041009152444939,-8.782491372553e-05,-0.62449644170013,0.78101688143395
+gmwp=blrwp_refinery
+reward=900

@@ -1,9 +1,9 @@
-desc=Drift challenge past the service station
-wager=1000,5000
-triggers=BeamLRTrigger_RaceACP71,BeamLRTrigger_RaceACP72,BeamLRTrigger_RaceACP22,BeamLRTrigger_RaceACP23,BeamLRTrigger_RaceACP27,BeamLRTrigger_RaceACP35,BeamLRTrigger_RaceACP34,BeamLRTrigger_RaceACP33,BeamLRTrigger_RaceACP32,BeamLRTrigger_RaceACP51
-type=drift
-targettime=205000,270000
-driftpts=10000,17000
-rep=50,100
 gmwp=blrwp_raceA100
+targettime=205000,270000
+type=drift
+triggers=BeamLRTrigger_RaceACP71,BeamLRTrigger_RaceACP72,BeamLRTrigger_RaceACP22,BeamLRTrigger_RaceACP23,BeamLRTrigger_RaceACP27,BeamLRTrigger_RaceACP35,BeamLRTrigger_RaceACP34,BeamLRTrigger_RaceACP33,BeamLRTrigger_RaceACP32,BeamLRTrigger_RaceACP51
+driftpts=10000,17000
+wager=3000,10000
 traffic=0
+rep=50,100
+desc=Drift challenge past the service station

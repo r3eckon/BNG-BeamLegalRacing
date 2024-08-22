@@ -1,7 +1,7 @@
 destpos=575.27270507813,-698.78936767578,200.8829498291
-destrot=0.0038003196525167,-0.002536582956708,0.51396618253541,0.85779827845911
-desc=Deliver $item to the quarry cell tower parking lot
-reward=850
 items=list_all
-gmwp=blrwp_quarrycelltower
+desc=Deliver $item to the quarry cell tower parking lot
 type=gooseneck
+destrot=0.0038003196525167,-0.002536582956708,0.51396618253541,0.85779827845911
+gmwp=blrwp_quarrycelltower
+reward=1062.5

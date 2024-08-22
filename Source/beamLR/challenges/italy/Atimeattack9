@@ -1,8 +1,8 @@
+wager=1200,7500
 desc=Time attack to the cliffside gas station
-type=time
-wager=400,2500
-rep=20,40
-triggers=BeamLRTrigger_TougeCP18,BeamLRTrigger_TougeCP19,BeamLRTrigger_TougeCP45,BeamLRTrigger_TougeCP47,BeamLRTrigger_TougeCP48,BeamLRTrigger_TougeCP49,BeamLRTrigger_TougeCP50,BeamLRTrigger_TougeCP51,BeamLRTrigger_TougeCP52
 gmwp=blrwp_topdirtparking
+type=time
 targettime=188000,248000
 traffic=0
+rep=40,80
+triggers=BeamLRTrigger_TougeCP18,BeamLRTrigger_TougeCP19,BeamLRTrigger_TougeCP45,BeamLRTrigger_TougeCP47,BeamLRTrigger_TougeCP48,BeamLRTrigger_TougeCP49,BeamLRTrigger_TougeCP50,BeamLRTrigger_TougeCP51,BeamLRTrigger_TougeCP52

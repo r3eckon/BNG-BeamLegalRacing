@@ -24,6 +24,7 @@ extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-
 extensions.blrglobals.gmSetVal("pftypes", extensions.blrutils.blrvarGet("fuelTypeString")) -- 1.14.2 addition, fuel types
 extensions.blrglobals.gmSetVal("pfratio", extensions.blrutils.blrvarGet("fuelRatioString")) -- 1.14.2 addition, fuel ratio
 extensions.blrglobals.gmSetVal("poil", extensions.blrglobals.gmGetVal("coil"))	-- 1.15 addition, oil 
+extensions.blrglobals.gmSetVal("pmirrors", extensions.core_vehicle_mirror.getAnglesOffset()) -- 1.16 dynamic mirrors
 extensions.blrglobals.blrFlagSet("hasNos", false) -- Setting hasNos to false to avoid vlua fetching bug before flag is set by N2O Check node
 extensions.blrhooks.linkHook("vehReset", "postedit")							-- Hooks post edit actions to the vehicle restored callback
 																				-- which restores proper camera and gas value
@@ -58,21 +59,41 @@ if money >= p["price"] then
 extensions.betterpartmgmt.addToInventory(p["item"])
 extensions.blrglobals.gmSetVal("playerMoney", money - p["price"])
 extensions.blrutils.playSFX("event:>UI>Career>Buy_01")
-local inventory = extensions.betterpartmgmt.getPartInventory()
-extensions.customGuiStream.sendDataToUI("ownedParts", inventory)
-local list = extensions.betterpartmgmt.getGarageUIData()
-if searching then
-list = extensions.betterpartmgmt.searchFilter(list, true, true)
+
+print("PART BUYING DATA")
+print("ITEM: " .. p["item"])
+print("USED: " .. tostring(p["used"]))
+print("PRICE: " .. p["price"])
+
+-- 1.16 advanced inventory implementation
+if p["used"] then 
+print("ODO: " .. p["odo"])
+extensions.blrPartInventory.add(p["item"], p["odo"], 1.0, false)
+extensions.blrPartInventory.onUsedPartPurchased(p["item"], p["shopID"]) -- for used part shop day data
 else
-list = extensions.betterpartmgmt.categoryFilter(list, true)
+extensions.blrPartInventory.add(p["item"], 0.0, 1.0, false)
 end
-extensions.customGuiStream.sendDataToUI("garageData", list)
-list = extensions.betterpartmgmt.getSortedGarageSlots()
-extensions.customGuiStream.sendDataToUI("sortedGarageSlots", list)
-list = extensions.betterpartmgmt.getSortedGarageParts()
-extensions.customGuiStream.sendDataToUI("sortedGarageParts", list)
+-- Reload advanced inventory data
+local aidata = extensions.blrPartInventory.getInventory(true)
+extensions.customGuiStream.sendDataToUI("advinvData", aidata)
+local sortedPartData = extensions.betterpartmgmt.getAdvancedInventoryUIParts()
+extensions.customGuiStream.sendDataToUI("advinvParts", sortedPartData)
+local advinvUsed = extensions.betterpartmgmt.getUsedPartInventoryIDs()
+
+-- 1.16 force refresh search results so newly bought parts show up 
+local list = extensions.betterpartmgmt.getAdvancedInventoryUIParts()
+if searching then
+list = extensions.betterpartmgmt.advancedInventorySearch(list)
+else
+list = extensions.betterpartmgmt.advancedInventoryCategory(list)
+end
+extensions.customGuiStream.sendDataToUI("advinvFilter", list)
+
+-- 1.16 part buy result confirmation to avoid double buy button press related issues
+extensions.customGuiStream.sendPartBuyResult(true)
 else
 guihooks.trigger('Message', {ttl = 10, msg = 'You don\'t have enough money to buy this part!', icon = 'directions_car'})
+extensions.customGuiStream.sendPartBuyResult(false)
 end
 end
 
@@ -105,9 +126,14 @@ extensions.customGuiStream.sendDataToUI("sortedShopSlots", list)
 list = extensions.betterpartmgmt.getSortedShopParts()
 extensions.customGuiStream.sendDataToUI("sortedShopParts", list)
 elseif p == 1 then
-list = extensions.betterpartmgmt.getGarageUIData()
-list = extensions.betterpartmgmt.searchFilter(list, true, true)
-extensions.customGuiStream.sendDataToUI("garageData", list)
+--list = extensions.betterpartmgmt.getGarageUIData()
+--list = extensions.betterpartmgmt.searchFilter(list, true, true)
+--extensions.customGuiStream.sendDataToUI("garageData", list)
+
+list = extensions.betterpartmgmt.getAdvancedInventoryUIParts()
+list = extensions.betterpartmgmt.advancedInventorySearch(list)
+extensions.customGuiStream.sendDataToUI("advinvFilter", list)
+
 list = extensions.betterpartmgmt.getPartNameLibrary()
 extensions.customGuiStream.sendDataToUI("partNames", list)
 list = extensions.betterpartmgmt.getVehicleParts()
@@ -144,9 +170,14 @@ extensions.customGuiStream.sendDataToUI("sortedShopSlots", list)
 list = extensions.betterpartmgmt.getSortedShopParts()
 extensions.customGuiStream.sendDataToUI("sortedShopParts", list)
 elseif p == 1 then
-list = extensions.betterpartmgmt.getGarageUIData()
-list = extensions.betterpartmgmt.categoryFilter(list, true)
-extensions.customGuiStream.sendDataToUI("garageData", list)
+--list = extensions.betterpartmgmt.getGarageUIData()
+--list = extensions.betterpartmgmt.categoryFilter(list, true)
+--extensions.customGuiStream.sendDataToUI("garageData", list)
+
+list = extensions.betterpartmgmt.getAdvancedInventoryUIParts()
+list = extensions.betterpartmgmt.advancedInventoryCategory(list)
+extensions.customGuiStream.sendDataToUI("advinvFilter", list)
+
 list = extensions.betterpartmgmt.getPartNameLibrary()
 extensions.customGuiStream.sendDataToUI("partNames", list)
 list = extensions.betterpartmgmt.getVehicleParts()
@@ -208,6 +239,40 @@ extensions.customGuiStream.sendRepairUIMainPart(mainpart)
 -- 1.14 fix to prevent removing main part (bugs the game)
 local mainpart = extensions.betterpartmgmt.getMainPartChild()
 extensions.customGuiStream.sendDataToUI("mainpart", mainpart)
+-- 1.16 advanced part inventory data
+local aidata = extensions.blrPartInventory.getInventory(true)
+extensions.customGuiStream.sendDataToUI("advinvData", aidata)
+local sortedPartData = extensions.betterpartmgmt.getAdvancedInventoryUIParts()
+extensions.customGuiStream.sendDataToUI("advinvParts", sortedPartData)
+local advinvUsed = extensions.betterpartmgmt.getUsedPartInventoryIDs()
+extensions.customGuiStream.sendDataToUI("advinvUsed", advinvUsed)
+local ilinkodo = extensions.betterpartmgmt.getInventoryLinkOdometers(true)
+extensions.customGuiStream.sendDataToUI("ilinkodo", ilinkodo)
+local advinvOwned = extensions.blrPartInventory.getPartCounts()
+extensions.customGuiStream.sendDataToUI("advinvOwned", advinvOwned)
+
+-- 1.16 current vehicle odometer
+local codo = extensions.blrglobals.gmGetVal("codo")
+extensions.customGuiStream.sendDataToUI("vehicleOdometer", codo)
+
+-- 1.16 units
+local units = extensions.blrutils.getSettingValue("uiUnits")
+extensions.customGuiStream.sendDataToUI("advinvUnits", units)
+
+-- 1.16 shop seed for used parts 
+local shopseed = extensions.blrutils.getDailySeed() + (shopID or 0)
+extensions.customGuiStream.sendDataToUI("shopseed",shopseed)
+
+-- 1.16 force refresh search/category filters
+local list = extensions.betterpartmgmt.getAdvancedInventoryUIParts()
+if searching then
+list = extensions.betterpartmgmt.advancedInventorySearch(list)
+else
+list = extensions.betterpartmgmt.advancedInventoryCategory(list)
+end
+extensions.customGuiStream.sendDataToUI("advinvFilter", list)
+
+
 end
 
 ftable["uiinit"] = function(p)
@@ -223,6 +288,7 @@ extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-
 extensions.blrglobals.gmSetVal("pftypes", extensions.blrutils.blrvarGet("fuelTypeString")) -- 1.14.2 addition, fuel types
 extensions.blrglobals.gmSetVal("pfratio", extensions.blrutils.blrvarGet("fuelRatioString")) -- 1.14.2 addition, fuel ratio
 extensions.blrglobals.gmSetVal("poil", extensions.blrglobals.gmGetVal("coil"))	-- 1.15 addition, oil 
+extensions.blrglobals.gmSetVal("pmirrors", extensions.core_vehicle_mirror.getAnglesOffset()) -- 1.16 dynamic mirrors
 extensions.blrhooks.linkHook("vehReset", "postedit")							-- Link to post edit action hook, reuse the code for tune
 extensions.betterpartmgmt.applyTuningData(dtable)
 end
@@ -234,6 +300,7 @@ extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-
 extensions.blrglobals.gmSetVal("pftypes", extensions.blrutils.blrvarGet("fuelTypeString")) -- 1.14.2 addition, fuel types
 extensions.blrglobals.gmSetVal("pfratio", extensions.blrutils.blrvarGet("fuelRatioString")) -- 1.14.2 addition, fuel ratio
 extensions.blrglobals.gmSetVal("poil", extensions.blrglobals.gmGetVal("coil"))	-- 1.15 addition, oil 
+extensions.blrglobals.gmSetVal("pmirrors", extensions.core_vehicle_mirror.getAnglesOffset()) -- 1.16 dynamic mirrors
 extensions.blrhooks.linkHook("vehReset", "postedit")							-- Link to post edit action hook, reuse the code for tune
 extensions.betterpartmgmt.resetTuningData()
 end
@@ -504,8 +571,10 @@ end
 
 
 ftable["saveTemplate"] = function(p)
-local fullpath = p["templateFolder"] .. p["templateName"]
-extensions.betterpartmgmt.saveConfig(fullpath)
+local cvgid = extensions.blrglobals.gmGetVal("cvgid")
+local configPath = "beamLR/garage/config/car" .. cvgid
+local templatePath = p["templateFolder"] .. p["templateName"]
+extensions.betterpartmgmt.createTemplateFile(configPath, templatePath)
 extensions.blrutils.uiRefreshTemplates()
 end
 
@@ -517,10 +586,9 @@ end
 
 ftable["loadTemplate"] = function(p)
 local fullpath = p["templateFolder"] .. p["templateName"]
-local inventory = extensions.blrutils.loadDataTable("beamLR/partInv")
 local cvgid = extensions.blrglobals.gmGetVal("cvgid")
-local currentConfig = jsonReadFile("beamLR/garage/config/car" .. cvgid)["parts"]
-local targetConfig = jsonReadFile(fullpath)["parts"]
+local currentConfig = jsonReadFile("beamLR/garage/config/car" .. cvgid)
+local targetConfig = jsonReadFile(fullpath)
 local targetPart = ""
 local currentPart = ""
 
@@ -534,14 +602,22 @@ extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))
 extensions.blrglobals.gmSetVal("pftypes", extensions.blrutils.blrvarGet("fuelTypeString")) -- 1.14.2 addition, fuel types
 extensions.blrglobals.gmSetVal("pfratio", extensions.blrutils.blrvarGet("fuelRatioString")) -- 1.14.2 addition, fuel ratio
 extensions.blrglobals.gmSetVal("poil", extensions.blrglobals.gmGetVal("coil"))	-- 1.15 addition, oil 
+extensions.blrglobals.gmSetVal("pmirrors", extensions.core_vehicle_mirror.getAnglesOffset()) -- 1.16 dynamic mirrors
 extensions.blrglobals.blrFlagSet("hasNos", false)
 extensions.blrhooks.linkHook("vehReset", "postedit")	
 
 -- Need to handle inventory updates by comparing current config to target config
-extensions.betterpartmgmt.templateLoadInventorySwap(currentConfig, targetConfig)
+extensions.betterpartmgmt.templateLoadInventorySwap(currentConfig, targetConfig, extensions.blrglobals.gmGetVal("codo"))
 
 -- finally load the actual config
 extensions.betterpartmgmt.loadConfig(fullpath) 
+
+-- 1.16 advanced part inventory, since all current parts are essentially removed
+-- before re-adding anything in target config need to update ilinks odometer vals to
+-- vehicle's current odometer value, also updates ilink parts to target parts since
+-- config loading doesn't deal with that part
+extensions.betterpartmgmt.templateLoadedUpdateIlinks("beamLR/garage/config/car" .. cvgid, fullpath, extensions.blrglobals.gmGetVal("codo"))
+
 else
 guihooks.trigger('Message', {ttl = 10, msg = 'You don\'t have the parts needed to load this config!', icon = 'directions_car'})
 end
@@ -690,6 +766,7 @@ local damage = extensions.blrutils.advancedDamageStringToTable(dmgstr)
 local partslot = extensions.betterpartmgmt.getPartKeyedSlots()
 local money = extensions.blrglobals.gmGetVal("playerMoney")
 local childmap = extensions.betterpartmgmt.getChildMap()
+local ptclues = extensions.mechDamageLoader.getPowertrainClues()
 local cchilds = {}
 local removed = {}
 
@@ -700,6 +777,7 @@ extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-
 extensions.blrglobals.gmSetVal("pftypes", extensions.blrutils.blrvarGet("fuelTypeString")) -- 1.14.2 addition, fuel types
 extensions.blrglobals.gmSetVal("pfratio", extensions.blrutils.blrvarGet("fuelRatioString")) -- 1.14.2 addition, fuel ratio
 extensions.blrglobals.gmSetVal("poil", extensions.blrglobals.gmGetVal("coil"))	-- 1.15 addition, oil 
+extensions.blrglobals.gmSetVal("pmirrors", extensions.core_vehicle_mirror.getAnglesOffset()) -- 1.16 dynamic mirrors
 extensions.blrhooks.linkHook("vehReset", "postedit")							-- link to post edit action hook
 
 -- charge player for repair
@@ -713,24 +791,65 @@ extensions.betterpartmgmt.initDelayedSlotTable()
 for k,v in pairs(partslot) do
 if damage[k] and (not p[k]) then --damaged part not selected, remove from config
 extensions.betterpartmgmt.setSlotDelayedNoInventory(v, "")
-table.insert(removed, k)
+-- table.insert(removed, k)
+removed[v] = k
 end
 end
+
+-- 1.16 deal with engine mechanical damage
+if p["engineCost"] > 0 and (not p["engineSelected"]) then
+local enginePart = ptclues["part"]["engine"]
+local engineSlot = ptclues["slot"]["engine"]
+if not removed[engineSlot] then
+extensions.betterpartmgmt.setSlotDelayedNoInventory(engineSlot, "")
+removed[engineSlot] = enginePart
+end
+end
+
+
+
+-- 1.16 modified for new inventory system
+local cfile = "beamLR/garage/config/car" .. extensions.blrutils.blrvarGet("playerCurrentCarGarageID")
+local ilinks = jsonReadFile(cfile)["ilinks"]
+local csplit = {}
+local cid = 0
 
 -- loop over removed parts, checked childs for damage, add undamaged to inventory
 for k,v in pairs(removed) do
+-- 1.16, dealing with main removed parts, delete from ilinks and inventory since these are damaged
+csplit = extensions.blrutils.ssplit(ilinks[v], ",")
+cid = tonumber(csplit[1])
+extensions.blrPartInventory.remove(cid)
+ilinks[v] = nil
+print("REMOVED DAMAGED PARENT FROM INVENTORY: ID=" .. cid .. " NAME=" .. v)
+
 cchilds = childmap[v]
-for s,p in pairs(cchilds) do
-if not damage[p] and p~="" then
-extensions.betterpartmgmt.addToInventory(p)
-print("ADDED UNDAMAGED CHILD TO INVENTORY: " .. p)
-end
-end
+for slot,part in pairs(cchilds) do
+
+if not damage[part] and part~="" then
+-- 1.16 undamaged child part, remove from ilinks but keep in inventory, mark as unused
+csplit = extensions.blrutils.ssplit(ilinks[part], ",")
+cid = tonumber(csplit[1])
+extensions.blrPartInventory.setPartUsed(cid, false)
+ilinks[part] = nil
+print("ADDED UNDAMAGED CHILD TO INVENTORY: ID=" .. cid .. " NAME=" .. part)
 end
 
+if damage[part] and part~="" then
+-- 1.16 damaged child part, remove from ilinks and inventory
+csplit = extensions.blrutils.ssplit(ilinks[part], ",")
+cid = tonumber(csplit[1])
+extensions.blrPartInventory.remove(cid)
+ilinks[part] = nil
+print("REMOVED DAMAGED CHILD FROM INVENTORY: ID=" .. cid .. " NAME=" .. part)
+end
+
+end
+end
 
 -- finally execute delayed slot set
-extensions.betterpartmgmt.executeDelayedSlotSet()
+-- 1.16 edit, passing ilinks as parameter to ensure removed/deleted part ilinks are saved to config
+extensions.betterpartmgmt.executeDelayedSlotSet(ilinks)
 end
 
 ftable["advancedRepairAll"] = function(p)
@@ -878,6 +997,114 @@ extensions.blrutils.updateDataTable("beamLR/options", dtable)
 extensions.blrglobals.blrFlagSet("healthToggle", p == 1)
 extensions.blroverlay.toggle(p == 1)
 end
+
+ftable["advPartSell"] = function(p)
+local pid = p["pid"]
+local val = p["value"]
+local money = extensions.blrglobals.gmGetVal("playerMoney")
+extensions.blrglobals.gmSetVal("playerMoney", money + val)
+extensions.blrutils.playSFX("event:>UI>Career>Buy_01")
+extensions.blrPartInventory.remove(pid)
+extensions.blrPartInventory.save()
+local aidata = extensions.blrPartInventory.getInventory(true)
+extensions.customGuiStream.sendDataToUI("advinvFullData", aidata)
+local sortedPartData = extensions.betterpartmgmt.getAdvancedInventoryUIParts()
+extensions.customGuiStream.sendDataToUI("advinvParts", sortedPartData)
+local advinvUsed = extensions.betterpartmgmt.getUsedPartInventoryIDs()
+extensions.customGuiStream.sendDataToUI("advinvUsed", advinvUsed)
+
+end
+
+-- 1.16 advanced inventory part set, borrows a bunch of code from old part set function
+ftable["advPartSet"] = function(p)
+extensions.blrglobals.gmSetVal("pgas", extensions.blrglobals.gmGetVal("cgas")) 	-- Gets current gas value and stores it for after part edit
+extensions.blrglobals.gmSetVal("podo", extensions.blrglobals.gmGetVal("codo"))	-- do same thing with odometer
+extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-- do same thing with NOS
+extensions.blrglobals.gmSetVal("pftypes", extensions.blrutils.blrvarGet("fuelTypeString")) -- 1.14.2 addition, fuel types
+extensions.blrglobals.gmSetVal("pfratio", extensions.blrutils.blrvarGet("fuelRatioString")) -- 1.14.2 addition, fuel ratio
+extensions.blrglobals.gmSetVal("poil", extensions.blrglobals.gmGetVal("coil"))	-- 1.15 addition, oil 
+extensions.blrglobals.gmSetVal("pmirrors", extensions.core_vehicle_mirror.getAnglesOffset()) -- 1.16 dynamic mirrors
+extensions.blrglobals.blrFlagSet("hasNos", false) -- Setting hasNos to false to avoid vlua fetching bug before flag is set by N2O Check node
+extensions.blrhooks.linkHook("vehReset", "postedit")							-- Hooks post edit actions to the vehicle restored callback
+																				-- which restores proper camera and gas value
+-- 1.14.2 part edit safe mode
+if extensions.blrglobals.blrFlagGet("garageSafeModeToggle") then
+extensions.blrglobals.blrFlagSet("garageSafeMode", true) -- flag for flowgraph, to remove need for file reading to draw imgui
+extensions.blrflags.set("garageSafeMode", true)	-- shared flag for vlua and gelua, using file saved table
+extensions.customGuiStream.toggleAdvancedRepairUI(false) -- force close advanced repair UI to avoid exploits
+end
+
+extensions.blrglobals.blrFlagSet("advancedVehicleBuilding", true)
+-- BELOW FUNCTION CALL FIXED ISSUE WITH FIRST EDIT NOT USING AVB
+require("jbeam/io").finishLoading() -- clearing jbeam cache before edit
+
+-- This function call is modified for 1.16 advanced inventory
+extensions.betterpartmgmt.setSlotWithChildren(p["slot"], p["part"], p["pid"])
+end
+
+
+ftable["advancedRepairWarnAck"] = function(p)
+local otable = extensions.blrutils.loadDataTable("beamLR/options")
+otable["advrepwarnack"] = 1
+extensions.blrutils.saveDataTable("beamLR/options", otable)
+end
+
+ftable["updateMirrorOffsets"] = function(p)
+extensions.core_vehicle_mirror.setAngleOffset(p["mirror"], p["offsetX"], p["offsetY"], nil, false)
+end
+
+ftable["mirrorUIUpdate"] = function(p)
+extensions.customGuiStream.sendMirrorsData()
+end
+
+ftable["toggleMirrorsUI"] = function(p)
+extensions.customGuiStream.sendMirrorsData(true)
+end
+
+ftable["onFixTemplateClicked"] = function(p)
+local fullpath = p["templateFolder"] .. p["templateName"]
+local cvgid = extensions.blrglobals.gmGetVal("cvgid")
+local currentConfig = jsonReadFile("beamLR/garage/config/car" .. cvgid)
+local targetConfig = jsonReadFile(fullpath)
+local _,missing = extensions.blrutils.templateLoadCheck(currentConfig,targetConfig, true)
+local replacements = {}
+local pklist = extensions.blrPartInventory.getPartKeyedIDLists(true)
+
+for k,v in pairs(missing) do
+if not replacements[v] then 
+replacements[v] = pklist[v] 
+end
+end
+
+local data = {}
+data["missing"] = missing
+data["replacements"] = replacements
+
+print("REPLACEMENTS:")
+dump(replacements)
+
+extensions.customGuiStream.sendTemplateFixData(data)
+end
+
+ftable["applyTemplateFix"] = function(p)
+local fullpath = p["templateFolder"] .. p["templateName"]
+local cpart = ""
+local tdata = jsonReadFile(fullpath)
+local ilinks = tdata["ilinks"]
+
+print("FIXING TEMPLATE AT PATH " .. fullpath)
+
+for k,v in pairs(p) do
+if string.find(k, "fix_") then
+cpart = k:sub(5)
+ilinks[cpart] = v .. ",1234567890"
+print("SHOULD HAVE FIXED PART " .. cpart .. " WITH ID " .. v)
+end
+end
+
+jsonWriteFile(fullpath, tdata, true)
+end
+
 
 
 local ptable = {}

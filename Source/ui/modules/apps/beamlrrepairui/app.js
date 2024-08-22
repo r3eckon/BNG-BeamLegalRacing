@@ -23,6 +23,9 @@ angular.module('beamng.apps')
 	  scope.totalConfirm = false
 	  scope.fullConfirm = false
 	  scope.totalBeforeMin = 0
+	  scope.warnack = false
+	  scope.engine = 0
+	  scope.engineSelected = false
 	  
 	  scope.calculateTotal = function()
 	  {
@@ -35,6 +38,10 @@ angular.module('beamng.apps')
 			  }
 		  }
 		  scope.total += scope.mechanical
+		  
+		  if(scope.engineSelected)
+			  scope.total += scope.engine
+		  
 		  scope.totalBeforeMin = scope.total
 		  scope.total = Math.max(scope.total, scope.minimum)
 	  }
@@ -47,6 +54,7 @@ angular.module('beamng.apps')
 			 scope.full+=scope.damage[k]
 		  }
 		  scope.full += scope.mechanical
+		  scope.full += scope.engine
 		  scope.full = Math.max(scope.full, scope.minimum)
 	  }
 	  
@@ -84,6 +92,10 @@ angular.module('beamng.apps')
 		  scope.fullConfirm = false
       })
 	  
+	  scope.$on('beamlrRepairWarnAck', function (event, data) {
+          scope.warnack = data
+      })
+
 	  scope.$on('beamlrRepairUIDamageList', function (event, data) {
           scope.damage = data
 		  scope.ready = true
@@ -95,6 +107,12 @@ angular.module('beamng.apps')
 	  
 	  scope.$on('beamlrRepairUIMechanicalDamage', function (event, data) {
           scope.mechanical = data
+		  scope.calculateTotal()
+		  scope.calculateFull()
+      })
+	  
+	  scope.$on('beamlrRepairUIEngineDamage', function (event, data) {
+          scope.engine = data
 		  scope.calculateTotal()
 		  scope.calculateFull()
       })
@@ -154,6 +172,10 @@ angular.module('beamng.apps')
 				  bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("advrepairdata", "${k}", ${scope.picks[k]})`)
 			  }
 			}
+			
+			bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("advrepairdata", "engineCost", ${scope.engine})`)
+			bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("advrepairdata", "engineSelected", ${scope.engineSelected})`)
+			
 			bngApi.engineLua(`extensions.customGuiCallbacks.exec("advancedRepairSelected", "advrepairdata")`)
 			scope.totalConfirm = false			
 		  }
@@ -180,7 +202,19 @@ angular.module('beamng.apps')
 
 	  }
 	  
+	  scope.warnclick = function()
+	  {
+		scope.warnack=true;
+		bngApi.engineLua(`extensions.customGuiCallbacks.exec("advancedRepairWarnAck")`)	
+	  }
 	  
+	  
+	  scope.selectEngine = function()
+	  {
+		  scope.engineSelected = !scope.engineSelected
+		  scope.calculateTotal()
+		  scope.calculateFull()
+	  }
 	  
 	  
 	  

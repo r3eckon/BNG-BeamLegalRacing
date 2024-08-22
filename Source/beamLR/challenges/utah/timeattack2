@@ -1,8 +1,8 @@
-desc=Offroad time attack to the airfield
-wager=200,2000
-triggers=BeamLRTrigger_OffroadChallenge1CP1,BeamLRTrigger_OffroadChallenge1CP2,BeamLRTrigger_OffroadChallenge1CP3,BeamNGTrigger_AirfieldFinish
-type=time
 targettime=90000,120000
-rep=20,40
 gmwp=blrwp_cgm_cave
+desc=Offroad time attack to the airfield
+triggers=BeamLRTrigger_OffroadChallenge1CP1,BeamLRTrigger_OffroadChallenge1CP2,BeamLRTrigger_OffroadChallenge1CP3,BeamNGTrigger_AirfieldFinish
+wager=300,4000
 traffic=1
+rep=20,40
+type=time

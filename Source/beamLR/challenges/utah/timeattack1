@@ -1,8 +1,8 @@
-desc=Time attack challenge through the tunnel
-wager=200,2000
-triggers=BeamNGTrigger_RaceEnd,BeamNGTrigger_HighwayDragFinish,BeamLRTrigger_TunnelSTA,BeamNGTrigger_RaceEnd
-type=time
 targettime=150000,180000
-rep=20,40
 gmwp=blrwp_raceend
+desc=Time attack challenge through the tunnel
+triggers=BeamNGTrigger_RaceEnd,BeamNGTrigger_HighwayDragFinish,BeamLRTrigger_TunnelSTA,BeamNGTrigger_RaceEnd
+wager=300,4000
 traffic=1
+rep=20,40
+type=time

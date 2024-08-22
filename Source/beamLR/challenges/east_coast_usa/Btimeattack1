@@ -1,8 +1,8 @@
-desc=Short looping time attack challenge
-wager=350,4500
-triggers=BeamLRTrigger_FarmJuncCP1,BeamLRTrigger_SawmillDirtRoadCP1,BeamLRTrigger_SawmillDirtRoadCP2,BeamLRTrigger_SawmillDirtRoadCP3,BeamLRTrigger_FarmDirtRoadCP1,BeamLRTrigger_FarmJuncCP1
 type=time
+desc=Short looping time attack challenge
+triggers=BeamLRTrigger_FarmJuncCP1,BeamLRTrigger_SawmillDirtRoadCP1,BeamLRTrigger_SawmillDirtRoadCP2,BeamLRTrigger_SawmillDirtRoadCP3,BeamLRTrigger_FarmDirtRoadCP1,BeamLRTrigger_FarmJuncCP1
+wager=1400,11250
 targettime=60000,70000
-rep=20,40
-gmwp=blrwp_farmjunccp1
 traffic=0
+rep=40,120
+gmwp=blrwp_farmjunccp1

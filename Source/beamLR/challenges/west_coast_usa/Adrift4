@@ -1,9 +1,9 @@
-desc=Drift challenge to the city
-wager=1000,5000
-triggers=BeamLRTrigger_RaceDCP59,BeamLRTrigger_RaceDCP69,BeamLRTrigger_RaceACP36,BeamLRTrigger_RaceACP37,BeamLRTrigger_RaceACP38,BeamLRTrigger_RaceACP39,BeamLRTrigger_RaceACP40,BeamLRTrigger_RaceACP41,BeamLRTrigger_RaceDCP43,BeamLRTrigger_RaceDCP44,BeamLRTrigger_RaceDCP45,BeamLRTrigger_RaceDCP46,BeamLRTrigger_RaceDCP47
-type=drift
-targettime=242000,300000
-driftpts=10000,17000
-rep=50,100
 gmwp=blrwp_raceD94
+targettime=242000,300000
+type=drift
+triggers=BeamLRTrigger_RaceDCP59,BeamLRTrigger_RaceDCP69,BeamLRTrigger_RaceACP36,BeamLRTrigger_RaceACP37,BeamLRTrigger_RaceACP38,BeamLRTrigger_RaceACP39,BeamLRTrigger_RaceACP40,BeamLRTrigger_RaceACP41,BeamLRTrigger_RaceDCP43,BeamLRTrigger_RaceDCP44,BeamLRTrigger_RaceDCP45,BeamLRTrigger_RaceDCP46,BeamLRTrigger_RaceDCP47
+driftpts=10000,17000
+wager=3000,10000
 traffic=0
+rep=50,100
+desc=Drift challenge to the city

@@ -1,7 +1,7 @@
-desc=Jump up the building under construction
-wager=200,400
 triggers=BeamLRTrigger_ConstructionJump
-type=jump
-rep=20,60
+desc=Jump up the building under construction
 gmwp=blrwp_mgm_construction
+wager=2000,4000
 traffic=1
+rep=20,60
+type=jump

@@ -146,6 +146,163 @@ ve:queueLuaCommand("partCondition.initConditions(nil," .. odometer .. ", 1, {'a'
 ve:queueLuaCommand("extensions.blrVehicleUtils.loadOdometer()") -- 1.14.3 fix
 end
 
+
+local function loadAdvancedIntegrityData(vid, cfile, vehOdoOverride, fuelReload)
+local ve = be:getObjectByID(vid)
+
+local cdata = jsonReadFile(cfile)
+
+-- Queue integrity loading for later if vehicle config file doesn't have inventory links ready
+if not cdata["ilinks"] then
+local params = {}
+params["vid"] = vid
+params["cfile"] = cfile
+params["vehOdoOverride"] = vehOdoOverride
+extensions.blrglobals.blrFlagSet("integrityLoadingQueued", true)
+extensions.blrutils.blrvarSet("integrityLoadingData", params)
+print("Config at path (" .. cfile .. ") missing ilinks, skipping integrity loading!")
+return
+end
+
+if extensions.blrglobals.blrFlagGet("integrityLoadingQueued") then
+print("Executing delayed integrity loading.")
+extensions.blrglobals.blrFlagSet("integrityLoadingQueued", false)
+end
+
+local mainPart = extensions.betterpartmgmt.getMainPartName()
+local vehodo = vehOdoOverride or cdata["odometer"] -- override used in post part edit to reload actual odometer
+local ilinks = cdata["ilinks"]
+local inventory = extensions.blrPartInventory.getInventory()
+
+local csplit = {}
+local ilinkid = 0
+local ilinkodo = 0
+local invodo = 0
+local invint = 0
+
+local totalodo = 0
+
+local cparams = ""
+
+for k,v in pairs(ilinks) do
+csplit = extensions.blrutils.ssplit(v, ",")
+ilinkid = tonumber(csplit[1])
+ilinkodo = tonumber(csplit[2])
+invodo = inventory[ilinkid][2]
+invint = inventory[ilinkid][3]
+
+-- calculates actual odometer value of part
+totalodo = invodo + (vehodo - ilinkodo)
+
+if k == mainPart then
+totalodo = vehodo
+end
+
+cparams = string.format("%q,%f,%f", k, totalodo, invint)
+ve:queueLuaCommand("extensions.blrVehicleUtils.setAdvancedPartCondition(".. cparams .. ")")
+end
+
+ve:queueLuaCommand("extensions.blrVehicleUtils.applyAdvancedPartConditions()")
+
+-- For some reason loading integrity resets fuel so need to reload in case 
+-- integrity loading was delayed to after fuel value was initially loaded
+-- Should only happen for brand new cars so no need to check fuel type and tiers
+if fuelReload then
+csplit = extensions.blrutils.ssplit(cfile, "/") -- beamLR/garage/config/car
+local gpath = "beamLR/garage/" .. csplit[4]
+local gdata = extensions.blrutils.loadDataTable(gpath)
+local fuelval = tonumber(gdata["gas"])
+ve:queueLuaCommand("extensions.blrVehicleUtils.loadFuelType()")
+ve:queueLuaCommand(string.format("extensions.blrVehicleUtils.setFuel(%.12f)", fuelval))
+end
+
+
+end
+
+local function saveAdvancedIntegrityData(vid, cfile)
+local cdata = jsonReadFile(cfile)
+cdata["odometer"] = extensions.blrglobals.gmGetVal("codo")
+
+local ilinks = cdata["ilinks"]
+local csplit = {}
+local cid = 0
+local ve = be:getObjectByID(vid)
+
+for k,v in pairs(ilinks) do
+csplit = extensions.blrutils.ssplit(v, ",")
+cid = tonumber(csplit[1])
+ve:queueLuaCommand("extensions.blrVehicleUtils.queueIntegrityUpdate(" .. cid .. ",'" .. k .. "')")
+end
+
+ve:queueLuaCommand("extensions.blrVehicleUtils.executeIntegrityUpdate()")
+
+jsonWriteFile(cfile, cdata, true)
+end
+
+-- called from vehicle lua if engine leaks oil, could probably give more precise info
+-- by receiving params like which part causes leak, player unit setting based info on
+-- what mileage prevents leak, leak rate, etc.
+local function oilLeakMessage(engine, oilpan)
+if oilpan >= 1000.0 then 
+guihooks.trigger('Message', {ttl = 10, msg = 'No oilpan installed! Vehicle can\'t hold oil!', icon = 'format_color_reset'})
+return
+end
+
+
+if engine > 0 and oilpan > 0 then
+guihooks.trigger('Message', {ttl = 10, msg = 'Vehicle leaks oil! Use lower mileage engine and oil pan to fix it.', icon = 'format_color_reset'})
+elseif engine > 0 then
+guihooks.trigger('Message', {ttl = 10, msg = 'Vehicle leaks oil! Use lower mileage engine to fix it.', icon = 'format_color_reset'})
+elseif oilpan > 0 then
+guihooks.trigger('Message', {ttl = 10, msg = 'Vehicle leaks oil! Use lower mileage oil pan to fix it.', icon = 'format_color_reset'})
+end
+end
+
+
+local ptclues = {}
+
+local function resetPowertrainClues()
+ptclues = {}
+end
+
+local function receivePowertrainClues(k,v)
+if not ptclues["part"] then ptclues["part"] = {} end
+if not ptclues["slot"] then ptclues["slot"] = {} end
+ptclues["part"][k] = v
+end
+
+local function processPowertrainClues()
+local chosenParts = extensions.betterpartmgmt.getVehicleData().chosenParts
+local pkslots = {}
+
+for k,v in pairs(chosenParts) do
+if v and v ~= "" then
+pkslots[v] = k
+end
+end
+
+
+if ptclues["part"] then
+for k,v in pairs(ptclues["part"]) do
+ptclues["slot"][k] = pkslots[v]
+end
+else
+print("Can't load powertrain clues due to missing data.\nThis is normal if vehicle has no powertrain parts.")
+end
+
+end
+
+local function getPowertrainClues()
+return ptclues
+end
+
+M.resetPowertrainClues = resetPowertrainClues
+M.getPowertrainClues = getPowertrainClues
+M.processPowertrainClues = processPowertrainClues
+M.receivePowertrainClues = receivePowertrainClues
+M.oilLeakMessage = oilLeakMessage
+M.saveAdvancedIntegrityData = saveAdvancedIntegrityData
+M.loadAdvancedIntegrityData = loadAdvancedIntegrityData
 M.forceSetOdometer = forceSetOdometer
 M.saveIntegrityToFile = saveIntegrityToFile
 M.loadIntegrityFromFile = loadIntegrityFromFile

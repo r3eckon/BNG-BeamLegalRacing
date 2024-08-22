@@ -1,8 +1,8 @@
-desc=Short time attack to the Firwood inn
-wager=300,2000
-triggers=BeamLRTrigger_TownCP1,BeamLRTrigger_TownCP2,BeamLRTrigger_TownCP3,BeamLRTrigger_TownCP5,BeamLRTrigger_TownEntranceBridgeCP1,BeamLRTrigger_TownEntranceBridgeCP3,BeamLRTrigger_TownEntranceYJuncCP2,BeamLRTrigger_FirwoodInnJuncCP1,BeamLRTrigger_FirwoodInnEntranceCP
 type=time
+desc=Short time attack to the Firwood inn
+triggers=BeamLRTrigger_TownCP1,BeamLRTrigger_TownCP2,BeamLRTrigger_TownCP3,BeamLRTrigger_TownCP5,BeamLRTrigger_TownEntranceBridgeCP1,BeamLRTrigger_TownEntranceBridgeCP3,BeamLRTrigger_TownEntranceYJuncCP2,BeamLRTrigger_FirwoodInnJuncCP1,BeamLRTrigger_FirwoodInnEntranceCP
+wager=1200,5000
 targettime=31000,45000
-rep=20,40
-gmwp=wp121
 traffic=1
+rep=40,120
+gmwp=wp121

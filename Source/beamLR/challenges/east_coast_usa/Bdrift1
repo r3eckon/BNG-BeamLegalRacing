@@ -1,9 +1,9 @@
-desc=Short looping dirt road drift challenge
-wager=400,2800
-triggers=BeamLRTrigger_FarmJuncCP1,BeamLRTrigger_SawmillDirtRoadCP1,BeamLRTrigger_SawmillDirtRoadCP2,BeamLRTrigger_SawmillDirtRoadCP3,BeamLRTrigger_FarmDirtRoadCP1,BeamLRTrigger_FarmJuncCP1
-type=drift
-targettime=130000,190000
-driftpts=8000,12000
-rep=50,100
 gmwp=blrwp_farmjunccp1
+triggers=BeamLRTrigger_FarmJuncCP1,BeamLRTrigger_SawmillDirtRoadCP1,BeamLRTrigger_SawmillDirtRoadCP2,BeamLRTrigger_SawmillDirtRoadCP3,BeamLRTrigger_FarmDirtRoadCP1,BeamLRTrigger_FarmJuncCP1
+driftpts=8000,12000
+desc=Short looping dirt road drift challenge
+wager=2000,9100
+targettime=130000,190000
 traffic=0
+rep=100,300
+type=drift

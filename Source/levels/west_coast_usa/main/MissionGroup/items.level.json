@@ -9,6 +9,7 @@
 {"name":"busstops","class":"SimGroup","persistentId":"99516639-67eb-45cc-a2fd-e5edc0cd1418","__parent":"MissionGroup"}
 {"name":"theForest","class":"Forest","persistentId":"7784d36c-43ec-4a68-a2e1-d11181eff095","__parent":"MissionGroup","position":[0,0,1.50421321]}
 {"name":"Buildings","class":"SimGroup","persistentId":"ab3675d6-11f3-4618-8454-c68384b22706","__parent":"MissionGroup"}
+{"name":"StaticObjects","class":"SimGroup","persistentId":"7f2fbc41-890e-4a03-ad30-52fcec25403b","__parent":"MissionGroup"}
 {"name":"DecalRoads","class":"SimGroup","persistentId":"e7495bdc-8bd4-4e8a-82c7-cff539485467","__parent":"MissionGroup"}
 {"name":"Track_meshes","class":"SimGroup","persistentId":"edef3060-1db0-4b56-b6bb-3a1d7268c202","__parent":"MissionGroup"}
 {"name":"AIWaypointsGroup","class":"SimGroup","persistentId":"f1a112a6-ae10-45fd-8018-0a8ff4a172d6","__parent":"MissionGroup"}
@@ -16,7 +17,6 @@
 {"name":"road_signs","class":"SimGroup","persistentId":"c9011d5d-ca33-4fc7-8f75-daf4a437ffaf","__parent":"MissionGroup"}
 {"name":"trafficlights","class":"SimGroup","persistentId":"9433b5fe-df7e-4be2-8707-31f7adeaebd4","__parent":"MissionGroup"}
 {"name":"tunnels","class":"SimGroup","persistentId":"0843569f-c6f6-4be4-b42b-47cec8e299f2","__parent":"MissionGroup"}
-{"name":"StaticObjects","class":"SimGroup","persistentId":"7f2fbc41-890e-4a03-ad30-52fcec25403b","__parent":"MissionGroup"}
 {"name":"career_garage","class":"SimGroup","persistentId":"3c19de8a-0cec-4df8-ab13-9dccce99d47e","__parent":"MissionGroup"}
 {"name":"dirt_decalroads","class":"SimGroup","persistentId":"7e994dc8-9f15-4a28-8820-c93649f2b790","__parent":"MissionGroup"}
 {"name":"quarry","class":"SimGroup","persistentId":"73e07564-bcdc-4d9f-87ce-a4bcba3fb33c","__parent":"MissionGroup"}

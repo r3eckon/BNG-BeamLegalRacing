@@ -1,8 +1,8 @@
-desc=Speed trap challenge near the fishing village
-wager=200,2000
-triggers=BeamLRTrigger_SeasideVillageCP2
 type=speed
 targetspd=41,52
-rep=40,200
+desc=Speed trap challenge near the fishing village
 gmwp=blrwp_seasidevillagecp2
+wager=800,3000
 traffic=1
+rep=80,600
+triggers=BeamLRTrigger_SeasideVillageCP2

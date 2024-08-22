@@ -1,8 +1,8 @@
-desc=Cliff side speed trap challenge
-wager=200,1500
-triggers=BeamLRTrigger_VineyardRaceCP78
 type=speed
 targetspd=50,70
-rep=10,50
+desc=Cliff side speed trap challenge
 gmwp=blrwp_vineyardracecp14
+wager=1000,4500
 traffic=1
+rep=20,100
+triggers=BeamLRTrigger_VineyardRaceCP78

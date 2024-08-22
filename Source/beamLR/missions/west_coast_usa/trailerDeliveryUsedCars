@@ -1,7 +1,7 @@
 destpos=-693.37030029297,804.80267333984,75.072212219238
-destrot=0.001238290262492,-0.0031209313111532,0.92656471480093,0.37612040055126
-desc=Deliver $item to Belasco Auto
-reward=350
 items=list_all
-gmwp=blrgps_usedcarsB
+desc=Deliver $item to Belasco Auto
 type=trailer
+destrot=0.001238290262492,-0.0031209313111532,0.92656471480093,0.37612040055126
+gmwp=blrgps_usedcarsB
+reward=700

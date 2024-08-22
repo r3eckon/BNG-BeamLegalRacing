@@ -1,9 +1,9 @@
-desc=Plaza parking lot drift challenge
-wager=1000,3000
-triggers=BeamLRTrigger_DriftCP1,BeamLRTrigger_DriftCP2,BeamLRTrigger_DriftCP3,BeamLRTrigger_DriftCP4,BeamLRTrigger_DriftCP5,BeamLRTrigger_DriftCP6,BeamLRTrigger_DriftCP7,BeamLRTrigger_DriftCP8,BeamLRTrigger_DriftCP9,BeamLRTrigger_DriftCP10,BeamLRTrigger_DriftCP11
-type=drift
-targettime=67000,90000
-driftpts=5000,7000
-rep=50,100
 gmwp=blrwp_raceD90
+targettime=67000,90000
+type=drift
+triggers=BeamLRTrigger_DriftCP1,BeamLRTrigger_DriftCP2,BeamLRTrigger_DriftCP3,BeamLRTrigger_DriftCP4,BeamLRTrigger_DriftCP5,BeamLRTrigger_DriftCP6,BeamLRTrigger_DriftCP7,BeamLRTrigger_DriftCP8,BeamLRTrigger_DriftCP9,BeamLRTrigger_DriftCP10,BeamLRTrigger_DriftCP11
+driftpts=5000,7000
+wager=3000,6000
 traffic=0
+rep=50,100
+desc=Plaza parking lot drift challenge

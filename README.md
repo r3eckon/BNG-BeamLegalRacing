@@ -1,8 +1,9 @@
 
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.15.4/beamLegalRacing1.15.4.zip
+
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.16/beamLegalRacing1.16.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.15.4
+# Beam Legal Racing 1.16
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -35,10 +36,13 @@ Modders should back up the userfolder before installing.
 
 ## Update Instructions
 **BEFORE UPDATING**:  Back up the userfolder/beamLR folder to archive your career
+
+**IMPORTANT NOTE**: Version 1.16 is not compatible with previous version backups
+
 * [Download the latest release][latest].
 * Extract updated mod zip contents to the [BeamNG userfolder][userfolder].
 * Tell OS to replace existing files when asked. **This will apply the update.**
-* Use the BeamLR options menu to restore your backup.
+* Use the BeamLR options menu to restore your backup. 
 
 **Remember to update your addons if you have any installed!**
 
@@ -116,6 +120,8 @@ Version 1.14.3 adds part images (see [addon](https://github.com/r3eckon/BNG-Beam
 Version 1.15 adds walk mode integration, consumable item inventory system, oil value persistence, slow oil leaks for high odometer vehicles, ability to tow to specific locations and "The Race of Heroes" endgame track event. See [improved oil system](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#improved-oil-system) and [consumable item inventory](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#consumable-item-inventory) for more information.
 
 Version 1.15.4 adds dynamic weather controlled from options menu (cloud cover, wind speed & fog density slowly change) and restored the injury system that was disabled in a previous update. Injury is disabled by default and must be enabled through the options menu. BeamNG G force sensors are still buggy, use the injury system at your own risk!
+
+Version 1.16 completely revamps the part inventory system allowing each individual part to have specific odometer and integrity values. It also adds the ability to buy used parts (reduced cost for higher odometer) and implements dynamic mirror offsets saved to vehicle configs. This new version is not be compatible career files from previous versions and will require starting from scratch. See [advanced part inventory](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#advanced-part-inventory) for more information.
 
 Further instructions and various tips on this mods' various features are listed in the BeamLR UI Main Menu.
 
@@ -261,10 +267,22 @@ Walk mode is now integrated with certain mod features as of version 1.15 allowin
 Added in version 1.15 is a new inventory system for "consumable" type items. The first iteration of this system comes with two consumable items: fuel canisters and oil bottles. Both can be used to refill your vehicle in an emergency. Items can be purchased by walking at a gas station ("convenience store" menu). Gas canisters can contain gasoline or diesel and like regular gas station refuelling using the incorrect fuel type will disable the engine. 
 
 ## Improved Oil System
-Added in version 1.15 is an improved oil system that now saves oil value for your vehicles. This improved system also simulates a slow oil leak on vehicles with high odometer (above 100,000 km). The first iteration of this system is designed to leak all the oil in 2 hours for 100,000 km, 1 hour for 200,000 km and 30 minutes for 400,000 km. While this may not be realistic it is to give an incentive to upgrade to low mileage vehicles by having oil leak fully within the span of a play session. 
+Added in version 1.15 is an improved oil system that now saves oil value for your vehicles.  Breaking the oil pan will now require refilling the oil as the emptied out value is restored even after repairing. Refill bottles can be purchased at gas stations with the walk mode menu.
 
-Breaking the oilpan will now require refilling the oil as the emptied out value is restored even after repairing. Refill bottles can be purchased at gas stations with the walk mode menu.
+As of version 1.16 the oil leak mechanic is tied to the advanced inventory system explained below.  Oil now leaks from the engine and oil pan parts separately, meaning if you replace an old oil pan with a new one it will drastically reduce the oil leak rate. Some vehicles in BeamNG have no separate oil pan part so in this situation 100% of the leak rate comes from the engine. For most other vehicles, 70% of the leak rate comes from the oil pan and 30% comes from the engine. 
 
+The relation between leak rate and part odometer is still the same as in previous versions, however it is now calculated separately for each part. The base leak rate is designed to leak out all the oil in 2 hours at 100,000km, 1 hour at 200,000 km and down to 30 minutes at 400,000 km which is the worst possible leak rate.
+
+Removing the oil pan from your vehicle will quickly leak out all the oil. Remember to refill the oil after re-installing a new oil pan to avoid engine damage!
+
+## Advanced Part Inventory
+Added in version 1.16, the advanced part inventory system completely revamps the part inventory. While the previous inventory system was only keeping a count of each part owned by the player, this new system essentially makes each part a unique element that can have specific odometer and integrity values.
+
+The vehicle part condition system is now tied to part specific odometer values meaning changing old parts for brand new parts will, in some situations, improve your vehicle's performance. This depends on whether or not BeamNG simulates performance degradation for that part based on the odometer value, which I've confirmed to be the case for the engine (more friction so less performance & more idle play) and brakes (wears quicker at high odometer). This will likely influence other parts as BeamNG's part condition system is updated.
+
+To go along with this new system used parts can now be bought from part shops. Each shop will offer one used part of each type per day. Odometer values are randomly generated and used part stocks are refreshed daily. Buy price is linked to odometer value, meaning you can get replacement parts for your old or less performance oriented cars for cheaper. Part sell price and the vehicles full sell price are also tied to part specific odometer values. 
+
+Keep in mind this feature is still early days and may be prone to bugs due to the fact that it replaced almost all of  the existing part inventory related code. The need to link inventory parts with vehicle configs, two different files that need to be in sync, means that game crashes and other forceful exit from the game can easily result in corruption of your part inventory or vehicle configs. This new feature is also incompatible with save files from previous versions. You will need to start from scratch for this version.
 
 ## WIP Notice
 This mod is a work in progress. At this stage it is a decent vertical slice of the gameplay the project is trying to achieve with some bugs and quirks remaining that should get better as BeamNG and the mod are updated. That being said a lot of content is missing and reward values may be unbalanced relative to part prices.
@@ -690,3 +708,29 @@ Thank you for playing BeamLR!
 * Fixed clock timer not updating fast enough with increased time scale
 * Restored health/injury system (off by default, can be turned on in options)
 * Fixed used car shop random slots bug due to missing BX-Series underglow 
+
+### 1.16
+* Added Advanced Part Inventory (allows part specific odometer & integrity values)
+* Added used part buying in part shop (lower prices for higher odometer parts)
+* Added dynamic mirrors implementation (saved to car config, edit from options menu)
+* Added race clubs and daredevil challenge destinations to GPS
+* Vehicle integrity now linked to advanced inventory part specific odometer values
+* Oil leak rate now linked to engine and oil pan odometers (use new parts to fix leak)
+* Advanced repair UI now shows warning regarding selective repair
+* Replaced frame delay vlua with flow blocking calls to fix potential race conditions 
+* Fix same shopID values used on different maps resulting in same RNG rolls
+* Fixed gas stations displays not updating to new values after sleep to next day
+* Removed car shop frame delay (trying fix for some players not seeing shop menu)
+* Vehicle sell price now tied to part specific odometer values
+* Removing oil pan now increases oil leak rate to 1000% (empty within 3 seconds)
+* Engine mechanical damage is now selectable in repair UI (removed if not selected)
+* Updated part rewards to work with new inventory system
+* Increased damage threshold for part edit restriction
+* Fixed track event timer flickering between 00:00:000 and --:--:--- after round ended
+* Increased wager and rep rewards for most daredevil challenges
+* Updated West Coast USA level files to fix floating gas station objects
+* Fixed East Coast USA small item deliveries not showing correct items in description
+* Increased base rewards for trailer and gooseneck deliveries on West Coast USA
+* Fixed traffic pooling breaking lights at night (thanks to LoSboccacc for the fix!)
+* Trying fix for vanilla traffic.lua script allowing traffic on gated roads
+* Disabled autoJunction for West Coast USA dragstrip to prevent traffic driving on it

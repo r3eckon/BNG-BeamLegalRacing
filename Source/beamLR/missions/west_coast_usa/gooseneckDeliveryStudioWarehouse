@@ -1,7 +1,7 @@
 destpos=-782.4296875,-592.1494140625,101.94451141357
-destrot=0.0087179869299509,-0.00031881301450022,0.90801308477582,0.41885096745507
-desc=Deliver $item to a warehouse near the Lens Flare studio
-reward=850
 items=list_all
-gmwp=blrwp_studiowarehouse
+desc=Deliver $item to a warehouse near the Lens Flare studio
 type=gooseneck
+destrot=0.0087179869299509,-0.00031881301450022,0.90801308477582,0.41885096745507
+gmwp=blrwp_studiowarehouse
+reward=1062.5

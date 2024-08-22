@@ -1,8 +1,8 @@
+wager=1000,3000
 desc=Time attack to the steel mill
-type=time
-wager=500,1500
-rep=20,50
-triggers=BeamLRTrigger_RaceDCP51,BeamLRTrigger_RaceDCP75,BeamLRTrigger_RaceDCP76,BeamLRTrigger_RaceDCP77,BeamLRTrigger_RaceDCP78,BeamLRTrigger_RaceDCP79,BeamLRTrigger_RaceDCP80,BeamLRTrigger_RaceACP66,BeamLRTrigger_RaceACP67
 gmwp=blrwp_raceD88
+type=time
 targettime=47000,60000
 traffic=0
+rep=40,150
+triggers=BeamLRTrigger_RaceDCP51,BeamLRTrigger_RaceDCP75,BeamLRTrigger_RaceDCP76,BeamLRTrigger_RaceDCP77,BeamLRTrigger_RaceDCP78,BeamLRTrigger_RaceDCP79,BeamLRTrigger_RaceDCP80,BeamLRTrigger_RaceACP66,BeamLRTrigger_RaceACP67

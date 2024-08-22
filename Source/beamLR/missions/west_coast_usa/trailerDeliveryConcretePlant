@@ -1,7 +1,7 @@
 destpos=-540.44494628906,19.316011428833,99.704246520996
-destrot=-0.0028064919453978,-0.0046813564412113,0.91895124798615,-0.39433337714367
-desc=Deliver $item to the concrete plant
-reward=350
 items=list_all
-gmwp=blrwp_concreteparking
+desc=Deliver $item to the concrete plant
 type=trailer
+destrot=-0.0028064919453978,-0.0046813564412113,0.91895124798615,-0.39433337714367
+gmwp=blrwp_concreteparking
+reward=700

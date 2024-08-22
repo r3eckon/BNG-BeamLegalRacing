@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_Manor
-desc=Deliver electronics to the red manor
+desc=Deliver $item to the red manor
 reward=450
 gmwp=blrwp_manor
 items=list_all

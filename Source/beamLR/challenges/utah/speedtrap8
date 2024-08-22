@@ -1,8 +1,8 @@
-desc=Speed trap challenge near the airfield bus stop
-wager=400,2000
 triggers=BeamLRTrigger_BusStopST
-type=speed
-targetspd=50,70
-rep=20,40
+rep=60,120
 gmwp=blrwp_cgm_busstopST
+wager=900,6000
+type=speed
 traffic=1
+targetspd=50,70
+desc=Speed trap challenge near the airfield bus stop

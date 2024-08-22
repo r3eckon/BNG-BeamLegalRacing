@@ -1,7 +1,7 @@
 destpos=-602.70861816406,283.73666381836,112.72699737549
-destrot=-5.0186069452175e-05,0.0011948764886566,0.92474679228488,-0.38058105563778
-desc=Deliver $item to a construction site in the city
-reward=350
 items=list_all
-gmwp=blrwp_trailerconstruction
+desc=Deliver $item to a construction site in the city
 type=trailer
+destrot=-5.0186069452175e-05,0.0011948764886566,0.92474679228488,-0.38058105563778
+gmwp=blrwp_trailerconstruction
+reward=700

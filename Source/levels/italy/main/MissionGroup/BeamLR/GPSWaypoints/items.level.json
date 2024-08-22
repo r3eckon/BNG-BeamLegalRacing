@@ -8,3 +8,5 @@
 {"name":"gpswp_scrapyardA","class":"BeamNGWaypoint","persistentId":"790447b3-a944-4377-9733-917e981f52bc","__parent":"GPSWaypoints","position":[-1792.29968,1505.77307,142.910965]}
 {"name":"gpswp_partshopB","class":"BeamNGWaypoint","persistentId":"51f825dd-d338-421f-9422-64d5cc188f93","__parent":"GPSWaypoints","position":[-695.914917,-1333.77551,140.315506]}
 {"name":"gpswp_gasG","class":"BeamNGWaypoint","persistentId":"63ffb658-f3e3-4189-9ec4-535244f52466","__parent":"GPSWaypoints","position":[-1062.84851,-1347.49158,324.168915]}
+{"name":"gpswp_dragA","class":"BeamNGWaypoint","persistentId":"b88648e3-287d-4af4-883e-8024df33bb9a","__parent":"GPSWaypoints","position":[649.518982,1183.79688,163.275375]}
+{"name":"gpswp_dragC","class":"BeamNGWaypoint","persistentId":"c36ce531-dc84-471b-9f00-257333ef0b03","__parent":"GPSWaypoints","position":[-613.463379,1829.83496,152.42157]}

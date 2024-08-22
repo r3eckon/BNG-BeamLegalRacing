@@ -145,32 +145,26 @@ local function loadJBeamFile(dir, filename, addToCache)
     partCount = partCount + 1
     part.partName = partName
 	
-	-- BeamLR 1.13 Advanced Vehicle Building Code Start
-	if extensions.blrglobals.blrFlagGet("avbToggle") then
-	if extensions.blrglobals.blrFlagGet("advancedVehicleBuilding") then
-	if part.slots then
-	for i=2,#part.slots do
-	part.slots[i][2] = ""
-	if part.slots[i][#part.slots[i]].coreSlot then
-	part.slots[i][#part.slots[i]] = nil
-	end
-	end
-	end
-	-- BeamNG 0.31 adds uses "slots2" for some vehicles
-	if part["slots2"] then
-	for i=2,#part["slots2"] do 
-	part["slots2"][i][4] = "" -- Default for this format at index 4
-	if part["slots2"][i][#part["slots2"][i]].coreSlot then
-	part["slots2"][i][#part["slots2"][i]] = nil
-	end
-	end
-	end
-	end
-	end
-	-- BeamLR 1.13 Advanced Vehicle Building Code End	
-    
     -- this processes the slot and slot2 section
     processSlotsDestructive(part, filename)
+	
+	-- BeamLR 1.13 Advanced Vehicle Building Code Start
+	-- Updated in 1.16 due to change in jbeam table format preventing
+	-- old AVB code from working properly, processSlotsDestructive converts
+	-- old jbeam table format to new format which itself is a bit different
+	-- from "slot2" format in previous versions of the game
+	if extensions.blrglobals.blrFlagGet("avbToggle") then
+	if extensions.blrglobals.blrFlagGet("advancedVehicleBuilding") then
+	if part["slots2"] then -- Now all slots are updated to newer "slot2" format
+		for k,v in pairs(part["slots2"]) do
+			v["default"] = ""
+			if v["coreSlot"] then v["coreSlot"] = nil end
+		end
+	end
+	end
+	end
+	-- BeamLR 1.13 Advanced Vehicle Building Code end	
+
     local slotInfoUi = getSlotInfoDataForUi(part.slots2 or {})
 
     if addToCache then

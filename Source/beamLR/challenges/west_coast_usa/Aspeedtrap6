@@ -1,8 +1,8 @@
-desc=Island highway speed trap challenge
-wager=500,2000
 triggers=BeamLRTrigger_RaceDCP27
-type=speed
-targetspd=50,69
-rep=30,200
 gmwp=blrwp_raceD47
+desc=Island highway speed trap challenge
+rep=30,200
+wager=750,3000
 traffic=1
+targetspd=50,69
+type=speed

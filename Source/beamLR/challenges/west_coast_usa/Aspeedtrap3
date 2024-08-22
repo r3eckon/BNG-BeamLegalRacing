@@ -1,8 +1,8 @@
-desc=Risky speed trap challenge in the city
-wager=1000,5000
 triggers=BeamLRTrigger_RaceACP87
-type=speed
-targetspd=42,62
-rep=30,200
 gmwp=blrwp_raceD115
+desc=Risky speed trap challenge in the city
+rep=30,200
+wager=1500,7500
 traffic=1
+targetspd=42,62
+type=speed

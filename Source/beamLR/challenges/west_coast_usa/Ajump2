@@ -1,5 +1,5 @@
 desc=Easy jump on the dirt race track
-wager=500,1000
+wager=500,2000
 triggers=BeamLRTrigger_Jump2
 type=jump
 rep=10,50

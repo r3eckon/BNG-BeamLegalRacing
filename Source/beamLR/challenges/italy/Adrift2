@@ -1,9 +1,9 @@
-desc=Drift challenge to the mountain village
-type=drift
-wager=700,3500
-rep=50,100
-triggers=BeamLRTrigger_TougeCP18,BeamLRTrigger_TougeCP19,BeamLRTrigger_TougeCP20,BeamLRTrigger_TougeCP21,BeamLRTrigger_TougeCP22,BeamLRTrigger_TougeCP23,BeamLRTrigger_TougeCP24,BeamLRTrigger_TougeCP25
+driftpts=10000,20000
 gmwp=blrwp_topdirtparking
 targettime=270000,420000
-driftpts=10000,20000
+triggers=BeamLRTrigger_TougeCP18,BeamLRTrigger_TougeCP19,BeamLRTrigger_TougeCP20,BeamLRTrigger_TougeCP21,BeamLRTrigger_TougeCP22,BeamLRTrigger_TougeCP23,BeamLRTrigger_TougeCP24,BeamLRTrigger_TougeCP25
+wager=1400,5250
+type=drift
 traffic=0
+rep=100,150
+desc=Drift challenge to the mountain village

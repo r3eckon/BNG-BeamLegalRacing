@@ -1,7 +1,7 @@
 destpos=325.77590942383,-162.36622619629,144.3431854248
-destrot=-0.0030142654216312,-0.0076022418338618,0.99995820246847,-0.0040882073194233
-desc=Deliver $item to the race track parking lot
-reward=850
 items=list_all
-gmwp=blrwp_racetrack
+desc=Deliver $item to the race track parking lot
 type=gooseneck
+destrot=-0.0030142654216312,-0.0076022418338618,0.99995820246847,-0.0040882073194233
+gmwp=blrwp_racetrack
+reward=1062.5

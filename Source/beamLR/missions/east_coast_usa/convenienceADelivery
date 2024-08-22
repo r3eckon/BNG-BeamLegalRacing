@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_ConvenienceStoreA
-desc=Deliver wiper fluid to the town convenience store
+desc=Deliver $item to the town convenience store
 reward=550
 gmwp=blrwp_storeA
 items=list_all

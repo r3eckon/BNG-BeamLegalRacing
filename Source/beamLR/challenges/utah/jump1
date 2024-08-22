@@ -1,7 +1,7 @@
-desc=Jump over the road!
-wager=100,300
 triggers=BeamLRTrigger_JumpTarget
-type=jump
-rep=10,40
+desc=Jump over the road!
 gmwp=blrwp_cgm_jump
+wager=1000,3000
 traffic=1
+rep=10,40
+type=jump

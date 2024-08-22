@@ -1,7 +1,7 @@
 destpos=-207.3295135498,373.29260253906,102.26232910156
-destrot=0.0098673188922111,-0.0088214319601017,0.65359098172119,0.75673221615628
-desc=Deliver $item to an apartment building behind the hospital
-reward=350
 items=list_all
-gmwp=blrwp_trailerapartment
+desc=Deliver $item to an apartment building behind the hospital
 type=trailer
+destrot=0.0098673188922111,-0.0088214319601017,0.65359098172119,0.75673221615628
+gmwp=blrwp_trailerapartment
+reward=700

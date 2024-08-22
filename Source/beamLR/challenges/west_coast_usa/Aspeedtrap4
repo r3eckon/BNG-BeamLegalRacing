@@ -1,8 +1,8 @@
-desc=Difficult bridge speed trap challenge
-wager=2000,8000
 triggers=BeamLRTrigger_DragCFinish
-type=speed
-targetspd=70,91
-rep=30,200
 gmwp=blrwp_raceA13
+desc=Difficult bridge speed trap challenge
+rep=30,200
+wager=3000,12000
 traffic=1
+targetspd=70,91
+type=speed

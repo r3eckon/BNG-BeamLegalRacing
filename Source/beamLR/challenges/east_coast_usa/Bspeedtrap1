@@ -1,8 +1,8 @@
-desc=Speed trap challenge at the nearby intersection
-wager=250,2500
-triggers=BeamLRTrigger_FarmJuncCP1
 type=speed
 targetspd=39,53
-rep=10,50
+desc=Speed trap challenge at the nearby intersection
 gmwp=blrwp_farmjunccp1
+wager=1000,3750
 traffic=1
+rep=20,150
+triggers=BeamLRTrigger_FarmJuncCP1

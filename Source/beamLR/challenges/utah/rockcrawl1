@@ -1,8 +1,8 @@
-desc=Easy rock crawl to the observation area parking lot
-wager=200,1000
-triggers=BeamLRTrigger_RockCrawlCP1,BeamLRTrigger_RockCrawlCP2,BeamLRTrigger_RockCrawlCP3,BeamLRTrigger_RockCrawlCP4,BeamLRTrigger_RockCrawlCP5,BeamLRTrigger_RockCrawlCP6,BeamLRTrigger_CurvyRoadLot
-type=time
 targettime=120000,150000
-rep=20,40
 gmwp=cliffJuncWp1
+desc=Easy rock crawl to the observation area parking lot
+triggers=BeamLRTrigger_RockCrawlCP1,BeamLRTrigger_RockCrawlCP2,BeamLRTrigger_RockCrawlCP3,BeamLRTrigger_RockCrawlCP4,BeamLRTrigger_RockCrawlCP5,BeamLRTrigger_RockCrawlCP6,BeamLRTrigger_CurvyRoadLot
+wager=600,3000
 traffic=1
+rep=20,40
+type=time

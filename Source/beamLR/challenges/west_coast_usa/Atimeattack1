@@ -1,8 +1,8 @@
+wager=1000,3000
 desc=Quick time attack to the service station
-type=time
-wager=500,1500
-rep=20,50
-triggers=BeamLRTrigger_RaceACP71,BeamLRTrigger_RaceACP72,BeamLRTrigger_RaceACP22,BeamLRTrigger_RaceACP2
 gmwp=blrwp_raceA100
+type=time
 targettime=37000,60000
 traffic=0
+rep=40,150
+triggers=BeamLRTrigger_RaceACP71,BeamLRTrigger_RaceACP72,BeamLRTrigger_RaceACP22,BeamLRTrigger_RaceACP2

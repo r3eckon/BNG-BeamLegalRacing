@@ -198,7 +198,7 @@
         "height":"500px",
         "left":"",
         "position":"absolute",
-        "right":"195px",
+        "right":"190px",
         "top":"0px",
         "width":"500px"
       }
@@ -237,6 +237,18 @@
         "right":"0px",
         "top":"0px",
         "width":"200px"
+      }
+    },
+    {
+      "appName":"beamlrmirrorsui",
+      "placement":{
+        "bottom":"",
+        "height":"400px",
+        "left":"270px",
+        "position":"absolute",
+        "right":"",
+        "top":"0px",
+        "width":"400px"
       }
     }
   ],

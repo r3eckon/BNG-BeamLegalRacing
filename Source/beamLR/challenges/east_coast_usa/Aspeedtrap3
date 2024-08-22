@@ -1,8 +1,8 @@
-desc=Speed trap challenge near the gas station
-wager=200,2000
-triggers=BeamLRTrigger_TownGasStationST
 type=speed
 targetspd=38,56
-rep=50,300
+desc=Speed trap challenge near the gas station
 gmwp=wp103
+wager=800,3000
 traffic=1
+rep=100,900
+triggers=BeamLRTrigger_TownGasStationST

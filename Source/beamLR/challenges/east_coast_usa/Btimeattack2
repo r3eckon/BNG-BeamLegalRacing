@@ -1,8 +1,8 @@
-desc=Time attack challenge to the town
-wager=400,3600
-triggers=BeamLRTrigger_FarmJuncCP1,BeamLRTrigger_SawmillEntranceCP2,BeamLRTrigger_SawmillOverpassJuncCP1,BeamLRTrigger_TownEntranceYJuncCP1,BeamLRTrigger_TownEntranceBridgeCP1
 type=time
+desc=Time attack challenge to the town
+triggers=BeamLRTrigger_FarmJuncCP1,BeamLRTrigger_SawmillEntranceCP2,BeamLRTrigger_SawmillOverpassJuncCP1,BeamLRTrigger_TownEntranceYJuncCP1,BeamLRTrigger_TownEntranceBridgeCP1
+wager=1600,9000
 targettime=37000,55000
-rep=20,40
-gmwp=blrwp_farmjunccp1
 traffic=1
+rep=40,120
+gmwp=blrwp_farmjunccp1

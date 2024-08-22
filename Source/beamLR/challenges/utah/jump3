@@ -1,7 +1,7 @@
-desc=Jump from one dirt road to another
-wager=150,325
 triggers=BeamLRTrigger_FarJump
-type=jump
-rep=20,50
+desc=Jump from one dirt road to another
 gmwp=blrwp_cgm_farjump
+wager=1500,3250
 traffic=1
+rep=20,50
+type=jump

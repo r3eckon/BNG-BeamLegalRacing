@@ -14,3 +14,4 @@
 {"name":"blrgps_gasD","class":"BeamNGWaypoint","persistentId":"bee6ba93-54c8-4a4e-8a21-8a6484e418e0","__parent":"BLRGPS","position":[-191.09729,516.577332,74.8498383]}
 {"name":"blrgps_repairD","class":"BeamNGWaypoint","persistentId":"a0ee20e4-477b-417d-925c-8a8e73d15fc1","__parent":"BLRGPS","position":[152.873383,771.198547,102.138405]}
 {"name":"blrgps_partsC","class":"BeamNGWaypoint","persistentId":"774def65-a659-48c8-91f8-caed746362aa","__parent":"BLRGPS","position":[-448.597595,1957.08545,82.562973]}
+{"name":"blrgps_dare","class":"BeamNGWaypoint","persistentId":"01a86dfd-540c-4a1d-930a-646c09ceab70","__parent":"BLRGPS","position":[-120.573959,249.900986,115.030205]}

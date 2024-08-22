@@ -1,8 +1,8 @@
-desc=Highway speed trap challenge
-wager=400,2000
 triggers=BeamNGTrigger_HighwayDragFinish
-type=speed
-targetspd=50,90
-rep=10,40
+rep=30,120
 gmwp=blrwp_raceend
+wager=900,6000
+type=speed
 traffic=1
+targetspd=50,90
+desc=Highway speed trap challenge

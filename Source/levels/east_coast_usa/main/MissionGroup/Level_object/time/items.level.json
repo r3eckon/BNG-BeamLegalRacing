@@ -1,1 +1,1 @@
-{"name":"tod","class":"TimeOfDay","persistentId":"d2e1ac9c-6a64-4fa9-9356-550e30f290fd","__parent":"time","position":[-324.942993,84.1285019,120.549004],"axisTilt":20,"azimuthOverride":0,"enableStartTimeFallBack":false,"play":false,"startTime":0.879999995,"time":0.879999995}
+{"name":"tod","class":"TimeOfDay","persistentId":"d2e1ac9c-6a64-4fa9-9356-550e30f290fd","__parent":"time","position":[-324.942993,84.1285019,120.549004],"axisTilt":20,"azimuthOverride":0,"dayLength":86400,"enableStartTimeFallBack":false,"nightScale":1,"startTime":0.879999995,"time":0.000856436731}

@@ -1,8 +1,8 @@
-desc=Highway speed trap challenge #1
-wager=1000,4000
 triggers=BeamLRTrigger_RaceDCP61
-type=speed
-targetspd=55,84
-rep=30,200
 gmwp=Bridge30_3
+desc=Highway speed trap challenge #1
+rep=30,200
+wager=1500,6000
 traffic=1
+targetspd=55,84
+type=speed

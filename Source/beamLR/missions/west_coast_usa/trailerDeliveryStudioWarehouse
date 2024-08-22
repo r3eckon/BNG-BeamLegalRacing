@@ -1,7 +1,7 @@
 destpos=-778.23468017578,-552.89611816406,101.2671661377
-destrot=0.0068894086566014,0.014413666059445,0.42618778967649,0.90449364299024
-desc=Deliver $item to a warehouse near the Lens Flare movie studio
-reward=350
 items=list_all
-gmwp=blrwp_studiowarehouse
+desc=Deliver $item to a warehouse near the Lens Flare movie studio
 type=trailer
+destrot=0.0068894086566014,0.014413666059445,0.42618778967649,0.90449364299024
+gmwp=blrwp_studiowarehouse
+reward=700

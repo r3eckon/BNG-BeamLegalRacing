@@ -1,7 +1,7 @@
 destpos=-41.307071685791,221.14212036133,123.8924407959
-destrot=0.003370556409438,0.0013662152264081,-0.38589793123678,0.92253431343914
-desc=Deliver $item to the sports complex
-reward=350
 items=list_all
-gmwp=blrwp_trailersports
+desc=Deliver $item to the sports complex
 type=trailer
+destrot=0.003370556409438,0.0013662152264081,-0.38589793123678,0.92253431343914
+gmwp=blrwp_trailersports
+reward=700

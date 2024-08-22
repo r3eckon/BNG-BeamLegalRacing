@@ -1,9 +1,9 @@
-desc=Drift challenge to the town
-wager=400,2800
-triggers=BeamLRTrigger_FarmJuncCP1,BeamLRTrigger_SawmillEntranceCP2,BeamLRTrigger_SawmillOverpassJuncCP1,BeamLRTrigger_TownEntranceYJuncCP1,BeamLRTrigger_TownEntranceBridgeCP1
-type=drift
-targettime=125000,185000
-driftpts=5000,10000
-rep=50,100
 gmwp=blrwp_farmjunccp1
+triggers=BeamLRTrigger_FarmJuncCP1,BeamLRTrigger_SawmillEntranceCP2,BeamLRTrigger_SawmillOverpassJuncCP1,BeamLRTrigger_TownEntranceYJuncCP1,BeamLRTrigger_TownEntranceBridgeCP1
+driftpts=5000,10000
+desc=Drift challenge to the town
+wager=2000,9100
+targettime=125000,185000
 traffic=0
+rep=100,300
+type=drift

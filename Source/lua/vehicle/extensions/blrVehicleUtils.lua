@@ -810,19 +810,34 @@ local function setOilLeak(rate)
 if powertrain and powertrain.getDevice("mainEngine") then
 local current = powertrain.getDevice("mainEngine").thermals.fluidLeakRates.oil.oilpan --math.max so if oilpan is damaged odometer leak doesn't reset it
 powertrain.getDevice("mainEngine").thermals.fluidLeakRates.oil.oilpan = math.max(rate, current)
+else
+print("setOilLeak didn't find mainEngine device, skipping.\nThis is normal if vehicle has no engine.")
 end
 end
 
 local function getOilLeak()
 if powertrain and powertrain.getDevice("mainEngine") then
 return powertrain.getDevice("mainEngine").thermals.fluidLeakRates.oil.oilpan
+else
+print("getOilLeak didn't find mainEngine device, using 0 as fallback.\nThis is normal if vehicle has no engine.")
+return 0
 end
 end
+
+-- used to avoid spamming console with warnings about missing mainEngine device
+local oilCurrentWarn = false
+local oilInitialWarn = false
 
 -- 1kg = ~1.1L
 local function getOilVolumeCurrent()
 if powertrain and powertrain.getDevice("mainEngine") then
 return powertrain.getDevice("mainEngine").thermals.fluidReservoirs.oil.currentMass * 1.1
+else
+if not oilCurrentWarn then
+print("getOilVolumeCurrent didn't find mainEngine device, using 0 as fallback.\nThis is normal if vehicle has no engine.")
+oilCurrentWarn = true
+end
+return 0
 end
 end
 
@@ -830,6 +845,12 @@ end
 local function getOilVolumeInitial()
 if powertrain and powertrain.getDevice("mainEngine") then
 return powertrain.getDevice("mainEngine").thermals.fluidReservoirs.oil.initialMass * 1.1
+else
+if not oilInitialWarn then
+print("getOilVolumeInitial didn't find mainEngine device, using 0 as fallback.\nThis is normal if vehicle has no engine.")
+oilInitialWarn = true
+end
+return 0
 end
 end
 
@@ -839,6 +860,8 @@ liters = getOilVolumeInitial()
 end
 if powertrain and powertrain.getDevice("mainEngine") then
 powertrain.getDevice("mainEngine").thermals.fluidReservoirs.oil.currentMass = (liters / 1.1)
+else
+print("setOilVolume didn't find mainEngine device, skipping.\nThis is normal if vehicle has no engine.")
 end
 end
 
@@ -851,27 +874,137 @@ setOilVolume(current + added)
 return toadd - added -- return quantity remaining in bottle
 end
 
--- calculates and applies oil leak rate from odometer value specific to each engine so
--- at 200k all oil leaks within an hour, probably not realistic but more balanced for gameplay
-local function updateOilLeakRate()
-local odometer = electrics.values.odometer
-if odometer < 100000000.0 then
-setOilLeak(0)
-else
-local ratio = math.min(odometer / 200000000.0, 2.0) -- max oil leak rate at 400k (200k = empty in 1 hour, 400k = empty in 30 minutes)
-local baserate = getOilVolumeInitial() / 3600.0 -- calculate a base leak rate for engine which leaks all oil in 1 hour
-local leak = ratio * baserate
-setOilLeak(leak)
-end
-end
-
 
 local function useOilBottle(itemkey, brand, grade, quantity)
+if powertrain and powertrain.getDevice("mainEngine") then
 local remain = refillOil(quantity)
 local used = quantity-remain
 obj:queueGameEngineLua("extensions.blrVehicleCallbacks.usedOilBottle('" .. itemkey .. "'," .. used .. ")")
+else
+print("Couldn't use oil bottle, unable find mainEngine powertrain device!")
+end
 end
 
+
+local advancedPartConditions = {}
+
+local function setAdvancedPartCondition(part, odometer, integrity)
+advancedPartConditions[part] = {}
+advancedPartConditions[part].odometer = odometer
+advancedPartConditions[part].integrityValue = integrity
+advancedPartConditions[part].visualValue = "a" -- if visual value is a number paint bug happens, using string to disable paint integrity
+print("Set part condition for " .. part .. " to " .. odometer .. " odometer and " .. integrity .. " integrity")
+end
+
+local function applyAdvancedPartConditions()
+partCondition.reset()
+partCondition.initConditions(advancedPartConditions, 0.0, 1.0, "a", nil)
+advancedPartConditions = {}
+print("Should have applied part conditions!")
+end
+
+
+
+local integrityUpdateQueue = {}
+
+local function queueIntegrityUpdate(id, part)
+integrityUpdateQueue[id] = part
+print("QUEUED INTEGRITY UPDATE FOR ID " .. id .. " PART NAME " .. part)
+end
+
+
+local function executeIntegrityUpdate()
+local conditions = partCondition.getConditions()
+local integrity = 0
+
+-- key is is inventory id, value is part name
+for k,v in pairs(integrityUpdateQueue) do
+	if conditions[v] then
+		integrity = conditions[v].integrityValue
+		print("PART CONDITION FOR " .. v .. "=" .. integrity)
+	else
+		integrity = 1
+		print("MISSING PART CONDITION FOR " .. v)
+	end
+obj:queueGameEngineLua("extensions.blrPartInventory.setPartIntegrity(" .. k .. "," .. integrity .. ")")
+end
+
+integrityUpdateQueue = {}
+end
+
+
+
+-- now that mod has part specific odometer values we can calculate oil leak rate
+-- for both engine and oilpan separately so replacing oilpan will slow the leak
+local function getOilLeakRatio()
+local clues = extensions.blrPowertrainClues.getClues()
+local conditions = partCondition.getConditions()
+local oilpanPart = clues["oilpan"]
+local enginePart = clues["engine"]
+local oilpanOdo = 0
+local engineOdo = 0
+local engineRatio = 0
+local oilpanRatio = 0
+
+if enginePart and conditions[enginePart] then
+engineOdo = conditions[enginePart].odometer
+else
+engineOdo = 0
+print("getOilLeakRatio had no condition or clue data for the engine, odo set to 0 as fallback.\nThis is normal if vehicle has no engine.")
+end
+
+
+-- oilpan is not separate from engine
+if oilpanPart == enginePart then
+	
+	engineRatio = math.min(engineOdo / 200000000.0, 2.0) * 1.0  -- 100% of leak from engine
+	oilpanRatio = 0
+
+	if engineOdo < 100000000.0 then engineRatio = 0 end
+
+else -- oilpan is separate from engine
+
+	if oilpanPart then 
+	
+		if conditions[oilpanPart] then
+			oilpanOdo = conditions[oilpanPart].odometer
+		else
+			oilpanOdo = 0
+			print("getOilLeakRatio had no condition data for the oilpan, odo set to 0 as fallback.\n This shouldn't happen.")
+		end
+
+		engineRatio = math.min(engineOdo / 200000000.0, 2.0) * 0.3 -- 30% of oil leak from engine
+		oilpanRatio = math.min(oilpanOdo / 200000000.0, 2.0) * 0.7 -- 70% of oil leak from oilpan
+
+		if oilpanOdo < 100000000.0 then oilpanRatio = 0 end
+		if engineOdo < 100000000.0 then engineRatio = 0 end
+
+	else -- if vehicle has no oilpan, leak all oil very fast
+		oilpanRatio = 1000.0
+		engineRatio = 0.0
+	end
+
+end
+
+return engineRatio, oilpanRatio
+end
+
+local function updateOilLeakRate()
+local engineRatio, oilpanRatio = getOilLeakRatio()
+local ratio = engineRatio + oilpanRatio
+local baserate = getOilVolumeInitial() / 3600.0 -- calculate a base leak rate for engine which leaks all oil in 1 hour
+local leak = ratio * baserate
+setOilLeak(leak)
+obj:queueGameEngineLua("extensions.mechDamageLoader.oilLeakMessage(" .. engineRatio .. "," .. oilpanRatio .. ")")
+end
+
+M.getOilLeakRatio = getOilLeakRatio
+M.cachePartConditions = cachePartConditions
+M.cachePowertrainClues = cachePowertrainClues
+M.executeIntegrityUpdate = executeIntegrityUpdate
+M.queueIntegrityUpdate = queueIntegrityUpdate
+M.setAdvancedPartCondition = setAdvancedPartCondition
+M.applyAdvancedPartConditions = applyAdvancedPartConditions
 M.useOilBottle = useOilBottle
 M.updateOilLeakRate = updateOilLeakRate
 M.refillOil = refillOil

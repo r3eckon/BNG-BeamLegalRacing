@@ -1,9 +1,9 @@
-desc=Downhill drift challenge
-wager=500,1500
-triggers=BeamLRTrigger_TouristAreaDelivery,BeamLRTrigger_TopShopIntersect,BeamNGTrigger_BusStopIntersect,BeamLRTrigger_BusStopST,BeamLRTrigger_CurvyRoadCP1,BeamLRTrigger_CurvyRoadCP2,BeamLRTrigger_NearShopCP1,BeamLRTrigger_RepairZoneST
-type=drift
-targettime=330000,390000
 driftpts=10000,25000
-rep=50,100
+desc=Downhill drift challenge
 gmwp=ut_wp_125
+triggers=BeamLRTrigger_TouristAreaDelivery,BeamLRTrigger_TopShopIntersect,BeamNGTrigger_BusStopIntersect,BeamLRTrigger_BusStopST,BeamLRTrigger_CurvyRoadCP1,BeamLRTrigger_CurvyRoadCP2,BeamLRTrigger_NearShopCP1,BeamLRTrigger_RepairZoneST
+targettime=330000,390000
+type=drift
 traffic=0
+rep=50,100
+wager=1500,4500

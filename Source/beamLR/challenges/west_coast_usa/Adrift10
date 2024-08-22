@@ -1,9 +1,9 @@
-desc=Race track parking lot drift challenge
-wager=1000,3000
-triggers=BeamLRTrigger_DriftCP25,BeamLRTrigger_DriftCP26,BeamLRTrigger_DriftCP27,BeamLRTrigger_DriftCP28,BeamLRTrigger_DriftCP29,BeamLRTrigger_DriftCP30,BeamLRTrigger_DriftCP31,BeamLRTrigger_DriftCP32,BeamLRTrigger_DriftCP33,BeamLRTrigger_DriftCP34
-type=drift
-targettime=65000,90000
-driftpts=5000,10000
-rep=50,100
 gmwp=parking_lot_RT
+targettime=65000,90000
+type=drift
+triggers=BeamLRTrigger_DriftCP25,BeamLRTrigger_DriftCP26,BeamLRTrigger_DriftCP27,BeamLRTrigger_DriftCP28,BeamLRTrigger_DriftCP29,BeamLRTrigger_DriftCP30,BeamLRTrigger_DriftCP31,BeamLRTrigger_DriftCP32,BeamLRTrigger_DriftCP33,BeamLRTrigger_DriftCP34
+driftpts=5000,10000
+wager=3000,6000
 traffic=0
+rep=50,100
+desc=Race track parking lot drift challenge

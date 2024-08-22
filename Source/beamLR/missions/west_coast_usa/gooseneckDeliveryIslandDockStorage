@@ -1,7 +1,7 @@
 destpos=381.78375244141,1742.1284179688,75.086608886719
-destrot=0.0050771798063388,-0.00022835812674648,-0.04205347051419,0.99910243504632
-desc=Deliver $item to the island dockyard storage area
-reward=850
 items=list_all
-gmwp=blrwp_trailerdockstorage
+desc=Deliver $item to the island dockyard storage area
 type=gooseneck
+destrot=0.0050771798063388,-0.00022835812674648,-0.04205347051419,0.99910243504632
+gmwp=blrwp_trailerdockstorage
+reward=1250

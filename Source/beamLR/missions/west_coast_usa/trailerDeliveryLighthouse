@@ -1,7 +1,7 @@
 destpos=-1163.7603759766,1869.3598632813,94.834518432617
-destrot=-0.00075896937275695,0.00021222024374801,0.71673279397829,0.6973474607139
-desc=Deliver $item to the island lighthouse parking lot
-reward=350
 items=list_all
-gmwp=blrwp_lighthouse
+desc=Deliver $item to the island lighthouse parking lot
 type=trailer
+destrot=-0.00075896937275695,0.00021222024374801,0.71673279397829,0.6973474607139
+gmwp=blrwp_lighthouse
+reward=900

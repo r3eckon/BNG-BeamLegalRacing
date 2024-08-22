@@ -21,7 +21,17 @@ angular.module('beamng.apps')
 	  scope.partSellConfirm = {};
 	  scope.partSellScale = 0.2;
 	  scope.sortedItemInventoryKeys = {};
-
+	  scope.templateFixMode = false;
+	  scope.templateFixData = {}
+	  scope.templateFixSelected = {}
+	  scope.templateFixTemplate = {}
+	  scope.templateFixNeeded = false
+	  
+	  scope.buylocked = false //locks buy action until result received
+	  scope.lastbuyitem = ""
+	  scope.lastbuyused = false // true if used part was bought, false if new part was bough
+	  
+	  
 	  if(!scope.initDone)
 	  {
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("uiinit")`);
@@ -50,6 +60,7 @@ angular.module('beamng.apps')
 		{
 			bngApi.engineLua(`extensions.customGuiCallbacks.setParam("perfuitoggle", "1")`);
 			bngApi.engineLua(`extensions.customGuiCallbacks.exec("togglePerfUI", "perfuitoggle")`);
+			scope.templateFixMode = false
 		}
 		else
 		{
@@ -77,7 +88,11 @@ angular.module('beamng.apps')
 		//bngApi.engineLua(`extensions.customGuiCallbacks.exec("inventoryRefresh")`) //Needs to be called in post edit process to work properly
 	  }
 	  
+	  
 	  scope.shopPartClick = function(item){
+		if(scope.buylocked)
+			return
+		  
 		scope.partPrice = scope.beamlrData["partPrices"][item];
 		if(scope.partPrice == null)
 		{
@@ -88,8 +103,13 @@ angular.module('beamng.apps')
 			scope.partPrice = scope.beamlrData["partPrices"][item] * scope.beamlrData['shopPriceScale'];
 		}
 	    bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("shopPurchase", "item", "${item}")`);
+		bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("shopPurchase", "used", false)`);
 		bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("shopPurchase", "price", ${scope.partPrice})`);
 		bngApi.engineLua(`extensions.customGuiCallbacks.exec("buyPart", "shopPurchase")`);
+		
+		scope.buylocked = true
+		scope.lastbuyitem = item
+		scope.lastbuyused = false
 	  }
 
 	  scope.$on('beamlrData', function (event, data) {
@@ -97,6 +117,10 @@ angular.module('beamng.apps')
 		  if(data.key == "itemInventory")
 		  {
 			  scope.sortedItemInventoryKeys = Object.keys(scope.beamlrData['itemInventory']).sort()
+		  }
+		  if(data.key == "playerDamage")
+		  {
+			  console.log("DAMAGE: " + scope.beamlrData['playerDamage'])
 		  }
       })
 	  
@@ -609,6 +633,235 @@ angular.module('beamng.apps')
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
 	  
+	  scope.getUsedPartOdometer = function(pid)
+	  {
+		  var invodo = scope.beamlrData['advinvData'][pid][1]
+		  var ilinkodo = scope.beamlrData["ilinkodo"][pid]
+		  var vehodo = scope.beamlrData["vehicleOdometer"]
+		  var total = invodo + (vehodo - ilinkodo)
+		  var units = scope.beamlrData["advinvUnits"]
+		  return (units=="imperial") ? total / 1.609 : total;
+	  }
+	  
+	  scope.getUsedPartSellPrice = function(pid)
+	  {
+		var odometer = scope.getUsedPartOdometer(pid)
+	    var full = scope.beamlrData['partPrices'][scope.beamlrData['advinvData'][pid][0]]
+		var scale = 1.0 - (0.9 * (Math.min(1.0, odometer / 200000000)))
+		return full * scale
+	  }
+	  
+	  scope.getPartSellPrice = function(pid)
+	  {
+		var odometer = scope.beamlrData['advinvData'][pid][1]
+	    var full = scope.beamlrData['partPrices'][scope.beamlrData['advinvData'][pid][0]]
+		var scale = 1.0 - (0.9 * (Math.min(1.0, odometer / 200000000)))
+		return full * scale
+	  }
+	  
+
+	  
+	  scope.advancedPartSell = function(pid)
+	  {
+		if(!scope.partSellConfirm[pid])
+		{
+			scope.partSellConfirm[pid] = true
+		}
+		else
+		{
+			var value = scope.getPartSellPrice(pid)
+			bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("advPartSellData", "pid", ${pid})`)
+			bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("advPartSellData", "value", ${value})`)
+			bngApi.engineLua(`extensions.customGuiCallbacks.exec("advPartSell", "advPartSellData")`)
+			scope.partSellConfirm[pid] = false
+			
+			//decrement owned part count on UI side to avoid having to reload full inventory part counts
+			scope.beamlrData["advinvOwned"][scope.beamlrData['advinvData'][pid][0]] -= 1
+		}
+	  }
+	  
+	  scope.advancedPartSet = function(slot, pid, part)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("advPartSetData", "pid", ${pid})`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("advPartSetData", "slot", "${slot}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("advPartSetData", "part", "${part}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("advPartSet", "advPartSetData")`)
+	  }
+	  
+	  //splitmix32 seeded random function, need this since js has no seeded RNG
+	  scope.seededrandom = function(a) 
+	  {
+		a |= 0;
+		a = a + 0x9e3779b9 | 0;
+		let t = a ^ a >>> 16;
+		t = Math.imul(t, 0x21f0aaad);
+		t = t ^ t >>> 15;
+		t = Math.imul(t, 0x735a2d97);
+		return ((t = t ^ t >>> 15) >>> 0) / 4294967296;
+	  }
+	  
+	  
+	  scope.getShopUsedPartOdometer = function(part, displaymode)
+	  {
+		 //First convert part name into number to get somewhat random hash  
+		 var hash = 0
+		 for(let i=0; i < part.length; i++)
+		 {
+			 hash += part.charCodeAt(i)
+		 }
+		 
+		 //Get random value for part 
+		 var rval = scope.seededrandom(scope.beamlrData["shopseed"] + hash)
+		 var toRet = 30000000 + (rval * 270000000)
+		 
+		
+		 //Next generate odometer value for part, minimum odo is 30kkm, maximum is 300kkm
+		 //Display mode is only true in HTML, will convert to correct unit for UI display
+		 return (scope.beamlrData["advinvUnits"] == "imperial" && displaymode) ? toRet / 1.609: toRet; 
+	  }
+	  
+	  //Basically, at 30kkm (minimum used part odometer) price scale is about 90%
+	  //then worst scale of 10% is achieved at 250kkm
+	  scope.getShopUsedPartPriceScale = function(part)
+	  {
+		  var odo = scope.getShopUsedPartOdometer(part)
+		  return .9 - (0.8 * (Math.min(1.0, odo / 250000000)))
+	  }
+	  
+	  
+	  scope.shopUsedPartBuy = function(item){
+		if(scope.buylocked)
+			return
+		
+		  
+		var odometer = scope.getShopUsedPartOdometer(item)
+		var odoscale = scope.getShopUsedPartPriceScale(item)
+		var total = scope.beamlrData["partPrices"][item];
+		var shopID = scope.beamlrData["shopID"]
+		  
+		
+		if(total == null)
+		{
+			total = scope.beamlrData["partPrices"]["default"] * scope.beamlrData['shopPriceScale'] * odoscale;
+		}
+		else
+		{
+			total = scope.beamlrData["partPrices"][item] * scope.beamlrData['shopPriceScale'] * odoscale;
+		}
+		
+		
+	    bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("shopPurchase", "item", "${item}")`);
+		bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("shopPurchase", "price", ${total})`);
+		bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("shopPurchase", "used", true)`);
+		bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("shopPurchase", "odo", ${odometer})`);
+		bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("shopPurchase", "shopID", ${shopID})`);
+		bngApi.engineLua(`extensions.customGuiCallbacks.exec("buyPart", "shopPurchase")`);
+		
+		scope.buylocked = true
+		scope.lastbuyitem = item
+		scope.lastbuyused = true
+	  }
+
+	   scope.usedPartDayDataCheck = function(item)
+	   {
+		   return scope.beamlrData["advinvUPSDayData"][item]
+	   }
+	  
+	   scope.adjustMirrors = function()
+	   {
+		   bngApi.engineLua(`extensions.customGuiCallbacks.exec("toggleMirrorsUI")`);
+	   }
+	  
+		
+	   scope.fixTemplateClicked = function(template)
+	   {
+		   scope.templateFixTemplate = template
+		   bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("templateData", "templateName", "${template}")`)
+		   bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("templateData", "templateFolder", "${scope.beamlrData["vehicleTemplateFolder"]}")`)
+		   bngApi.engineLua(`extensions.customGuiCallbacks.exec("onFixTemplateClicked", "templateData")`);
+	   }
+	  
+	   scope.$on('beamlrTemplateFix', function (event, data) 
+	   {
+		   scope.templateFixMode = true
+		   scope.templateFixData = data
+		   scope.templateFixSelected = {}
+		   scope.templateFixNeeded = Object.keys(data["missing"]).length > 0
+	   })
+	   
+	   scope.unitConvertedOdometer = function(val)
+	   {
+		   var units = scope.beamlrData["advinvUnits"]
+		   return (units=="imperial") ? val / 1.609 : val;
+	   }
+	   
+	   scope.onReplacementSelected = function(part,id)
+	   {
+		   var selected = scope.templateFixSelected[part][id] == true
+		   scope.templateFixSelected[part] = {}
+		   if(selected)
+			scope.templateFixSelected[part][id] = true
+	   }
+	   
+	   scope.cancelTemplateFix = function()
+	   {
+		   scope.templateFixSelected = {}
+		   scope.templateFixMode = false
+	   }
+	   
+	   scope.applyTemplateFix = function()
+	   {
+		   bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("templateReplacements", "templateFolder", "${scope.beamlrData["vehicleTemplateFolder"]}")`)
+		   bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("templateReplacements", "templateName", "${scope.templateFixTemplate}")`)
+           
+		   for(var part in scope.templateFixSelected)
+		   {
+			   for(var id in scope.templateFixSelected[part])
+			   {
+				   if(scope.templateFixSelected[part][id] == true)
+						bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("templateReplacements", "fix_${part}", ${id})`)
+			   }
+				
+		   }
+
+		   bngApi.engineLua(`extensions.customGuiCallbacks.exec("applyTemplateFix", "templateReplacements")`);
+		   scope.templateFixMode = false
+		   scope.templateFixSelected = {}
+	   }
+	   
+	   scope.$on('beamlrPartBuyResult', function (event, data) 
+	   {
+		    console.log("PART BUY RESULT: " + data)
+		    
+			var result = data
+			if(scope.buylocked && result)
+			{
+				scope.buylocked = false
+				
+				//increment owned part count on UI side to avoid having to reload full inventory part counts
+				if(scope.beamlrData["advinvOwned"][scope.lastbuyitem] == null)//check for null to avoid NaN value after increment
+				{
+					scope.beamlrData["advinvOwned"][scope.lastbuyitem] = 1
+				}
+				else
+				{
+					scope.beamlrData["advinvOwned"][scope.lastbuyitem] += 1
+				}
+
+				if(scope.lastbuyused)
+				{
+					//updated used shop day data on UI side to avoid having to reload table during inventory refresh
+					scope.beamlrData["advinvUPSDayData"][scope.lastbuyitem] = true					
+				}
+			}
+			else
+			{
+				scope.buylocked = false
+			}
+			
+			
+			
+	   })
 	  
     }
   }

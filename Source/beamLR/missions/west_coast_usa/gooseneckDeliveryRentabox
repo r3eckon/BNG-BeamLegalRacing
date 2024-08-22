@@ -1,7 +1,7 @@
 destpos=-75.424621582031,75.241081237793,122.89307403564
-destrot=-0.0062702463740191,0.026642304265142,-0.38695018965855,0.9216943215389
-desc=Deliver $item to Rent-A-Box Secure Storage
-reward=850
 items=list_all
-gmwp=blrwp_trailerrentabox
+desc=Deliver $item to Rent-A-Box Secure Storage
 type=gooseneck
+destrot=-0.0062702463740191,0.026642304265142,-0.38695018965855,0.9216943215389
+gmwp=blrwp_trailerrentabox
+reward=1062.5

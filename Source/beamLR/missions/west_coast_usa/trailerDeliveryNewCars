@@ -1,7 +1,7 @@
 destpos=-860.79400634766,904.36987304688,75.075942993164
-destrot=0.0035686898233357,0.0005595343705811,-0.0010604591735092,0.99999291337518
-desc=Deliver $item to Rich's Motors
-reward=350
 items=list_all
-gmwp=blrwp_trailernewcars
+desc=Deliver $item to Rich's Motors
 type=trailer
+destrot=0.0035686898233357,0.0005595343705811,-0.0010604591735092,0.99999291337518
+gmwp=blrwp_trailernewcars
+reward=700

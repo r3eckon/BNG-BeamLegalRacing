@@ -1,8 +1,8 @@
-desc=Speed trap challenge next to the town church
-wager=300,2000
-triggers=BeamLRTrigger_RaceClubBFinish
 type=speed
 targetspd=38,52
-rep=10,40
+desc=Speed trap challenge next to the town church
 gmwp=wp53
+wager=1200,3000
 traffic=1
+rep=20,120
+triggers=BeamLRTrigger_RaceClubBFinish

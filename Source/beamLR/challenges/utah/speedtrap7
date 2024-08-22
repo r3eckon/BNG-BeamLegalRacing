@@ -1,8 +1,8 @@
-desc=Speed trap challenge through the highway tunnel
-wager=400,2000
 triggers=BeamLRTrigger_TunnelSTA
-type=speed
-targetspd=80,100
-rep=30,60
+rep=90,180
 gmwp=blrwp_cgm_tunnelSTA
+wager=900,6000
+type=speed
 traffic=1
+targetspd=80,100
+desc=Speed trap challenge through the highway tunnel

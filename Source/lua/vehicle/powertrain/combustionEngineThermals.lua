@@ -2,7 +2,7 @@
 -- If a copy of the bCDDL was not distributed with this
 -- file, You can obtain one at http://beamng.com/bCDDL-1.1.txt
 
--- BEAMLR EDITED FOR OIL SYSTEM
+-- BEAMLR EDITED
 
 local M = {}
 
@@ -965,6 +965,7 @@ local function updateWaterCoolingGFX(dt)
 end
 
 local function updateMechanicsGFX(dt)
+
   local oilLubricationCoef = 1
   local maximumSafeGVolumeCoef = 1
   --too little oil
@@ -1308,10 +1309,12 @@ local function buildExhaustTree()
   --dump(nodes.exhaustEnds)
   M.exhaustEndNodes = nodes.exhaustEnds
 
+  --BEAMLR EDIT 
   if #nodes.exhaustEnds <= 0 then
-    log("E", "engine.buildExhaustTree", "No exhaust end nodes found")
-    return false
+    log("E", "engine.buildExhaustTree", "No exhaust end nodes found (BEAMLR EDIT: still turning on thermals system for oil leak mechanic)")
+    return true -- usually returns false but this should allow oil to leak even if intake is missing, hopefully wont cause other issues
   end
+  -- BEAMLR EDIT
 
   --dump(exhaustTrees)
   --print(afterFire.exhaustMaxLevel)
@@ -1817,12 +1820,11 @@ local function init(engine, engineJbeamData)
   initThermals(engineJbeamData)
 end
 
---BEAMLR EDITS START
 
+-- BEAMLR EDITS
 M.fluidReservoirs = fluidReservoirs
 M.fluidLeakRates = fluidLeakRates
-
---BEAMLR EDITS END
+-- BEAMLR EDITS
 
 M.init = init
 M.initSounds = initSounds

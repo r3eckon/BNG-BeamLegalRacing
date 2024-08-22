@@ -1,8 +1,8 @@
+wager=1400,4000
 desc=Time attack to the island lighthouse
-type=time
-wager=700,2000
-rep=20,50
-triggers=BeamLRTrigger_RaceACP11,BeamLRTrigger_DragCFinish,BeamLRTrigger_RaceACP12,BeamLRTrigger_RaceACP13,BeamLRTrigger_RaceACP14,BeamLRTrigger_RaceDCP26,BeamLRTrigger_RaceDCP5,BeamLRTrigger_RaceDCP6,BeamLRTrigger_RaceDCP7,BeamLRTrigger_RaceDCP8
 gmwp=blrwp_aiwp3
+type=time
 targettime=54000,70000
 traffic=0
+rep=40,150
+triggers=BeamLRTrigger_RaceACP11,BeamLRTrigger_DragCFinish,BeamLRTrigger_RaceACP12,BeamLRTrigger_RaceACP13,BeamLRTrigger_RaceACP14,BeamLRTrigger_RaceDCP26,BeamLRTrigger_RaceDCP5,BeamLRTrigger_RaceDCP6,BeamLRTrigger_RaceDCP7,BeamLRTrigger_RaceDCP8

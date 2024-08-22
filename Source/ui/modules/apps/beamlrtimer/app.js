@@ -38,6 +38,16 @@ angular.module('beamng.apps')
 	  scope.$on('raceTime', function (event, data) {
 		scope.racemode = data.racemode
 		
+		if(data.time < 0)
+		{
+			scope.laptime = null
+			scope.totaltime = null
+			scope.deltatime = null
+			scope.deltacolor = "white"
+			scope.deltasymbol = ""
+			return
+		}
+		
 		//console.log("RECEIVED TIME " + data.time * 1000.0 )
 		
         if (scope.newLap) {
@@ -82,6 +92,9 @@ angular.module('beamng.apps')
 		
 		scope.totaltime = Math.floor(data.time * 1000)
 		scope.laptime = Math.floor((data.time - scope.offset) * 1000)
+		
+		//console.log("LAPTIME: " + scope.laptime)
+		//console.log("TOTALTIME: " + scope.totaltime)
 		
 		if(scope.sendqueued){
 			scope.sendqueued = false

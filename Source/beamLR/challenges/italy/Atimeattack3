@@ -1,8 +1,8 @@
+wager=2100,7500
 desc=Time attack through a dangerous cliffside dirt road
-type=time
-wager=700,2500
-rep=40,100
-triggers=BeamLRTrigger_TougeCP1,BeamLRTrigger_TougeCP11,BeamLRTrigger_TougeCP12,BeamLRTrigger_TougeCP13,BeamLRTrigger_TougeCP14,BeamLRTrigger_TougeCP15,BeamLRTrigger_TougeCP16,BeamLRTrigger_TougeCP17
 gmwp=blrwp_topdirtparking
+type=time
 targettime=162000,196000
 traffic=0
+rep=80,200
+triggers=BeamLRTrigger_TougeCP1,BeamLRTrigger_TougeCP11,BeamLRTrigger_TougeCP12,BeamLRTrigger_TougeCP13,BeamLRTrigger_TougeCP14,BeamLRTrigger_TougeCP15,BeamLRTrigger_TougeCP16,BeamLRTrigger_TougeCP17

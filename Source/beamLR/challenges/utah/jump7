@@ -1,7 +1,7 @@
-desc=Jump over a canyon
-wager=100,300
 triggers=BeamLRTrigger_CanyonJump
-type=jump
-rep=10,30
+desc=Jump over a canyon
 gmwp=blrwp_cgm_canyonjump
+wager=1000,3000
 traffic=1
+rep=10,30
+type=jump

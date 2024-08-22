@@ -1,9 +1,9 @@
-desc=Quick drift challenge to the dragstrip
-wager=1000,5000
-triggers=BeamLRTrigger_RaceDCP51,BeamLRTrigger_RaceDCP52,BeamLRTrigger_RaceACP75,BeamLRTrigger_RaceDCP86,BeamLRTrigger_RaceDCP87,BeamLRTrigger_RaceDCP88,BeamLRTrigger_RaceDCP89
-type=drift
-targettime=130000,190000
-driftpts=7000,12000
-rep=50,100
 gmwp=blrwp_raceD88
+targettime=130000,190000
+type=drift
+triggers=BeamLRTrigger_RaceDCP51,BeamLRTrigger_RaceDCP52,BeamLRTrigger_RaceACP75,BeamLRTrigger_RaceDCP86,BeamLRTrigger_RaceDCP87,BeamLRTrigger_RaceDCP88,BeamLRTrigger_RaceDCP89
+driftpts=7000,12000
+wager=3000,10000
 traffic=0
+rep=50,100
+desc=Quick drift challenge to the dragstrip

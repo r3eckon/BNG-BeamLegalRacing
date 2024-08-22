@@ -1,9 +1,9 @@
-desc=Short drift challenge to the sawmill
-wager=350,2750
-triggers=BeamLRTrigger_FarmDirtRoadCP6,BeamLRTrigger_FarmDirtRoadCP7,BeamLRTrigger_SawmillDirtRoadCP7,BeamLRTrigger_SawmillCP1,BeamLRTrigger_SawmillCP3,BeamLRTrigger_SawmillCP4,BeamLRTrigger_SawmillCP5,BeamLRTrigger_SawmillCP9
-type=drift
-targettime=120000,180000
-driftpts=5000,10000
-rep=50,100
 gmwp=blrwp_farmdirtroadcp6
+triggers=BeamLRTrigger_FarmDirtRoadCP6,BeamLRTrigger_FarmDirtRoadCP7,BeamLRTrigger_SawmillDirtRoadCP7,BeamLRTrigger_SawmillCP1,BeamLRTrigger_SawmillCP3,BeamLRTrigger_SawmillCP4,BeamLRTrigger_SawmillCP5,BeamLRTrigger_SawmillCP9
+driftpts=5000,10000
+desc=Short drift challenge to the sawmill
+wager=1750,8937.5
+targettime=120000,180000
 traffic=0
+rep=100,300
+type=drift

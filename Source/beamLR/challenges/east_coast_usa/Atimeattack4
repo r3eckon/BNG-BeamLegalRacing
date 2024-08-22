@@ -1,8 +1,8 @@
-desc=Short length looping time attack
-wager=350,1550
-triggers=BeamLRTrigger_TownCP1,BeamLRTrigger_TownCP6,BeamLRTrigger_TownCP7,BeamLRTrigger_FirstResponderStationST,BeamLRTrigger_DirtPathBCP11,BeamLRTrigger_CurveIntersectCP2,BeamLRTrigger_CurveIntersectBCP1,BeamLRTrigger_TownGasStationST
 type=time
+desc=Short length looping time attack
+triggers=BeamLRTrigger_TownCP1,BeamLRTrigger_TownCP6,BeamLRTrigger_TownCP7,BeamLRTrigger_FirstResponderStationST,BeamLRTrigger_DirtPathBCP11,BeamLRTrigger_CurveIntersectCP2,BeamLRTrigger_CurveIntersectBCP1,BeamLRTrigger_TownGasStationST
+wager=1400,3875
 targettime=65000,100000
-rep=20,40
-gmwp=wp121
 traffic=1
+rep=40,120
+gmwp=wp121

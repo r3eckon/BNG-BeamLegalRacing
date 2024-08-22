@@ -11,6 +11,14 @@ local partPrice = {}
 local categoryData = {}
 local currentFilter = ""
 
+local function copytable(input)
+local output = {}
+for k,v in pairs(input) do
+output[k] = v
+end
+return output
+end
+
 local function getVehicleData(veid, ignoreShopMode)
 local toRet = {}
 local shopmode = extensions.blrglobals.blrFlagGet("shopmode")
@@ -149,9 +157,11 @@ partInventory[p] = partInventory[p] - 1
 end
 end
 
-
-
 local function saveConfig(file, vehid)
+-- 1.16 need to save then restore ilinks & odometer since vanilla config saving removes them
+local current = jsonReadFile(file)
+local ilinks = current["ilinks"]
+local odometer = current["odometer"]
 extensions.core_vehicle_partmgmt.save(file) 
 local ctable = jsonReadFile(file)
 ctable["paints"] = nil
@@ -160,12 +170,37 @@ ctable["model"] = getMainPartName(false, vehid)
 -- need this for advanced vehicle building, adds missing slots relying on defaults
 -- with actual part used so bought cars aren't missing parts after being avbready
 ctable["parts"] = getVehicleParts(vehid)
+ctable["ilinks"] = ilinks -- restore ilinks
+ctable["odometer"] = odometer -- restore odometer
+
+-- 1.16 dynamic mirrors
+local mdata = extensions.core_vehicle_mirror.getAnglesOffset()
+ctable["mirrors"] = {}
+for k,v in pairs(mdata) do
+ctable["mirrors"][k] = {}
+ctable["mirrors"][k]["x"] = v["angleOffset"]["x"]
+ctable["mirrors"][k]["z"] = v["angleOffset"]["z"]
+end
+
 jsonWriteFile(file,ctable,true)
 end
 
 
 local function loadConfig(file)
 extensions.core_vehicle_partmgmt.loadLocal(file)
+
+-- 1.16 dynamic mirrors
+local mdata = extensions.core_vehicle_mirror.getAnglesOffset()
+local cdata = jsonReadFile(file)
+if cdata["mirrors"] then
+for k,v in pairs(cdata["mirrors"]) do
+if mdata[k] then
+extensions.core_vehicle_mirror.setAngleOffset(k, v["x"], v["z"], nil, false)
+end
+end
+extensions.customGuiStream.sendMirrorsData()
+end
+
 end
 
 
@@ -509,29 +544,6 @@ end
 return toRet
 end
 
-local function getVehiclePartCost()
-local parts = getVehicleParts()
-local total = 0
-local ccost = 0
-for k,v in pairs(parts) do
-if k ~= "main" then
-if v ~= "" then
-ccost = getPartPrice(v) or 0
-total = total + ccost
-end
-end
-end
-return total
-end
-
-local function getVehicleSalePrice(odometer, reputation, repairCost, scrapVal)
-local partcost = getVehiclePartCost()
-local odoscl = 0.9 - math.min(((odometer / 200000000.0) * 0.8), 0.8)
-local repscl = 0.1 + math.min(((reputation / 100000.0) * 0.5), 0.5)
-return math.max((partcost * (repscl * odoscl)) - repairCost , scrapVal)
-end
-
-
 local function getSlotNameLibrary()
 local toRet = {}
 local avail = getMergedSlotMaps()
@@ -567,7 +579,7 @@ end
 
 local function searchFilter(source, keyMode, deepSearch)	-- Directly matches filter with part list for simple search function
 local toRet = {}
-local part = ""	
+local part = ""
 local cname = ""
 local snameLib = getSlotNameLibrary()
 local pnameLib = getPartNameLibrary()
@@ -963,41 +975,90 @@ local function getCSLDefaults()
 return csl_defaults
 end
 
+local configDataCache = {}
+local configPathCache = {}
+local ilinksCache = {}
+
+local function loadConfigFileData(gid)
+configPathCache = "beamLR/garage/config/car" .. gid
+configDataCache = jsonReadFile(configPathCache)
+return configDataCache
+end
 
 local delayedSlotSet = {}
-local function setSlotDelayed(slot, val)
+local function setSlotDelayed(slot, part, addedID)
 local currentParts = getVehicleParts()
 
-if val == "" then					-- Val is null, part is being removed
-if currentParts[slot] ~= nil and currentParts[slot] ~= "" then   -- Check if slot has part
-addToInventory(currentParts[slot])	-- Add removed part to inventory
-delayedSlotSet[slot] = val
+-- 1.16 additions for part specific odometer
+loadConfigFileData(extensions.blrutils.blrvarGet("playerCurrentCarGarageID"))
+local vehicleCurrentOdometer = extensions.blrglobals.gmGetVal("codo")
+local csplit = {}
+local removedID = -1
+local removedILODO = -1 -- ilinks odometer (odometer of vehicle when part was added)
+local removedINVODO = -1 -- inventory odometer (actual part odometer value)
+
+local removedPart = nil
+local addedPart = nil
+-- 1.16 ^
+
+if part == "" then					-- part is null, part is being removed
+	if currentParts[slot] ~= nil and currentParts[slot] ~= "" then   -- Check if slot has part
+		delayedSlotSet[slot] = part
+		removedPart = currentParts[slot]
+	end
+else								-- part isn't null, part is being added to vehicle
+	if currentParts[slot] ~= nil and currentParts[slot] ~= "" then   -- Check if there's a part in that slot already
+		removedPart = currentParts[slot]
+	end
+	delayedSlotSet[slot] = part
+	addedPart = part
 end
 
-else								-- Val isn't null, part is being added to vehicle
+-- 1.16 update for part specific odometer
+-- for removed part calculate actual odometer, set part used flag to false and remove from ilinks
+if removedPart then 
+-- First init some values
+csplit = extensions.blrutils.ssplit(ilinksCache[removedPart], ",")
+removedID = tonumber(csplit[1])
+removedILODO = tonumber(csplit[2])
+removedINVODO = extensions.blrPartInventory.getPart(removedID)[2]
+-- Update inventory part data
+extensions.blrPartInventory.setPartOdometer(removedID, removedINVODO + (vehicleCurrentOdometer - removedILODO))
+extensions.blrPartInventory.setPartUsed(removedID, false)
+-- Remove from ilinks
+ilinksCache[removedPart] = nil
+--print("SHOULD HAVE UPDATED PART ID " .. removedID .. " ODOMETER VALUE TO " .. (removedINVODO + (vehicleCurrentOdometer - removedILODO)))
+--print("SHOULD HAVE REMOVED PART ID " .. removedID .. " FROM ilinks")
+end
 
-if partInventory[val] ~= nil then	-- Check that inventory contains part being added
-if partInventory[val] >= 1 then	
-if currentParts[slot] ~= nil and currentParts[slot] ~= "" then   -- Check if there's a part in that slot already
-addToInventory(currentParts[slot])	-- If so add removed part to inventory
+if addedPart then -- for added part just set part used flag in inventory and add to ilinks
+extensions.blrPartInventory.setPartUsed(addedID, true)
+ilinksCache[part] = addedID .. "," .. vehicleCurrentOdometer
+--print("SHOULD HAVE ADDED PART ID " .. addedID .. " TO ILINKS WITH DATA [" .. addedID .. "," .. vehicleCurrentOdometer .. "]")
 end
-removeFromInventory(val)			-- Remove added part from inventory
-delayedSlotSet[slot] = val
-end
-end
+
+-- 1.16
+
+
 
 end
 
-end
-
-local function executeDelayedSlotSet()
+-- ilinks passed as parameters in selective repair because that removes and deletes some parts
+local function executeDelayedSlotSet(ilinks)
+-- 1.16 addition
+configDataCache["ilinks"] = ilinks or ilinksCache
+jsonWriteFile(configPathCache, configDataCache)
+extensions.blrPartInventory.save()
+-- 1.16 ^
 extensions.core_vehicle_partmgmt.setPartsConfig(delayedSlotSet)
 end
 
-local function setSlotWithChildren(slot, val)
-delayedSlotSet = getVehicleData().chosenParts -- load table with current parts
+local function setSlotWithChildren(slot, val, pid)
+delayedSlotSet = copytable(getVehicleData().chosenParts) -- load table with current parts
+-- 1.16 addition, load config file ilinks to perform part specific odometer offsets
+ilinksCache = loadConfigFileData(extensions.blrutils.blrvarGet("playerCurrentCarGarageID"))["ilinks"]
 local setList = getAllChildSlots(slot)
-setSlotDelayed(slot,val) -- start with parent slot
+setSlotDelayed(slot,val, pid) -- start with parent slot
 for k,v in pairs(setList) do -- then loop over child slots, always set to empty
 setSlotDelayed(k,"")
 end
@@ -1043,19 +1104,36 @@ end
 
 end
 
+-- updated for 1.16 advanced part inventory
+local function templateLoadInventorySwap(currentConfig, targetConfig, vehOdo)
+local clinks = currentConfig["ilinks"]
+local tlinks = targetConfig["ilinks"]
+local inventory = extensions.blrPartInventory.getInventory()
 
-local function templateLoadInventorySwap(currentConfig, targetConfig)
-for k,v in pairs(currentConfig) do
-if v ~= ""  then
-addToInventory(v)
+local csplit = {}
+local cid = 0
+local clinkodo = 0 -- ilinks odo value, when part was attached to vehicle
+
+-- for current config need to set part as unused and calculate new odometer 
+for k,v in pairs(clinks) do
+csplit = extensions.blrutils.ssplit(v, ",")
+cid = tonumber(csplit[1])
+clinkodo = tonumber(csplit[2])
+extensions.blrPartInventory.setPartUsed(cid, false)
+extensions.blrPartInventory.setPartOdometer(cid, vehOdo - clinkodo, true) -- using increment mode
 end
+
+-- for target config just set part as used
+for k,v in pairs(tlinks) do
+csplit = extensions.blrutils.ssplit(v, ",")
+cid = tonumber(csplit[1])
+extensions.blrPartInventory.setPartUsed(cid, true)
 end
-for k,v in pairs(targetConfig) do
-if v ~= "" then
-removeFromInventory(v)
+
 end
-end
-end
+
+
+
 
 local function getMainPartChild(veid)
 local vehicleData = {}
@@ -1146,7 +1224,7 @@ end
 
 -- manual init for non inventory slot set used in advanced repair ui
 local function initDelayedSlotTable()
-delayedSlotSet = getVehicleData().chosenParts
+delayedSlotSet = copytable(getVehicleData().chosenParts)
 end
 
 local function setSlotDelayedNoInventory(slot, val)
@@ -1164,6 +1242,439 @@ end
 return toRet
 end
 
+
+-- KEY=part name, VAL=list of inventory IDs
+local function getAdvancedInventoryPartMap()
+local toRet = {}
+local cpart = ""
+local cid = -1
+for k,v in pairs(extensions.blrPartInventory.getInventory()) do
+cid = k
+cpart = v[1]
+if not toRet[cpart] then toRet[cpart] = {} end
+table.insert(toRet[cpart], cid)
+end
+return toRet
+end
+
+local function getPartKeyedSlotMap()
+local map = getSlotMap()
+local toRet = {}
+for slot,avail in pairs(map) do
+for _,part in pairs(avail) do
+toRet[part] = slot -- probably needs to handle cases where same part fits in multiple slots
+end
+end
+return toRet
+end
+
+
+-- 1.16 for advanced inventory sorting 
+local function getValueSortedKeys(t)
+    local keymap = {}
+    local sorted = {}
+    local toRet = {}
+    
+    for k,v in pairs(t) do
+        if not keymap[v] then keymap[v] = {} end
+        table.insert(keymap[v], k)
+        table.insert(sorted, v)
+    end
+    
+    table.sort(sorted)
+    local used = {}
+    for _,k in pairs(sorted) do
+        for _,v in pairs(keymap[k]) do
+            if not used[v] then
+                table.insert(toRet, v)
+                used[v] = true
+            end
+        end
+    end
+
+    return toRet
+end
+
+
+-- get name then odometer sorted table (sorts by name, then by odometer)
+local function getNOST(name, odo)
+local sortedNames = getValueSortedKeys(name)
+local sortedOdos = getValueSortedKeys(odo)
+local nkso = {}
+local final = {}
+
+--dump(name)
+--dump(odo)
+
+local cname = ""
+for _,id in ipairs(sortedOdos) do
+    cname = name[id]
+    if not nkso[cname] then nkso[cname] = {} end
+    table.insert(nkso[cname],id)
+end
+
+local usedname = {}
+
+for _,nameid in ipairs(sortedNames) do
+    cname = name[nameid]
+    if not usedname[cname] then
+    for _,odoid in ipairs(nkso[cname]) do
+        table.insert(final, odoid)
+    end
+    usedname[cname] = true
+    end
+end
+
+return final
+end
+
+
+local function getAdvancedInventoryUIParts()
+local toRet = {}
+local unsorted = {}
+local current = getVehicleParts()	-- Current parts
+local slots = getActualSlots()		-- Gets actual slots from current car
+local avail = getSlotMap()	   		-- Gets all available parts for all available slots of this car
+local invmap = getAdvancedInventoryPartMap() -- Inventory map KEY=part name, VAL=table of inventory IDs
+local pksmap = getPartKeyedSlotMap() -- part keyed slot map KEY=part name, VAL=slot in which it fits
+local names = getPartNameLibrary()
+local inventory = extensions.blrPartInventory.getInventory()
+local sorted = {}
+
+local cslot = ""
+
+-- build initially unsorted table
+for _,slot in pairs(slots) do -- loop over slots
+if avail[slot] then
+	for _,part in pairs(avail[slot]) do -- loop over parts that fit in this slot
+		if invmap[part] then -- check if inventory contains current part
+			cslot = pksmap[part] -- get current slot from part keyed slot map
+			if not unsorted[cslot] then unsorted[cslot] = {} end
+			if not sorted[cslot] then sorted[cslot] = {} end
+			for _,id in pairs(invmap[part]) do -- loop over inventory IDs for current part
+				table.insert(unsorted[cslot], id) -- add them to unsorted table
+			end	
+		end
+	end
+end
+end
+
+local cnames = {}
+local codos = {}
+
+-- build sorted table
+for slot,tab in pairs(unsorted) do
+	cnames = {}
+	codos = {}
+	for _,id in pairs(tab) do
+		if inventory[id][4] ~= 1 then -- skip used parts for sorted lists, will be manually added to top of list
+		cnames[id] = names[inventory[id][1]] or inventory[id][1]
+		codos[id] = inventory[id][2]
+		end
+	end
+	--dump(cnames)
+	--dump(codos)
+	sorted[slot] = getNOST(cnames, codos)
+end
+
+return sorted
+end
+
+
+local function getUsedPartInventoryIDs()
+local toRet = {}
+local csplit = {}
+local cid = -1
+local pksmap = getPartKeyedSlotMap()
+local gid = extensions.blrutils.blrvarGet("playerCurrentCarGarageID")
+loadConfigFileData(gid)
+if configDataCache["ilinks"] then
+for k,v in pairs(configDataCache["ilinks"]) do
+csplit = extensions.blrutils.ssplit(v, ",")
+cid = tonumber(csplit[1])
+toRet[pksmap[k]] = cid
+end
+else
+print("getUsedPartInventoryIDs failed due to missing ilinks for vehicle with GID " .. gid)
+end
+return toRet
+end
+
+local function initVehicleInventoryLinks()
+local chosenParts = getVehicleData().chosenParts
+local gid = extensions.blrutils.blrvarGet("playerCurrentCarGarageID")
+local configFile = loadConfigFileData(gid)
+local odometer = configFile["odometer"]
+local mainPartChild = getMainPartChild()
+if not configFile["ilinks"] then
+print("Detected new vehicle with GID" .. gid .. ", creating inventory links!")
+local cid = -1
+
+configFile["ilinks"] = {}
+for k,v in pairs(chosenParts) do
+if v and v~="" and k~=mainPartChild then
+cid = extensions.blrPartInventory.add(v, odometer, 1.0, true)
+configFile["ilinks"][v] = cid .. "," .. odometer
+end
+end
+
+jsonWriteFile(configPathCache, configFile, true)
+end
+
+end
+
+-- For used parts, value represents vehicle odometer when part was added
+-- to calculate actual odometer value of part currently attached to vehicle
+local function getInventoryLinkOdometers(forui)
+local gid = extensions.blrutils.blrvarGet("playerCurrentCarGarageID")
+local ilinks = loadConfigFileData(gid)["ilinks"]
+
+-- to avoid ui init request bugging out for brand new vehicles before ilinks are created
+if not ilinks then return nil end
+
+local toRet = {}
+
+local csplit = {}
+local cid = -1
+local cilinkodo = -1 -- Vehicle odometer when part was added
+
+for k,v in pairs(ilinks) do
+csplit = extensions.blrutils.ssplit(v, ",")
+cid = tonumber(csplit[1])
+cilinkodo = tonumber(csplit[2])
+toRet[cid] = cilinkodo
+end
+
+-- Force data at index 0 so JS indices are same as lua
+if forui and not toRet[0] then toRet[0] = -1 end
+
+return toRet
+end
+
+-- source table format: slot={1,2,3,10,20,69,...}
+local function advancedInventorySearch(source)
+local sname = getSlotNameLibrary()
+local pname = getPartNameLibrary()
+local invdata = extensions.blrPartInventory.getInventory()
+local toRet = {}
+local filter = currentFilter
+
+local cslotname = ""
+local cpart = ""
+local cpartname = ""
+
+
+for slot, list in pairs(source) do
+cslotname = sname[slot] or slot
+
+-- slot itself matches search filter
+if (string.match(cslotname:upper(), filter:upper())) or (string.match(slot:upper(), filter:upper())) then
+toRet[slot] = true
+end
+
+-- didnt find match in slot name, look for matching parts
+if not toRet[slot] then
+for _,id in ipairs(list) do
+cpart = invdata[id][1]
+cpartname = pname[cpart] or cpart
+
+if (string.match(cpartname:upper(), filter:upper())) or (string.match(cpart:upper(), filter:upper())) then
+toRet[slot] = true
+break
+end
+end
+
+end
+end
+
+
+return toRet
+end
+
+-- source table format: slot={1,2,3,10,20,69,...}
+local function advancedInventoryCategory(source)
+local sname = getSlotNameLibrary()
+local invdata = extensions.blrPartInventory.getInventory()
+local toRet = {}
+local filter = currentFilter
+
+local cname = ""
+
+for slot,_ in pairs(source) do
+cname = sname[slot] or slot
+
+for stype,category in pairs(categoryData) do
+if (filter == "all") or (category == filter) then
+if (string.match(cname:upper(), stype:upper())) or (string.match(slot:upper(), stype:upper())) then
+toRet[slot] = true
+break
+end
+end
+end
+
+end
+
+return toRet
+end
+
+
+-- 1.16 updated for part specific odometer values
+local function getVehiclePartCost(odoscale)
+local ilinks = jsonReadFile(configPathCache)["ilinks"]
+local inventory = extensions.blrPartInventory.getInventory()
+local codo = extensions.blrglobals.gmGetVal("codo")
+local total = 0
+
+local part_name = ""
+local part_id = -1
+local part_odo = -1
+local part_val = 0
+
+local csplit = {}
+
+for k,v in pairs(ilinks) do
+csplit = extensions.blrutils.ssplit(v, ",")
+part_id = tonumber(csplit[1])
+part_odo = inventory[part_id][2] + (codo - tonumber(csplit[2])) -- calculate actual part odometer
+part_val = getPartPrice(k) or getPartPrice("default")
+
+if odoscale then
+part_val = part_val * (0.95 - math.min(0.9, part_odo / 200000000.0))
+end
+
+total = total + part_val
+end
+
+
+return total
+end
+
+local function getVehicleSalePrice(reputation, repairCost, scrapVal)
+local partcost = getVehiclePartCost(true)
+local repratio = 1.0 - math.min(1.0, reputation / 50000.0) -- 100% sell price at 50k rep
+local repscl = 1.0 - (0.8 * repratio) -- at 0 rep sell price is 20% of total part value
+return math.max((partcost * repscl) - repairCost , scrapVal)
+end
+
+
+local function getDynamicMirrorsData()
+local mirrors = extensions.core_vehicle_mirror.getAnglesOffset()
+local avail = getAllAvailableParts(true)
+local toRet = {}
+
+local defaultIcons = {}
+defaultIcons["left"] = "mirrorLeftDefault"
+defaultIcons["right"] = "mirrorRightDefault"
+defaultIcons["center"] = "mirrorInteriorMiddle"
+
+for k,v in pairs(mirrors) do
+toRet[k] = {}
+
+toRet[k]["part"] = v["name"]
+if avail[v["name"]] then
+toRet[k]["name"] = getPartName(v["name"])
+else
+if string.find(v["name"], "_L") then
+toRet[k]["name"] = "Left Mirror"
+elseif string.find(v["name"], "_R") then
+toRet[k]["name"] = "Right Mirror"
+else
+toRet[k]["name"] = "Rear View Mirror"
+end
+end
+toRet[k]["id"] = v["id"]
+toRet[k]["angle"] = v["angleOffset"]
+toRet[k]["icon"] = v["icon"]
+toRet[k]["clampX"] = v["clampX"]
+toRet[k]["clampY"] = v["clampY"]
+
+if string.find(toRet[k]["name"]:upper(), "LEFT") then
+toRet[k]["position"] = "left"
+elseif string.find(toRet[k]["name"]:upper(), "RIGHT") then
+toRet[k]["position"] = "right"
+else
+toRet[k]["position"] = "center"
+end
+
+if not v["icon"] then
+toRet[k]["icon"] = defaultIcons[toRet[k]["position"]]
+end
+
+end
+return toRet
+end
+
+-- get mirrors sorted in position based tables with lower ID priority
+local function getSortedMirrors()
+local mdata = getDynamicMirrorsData()
+local idsorted = {}
+local psorted = {}
+local toRet = {}
+local depth = 0
+
+psorted["left"] = {}
+psorted["right"] = {}
+psorted["center"] = {}
+
+for k,v in pairs(mdata) do
+idsorted[v["id"]+1] = k
+end
+
+for i=1,#idsorted do
+table.insert(psorted[mdata[idsorted[i]].position], idsorted[i])
+if #psorted[mdata[idsorted[i]].position] > depth then depth = #psorted[mdata[idsorted[i]].position] end
+end 
+
+for i=1,depth do 
+toRet[i] = {}
+table.insert(toRet[i], psorted["left"][i] or "none") 
+table.insert(toRet[i], psorted["center"][i] or "none") 
+table.insert(toRet[i], psorted["right"][i] or "none") 
+end
+
+return toRet
+end
+
+-- updates ilink values after template loading
+local function templateLoadedUpdateIlinks(cpath,tpath, odo)
+local tdata = jsonReadFile(tpath)
+local csplit = {}
+local cid = 0
+local clink = ""
+local newlinks = {}
+
+for k,v in pairs(tdata["ilinks"]) do
+csplit = extensions.blrutils.ssplit(v,",")
+cid = tonumber(csplit[1])
+clink = cid .. "," .. odo
+newlinks[k] = clink
+end
+
+tdata["ilinks"] = newlinks
+tdata["odometer"] = odo
+
+jsonWriteFile(cpath, tdata, true)
+end
+
+-- to avoid issues with 1.16 advanced inventory ilinks just copy
+-- current config into a template file 
+local function createTemplateFile(currentConfig,templatePath)
+extensions.blrutils.copyFile(currentConfig, templatePath)
+end
+
+
+
+M.createTemplateFile = createTemplateFile
+M.templateLoadedUpdateIlinks = templateLoadedUpdateIlinks
+M.getSortedMirrors = getSortedMirrors
+M.getDynamicMirrorsData = getDynamicMirrorsData
+M.advancedInventoryCategory = advancedInventoryCategory
+M.advancedInventorySearch = advancedInventorySearch
+M.getInventoryLinkOdometers = getInventoryLinkOdometers
+M.initVehicleInventoryLinks = initVehicleInventoryLinks
+M.getUsedPartInventoryIDs = getUsedPartInventoryIDs
+M.getPartKeyedSlotMap = getPartKeyedSlotMap
+M.getAdvancedInventoryUIParts = getAdvancedInventoryUIParts
 M.initDelayedSlotTable = initDelayedSlotTable
 M.getPartKeyedSlots = getPartKeyedSlots
 M.setSlotDelayedNoInventory = setSlotDelayedNoInventory

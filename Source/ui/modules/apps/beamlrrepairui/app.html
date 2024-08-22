@@ -14,7 +14,7 @@
 <span ng-click="toggleui(false)" style="float:right; text-align:center; transform:translate(0px, 0px); width:40px; font-size:30px;">X</span>
 <h2 style="text-align:center; transform:translate(0px,0px); width:70%; margin:auto; margin-top:0px; margin-bottom:0px;">Advanced Repair Menu</h2>
 
-<div style="overflow-y:scroll; width:95%; height:75%; margin:auto; margin-top:20px; transform:translate(0px,-10px); background-color:rgba(0.0,0.0,0.0,0.3);">
+<div style="overflow-y:scroll; width:95%; margin:auto; margin-top:20px; transform:translate(0px,-10px); background-color:rgba(0.0,0.0,0.0,0.3);" ng-style="{height: (warnack) ? '75%' : '65%'}">
 
 <div style="width:100%; font-size:20px; background-color:rgba(0.0,0.0,0.0,0.1);">
 <table style="width:100%; table-layout:fixed; font-weight:bold;">
@@ -32,6 +32,16 @@
 <td style="width:5%; text-align:center;"><md-checkbox ng-model="picks[part]" ng-change="linkedPartsUpdate(part)" ></md-checkbox></td>
 <td style="width:70%; text-align:center;">{{names[part]}}</td>
 <td style="width:25%; text-align:center;" ng-style="picks[part] && {'color':'#FF6600','font-weight':'bold'}">${{formatNumber(cost)| number:2}}</td>
+</tr>
+</table>
+</div>
+
+<div ng-if="engine > 0" style="width:100%; font-size:20px;">
+<table style="width:100%; table-layout:fixed; padding:10px;">
+<tr>
+<td style="width:5%; text-align:center;"><md-checkbox ng-model="engineSelected" ng-change="selectEngine()" ></md-checkbox></td>
+<td style="width:70%; text-align:center; transform:translate(15px,0px);">Engine Internal Damage</td>
+<td style="width:25%; text-align:center;" ng-style="engineSelected && {'color':'#FF6600','font-weight':'bold'}">${{formatNumber(engine)| number:2}}</td>
 </tr>
 </table>
 </div>
@@ -85,7 +95,12 @@
 
 </div>
 
-<div ng-if="ready==true" style="width:95%; margin:auto; margin-top:5px; text-align:center;">
+<div ng-if="warnack==false" style="vertical-align: top; height:120px; width:95%; margin:auto; margin-top:0px; text-align:center;">
+<p style="text-align:center; height:60px; font-size:17px; margin:0 auto; vertical-align:top;"><strong>Warning: </strong>when using selective repair, unselected damaged parts <strong>will be deleted!</strong> Pristine parts attached<br>to deleted parts will be sent to your part inventory.</p>
+<p ng-click="warnclick()" style="text-align:center; font-size:24px; font-weight:bold; height:40px; margin:0 auto; margin-top:15px; vertical-align:top;">Click here to acknowledge.</p>
+</div>
+
+<div ng-if="ready==true && warnack==true" style="width:95%; margin:auto; margin-top:5px; text-align:center;">
 <button ng-if="totalConfirm == true" ng-click="repairSelected()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(total * mult)">Confirm repair?<br>${{formatNumber(total * mult)| number:2}}</button>
 <button ng-if="totalConfirm == false" ng-click="repairSelected()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(total * mult)">Repair Selected<br>${{formatNumber(total * mult)| number:2}}</button>
 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
@@ -93,6 +108,8 @@
 <button ng-if="fullConfirm == true" ng-click="repairAll()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(full * mult)">Confirm repair?<br>${{formatNumber(full * mult)| number:2}}</button>
 <button ng-if="fullConfirm == false" ng-click="repairAll()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(full * mult)">Repair All<br>${{formatNumber(full * mult)| number:2}}</button>
 </div>
+
+
 
 <div ng-if="ready==false" style="width:95%; margin:auto; margin-top:5px; text-align:center; font-size:20px;">
 Loading damage data...

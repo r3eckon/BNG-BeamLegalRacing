@@ -33,3 +33,5 @@ This addon is currently built for map version **v20231124_v2** (ks_nord_v2023112
 * Updated track event system to work with point system
 ### BeamLR 1.15.3
 * Replaced timer UI with custom version (shows lap time & previous lap delta)
+### BeamLR 1.16
+* Fixed custom timer flickering between 00:00:000 and --:--:--- after round completed

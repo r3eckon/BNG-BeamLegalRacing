@@ -1,8 +1,8 @@
+wager=1000,2000
 desc=Quick time attack to the tram station
-type=time
-wager=500,1000
-rep=20,50
-triggers=BeamLRTrigger_RaceDCP45,BeamLRTrigger_RaceDCP46,BeamLRTrigger_RaceDCP47,BeamLRTrigger_RaceDCP48,BeamLRTrigger_RaceDCP49,BeamLRTrigger_RaceDCP50
 gmwp=Bridge32_1
+type=time
 targettime=25000,45000
 traffic=0
+rep=40,150
+triggers=BeamLRTrigger_RaceDCP45,BeamLRTrigger_RaceDCP46,BeamLRTrigger_RaceDCP47,BeamLRTrigger_RaceDCP48,BeamLRTrigger_RaceDCP49,BeamLRTrigger_RaceDCP50

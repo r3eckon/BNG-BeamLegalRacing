@@ -1,7 +1,7 @@
 destpos=-1083.4758300781,1942.9140625,93.157859802246
-destrot=0.011659287908667,-0.019871142329789,-0.59314975025677,0.80476243232292
-desc=Deliver $item to the island lighthouse parking lot
-reward=850
 items=list_all
-gmwp=blrwp_goosenecklighthouse
+desc=Deliver $item to the island lighthouse parking lot
 type=gooseneck
+destrot=0.011659287908667,-0.019871142329789,-0.59314975025677,0.80476243232292
+gmwp=blrwp_goosenecklighthouse
+reward=1250

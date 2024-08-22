@@ -1,7 +1,7 @@
 destpos=-882.04132080078,415.89694213867,151.58776855469
-destrot=0.0027917578485468,0.0019023303598493,-0.69882604439809,0.7152836828128
-desc=Deliver $item to the Fog Hill fire station
-reward=350
 items=list_all
-gmwp=blrwp_firestation
+desc=Deliver $item to the Fog Hill fire station
 type=trailer
+destrot=0.0027917578485468,0.0019023303598493,-0.69882604439809,0.7152836828128
+gmwp=blrwp_firestation
+reward=700

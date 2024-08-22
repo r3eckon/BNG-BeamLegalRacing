@@ -263,16 +263,20 @@ guihooks.trigger("beamlrOptions", tosend)
 guihooks.trigger("beamlrImageUIMode", tonumber(options["imgmode"] or "0"))
 end
 
-local function sendRepairData(damage, partnames, mech, minimum)
+local function sendRepairData(damage, partnames, mech, minimum, engine)
 if damage then guihooks.trigger("beamlrRepairUIDamageList", damage) end
 if partnames then guihooks.trigger("beamlrRepairUIPartNames", partnames) end
 if mech then guihooks.trigger("beamlrRepairUIMechanicalDamage", mech) end
 if minimum then guihooks.trigger("beamlrRepairUIMinimumDamage", minimum) end -- 1.14.1 fix 
+if engine then guihooks.trigger("beamlrRepairUIEngineDamage", engine) end -- 1.16 addition
 end
 
 
 local function toggleAdvancedRepairUI(toggle)
+local otable = extensions.blrutils.loadDataTable("beamLR/options")
+local warnack = tonumber(otable["advrepwarnack"]) == 1
 guihooks.trigger("beamlrRepairUIToggle", toggle)
+guihooks.trigger("beamlrRepairWarnAck", warnack)
 extensions.blrglobals.blrFlagSet("advancedRepairUI", toggle)
 end
 
@@ -383,6 +387,27 @@ timerdata.deltasymbol = ""
 sendTimerData()
 end
 
+local function sendMirrorsData(toggle)
+guihooks.trigger("beamlrMirrorsData", extensions.betterpartmgmt.getDynamicMirrorsData())
+guihooks.trigger("beamlrSortedMirrors", extensions.betterpartmgmt.getSortedMirrors())
+if toggle then
+guihooks.trigger("beamlrToggleMirrorsUI", true)
+end
+end
+
+local function sendTemplateFixData(missing)
+guihooks.trigger("beamlrTemplateFix", missing)
+end
+
+
+local function sendPartBuyResult(result)
+guihooks.trigger("beamlrPartBuyResult", result)
+end
+
+
+M.sendPartBuyResult = sendPartBuyResult
+M.sendTemplateFixData = sendTemplateFixData
+M.sendMirrorsData = sendMirrorsData
 M.resetTimerData = resetTimerData
 M.sendTimerData = sendTimerData
 M.consumeTimerData = consumeTimerData

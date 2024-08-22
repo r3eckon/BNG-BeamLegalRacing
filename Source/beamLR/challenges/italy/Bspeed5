@@ -1,8 +1,8 @@
-desc=Highway speed trap challenge #5
-wager=200,2000
-triggers=BeamLRTrigger_VineyardRaceCP61
 type=speed
 targetspd=50,90
-rep=10,50
+desc=Highway speed trap challenge #5
 gmwp=blrwp_highwayraceaiwp5
+wager=1000,6000
 traffic=1
+rep=20,100
+triggers=BeamLRTrigger_VineyardRaceCP61

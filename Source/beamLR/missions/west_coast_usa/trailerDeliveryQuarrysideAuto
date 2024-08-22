@@ -1,7 +1,7 @@
 destpos=826.37658691406,-512.86334228516,165.36982727051
-destrot=0.0034383668914386,0.0025051167009362,-0.69919602464656,0.71491735266525
-desc=Deliver $item to Quarryside Auto Sales
-reward=350
 items=list_all
-gmwp=blrgps_usedcarsA
+desc=Deliver $item to Quarryside Auto Sales
 type=trailer
+destrot=0.0034383668914386,0.0025051167009362,-0.69919602464656,0.71491735266525
+gmwp=blrgps_usedcarsA
+reward=700

@@ -1,7 +1,7 @@
 destpos=-525.54425048828,136.57809448242,100.58656311035
-destrot=0.0087346526246307,-0.0046864778295721,-0.38460878738452,0.92302644785276
-desc=Deliver $item to Mountainview motel
-reward=350
 items=list_all
-gmwp=blrwp_motel
+desc=Deliver $item to Mountainview motel
 type=trailer
+destrot=0.0087346526246307,-0.0046864778295721,-0.38460878738452,0.92302644785276
+gmwp=blrwp_motel
+reward=700

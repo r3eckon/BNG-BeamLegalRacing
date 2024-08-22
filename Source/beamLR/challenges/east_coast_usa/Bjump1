@@ -1,7 +1,7 @@
-desc=Jump over the river!
-wager=500,1000
 triggers=BeamLRTrigger_FarmJump
-type=jump
-rep=10,30
+desc=Jump over the river!
 gmwp=blrwp_cgm_farmjump
+wager=2500,4000
 traffic=1
+rep=20,90
+type=jump

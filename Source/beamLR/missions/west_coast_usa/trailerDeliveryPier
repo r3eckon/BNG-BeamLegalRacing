@@ -1,7 +1,7 @@
 destpos=-398.40924072266,732.15014648438,74.951721191406
-destrot=0.0033133391261782,-0.0026235950744298,0.3744706554222,0.92722913390401
-desc=Deliver $item to a pier near the opera house
-reward=350
 items=list_all
-gmwp=blrwp_trailerpier
+desc=Deliver $item to a pier near the opera house
 type=trailer
+destrot=0.0033133391261782,-0.0026235950744298,0.3744706554222,0.92722913390401
+gmwp=blrwp_trailerpier
+reward=700

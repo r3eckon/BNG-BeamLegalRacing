@@ -1,5 +1,5 @@
 desc=Jump on the roof of the Belasco Auto shop
-wager=500,1000
+wager=500,2000
 triggers=BeamLRTrigger_Jump3
 type=jump
 rep=10,50

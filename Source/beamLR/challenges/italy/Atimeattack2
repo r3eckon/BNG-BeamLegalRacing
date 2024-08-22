@@ -1,8 +1,8 @@
+wager=900,3000
 desc=Short time attack to the cell tower through bumpy dirt road
-type=time
-wager=300,1000
-rep=20,50
-triggers=BeamLRTrigger_TougeCP1,BeamLRTrigger_TougeCP2,BeamLRTrigger_TougeCP9,BeamLRTrigger_TougeCP10,BeamLRTrigger_CellTower
 gmwp=blrwp_topdirtparking
+type=time
 targettime=70000,85000
 traffic=0
+rep=40,100
+triggers=BeamLRTrigger_TougeCP1,BeamLRTrigger_TougeCP2,BeamLRTrigger_TougeCP9,BeamLRTrigger_TougeCP10,BeamLRTrigger_CellTower

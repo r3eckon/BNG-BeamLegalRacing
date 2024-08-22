@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_DockWarehouse
-desc=Deliver parts to the dock warehouse
+desc=Deliver $item to the dock warehouse
 reward=350
 gmwp=blrwp_dock
 items=list_all

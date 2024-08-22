@@ -3,6 +3,7 @@
   "licenseName":"BeamLR",
   "mainPartName":"bluebuck",
   "model":"bluebuck",
+  "odometer":200000000,
   "paints":[
     {
       "baseColor":[

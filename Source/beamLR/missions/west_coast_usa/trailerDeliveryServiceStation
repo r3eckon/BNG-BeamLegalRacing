@@ -1,7 +1,7 @@
 destpos=908.88482666016,-562.13940429688,163.75140380859
-destrot=0.0024711455747885,-0.0036778750263405,0.7342321913868,0.67888397816282
-desc=Deliver $item to the service station
-reward=350
 items=list_all
-gmwp=blrwp_trailerservicestation
+desc=Deliver $item to the service station
 type=trailer
+destrot=0.0024711455747885,-0.0036778750263405,0.7342321913868,0.67888397816282
+gmwp=blrwp_trailerservicestation
+reward=700

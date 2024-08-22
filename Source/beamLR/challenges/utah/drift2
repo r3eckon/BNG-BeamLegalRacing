@@ -1,9 +1,9 @@
-desc=Looping drift challenge
-wager=500,1500
-triggers=BeamLRTrigger_RepairZoneST,BeamLRTrigger_NearShopCP1,BeamLRTrigger_CurvyRoadCP2,BeamLRTrigger_CurvyRoadCP1,BeamLRTrigger_BusStopST,BeamLRTrigger_ExitBridgeST,BeamNGTrigger_HighwayExit,BeamLRTrigger_PureDragFinish,BeamLRTrigger_HighwayJunction,BeamLRTrigger_RepairZoneST
-type=drift
-targettime=250000,300000
 driftpts=8000,20000
-rep=50,100
+desc=Looping drift challenge
 gmwp=cliffJuncWp2
+triggers=BeamLRTrigger_RepairZoneST,BeamLRTrigger_NearShopCP1,BeamLRTrigger_CurvyRoadCP2,BeamLRTrigger_CurvyRoadCP1,BeamLRTrigger_BusStopST,BeamLRTrigger_ExitBridgeST,BeamNGTrigger_HighwayExit,BeamLRTrigger_PureDragFinish,BeamLRTrigger_HighwayJunction,BeamLRTrigger_RepairZoneST
+targettime=250000,300000
+type=drift
 traffic=0
+rep=50,100
+wager=1500,4500

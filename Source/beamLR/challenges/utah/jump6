@@ -1,7 +1,7 @@
-desc=Near impossible jump between two caves
-wager=1000,5000
 triggers=BeamLRTrigger_ImpossibleJump
-type=jump
-rep=200,300
+desc=Near impossible jump between two caves
 gmwp=blrwp_cgm_impossiblejump
+wager=10000,20000
 traffic=1
+rep=200,300
+type=jump

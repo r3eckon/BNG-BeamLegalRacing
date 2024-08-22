@@ -2,7 +2,7 @@
   "activeGraphId":1,
   "authors":"BeamLR",
   "currentGraphID":1,
-  "date":1716353685,
+  "date":1723411420,
   "debugEnabled":false,
   "description":"Beam Legal Racing Track Event",
   "difficulty":100,
@@ -30,14 +30,14 @@
         ],
         [
           78,
-          "match_1",
+          "match_2",
           9,
           "flow",
           false
         ],
         [
           78,
-          "match_2",
+          "match_1",
           9,
           "flow",
           false
@@ -183,21 +183,21 @@
           false
         ],
         [
-          37,
+          54,
           "flow",
           16,
           "flow",
           false
         ],
         [
-          100,
+          126,
           "False",
           16,
           "flow",
           false
         ],
         [
-          54,
+          37,
           "flow",
           16,
           "flow",
@@ -211,7 +211,7 @@
           false
         ],
         [
-          126,
+          100,
           "False",
           16,
           "flow",
@@ -436,14 +436,14 @@
         ],
         [
           78,
-          "match_1",
+          "match_2",
           31,
           "reset",
           false
         ],
         [
           78,
-          "match_2",
+          "match_1",
           31,
           "reset",
           false
@@ -673,15 +673,15 @@
           false
         ],
         [
-          37,
-          "down",
+          33,
+          "match_1",
           51,
           "reset",
           false
         ],
         [
-          33,
-          "match_1",
+          37,
+          "down",
           51,
           "reset",
           false
@@ -946,15 +946,15 @@
           false
         ],
         [
-          75,
-          "False",
+          33,
+          "match_1",
           69,
           "reset",
           false
         ],
         [
-          33,
-          "match_1",
+          75,
+          "False",
           69,
           "reset",
           false
@@ -1142,15 +1142,15 @@
           false
         ],
         [
-          79,
-          "flow",
+          86,
+          "down",
           80,
           "flow",
           false
         ],
         [
-          86,
-          "down",
+          79,
+          "flow",
           80,
           "flow",
           false
@@ -1205,6 +1205,13 @@
           false
         ],
         [
+          82,
+          "True",
+          85,
+          "reset",
+          false
+        ],
+        [
           33,
           "match_3",
           85,
@@ -1214,13 +1221,6 @@
         [
           33,
           "match_2",
-          85,
-          "reset",
-          false
-        ],
-        [
-          82,
-          "True",
           85,
           "reset",
           false
@@ -1507,13 +1507,6 @@
         ],
         [
           78,
-          "match_2",
-          108,
-          "flow",
-          false
-        ],
-        [
-          78,
           "match_1",
           108,
           "flow",
@@ -1522,13 +1515,20 @@
         [
           78,
           "match_2",
+          108,
+          "flow",
+          false
+        ],
+        [
+          78,
+          "match_1",
           108,
           "reset",
           false
         ],
         [
           78,
-          "match_1",
+          "match_2",
           108,
           "reset",
           false
@@ -1807,15 +1807,15 @@
           false
         ],
         [
-          223,
-          "flow",
+          136,
+          "False",
           126,
           "flow",
           false
         ],
         [
-          136,
-          "False",
+          223,
+          "flow",
           126,
           "flow",
           false
@@ -1843,9 +1843,9 @@
         ],
         [
           109,
-          "ifile",
+          "config",
           127,
-          "file",
+          "config",
           false
         ],
         [
@@ -1961,15 +1961,15 @@
           false
         ],
         [
-          88,
-          "flow",
+          76,
+          "False",
           136,
           "flow",
           false
         ],
         [
-          76,
-          "False",
+          88,
+          "flow",
           136,
           "flow",
           false
@@ -2745,6 +2745,20 @@
           false
         ],
         [
+          134,
+          "flow",
+          205,
+          "flow",
+          false
+        ],
+        [
+          109,
+          "config",
+          205,
+          "config",
+          false
+        ],
+        [
           2,
           "flow",
           206,
@@ -3070,13 +3084,6 @@
           201,
           "true",
           244,
-          "flow",
-          false
-        ],
-        [
-          244,
-          "flow",
-          245,
           "flow",
           false
         ]
@@ -4911,7 +4918,7 @@
             "color_in":{
               "type":"color",
               "value":[
-                0.44597768800000564537,
+                0.44597768800000603395,
                 1,
                 0,
                 1
@@ -6271,7 +6278,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nlocal ppos = self.pinIn.ppos.value\nlocal seed = self.pinIn.seed.value\nlocal efile = self.pinIn.efile.value\n\nlocal rewards = {} -- For UI\nrewards[\"moneyreward\"] = 0\nrewards[\"repreward\"] = 0\nrewards[\"partreward\"] = \"None\"\nrewards[\"carreward\"] = \"None\"\nlocal hasRewards = false -- For UI\n\nif ppos <= 3 then -- No rewards after third position\nhasRewards = true -- For UI\n\nlocal edata = extensions.blrutils.loadEventWithRandoms(efile, seed)\nlocal cdata = extensions.blrutils.loadDataTable(\"beamLR/mainData\")\nlocal idata = extensions.blrutils.loadDataTable(\"beamLR/partInv\")\n\n-- Money reward\nif edata[\"moneyreward\"] ~= \"none\" then\nlocal money = extensions.blrutils.ssplitnum(edata[\"moneyreward\"], \",\")\ncdata[\"money\"] = tonumber(cdata[\"money\"]) + (money[ppos] or 0) -- Should handle 1,2,3 and 1,2 and 1\nrewards[\"moneyreward\"] = (money[ppos] or 0) -- For UI\nend\n\n-- Reputation Reward\nif edata[\"repreward\"] ~= \"none\" then\nlocal reputation = extensions.blrutils.ssplitnum(edata[\"repreward\"], \",\")\ncdata[\"rep\"] = tonumber(cdata[\"rep\"]) + (reputation[ppos] or 0) -- Should handle 1,2,3 and 1,2 and 1\nrewards[\"repreward\"] = (reputation[ppos] or 0) -- For UI\nend\n\nif ppos == 1 then -- Some rewards only for first position\n\n-- Part reward\nif edata[\"partreward\"] ~= \"none\" then \nlocal parts = extensions.blrutils.ssplit(edata[\"partreward\"], \",\")\nrewards[\"partreward\"] = edata[\"partreward\"] -- For UI\nfor k,v in pairs(parts) do\nidata[v] = tonumber(idata[v] or \"0\") + 1 --Adds all parts to inventory\nend\nextensions.blrutils.updateDataTable(\"beamLR/partInv\", idata)\nend\n\n-- Car reward\nif edata[\"carreward\"] ~= \"none\" then\nlocal cars = extensions.blrutils.ssplit(edata[\"carreward\"], \",\")\nlocal cardata = {}\nlocal cfirst = true\nlocal seedoffset = 0\nrewards[\"carreward\"] = \"\"\nfor k,v in pairs(cars) do\ncardata = extensions.blrutils.loadDataTable(\"beamLR/shop/car/\" .. v)\nif not cfirst then\nrewards[\"carreward\"] = rewards[\"carreward\"] .. \", \"\nend\nrewards[\"carreward\"] = rewards[\"carreward\"] .. cardata[\"name\"] -- Using proper car name for reward display\nextensions.blrutils.addShopCarToGarage(v, tonumber(cdata[\"carCount\"] or \"0\"), seed+seedoffset)\ncdata[\"carCount\"] = tonumber(cdata[\"carCount\"] or \"0\") + 1\ncfirst=false\nseedoffset=seedoffset+1\nend\nend\n\nend\n\n\nextensions.blrutils.updateDataTable(\"beamLR/mainData\", cdata)\nend\n\nself.pinOut.rewards.value = rewards\nself.pinOut.hasRewards.value = hasRewards"
+            "work":"local extensions = require(\"extensions\")\nlocal ppos = self.pinIn.ppos.value\nlocal seed = self.pinIn.seed.value\nlocal efile = self.pinIn.efile.value\n\nlocal rewards = {} -- For UI\nrewards[\"moneyreward\"] = 0\nrewards[\"repreward\"] = 0\nrewards[\"partreward\"] = \"None\"\nrewards[\"carreward\"] = \"None\"\nlocal hasRewards = false -- For UI\n\nif ppos <= 3 then -- No rewards after third position\nhasRewards = true -- For UI\n\nlocal edata = extensions.blrutils.loadEventWithRandoms(efile, seed)\nlocal cdata = extensions.blrutils.loadDataTable(\"beamLR/mainData\")\n\n\n\n\n-- Money reward\nif edata[\"moneyreward\"] ~= \"none\" then\nlocal money = extensions.blrutils.ssplitnum(edata[\"moneyreward\"], \",\")\ncdata[\"money\"] = tonumber(cdata[\"money\"]) + (money[ppos] or 0) -- Should handle 1,2,3 and 1,2 and 1\nrewards[\"moneyreward\"] = (money[ppos] or 0) -- For UI\nend\n\n-- Reputation Reward\nif edata[\"repreward\"] ~= \"none\" then\nlocal reputation = extensions.blrutils.ssplitnum(edata[\"repreward\"], \",\")\ncdata[\"rep\"] = tonumber(cdata[\"rep\"]) + (reputation[ppos] or 0) -- Should handle 1,2,3 and 1,2 and 1\nrewards[\"repreward\"] = (reputation[ppos] or 0) -- For UI\nend\n\nif ppos == 1 then -- Some rewards only for first position\n\n-- Part reward\nextensions.blrPartInventory.load() -- 1.16 part inventory, load data from file\nif edata[\"partreward\"] ~= \"none\" then \nlocal parts = extensions.blrutils.ssplit(edata[\"partreward\"], \",\")\nrewards[\"partreward\"] = edata[\"partreward\"] -- For UI\nfor k,v in pairs(parts) do\nextensions.blrPartInventory.add(v, 0.0, 1.0, false) -- 1.16 part inventory, add part with 0 odometer, 1 integrity\nend\nextensions.blrPartInventory.save() -- 1.16 part inventory, save data to file\nend\n\n-- Car reward\nif edata[\"carreward\"] ~= \"none\" then\nlocal cars = extensions.blrutils.ssplit(edata[\"carreward\"], \",\")\nlocal cardata = {}\nlocal cfirst = true\nlocal seedoffset = 0\nrewards[\"carreward\"] = \"\"\nfor k,v in pairs(cars) do\ncardata = extensions.blrutils.loadDataTable(\"beamLR/shop/car/\" .. v)\nif not cfirst then\nrewards[\"carreward\"] = rewards[\"carreward\"] .. \", \"\nend\nrewards[\"carreward\"] = rewards[\"carreward\"] .. cardata[\"name\"] -- Using proper car name for reward display\nextensions.blrutils.addShopCarToGarage(v, tonumber(cdata[\"carCount\"] or \"0\"), seed+seedoffset)\ncdata[\"carCount\"] = tonumber(cdata[\"carCount\"] or \"0\") + 1\ncfirst=false\nseedoffset=seedoffset+1\nend\nend\n\nend\n\n\nextensions.blrutils.updateDataTable(\"beamLR/mainData\", cdata)\nend\n\nself.pinOut.rewards.value = rewards\nself.pinOut.hasRewards.value = hasRewards"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -8082,8 +8089,8 @@
             ]
           ],
           "pos":[
-            -172,
-            -2400
+            -592,
+            -2456
           ],
           "type":"util/customLua"
         },
@@ -8198,8 +8205,8 @@
             ]
           ],
           "pos":[
-            -900,
-            -2414
+            -1320,
+            -2470
           ],
           "type":"util/customLua"
         },
@@ -8224,8 +8231,8 @@
             }
           },
           "pos":[
-            -662,
-            -2400
+            -1082,
+            -2456
           ],
           "type":"vehicle/vehicleMapData"
         },
@@ -8242,8 +8249,8 @@
             }
           },
           "pos":[
-            -648,
-            -2232
+            -1068,
+            -2288
           ],
           "type":"vehicle/removeVehicle"
         },
@@ -8262,8 +8269,8 @@
             }
           },
           "pos":[
-            -914,
-            -2302
+            -1334,
+            -2358
           ],
           "type":"logic/branch"
         },
@@ -8352,8 +8359,8 @@
             ]
           ],
           "pos":[
-            52,
-            -2400
+            -368,
+            -2456
           ],
           "type":"util/customLua"
         },
@@ -8685,21 +8692,28 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nlocal veid = self.pinIn.veid.value\nlocal file = self.pinIn.file.value\nextensions.mechDamageLoader.loadIntegrityFromFile(file,veid)"
+            "work":"-- 1.16 version loading part specific odometer values\nlocal extensions = require(\"extensions\")\nlocal veid = self.pinIn.veid.value\nlocal config = self.pinIn.config.value\nlocal usepodo = self.pinIn.usepodo.value\nlocal podo = extensions.blrglobals.fgGetVal(\"podo\")\nextensions.blrPartInventory.load() -- for track event only, need to load inventory data\nextensions.mechDamageLoader.loadAdvancedIntegrityData(veid, config, podo)"
           },
           "data":{},
           "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "usepodo":{
+              "type":"bool",
+              "value":false
+            }
+          },
           "hiddenPins":{
             "p_in":{
-              "file":false,
+              "config":false,
               "flow":false,
+              "usepodo":true,
               "veid":false
             },
             "p_out":{
               "flow":false
             }
           },
-          "name":"Load Integrity Data",
+          "name":"Load Integrity Data V2 (Track)",
           "pins":[
             [
               "in",
@@ -8727,14 +8741,21 @@
             [
               "in",
               "string",
-              "file",
+              "config",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "bool",
+              "usepodo",
               null,
               ""
             ]
           ],
           "pos":[
-            52,
-            -2176
+            -360,
+            -2232
           ],
           "type":"util/customLua"
         },
@@ -8791,8 +8812,8 @@
             ]
           ],
           "pos":[
-            262,
-            -2400
+            46,
+            -2456
           ],
           "type":"util/customLua"
         },
@@ -8809,8 +8830,8 @@
             }
           },
           "pos":[
-            -900,
-            -2162
+            -1320,
+            -2218
           ],
           "type":"logic/once"
         },
@@ -9016,8 +9037,8 @@
             ]
           ],
           "pos":[
-            -424,
-            -2386
+            -844,
+            -2442
           ],
           "type":"util/customLua"
         },
@@ -9067,8 +9088,8 @@
             ]
           ],
           "pos":[
-            -424,
-            -2260
+            -844,
+            -2316
           ],
           "type":"util/customLua"
         },
@@ -9135,8 +9156,8 @@
             ]
           ],
           "pos":[
-            486,
-            -2316
+            270,
+            -2372
           ],
           "type":"util/customLua"
         },
@@ -10003,8 +10024,8 @@
             ]
           ],
           "pos":[
-            276,
-            -2260
+            60,
+            -2316
           ],
           "type":"util/customLua"
         },
@@ -10055,8 +10076,8 @@
             ]
           ],
           "pos":[
-            276,
-            -2148
+            60,
+            -2204
           ],
           "type":"util/customLua"
         },
@@ -10376,7 +10397,7 @@
           "hardcodedPins":{
             "duration":{
               "type":"number",
-              "value":0.75000000000000632827
+              "value":0.75000000000000688338
             }
           },
           "hiddenPins":{
@@ -11378,7 +11399,7 @@
           "hardcodedPins":{
             "dx":{
               "type":"number",
-              "value":0.05000000074505862174
+              "value":0.05000000074505869113
             },
             "mn":{
               "type":"number",
@@ -11466,7 +11487,7 @@
           "hardcodedPins":{
             "dx":{
               "type":"number",
-              "value":0.05000000074505862174
+              "value":0.05000000074505869113
             },
             "mn":{
               "type":"number",
@@ -12135,6 +12156,56 @@
             848
           ],
           "type":"logic/flowSwitch"
+        },
+        "205":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal cdata = jsonReadFile(self.pinIn.config.value)\nif cdata[\"mirrors\"] then\nfor k,v in pairs(cdata[\"mirrors\"]) do\nprint(\"SHOULD HAVE LOADED MIRRORS WITH THIS DATA:\")\ndump(cdata[\"mirrors\"])\nextensions.core_vehicle_mirror.setAngleOffset(k, v[\"x\"], v[\"z\"], nil, false)\nend\nextensions.customGuiStream.sendMirrorsData()\nend"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "config":false,
+              "flow":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Load Mirrors",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "string",
+              "config",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            276,
+            -2218
+          ],
+          "type":"util/customLua"
         },
         "206":{
           "code":{
@@ -13238,7 +13309,7 @@
             },
             "value":{
               "type":"number",
-              "value":0
+              "value":-1
             }
           },
           "hiddenPins":{
@@ -13254,34 +13325,7 @@
             }
           },
           "pos":[
-            -1564,
-            526
-          ],
-          "type":"ui/cornerTimerBLR"
-        },
-        "245":{
-          "data":{},
-          "dynamicMode":"repeat",
-          "hardcodedPins":{
-            "raceMode":{
-              "type":"bool",
-              "value":true
-            }
-          },
-          "hiddenPins":{
-            "p_in":{
-              "color":true,
-              "flow":false,
-              "raceMode":false,
-              "useGenericMissionDataApp":true,
-              "value":true
-            },
-            "p_out":{
-              "flow":false
-            }
-          },
-          "pos":[
-            -1326,
+            -1488,
             540
           ],
           "type":"ui/cornerTimerBLR"
@@ -13310,8 +13354,8 @@
           "dynamicMode":"repeat",
           "moveMode":"withoutNodes",
           "pos":[
-            -1456,
-            658
+            -1512,
+            728
           ],
           "simple":true,
           "textColor":[
@@ -13330,10 +13374,10 @@
         "list":{}
       },
       "viewPos":[
-        -1325.17016601562500000000,
-        186.81665039062500000000
+        -1706.54956054687500000000,
+        312.44183349609375000000
       ],
-      "viewZoom":0.75000000000000000000
+      "viewZoom":1
     },
     "3":{
       "description":"This is the description for graph States",
@@ -13349,14 +13393,14 @@
         ],
         [
           4,
-          "success",
+          "fail",
           6,
           "flow",
           false
         ],
         [
           4,
-          "fail",
+          "success",
           6,
           "flow",
           false

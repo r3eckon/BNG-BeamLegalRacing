@@ -1,6 +1,6 @@
 dest=BeamLRTrigger_Refinery
 desc=Deliver $item to Spearleaf Refinery
-reward=400
+reward=500
 items=list_all
 gmwp=blrwp_refinery
 type=small

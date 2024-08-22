@@ -1,7 +1,7 @@
 destpos=750.99609375,-823.66796875,158.46858215332
-destrot=-0.0080651440468367,0.014355108689753,0.53104030507039,0.84718656664088
-desc=Deliver $item to the quarry
-reward=850
 items=list_all
-gmwp=blrwp_quarrytrailer
+desc=Deliver $item to the quarry
 type=gooseneck
+destrot=-0.0080651440468367,0.014355108689753,0.53104030507039,0.84718656664088
+gmwp=blrwp_quarrytrailer
+reward=1062.5

@@ -1,7 +1,7 @@
 destpos=145.94389343262,780.06042480469,102.24019622803
-destrot=0.0031679688467185,0.00076343831694051,0.0071061786608872,0.99996944121316
-desc=Deliver $item to Easy Auto Repairs
-reward=350
 items=list_all
-gmwp=blrgps_repairD
+desc=Deliver $item to Easy Auto Repairs
 type=trailer
+destrot=0.0031679688467185,0.00076343831694051,0.0071061786608872,0.99996944121316
+gmwp=blrgps_repairD
+reward=700

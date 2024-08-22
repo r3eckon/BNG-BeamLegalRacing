@@ -1,8 +1,8 @@
-desc=Short hotlap around utah
-wager=150,2000
-triggers=BeamLRTrigger_RepairZoneST,BeamLRTrigger_NearShopCP1,BeamLRTrigger_CurvyRoadCP2,BeamLRTrigger_CurvyRoadCP1,BeamLRTrigger_BusStopST,BeamLRTrigger_ExitBridgeST,BeamNGTrigger_HighwayExit,BeamLRTrigger_PureDragFinish,BeamLRTrigger_HighwayJunction,BeamLRTrigger_RepairZoneST
-type=time
 targettime=150000,170000
-rep=20,40
 gmwp=cliffJuncWp2
+desc=Short hotlap around utah
+triggers=BeamLRTrigger_RepairZoneST,BeamLRTrigger_NearShopCP1,BeamLRTrigger_CurvyRoadCP2,BeamLRTrigger_CurvyRoadCP1,BeamLRTrigger_BusStopST,BeamLRTrigger_ExitBridgeST,BeamNGTrigger_HighwayExit,BeamLRTrigger_PureDragFinish,BeamLRTrigger_HighwayJunction,BeamLRTrigger_RepairZoneST
+wager=225,4000
 traffic=1
+rep=20,40
+type=time

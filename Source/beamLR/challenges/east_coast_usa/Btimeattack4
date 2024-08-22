@@ -1,8 +1,8 @@
-desc=Short time attack challenge to the sawmill
-wager=250,2700
-triggers=BeamLRTrigger_FarmDirtRoadCP6,BeamLRTrigger_FarmDirtRoadCP7,BeamLRTrigger_SawmillDirtRoadCP7,BeamLRTrigger_SawmillCP1,BeamLRTrigger_SawmillCP3,BeamLRTrigger_SawmillCP4,BeamLRTrigger_SawmillCP5,BeamLRTrigger_SawmillCP9
 type=time
+desc=Short time attack challenge to the sawmill
+triggers=BeamLRTrigger_FarmDirtRoadCP6,BeamLRTrigger_FarmDirtRoadCP7,BeamLRTrigger_SawmillDirtRoadCP7,BeamLRTrigger_SawmillCP1,BeamLRTrigger_SawmillCP3,BeamLRTrigger_SawmillCP4,BeamLRTrigger_SawmillCP5,BeamLRTrigger_SawmillCP9
+wager=1000,6750
 targettime=55000,65000
-rep=20,40
-gmwp=blrwp_farmdirtroadcp6
 traffic=0
+rep=40,120
+gmwp=blrwp_farmdirtroadcp6
