@@ -21,7 +21,7 @@ Perform missions, races and challenges to earn money to buy vehicles and parts. 
 
 ### Having issues with the mod? [Please follow this troubleshooting guide.](troubleshooting.md)
 
-## Install Instructions [(Video)](https://www.youtube.com/watch?v=iKZckDVPjR4)
+## Install Instructions ([Video](https://www.youtube.com/watch?v=iKZckDVPjR4))
 **BeamLR cannot be installed like a normal mod due to data persistence issues when zipped**. 
 
 Carefully follow the instructions to ensure all features are working properly:
@@ -34,7 +34,7 @@ Carefully follow the instructions to ensure all features are working properly:
 **Installing BeamLR may overwrite custom changes made to levels.** 
 Modders should back up the userfolder before installing.
 
-## Update Instructions [(Video)](https://www.youtube.com/watch?v=iKZckDVPjR4)
+## Update Instructions ([Video](https://www.youtube.com/watch?v=iKZckDVPjR4))
 **BEFORE UPDATING**:  Back up the userfolder/beamLR folder to archive your career
 
 **IMPORTANT NOTE**: Version 1.16 is not compatible with previous version backups
