@@ -160,6 +160,10 @@ function C:resetValues()
 end
 
 function C:resetElectrics()
+-- BEAMLR FIX START (hazard indicator blinking after car spawn and police chases)
+-- gotta check if be:getPlayerVehicle isn't nil to avoid error, might rarely bug traffic lights
+-- but can't avoid this check otherwise it crashes the VLUA instance
+if be:getPlayerVehicle(0) and self.id ~= be:getPlayerVehicle(0):getId() and self.id ~= extensions.blrutils.blrvarGet("playervehid") then
   local obj = be:getObjectByID(self.id)
   obj:queueLuaCommand('electrics.set_lightbar_signal(0)')
   obj:queueLuaCommand('electrics.set_warn_signal(0)')
@@ -168,6 +172,8 @@ function C:resetElectrics()
   obj:queueLuaCommand('electrics.setLightsState(0)')
   self.headlights = false
   -- BEAMLR FIX END
+end
+-- BEAMLR FIX END
 end
 
 function C:resetAll() -- resets everything

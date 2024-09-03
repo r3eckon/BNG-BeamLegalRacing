@@ -120,7 +120,7 @@ angular.module('beamng.apps')
 		  }
 		  if(data.key == "playerDamage")
 		  {
-			  console.log("DAMAGE: " + scope.beamlrData['playerDamage'])
+			  //console.log("DAMAGE: " + scope.beamlrData['playerDamage'])
 		  }
       })
 	  

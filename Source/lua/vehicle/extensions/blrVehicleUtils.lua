@@ -885,13 +885,24 @@ print("Couldn't use oil bottle, unable find mainEngine powertrain device!")
 end
 end
 
+local function getIntegrityOffset(odometer)
+local offset = 0
+if odometer >= 100000000 then
+offset = 0.15 * math.min(1.0, odometer / 300000000 )
+end
+return offset
+end
 
 local advancedPartConditions = {}
 
 local function setAdvancedPartCondition(part, odometer, integrity)
 advancedPartConditions[part] = {}
 advancedPartConditions[part].odometer = odometer
+if string.find(part, "radiator") then -- avoid causing radiator leak due to odometer
 advancedPartConditions[part].integrityValue = integrity
+else
+advancedPartConditions[part].integrityValue = integrity - getIntegrityOffset(odometer) -- decrease integrity for high odometer parts
+end
 advancedPartConditions[part].visualValue = "a" -- if visual value is a number paint bug happens, using string to disable paint integrity
 print("Set part condition for " .. part .. " to " .. odometer .. " odometer and " .. integrity .. " integrity")
 end
@@ -920,7 +931,8 @@ local integrity = 0
 -- key is is inventory id, value is part name
 for k,v in pairs(integrityUpdateQueue) do
 	if conditions[v] then
-		integrity = conditions[v].integrityValue
+		-- math.min to avoid cases where increased odometer would restore more integrity than was removed
+		integrity = math.min(1.0, conditions[v].integrityValue + getIntegrityOffset(conditions[v].odometer))
 		print("PART CONDITION FOR " .. v .. "=" .. integrity)
 	else
 		integrity = 1

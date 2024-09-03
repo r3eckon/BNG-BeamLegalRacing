@@ -121,7 +121,9 @@ Version 1.15 adds walk mode integration, consumable item inventory system, oil v
 
 Version 1.15.4 adds dynamic weather controlled from options menu (cloud cover, wind speed & fog density slowly change) and restored the injury system that was disabled in a previous update. Injury is disabled by default and must be enabled through the options menu. BeamNG G force sensors are still buggy, use the injury system at your own risk!
 
-Version 1.16 completely revamps the part inventory system allowing each individual part to have specific odometer and integrity values. It also adds the ability to buy used parts (reduced cost for higher odometer) and implements dynamic mirror offsets saved to vehicle configs. This new version is not be compatible career files from previous versions and will require starting from scratch. See [advanced part inventory](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#advanced-part-inventory) for more information.
+Version 1.16 completely revamps the part inventory system allowing each individual part to have specific odometer and integrity values. It also adds the ability to buy used parts (reduced cost for higher odometer) and implements dynamic mirror offsets saved to vehicle configs. This new version is not compatible career files from previous versions and will require starting from scratch. See [advanced part inventory](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#advanced-part-inventory) for more information.
+
+Version 1.16.1 adds part integrity decrease at high odometer which means more idle play and less performance on high odometer engines.
 
 Further instructions and various tips on this mods' various features are listed in the BeamLR UI Main Menu.
 
@@ -284,6 +286,8 @@ To go along with this new system used parts can now be bought from part shops. E
 
 Keep in mind this feature is still early days and may be prone to bugs due to the fact that it replaced almost all of  the existing part inventory related code. The need to link inventory parts with vehicle configs, two different files that need to be in sync, means that game crashes and other forceful exit from the game can easily result in corruption of your part inventory or vehicle configs. This new feature is also incompatible with save files from previous versions. You will need to start from scratch for this version.
 
+As of version 1.16.1 high odometer parts now have decreased integrity values when attached to your car. The decrease is linear, begins at 100,000km (5% decrease) and maxes out at 300,000km (15% decrease). This results in lower performance for certain parts such as the engine which will have more idle play and friction.
+
 ## WIP Notice
 This mod is a work in progress. At this stage it is a decent vertical slice of the gameplay the project is trying to achieve with some bugs and quirks remaining that should get better as BeamNG and the mod are updated. That being said a lot of content is missing and reward values may be unbalanced relative to part prices.
 
@@ -314,6 +318,7 @@ Thank you for playing BeamLR!
 * Michael Mckinley
 * Ecril
 * Jude Thaddeus Persia
+* Soolek
 
 ## Known Issues 
 
@@ -324,9 +329,11 @@ Thank you for playing BeamLR!
 * ~~Race checkpoints sometimes fail to trigger properly.~~ Should be fixed as of version 1.6
 * ~~Beamstate file corruption breaking pristine vehicles. Workaround is implemented but may fail. Use world editor for repair or delete the corrupted beamstate file.~~ Seems fixed.
 * ~~Player can get stuck in place while walking and trying to take bus home. Currently investigating this issue. Reload the mission to get unstuck.~~ Seems fixed.
-* Pausing the game during part edits will reset your vehicle odometer. Try to make sure the game isn't paused when interacting with BeamLR features to prevent issues.
+* Pausing the game during part edits may reset your vehicle odometer. Do not pause the game when interacting with BeamLR features to prevent issues.
 * ~~Health mechanic is temporarily removed due to vehicle "wiggle" after crashes causing erroneous high enough G forces to injure the player. Fatal crashes from a single high G impact are still enabled like track events.~~ As of version 1.15.4 the health mechanic has been re-introduced into the mod. This feature is disabled by default as G force sensors are still buggy and may lead to unfair deaths. Use at your own risk!
-
+* Advanced Vehicle Building may not work with certain part mods. If you absolutely want to use part mods, cheat yourself money and test them before using in a real career.
+* Car shop may bug while on foot for some players, requiring forced exit which loses progress. A potential fix has been added in 1.16.1 but before using this feature in a real career test to see if it works properly on your computer.
+* UI apps may fail to show up after initially loading. Use CTRL+F5 to fix.
 
 ## Changelog
 
@@ -734,3 +741,10 @@ Thank you for playing BeamLR!
 * Fixed traffic pooling breaking lights at night (thanks to LoSboccacc for the fix!)
 * Trying fix for vanilla traffic.lua script allowing traffic on gated roads
 * Disabled autoJunction for West Coast USA dragstrip to prevent traffic driving on it
+
+### 1.16.1
+* Added integrity decrease for high odometer parts (adds idle play, not saved to inv)
+* Fixed VLUA crash when turning off car without exhaust (cooling metal SFX bug)
+* Fixed hazards indicator turning itself on in certain situation (bug with traffic/vehicle.lua)
+* Trying another fix for car shop menu bug while on foot
+* Unicycle now frozen in place while in car shop (prevents exiting trigger)

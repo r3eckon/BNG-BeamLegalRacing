@@ -1,8 +1,8 @@
 {
-  "activeGraphId":1,
+  "activeGraphId":3,
   "authors":"BeamLR",
-  "currentGraphID":1,
-  "date":1724362858,
+  "currentGraphID":3,
+  "date":1725362959,
   "debugEnabled":false,
   "description":"Beam Legal Racing Career",
   "difficulty":100,
@@ -124,15 +124,15 @@
           false
         ],
         [
-          60,
-          "flow",
+          57,
+          "false",
           18,
           "flow",
           false
         ],
         [
-          57,
-          "false",
+          60,
+          "flow",
           18,
           "flow",
           false
@@ -216,13 +216,6 @@
         ],
         [
           4986,
-          "match_3",
-          25,
-          "flow",
-          false
-        ],
-        [
-          4986,
           "match_4",
           25,
           "flow",
@@ -231,6 +224,13 @@
         [
           4986,
           "match_2",
+          25,
+          "flow",
+          false
+        ],
+        [
+          4986,
+          "match_3",
           25,
           "flow",
           false
@@ -264,15 +264,15 @@
           false
         ],
         [
-          494,
-          "flow",
+          979,
+          "completed",
           30,
           "flow",
           false
         ],
         [
-          979,
-          "completed",
+          494,
+          "flow",
           30,
           "flow",
           false
@@ -327,14 +327,14 @@
           true
         ],
         [
-          1521,
+          1522,
           "flow",
           34,
           "flow",
           false
         ],
         [
-          1522,
+          1521,
           "flow",
           34,
           "flow",
@@ -362,13 +362,6 @@
           false
         ],
         [
-          1389,
-          "down",
-          37,
-          "flow",
-          false
-        ],
-        [
           899,
           "down",
           37,
@@ -377,6 +370,13 @@
         ],
         [
           27,
+          "down",
+          37,
+          "flow",
+          false
+        ],
+        [
+          1389,
           "down",
           37,
           "flow",
@@ -516,8 +516,8 @@
           true
         ],
         [
-          1221,
-          "True",
+          46,
+          "flow",
           49,
           "flow",
           false
@@ -726,14 +726,14 @@
           false
         ],
         [
-          1510,
+          10295,
           "flow",
           69,
           "flow",
           false
         ],
         [
-          10295,
+          1510,
           "flow",
           69,
           "flow",
@@ -804,14 +804,14 @@
         ],
         [
           99,
-          "match_3",
+          "match_2",
           76,
           "flow_1",
           false
         ],
         [
           99,
-          "match_2",
+          "match_3",
           76,
           "flow_1",
           false
@@ -831,15 +831,15 @@
           false
         ],
         [
-          585,
-          "false",
+          471,
+          "False",
           77,
           "flow",
           false
         ],
         [
-          471,
-          "False",
+          585,
+          "false",
           77,
           "flow",
           false
@@ -1090,14 +1090,7 @@
           false
         ],
         [
-          1251,
-          "flow",
-          95,
-          "flow",
-          false
-        ],
-        [
-          109,
+          1178,
           "flow",
           95,
           "flow",
@@ -1111,7 +1104,14 @@
           false
         ],
         [
-          1178,
+          109,
+          "flow",
+          95,
+          "flow",
+          false
+        ],
+        [
+          1251,
           "flow",
           95,
           "flow",
@@ -1377,15 +1377,15 @@
           false
         ],
         [
-          418,
-          "flow",
+          515,
+          "true",
           114,
           "flow",
           false
         ],
         [
-          515,
-          "true",
+          418,
+          "flow",
           114,
           "flow",
           false
@@ -1923,15 +1923,15 @@
           true
         ],
         [
-          512,
-          "false",
+          10086,
+          "flow",
           151,
           "flow",
           false
         ],
         [
-          10086,
-          "flow",
+          512,
+          "false",
           151,
           "flow",
           false
@@ -2070,14 +2070,14 @@
           false
         ],
         [
-          877,
+          947,
           "flow",
           162,
           "flow",
           false
         ],
         [
-          947,
+          877,
           "flow",
           162,
           "flow",
@@ -2266,21 +2266,14 @@
           true
         ],
         [
-          949,
-          "false",
+          1175,
+          "flow",
           175,
           "flow",
           false
         ],
         [
           1254,
-          "flow",
-          175,
-          "flow",
-          false
-        ],
-        [
-          1320,
           "flow",
           175,
           "flow",
@@ -2294,8 +2287,15 @@
           false
         ],
         [
-          1175,
+          1320,
           "flow",
+          175,
+          "flow",
+          false
+        ],
+        [
+          949,
+          "false",
           175,
           "flow",
           false
@@ -2322,14 +2322,14 @@
           false
         ],
         [
-          878,
+          206,
           "flow",
           178,
           "flow",
           false
         ],
         [
-          206,
+          878,
           "flow",
           178,
           "flow",
@@ -2483,8 +2483,15 @@
           false
         ],
         [
-          1552,
+          1095,
           "flow",
+          194,
+          "flow",
+          false
+        ],
+        [
+          1094,
+          "False",
           194,
           "flow",
           false
@@ -2497,7 +2504,7 @@
           false
         ],
         [
-          1095,
+          1552,
           "flow",
           194,
           "flow",
@@ -2506,13 +2513,6 @@
         [
           749,
           "flow",
-          194,
-          "flow",
-          false
-        ],
-        [
-          1094,
-          "False",
           194,
           "flow",
           false
@@ -2756,20 +2756,6 @@
           false
         ],
         [
-          1175,
-          "down",
-          212,
-          "flow",
-          false
-        ],
-        [
-          1180,
-          "down",
-          212,
-          "flow",
-          false
-        ],
-        [
           124,
           "flow",
           212,
@@ -2777,8 +2763,22 @@
           false
         ],
         [
+          1175,
+          "down",
+          212,
+          "flow",
+          false
+        ],
+        [
           1575,
           "flow",
+          212,
+          "flow",
+          false
+        ],
+        [
+          1180,
+          "down",
           212,
           "flow",
           false
@@ -3330,15 +3330,15 @@
           false
         ],
         [
-          254,
-          "false",
+          148,
+          "flow",
           255,
           "flow",
           false
         ],
         [
-          148,
-          "flow",
+          254,
+          "false",
           255,
           "flow",
           false
@@ -3596,8 +3596,8 @@
           false
         ],
         [
-          762,
-          "flow",
+          763,
+          "false",
           276,
           "flow",
           false
@@ -3610,14 +3610,14 @@
           false
         ],
         [
-          509,
-          "false",
+          762,
+          "flow",
           276,
           "flow",
           false
         ],
         [
-          763,
+          509,
           "false",
           276,
           "flow",
@@ -3632,14 +3632,14 @@
         ],
         [
           1112,
-          "match_4",
+          "match_3",
           278,
           "flow",
           false
         ],
         [
           1112,
-          "match_3",
+          "match_4",
           278,
           "flow",
           false
@@ -4961,35 +4961,7 @@
           false
         ],
         [
-          10011,
-          "flow",
-          378,
-          "flow",
-          false
-        ],
-        [
-          10017,
-          "flow",
-          378,
-          "flow",
-          false
-        ],
-        [
-          961,
-          "flow",
-          378,
-          "flow",
-          false
-        ],
-        [
-          377,
-          "none",
-          378,
-          "flow",
-          false
-        ],
-        [
-          1182,
+          966,
           "flow",
           378,
           "flow",
@@ -5003,6 +4975,20 @@
           false
         ],
         [
+          377,
+          "none",
+          378,
+          "flow",
+          false
+        ],
+        [
+          10017,
+          "flow",
+          378,
+          "flow",
+          false
+        ],
+        [
           1332,
           "False",
           378,
@@ -5010,7 +4996,21 @@
           false
         ],
         [
-          966,
+          961,
+          "flow",
+          378,
+          "flow",
+          false
+        ],
+        [
+          1182,
+          "flow",
+          378,
+          "flow",
+          false
+        ],
+        [
+          10011,
           "flow",
           378,
           "flow",
@@ -6564,15 +6564,15 @@
           false
         ],
         [
-          923,
-          "False",
+          924,
+          "flow",
           499,
           "flow",
           false
         ],
         [
-          924,
-          "flow",
+          923,
+          "False",
           499,
           "flow",
           false
@@ -7166,15 +7166,15 @@
           true
         ],
         [
-          1298,
-          "flow",
+          167,
+          "true",
           540,
           "flow",
           false
         ],
         [
-          167,
-          "true",
+          1298,
+          "flow",
           540,
           "flow",
           false
@@ -7776,14 +7776,14 @@
         ],
         [
           608,
-          "evade",
+          "arrest",
           587,
           "reset",
           false
         ],
         [
           608,
-          "arrest",
+          "evade",
           587,
           "reset",
           false
@@ -8034,15 +8034,15 @@
           false
         ],
         [
-          48,
-          "false",
+          153,
+          "flow",
           607,
           "on",
           false
         ],
         [
-          153,
-          "flow",
+          48,
+          "false",
           607,
           "on",
           false
@@ -8209,15 +8209,15 @@
           false
         ],
         [
-          553,
-          "flow",
+          1551,
+          "false",
           613,
           "flow",
           false
         ],
         [
-          1551,
-          "false",
+          553,
+          "flow",
           613,
           "flow",
           false
@@ -8951,15 +8951,15 @@
           false
         ],
         [
-          735,
-          "True",
+          672,
+          "true",
           671,
           "flow",
           false
         ],
         [
-          672,
-          "true",
+          735,
+          "True",
           671,
           "flow",
           false
@@ -9567,15 +9567,15 @@
           false
         ],
         [
-          24,
-          "true",
+          1482,
+          "out",
           713,
           "reset",
           false
         ],
         [
-          1482,
-          "out",
+          24,
+          "true",
           713,
           "reset",
           false
@@ -9644,18 +9644,18 @@
           false
         ],
         [
-          591,
-          "false",
-          717,
-          "off",
-          true
-        ],
-        [
           1514,
           "False",
           717,
           "off",
           false
+        ],
+        [
+          591,
+          "false",
+          717,
+          "off",
+          true
         ],
         [
           591,
@@ -9910,7 +9910,7 @@
           false
         ],
         [
-          46,
+          49,
           "flow",
           738,
           "flow",
@@ -10288,15 +10288,15 @@
           false
         ],
         [
-          656,
-          "false",
+          760,
+          "flow",
           768,
           "flow",
           false
         ],
         [
-          760,
-          "flow",
+          656,
+          "false",
           768,
           "flow",
           false
@@ -10344,15 +10344,15 @@
           false
         ],
         [
-          269,
-          "false",
+          10022,
+          "flow",
           773,
           "flow",
           false
         ],
         [
-          10022,
-          "flow",
+          269,
+          "false",
           773,
           "flow",
           false
@@ -10533,15 +10533,15 @@
           false
         ],
         [
-          167,
-          "true",
+          1298,
+          "flow",
           787,
           "on",
           false
         ],
         [
-          1298,
-          "flow",
+          167,
+          "true",
           787,
           "on",
           false
@@ -10631,15 +10631,15 @@
           false
         ],
         [
-          438,
-          "enter",
+          815,
+          "flow",
           798,
           "flow",
           false
         ],
         [
-          815,
-          "flow",
+          438,
+          "enter",
           798,
           "flow",
           false
@@ -10666,15 +10666,15 @@
           false
         ],
         [
-          1005,
-          "False",
+          1007,
+          "flow",
           801,
           "flow",
           false
         ],
         [
-          1007,
-          "flow",
+          1005,
+          "False",
           801,
           "flow",
           false
@@ -10708,13 +10708,6 @@
           false
         ],
         [
-          800,
-          "True",
-          803,
-          "reset",
-          false
-        ],
-        [
           843,
           "down",
           803,
@@ -10724,6 +10717,13 @@
         [
           10245,
           "down",
+          803,
+          "reset",
+          false
+        ],
+        [
+          800,
+          "True",
           803,
           "reset",
           false
@@ -11009,7 +11009,7 @@
           false
         ],
         [
-          843,
+          956,
           "flow",
           823,
           "flow",
@@ -11023,21 +11023,21 @@
           false
         ],
         [
-          1131,
-          "flow",
-          823,
-          "flow",
-          false
-        ],
-        [
-          956,
-          "flow",
-          823,
-          "flow",
-          false
-        ],
-        [
           10245,
+          "flow",
+          823,
+          "flow",
+          false
+        ],
+        [
+          843,
+          "flow",
+          823,
+          "flow",
+          false
+        ],
+        [
+          1131,
           "flow",
           823,
           "flow",
@@ -11415,15 +11415,15 @@
           false
         ],
         [
-          1462,
-          "flow",
+          870,
+          "False",
           854,
           "clear",
           false
         ],
         [
-          870,
-          "False",
+          1462,
+          "flow",
           854,
           "clear",
           false
@@ -11611,7 +11611,7 @@
           false
         ],
         [
-          9876,
+          878,
           "down",
           873,
           "flow",
@@ -11625,7 +11625,7 @@
           false
         ],
         [
-          878,
+          9876,
           "down",
           873,
           "flow",
@@ -11639,8 +11639,8 @@
           false
         ],
         [
-          1572,
-          "True",
+          148,
+          "down",
           874,
           "reset",
           false
@@ -11653,15 +11653,15 @@
           false
         ],
         [
-          148,
+          171,
           "down",
           874,
           "reset",
           false
         ],
         [
-          171,
-          "down",
+          1572,
+          "True",
           874,
           "reset",
           false
@@ -11688,15 +11688,15 @@
           false
         ],
         [
-          10116,
-          "flow",
+          833,
+          "false",
           876,
           "on",
           false
         ],
         [
-          833,
-          "false",
+          10116,
+          "flow",
           876,
           "on",
           false
@@ -11737,6 +11737,13 @@
           false
         ],
         [
+          1382,
+          "none",
+          879,
+          "flow",
+          false
+        ],
+        [
           1385,
           "True",
           879,
@@ -11746,13 +11753,6 @@
         [
           1226,
           "True",
-          879,
-          "flow",
-          false
-        ],
-        [
-          1382,
-          "none",
           879,
           "flow",
           false
@@ -11968,14 +11968,14 @@
           false
         ],
         [
-          1307,
+          896,
           "true",
           897,
           "flow",
           false
         ],
         [
-          896,
+          1307,
           "true",
           897,
           "flow",
@@ -12283,6 +12283,13 @@
           false
         ],
         [
+          185,
+          "flow",
+          925,
+          "flow",
+          false
+        ],
+        [
           1634,
           "flow",
           925,
@@ -12291,13 +12298,6 @@
         ],
         [
           1478,
-          "flow",
-          925,
-          "flow",
-          false
-        ],
-        [
-          185,
           "flow",
           925,
           "flow",
@@ -12479,14 +12479,14 @@
           false
         ],
         [
-          10292,
+          1508,
           "flow",
           938,
           "flow",
           false
         ],
         [
-          1508,
+          10292,
           "flow",
           938,
           "flow",
@@ -13431,13 +13431,6 @@
           false
         ],
         [
-          1175,
-          "down",
-          1026,
-          "flow",
-          false
-        ],
-        [
           1134,
           "down",
           1026,
@@ -13447,6 +13440,13 @@
         [
           1107,
           "flow",
+          1026,
+          "flow",
+          false
+        ],
+        [
+          1175,
+          "down",
           1026,
           "flow",
           false
@@ -13466,14 +13466,14 @@
           false
         ],
         [
-          10245,
+          843,
           "down",
           1028,
           "on",
           false
         ],
         [
-          843,
+          10245,
           "down",
           1028,
           "on",
@@ -13508,14 +13508,14 @@
           false
         ],
         [
-          843,
+          10245,
           "down",
           1030,
           "reset",
           false
         ],
         [
-          10245,
+          843,
           "down",
           1030,
           "reset",
@@ -13529,14 +13529,14 @@
           false
         ],
         [
-          10245,
+          843,
           "down",
           1031,
           "reset",
           false
         ],
         [
-          843,
+          10245,
           "down",
           1031,
           "reset",
@@ -13550,8 +13550,8 @@
           false
         ],
         [
-          10245,
-          "down",
+          1033,
+          "False",
           1032,
           "reset",
           false
@@ -13564,8 +13564,8 @@
           false
         ],
         [
-          1033,
-          "False",
+          10245,
+          "down",
           1032,
           "reset",
           false
@@ -14278,14 +14278,14 @@
           false
         ],
         [
-          1473,
+          271,
           "flow",
           1094,
           "flow",
           false
         ],
         [
-          271,
+          1473,
           "flow",
           1094,
           "flow",
@@ -14474,13 +14474,6 @@
           false
         ],
         [
-          1105,
-          "flow",
-          1106,
-          "flow",
-          false
-        ],
-        [
           1559,
           "True",
           1106,
@@ -14488,14 +14481,21 @@
           false
         ],
         [
-          10271,
+          1105,
+          "flow",
+          1106,
+          "flow",
+          false
+        ],
+        [
+          1379,
           "flow",
           1107,
           "flow",
           false
         ],
         [
-          1379,
+          10271,
           "flow",
           1107,
           "flow",
@@ -14586,15 +14586,15 @@
           false
         ],
         [
-          10017,
-          "down",
+          526,
+          "flow",
           1119,
           "flow",
           false
         ],
         [
-          526,
-          "flow",
+          10017,
+          "down",
           1119,
           "flow",
           false
@@ -14810,14 +14810,14 @@
           false
         ],
         [
-          1153,
+          1166,
           "False",
           1135,
           "reset",
           false
         ],
         [
-          1166,
+          1153,
           "False",
           1135,
           "reset",
@@ -14964,15 +14964,15 @@
           false
         ],
         [
-          825,
-          "flow",
+          840,
+          "false",
           1149,
           "flow",
           false
         ],
         [
-          840,
-          "false",
+          825,
+          "flow",
           1149,
           "flow",
           false
@@ -15209,14 +15209,14 @@
           false
         ],
         [
-          1164,
+          1170,
           "flow",
           1171,
           "flow",
           false
         ],
         [
-          1170,
+          1164,
           "flow",
           1171,
           "flow",
@@ -15300,15 +15300,15 @@
           false
         ],
         [
-          255,
-          "false",
+          171,
+          "flow",
           1180,
           "flow",
           false
         ],
         [
-          171,
-          "flow",
+          255,
+          "false",
           1180,
           "flow",
           false
@@ -15349,14 +15349,14 @@
           false
         ],
         [
-          368,
+          10128,
           "flow",
           1185,
           "reset",
           false
         ],
         [
-          10128,
+          368,
           "flow",
           1185,
           "reset",
@@ -15370,14 +15370,14 @@
           false
         ],
         [
-          368,
+          10128,
           "flow",
           1186,
           "reset",
           false
         ],
         [
-          10128,
+          368,
           "flow",
           1186,
           "reset",
@@ -16337,7 +16337,7 @@
         ],
         [
           99,
-          "match_3",
+          "match_2",
           1285,
           "flow",
           false
@@ -16358,7 +16358,7 @@
         ],
         [
           99,
-          "match_2",
+          "match_3",
           1285,
           "flow",
           false
@@ -16484,14 +16484,14 @@
         ],
         [
           861,
-          "match_1",
+          "match_2",
           1294,
           "flow",
           false
         ],
         [
           861,
-          "match_2",
+          "match_1",
           1294,
           "flow",
           false
@@ -16589,14 +16589,14 @@
         ],
         [
           1172,
-          "match_1",
+          "match_2",
           1304,
           "flow",
           false
         ],
         [
           1172,
-          "match_2",
+          "match_1",
           1304,
           "flow",
           false
@@ -17701,8 +17701,8 @@
           false
         ],
         [
-          1180,
-          "down",
+          1575,
+          "flow",
           1422,
           "flow",
           false
@@ -17715,8 +17715,8 @@
           false
         ],
         [
-          1575,
-          "flow",
+          1180,
+          "down",
           1422,
           "flow",
           false
@@ -17946,14 +17946,14 @@
           false
         ],
         [
-          309,
+          1443,
           "flow",
           1444,
           "flow",
           false
         ],
         [
-          1443,
+          309,
           "flow",
           1444,
           "flow",
@@ -17989,14 +17989,14 @@
         ],
         [
           1383,
-          "match_2",
+          "match_1",
           1446,
           "flow",
           false
         ],
         [
           1383,
-          "match_1",
+          "match_2",
           1446,
           "flow",
           false
@@ -18332,14 +18332,14 @@
         ],
         [
           4986,
-          "match_4",
+          "match_2",
           1481,
           "flow",
           false
         ],
         [
           4986,
-          "match_2",
+          "match_4",
           1481,
           "flow",
           false
@@ -18807,27 +18807,6 @@
           false
         ],
         [
-          1523,
-          "flow",
-          1521,
-          "flow",
-          false
-        ],
-        [
-          1525,
-          "flow",
-          1521,
-          "flow",
-          false
-        ],
-        [
-          1525,
-          "flow",
-          1521,
-          "flow",
-          false
-        ],
-        [
           1524,
           "flow",
           1521,
@@ -18836,6 +18815,27 @@
         ],
         [
           1523,
+          "flow",
+          1521,
+          "flow",
+          false
+        ],
+        [
+          1525,
+          "flow",
+          1521,
+          "flow",
+          false
+        ],
+        [
+          1523,
+          "flow",
+          1521,
+          "flow",
+          false
+        ],
+        [
+          1525,
           "flow",
           1521,
           "flow",
@@ -19549,8 +19549,8 @@
           false
         ],
         [
-          49,
-          "flow",
+          1221,
+          "True",
           1578,
           "flow",
           false
@@ -20004,6 +20004,20 @@
           false
         ],
         [
+          1617,
+          "flow",
+          1612,
+          "flow",
+          false
+        ],
+        [
+          49,
+          "current",
+          1612,
+          "vehid",
+          false
+        ],
+        [
           1562,
           "flow",
           1613,
@@ -20186,8 +20200,15 @@
           false
         ],
         [
-          21,
+          1379,
           "flow",
+          1630,
+          "flow",
+          false
+        ],
+        [
+          605,
+          "True",
           1630,
           "flow",
           false
@@ -21174,14 +21195,14 @@
         ],
         [
           1112,
-          "match_5",
+          "match_2",
           10007,
           "flow",
           false
         ],
         [
           1112,
-          "match_2",
+          "match_5",
           10007,
           "flow",
           false
@@ -21271,15 +21292,15 @@
           false
         ],
         [
-          844,
-          "rflow",
+          10235,
+          "flow",
           10008,
           "flow_1",
           false
         ],
         [
-          10235,
-          "flow",
+          844,
+          "rflow",
           10008,
           "flow_1",
           false
@@ -21390,15 +21411,15 @@
           false
         ],
         [
-          844,
-          "cflow",
+          1112,
+          "match_7",
           10234,
           "flow_2",
           false
         ],
         [
-          1112,
-          "match_7",
+          844,
+          "cflow",
           10234,
           "flow_2",
           false
@@ -21551,15 +21572,15 @@
           false
         ],
         [
-          1181,
-          "flow",
+          247,
+          "False",
           10011,
           "flow",
           false
         ],
         [
-          247,
-          "False",
+          1181,
+          "flow",
           10011,
           "flow",
           false
@@ -21957,15 +21978,15 @@
           false
         ],
         [
-          699,
-          "flow",
+          1488,
+          "false",
           10176,
           "flow",
           false
         ],
         [
-          1488,
-          "false",
+          699,
+          "flow",
           10176,
           "flow",
           false
@@ -22223,15 +22244,15 @@
           false
         ],
         [
-          1329,
-          "flow",
+          1335,
+          "false",
           10211,
           "flow",
           false
         ],
         [
-          1335,
-          "false",
+          1329,
+          "flow",
           10211,
           "flow",
           false
@@ -22713,7 +22734,7 @@
           false
         ],
         [
-          520,
+          639,
           "flow",
           10088,
           "flow",
@@ -22727,7 +22748,7 @@
           false
         ],
         [
-          639,
+          520,
           "flow",
           10088,
           "flow",
@@ -23084,15 +23105,15 @@
           false
         ],
         [
-          1482,
-          "out",
+          24,
+          "true",
           10188,
           "flow",
           false
         ],
         [
-          24,
-          "true",
+          1482,
+          "out",
           10188,
           "flow",
           false
@@ -24124,7 +24145,7 @@
           ],
           "pos":[
             3714,
-            -3492
+            -3422
           ],
           "type":"util/customLua"
         },
@@ -25084,8 +25105,8 @@
             ]
           ],
           "pos":[
-            3300,
-            -3156
+            1452,
+            -3100
           ],
           "type":"util/customLua"
         },
@@ -27828,7 +27849,7 @@
             ]
           ],
           "pos":[
-            1704,
+            1774,
             -2736
           ],
           "type":"util/customLua"
@@ -29530,7 +29551,7 @@
           "hardcodedPins":{
             "duration":{
               "type":"number",
-              "value":0.75000000000000188738
+              "value":0.75000000000000233147
             }
           },
           "hiddenPins":{
@@ -29966,11 +29987,11 @@
             },
             "directionBias":{
               "type":"number",
-              "value":0.80000001200000236956
+              "value":0.80000001200000303569
             },
             "spawnRate":{
               "type":"number",
-              "value":0.00009999999750000049
+              "value":0.00009999999750000061
             }
           },
           "hiddenPins":{
@@ -30895,7 +30916,7 @@
             }
           },
           "pos":[
-            1452,
+            1684,
             -2736
           ],
           "type":"types/genericValue"
@@ -33112,8 +33133,8 @@
             ]
           ],
           "pos":[
-            1452,
-            -2960
+            1446,
+            -2862
           ],
           "type":"util/customLua"
         },
@@ -33842,8 +33863,8 @@
           },
           "opSymbol":"<",
           "pos":[
-            1928,
-            -2764
+            1922,
+            -2750
           ],
           "type":"logic/compare"
         },
@@ -33871,8 +33892,8 @@
           },
           "opSymbol":">",
           "pos":[
-            2124,
-            -2778
+            2104,
+            -2764
           ],
           "type":"logic/compare"
         },
@@ -33976,8 +33997,8 @@
             }
           },
           "pos":[
-            3210,
-            -3464
+            3216,
+            -3296
           ],
           "type":"scene/camera/returnToVehicle"
         },
@@ -49881,7 +49902,7 @@
           },
           "pos":[
             3174,
-            -3324
+            -3464
           ],
           "type":"logic/branch"
         },
@@ -51113,9 +51134,7 @@
           "type":"logic/flowSwitch"
         },
         "633":{
-          "data":{
-            "name":""
-          },
+          "data":{},
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
@@ -55509,8 +55528,8 @@
             ]
           ],
           "pos":[
-            1452,
-            -3058
+            1460,
+            -2960
           ],
           "type":"util/customLua"
         },
@@ -57034,7 +57053,7 @@
           "hardcodedPins":{
             "checkVelocity":{
               "type":"number",
-              "value":0.01000000000000003490
+              "value":0.01000000000000003664
             }
           },
           "hiddenPins":{
@@ -58131,7 +58150,7 @@
               "value":[
                 1,
                 0,
-                0.00006008148190000035,
+                0.00006008148190000043,
                 1
               ]
             },
@@ -71139,8 +71158,8 @@
             }
           },
           "pos":[
-            3006,
-            -3450
+            2978,
+            -3310
           ],
           "type":"vehicle/enterVehicle"
         },
@@ -71707,7 +71726,7 @@
             ]
           ],
           "pos":[
-            3574,
+            3714,
             -3324
           ],
           "type":"util/customLua"
@@ -77576,7 +77595,7 @@
             }
           },
           "pos":[
-            3076,
+            3294,
             -3156
           ],
           "type":"logic/branch"
@@ -84453,8 +84472,8 @@
             ]
           ],
           "pos":[
-            3392,
-            -3268
+            3384,
+            -3408
           ],
           "type":"util/customLua"
         },
@@ -90249,7 +90268,7 @@
           "hardcodedPins":{
             "B":{
               "type":"number",
-              "value":0.00999999977600007396
+              "value":0.00999999977600008957
             }
           },
           "hiddenPins":{
@@ -93739,7 +93758,7 @@
           },
           "pos":[
             3300,
-            -3030
+            -3044
           ],
           "type":"logic/branch"
         },
@@ -95462,6 +95481,70 @@
           ],
           "type":"util/customLua"
         },
+        "1612":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local lock = self.pinIn.lock.value\nlocal veh = scenetree.findObjectById(self.pinIn.vehid.value)\nif veh ~= nil then\ncore_vehicleBridge.executeAction(veh,'setFreeze', lock)\nveh:setHidden(lock)\nelse\nprint(\"Lock Unicycle Error, veh was nil\")\nend\n\n"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "lock":{
+              "type":"bool",
+              "value":false
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "lock":false,
+              "vehid":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Lock Unicycle",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "number",
+              "vehid",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "bool",
+              "lock",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            3728,
+            -3576
+          ],
+          "type":"util/customLua"
+        },
         "1613":{
           "code":{
             "_executionStarted":"",
@@ -95667,8 +95750,8 @@
             ]
           ],
           "pos":[
-            3756,
-            -3296
+            3538,
+            -3576
           ],
           "type":"util/customLua"
         },
@@ -95989,12 +96072,12 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"scenetree.findObjectById(self.pinIn.vehid.value):setHidden(self.pinIn.hide.value)"
+            "work":"local lock = self.pinIn.lock.value\nlocal veh = scenetree.findObjectById(self.pinIn.vehid.value)\nif veh ~= nil then\ncore_vehicleBridge.executeAction(veh,'setFreeze', lock)\nveh:setHidden(lock)\nelse\nprint(\"Lock Unicycle Error, veh was nil\")\nend\n\n"
           },
           "data":{},
           "dynamicMode":"repeat",
           "hardcodedPins":{
-            "hide":{
+            "lock":{
               "type":"bool",
               "value":true
             }
@@ -96002,14 +96085,14 @@
           "hiddenPins":{
             "p_in":{
               "flow":false,
-              "hide":true,
+              "lock":false,
               "vehid":false
             },
             "p_out":{
               "flow":false
             }
           },
-          "name":"Set Hidden",
+          "name":"Lock Unicycle",
           "pins":[
             [
               "in",
@@ -96037,7 +96120,7 @@
             [
               "in",
               "bool",
-              "hide",
+              "lock",
               null,
               ""
             ]
@@ -96208,8 +96291,8 @@
             ]
           ],
           "pos":[
-            3756,
-            -3394
+            3364,
+            -3562
           ],
           "type":"util/customLua"
         },
@@ -96290,8 +96373,8 @@
             ]
           ],
           "pos":[
-            2964,
-            -3352
+            2978,
+            -3464
           ],
           "type":"util/customLua"
         },
@@ -102500,9 +102583,7 @@
           "type":"types/genericValue"
         },
         "10149":{
-          "data":{
-            "name":""
-          },
+          "data":{},
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
@@ -102985,9 +103066,7 @@
           "type":"scene/singleMarker"
         },
         "10165":{
-          "data":{
-            "name":""
-          },
+          "data":{},
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
@@ -105690,8 +105769,8 @@
             }
           },
           "pos":[
-            3490,
-            -3478
+            3524,
+            -3310
           ],
           "type":"vehicle/freeze"
         },
@@ -106361,10 +106440,10 @@
         "list":{}
       },
       "viewPos":[
-        -3614.72729492187500000000,
-        -1440.14001464843750000000
+        296.75939941406250000000,
+        -1333.88085937500000000000
       ],
-      "viewZoom":1
+      "viewZoom":0.35859495401382446289
     },
     "3":{
       "description":"This is the description for graph States",
@@ -106380,14 +106459,14 @@
         ],
         [
           4,
-          "success",
+          "fail",
           6,
           "flow",
           false
         ],
         [
           4,
-          "fail",
+          "success",
           6,
           "flow",
           false
@@ -106485,10 +106564,10 @@
         "list":{}
       },
       "viewPos":[
-        1760.66394042968750000000,
-        -2745.91333007812500000000
+        816.25915527343750000000,
+        -1333.88073730468750000000
       ],
-      "viewZoom":0.83333152532577514648
+      "viewZoom":0.35859489440917968750
     }
   },
   "isScenario":true,

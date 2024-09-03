@@ -1094,13 +1094,15 @@ local function updateHeatTicksGFX(dt)
     deltaTExhaustRate = min(max(deltaTExhaustRate, heatTickData.exhaustTickMinRate), heatTickData.exhaustTickMaxRate)
     heatTickData.exhaustTickBucket = max(heatTickData.exhaustTickBucket + deltaTExhaustRate * dt, 0)
 
-    if heatTickData.exhaustTickBucket > heatTickData.exhaustTickBucketThreshold and adjustedExhaustTemperature > 0 and heatTickData.exhaustTickDelay <= 0 then
+	-- BEAMLR FIX ON BELOW LINE FOR MISSING EXHAUST NODES TO PLAY COOLING METAL TICKING SFX
+	-- #nodes.exhaust > 0 avoids trying to play the SFX if exhaust manifold is removed (only allowed with AVB)
+    if #nodes.exhaust > 0 and heatTickData.exhaustTickBucket > heatTickData.exhaustTickBucketThreshold and adjustedExhaustTemperature > 0 and heatTickData.exhaustTickDelay <= 0 then
       local node = nodes.exhaust[random(#nodes.exhaust)]
-      local tickSize = linearScale(randomGauss3(), 0, 3, 0, 1) ^ heatTickData.exhaustTickSizeBias
-      sounds.playSoundOnceFollowNode(heatTickData.exhaustTickEventName, node, heatTickData.exhaustTickVolume, heatTickData.exhaustTickPitch, tickSize)
-      heatTickData.exhaustTickBucket = 0
-      heatTickData.exhaustTickBucketThreshold = heatTickData.exhaustTickPeriodGain * linearScale(randomGauss3(), 0, 3, 0.25, 1.75)
-    end
+	  local tickSize = linearScale(randomGauss3(), 0, 3, 0, 1) ^ heatTickData.exhaustTickSizeBias
+	  sounds.playSoundOnceFollowNode(heatTickData.exhaustTickEventName, node, heatTickData.exhaustTickVolume, heatTickData.exhaustTickPitch, tickSize)
+	  heatTickData.exhaustTickBucket = 0
+	  heatTickData.exhaustTickBucketThreshold = heatTickData.exhaustTickPeriodGain * linearScale(randomGauss3(), 0, 3, 0.25, 1.75)
+	end
 
     heatTickData.lastExhaustTemperature = adjustedExhaustTemperature
 
