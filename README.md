@@ -37,7 +37,7 @@ Modders should back up the userfolder before installing.
 ## Update Instructions ([Video](https://www.youtube.com/watch?v=iKZckDVPjR4))
 **BEFORE UPDATING**:  Back up the userfolder/beamLR folder to archive your career
 
-**IMPORTANT NOTE**: Version 1.16 is not compatible with previous version backups
+**IMPORTANT NOTE**: Version 1.16 and above are not compatible with previous version backups
 
 * [Download the latest release][latest].
 * Extract updated mod zip contents to the [BeamNG userfolder][userfolder].
