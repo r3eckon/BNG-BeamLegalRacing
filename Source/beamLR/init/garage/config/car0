@@ -3,7 +3,7 @@
   "licenseName":"BeamLR",
   "mainPartName":"legran",
   "model":"legran",
-  "odometer":200000000,
+  "odometer":300000000,
   "paints":[
     {
       "baseColor":[

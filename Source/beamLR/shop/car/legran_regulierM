@@ -1,8 +1,8 @@
 name=Bruckell Legran (Regulier,Manual)
 type=legran
 config=vehicles/legran/base_i4_M.pc
-baseprice=2500,4000
-odometer=80000000,120000000
+baseprice=2000,4000
+odometer=80000000,150000000
 scrapval=200
 partprice=0
 paint=0,0,0,0,0.1,0.1,0.1,0.1

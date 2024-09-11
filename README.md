@@ -1,9 +1,9 @@
 
 
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.16.1/beamLegalRacing1.16.1.zip
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.16.2/beamLegalRacing1.16.2.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.16.1
+# Beam Legal Racing 1.16.2
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -748,3 +748,15 @@ Thank you for playing BeamLR!
 * Fixed hazards indicator turning itself on in certain situation (bug with traffic/vehicle.lua)
 * Trying another fix for car shop menu bug while on foot
 * Unicycle now frozen in place while in car shop (prevents exiting trigger)
+
+### 1.16.2
+* Fixed old "coupe" model in police spawngroups (replaced with BX-Series)
+* Fixed fallback part price not used causing null sell/buy prices
+* Fixed part buy layout bug with fallback value (missing line break)
+* Fixed AVB bug when exiting Part Edit Safe Mode (game breaking inventory bug)
+* Fixed engine immediately melting when added with no oil (bug in combustionEngineThermals.lua)
+* Fixed race start markers staying active after giving up (allowed starting race in loss state)
+* Increased base odometer value for starter cars to 300,000 km
+* Tweaked odometer based part integrity decrease (starts at 150,000 km, maxes out at 450,000 km)
+* Tweaked low end used cars odometer & price (decreased min value, increased max odometer)
+* Removed option to disable Advanced Vehicle Building (necessary for new part inventory)

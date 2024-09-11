@@ -1,8 +1,8 @@
 name=Bruckell Legran
 type=legran
 config=vehicles/legran/derby.pc
-baseprice=500,700
-odometer=280000000,310000000
+baseprice=500,1000
+odometer=250000000,400000000
 scrapval=50
 partprice=0
 paint=0,0,0,0,0.1,0.1,0.1,0.1

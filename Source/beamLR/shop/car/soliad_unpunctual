@@ -1,8 +1,8 @@
 name=Soliad Wendover
 type=wendover
 config=vehicles/wendover/derby.pc
-baseprice=600,900
-odometer=180000000,280000000
+baseprice=500,1000
+odometer=250000000,400000000
 scrapval=70
 partprice=0
 paint=0,0,0,0,0.1,0.1,0.1,0.1

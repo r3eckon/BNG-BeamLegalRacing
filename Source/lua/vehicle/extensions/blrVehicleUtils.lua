@@ -887,8 +887,8 @@ end
 
 local function getIntegrityOffset(odometer)
 local offset = 0
-if odometer >= 100000000 then
-offset = 0.15 * math.min(1.0, odometer / 300000000 )
+if odometer >= 150000000 then
+offset = 0.15 * math.min(1.0, odometer / 450000000)
 end
 return offset
 end

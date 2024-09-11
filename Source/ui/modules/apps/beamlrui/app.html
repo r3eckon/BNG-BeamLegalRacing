@@ -462,18 +462,6 @@ Reset Advanced Couplers
 </p>
 
 <p style="text-align:center;">  
-Advanced vehicle building allows part selling and a more realistic, SLRR-like part editing system.
-Career reset is recommended after changing this parameter to avoid<br> issues such as corrupted vehicle configs.
-</p>
-<p style="text-align:center;">  Requires scenario restart to take effect. </p>
-
-<p style="text-align:center;"> 
-Advanced Vehicle Building
-<button ng-class="inputData.avbtoggle == 1 ? 'toggleon' : 'toggleoff'" ng-click="avbToggle(1)">On</button>
-<button ng-class="inputData.avbtoggle == 0 ? 'toggleon' : 'toggleoff'" ng-click="avbToggle(0)">Off</button>
-</p>
-
-<p style="text-align:center;">  
 Advanced repair cost uses improved code for more accurate repair cost calculation, relying on broken/deformed beams<br>and part specific costs. Will likely result in higher repair costs especially for high end vehicles.
 </p>
 
@@ -580,7 +568,7 @@ Part Edit Safe Mode
 </tr>
 <tr style="height:25%;">
 <td>
-<p style="text-align:center; margin:0;" ng-if="beamlrData['partPrices'][part] == null">${{beamlrData['partPrices']['default'] * beamlrData['shopPriceScale'] * getShopUsedPartPriceScale(part) | number:2}} ({{getShopUsedPartOdometer(part, true) / 1000000.0 | number:1}}K {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}})</p>
+<p style="text-align:center; margin:0;" ng-if="beamlrData['partPrices'][part] == null">${{beamlrData['partPrices']['default'] * beamlrData['shopPriceScale'] * getShopUsedPartPriceScale(part) | number:2}}<br>({{getShopUsedPartOdometer(part, true) / 1000000.0 | number:1}}K {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}})</p>
 <p style="text-align:center; margin:0;" ng-if="beamlrData['partPrices'][part] != null">${{beamlrData['partPrices'][part] * beamlrData['shopPriceScale'] * getShopUsedPartPriceScale(part)| number:2}}<br>({{getShopUsedPartOdometer(part, true) / 1000000.0 | number:1}}K {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}})</p>
 </td>
 </tr>
@@ -613,7 +601,7 @@ Part Edit Safe Mode
 </tr>
 <tr style="height:25%;">
 <td>
-<p style="text-align:center; margin:0;" ng-if="beamlrData['partPrices'][part] == null">${{beamlrData['partPrices']['default'] * beamlrData['shopPriceScale'] * getShopUsedPartPriceScale(part) | number:2}} ({{getShopUsedPartOdometer(part,true) / 1000000.0 | number:1}}K {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}})</p>
+<p style="text-align:center; margin:0;" ng-if="beamlrData['partPrices'][part] == null">${{beamlrData['partPrices']['default'] * beamlrData['shopPriceScale'] * getShopUsedPartPriceScale(part) | number:2}}<br>({{getShopUsedPartOdometer(part,true) / 1000000.0 | number:1}}K {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}})</p>
 <p style="text-align:center; margin:0;" ng-if="beamlrData['partPrices'][part] != null">${{beamlrData['partPrices'][part] * beamlrData['shopPriceScale'] * getShopUsedPartPriceScale(part)| number:2}}<br>({{getShopUsedPartOdometer(part,true) / 1000000.0 | number:1}}K {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}})</p>
 </td>
 </tr>

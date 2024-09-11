@@ -1,8 +1,8 @@
 name=Gavril Barstow (232 I6,Manual)
 type=barstow
 config=vehicles/barstow/i6m.pc
-baseprice=6000,9000
-odometer=45000000,65000000
+baseprice=3500,9000
+odometer=45000000,100000000
 scrapval=600
 partprice=0
 paint=0,0,0,0,0.1,0.1,0.1,0.1

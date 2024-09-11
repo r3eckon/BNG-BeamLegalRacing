@@ -1,8 +1,8 @@
 name=Soliad Lansdale (2.5,Automatic)
 type=lansdale
 config=vehicles/lansdale/25_base_A.pc
-baseprice=1500,3000
-odometer=80000000,150000000
+baseprice=2000,5000
+odometer=80000000,200000000
 scrapval=250
 partprice=0
 paint=0,0,0,0,0.1,0.1,0.1,0.1

@@ -1,8 +1,8 @@
 name=Autobello Piccolina
 type=autobello
 config=vehicles/autobello/110_m.pc
-baseprice=1000,3000
-odometer=80000000,130000000
+baseprice=500,3000
+odometer=80000000,300000000
 scrapval=300
 partprice=0
 paint=0,0,0,0,0.1,0.1,0.1,0.1

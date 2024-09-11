@@ -902,12 +902,15 @@ local function updateWaterCoolingGFX(dt)
 
   fluidReservoirs.coolant.currentMass = max(fluidReservoirs.coolant.currentMass - fluidLeakRates.coolant.overall * dt, constants.minimumCoolantMass)
 
+  -- BEAMLR FIX FOR ENGINE MELTING DUE TO DIVISION BY ZERO WHEN OIL/COOLANT MASS IS EMPTY
+  -- Clamping to constants.minimumOilMass to avoid division by zero
   if fluidReservoirs.coolant.currentMass < fluidReservoirs.coolant.initialMass then
-    energyCoef.coolant = 1 / (fluidReservoirs.coolant.currentMass * constants.coolantSpecHeat)
+    energyCoef.coolant = 1 / (max(fluidReservoirs.coolant.currentMass, constants.minimumCoolantMass) * constants.coolantSpecHeat)
   end
   if fluidReservoirs.oil.currentMass < fluidReservoirs.oil.initialMass then
-    energyCoef.oil = 1 / (fluidReservoirs.oil.currentMass * constants.oilSpecHeat)
+    energyCoef.oil = 1 / (max(fluidReservoirs.oil.currentMass, constants.minimumOilMass) * constants.oilSpecHeat)
   end
+  -- BEAMLR FIX END
 
   if radiatorHissSound then
     obj:setVolumePitch(radiatorHissSound, fluidLeakRates.coolant.overall, M.coolantTemperature / constants.maxCoolantTemperature, 0, 0)
@@ -1401,6 +1404,7 @@ local function reset(jbeamData)
   tEnv = obj:getEnvTemperature() + conversion.kelvinToCelsius
   --default temperatures, can be adjusted to fit whatever our goal is (starting up with cold vs warm car)
   local startingTemperature = startPreHeated and constants.preHeatTemperature or tEnv
+  
   M.engineBlockTemperature = startingTemperature
   M.cylinderWallTemperature = startingTemperature
   M.oilTemperature = startingTemperature
@@ -1687,8 +1691,11 @@ local function initThermals(jbeamData)
   local cylinderWallMass = math.max(engineBlockMass / 100, 4)
   local exhaustMass = math.max(engineBlockMass / 10, 5)
 
-  energyCoef.coolant = 1 / (fluidReservoirs.coolant.currentMass * constants.coolantSpecHeat)
-  energyCoef.oil = 1 / (fluidReservoirs.oil.currentMass * constants.oilSpecHeat)
+  -- BEAMLR FIX FOR DIVIDE BY ZERO CAUSING INFINITE ENGINE TEMP WHEN OIL VAL IS AT 0
+  -- Basically capping oil value to constants.minimumOilMass, do same for coolant just in case
+  energyCoef.coolant = 1 / (max(fluidReservoirs.coolant.currentMass, constants.minimumCoolantMass) * constants.coolantSpecHeat)
+  energyCoef.oil = 1 / (max(fluidReservoirs.oil.currentMass, constants.minimumOilMass) * constants.oilSpecHeat)
+  -- BEAMLR FIX END
   energyCoef.cylinderWall = 1 / (cylinderWallMass * cylinderWallSpecHeat)
   energyCoef.engineBlock = 1 / (engineBlockMass * engineBlockSpecHeat)
   energyCoef.exhaust = 1 / (constants.exhaustSpecHeat * exhaustMass)

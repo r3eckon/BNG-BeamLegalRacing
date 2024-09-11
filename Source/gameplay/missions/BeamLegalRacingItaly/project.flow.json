@@ -2,7 +2,7 @@
   "activeGraphId":3,
   "authors":"BeamLR",
   "currentGraphID":3,
-  "date":1725362946,
+  "date":1726081016,
   "debugEnabled":false,
   "description":"Beam Legal Racing Career",
   "difficulty":100,
@@ -25,6 +25,7 @@
     "node_1230":1709366259,
     "node_1231":1709366296,
     "node_1232":1709366346,
+    "node_1268":1725759991,
     "node_1317":1699351847,
     "node_1407":1698480615,
     "node_1423":1705470015,
@@ -187,6 +188,13 @@
           false
         ],
         [
+          1670,
+          "out",
+          22,
+          "off",
+          false
+        ],
+        [
           17,
           "flow",
           23,
@@ -327,14 +335,14 @@
           true
         ],
         [
-          1522,
+          1521,
           "flow",
           34,
           "flow",
           false
         ],
         [
-          1521,
+          1522,
           "flow",
           34,
           "flow",
@@ -369,14 +377,14 @@
           false
         ],
         [
-          27,
+          1389,
           "down",
           37,
           "flow",
           false
         ],
         [
-          1389,
+          27,
           "down",
           37,
           "flow",
@@ -726,14 +734,14 @@
           false
         ],
         [
-          10295,
+          1510,
           "flow",
           69,
           "flow",
           false
         ],
         [
-          1510,
+          10295,
           "flow",
           69,
           "flow",
@@ -824,6 +832,13 @@
           false
         ],
         [
+          585,
+          "false",
+          77,
+          "flow",
+          false
+        ],
+        [
           613,
           "flow",
           77,
@@ -833,13 +848,6 @@
         [
           471,
           "False",
-          77,
-          "flow",
-          false
-        ],
-        [
-          585,
-          "false",
           77,
           "flow",
           false
@@ -1090,6 +1098,13 @@
           false
         ],
         [
+          1251,
+          "flow",
+          95,
+          "flow",
+          false
+        ],
+        [
           1178,
           "flow",
           95,
@@ -1105,13 +1120,6 @@
         ],
         [
           109,
-          "flow",
-          95,
-          "flow",
-          false
-        ],
-        [
-          1251,
           "flow",
           95,
           "flow",
@@ -1321,15 +1329,15 @@
           false
         ],
         [
-          18,
-          "false",
+          107,
+          "flow",
           109,
           "flow",
           false
         ],
         [
-          107,
-          "flow",
+          18,
+          "false",
           109,
           "flow",
           false
@@ -1377,15 +1385,15 @@
           false
         ],
         [
-          515,
-          "true",
+          418,
+          "flow",
           114,
           "flow",
           false
         ],
         [
-          418,
-          "flow",
+          515,
+          "true",
           114,
           "flow",
           false
@@ -1608,13 +1616,6 @@
           true
         ],
         [
-          9885,
-          "flow",
-          123,
-          "flow",
-          false
-        ],
-        [
           9884,
           "flow",
           123,
@@ -1622,14 +1623,21 @@
           false
         ],
         [
-          9879,
+          183,
           "flow",
           123,
           "flow",
           false
         ],
         [
-          183,
+          9885,
+          "flow",
+          123,
+          "flow",
+          false
+        ],
+        [
+          9879,
           "flow",
           123,
           "flow",
@@ -2070,14 +2078,14 @@
           false
         ],
         [
-          947,
+          877,
           "flow",
           162,
           "flow",
           false
         ],
         [
-          877,
+          947,
           "flow",
           162,
           "flow",
@@ -2266,14 +2274,21 @@
           true
         ],
         [
-          1175,
+          1254,
           "flow",
           175,
           "flow",
           false
         ],
         [
-          1254,
+          949,
+          "false",
+          175,
+          "flow",
+          false
+        ],
+        [
+          1175,
           "flow",
           175,
           "flow",
@@ -2289,13 +2304,6 @@
         [
           1320,
           "flow",
-          175,
-          "flow",
-          false
-        ],
-        [
-          949,
-          "false",
           175,
           "flow",
           false
@@ -2322,14 +2330,14 @@
           false
         ],
         [
-          206,
+          878,
           "flow",
           178,
           "flow",
           false
         ],
         [
-          878,
+          206,
           "flow",
           178,
           "flow",
@@ -2483,7 +2491,7 @@
           false
         ],
         [
-          1095,
+          749,
           "flow",
           194,
           "flow",
@@ -2497,6 +2505,13 @@
           false
         ],
         [
+          1095,
+          "flow",
+          194,
+          "flow",
+          false
+        ],
+        [
           1096,
           "False",
           194,
@@ -2505,13 +2520,6 @@
         ],
         [
           1552,
-          "flow",
-          194,
-          "flow",
-          false
-        ],
-        [
-          749,
           "flow",
           194,
           "flow",
@@ -2756,13 +2764,6 @@
           false
         ],
         [
-          124,
-          "flow",
-          212,
-          "flow",
-          false
-        ],
-        [
           1175,
           "down",
           212,
@@ -2770,15 +2771,22 @@
           false
         ],
         [
-          1575,
+          1180,
+          "down",
+          212,
+          "flow",
+          false
+        ],
+        [
+          124,
           "flow",
           212,
           "flow",
           false
         ],
         [
-          1180,
-          "down",
+          1575,
+          "flow",
           212,
           "flow",
           false
@@ -2889,15 +2897,15 @@
           false
         ],
         [
-          200,
-          "flow",
+          1621,
+          "True",
           222,
           "flow",
           false
         ],
         [
-          1621,
-          "True",
+          200,
+          "flow",
           222,
           "flow",
           false
@@ -3596,14 +3604,14 @@
           false
         ],
         [
-          763,
+          509,
           "false",
           276,
           "flow",
           false
         ],
         [
-          10217,
+          763,
           "false",
           276,
           "flow",
@@ -3617,7 +3625,7 @@
           false
         ],
         [
-          509,
+          10217,
           "false",
           276,
           "flow",
@@ -3632,14 +3640,14 @@
         ],
         [
           1112,
-          "match_3",
+          "match_4",
           278,
           "flow",
           false
         ],
         [
           1112,
-          "match_4",
+          "match_3",
           278,
           "flow",
           false
@@ -4247,6 +4255,13 @@
           false
         ],
         [
+          1670,
+          "out",
+          328,
+          "clear",
+          false
+        ],
+        [
           568,
           "vehId",
           328,
@@ -4807,15 +4822,15 @@
           false
         ],
         [
-          1507,
-          "true",
+          158,
+          "flow",
           365,
           "flow",
           false
         ],
         [
-          158,
-          "flow",
+          1507,
+          "true",
           365,
           "flow",
           false
@@ -4961,7 +4976,7 @@
           false
         ],
         [
-          966,
+          10017,
           "flow",
           378,
           "flow",
@@ -4975,14 +4990,7 @@
           false
         ],
         [
-          377,
-          "none",
-          378,
-          "flow",
-          false
-        ],
-        [
-          10017,
+          966,
           "flow",
           378,
           "flow",
@@ -4996,6 +5004,13 @@
           false
         ],
         [
+          1182,
+          "flow",
+          378,
+          "flow",
+          false
+        ],
+        [
           961,
           "flow",
           378,
@@ -5003,8 +5018,8 @@
           false
         ],
         [
-          1182,
-          "flow",
+          377,
+          "none",
           378,
           "flow",
           false
@@ -7776,14 +7791,14 @@
         ],
         [
           608,
-          "arrest",
+          "evade",
           587,
           "reset",
           false
         ],
         [
           608,
-          "evade",
+          "arrest",
           587,
           "reset",
           false
@@ -8034,15 +8049,15 @@
           false
         ],
         [
-          153,
-          "flow",
+          48,
+          "false",
           607,
           "on",
           false
         ],
         [
-          48,
-          "false",
+          153,
+          "flow",
           607,
           "on",
           false
@@ -8202,15 +8217,15 @@
           true
         ],
         [
-          594,
-          "False",
+          1551,
+          "false",
           613,
           "flow",
           false
         ],
         [
-          1551,
-          "false",
+          594,
+          "False",
           613,
           "flow",
           false
@@ -8566,15 +8581,15 @@
           false
         ],
         [
-          1583,
-          "flow",
+          1582,
+          "False",
           643,
           "flow",
           false
         ],
         [
-          1582,
-          "False",
+          1583,
+          "flow",
           643,
           "flow",
           false
@@ -8951,15 +8966,15 @@
           false
         ],
         [
-          672,
-          "true",
+          735,
+          "True",
           671,
           "flow",
           false
         ],
         [
-          735,
-          "True",
+          672,
+          "true",
           671,
           "flow",
           false
@@ -9567,15 +9582,15 @@
           false
         ],
         [
-          1482,
-          "out",
+          24,
+          "true",
           713,
           "reset",
           false
         ],
         [
-          24,
-          "true",
+          1482,
+          "out",
           713,
           "reset",
           false
@@ -9630,18 +9645,18 @@
           false
         ],
         [
-          591,
-          "true",
-          717,
-          "on",
-          true
-        ],
-        [
           1516,
           "flow",
           717,
           "on",
           false
+        ],
+        [
+          591,
+          "true",
+          717,
+          "on",
+          true
         ],
         [
           1514,
@@ -10169,13 +10184,6 @@
           false
         ],
         [
-          1259,
-          "flow",
-          761,
-          "flow",
-          false
-        ],
-        [
           1258,
           "flow",
           761,
@@ -10184,6 +10192,13 @@
         ],
         [
           1388,
+          "flow",
+          761,
+          "flow",
+          false
+        ],
+        [
+          1259,
           "flow",
           761,
           "flow",
@@ -10533,15 +10548,15 @@
           false
         ],
         [
-          1298,
-          "flow",
+          167,
+          "true",
           787,
           "on",
           false
         ],
         [
-          167,
-          "true",
+          1298,
+          "flow",
           787,
           "on",
           false
@@ -10631,15 +10646,15 @@
           false
         ],
         [
-          815,
-          "flow",
+          438,
+          "enter",
           798,
           "flow",
           false
         ],
         [
-          438,
-          "enter",
+          815,
+          "flow",
           798,
           "flow",
           false
@@ -10666,15 +10681,15 @@
           false
         ],
         [
-          1007,
-          "flow",
+          1005,
+          "False",
           801,
           "flow",
           false
         ],
         [
-          1005,
-          "False",
+          1007,
+          "flow",
           801,
           "flow",
           false
@@ -10708,14 +10723,14 @@
           false
         ],
         [
-          843,
+          10245,
           "down",
           803,
           "reset",
           false
         ],
         [
-          10245,
+          843,
           "down",
           803,
           "reset",
@@ -10785,15 +10800,15 @@
           false
         ],
         [
-          10273,
-          "flow",
+          995,
+          "False",
           808,
           "flow",
           false
         ],
         [
-          995,
-          "False",
+          10273,
+          "flow",
           808,
           "flow",
           false
@@ -10848,14 +10863,14 @@
           false
         ],
         [
-          843,
+          10245,
           "down",
           812,
           "reset",
           false
         ],
         [
-          10245,
+          843,
           "down",
           812,
           "reset",
@@ -11009,13 +11024,6 @@
           false
         ],
         [
-          956,
-          "flow",
-          823,
-          "flow",
-          false
-        ],
-        [
           1149,
           "flow",
           823,
@@ -11030,6 +11038,13 @@
           false
         ],
         [
+          1131,
+          "flow",
+          823,
+          "flow",
+          false
+        ],
+        [
           843,
           "flow",
           823,
@@ -11037,7 +11052,7 @@
           false
         ],
         [
-          1131,
+          956,
           "flow",
           823,
           "flow",
@@ -11352,15 +11367,15 @@
           false
         ],
         [
-          24,
-          "true",
+          1482,
+          "out",
           847,
           "flow",
           false
         ],
         [
-          1482,
-          "out",
+          24,
+          "true",
           847,
           "flow",
           false
@@ -11415,15 +11430,15 @@
           false
         ],
         [
-          870,
-          "False",
+          1462,
+          "flow",
           854,
           "clear",
           false
         ],
         [
-          1462,
-          "flow",
+          870,
+          "False",
           854,
           "clear",
           false
@@ -11534,15 +11549,15 @@
           false
         ],
         [
-          812,
-          "flow",
+          843,
+          "down",
           867,
           "flow",
           false
         ],
         [
-          843,
-          "down",
+          812,
+          "flow",
           867,
           "flow",
           false
@@ -11611,14 +11626,14 @@
           false
         ],
         [
-          878,
+          206,
           "down",
           873,
           "flow",
           false
         ],
         [
-          206,
+          878,
           "down",
           873,
           "flow",
@@ -11639,8 +11654,15 @@
           false
         ],
         [
-          148,
+          171,
           "down",
+          874,
+          "reset",
+          false
+        ],
+        [
+          1572,
+          "True",
           874,
           "reset",
           false
@@ -11653,15 +11675,8 @@
           false
         ],
         [
-          171,
+          148,
           "down",
-          874,
-          "reset",
-          false
-        ],
-        [
-          1572,
-          "True",
           874,
           "reset",
           false
@@ -11758,13 +11773,6 @@
           false
         ],
         [
-          879,
-          "flow",
-          880,
-          "flow",
-          false
-        ],
-        [
           1387,
           "flow",
           880,
@@ -11773,6 +11781,13 @@
         ],
         [
           1257,
+          "flow",
+          880,
+          "flow",
+          false
+        ],
+        [
+          879,
           "flow",
           880,
           "flow",
@@ -11968,6 +11983,13 @@
           false
         ],
         [
+          1438,
+          "true",
+          897,
+          "flow",
+          false
+        ],
+        [
           896,
           "true",
           897,
@@ -11976,13 +11998,6 @@
         ],
         [
           1307,
-          "true",
-          897,
-          "flow",
-          false
-        ],
-        [
-          1438,
           "true",
           897,
           "flow",
@@ -12395,14 +12410,14 @@
           false
         ],
         [
-          934,
+          1577,
           "flow",
           933,
           "flow",
           false
         ],
         [
-          1577,
+          934,
           "flow",
           933,
           "flow",
@@ -12486,15 +12501,15 @@
           false
         ],
         [
-          10292,
-          "flow",
+          912,
+          "True",
           938,
           "flow",
           false
         ],
         [
-          912,
-          "True",
+          10292,
+          "flow",
           938,
           "flow",
           false
@@ -12507,15 +12522,15 @@
           false
         ],
         [
-          918,
-          "flow",
+          193,
+          "down",
           940,
           "flow",
           false
         ],
         [
-          193,
-          "down",
+          918,
+          "flow",
           940,
           "flow",
           false
@@ -13431,7 +13446,7 @@
           false
         ],
         [
-          1134,
+          1175,
           "down",
           1026,
           "flow",
@@ -13445,7 +13460,7 @@
           false
         ],
         [
-          1175,
+          1134,
           "down",
           1026,
           "flow",
@@ -13466,14 +13481,14 @@
           false
         ],
         [
-          843,
+          10245,
           "down",
           1028,
           "on",
           false
         ],
         [
-          10245,
+          843,
           "down",
           1028,
           "on",
@@ -13508,14 +13523,14 @@
           false
         ],
         [
-          10245,
+          843,
           "down",
           1030,
           "reset",
           false
         ],
         [
-          843,
+          10245,
           "down",
           1030,
           "reset",
@@ -13557,14 +13572,14 @@
           false
         ],
         [
-          843,
+          10245,
           "down",
           1032,
           "reset",
           false
         ],
         [
-          10245,
+          843,
           "down",
           1032,
           "reset",
@@ -13823,14 +13838,14 @@
           false
         ],
         [
-          10022,
+          450,
           "flow",
           1058,
           "flow",
           false
         ],
         [
-          450,
+          10022,
           "flow",
           1058,
           "flow",
@@ -14250,15 +14265,15 @@
           false
         ],
         [
-          561,
-          "flow",
+          641,
+          "True",
           1092,
           "flow",
           false
         ],
         [
-          641,
-          "True",
+          561,
+          "flow",
           1092,
           "flow",
           false
@@ -14271,14 +14286,14 @@
           false
         ],
         [
-          193,
+          271,
           "flow",
           1094,
           "flow",
           false
         ],
         [
-          271,
+          193,
           "flow",
           1094,
           "flow",
@@ -14474,13 +14489,6 @@
           false
         ],
         [
-          1559,
-          "True",
-          1106,
-          "flow",
-          false
-        ],
-        [
           1105,
           "flow",
           1106,
@@ -14488,8 +14496,15 @@
           false
         ],
         [
-          1379,
+          1559,
+          "True",
+          1106,
           "flow",
+          false
+        ],
+        [
+          605,
+          "True",
           1107,
           "flow",
           false
@@ -14502,8 +14517,8 @@
           false
         ],
         [
-          605,
-          "True",
+          1379,
+          "flow",
           1107,
           "flow",
           false
@@ -14810,14 +14825,14 @@
           false
         ],
         [
-          1166,
+          1153,
           "False",
           1135,
           "reset",
           false
         ],
         [
-          1153,
+          1166,
           "False",
           1135,
           "reset",
@@ -15174,14 +15189,14 @@
           false
         ],
         [
-          10245,
+          843,
           "down",
           1168,
           "flow",
           false
         ],
         [
-          843,
+          10245,
           "down",
           1168,
           "flow",
@@ -15209,14 +15224,14 @@
           false
         ],
         [
-          1170,
+          1164,
           "flow",
           1171,
           "flow",
           false
         ],
         [
-          1164,
+          1170,
           "flow",
           1171,
           "flow",
@@ -15300,15 +15315,15 @@
           false
         ],
         [
-          171,
-          "flow",
+          255,
+          "false",
           1180,
           "flow",
           false
         ],
         [
-          255,
-          "false",
+          171,
+          "flow",
           1180,
           "flow",
           false
@@ -15440,14 +15455,14 @@
           false
         ],
         [
-          867,
+          1375,
           "flow",
           1192,
           "flow",
           false
         ],
         [
-          1375,
+          867,
           "flow",
           1192,
           "flow",
@@ -16148,14 +16163,14 @@
         ],
         [
           1383,
-          "match_2",
+          "match_1",
           1269,
           "flow",
           false
         ],
         [
           1383,
-          "match_1",
+          "match_2",
           1269,
           "flow",
           false
@@ -16337,14 +16352,14 @@
         ],
         [
           99,
-          "match_2",
+          "match_3",
           1285,
           "flow",
           false
         ],
         [
           99,
-          "match_5",
+          "match_2",
           1285,
           "flow",
           false
@@ -16358,7 +16373,7 @@
         ],
         [
           99,
-          "match_3",
+          "match_5",
           1285,
           "flow",
           false
@@ -16484,14 +16499,14 @@
         ],
         [
           861,
-          "match_2",
+          "match_1",
           1294,
           "flow",
           false
         ],
         [
           861,
-          "match_1",
+          "match_2",
           1294,
           "flow",
           false
@@ -16749,14 +16764,14 @@
           false
         ],
         [
-          210,
+          9876,
           "down",
           1317,
           "flow",
           false
         ],
         [
-          9876,
+          210,
           "down",
           1317,
           "flow",
@@ -17701,6 +17716,13 @@
           false
         ],
         [
+          1180,
+          "down",
+          1422,
+          "flow",
+          false
+        ],
+        [
           1575,
           "flow",
           1422,
@@ -17715,22 +17737,15 @@
           false
         ],
         [
-          1180,
-          "down",
-          1422,
+          637,
+          "false",
+          1423,
           "flow",
           false
         ],
         [
           639,
           "flow",
-          1423,
-          "flow",
-          false
-        ],
-        [
-          637,
-          "false",
           1423,
           "flow",
           false
@@ -18044,14 +18059,14 @@
           false
         ],
         [
-          1454,
+          1453,
           "flow",
           1450,
           "reset",
           false
         ],
         [
-          1453,
+          1454,
           "flow",
           1450,
           "reset",
@@ -18332,14 +18347,14 @@
         ],
         [
           4986,
-          "match_2",
+          "match_4",
           1481,
           "flow",
           false
         ],
         [
           4986,
-          "match_4",
+          "match_2",
           1481,
           "flow",
           false
@@ -18807,6 +18822,13 @@
           false
         ],
         [
+          1525,
+          "flow",
+          1521,
+          "flow",
+          false
+        ],
+        [
           1524,
           "flow",
           1521,
@@ -18814,13 +18836,6 @@
           false
         ],
         [
-          1523,
-          "flow",
-          1521,
-          "flow",
-          false
-        ],
-        [
           1525,
           "flow",
           1521,
@@ -18835,7 +18850,7 @@
           false
         ],
         [
-          1525,
+          1523,
           "flow",
           1521,
           "flow",
@@ -20606,6 +20621,27 @@
           false
         ],
         [
+          394,
+          "down",
+          1669,
+          "flow",
+          false
+        ],
+        [
+          457,
+          "gureset",
+          1669,
+          "reset",
+          false
+        ],
+        [
+          7,
+          "flow",
+          1670,
+          "flow",
+          false
+        ],
+        [
           10192,
           "flow",
           10226,
@@ -21572,15 +21608,15 @@
           false
         ],
         [
-          247,
-          "False",
+          1181,
+          "flow",
           10011,
           "flow",
           false
         ],
         [
-          1181,
-          "flow",
+          247,
+          "False",
           10011,
           "flow",
           false
@@ -21796,14 +21832,14 @@
           false
         ],
         [
-          843,
+          10245,
           "down",
           10238,
           "flow",
           false
         ],
         [
-          10245,
+          843,
           "down",
           10238,
           "flow",
@@ -22490,14 +22526,14 @@
         ],
         [
           1017,
-          "match_1",
+          "match_2",
           10279,
           "flow",
           false
         ],
         [
           1017,
-          "match_2",
+          "match_1",
           10279,
           "flow",
           false
@@ -22734,13 +22770,6 @@
           false
         ],
         [
-          639,
-          "flow",
-          10088,
-          "flow",
-          false
-        ],
-        [
           766,
           "flow",
           10088,
@@ -22749,6 +22778,13 @@
         ],
         [
           520,
+          "flow",
+          10088,
+          "flow",
+          false
+        ],
+        [
+          639,
           "flow",
           10088,
           "flow",
@@ -23217,14 +23253,14 @@
           false
         ],
         [
-          579,
+          623,
           "flow",
           10125,
           "flow",
           false
         ],
         [
-          623,
+          579,
           "flow",
           10125,
           "flow",
@@ -23518,14 +23554,14 @@
           false
         ],
         [
-          843,
+          10245,
           "down",
           10281,
           "flow",
           false
         ],
         [
-          10245,
+          843,
           "down",
           10281,
           "flow",
@@ -24163,7 +24199,7 @@
             }
           },
           "pos":[
-            -3028,
+            -3048,
             -678
           ],
           "type":"logic/flowSwitch"
@@ -25798,8 +25834,8 @@
             ]
           ],
           "pos":[
-            1284,
-            78
+            1144,
+            106
           ],
           "type":"util/customLua"
         },
@@ -29551,7 +29587,7 @@
           "hardcodedPins":{
             "duration":{
               "type":"number",
-              "value":0.75000000000000233147
+              "value":0.75000000000000266454
             }
           },
           "hiddenPins":{
@@ -29987,11 +30023,11 @@
             },
             "directionBias":{
               "type":"number",
-              "value":0.80000001200000303569
+              "value":0.80000001200000336876
             },
             "spawnRate":{
               "type":"number",
-              "value":0.00009999999750000061
+              "value":0.00009999999750000069
             }
           },
           "hiddenPins":{
@@ -30888,8 +30924,8 @@
             }
           },
           "pos":[
-            -746,
-            -874
+            -704,
+            -930
           ],
           "type":"logic/branch"
         },
@@ -32224,7 +32260,7 @@
             ]
           ],
           "pos":[
-            4966,
+            4952,
             134
           ],
           "type":"util/customLua"
@@ -37397,7 +37433,7 @@
             }
           },
           "pos":[
-            -2692,
+            -2684,
             -538
           ],
           "type":"scene/rectMarker"
@@ -37676,7 +37712,7 @@
             }
           },
           "pos":[
-            -2860,
+            -2852,
             -468
           ],
           "type":"types/genericValue"
@@ -37851,8 +37887,8 @@
             }
           },
           "pos":[
-            -2860,
-            -384
+            -2874,
+            -370
           ],
           "type":"types/genericValue"
         },
@@ -38824,8 +38860,8 @@
             }
           },
           "pos":[
-            -2860,
-            -552
+            -2846,
+            -566
           ],
           "type":"types/genericValue"
         },
@@ -39174,8 +39210,8 @@
             ]
           ],
           "pos":[
-            1104,
-            92
+            1116,
+            50
           ],
           "type":"util/customLua"
         },
@@ -40512,8 +40548,8 @@
             }
           },
           "pos":[
-            -928,
-            -902
+            -920,
+            -944
           ],
           "type":"ui/imgui/elemental/imButton"
         },
@@ -43678,7 +43714,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local winner = self.pinIn.winner.value\nself.pinOut.over.value = (winner ~= 0)\nself.pinOut.won.value = (winner == 1)\n\nif self.pinIn.plyrdy.value ~= 1 then\nself.pinOut.text.value = \"Get In Position\"\nself.pinOut.btntxt.value = \"Give Up\"\nelseif winner == 0 then\nlocal pgtxt = \"Race In Progress!\\n\"\npgtxt = pgtxt .. \"Lap \" .. (self.pinIn.clap.value or 1) .. \"/\".. self.pinIn.laps.value .. \"\\n\"\npgtxt = pgtxt .. \"Checkpoint \" .. (self.pinIn.cpid.value or 1) .. \"/\" .. self.pinIn.cpc.value\nself.pinOut.text.value = pgtxt\nself.pinOut.btntxt.value = \"Give Up\"\nelseif winner == 1 then\nself.pinOut.text.value = \"You won the race!\"\nself.pinOut.btntxt.value = \"Claim Reward\"\nelse\nself.pinOut.text.value = \"You lost the race!\"\nself.pinOut.btntxt.value = \"Continue...\"\nend\n\nself.pinOut.slips.value = self.pinIn.slips.value == 1\n\n"
+            "work":"local winner = self.pinIn.winner.value\nself.pinOut.over.value = (winner ~= 0)\nself.pinOut.won.value = (winner == 1)\n\nif self.pinIn.plyrdy.value ~= 1 then\nself.pinOut.text.value = \"Get In Position\"\nself.pinOut.btntxt.value = \"Give Up\"\nself.pinOut.started.value = false\nelseif winner == 0 then\nlocal pgtxt = \"Race In Progress!\\n\"\npgtxt = pgtxt .. \"Lap \" .. (self.pinIn.clap.value or 1) .. \"/\".. self.pinIn.laps.value .. \"\\n\"\npgtxt = pgtxt .. \"Checkpoint \" .. (self.pinIn.cpid.value or 1) .. \"/\" .. self.pinIn.cpc.value\nself.pinOut.text.value = pgtxt\nself.pinOut.btntxt.value = \"Give Up\"\nself.pinOut.started.value = true\nelseif winner == 1 then\nself.pinOut.text.value = \"You won the race!\"\nself.pinOut.btntxt.value = \"Claim Reward\"\nself.pinOut.started.value = true\nelse\nself.pinOut.text.value = \"You lost the race!\"\nif self.pinIn.slips.value == 1 then\nself.pinOut.btntxt.value = \"Hand Over Slips\"\nelse\nself.pinOut.btntxt.value = \"Continue\"\nend\nself.pinOut.started.value = true\nend\n\nself.pinOut.slips.value = self.pinIn.slips.value == 1\nself.pinOut.gureset.value = not self.pinOut.started.value"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -43696,8 +43732,10 @@
             "p_out":{
               "btntxt":false,
               "flow":false,
+              "gureset":false,
               "over":false,
               "slips":false,
+              "started":false,
               "text":false,
               "won":false
             }
@@ -43803,10 +43841,24 @@
               "cpc",
               null,
               ""
+            ],
+            [
+              "out",
+              "bool",
+              "started",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "bool",
+              "gureset",
+              null,
+              ""
             ]
           ],
           "pos":[
-            -1348,
+            -1312,
             -706
           ],
           "type":"util/customLua"
@@ -44064,8 +44116,8 @@
             }
           },
           "pos":[
-            -3154,
-            -314
+            -2992,
+            -272
           ],
           "type":"logic/flowSwitch"
         },
@@ -51134,7 +51186,9 @@
           "type":"logic/flowSwitch"
         },
         "633":{
-          "data":{},
+          "data":{
+            "name":"BeamLRTrigger_PureDragFinish"
+          },
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
@@ -51245,8 +51299,8 @@
           },
           "opSymbol":"==",
           "pos":[
-            1530,
-            78
+            1438,
+            50
           ],
           "type":"logic/compare"
         },
@@ -51364,8 +51418,8 @@
             ]
           ],
           "pos":[
-            1726,
-            78
+            1746,
+            64
           ],
           "type":"util/customLua"
         },
@@ -58150,7 +58204,7 @@
               "value":[
                 1,
                 0,
-                0.00006008148190000043,
+                0.00006008148190000049,
                 1
               ]
             },
@@ -72074,8 +72128,8 @@
             }
           },
           "pos":[
-            -2384,
-            -594
+            -2390,
+            -580
           ],
           "type":"logic/branch"
         },
@@ -72359,8 +72413,8 @@
             }
           },
           "pos":[
-            -3042,
-            -552
+            -3020,
+            -566
           ],
           "type":"types/genericValue"
         },
@@ -72388,8 +72442,8 @@
           },
           "opSymbol":"==",
           "pos":[
-            -3056,
-            -468
+            -3006,
+            -482
           ],
           "type":"logic/compare"
         },
@@ -79719,8 +79773,8 @@
             ]
           ],
           "pos":[
-            4946,
-            260
+            4974,
+            106
           ],
           "type":"util/customLua"
         },
@@ -80756,7 +80810,7 @@
             ]
           ],
           "pos":[
-            1746,
+            1754,
             260
           ],
           "type":"util/customLua"
@@ -90268,7 +90322,7 @@
           "hardcodedPins":{
             "B":{
               "type":"number",
-              "value":0.00999999977600008957
+              "value":0.00999999977600010345
             }
           },
           "hiddenPins":{
@@ -92403,7 +92457,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(\"garageSafeMode\", false)\nextensions.blrflags.set(\"garageSafeMode\", false)\nextensions.blrglobals.gmSetVal(\"pgas\", extensions.blrglobals.gmGetVal(\"cgas\")) -- Gets current gas value and stores it for after part edit\nextensions.blrglobals.gmSetVal(\"podo\", extensions.blrglobals.gmGetVal(\"codo\"))-- do same thing with odometer\nextensions.blrglobals.gmSetVal(\"pnos\", extensions.blrglobals.gmGetVal(\"cnos\"))-- do same thing with NOS\nextensions.blrglobals.gmSetVal(\"pftypes\", extensions.blrutils.blrvarGet(\"fuelTypeString\")) -- 1.14.2 addition, fuel types\nextensions.blrglobals.gmSetVal(\"pfratio\", extensions.blrutils.blrvarGet(\"fuelRatioString\")) -- 1.14.2 addition, fuel ratio\nextensions.blrglobals.blrFlagSet(\"hasNos\", false) -- Setting hasNos to false to avoid vlua fetching bug before flag is set by N2O Check node\nextensions.blrhooks.linkHook(\"vehReset\", \"postedit\")\ncore_vehicle_manager.reloadVehicle(0)"
+            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(\"garageSafeMode\", false)\nextensions.blrflags.set(\"garageSafeMode\", false)\nextensions.blrglobals.gmSetVal(\"pgas\", extensions.blrglobals.gmGetVal(\"cgas\")) -- Gets current gas value and stores it for after part edit\nextensions.blrglobals.gmSetVal(\"podo\", extensions.blrglobals.gmGetVal(\"codo\"))-- do same thing with odometer\nextensions.blrglobals.gmSetVal(\"pnos\", extensions.blrglobals.gmGetVal(\"cnos\"))-- do same thing with NOS\nextensions.blrglobals.gmSetVal(\"pftypes\", extensions.blrutils.blrvarGet(\"fuelTypeString\")) -- 1.14.2 addition, fuel types\nextensions.blrglobals.gmSetVal(\"pfratio\", extensions.blrutils.blrvarGet(\"fuelRatioString\")) -- 1.14.2 addition, fuel ratio\nextensions.blrglobals.blrFlagSet(\"hasNos\", false) -- Setting hasNos to false to avoid vlua fetching bug before flag is set by N2O Check node\nextensions.blrhooks.linkHook(\"vehReset\", \"postedit\")\n-- 1.16.2 fix for part edit safe mode spawning vehicles without AVB\nextensions.blrglobals.blrFlagSet(\"advancedVehicleBuilding\", true)\ncore_vehicle_manager.reloadVehicle(0)"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -97880,6 +97934,132 @@
           ],
           "type":"util/customLua"
         },
+        "1669":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nif self.pinIn.reset.value then\nextensions.blrglobals.blrFlagSet(\"raceStartGiveUpReset\", true)\nend"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "reset":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Reset Markers",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "bool",
+              "reset",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -928,
+            -846
+          ],
+          "type":"util/customLua"
+        },
+        "1670":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal flag = self.pinIn.flag.value\nlocal onceMode = self.pinIn.onceMode.value\nlocal state = extensions.blrglobals.blrFlagGet(flag)\nlocal outflow = state\nif state and onceMode then extensions.blrglobals.blrFlagSet(flag, false) end\nself.pinOut.out.value = outflow and self.pinIn.flow.value"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "flag":{
+              "type":"string",
+              "value":"raceStartGiveUpReset"
+            },
+            "onceMode":{
+              "type":"bool",
+              "value":true
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flag":true,
+              "flow":false,
+              "onceMode":true
+            },
+            "p_out":{
+              "flow":true,
+              "out":false
+            }
+          },
+          "name":"BLR Flag Flow",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "out",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "string",
+              "flag",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "bool",
+              "onceMode",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -3210,
+            -314
+          ],
+          "type":"util/customLua"
+        },
         "4986":{
           "count":5,
           "customName":"Player Exit",
@@ -99423,7 +99603,7 @@
             }
           },
           "pos":[
-            -480,
+            -500,
             -888
           ],
           "type":"types/genericValue"
@@ -102583,7 +102763,9 @@
           "type":"types/genericValue"
         },
         "10149":{
-          "data":{},
+          "data":{
+            "name":"BeamLRTrigger_PureDragFinish"
+          },
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
@@ -103066,7 +103248,9 @@
           "type":"scene/singleMarker"
         },
         "10165":{
-          "data":{},
+          "data":{
+            "name":""
+          },
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
@@ -103254,7 +103438,7 @@
             }
           },
           "pos":[
-            -2818,
+            -2832,
             -664
           ],
           "type":"types/genericValue"
@@ -106440,10 +106624,10 @@
         "list":{}
       },
       "viewPos":[
-        296.75939941406250000000,
-        -1333.88085937500000000000
+        -1314.23266601562500000000,
+        -263.61383056640625000000
       ],
-      "viewZoom":0.35859495401382446289
+      "viewZoom":0.30312487483024597168
     },
     "3":{
       "description":"This is the description for graph States",
@@ -106459,14 +106643,14 @@
         ],
         [
           4,
-          "fail",
+          "success",
           6,
           "flow",
           false
         ],
         [
           4,
-          "success",
+          "fail",
           6,
           "flow",
           false
@@ -106564,10 +106748,10 @@
         "list":{}
       },
       "viewPos":[
-        816.25915527343750000000,
-        -1333.88073730468750000000
+        -1224.67736816406250000000,
+        -574.78674316406250000000
       ],
-      "viewZoom":0.35859489440917968750
+      "viewZoom":0.66093689203262329102
     }
   },
   "isScenario":true,

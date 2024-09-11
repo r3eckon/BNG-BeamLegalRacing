@@ -646,7 +646,9 @@ angular.module('beamng.apps')
 	  scope.getUsedPartSellPrice = function(pid)
 	  {
 		var odometer = scope.getUsedPartOdometer(pid)
-	    var full = scope.beamlrData['partPrices'][scope.beamlrData['advinvData'][pid][0]]
+		var full = scope.beamlrData['partPrices'][scope.beamlrData['advinvData'][pid][0]]
+		if(full == null)
+			full = scope.beamlrData['partPrices']['default']
 		var scale = 1.0 - (0.9 * (Math.min(1.0, odometer / 200000000)))
 		return full * scale
 	  }
@@ -655,6 +657,8 @@ angular.module('beamng.apps')
 	  {
 		var odometer = scope.beamlrData['advinvData'][pid][1]
 	    var full = scope.beamlrData['partPrices'][scope.beamlrData['advinvData'][pid][0]]
+		if(full == null)
+			full = scope.beamlrData['partPrices']['default']
 		var scale = 1.0 - (0.9 * (Math.min(1.0, odometer / 200000000)))
 		return full * scale
 	  }

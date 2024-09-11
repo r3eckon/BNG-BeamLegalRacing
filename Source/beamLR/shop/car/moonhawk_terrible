@@ -1,8 +1,8 @@
 name=Bruckell Moonhawk
 type=moonhawk
 config=vehicles/moonhawk/terrible.pc
-baseprice=600,800
-odometer=180000000,230000000
+baseprice=500,1000
+odometer=250000000,400000000
 scrapval=300
 partprice=0
 paint=0,0,0,0,0.1,0.1,0.1,0.1

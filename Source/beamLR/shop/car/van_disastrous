@@ -1,8 +1,8 @@
 name=Gavril H-Series
 type=van
 config=vehicles/van/derby.pc
-baseprice=800,1100
-odometer=190000000,240000000
+baseprice=500,1000
+odometer=250000000,400000000
 scrapval=100
 partprice=0
 paint=0,0,0,0,0.1,0.1,0.1,0.1
