@@ -27,9 +27,7 @@ If you absolutely must play with other mods, add them one at a time and test to 
 
 If your issue can be reliably reproduced, take note of steps needed to recreate the problem and mention them in your bug report. 
 
-Check console (~ key) for obvious errors. Send screenshots if there are any errors. If you know how to recreate the problem, try clearing console before it happens to remove unrelated console output.  
-
-Sometimes the console can contain so much stuff error messages have been overwritten. In this situation please attach the log files to your bug report. Log files are located in the userfolder and finish with a .log extension. 
+Attach your log files (found inside the userfolder) to your bug report. Do not post screenshots of error pop-ups in game, this error message is useless most of the time. 
 
 ![logs](https://i.imgur.com/6BDvi7C.png)
 
@@ -37,4 +35,4 @@ Once again to remove unrelated output, delete these files before the error happe
 
 Finally, please attach to your bug report any screenshots, videos or information you think could help fix the issue. List any steps you took to try to fix the issue. 
 
-Simply put: the more comprehensive your bug report is, the faster the bug will be fixed.
+The more comprehensive your bug report is, the faster the bug will be fixed.
