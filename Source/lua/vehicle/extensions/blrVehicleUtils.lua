@@ -928,6 +928,11 @@ local function executeIntegrityUpdate()
 local conditions = partCondition.getConditions()
 local integrity = 0
 
+if (not conditions) or (type(conditions) ~= "table") then
+partCondition.initConditions(nil, 0.0, 1.0, "a", nil)
+print("PART CONDITIONS TABLE WAS MISSING OR RETURNED false! Calling initConditions with 0 odo, 1 integrity.\nThis shouldn't happen, likely caused by broken save files.")
+end
+
 -- key is is inventory id, value is part name
 for k,v in pairs(integrityUpdateQueue) do
 	if conditions[v] then

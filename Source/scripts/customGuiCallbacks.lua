@@ -769,6 +769,7 @@ local childmap = extensions.betterpartmgmt.getChildMap()
 local ptclues = extensions.mechDamageLoader.getPowertrainClues()
 local cchilds = {}
 local removed = {}
+local done = {} -- 1.16.3 fix for child part removed that tried to get removed again as a parent
 
 -- since advanced repair is just like part edit, need to store veh values
 extensions.blrglobals.gmSetVal("pgas", extensions.blrglobals.gmGetVal("cgas")) 	-- gets current gas value to restore later
@@ -817,31 +818,47 @@ local cid = 0
 -- loop over removed parts, checked childs for damage, add undamaged to inventory
 for k,v in pairs(removed) do
 -- 1.16, dealing with main removed parts, delete from ilinks and inventory since these are damaged
+
+if not done[v] then -- 1.16.3 fix for removed child that tries to get removed as parent due to having child parts
 csplit = extensions.blrutils.ssplit(ilinks[v], ",")
 cid = tonumber(csplit[1])
 extensions.blrPartInventory.remove(cid)
 ilinks[v] = nil
+done[v] = true -- 1.16.3 fix, mark part as done so it doesn't bug if trying to remove again
 print("REMOVED DAMAGED PARENT FROM INVENTORY: ID=" .. cid .. " NAME=" .. v)
+else
+print("WOULD HAVE REMOVED ALREADY REMOVED PART: " .. v)
+end
 
 cchilds = childmap[v]
 for slot,part in pairs(cchilds) do
 
 if not damage[part] and part~="" then
 -- 1.16 undamaged child part, remove from ilinks but keep in inventory, mark as unused
+if not done[part] then -- 1.16.3 fix for removed child that tries to get removed as parent due to having child parts
 csplit = extensions.blrutils.ssplit(ilinks[part], ",")
 cid = tonumber(csplit[1])
 extensions.blrPartInventory.setPartUsed(cid, false)
 ilinks[part] = nil
+done[part] = true -- 1.16.3 fix, mark part as done so it doesn't bug if trying to remove again
 print("ADDED UNDAMAGED CHILD TO INVENTORY: ID=" .. cid .. " NAME=" .. part)
+else
+print("WOULD HAVE REMOVED ALREADY REMOVED PART: " .. part)
+end
 end
 
 if damage[part] and part~="" then
 -- 1.16 damaged child part, remove from ilinks and inventory
+if not done[part] then -- 1.16.3 fix for removed child that tries to get removed as parent due to having child parts
 csplit = extensions.blrutils.ssplit(ilinks[part], ",")
 cid = tonumber(csplit[1])
 extensions.blrPartInventory.remove(cid)
 ilinks[part] = nil
+done[part] = true -- 1.16.3 fix, mark part as done so it doesn't bug if trying to remove again
 print("REMOVED DAMAGED CHILD FROM INVENTORY: ID=" .. cid .. " NAME=" .. part)
+else
+print("WOULD HAVE REMOVED ALREADY REMOVED PART: " .. part)
+end
 end
 
 end

@@ -26,11 +26,19 @@ angular.module('beamng.apps')
 	  scope.templateFixSelected = {}
 	  scope.templateFixTemplate = {}
 	  scope.templateFixNeeded = false
+	  scope.optshow = {}
 	  
 	  scope.buylocked = false //locks buy action until result received
 	  scope.lastbuyitem = ""
 	  scope.lastbuyused = false // true if used part was bought, false if new part was bough
 	  
+	  scope.toggleOptionShow = function(submenu)
+	  {
+		  if(scope.optshow[submenu] == null)
+			  scope.optshow[submenu] = true
+		  else
+			scope.optshow[submenu] = !scope.optshow[submenu]
+	  }
 	  
 	  if(!scope.initDone)
 	  {

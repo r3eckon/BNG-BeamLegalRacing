@@ -760,3 +760,10 @@ Thank you for playing BeamLR!
 * Tweaked odometer based part integrity decrease (starts at 150,000 km, maxes out at 450,000 km)
 * Tweaked low end used cars odometer & price (decreased min value, increased max odometer)
 * Removed option to disable Advanced Vehicle Building (necessary for new part inventory)
+
+### 1.16.3
+* Added toggles to show/hide option categories 
+* Fixed selective repair issue with new inventory system
+* Fixed Italy traffic spawns blocking player home entrance
+* Fixed onVehicleResetted hook error when traffic is reset while player has no car
+* Missing partConditions table now loads fallback (can't recreate bug, this will reset part odometer values but should avoid breaking save files)

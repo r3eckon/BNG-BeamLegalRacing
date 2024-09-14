@@ -53,6 +53,11 @@ rtable[h] = ftable[lftable[h]](lptable[h])
 unlinkHook(h)
 end
 
+if not be:getPlayerVehicle(0) then
+print("onVehicleResetted hook called but player had no vehicle, skipping.\nHook vehicleID was " .. vehicleID)
+return
+end
+
 if vehicleID == be:getPlayerVehicle(0):getId() then -- 1.15 fix for track event player not frozen, should also prevent other issues with reset hook from other vehicles
 --1.13 advanced vehicle building, reset avb flag to false after spawn
 --to avoid shop cars, race opponents & traffic from missing parts

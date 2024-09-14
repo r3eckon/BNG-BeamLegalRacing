@@ -1,8 +1,8 @@
 {
-  "activeGraphId":3,
+  "activeGraphId":1,
   "authors":"BeamLR",
-  "currentGraphID":3,
-  "date":1726081016,
+  "currentGraphID":1,
+  "date":1726344543,
   "debugEnabled":false,
   "description":"Beam Legal Racing Career",
   "difficulty":100,
@@ -832,6 +832,13 @@
           false
         ],
         [
+          471,
+          "False",
+          77,
+          "flow",
+          false
+        ],
+        [
           585,
           "false",
           77,
@@ -841,13 +848,6 @@
         [
           613,
           "flow",
-          77,
-          "flow",
-          false
-        ],
-        [
-          471,
-          "False",
           77,
           "flow",
           false
@@ -1105,13 +1105,6 @@
           false
         ],
         [
-          1178,
-          "flow",
-          95,
-          "flow",
-          false
-        ],
-        [
           943,
           "true",
           95,
@@ -1120,6 +1113,13 @@
         ],
         [
           109,
+          "flow",
+          95,
+          "flow",
+          false
+        ],
+        [
+          1178,
           "flow",
           95,
           "flow",
@@ -1616,14 +1616,7 @@
           true
         ],
         [
-          9884,
-          "flow",
-          123,
-          "flow",
-          false
-        ],
-        [
-          183,
+          9879,
           "flow",
           123,
           "flow",
@@ -1637,7 +1630,14 @@
           false
         ],
         [
-          9879,
+          183,
+          "flow",
+          123,
+          "flow",
+          false
+        ],
+        [
+          9884,
           "flow",
           123,
           "flow",
@@ -2281,13 +2281,6 @@
           false
         ],
         [
-          949,
-          "false",
-          175,
-          "flow",
-          false
-        ],
-        [
           1175,
           "flow",
           175,
@@ -2297,6 +2290,13 @@
         [
           146,
           "flow",
+          175,
+          "flow",
+          false
+        ],
+        [
+          949,
+          "false",
           175,
           "flow",
           false
@@ -2491,15 +2491,15 @@
           false
         ],
         [
-          749,
-          "flow",
+          1096,
+          "False",
           194,
           "flow",
           false
         ],
         [
-          1094,
-          "False",
+          1552,
+          "flow",
           194,
           "flow",
           false
@@ -2512,15 +2512,15 @@
           false
         ],
         [
-          1096,
-          "False",
+          749,
+          "flow",
           194,
           "flow",
           false
         ],
         [
-          1552,
-          "flow",
+          1094,
+          "False",
           194,
           "flow",
           false
@@ -2764,20 +2764,6 @@
           false
         ],
         [
-          1175,
-          "down",
-          212,
-          "flow",
-          false
-        ],
-        [
-          1180,
-          "down",
-          212,
-          "flow",
-          false
-        ],
-        [
           124,
           "flow",
           212,
@@ -2787,6 +2773,20 @@
         [
           1575,
           "flow",
+          212,
+          "flow",
+          false
+        ],
+        [
+          1175,
+          "down",
+          212,
+          "flow",
+          false
+        ],
+        [
+          1180,
+          "down",
           212,
           "flow",
           false
@@ -3604,14 +3604,7 @@
           false
         ],
         [
-          509,
-          "false",
-          276,
-          "flow",
-          false
-        ],
-        [
-          763,
+          10217,
           "false",
           276,
           "flow",
@@ -3625,7 +3618,14 @@
           false
         ],
         [
-          10217,
+          763,
+          "false",
+          276,
+          "flow",
+          false
+        ],
+        [
+          509,
           "false",
           276,
           "flow",
@@ -4976,21 +4976,14 @@
           false
         ],
         [
-          10017,
-          "flow",
-          378,
-          "flow",
-          false
-        ],
-        [
-          394,
-          "flow",
-          378,
-          "flow",
-          false
-        ],
-        [
           966,
+          "flow",
+          378,
+          "flow",
+          false
+        ],
+        [
+          1182,
           "flow",
           378,
           "flow",
@@ -5004,8 +4997,15 @@
           false
         ],
         [
-          1182,
+          10017,
           "flow",
+          378,
+          "flow",
+          false
+        ],
+        [
+          377,
+          "none",
           378,
           "flow",
           false
@@ -5018,8 +5018,8 @@
           false
         ],
         [
-          377,
-          "none",
+          394,
+          "flow",
           378,
           "flow",
           false
@@ -8217,13 +8217,6 @@
           true
         ],
         [
-          1551,
-          "false",
-          613,
-          "flow",
-          false
-        ],
-        [
           594,
           "False",
           613,
@@ -8233,6 +8226,13 @@
         [
           553,
           "flow",
+          613,
+          "flow",
+          false
+        ],
+        [
+          1551,
+          "false",
           613,
           "flow",
           false
@@ -10184,13 +10184,6 @@
           false
         ],
         [
-          1258,
-          "flow",
-          761,
-          "flow",
-          false
-        ],
-        [
           1388,
           "flow",
           761,
@@ -10199,6 +10192,13 @@
         ],
         [
           1259,
+          "flow",
+          761,
+          "flow",
+          false
+        ],
+        [
+          1258,
           "flow",
           761,
           "flow",
@@ -11024,7 +11024,7 @@
           false
         ],
         [
-          1149,
+          1131,
           "flow",
           823,
           "flow",
@@ -11038,7 +11038,7 @@
           false
         ],
         [
-          1131,
+          956,
           "flow",
           823,
           "flow",
@@ -11052,7 +11052,7 @@
           false
         ],
         [
-          956,
+          1149,
           "flow",
           823,
           "flow",
@@ -11626,13 +11626,6 @@
           false
         ],
         [
-          206,
-          "down",
-          873,
-          "flow",
-          false
-        ],
-        [
           878,
           "down",
           873,
@@ -11647,6 +11640,13 @@
           false
         ],
         [
+          206,
+          "down",
+          873,
+          "flow",
+          false
+        ],
+        [
           104,
           "flow",
           874,
@@ -11654,7 +11654,7 @@
           false
         ],
         [
-          171,
+          148,
           "down",
           874,
           "reset",
@@ -11668,14 +11668,14 @@
           false
         ],
         [
-          126,
+          171,
           "down",
           874,
           "reset",
           false
         ],
         [
-          148,
+          126,
           "down",
           874,
           "reset",
@@ -11773,6 +11773,13 @@
           false
         ],
         [
+          879,
+          "flow",
+          880,
+          "flow",
+          false
+        ],
+        [
           1387,
           "flow",
           880,
@@ -11781,13 +11788,6 @@
         ],
         [
           1257,
-          "flow",
-          880,
-          "flow",
-          false
-        ],
-        [
-          879,
           "flow",
           880,
           "flow",
@@ -12298,13 +12298,6 @@
           false
         ],
         [
-          185,
-          "flow",
-          925,
-          "flow",
-          false
-        ],
-        [
           1634,
           "flow",
           925,
@@ -12313,6 +12306,13 @@
         ],
         [
           1478,
+          "flow",
+          925,
+          "flow",
+          false
+        ],
+        [
+          185,
           "flow",
           925,
           "flow",
@@ -14286,13 +14286,6 @@
           false
         ],
         [
-          271,
-          "flow",
-          1094,
-          "flow",
-          false
-        ],
-        [
           193,
           "flow",
           1094,
@@ -14301,6 +14294,13 @@
         ],
         [
           1473,
+          "flow",
+          1094,
+          "flow",
+          false
+        ],
+        [
+          271,
           "flow",
           1094,
           "flow",
@@ -14503,13 +14503,6 @@
           false
         ],
         [
-          605,
-          "True",
-          1107,
-          "flow",
-          false
-        ],
-        [
           10271,
           "flow",
           1107,
@@ -14519,6 +14512,13 @@
         [
           1379,
           "flow",
+          1107,
+          "flow",
+          false
+        ],
+        [
+          605,
+          "True",
           1107,
           "flow",
           false
@@ -17716,13 +17716,6 @@
           false
         ],
         [
-          1180,
-          "down",
-          1422,
-          "flow",
-          false
-        ],
-        [
           1575,
           "flow",
           1422,
@@ -17732,6 +17725,13 @@
         [
           124,
           "flow",
+          1422,
+          "flow",
+          false
+        ],
+        [
+          1180,
+          "down",
           1422,
           "flow",
           false
@@ -29587,7 +29587,7 @@
           "hardcodedPins":{
             "duration":{
               "type":"number",
-              "value":0.75000000000000266454
+              "value":0.75000000000000288658
             }
           },
           "hiddenPins":{
@@ -30023,11 +30023,11 @@
             },
             "directionBias":{
               "type":"number",
-              "value":0.80000001200000336876
+              "value":0.80000001200000381285
             },
             "spawnRate":{
               "type":"number",
-              "value":0.00009999999750000069
+              "value":0.00009999999750000075
             }
           },
           "hiddenPins":{
@@ -37770,7 +37770,7 @@
             ]
           ],
           "pos":[
-            1214,
+            1194,
             946
           ],
           "type":"util/customLua"
@@ -40783,7 +40783,7 @@
             ]
           ],
           "pos":[
-            1466,
+            1446,
             946
           ],
           "type":"util/customLua"
@@ -51187,7 +51187,7 @@
         },
         "633":{
           "data":{
-            "name":"BeamLRTrigger_PureDragFinish"
+            "name":"BeamNGTrigger_AirfieldFinish"
           },
           "dynamicMode":"repeat",
           "hiddenPins":{
@@ -58204,7 +58204,7 @@
               "value":[
                 1,
                 0,
-                0.00006008148190000049,
+                0.00006008148190000053,
                 1
               ]
             },
@@ -90322,7 +90322,7 @@
           "hardcodedPins":{
             "B":{
               "type":"number",
-              "value":0.00999999977600010345
+              "value":0.00999999977600011386
             }
           },
           "hiddenPins":{
@@ -102764,7 +102764,7 @@
         },
         "10149":{
           "data":{
-            "name":"BeamLRTrigger_PureDragFinish"
+            "name":"BeamNGTrigger_HighwayExit"
           },
           "dynamicMode":"repeat",
           "hiddenPins":{
@@ -103249,7 +103249,7 @@
         },
         "10165":{
           "data":{
-            "name":""
+            "name":"BeamNGTrigger_HighwayExit"
           },
           "dynamicMode":"repeat",
           "hiddenPins":{
@@ -106624,10 +106624,10 @@
         "list":{}
       },
       "viewPos":[
-        -1314.23266601562500000000,
-        -263.61383056640625000000
+        572.64300537109375000000,
+        443.58377075195312500000
       ],
-      "viewZoom":0.30312487483024597168
+      "viewZoom":0.74999994039535522461
     },
     "3":{
       "description":"This is the description for graph States",
@@ -106748,10 +106748,10 @@
         "list":{}
       },
       "viewPos":[
-        -1224.67736816406250000000,
-        -574.78674316406250000000
+        -1121.15087890625000000000,
+        -623.10900878906250000000
       ],
-      "viewZoom":0.66093689203262329102
+      "viewZoom":0.27865606546401977539
     }
   },
   "isScenario":true,

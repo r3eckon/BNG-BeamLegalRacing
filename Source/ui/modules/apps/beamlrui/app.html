@@ -111,8 +111,15 @@ If you have <span style="font-weight:bold;">confirmed</span> bugs that haven't b
 
 <div style="margin-left: 5px; margin-right: 5px; overflow:scroll; overflow-y:scroll; max-height:250px; max-width:500px; background-color:rgba(0,0,0,0.5)">
 
-<h3 style="text-align:center; margin-top:5px; margin-bottom:5px;">&nbsp General </h3>
+<div ng-click="toggleOptionShow('general')" style="width:95%; font-size:20px; font-weight:bold; text-align:center; margin:auto; margin-top:10px;">
+<span ng-if="optshow['general'] == false || optshow['general'] == null" style="float:left;">&nbsp+</span>
+<span ng-if="optshow['general'] == true" style="float:left;">&nbsp-</span>
+<span>General</span>
+<span ng-if="optshow['general'] == false || optshow['general'] == null" style="float:right;">+&nbsp</span>
+<span ng-if="optshow['general'] == true" style="float:right;">-&nbsp</span>
+</div>
 
+<div ng-if="optshow['general'] == true">
 <p style="text-align:center;"> 
 Player Name 
 <input type="text" ng-model="inputData.name" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
@@ -204,9 +211,17 @@ Toggle Health System
 <button ng-class="inputData.allowinjury == 1 ? 'toggleon' : 'toggleoff'" ng-click="toggleHealth(1)">On</button>
 <button ng-class="inputData.allowinjury == 0 ? 'toggleon' : 'toggleoff'" ng-click="toggleHealth(0)">Off</button>
 </p>
+</div>
 
-<h3 style="text-align:center;"> Career </h3>
+<div ng-click="toggleOptionShow('career')" style="width:95%; font-size:20px; font-weight:bold; text-align:center; margin:auto; margin-top:10px;">
+<span ng-if="optshow['career'] == false || optshow['career'] == null" style="float:left;">&nbsp+</span>
+<span ng-if="optshow['career'] == true" style="float:left;">&nbsp-</span>
+<span>Career</span>
+<span ng-if="optshow['career'] == false || optshow['career'] == null" style="float:right;">+&nbsp</span>
+<span ng-if="optshow['career'] == true" style="float:right;">-&nbsp</span>
+</div>
 
+<div ng-if="optshow['career'] == true">
 <p style="text-align:center;"> 
 Current Career Seed: {{beamlrData['seed']}}
 </p>
@@ -281,8 +296,17 @@ Reset Career (WARNING: PERMANENT)
 
 <br>
 
-<h3 style="text-align:center;"> User Interface </h3>
+</div>
 
+<div ng-click="toggleOptionShow('ui')" style="width:95%; font-size:20px; font-weight:bold; text-align:center; margin:auto; margin-top:10px;">
+<span ng-if="optshow['ui'] == false || optshow['ui'] == null" style="float:left;">&nbsp+</span>
+<span ng-if="optshow['ui'] == true" style="float:left;">&nbsp-</span>
+<span>User Interface</span>
+<span ng-if="optshow['ui'] == false || optshow['ui'] == null" style="float:right;">+&nbsp</span>
+<span ng-if="optshow['ui'] == true" style="float:right;">-&nbsp</span>
+</div>
+
+<div ng-if="optshow['ui'] == true">
 <p style="text-align:center; margin-top:15px; margin-bottom:15px; margin-left:20px; margin-right:20px;">
 IMGUI scale parameter can be used to increase interactive menu sizes when playing at high resolution.
 UI app scaling can be changed from the BeamNG options menu.
@@ -325,7 +349,17 @@ Part Preview Scaling Mode
 <button ng-class="inputData.imgmode == 1 ? 'toggleon' : 'toggleoff'" ng-click="setImageUIMode(1)">Scale To Fit</button>
 </p>
 
-<h3 style="text-align:center;"> Traffic </h3>
+</div>
+
+<div ng-click="toggleOptionShow('traffic')" style="width:95%; font-size:20px; font-weight:bold; text-align:center; margin:auto; margin-top:10px;">
+<span ng-if="optshow['traffic'] == false || optshow['traffic'] == null" style="float:left;">&nbsp+</span>
+<span ng-if="optshow['traffic'] == true" style="float:left;">&nbsp-</span>
+<span>Traffic</span>
+<span ng-if="optshow['traffic'] == false || optshow['traffic'] == null" style="float:right;">+&nbsp</span>
+<span ng-if="optshow['traffic'] == true" style="float:right;">-&nbsp</span>
+</div>
+
+<div ng-if="optshow['traffic'] == true">
 
 <p style="text-align:center;">  Requires scenario restart to take effect </p>
 
@@ -377,7 +411,7 @@ Race Traffic
 <button ng-class="inputData.rtmode == 1 ? 'toggleon' : 'toggleoff'" ng-click="setRaceTraffic(1)">Always Off</button>
 </p>
 
-<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >Instant toggle traffic removes lag when spawning traffic after races & challenges. Prevents the game from freeing up RAM when traffic is disabled. Also reduces traffic diversity due to same vehicles always being used.<p>
+<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >Instant toggle traffic removes lag when spawning traffic after races & challenges. Prevents the game from freeing up RAM when traffic is disabled. Also reduces traffic diversity due to same vehicles always being used.</p>
 
 <p style="text-align:center; transform:translate(40px,0px); width:400px;"> 
 Instant Toggle Traffic 
@@ -385,17 +419,25 @@ Instant Toggle Traffic
 <button ng-class="inputData.tfasttoggle == 0 ? 'toggleon' : 'toggleoff'" ng-click="setTrafficFastToggle(0)">Off</button>
 </p>
 
-<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >Use this setting to manually toggle traffic for debug or testing purposes. Can be used to spawn new variants if Instant Toggle Traffic is off.<p>
+<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >Use this setting to manually toggle traffic for debug or testing purposes. Can be used to spawn new variants if Instant Toggle Traffic is off.</p>
 
 <p style="text-align:center; transform:translate(40px,0px); width:400px;"> 
 Manual Traffic Toggle
 <button class="toggleoff" ng-click="trafficToggle(1)">On</button>
 <button class="toggleoff" ng-click="trafficToggle(0)">Off</button>
 </p>
+</div>
 
-<h3 style="text-align:center;"> Dynamic Weather </h3>
+<div ng-click="toggleOptionShow('weather')" style="width:95%; font-size:20px; font-weight:bold; text-align:center; margin:auto; margin-top:10px;">
+<span ng-if="optshow['weather'] == false || optshow['weather'] == null" style="float:left;">&nbsp+</span>
+<span ng-if="optshow['weather'] == true" style="float:left;">&nbsp-</span>
+<span>Dynamic Weather</span>
+<span ng-if="optshow['weather'] == false || optshow['weather'] == null" style="float:right;">+&nbsp</span>
+<span ng-if="optshow['weather'] == true" style="float:right;">-&nbsp</span>
+</div>
 
-<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >Dynamic weather will smoothly change weather condition throughout the day. Weather changes from day to day using career seed. Time scale affects weather change rate.<p>
+<div ng-if="optshow['weather'] == true">
+<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >Dynamic weather will smoothly change weather condition throughout the day. Weather changes from day to day using career seed. Time scale affects weather change rate.</p>
 
 <p style="text-align:center; margin-top:5px; margin-bottom:5px;"> 
 Dynamic Weather Toggle
@@ -403,7 +445,7 @@ Dynamic Weather Toggle
 <button ng-class="inputData.dwtoggle == 0 ? 'toggleon' : 'toggleoff'" ng-click="dwtoggle(0)">Off</button>
 </p>
 
-<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >Variability values control chance of bad weather. Lower values will make clear sky, low wind and low fog more likely. Set value to 0 to disable dynamic weather for a specific weather element (will use values set in freeroam).<p>
+<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >Variability values control chance of bad weather. Lower values will make clear sky, low wind and low fog more likely. Set value to 0 to disable dynamic weather for a specific weather element (will use values set in freeroam).</p>
 
 
 <p style="text-align:center;"> 
@@ -424,9 +466,17 @@ Fog Density Variability
 <button ng-click="setFogDensityVar(inputData.fdvar)">Set</button>
 </p>
 
+</div>
 
-<h3 style="text-align:center;"> Advanced </h3>
+<div ng-click="toggleOptionShow('advanced')" style="width:95%; font-size:20px; font-weight:bold; text-align:center; margin:auto; margin-top:10px;">
+<span ng-if="optshow['advanced'] == false || optshow['advanced'] == null" style="float:left;">&nbsp+</span>
+<span ng-if="optshow['advanced'] == true" style="float:left;">&nbsp-</span>
+<span>Advanced</span>
+<span ng-if="optshow['advanced'] == false || optshow['advanced'] == null" style="float:right;">+&nbsp</span>
+<span ng-if="optshow['advanced'] == true" style="float:right;">-&nbsp</span>
+</div>
 
+<div ng-if="optshow['advanced'] == true">
 <p style="text-align:center;">  Use the "Fix Cops" button only if police chases player without pursuit UI showing. Do not use when pursuit UI is showing to avoid further bugs with police system.</p>
 
 <p style="text-align:center;"> 
@@ -491,6 +541,7 @@ Part Edit Safe Mode
 <button ng-class="inputData.gsafemode == 0 ? 'toggleon' : 'toggleoff'" ng-click="safeModeToggle(0)">Off</button>
 </p>
 
+</div>
 
 <br>
 
