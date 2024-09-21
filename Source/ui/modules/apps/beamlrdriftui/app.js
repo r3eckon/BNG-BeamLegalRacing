@@ -8,6 +8,7 @@ angular.module('beamng.apps')
 	  
 	  scope.cscore = 'Not Loaded'
 	  scope.tscore = 'Not Loaded'
+	  scope.combo = '0.0'
 	  scope.enabled = false
 	  
 	  scope.$on('beamlrCurrentDrift', function (event, data) {
@@ -16,6 +17,10 @@ angular.module('beamng.apps')
 	  
 	  scope.$on('beamlrTotalDrift', function (event, data) {
           scope.tscore = data
+      })
+	  
+	   scope.$on('beamlrDriftCombo', function (event, data) {
+          scope.combo = data
       })
 	  
 	  scope.$on('beamlrToggleDriftUI', function (event, data) {

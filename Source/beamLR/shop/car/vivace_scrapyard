@@ -1,8 +1,8 @@
 name=Cherrier FCV
 type=vivace
 config=vehicles/vivace/blr_scrapyard.pc
-baseprice=350
-odometer=0
+baseprice=200,400
+odometer=200000000,400000000
 scrapval=90
 partprice=0
 paint=0,0,0,0,0.1,0.1,0.1,0.1

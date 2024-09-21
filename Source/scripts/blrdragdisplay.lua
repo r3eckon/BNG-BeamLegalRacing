@@ -8,6 +8,8 @@ local rightTimeDigits = {}
 local rightSpeedDigits = {}
 local lights = {}
 
+local finishState = {}
+
 local function setDigit(i, d, t, s)
 if t == "time" then
 if s == "left" then
@@ -119,6 +121,14 @@ index = index+1
 end
 end
 
+local function setFinished(side)
+finishState[side] = true
+end
+
+local function getFinished(side)
+return finishState[side]
+end
+
 
 local function countdown(step)
 if step == "prestage" then
@@ -177,6 +187,13 @@ core_camera.setByName(0, currentCam, true)
 end
 end
 
+local function resetFinishedStates()
+finishState = {}
+end
+
+M.resetFinishedStates = resetFinishedStates
+M.getFinished = getFinished
+M.setFinished = setFinished
 M.resetCamera = resetCamera
 M.finishCamera = finishCamera
 M.countdown = countdown

@@ -1,7 +1,7 @@
 name=Ibishu Miramar (Base,Manual)
 type=miramar
 config=vehicles/miramar/base_M.pc
-baseprice=500,7000
+baseprice=500,5000
 odometer=40000000,400000000
 scrapval=300
 partprice=0

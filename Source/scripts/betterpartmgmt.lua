@@ -1260,9 +1260,24 @@ end
 local function getPartKeyedSlotMap()
 local map = getSlotMap()
 local toRet = {}
+local stemp = ""
 for slot,avail in pairs(map) do
 for _,part in pairs(avail) do
-toRet[part] = slot -- probably needs to handle cases where same part fits in multiple slots
+-- 1.16.4 fix for missing slots in part edit, handle case where part fits in multiple slots
+if toRet[part] then
+
+if type(toRet[part]) == "table" then
+table.insert(toRet[part], slot)
+else
+stemp = toRet[part]
+toRet[part] = {}
+table.insert(toRet[part], stemp)
+table.insert(toRet[part], slot)
+end
+
+else
+toRet[part] = slot 
+end
 end
 end
 return toRet
@@ -1348,12 +1363,27 @@ for _,slot in pairs(slots) do -- loop over slots
 if avail[slot] then
 	for _,part in pairs(avail[slot]) do -- loop over parts that fit in this slot
 		if invmap[part] then -- check if inventory contains current part
-			cslot = pksmap[part] -- get current slot from part keyed slot map
-			if not unsorted[cslot] then unsorted[cslot] = {} end
-			if not sorted[cslot] then sorted[cslot] = {} end
-			for _,id in pairs(invmap[part]) do -- loop over inventory IDs for current part
-				table.insert(unsorted[cslot], id) -- add them to unsorted table
-			end	
+			-- 1.16.4 fix for missing slots due to part fitting in multiple slots
+			if type(pksmap[part]) == "table" then
+			
+				for _,cs in pairs(pksmap[part]) do
+					if not unsorted[cs] then unsorted[cs] = {} end
+					if not sorted[cs] then sorted[cs] = {} end
+					for _,id in pairs(invmap[part]) do -- loop over inventory IDs for current part
+						table.insert(unsorted[cs], id) -- add them to unsorted table
+					end
+				end
+				
+				else
+				
+				cslot = pksmap[part] -- get current slot from part keyed slot map
+				if not unsorted[cslot] then unsorted[cslot] = {} end
+				if not sorted[cslot] then sorted[cslot] = {} end
+				for _,id in pairs(invmap[part]) do -- loop over inventory IDs for current part
+					table.insert(unsorted[cslot], id) -- add them to unsorted table
+				end
+				
+			end
 		end
 	end
 end
@@ -1392,7 +1422,14 @@ if configDataCache["ilinks"] then
 for k,v in pairs(configDataCache["ilinks"]) do
 csplit = extensions.blrutils.ssplit(v, ",")
 cid = tonumber(csplit[1])
+-- 1.16.4 fix for missing slots caused by parts that can work in many slots
+if type(pksmap[k]) == "table" then
+for _,s in pairs(pksmap[k]) do
+toRet[s] = cid
+end
+else
 toRet[pksmap[k]] = cid
+end
 end
 else
 print("getUsedPartInventoryIDs failed due to missing ilinks for vehicle with GID " .. gid)

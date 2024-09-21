@@ -145,6 +145,11 @@ extensions.customGuiStream.sendDataToUI("sortedGarageSlots", list)
 list = extensions.betterpartmgmt.getSortedGarageParts()
 extensions.customGuiStream.sendDataToUI("sortedGarageParts", list)
 end
+
+-- 1.16.4 fix, clear cache after calling getPart to ensure no AVB cache problems happen
+-- this is in UI related code because getFullPartPrices calls jbeamio.getPart
+-- MAKE SURE THIS STAYS AT THE BOTTOM
+require('jbeam/io').finishLoading()
 end		
 
 
@@ -189,6 +194,11 @@ extensions.customGuiStream.sendDataToUI("sortedGarageSlots", list)
 list = extensions.betterpartmgmt.getSortedGarageParts()
 extensions.customGuiStream.sendDataToUI("sortedGarageParts", list)
 end
+
+-- 1.16.4 fix, clear cache after calling getPart to ensure no AVB cache problems happen
+-- this is in UI related code because getFullPartPrices calls jbeamio.getPart
+-- MAKE SURE THIS STAYS AT THE BOTTOM
+require('jbeam/io').finishLoading()
 end																											  
 
 ftable["inventoryRefresh"] = function(p) -- This function is now called as post edit action to fix layout bug
@@ -272,7 +282,10 @@ list = extensions.betterpartmgmt.advancedInventoryCategory(list)
 end
 extensions.customGuiStream.sendDataToUI("advinvFilter", list)
 
-
+-- 1.16.4 fix, clear cache after calling getPart to ensure no AVB cache problems happen
+-- this is in UI related code because getFullPartPrices calls jbeamio.getPart
+-- MAKE SURE THIS STAYS AT THE BOTTOM
+require('jbeam/io').finishLoading()
 end
 
 ftable["uiinit"] = function(p)
@@ -1122,7 +1135,12 @@ end
 jsonWriteFile(fullpath, tdata, true)
 end
 
-
+ftable["setLeagueRestriction"] = function(p)
+local dtable = {}
+dtable["lrestrict"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+extensions.blrglobals.blrFlagSet("restrictRaceLeagues", p == 1)
+end
 
 local ptable = {}
 local rtable = {}

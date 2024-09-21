@@ -1,9 +1,10 @@
 
 
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.16.3/beamLegalRacing1.16.3.zip
+
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.16.4/beamLegalRacing1.16.4.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.16.3
+# Beam Legal Racing 1.16.4
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -25,9 +26,9 @@ Perform missions, races and challenges to earn money to buy vehicles and parts. 
 **BeamLR cannot be installed like a normal mod due to data persistence issues when zipped**. 
 
 Carefully follow the instructions to ensure all features are working properly:
-* [Download the latest release][latest].
-* Extract zip file contents directly to your [BeamNG userfolder][userfolder].
-* Tell your operating system to replace existing files if asked.
+1. [Download the latest release][latest].
+2. Extract zip file contents directly to your [BeamNG userfolder][userfolder].
+3. Tell your operating system to replace existing files if asked.
 
 **After installing check the *Read Before Playing* section of this readme for important information and a quick overview of major update features.**
 
@@ -39,38 +40,31 @@ Modders should back up the userfolder before installing.
 
 **IMPORTANT NOTE**: Version 1.16 and above are not compatible with previous version backups
 
-* [Download the latest release][latest].
-* Extract updated mod zip contents to the [BeamNG userfolder][userfolder].
-* Tell OS to replace existing files when asked. **This will apply the update.**
-* Use the BeamLR options menu to restore your backup. 
+1. [Download the latest release][latest].
+2. Extract updated mod zip contents to the [BeamNG userfolder][userfolder].
+3. Tell OS to replace existing files when asked. **This will apply the update.**
+4. Use the BeamLR options menu to restore your backup. 
 
 **Remember to update your addons if you have any installed!**
 
-If the backup system fails to work properly you can manually replace the following files/folders using your backed up beamLR folder:
-
-* beamLR/beamstate                                    (External and mechanical damage)
-* beamLR/garage                                       (Garage vehicle data & config)
-* beamLR/mainData                                     (Main career data file for money,rep,etc)
-* beamLR/shop/daydata                                 (Vehicle shop daily data, aka bought slots)
-* beamLR/races/INSERT RACE CLUB/progress              (Race club progress, repeat for each club)
-* beamLR/currentTrackEvent                            (Current track event progress)
-* beamLR/partInv                                      (Part inventory)
-* beamLR/itemInventory                                (Item inventory)
-* beamLR/options                                      (User settings)
+If the backup system fails to work properly you can manually replace the files/folders using your backed up beamLR folder. Ask on the forum if you need help knowing which files to paste over. 
 
 **After updating check the *Read Before Playing* section of this readme for important information and a quick overview of major update features**
 
 If you are experiencing issues after updating the mod, try a **clean** userfolder install and copy over your backup.
 
-## BeamNG Update Userfolder Migration Process
+## BeamNG Major Updates
+### The mod will most likely not be compatible with a new major version of BeamNG. 
+### Do not create issues telling me to update the mod  during major version updates. 
 
-With major updates to BeamNG a new userfolder is created. Not all BeamLR files are automatically migrated.
+With major updates to BeamNG a new userfolder is created. Not all BeamLR files are automatically migrated. It is recommended to do a fresh install of BeamLR in the new userfolder before moving your career files:
 
-It is recommended to do a fresh install of BeamLR in the new userfolder before moving your career files.
+1. Start BeamNG after updating to complete the userfolder migration process
+2. Do a fresh install of BeamLR into the new userfolder (once a compatible version has been released)
+3. Copy the contents of **beamLR/backup** from the old userfolder into **beamLR/backup** in the new userfolder
+4. Use the options menu to restore your backup
 
-To restore your career use the process for a normal mod update after installing in the new userfolder.
-
-The game will give you a chance to view the contents of your old userfolder containing career files on first launch after updating so don't worry about steam update deleting your save.
+The game will give you a chance to view the contents of your old userfolder containing career files on first launch after updating so don't worry about steam update deleting your save. The BeamLR folder will not be migrated to the new userfolder so your career files will be kept in the old userfolder.
 
 
 ## Read Before Playing
@@ -124,6 +118,8 @@ Version 1.15.4 adds dynamic weather controlled from options menu (cloud cover, w
 Version 1.16 completely revamps the part inventory system allowing each individual part to have specific odometer and integrity values. It also adds the ability to buy used parts (reduced cost for higher odometer) and implements dynamic mirror offsets saved to vehicle configs. This new version is not compatible career files from previous versions and will require starting from scratch. See [advanced part inventory](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#advanced-part-inventory) for more information.
 
 Version 1.16.1 adds part integrity decrease at high odometer which means more idle play and less performance on high odometer engines.
+
+Version 1.16.4 adds performance class restrictions for race club leagues and the ability to skip leagues up to gold league.  Bronze league requires a vehicle below C class, silver league requires a vehicle below S class. Night only race clubs don't have this restriction. This feature can be turned off in options.
 
 Further instructions and various tips on this mods' various features are listed in the BeamLR UI Main Menu.
 
@@ -767,3 +763,23 @@ Thank you for playing BeamLR!
 * Fixed Italy traffic spawns blocking player home entrance
 * Fixed onVehicleResetted hook error when traffic is reset while player has no car
 * Missing partConditions table now loads fallback (can't recreate bug, this will reset part odometer values but should avoid breaking save files)
+
+### 1.16.4
+* Added performance class restrictions for race leagues (bronze below C, silver below S)
+* Added button to skip bronze and silver race leagues (if car is above class restriction)
+* Fixed incorrect BX-series config files in drag race clubs (bugged when won in pink slips)
+* Missing config files for pink slips rewards are now avoided (message will be displayed)
+* Scrapyard cars now have odometer and price ranges (200,000km to 400,000km for $200 to $400)
+* Fixed parts that can fit in multiple slots causing missing slots in edit menu
+* Updated drift scoring app to show current combo multiplier
+* Fixed jbeam cache related issue causing AVB data to be used for non AVB cars
+* Fixed dragstrip slow mo triggering after race complete when driving through finish again
+* Slightly increased length of race start markers to fit longer vehicles
+* (0.33) Updated West Coast USA level files for new game version
+* (0.33) Updated modified lua scripts for new game version
+* (0.33) Updated traffic spawngroups with new configs using shared "simple_traffic" model
+* (0.33) Fixed West Coast USA island part shop trigger inside building due to map changes
+* (0.33) Fixed West Coast USA race waypoints outside aiRoads due to map changes
+* (0.33) Implemented legacy drift scoring system (doesn't affect game outside BeamLR)
+* (0.33) Fixed missing West Coast USA dragstrip triggers and waypoints
+* (0.33) Implemented changes for new drag system compatiblity (deactivates "practice" drag in scenario)

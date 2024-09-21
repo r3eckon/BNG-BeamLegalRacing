@@ -103,8 +103,24 @@ end
 
 end
 
+ftable["pinkSlipsCompensate"] = function(p)
+local cmoney = extensions.blrglobals.gmGetVal("playerMoney")
+extensions.blrglobals.gmSetVal("playerMoney", cmoney + 5000)
+print("$5000 has been rewarded as compensation for pink slips issue.")
+end
 
 
+ftable["overloadDriftScoring"] = function(p)
+gameplay_drift_scoring = require("gameplay/drift/scoringLegacy")
+extensions.load("gameplay/drift/scoringLegacy") -- makes sure the extension is loaded so onUpdate gets called
+gameplay_drift_scoring.resetScore()
+end
+
+ftable["reloadDriftScoring"] = function(p)
+gameplay_drift_scoring = require("gameplay/drift/scoring")
+extensions.unload("gameplay_drift_scoringLegacy") -- unloads legacy extension so it doesn't interfere with vanilla scoring
+gameplay_drift_scoring.resetScore()
+end
 
 
 local function setParamTableValue(p,ti,v)

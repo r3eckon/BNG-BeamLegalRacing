@@ -197,8 +197,8 @@
 {"name":"blrwp_raceD66","class":"BeamNGWaypoint","persistentId":"a3c81036-7be4-4886-bece-9cc94524cca9","__parent":"RaceWaypoints","position":[-713.985291,1944.00574,84.2030106],"scale":[3.67685509,3.67685509,3.67685509]}
 {"name":"blrwp_raceD67","class":"BeamNGWaypoint","persistentId":"1e374a46-c020-480f-9dcc-ea2dd74cb132","__parent":"RaceWaypoints","position":[-689.368835,1908.09497,84.2030106],"scale":[3.67685509,3.67685509,3.67685509]}
 {"name":"blrwp_raceD68","class":"BeamNGWaypoint","persistentId":"34534602-eb78-4c52-8fb0-c81536dd32b5","__parent":"RaceWaypoints","position":[-559.723328,1870.93213,85.2371902],"scale":[3.67685509,3.67685509,3.67685509]}
-{"name":"blrwp_raceD69","class":"BeamNGWaypoint","persistentId":"fdfd20aa-b838-4125-9af7-46630d9ad2cb","__parent":"RaceWaypoints","position":[-472.868835,1881.52759,85.4186401],"scale":[3.67685509,3.67685509,3.67685509]}
-{"name":"blrwp_raceD70","class":"BeamNGWaypoint","persistentId":"27183b67-1763-49a8-9ccf-8ffe57532ac5","__parent":"RaceWaypoints","position":[-425.858032,1907.5531,84.5507126],"scale":[2.9735837,2.9735837,2.9735837]}
+{"name":"blrwp_raceD69","class":"BeamNGWaypoint","persistentId":"fdfd20aa-b838-4125-9af7-46630d9ad2cb","__parent":"RaceWaypoints","position":[-471.608337,1882.57385,81.7277756],"scale":[2.36337829,2.36337829,2.36337829]}
+{"name":"blrwp_raceD70","class":"BeamNGWaypoint","persistentId":"27183b67-1763-49a8-9ccf-8ffe57532ac5","__parent":"RaceWaypoints","position":[-424.204254,1906.11194,81.4498978],"scale":[2.9735837,2.9735837,2.9735837]}
 {"name":"blrwp_raceD71","class":"BeamNGWaypoint","persistentId":"e306bc48-d1b0-4302-9b50-961fd71df834","__parent":"RaceWaypoints","position":[-485.837921,1983.19055,80.423378],"scale":[2.9735837,2.9735837,2.9735837]}
 {"name":"blrwp_raceD72","class":"BeamNGWaypoint","persistentId":"184f5a72-8960-42f6-ad11-7ae662449eae","__parent":"RaceWaypoints","position":[-524.560974,1998.75598,78.8061752],"scale":[2.9735837,2.9735837,2.9735837]}
 {"name":"blrwp_raceD73","class":"BeamNGWaypoint","persistentId":"72e22fe8-47da-4ffc-bdc2-7a992b8374a6","__parent":"RaceWaypoints","position":[-688.275513,2039.16858,79.0051651],"scale":[2.9735837,2.9735837,2.9735837]}
@@ -265,3 +265,4 @@
 {"name":"blrwp_raceD134","class":"BeamNGWaypoint","persistentId":"283af7b9-565e-478d-a7bc-2ba5c1d279b5","__parent":"RaceWaypoints","position":[145.605072,961.51825,104.571808],"scale":[3.49868155,3.49868155,3.49868155]}
 {"name":"blrwp_raceD135","class":"BeamNGWaypoint","persistentId":"e7900a94-1b7d-43fe-bf70-8f2f7593c591","__parent":"RaceWaypoints","position":[-327.23291,649.243835,74.8629074],"scale":[3.49868155,3.49868155,3.49868155]}
 {"name":"blrwp_citydrift","class":"BeamNGWaypoint","persistentId":"a57af228-4371-489f-bb45-295f1afbf898","__parent":"RaceWaypoints","position":[-958.000244,159.246719,157.798035],"scale":[2.56308603,2.56308603,2.56308603]}
+{"name":"drag_4","class":"BeamNGWaypoint","__parent":"RaceWaypoints","position":[487.459595,342.722229,119.408493],"rotationMatrix":[-1,0,0,0,-0.999999821,-1.00413963e-05,0,-1.02202102e-05,0.999999821]}

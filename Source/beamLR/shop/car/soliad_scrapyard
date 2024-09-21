@@ -1,8 +1,8 @@
 name=Soliad Wendover
 type=wendover
 config=vehicles/wendover/blr_scrapyard.pc
-baseprice=180
-odometer=0
+baseprice=200,400
+odometer=200000000,400000000
 scrapval=70
 partprice=0
 paint=0,0,0,0,0.1,0.1,0.1,0.1

@@ -35,6 +35,11 @@ lastdata["driftTotal"] = val
 guihooks.trigger("beamlrTotalDrift", v)
 end
 
+local function sendDriftCombo(v)
+lastdata["driftCombo"] = val
+guihooks.trigger("beamlrDriftCombo", v)
+end
+
 local function toggleDriftUI(t)
 lastdata["driftToggled"] = t
 guihooks.trigger("beamlrToggleDriftUI", t)
@@ -158,6 +163,7 @@ local function driftUIinitreload()
 guihooks.trigger("beamlrCurrentDrift", lastdata["driftCurrent"] or 0)
 guihooks.trigger("beamlrTotalDrift", lastdata["driftTotal"] or 0)
 guihooks.trigger("beamlrToggleDriftUI", lastdata["driftToggled"] or false)
+guihooks.trigger("beamlrDriftCombo", lastdata["driftCombo"] or 0)
 end
 local function deliveryUIinitreload()
 guihooks.trigger("beamlrDeliveryMaxForce", lastdata["deliveryMax"] or 0)
@@ -405,6 +411,7 @@ guihooks.trigger("beamlrPartBuyResult", result)
 end
 
 
+M.sendDriftCombo = sendDriftCombo
 M.sendPartBuyResult = sendPartBuyResult
 M.sendTemplateFixData = sendTemplateFixData
 M.sendMirrorsData = sendMirrorsData

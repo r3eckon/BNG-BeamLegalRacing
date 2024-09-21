@@ -1,8 +1,8 @@
 name=Gavril D-Series
 type=pickup
 config=vehicles/pickup/blr_scrapyard.pc
-baseprice=200
-odometer=0
+baseprice=200,400
+odometer=200000000,400000000
 scrapval=70
 partprice=0
 paint=0,0,0,0,0.1,0.1,0.1,0.1

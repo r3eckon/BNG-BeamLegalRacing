@@ -170,6 +170,7 @@ angular.module('beamng.apps')
 		  scope.inputData['fdvar'] = data['fdvar'];
 		  scope.inputData['dwtoggle'] = data['dwtoggle'];
 		  scope.inputData['allowinjury'] = data['allowinjury'];
+		  scope.inputData['lrestrict'] = data['lrestrict']
       })
 	  
 	  
@@ -874,6 +875,13 @@ angular.module('beamng.apps')
 			
 			
 	   })
+	   
+	  scope.setLeagueRestriction = function(t)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("restrict", ${t})`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setLeagueRestriction", "restrict")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
+	  }
 	  
     }
   }

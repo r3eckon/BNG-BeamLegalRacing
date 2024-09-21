@@ -1,8 +1,8 @@
 name=Gavril Grand Marshal
 type=fullsize
 config=vehicles/fullsize/blr_scrapyard.pc
-baseprice=220
-odometer=0
+baseprice=200,400
+odometer=200000000,400000000
 scrapval=80
 partprice=0
 paint=0,0,0,0,0.1,0.1,0.1,0.1

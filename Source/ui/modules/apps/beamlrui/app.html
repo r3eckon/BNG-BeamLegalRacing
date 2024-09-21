@@ -272,6 +272,16 @@ Race reputation scale
 <button ng-click="setRepScale(inputData.repscl)">Set</button>
 </p>
 
+<p style="text-align:center; margin-top:15px; margin-bottom:15px; margin-left:20px; margin-right:20px;">
+Restricted race leagues don't allow vehicles above a certain performance class. You will be allowed to skip leagues if your car is too powerful (up to gold league).
+</p>
+
+<p style="text-align:center;"> 
+Restricted race leagues
+<button ng-class="inputData.lrestrict == 1 ? 'toggleon' : 'toggleoff'" ng-click="setLeagueRestriction(1)">On</button>
+<button ng-class="inputData.lrestrict == 0 ? 'toggleon' : 'toggleoff'" ng-click="setLeagueRestriction(0)">Off</button>
+</p>
+
 <br>
 
 <p style="text-align:center;">

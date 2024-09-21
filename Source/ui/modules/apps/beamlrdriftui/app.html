@@ -2,11 +2,17 @@
 
 <div ng-if="enabled==true" style="background-color:rgba(0.0,0.0,0.0,0.5); height:100%;">
 
-<span style="float:left; margin-left:10px; margin-top:5px; font-weight:bold; font-size:18px;">Current Drift:</span>
-<span style="float:right; margin-right:10px; margin-top:5px; font-weight:bold; font-size:18px;">{{cscore}}</span>
+<table style="table-layout:fixed; width:98%; height:100%; margin:auto;">
+<tr>
+<td style="vertical-align: middle; font-weight:bold; font-size:16px; width:45%;">Current Drift:</td>
+<td style="vertical-align: middle; font-weight:bold; font-size:18px; text-align:right; width:55%;">{{cscore | number : 1}} x {{combo | number : 1}}</td>
+</tr>
+<tr>
+<td style="vertical-align: middle; font-weight:bold; font-size:16px;">Total Score:</td>
+<td style="vertical-align: middle; font-weight:bold; font-size:18px; text-align:right;">{{tscore}}</td>
+</tr>
+</table>
 
-<span style="float:left; margin-left:10px; margin-top:5px; font-weight:bold; font-size:18px;">Total Score:</span>
-<span style="float:right; margin-right:10px; margin-top:5px; font-weight:bold; font-size:18px;">{{tscore}}</span>
 
 </div>
 

@@ -99,7 +99,7 @@ local function addBeamByData(vehicle, beam)
     local bL = vec3(node1pos):distance(node2pos)
     beam.beamPrecompression = max(0, (bL + beam.precompressionRange) / (bL + 1e-30))
   end
-  beam.beamPrecompression = beam.beamPrecompression or 1
+  beam.beamPrecompression = checkNum(beam.beamPrecompression, 1)
   local beamPrecompression = beam.beamPrecompression
   if type(beam.beamPrecompressionTime) == 'number' and beam.beamPrecompressionTime > 0 then
     if beam.beamPrecompression == 1 then
@@ -427,8 +427,19 @@ local function processTorsionbars(vehicle)
     if type(id4) ~= 'number' then
       id4, spring, damp = 0, 0, 0
     end
-    tb.cid = obj:setTorsionbar(-1, id1, id2, id3, id4, spring, damp,
-      checkNum(tb.strength, math.huge), checkNum(tb.deform, math.huge), checkNum(tb.precompressionAngle))
+
+    tb.precompressionAngle = checkNum(tb.precompressionAngle)
+    local precompressionAngle = tb.precompressionAngle
+    if type(tb.precompressionTime) == 'number' and tb.precompressionTime > 0 then
+      if precompressionAngle == 0 then
+        tb.precompressionTime = nil
+      else
+        precompressionAngle = 0
+      end
+    end
+
+    tb.cid = obj:setTorsionbar(-1, id1, id2, id3, id4, spring, spring, damp, damp,
+      checkNum(tb.strength, math.huge), checkNum(tb.deform, math.huge), precompressionAngle)
   end
 end
 

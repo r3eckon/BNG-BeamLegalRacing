@@ -274,6 +274,7 @@ local function finishLoading()
   table.clear(jbeamCache)
   fileCacheOld = fileCache or {}
   fileCache = {}
+  print("CLEARED JBEAM CACHE")
 end
 
 local function getAvailableParts(ioCtx)

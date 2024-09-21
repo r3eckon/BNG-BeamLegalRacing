@@ -398,7 +398,7 @@
     },
 
     "junction1b" : {
-      "nodes" : ["junction1_wp25", "junction1_wp19", "junction1_wp18", "junction1_wp8", "junction1_wp3", "junction1_wp23"],
+      "nodes" : ["junction1_wp25", "junction1_wp19", "junction1_wp18", "junction1_wp8", "junction1_wp3", "junction1_wp23", "junction1_wp7"],
       "oneWay": true,
       "flipDirection": false,
       "drivability" : 1

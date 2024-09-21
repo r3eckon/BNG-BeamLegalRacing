@@ -32,8 +32,8 @@ function C:init(id, role)
 
   local modelData = core_vehicles.getModel(obj.jbeam).model
   local modelType = modelData and string.lower(modelData.Type) or 'none'
-  if obj.jbeam == 'unicycle' and obj:isPlayerControlled() then modelType = 'custom' end
-  if not modelData or not arrayFindValueIndex({'car', 'truck', 'automation', 'traffic', 'custom'}, modelType) or obj.ignoreTraffic then
+  if obj.jbeam == 'unicycle' and obj:isPlayerControlled() then modelType = 'player' end
+  if not modelData or not arrayFindValueIndex({'car', 'truck', 'automation', 'traffic', 'proptraffic', 'player'}, modelType) or obj.ignoreTraffic then
     log('W', logTag, 'Invalid vehicle type for traffic, now ignoring id ['..id..']')
     return
   end
@@ -357,6 +357,7 @@ function C:tryRespawn(queueCoef) -- tests if the vehicle is out of sight and rea
 
   if be:getObjectActive(self.id) then
     queueCoef = queueCoef or 1 -- used as a coefficient if method is called on a cycle (not every frame)
+    -- maybe this coefficient should be lower if very many traffic vehicles are spawned
     self.respawn.playerRadius = clamp(self.respawn.finalRadius, 40, 200) -- base radius for active area
     tempVec:setSub2(self.pos, self.playerData.camPos)
     tempVec:normalize()
@@ -560,28 +561,24 @@ function C:checkOffenses() -- tests for vechicle offenses for police
 
   for id, coll in pairs(self.collisions) do
     local veh = gameplay_traffic.getTrafficData()[id]
-	-- BEAMLR FIX FOR NIL TRAFFIC VEH AFTER COLLISION
-	if not veh then 
-	print("BEAMLR DETECTED /ge/extensions/traffic/vehicle.lua ERROR DUE TO NIL VEH")
-	return 
-	end
-	-- BEAMLR FIX END
-    local validCollision = coll.dot >= 0.2 -- simple comparison to check if current vehicle is at fault for collision
-    if veh.role.targetId ~= nil and veh.role.targetId ~= self.id then validCollision = false end -- ignore collision if other vehicle is targeting a different vehicle
-    if self.isPerson then
-      local center = vec3(be:getObjectOOBBCenterXYZ(id)) -- for accuracy
-      validCollision = self.pos:z0():squaredDistance(center:z0()) < square(veh.width * 0.6) or coll.count >= 3 -- jumping on car, or multiple hits
-    end
+    if veh then
+      local validCollision = coll.dot >= 0.2 -- simple comparison to check if current vehicle is at fault for collision
+      if veh.role.targetId ~= nil and veh.role.targetId ~= self.id then validCollision = false end -- ignore collision if other vehicle is targeting a different vehicle
+      if self.isPerson then
+        local center = vec3(be:getObjectOOBBCenterXYZ(id)) -- for accuracy
+        validCollision = self.pos:z0():squaredDistance(center:z0()) < square(veh.width * 0.6) or coll.count >= 3 -- jumping on car, or multiple hits
+      end
 
-    if not coll.offense and validCollision then
-      if veh.role.name == 'police' and coll.inArea then -- always triggers if police was hit
-        self:triggerOffense({key = 'hitPolice', value = id, score = 200})
-        pursuit.hitCount = pursuit.hitCount + 1
-        coll.offense = true
-      elseif pursuit.mode > 0 or coll.state == 'abandoned' then -- fleeing in a pursuit, or abandoning an accident
-        self:triggerOffense({key = 'hitTraffic', value = id, score = 100})
-        pursuit.hitCount = pursuit.hitCount + 1
-        coll.offense = true
+      if not coll.offense and validCollision then
+        if veh.role.name == 'police' and coll.inArea then -- always triggers if police was hit
+          self:triggerOffense({key = 'hitPolice', value = id, score = 200})
+          pursuit.hitCount = pursuit.hitCount + 1
+          coll.offense = true
+        elseif pursuit.mode > 0 or coll.state == 'abandoned' then -- fleeing in a pursuit, or abandoning an accident
+          self:triggerOffense({key = 'hitTraffic', value = id, score = 100})
+          pursuit.hitCount = pursuit.hitCount + 1
+          coll.offense = true
+        end
       end
     end
   end
@@ -653,7 +650,7 @@ function C:onRefresh() -- triggers whenever vehicle data needs to be refreshed
     local isDaytime = self:checkTimeOfDay()
 
     if not isDaytime then
-      self.respawn.spawnCoef = self.respawn.spawnCoef * 0.5
+      self.respawn.spawnCoef = self.respawn.spawnCoef * 0.25 -- ideally, this needs to scale smoothly with the time value
     end
     self.state = self.alpha == 1 and 'active' or 'fadeIn'
 
@@ -681,11 +678,6 @@ function C:onRefresh() -- triggers whenever vehicle data needs to be refreshed
       else -- force legal speed
         obj:queueLuaCommand('ai.setSpeedMode("legal")')
       end
-    end
-
-    if self.vars.aiMode == 'traffic' and not self.vars.enablePrivateRoads then
-      -- TODO: add this directly into ai.lua for traffic mode
-      obj:queueLuaCommand('ai.setParameters({turnForceCoef = 0.02, awarenessForceCoef = 0.1})') -- improves driving
     end
   end
 

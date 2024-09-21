@@ -4,5 +4,6 @@
   "exclusionZones":{},
   "fieldInfoTbl":{},
   "forestBrushSelectedItems":{},
-  "layerBlendingComboIndexTbl":{}
+  "layerBlendingComboIndexTbl":{},
+  "layerGlobalIndices":{}
 }

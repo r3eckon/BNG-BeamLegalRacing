@@ -962,6 +962,7 @@ end
 
 locals["driftTotal"]  = 0
 locals["driftCurrent"]  = 0
+locals["driftCombo"] = 0
 
 local function setDriftTotal(score)
 locals["driftTotal"]  = score
@@ -969,6 +970,10 @@ end
 
 local function setDriftCurrent(score)
 locals["driftCurrent"]  = score
+end
+
+locals["setDriftCombo"] = function(score)
+locals["driftCombo"] = score
 end
 
 local function getDriftTotal()
@@ -979,8 +984,12 @@ local function getDriftCurrent()
 return locals["driftCurrent"] 
 end
 
+locals["getDriftCombo"] = function()
+return locals["driftCombo"]
+end
+
 local function getDriftCombined()
-return math.floor(locals["driftTotal"]  + locals["driftCurrent"] )
+return math.floor(locals["driftTotal"]  + math.floor(locals["driftCurrent"] * locals["driftCombo"]) )
 end
 
 local buttonConfirmState = {}
@@ -2681,6 +2690,78 @@ end
 
 
 
+locals["missingConfigFinder"] = function(folder, perfclassmode, field)
+local files = FS:findFiles(folder, "*", 10)
+local cdata = {}
+local missing = {}
+
+if perfclassmode then
+for k,v in pairs(files) do
+if FS:fileExists(v) then
+cdata = loadDataFile(v)
+for _,path in pairs(cdata) do
+if not FS:fileExists(path) then
+table.insert(missing, path .. " in file " .. v)
+end
+end
+end
+end
+
+else
+for k,v in pairs(files) do
+if FS:fileExists(v) and (not string.find(v, "progress")) and (not string.find(v, "integrity")) and (not string.find(v, "list")) then
+cdata = loadDataTable(v)
+if not string.find(cdata[field], "class:") then
+for sid,spath in pairs(ssplit(cdata[field], ",")) do
+if not FS:fileExists(spath) then
+table.insert(missing, spath .. " in file " .. v)
+end
+end
+end
+end
+end
+end
+
+return missing
+end
+
+
+locals["checkMissingConfigs"] = function()
+for k,v in pairs(extensions.blrutils.missingConfigFinder("beamLR/races", false, "enemyConfig")) do print(v) end
+for k,v in pairs(extensions.blrutils.missingConfigFinder("beamLR/performanceClass", true, "enemyConfig")) do print(v) end
+for k,v in pairs(extensions.blrutils.missingConfigFinder("beamLR/shop/car", false, "config")) do print(v) end
+end
+
+-- added for 0.33 to rebuild simple traffic spawngroups after cars got put under a same simple_traffic model
+locals["spawngroupGenerator"] = function(output)
+local data = {}
+data.data = {}
+
+local configs = FS:findFiles("vehicles/simple_traffic/", "*.pc", 1)
+local toadd = ""
+
+for k,v in pairs(configs) do
+if not string.find(v, "parked") then
+toadd = v
+toadd = toadd:gsub("/vehicles/simple_traffic/", "")
+toadd = toadd:gsub(".pc", "")
+table.insert(data.data, {model="simple_traffic", config=toadd})
+end
+end
+
+data.type = "custom"
+data.name = "BeamLR Traffic"
+
+jsonWriteFile(output, data, true)
+end
+
+
+
+M.spawngroupGenerator = locals["spawngroupGenerator"]
+M.setDriftCombo = locals["setDriftCombo"]
+M.getDriftCombo = locals["getDriftCombo"]
+M.checkMissingConfigs = locals["checkMissingConfigs"]
+M.missingConfigFinder = locals["missingConfigFinder"]
 M.rewardScaler = locals["rewardScaler"]
 M.getDailySeedOffset = locals["getDailySeedOffset"]
 M.validateWaypoints = locals["validateWaypoints"]

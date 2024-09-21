@@ -1,8 +1,8 @@
 name=ETK I-Series
 type=etki
 config=vehicles/etki/blr_scrapyard.pc
-baseprice=400
-odometer=0
+baseprice=200,400
+odometer=200000000,400000000
 scrapval=100
 partprice=0
 paint=0,0,0,0,0.1,0.1,0.1,0.1

@@ -1,8 +1,8 @@
 name=Ibishu BX-Series (Liftback)
 type=bx
 config=vehicles/bx/blr_200bx_scrapyard_B.pc
-baseprice=300
-odometer=0
+baseprice=200,400
+odometer=200000000,400000000
 scrapval=80
 partprice=0
 paint=0,0,0,0,0.1,0.1,0.1,0.1
