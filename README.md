@@ -1,10 +1,10 @@
 
 
 
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.16.4/beamLegalRacing1.16.4.zip
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.16.5/beamLegalRacing1.16.5.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.16.4
+# Beam Legal Racing 1.16.5
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -249,8 +249,8 @@ Added in version 1.13 is a new GPS system that allows you to find specific desti
 
 ## Improved Fuel System
 Added in version 1.14.2 the improved fuel system now features diesel fuel and gasoline tiers which give slight performance boost to vehicles. Diesel fuel must now be used with diesel engines. Using the incorrect fuel type will disable the engine until the tank is drained. Draining the tank will allow you to add the correct fuel and start the engine again. Gasoline quality is calculated based on ratio of each fuel tier in the tank, higher quality will slightly increase the vehicle output torque. The maximum increase for each tier (for a fuel tank containing only this tier) is as follows:
-* Premium: 20%
-* Mid-Grade: 10%
+* Premium: 5%
+* Mid-Grade: 2.5%
 * Regular: 0%
 
 For example, if a fuel tank contains a 50/50 mix of premium and mid-grade the increase is 15%. For a mix of regular and mid-grade, the increase is 5%. If a fuel tank contains only premium grade, the increase is 20%. While not realistic, BeamNG does not have fuel octane ratings for engines and side effects of incorrect fuel being used, so this is a compromise to give a purpose to higher fuel tiers that makes sense for a racing game. If BeamNG eventually adds this feature the fuel system will be changed to implement fuel tiers in a more realistic way.
@@ -555,6 +555,7 @@ Thank you for playing BeamLR!
 
 ### 1.12.2
 * Fixed missing airport gas station prefab on italy
+
 ### 1.13
 * Added "Advanced Vehicle Building" option (more realistic/SLRR like part edits)
 * Added part selling feature (enabled when using Advanced Vehicle Building)
@@ -783,3 +784,7 @@ Thank you for playing BeamLR!
 * (0.33) Implemented legacy drift scoring system (doesn't affect game outside BeamLR)
 * (0.33) Fixed missing West Coast USA dragstrip triggers and waypoints
 * (0.33) Implemented changes for new drag system compatiblity (deactivates "practice" drag in scenario)
+
+### 1.16.5
+* Fixed West Coast USA broken waypoints and AI roads causing race opponents to stay in place
+* Reduced torque increase from mid-grade and premium fuel (2.5% for mid-grade, 5% for premium)

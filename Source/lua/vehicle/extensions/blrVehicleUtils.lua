@@ -142,7 +142,7 @@ end
 
 
 local function updateFuelQuality()
-fuelQuality = math.min(1.0 + 0.1 * ratio_midgrade + 0.2 * ratio_premium, 1.2)
+fuelQuality = math.min(1.0 + 0.025 * ratio_midgrade + 0.05 * ratio_premium, 1.05)
 if powertrain.getDevices()["mainEngine"] then
 if not powertrain.getDevices()["mainEngine"].isDisabled then
 powertrain.getDevices()["mainEngine"].outputTorqueState = fuelQuality
