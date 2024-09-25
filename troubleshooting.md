@@ -36,3 +36,22 @@ Once again to remove unrelated output, delete these files before the error happe
 Finally, please attach to your bug report any screenshots, videos or information you think could help fix the issue. List any steps you took to try to fix the issue. 
 
 The more comprehensive your bug report is, the faster the bug will be fixed.
+
+## Userfolder Structure Dump
+
+In some cases I may request a dump of the userfolder structure to confirm everything is installed correctly. 
+
+Follow this process to generate the tree file:
+
+1. Navigate to the userfolder
+2. Hold down the SHIFT key > Right click in the folder empty space > "Open PowerShell window here"
+3. Type this line and hit enter
+
+`tree > tree.txt /a /f`
+
+This will create a text file called tree.txt in your userfolder which contains the folder structure. 
+
+Attach this to your bug report or post it on the forum as requested.
+
+
+
