@@ -648,8 +648,7 @@ angular.module('beamng.apps')
 		  var ilinkodo = scope.beamlrData["ilinkodo"][pid]
 		  var vehodo = scope.beamlrData["vehicleOdometer"]
 		  var total = invodo + (vehodo - ilinkodo)
-		  var units = scope.beamlrData["advinvUnits"]
-		  return (units=="imperial") ? total / 1.609 : total;
+		  return total
 	  }
 	  
 	  scope.getUsedPartSellPrice = function(pid)
@@ -730,7 +729,7 @@ angular.module('beamng.apps')
 		
 		 //Next generate odometer value for part, minimum odo is 30kkm, maximum is 300kkm
 		 //Display mode is only true in HTML, will convert to correct unit for UI display
-		 return (scope.beamlrData["advinvUnits"] == "imperial" && displaymode) ? toRet / 1.609: toRet; 
+		 return (scope.beamlrData["advinvUnits"] == "imperial" && displaymode) ? toRet / 1.609344: toRet; 
 	  }
 	  
 	  //Basically, at 30kkm (minimum used part odometer) price scale is about 90%
@@ -805,7 +804,7 @@ angular.module('beamng.apps')
 	   scope.unitConvertedOdometer = function(val)
 	   {
 		   var units = scope.beamlrData["advinvUnits"]
-		   return (units=="imperial") ? val / 1.609 : val;
+		   return (units=="imperial") ? val / 1.609344 : val;
 	   }
 	   
 	   scope.onReplacementSelected = function(part,id)

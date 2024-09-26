@@ -2418,7 +2418,7 @@ dist = core_groundMarkers.routePlanner.path[1].distToTarget
 end
 dist = dist/1000.0
 if units == "imperial" then
-dist = dist / 1.609
+dist = dist / 1.609344
 end
 return dist
 end
@@ -2641,6 +2641,37 @@ end
 end
 end
 
+
+-- Util function to check for missing or unreachable waypoints, this one for track events
+locals["validateEventWaypoints"] = function(efile)
+local dtable = {}
+local waypoints = {}
+local cwp = ""
+local pwp = ""
+local nwp = ""
+local epath = "/beamLR/trackEvents/" .. efile
+
+
+dtable = loadDataTable(epath)
+waypoints = ssplit(dtable["waypoints"], ",")
+for i=1,#waypoints do
+cwp = waypoints[i]
+if i > 1 then pwp = waypoints[i-1] else pwp = "START" end
+if i < #waypoints then nwp = waypoints[i+1] else nwp = "FINISH" end
+if not scenetree.findObject(cwp) then -- Found waypoint missing from map entirely (removed by game update)
+print("MISSING " .. cwp .. " (BETWEEN " .. pwp .. " & " .. nwp .. ")")
+elseif pwp ~= "START" then 
+if #map.getPath(pwp, cwp) < 1 then -- Found existing waypoint with no path between itself and previous waypoint
+print("NO PATH BETWEEN " .. pwp .. " AND " .. cwp)
+end
+end
+end
+
+
+end
+
+
+
 locals["rewardScaler"] = function(folder, filter, field, lowscale, highscale)
 local files = {}
 local cdata = {}
@@ -2756,7 +2787,7 @@ jsonWriteFile(output, data, true)
 end
 
 
-
+M.validateEventWaypoints = locals["validateEventWaypoints"]
 M.spawngroupGenerator = locals["spawngroupGenerator"]
 M.setDriftCombo = locals["setDriftCombo"]
 M.getDriftCombo = locals["getDriftCombo"]

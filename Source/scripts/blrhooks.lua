@@ -47,11 +47,15 @@ end
 
 local onVehicleResetted = function(vehicleID)
 local h = "vehReset"
+
+print("BLRHOOK: VEHICLE RESETTED")
+
 if vehicleID == vidfilter or vidfilter == -1 then
 if lftable[h] ~= nil then
 rtable[h] = ftable[lftable[h]](lptable[h])
 unlinkHook(h)
 end
+
 
 if not be:getPlayerVehicle(0) then
 print("onVehicleResetted hook called but player had no vehicle, skipping.\nHook vehicleID was " .. vehicleID)
@@ -73,7 +77,13 @@ be:getPlayerVehicle(0):queueLuaCommand("controller.setFreeze(0)")
 end
 be:getPlayerVehicle(0):queueLuaCommand("extensions.blrVehicleUtils.buildAdvancedDamageTables()")
 
-print("BLRHOOK: VEHICLE RESETTED")
+-- 1.16.6 ilinks init
+if extensions.blrglobals.blrFlagGet("ilinksInitRequest") then
+print("BLRHOOKS INVENTORY LINKS INIT REQUEST DETECTED, QUEUING...")
+extensions.blrdelay.queue("initInventoryLinks", nil, 10)
+extensions.blrglobals.blrFlagSet("ilinksInitRequest", false)
+end
+
 end
 
 end

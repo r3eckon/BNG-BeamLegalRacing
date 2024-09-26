@@ -108,7 +108,7 @@ end
 local function setSpeed(side, val)
 local index=1
 val = val * 3.6
-if units == "imperial" then val = val / 1.609 end
+if units == "imperial" then val = val / 1.609344 end
 if val > 999.99 then val = 999.99 end
 local units = extensions.blrutils.getSettingValue("uiUnits")
 local integer = math.floor(val)

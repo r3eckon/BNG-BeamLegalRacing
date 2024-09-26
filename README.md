@@ -788,3 +788,12 @@ Thank you for playing BeamLR!
 ### 1.16.5
 * Fixed West Coast USA broken waypoints and AI roads causing race opponents to stay in place
 * Reduced torque increase from mid-grade and premium fuel (2.5% for mid-grade, 5% for premium)
+
+### 1.16.6
+* Fixed missing GPS waypoint on West Coast USA
+* Fixed West Coast USA dock warehouse delivery spot inside containers
+* Replaced delayed ilinks init with call in onVehicleResetted hook (potential fix for ilinks init bug)
+* Fixed broken race waypoints on every map (waypoints probably changed in 0.33)
+* Fixed West Coast USA island trailer spawn point inside building
+* Fixed used part value changing when removed from vehicle when using imperial units
+* Improved precision of kilometers to miles conversion
