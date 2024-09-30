@@ -1,10 +1,10 @@
 
 
 
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.16.6/beamLegalRacing1.16.6.zip
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.16.7/beamLegalRacing1.16.7.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.16.6
+# Beam Legal Racing 1.16.7
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -120,6 +120,8 @@ Version 1.16 completely revamps the part inventory system allowing each individu
 Version 1.16.1 adds part integrity decrease at high odometer which means more idle play and less performance on high odometer engines.
 
 Version 1.16.4 adds performance class restrictions for race club leagues and the ability to skip leagues up to gold league.  Bronze league requires a vehicle below C class, silver league requires a vehicle below S class. Night only race clubs don't have this restriction. This feature can be turned off in options.
+
+Version 1.16.7 improves mod compatibility for car shops with additive list files. See the [updated tutorial](https://github.com/r3eckon/BNG-BeamLegalRacing/blob/main/Tutorials/Adding%20Shop%20Vehicles.md) to learn more.
 
 Further instructions and various tips on this mods' various features are listed in the BeamLR UI Main Menu.
 
@@ -797,3 +799,11 @@ Thank you for playing BeamLR!
 * Fixed West Coast USA island trailer spawn point inside building
 * Fixed used part value changing when removed from vehicle when using imperial units
 * Improved precision of kilometers to miles conversion
+
+### 1.16.7
+* Added car shop list addon system (additive list system for multiple mod compatibility)
+* Part Edit Safe Mode now used when repairing vehicles to avoid soft lock
+* Fixed midsize_18dxM car shop file incorrect odometer values
+* Changed car shop list file refs to remove "list_" prefix (automatically added to path when loading)
+* Fixed missing autoJunction/gatedRoad changes on West Coast USA dragstrip (causing traffic on dragstrip)
+* Fixed West Coast USA left hand turn where AI crashes into wall (highway exit near race track)

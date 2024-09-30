@@ -2787,6 +2787,32 @@ jsonWriteFile(output, data, true)
 end
 
 
+locals["loadCarShopList"] = function(baselist)
+local basepath = "beamLR/shop/car/list_" .. baselist
+local toRet = loadDataFile(basepath)
+
+if not toRet then return end
+
+local addons = {}
+local clist = {}
+
+-- Detected addon folder for list, adding models
+if FS:directoryExists("beamLR/shop/car/addon_" .. baselist) then
+addons = FS:findFiles("beamLR/shop/car/addon_" .. baselist, "*", 1)
+
+for _,addfile in pairs(addons) do
+clist = loadDataFile(addfile)
+for _,carfile in pairs(clist) do
+table.insert(toRet, carfile)
+end
+end
+end
+
+return toRet
+end
+
+
+M.loadCarShopList = locals["loadCarShopList"]
 M.validateEventWaypoints = locals["validateEventWaypoints"]
 M.spawngroupGenerator = locals["spawngroupGenerator"]
 M.setDriftCombo = locals["setDriftCombo"]

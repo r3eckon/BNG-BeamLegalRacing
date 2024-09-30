@@ -877,6 +877,14 @@ end
 end
 end
 
+-- 1.16.7, adding part edit safe mode to repairs
+if extensions.blrglobals.blrFlagGet("garageSafeModeToggle") then
+extensions.blrglobals.blrFlagSet("garageSafeMode", true) -- flag for flowgraph, to remove need for file reading to draw imgui
+extensions.blrflags.set("garageSafeMode", true)	-- shared flag for vlua and gelua, using file saved table
+extensions.customGuiStream.toggleAdvancedRepairUI(false) -- force close advanced repair UI to avoid exploits
+end
+
+
 -- finally execute delayed slot set
 -- 1.16 edit, passing ilinks as parameter to ensure removed/deleted part ilinks are saved to config
 extensions.betterpartmgmt.executeDelayedSlotSet(ilinks)
@@ -887,6 +895,24 @@ ftable["advancedRepairAll"] = function(p)
 local money = extensions.blrglobals.gmGetVal("playerMoney")
 extensions.blrglobals.gmSetVal("playerMoney", money - p["cost"])
 extensions.blrutils.playSFX("event:>UI>Career>Buy_01")
+
+-- since advanced repair is just like part edit, need to store veh values
+extensions.blrglobals.gmSetVal("pgas", extensions.blrglobals.gmGetVal("cgas")) 	-- gets current gas value to restore later
+extensions.blrglobals.gmSetVal("podo", extensions.blrglobals.gmGetVal("codo"))	-- do same thing with odometer
+extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-- do same thing with NOS
+extensions.blrglobals.gmSetVal("pftypes", extensions.blrutils.blrvarGet("fuelTypeString")) -- 1.14.2 addition, fuel types
+extensions.blrglobals.gmSetVal("pfratio", extensions.blrutils.blrvarGet("fuelRatioString")) -- 1.14.2 addition, fuel ratio
+extensions.blrglobals.gmSetVal("poil", extensions.blrglobals.gmGetVal("coil"))	-- 1.15 addition, oil 
+extensions.blrglobals.gmSetVal("pmirrors", extensions.core_vehicle_mirror.getAnglesOffset()) -- 1.16 dynamic mirrors
+extensions.blrhooks.linkHook("vehReset", "postedit")							-- link to post edit action hook
+
+-- 1.16.7, adding part edit safe mode to repairs
+if extensions.blrglobals.blrFlagGet("garageSafeModeToggle") then
+extensions.blrglobals.blrFlagSet("garageSafeMode", true) -- flag for flowgraph, to remove need for file reading to draw imgui
+extensions.blrflags.set("garageSafeMode", true)	-- shared flag for vlua and gelua, using file saved table
+extensions.customGuiStream.toggleAdvancedRepairUI(false) -- force close advanced repair UI to avoid exploits
+end
+
 -- repair all can just trigger flowgraph repair with flag, skipping part that charges player
 extensions.blrglobals.blrFlagSet("uiAdvancedRepairRequest", true)
 end
