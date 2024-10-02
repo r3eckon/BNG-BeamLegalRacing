@@ -1,10 +1,10 @@
 
 
 
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.16.7/beamLegalRacing1.16.7.zip
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.16.8/beamLegalRacing1.16.8.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.16.7
+# Beam Legal Racing 1.16.8
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -55,7 +55,7 @@ If you are experiencing issues after updating the mod, try a **clean** userfolde
 
 ## BeamNG Major Updates
 ### The mod will most likely not be compatible with a new major version of BeamNG. 
-### Do not create issues telling me to update the mod  during major version updates. 
+### Do not create issues telling me to update the mod during major version updates. 
 
 With major updates to BeamNG a new userfolder is created. Not all BeamLR files are automatically migrated. It is recommended to do a fresh install of BeamLR in the new userfolder before moving your career files:
 
@@ -68,24 +68,18 @@ The game will give you a chance to view the contents of your old userfolder cont
 
 
 ## Read Before Playing
-This mod requires specific gameplay options to work properly. As of version 1.11 the mod will automatically set the following gameplay options when you start playing for best experience:
+
+**IMPORTANT**: **Do not change the settings shown below while playing BeamLR**. The settings should be automatically restored to your previous values when you abandon the scenario. Keep in mind game crashes and other forceful exit from the scenario may prevent your old setting from being restored.
 
 ![settings](https://i.imgur.com/ZIor6iw.png)
 
-**Do not change the above settings while playing BeamLR**. The settings should be automatically restored to your previous values when you abandon the scenario. Keep in mind game crashes and other forceful exit from the scenario may prevent your old setting from being restored.
+**IMPORTANT**: **You must abandon the scenario to properly save your progress**. Do not exit the game from main menu until you have abandonned the scenario and are back in freeroam. ALT-F4 or other forceful exit from the game are likely to cause lost progress and/or corrupted save files. Copy the **userfolder/beamLR** folder somewhere if you want to manually backup your career files.
 
-**IMPORTANT**: You must abandon the scenario to properly save your progress. Do not exit the game from main menu until you have abandonned the scenario and are back in freeroam. ALT-F4 or other forceful exit from the game are likely to cause lost progress and/or corrupted save files. Copy the **userfolder/beamLR** folder somewhere if you want to manually backup your career files.
+**IMPORTANT**: **Do not pause the game when interacting with mod menus**. Doing so will cause issues.
 
-BeamLR relies on a UI app and custom UI layout in order to access features such as:
-* Options Menu
-* Part Edit Menu
-* Part Shop Menu
-* Tuning Menu
-* Paint Edit Menu
+**First time players**: The imgui unit detection feature may fail to properly register your unit setting causing a mismatch in displayed units. Switching between metric and imperial fixes this issue. The UI will then show correct units.
 
-Since version 1.5 there is no setup required for the UI to work. The "BeamLR" layout should now be loaded on scenario start. Any changes made to this UI layout will be reflected when playing BeamLR in case the default layout doesn't fit on your screen.
-
-First time players: the imgui unit detection feature may fail to properly register your unit setting. Switching between metric and imperial fixes this issue. The UI will then show correct units.
+The "BeamLR" layout will be loaded on scenario start. Any changes made to this UI layout will be reflected when playing BeamLR in case the default layout doesn't fit on your screen.
 
 ### Major Feature Update Overview
 
@@ -807,3 +801,6 @@ Thank you for playing BeamLR!
 * Changed car shop list file refs to remove "list_" prefix (automatically added to path when loading)
 * Fixed missing autoJunction/gatedRoad changes on West Coast USA dragstrip (causing traffic on dragstrip)
 * Fixed West Coast USA left hand turn where AI crashes into wall (highway exit near race track)
+
+### 1.16.8
+* Fixed West Coast USA dragstrip AI pathing (needs autoJunction enabled for some reason)

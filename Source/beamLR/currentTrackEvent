@@ -1,7 +1,7 @@
 carid=0
-seed=1234
+efile=hirochi_trackA_classA
 cround=2
 ctimes=player:7913800.0219313,op1:4162200.0184607,op2:4097033.0177562,op3:4216257.0208156,op4:4201637.0217652
 eventid=0
 status=over
-efile=hirochi_trackA_classA
+seed=1234
