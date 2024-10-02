@@ -69,19 +69,22 @@ The game will give you a chance to view the contents of your old userfolder cont
 
 ## Read Before Playing
 
-**IMPORTANT**: **Do not change the settings shown below while playing BeamLR**. The settings should be automatically restored to your previous values when you abandon the scenario. Keep in mind game crashes and other forceful exit from the scenario may prevent your old setting from being restored.
+### **IMPORTANT**: **Do not change the settings shown below while playing BeamLR**. 
+The settings should be automatically restored to your previous values when you abandon the scenario. Keep in mind game crashes and other forceful exit from the scenario may prevent your old setting from being restored.
 
 ![settings](https://i.imgur.com/ZIor6iw.png)
 
-**IMPORTANT**: **You must abandon the scenario to properly save your progress**. Do not exit the game from main menu until you have abandonned the scenario and are back in freeroam. ALT-F4 or other forceful exit from the game are likely to cause lost progress and/or corrupted save files. Copy the **userfolder/beamLR** folder somewhere if you want to manually backup your career files.
+### **IMPORTANT**: **You must abandon the scenario to properly save your progress**. 
+Do not exit the game from main menu until you have abandonned the scenario and are back in freeroam. ALT-F4 or other forceful exit from the game are likely to cause lost progress and/or corrupted save files. Copy the **userfolder/beamLR** folder somewhere if you want to manually backup your career files.
 
-**IMPORTANT**: **Do not pause the game when interacting with mod menus**. Doing so will cause issues.
+### **IMPORTANT**: **Do not pause the game when interacting with mod menus**. 
+Doing so will cause issues, specifically with part odometer values and inventory links. This could potentially corrupt your save files.
 
 **First time players**: The imgui unit detection feature may fail to properly register your unit setting causing a mismatch in displayed units. Switching between metric and imperial fixes this issue. The UI will then show correct units.
 
 The "BeamLR" layout will be loaded on scenario start. Any changes made to this UI layout will be reflected when playing BeamLR in case the default layout doesn't fit on your screen.
 
-### Major Feature Update Overview
+## Major Feature Update Overview
 
 Version 1.6 adds N2O tank persistence. Garage files from previous versions are missing this value and will default to empty N2O tanks. Nitrous tanks can be refilled at the repair shop.
 
