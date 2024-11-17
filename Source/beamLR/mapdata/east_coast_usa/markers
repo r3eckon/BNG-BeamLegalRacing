@@ -15,3 +15,7 @@ ChallengeA=Marker_ChallengeA
 ChallengeB=Marker_ChallengeB
 SeasideDrag=Marker_RaceD
 NightDrag=Marker_RaceE
+CarMeet=BeamLRTrigger_CarMeet
+PropA=BeamLRTrigger_PropertySeaside
+PropB=BeamLRTrigger_PropertyTown
+PropC=BeamLRTrigger_PropertyIndustrial

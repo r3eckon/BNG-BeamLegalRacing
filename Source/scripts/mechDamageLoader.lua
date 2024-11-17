@@ -184,10 +184,14 @@ local totalodo = 0
 
 local cparams = ""
 
+print("LOAD ADVANCED INTEGRITY DATA DEBUG BEGIN")
+
 for k,v in pairs(ilinks) do
 csplit = extensions.blrutils.ssplit(v, ",")
 ilinkid = tonumber(csplit[1])
+print("ILINK ID: " .. ilinkid)
 ilinkodo = tonumber(csplit[2])
+print("ILINK ODO: " .. ilinkodo)
 invodo = inventory[ilinkid][2]
 invint = inventory[ilinkid][3]
 
@@ -295,6 +299,12 @@ end
 local function getPowertrainClues()
 return ptclues
 end
+
+
+
+
+
+
 
 M.resetPowertrainClues = resetPowertrainClues
 M.getPowertrainClues = getPowertrainClues

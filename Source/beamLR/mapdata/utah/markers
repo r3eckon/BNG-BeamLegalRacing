@@ -11,3 +11,6 @@ Challenges=BeamLRTrigger_ChallengeArea
 DragRace=BeamLRTrigger_PureDragClub
 Scrapyard=BeamLRTrigger_Scrapyard
 NightRace=Marker_HighStakesDrag
+InfoMeet=BeamLRTrigger_CarMeet
+TouristMeet=BeamLRTrigger_CarMeetB
+TopGasProp=BeamLRTrigger_TopGasProperty

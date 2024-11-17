@@ -776,6 +776,7 @@ end
 return toRet
 end
 
+-- fixed in 1.17 to handle slots with the same proper name
 local function getSortedGarageSlots()
 local sdata = getGarageUIData()
 local snames = getSlotNameLibrary()
@@ -787,13 +788,23 @@ local cname = ""
 
 for k,v in pairs(sdata) do
 cname = snames[k] or k -- 1.10.1 fix
-smap[cname] = k
-table.insert(sortedSlots, cname) -- Sort by name
+
+if not smap[cname] then 
+smap[cname] = {} -- 1.17 fix for slots using exact same name
+table.insert(sortedSlots, cname)
+end
+
+table.insert(smap[cname], k)
 end
 table.sort(sortedSlots)
 
+local index = 1
+
 for k,v in ipairs(sortedSlots) do
-toRet[k] = smap[v]
+for _,n in pairs(smap[v]) do
+toRet[index] = n
+index = index + 1
+end
 end
 
 return toRet
@@ -1449,7 +1460,8 @@ local cid = -1
 
 configFile["ilinks"] = {}
 for k,v in pairs(chosenParts) do
-if v and v~="" and k~=mainPartChild then
+--if v and v~="" and k~=mainPartChild then -- before 1.17, changed to allow pickup frame swaps
+if v and v~="" then
 cid = extensions.blrPartInventory.add(v, odometer, 1.0, true)
 configFile["ilinks"][v] = cid .. "," .. odometer
 end
@@ -1700,7 +1712,256 @@ extensions.blrutils.copyFile(currentConfig, templatePath)
 end
 
 
+local function getValueRangedPartList(minval, maxval)
+local toRet = {}
+local cprice = 0
 
+for k,v in pairs(getAllAvailableParts(true)) do
+cprice = getPartPrice(k) or 0 -- 	 avoid liveries to skip old paint and dynamic texture skin
+if cprice >= minval and cprice <= maxval and not string.find(k, "skin") then
+table.insert(toRet, k)
+end
+end
+
+return toRet
+end
+
+
+local jbeamFileMap = {}
+local fullSlotNameLibrary = {}
+local fullPartNameLibrary = {}
+
+-- creates a jbeam file map for ALL JBEAM FILES including mods 
+local function createFullJbeamMap()
+local files = FS:findFiles("vehicles", "*.jbeam", 100)
+local cdata = {}
+jbeamFileMap = {}
+
+
+
+
+
+for k,v in pairs(files) do
+cdata = jsonReadFile(v)
+for p,pdata in pairs(cdata) do
+jbeamFileMap[p] = v
+end
+end
+
+
+
+
+
+end
+
+local function getJbeamFromFullMap(p)
+return jsonReadFile(jbeamFileMap[p])[p]
+end
+
+local function createFullPartNameLibrary()
+local cjbeam = {}
+local inventory = extensions.blrPartInventory.getInventory()
+local cpart = ""
+
+fullPartNameLibrary = {}
+for k,v in pairs(jbeamFileMap) do
+cjbeam = getJbeamFromFullMap(k)
+fullPartNameLibrary[k] = cjbeam["information"]["name"] or k
+end
+end
+
+local function parseJbeamSlotsTable(data)
+local toRet = {}
+local header = data[1]
+local sid = 1
+
+
+for i=2,#data do
+if not toRet[sid] then toRet[sid] = {} end
+for j=1,#header do
+toRet[sid][header[j]] = data[i][j]
+end
+sid = sid + 1
+end
+
+
+return toRet
+end
+
+-- can't optimize this one, part jbeam doesn't contain parent slot UI name so no way around
+-- looping over every single jbeam file to build a list of slot names
+local function createFullSlotNameLibrary()
+local cjbeam = {}
+fullSlotNameLibrary = {}
+local cslotdata = {}
+local newfmt = false
+
+for k,v in pairs(jbeamFileMap) do
+cjbeam = getJbeamFromFullMap(k)
+cslotdata = nil -- reset to nil to avoid parts that have no child slots
+if cjbeam["slots2"] then
+newfmt = true
+cslotdata = parseJbeamSlotsTable(cjbeam["slots2"])
+elseif cjbeam["slots"] then
+newfmt = false
+cslotdata = parseJbeamSlotsTable(cjbeam["slots"])
+end
+
+if cslotdata then
+for _,slot in pairs(cslotdata) do
+if newfmt then
+fullSlotNameLibrary[slot["name"]] = slot["description"] or slot["name"]
+else
+fullSlotNameLibrary[slot["type"]] = slot["description"] or slot["type"]
+end
+end
+end
+
+
+end
+
+end
+
+local cacheValidBypass = false
+
+local function isJbeamCacheValid()
+
+if cacheValidBypass then return false end
+
+
+if not FS:fileExists("beamLR/cache/cachedMods") then 
+return false
+end
+
+local mods = core_modmanager.getMods()
+local cached = extensions.blrutils.loadDataTable("beamLR/cache/cachedMods")
+
+for k,v in pairs(mods) do
+if v.active and not cached[k] then return false end
+end
+
+return true
+end
+
+
+local function generateJbeamLibraries()
+local cvalid = isJbeamCacheValid()
+
+local cachedMods = {}
+
+if cvalid then
+jbeamFileMap = extensions.blrutils.loadDataTable("beamLR/cache/jbeamFileMap")
+fullSlotNameLibrary = extensions.blrutils.loadDataTable("beamLR/cache/fullSlotNameLibrary")
+fullPartNameLibrary = extensions.blrutils.loadDataTable("beamLR/cache/fullPartNameLibrary")
+else
+createFullJbeamMap()
+createFullPartNameLibrary()
+createFullSlotNameLibrary()
+extensions.blrutils.saveDataTable("beamLR/cache/jbeamFileMap", jbeamFileMap)
+extensions.blrutils.saveDataTable("beamLR/cache/fullSlotNameLibrary", fullSlotNameLibrary)
+extensions.blrutils.saveDataTable("beamLR/cache/fullPartNameLibrary", fullPartNameLibrary)
+
+for k,v in pairs(core_modmanager.getMods()) do
+if v.active then -- skip deactivated mods
+cachedMods[k] = "true"
+end
+end
+
+extensions.blrutils.saveDataTable("beamLR/cache/cachedMods", cachedMods)
+
+end
+
+cacheValidBypass = false
+
+end
+
+
+
+
+
+local function getSlotKeyedFullInventory()
+local inventory = extensions.blrPartInventory.getInventory()
+local toRet = {}
+
+local cpart = ""
+local cjbeam = {}
+local cslot = ""
+
+-- parent slot key in jbeam table= "slotType"
+-- can be table for parts that can fit in multiple slots
+
+for pid,pdata in pairs(inventory) do
+
+cpart = pdata[1]
+cjbeam = getJbeamFromFullMap(cpart)
+cslot = cjbeam["slotType"]
+
+-- insert part inventory id into slot specific table 
+if type(cslot) == "table" then
+for _,s in pairs(cslot) do
+if s ~= "main" and pdata[4] ~= 1 then
+if not toRet[s] then toRet[s] = {} end
+table.insert(toRet[s], pid)
+end
+end
+else
+if cslot ~= "main" and pdata[4] ~= 1 then
+if not toRet[cslot] then toRet[cslot] = {} end
+table.insert(toRet[cslot], pid)
+end
+end
+end
+
+
+return toRet
+end
+
+
+
+local function getSortedFullInventorySlots()
+local inventory = getSlotKeyedFullInventory()
+local slots = {}
+local toRet = {}
+
+for k,v in pairs(inventory) do
+slots[k] = fullSlotNameLibrary[k] or k
+end
+
+
+for k,v in valueSortedPairs(slots) do
+table.insert(toRet, k)
+end
+
+return toRet
+end
+
+
+local function getFullSlotNameLibrary()
+return fullSlotNameLibrary
+end
+
+local function getFullPartNameLibrary()
+return fullPartNameLibrary
+end
+
+
+local function setCacheValidBypass(bypass)
+cacheValidBypass = bypass
+end
+
+M.setCacheValidBypass = setCacheValidBypass
+M.generateJbeamLibraries = generateJbeamLibraries
+M.isJbeamCacheValid = isJbeamCacheValid
+M.getFullPartNameLibrary = getFullPartNameLibrary
+M.getFullSlotNameLibrary = getFullSlotNameLibrary
+M.getSortedFullInventorySlots = getSortedFullInventorySlots
+M.createFullSlotNameLibrary = createFullSlotNameLibrary
+M.parseJbeamSlotsTable = parseJbeamSlotsTable
+M.createFullPartNameLibrary = createFullPartNameLibrary
+M.getSlotKeyedFullInventory = getSlotKeyedFullInventory
+M.getJbeamFromFullMap = getJbeamFromFullMap
+M.createFullJbeamMap = createFullJbeamMap
+M.getValueRangedPartList = getValueRangedPartList
 M.createTemplateFile = createTemplateFile
 M.templateLoadedUpdateIlinks = templateLoadedUpdateIlinks
 M.getSortedMirrors = getSortedMirrors

@@ -1,7 +1,7 @@
 carid=0
-efile=hirochi_trackA_classA
-cround=2
-ctimes=player:7913800.0219313,op1:4162200.0184607,op2:4097033.0177562,op3:4216257.0208156,op4:4201637.0217652
+seed=224
+cround=3
+ctimes=player:225902.50631236,op1:234350.50650034,op2:247052.00684629,op3:237685.50656084,op4:240869.00667101
 eventid=0
 status=over
-seed=1234
+efile=hirochi_derby_classD

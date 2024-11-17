@@ -71,6 +71,31 @@ local function blrFlagsInit()
 blrflags = {}
 end
 
+-- reference to active flowgraph manager, to access project variables more easily
+
+local manager = {}
+
+local function setManager(mgr)
+manager = mgr
+end
+
+local function getManager()
+return manager
+end
+
+local function getProjectVariable(var)
+return manager.variables.variables[var].value
+end
+
+local function setProjectVariable(var, val)
+manager.variables.variables[var].value = val
+end
+
+
+M.setManager = setManager
+M.getManager = getManager
+M.setProjectVariable = setProjectVariable
+M.getProjectVariable = getProjectVariable
 
 M.blrFlagsInit = blrFlagsInit
 M.blrFlagSet = blrFlagSet

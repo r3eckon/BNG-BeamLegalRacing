@@ -18,6 +18,9 @@ print("TEST! Param : " .. p)
 end
 
 ftable["setPart"] = function(p)
+-- 1.17 fix for players using pause while editing parts
+simTimeAuthority.pause(false)
+
 extensions.blrglobals.gmSetVal("pgas", extensions.blrglobals.gmGetVal("cgas")) 	-- Gets current gas value and stores it for after part edit
 extensions.blrglobals.gmSetVal("podo", extensions.blrglobals.gmGetVal("codo"))	-- do same thing with odometer
 extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-- do same thing with NOS
@@ -33,6 +36,8 @@ if extensions.blrglobals.blrFlagGet("garageSafeModeToggle") then
 extensions.blrglobals.blrFlagSet("garageSafeMode", true) -- flag for flowgraph, to remove need for file reading to draw imgui
 extensions.blrflags.set("garageSafeMode", true)	-- shared flag for vlua and gelua, using file saved table
 extensions.customGuiStream.toggleAdvancedRepairUI(false) -- force close advanced repair UI to avoid exploits
+extensions.blrglobals.blrFlagSet("imToggle", false) -- 1.16.9 fix, toggle off IMGUI buttons in safe mode
+extensions.customGuiStream.towingUIToggle(false) -- 1.16.9 fix, close towing UI to prevent towing in safe mode
 end
 
 --1.13 advanced vehicle building edits																				
@@ -95,6 +100,12 @@ else
 guihooks.trigger('Message', {ttl = 10, msg = 'You don\'t have enough money to buy this part!', icon = 'directions_car'})
 extensions.customGuiStream.sendPartBuyResult(false)
 end
+
+-- 1.17 full inventory display data
+local fidlist = extensions.betterpartmgmt.getSlotKeyedFullInventory()
+local fidsortedslots = extensions.betterpartmgmt.getSortedFullInventorySlots()
+extensions.customGuiStream.sendDataToUI("fidInventory",fidlist)
+extensions.customGuiStream.sendDataToUI("fidSortedSlots",fidsortedslots)
 end
 
 ftable["setFilter"] = function(p)
@@ -282,6 +293,16 @@ list = extensions.betterpartmgmt.advancedInventoryCategory(list)
 end
 extensions.customGuiStream.sendDataToUI("advinvFilter", list)
 
+-- 1.17 full inventory display data
+local fidlist = extensions.betterpartmgmt.getSlotKeyedFullInventory()
+local fidsortedslots = extensions.betterpartmgmt.getSortedFullInventorySlots()
+local fidslotnames = extensions.betterpartmgmt.getFullSlotNameLibrary()
+local fidpartnames = extensions.betterpartmgmt.getFullPartNameLibrary()
+extensions.customGuiStream.sendDataToUI("fidInventory",fidlist)
+extensions.customGuiStream.sendDataToUI("fidSortedSlots",fidsortedslots)
+extensions.customGuiStream.sendDataToUI("fidSlotNames",fidslotnames)
+extensions.customGuiStream.sendDataToUI("fidPartNames",fidpartnames)
+
 -- 1.16.4 fix, clear cache after calling getPart to ensure no AVB cache problems happen
 -- this is in UI related code because getFullPartPrices calls jbeamio.getPart
 -- MAKE SURE THIS STAYS AT THE BOTTOM
@@ -294,6 +315,9 @@ print("UI Init Request Received")
 end
 
 ftable["setTune"] = function(p)
+-- 1.17 fix for players using pause while editing parts
+simTimeAuthority.pause(false)
+
 local dtable = extensions.betterpartmgmt.tuningTableFromUIData(p, false)
 extensions.blrglobals.gmSetVal("pgas", extensions.blrglobals.gmGetVal("cgas")) 	-- Gets current gas value and stores it for after tune apply
 extensions.blrglobals.gmSetVal("podo", extensions.blrglobals.gmGetVal("codo"))	-- do same thing with odometer
@@ -303,10 +327,18 @@ extensions.blrglobals.gmSetVal("pfratio", extensions.blrutils.blrvarGet("fuelRat
 extensions.blrglobals.gmSetVal("poil", extensions.blrglobals.gmGetVal("coil"))	-- 1.15 addition, oil 
 extensions.blrglobals.gmSetVal("pmirrors", extensions.core_vehicle_mirror.getAnglesOffset()) -- 1.16 dynamic mirrors
 extensions.blrhooks.linkHook("vehReset", "postedit")							-- Link to post edit action hook, reuse the code for tune
+
+-- 1.16.9 fix, apparently setting tune is like vehicle reload so need AVB flag turned on
+extensions.blrglobals.blrFlagSet("advancedVehicleBuilding", true)
+require("jbeam/io").finishLoading() -- clearing jbeam cache before edit
+
 extensions.betterpartmgmt.applyTuningData(dtable)
 end
 
 ftable["resetTune"] = function(p)
+-- 1.17 fix for players using pause while editing parts
+simTimeAuthority.pause(false)
+
 extensions.blrglobals.gmSetVal("pgas", extensions.blrglobals.gmGetVal("cgas")) 	-- Gets current gas value and stores it for after tune apply
 extensions.blrglobals.gmSetVal("podo", extensions.blrglobals.gmGetVal("codo"))	-- do same thing with odometer
 extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-- do same thing with NOS
@@ -315,6 +347,11 @@ extensions.blrglobals.gmSetVal("pfratio", extensions.blrutils.blrvarGet("fuelRat
 extensions.blrglobals.gmSetVal("poil", extensions.blrglobals.gmGetVal("coil"))	-- 1.15 addition, oil 
 extensions.blrglobals.gmSetVal("pmirrors", extensions.core_vehicle_mirror.getAnglesOffset()) -- 1.16 dynamic mirrors
 extensions.blrhooks.linkHook("vehReset", "postedit")							-- Link to post edit action hook, reuse the code for tune
+
+-- 1.16.9 fix, apparently setting tune is like vehicle reload so need AVB flag turned on
+extensions.blrglobals.blrFlagSet("advancedVehicleBuilding", true)
+require("jbeam/io").finishLoading() -- clearing jbeam cache before edit
+
 extensions.betterpartmgmt.resetTuningData()
 end
 
@@ -598,6 +635,9 @@ extensions.blrutils.uiRefreshTemplates()
 end
 
 ftable["loadTemplate"] = function(p)
+-- 1.17 fix for players using pause while editing parts
+simTimeAuthority.pause(false)
+
 local fullpath = p["templateFolder"] .. p["templateName"]
 local cvgid = extensions.blrglobals.gmGetVal("cvgid")
 local currentConfig = jsonReadFile("beamLR/garage/config/car" .. cvgid)
@@ -774,6 +814,9 @@ extensions.blrglobals.blrFlagSet("advancedRepairUI", false)
 end
 
 ftable["advancedRepairSelected"] = function(p)
+-- 1.17 fix for players using pause while editing parts
+simTimeAuthority.pause(false)
+
 local dmgstr = extensions.vluaFetchModule.getVal("advdmgstr")
 local damage = extensions.blrutils.advancedDamageStringToTable(dmgstr)
 local partslot = extensions.betterpartmgmt.getPartKeyedSlots()
@@ -882,6 +925,8 @@ if extensions.blrglobals.blrFlagGet("garageSafeModeToggle") then
 extensions.blrglobals.blrFlagSet("garageSafeMode", true) -- flag for flowgraph, to remove need for file reading to draw imgui
 extensions.blrflags.set("garageSafeMode", true)	-- shared flag for vlua and gelua, using file saved table
 extensions.customGuiStream.toggleAdvancedRepairUI(false) -- force close advanced repair UI to avoid exploits
+extensions.blrglobals.blrFlagSet("imToggle", false) -- 1.16.9 fix, toggle off IMGUI buttons in safe mode
+extensions.customGuiStream.towingUIToggle(false) -- 1.16.9 fix, close towing UI to prevent towing in safe mode
 end
 
 
@@ -891,6 +936,9 @@ extensions.betterpartmgmt.executeDelayedSlotSet(ilinks)
 end
 
 ftable["advancedRepairAll"] = function(p)
+-- 1.17 fix for players using pause while editing parts
+simTimeAuthority.pause(false)
+
 -- charging player here since cost multiplier comes from ui
 local money = extensions.blrglobals.gmGetVal("playerMoney")
 extensions.blrglobals.gmSetVal("playerMoney", money - p["cost"])
@@ -911,6 +959,8 @@ if extensions.blrglobals.blrFlagGet("garageSafeModeToggle") then
 extensions.blrglobals.blrFlagSet("garageSafeMode", true) -- flag for flowgraph, to remove need for file reading to draw imgui
 extensions.blrflags.set("garageSafeMode", true)	-- shared flag for vlua and gelua, using file saved table
 extensions.customGuiStream.toggleAdvancedRepairUI(false) -- force close advanced repair UI to avoid exploits
+extensions.blrglobals.blrFlagSet("imToggle", false) -- 1.16.9 fix, toggle off IMGUI buttons in safe mode
+extensions.customGuiStream.towingUIToggle(false) -- 1.16.9 fix, close towing UI to prevent towing in safe mode
 end
 
 -- repair all can just trigger flowgraph repair with flag, skipping part that charges player
@@ -1069,10 +1119,19 @@ extensions.customGuiStream.sendDataToUI("advinvParts", sortedPartData)
 local advinvUsed = extensions.betterpartmgmt.getUsedPartInventoryIDs()
 extensions.customGuiStream.sendDataToUI("advinvUsed", advinvUsed)
 
+-- 1.17 full inventory display data
+local fidlist = extensions.betterpartmgmt.getSlotKeyedFullInventory()
+local fidsortedslots = extensions.betterpartmgmt.getSortedFullInventorySlots()
+extensions.customGuiStream.sendDataToUI("fidInventory",fidlist)
+extensions.customGuiStream.sendDataToUI("fidSortedSlots",fidsortedslots)
+
 end
 
 -- 1.16 advanced inventory part set, borrows a bunch of code from old part set function
 ftable["advPartSet"] = function(p)
+-- 1.17 fix for players using pause while editing parts
+simTimeAuthority.pause(false)
+
 extensions.blrglobals.gmSetVal("pgas", extensions.blrglobals.gmGetVal("cgas")) 	-- Gets current gas value and stores it for after part edit
 extensions.blrglobals.gmSetVal("podo", extensions.blrglobals.gmGetVal("codo"))	-- do same thing with odometer
 extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-- do same thing with NOS
@@ -1088,6 +1147,8 @@ if extensions.blrglobals.blrFlagGet("garageSafeModeToggle") then
 extensions.blrglobals.blrFlagSet("garageSafeMode", true) -- flag for flowgraph, to remove need for file reading to draw imgui
 extensions.blrflags.set("garageSafeMode", true)	-- shared flag for vlua and gelua, using file saved table
 extensions.customGuiStream.toggleAdvancedRepairUI(false) -- force close advanced repair UI to avoid exploits
+extensions.blrglobals.blrFlagSet("imToggle", false) -- 1.16.9 fix, toggle off IMGUI buttons in safe mode
+extensions.customGuiStream.towingUIToggle(false) -- 1.16.9 fix, close towing UI to prevent towing in safe mode
 end
 
 extensions.blrglobals.blrFlagSet("advancedVehicleBuilding", true)
@@ -1166,6 +1227,32 @@ local dtable = {}
 dtable["lrestrict"] = p
 extensions.blrutils.updateDataTable("beamLR/options", dtable)
 extensions.blrglobals.blrFlagSet("restrictRaceLeagues", p == 1)
+end
+
+ftable["setRandomRaceSeedMode"] = function(p)
+local dtable = {}
+dtable["rsraces"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+extensions.blrglobals.blrFlagSet("randomRaceSeedMode", p == 1)
+end
+
+ftable["setDamageBypassMode"] = function(p)
+local dtable = {}
+dtable["dbypass"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+extensions.blrglobals.blrFlagSet("partEditDamageBypass", p == 1)
+end
+
+ftable["setLimitedGarageSlotsMode"] = function(p)
+local dtable = {}
+dtable["lgslots"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+extensions.blrglobals.blrFlagSet("limitedGarageSlots", p == 1)
+end
+
+ftable["startManualJbeamCache"] = function(p)
+extensions.betterpartmgmt.setCacheValidBypass(true) -- bypass valid cache to force update
+extensions.blrglobals.blrFlagSet("jbeamCacheFinished", false) -- triggers update from flowgraph to show imgui message
 end
 
 local ptable = {}

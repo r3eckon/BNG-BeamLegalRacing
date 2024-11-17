@@ -1,3 +1,3 @@
 # Italy Map
-![italy1](https://i.imgur.com/RX6BsJC.png)
-![italy2](https://i.imgur.com/dUHpT4i.png)
+![italy1](https://i.imgur.com/fxC18yH.png)
+![italy2](https://i.imgur.com/B0U1noI.png)

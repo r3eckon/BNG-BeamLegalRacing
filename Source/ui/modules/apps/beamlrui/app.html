@@ -88,6 +88,8 @@ Michael Mckinley<br>
 Ecril<br>
 Jude Thaddeus Persia<br>
 Soolek<br>
+Lorenzo Boccaccia (LoSboccacc)<br>
+Fernando Serafim Marcello<br>
 </p>
 
 <h2 style="text-align:center;">
@@ -247,7 +249,7 @@ Auto Increment Seed
 
 <br>
 
-<p style="text-align:center;">Difficulty takes effect after career reset</p>
+<p style="text-align:center;">Difficulty affects amount of starting money and garage slots. Takes effect after career reset.</p>
 
 <p style="text-align:center;"> 
 Difficulty Level
@@ -280,6 +282,26 @@ Restricted race leagues don't allow vehicles above a certain performance class. 
 Restricted race leagues
 <button ng-class="inputData.lrestrict == 1 ? 'toggleon' : 'toggleoff'" ng-click="setLeagueRestriction(1)">On</button>
 <button ng-class="inputData.lrestrict == 0 ? 'toggleon' : 'toggleoff'" ng-click="setLeagueRestriction(0)">Off</button>
+</p>
+
+<p style="text-align:center; margin-top:15px; margin-bottom:15px; margin-left:20px; margin-right:20px;">
+Randomly seeded race clubs allows re-rolling races. <strong>Off</strong> is the intended way to play. When turned off races can only be re-rolled by sleeping to next day.
+</p>
+
+<p style="text-align:center;"> 
+Randomly seeded race clubs
+<button ng-class="inputData.rsraces == 1 ? 'toggleon' : 'toggleoff'" ng-click="setRandomRaceSeedMode(1)">On</button>
+<button ng-class="inputData.rsraces == 0 ? 'toggleon' : 'toggleoff'" ng-click="setRandomRaceSeedMode(0)">Off</button>
+</p>
+
+<p style="text-align:center; margin-top:15px; margin-bottom:15px; margin-left:20px; margin-right:20px;">
+Limited garage slots requires you to buy properties to increase space in your garage. <strong>On</strong> is the intended way to play.
+</p>
+
+<p style="text-align:center;"> 
+Limited garage slots
+<button ng-class="inputData.lgslots == 1 ? 'toggleon' : 'toggleoff'" ng-click="limitedGarageToggle(1)">On</button>
+<button ng-class="inputData.lgslots == 0 ? 'toggleon' : 'toggleoff'" ng-click="limitedGarageToggle(0)">Off</button>
 </p>
 
 <br>
@@ -551,6 +573,25 @@ Part Edit Safe Mode
 <button ng-class="inputData.gsafemode == 0 ? 'toggleon' : 'toggleoff'" ng-click="safeModeToggle(0)">Off</button>
 </p>
 
+<p style="text-align:center; width:95%; margin-left:auto; margin-right:auto;">  
+Damage Bypass Mode allows part edits even if your vehicle is damaged. This is a cheat as it allows free repairs. Use as a last resort if part edit safe mode doesn't work.
+</p>
+
+<p style="text-align:center;"> 
+Damage Bypass Mode
+<button ng-class="inputData.dbypass == 1 ? 'toggleon' : 'toggleoff'" ng-click="damageBypassToggle(1)">On</button>
+<button ng-class="inputData.dbypass == 0 ? 'toggleon' : 'toggleoff'" ng-click="damageBypassToggle(0)">Off</button>
+</p>
+
+<p style="text-align:center; width:95%; margin-left:auto; margin-right:auto;">  
+Manual Cache Update will force update the jbeam file caches. Use this to update jbeam cache when you add jbeam files that aren't stored in a mod zip.
+</p>
+
+<p style="text-align:center;"> 
+Manual Cache Update
+<button ng-click="startManualCache()">Execute</button>
+</p>
+
 </div>
 
 <br>
@@ -582,20 +623,20 @@ Part Edit Safe Mode
 <div ng-repeat="(id,key) in beamlrData['sortedShopSlots'] track by id">
 <div ng-if="beamlrData['availParts'][key] != null && key != 'main'">
 
-<div style="text-align:center; font-weight: bold; font-size:20px; width:100%; line-height:40px;" ng-if="beamlrData['slotNames'][key] != null && slotNameMode != 1">
+<div style="word-wrap:break-word; text-align:center; font-weight: bold; font-size:20px; width:100%; line-height:40px;" ng-if="beamlrData['slotNames'][key] != null && slotNameMode != 1">
 <span ng-if="visibleSlots[key] == null || visibleSlots[key] == false" style="float:left; text-align:center; width:40px;" ng-click="slotToggle(key, true)">+</span>
 <span ng-if="visibleSlots[key] == true" style="float:left; text-align:center; width:40px;" ng-click="slotToggle(key, false)">-</span>
-<span ng-if="beamlrData['usedParts'][key] != null" style="text-align:center; transform:translate(20px, 0px);" ng-click="setSlotNameMode(1)"> {{beamlrData['slotNames'][key]}} </span>
-<span ng-if="beamlrData['usedParts'][key] == null" style="text-align:center; transform:translate(20px, 0px); color:yellow;" ng-click="setSlotNameMode(1)"> {{beamlrData['slotNames'][key]}} &nbsp &#9888;</span>
+<span ng-if="beamlrData['usedParts'][key] != null" style="text-align:center; display:inline-block; max-width:80%;" ng-click="setSlotNameMode(1)"> {{beamlrData['slotNames'][key]}} </span>
+<span ng-if="beamlrData['usedParts'][key] == null" style="text-align:center; display:inline-block; max-width:80%; color:yellow;" ng-click="setSlotNameMode(1)"> {{beamlrData['slotNames'][key]}} &nbsp &#9888;</span>
 <span ng-if="visibleSlots[key] == null || visibleSlots[key] == false" style="float:right; text-align:center; width:40px;" ng-click="slotToggle(key, true)">+</span>
 <span ng-if="visibleSlots[key] == true" style="float:right; text-align:center; width:40px;" ng-click="slotToggle(key, false)">-</span>
 </div>
 
-<div style="text-align:center; font-weight: bold; font-size:20px; width:100%; line-height:40px;" ng-if="beamlrData['slotNames'][key] == null || slotNameMode == 1">
+<div style="word-wrap:break-word; text-align:center; font-weight: bold; font-size:20px; width:100%; line-height:40px;" ng-if="beamlrData['slotNames'][key] == null || slotNameMode == 1">
 <span ng-if="visibleSlots[key] == null || visibleSlots[key] == false" style="float:left; text-align:center; width:40px;" ng-click="slotToggle(key, true)">+</span>
 <span ng-if="visibleSlots[key] == true" style="float:left; text-align:center; width:40px;" ng-click="slotToggle(key, false)">-</span>
-<span ng-if="beamlrData['usedParts'][key] != null" style="text-align:center; transform:translate(20px, 0px);" ng-click="setSlotNameMode(0)"> {{key}} </span>
-<span ng-if="beamlrData['usedParts'][key] == null" style="text-align:center; transform:translate(20px, 0px); color:yellow;" ng-click="setSlotNameMode(0)"> {{key}} &nbsp &#9888;</span>
+<span ng-if="beamlrData['usedParts'][key] != null" style="text-align:center; display:inline-block; max-width:80%;" ng-click="setSlotNameMode(0)"> {{key}} </span>
+<span ng-if="beamlrData['usedParts'][key] == null" style="text-align:center; display:inline-block; max-width:80%; color:yellow;" ng-click="setSlotNameMode(0)"> {{key}} &nbsp &#9888;</span>
 <span ng-if="visibleSlots[key] == null || visibleSlots[key] == false" style="float:right; text-align:center; width:40px;" ng-click="slotToggle(key, true)">+</span>
 <span ng-if="visibleSlots[key] == true" style="float:right; text-align:center; width:40px;" ng-click="slotToggle(key, false)">-</span>
 </div>
@@ -725,18 +766,18 @@ Part Edit Safe Mode
 <div ng-repeat="(id,key) in beamlrData['sortedGarageSlots'] track by id">
 <div ng-if="beamlrData['advinvFilter'][key] != null && key != 'main'">
 
-<div style="text-align:center; font-weight: bold; font-size:20px; width:100%; line-height:40px;" ng-if="beamlrData['slotNames'][key] != null && slotNameMode != 1">
+<div style="word-wrap:break-word; text-align:center; font-weight: bold; font-size:20px; width:100%; line-height:40px;" ng-if="beamlrData['slotNames'][key] != null && slotNameMode != 1">
 <span ng-if="visibleSlots[key] == null || visibleSlots[key] == false" style="float:left; text-align:center; width:40px;" ng-click="slotToggle(key, true)">+</span>
 <span ng-if="visibleSlots[key] == true" style="float:left; text-align:center; width:40px;" ng-click="slotToggle(key, false)">-</span>
-<span style="text-align:center; transform:translate(25px, 0px);" ng-click="setSlotNameMode(1)"> {{beamlrData['slotNames'][key]}} </span>
+<span style="max-width:80%; display:inline-block; text-align:center;" ng-click="setSlotNameMode(1)"> {{beamlrData['slotNames'][key]}} </span>
 <span ng-if="visibleSlots[key] == null || visibleSlots[key] == false" style="float:right; text-align:center; width:40px;" ng-click="slotToggle(key, true)">+</span>
 <span ng-if="visibleSlots[key] == true" style="float:right; text-align:center; width:40px;" ng-click="slotToggle(key, false)">-</span>
 </div>
 
-<div style="text-align:center; font-weight: bold; font-size:20px; width:100%; line-height:40px;" ng-if="beamlrData['slotNames'][key] == null || slotNameMode == 1">
+<div style="word-wrap:break-word; text-align:center; font-weight: bold; font-size:20px; width:100%; line-height:40px;" ng-if="beamlrData['slotNames'][key] == null || slotNameMode == 1">
 <span ng-if="visibleSlots[key] == null || visibleSlots[key] == false" style="float:left; text-align:center; width:40px;" ng-click="slotToggle(key, true)">+</span>
 <span ng-if="visibleSlots[key] == true" style="float:left; text-align:center; width:40px;" ng-click="slotToggle(key, false)">-</span>
-<span style="text-align:center; transform:translate(25px, 0px);" ng-click="setSlotNameMode(0)"> {{key}} </span>
+<span style="max-width:80%; display:inline-block; text-align:center;" ng-click="setSlotNameMode(0)"> {{key}} </span>
 <span ng-if="visibleSlots[key] == null || visibleSlots[key] == false" style="float:right; text-align:center; width:40px;" ng-click="slotToggle(key, true)">+</span>
 <span ng-if="visibleSlots[key] == true" style="float:right; text-align:center; width:40px;" ng-click="slotToggle(key, false)">-</span>
 </div>
@@ -901,8 +942,12 @@ No missing parts found!
 <table style="table-layout:fixed; width:95%; margin:auto;">
 <tr style="width:100%;" ng-repeat="(fid, field) in beamlrData['tuningSortedFields'][category]">
 <td style="width:40%">{{beamlrData['tuningData'][field]["title"]}}</td>
-<td><md-slider flex style="width:100px;" min="{{beamlrData['tuningData'][field]['minDis']}}" max="{{beamlrData['tuningData'][field]['maxDis']}}" step="{{beamlrData['tuningData'][field]['stepDis']}}" ng-change="tuneChanged(field)" ng-model="beamlrData['tuningValues'][field]" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()">
-</md-slider></td>
+<td ng-click="preciseTuneDecrease(field, beamlrData['tuningData'][field]['stepDis'])" style="text-align:center; width:20px; font-size:17px; font-weight:bold;">-</td>
+<td>
+<md-slider flex style="width:90%; margin:auto;" min="{{beamlrData['tuningData'][field]['minDis']}}" max="{{beamlrData['tuningData'][field]['maxDis']}}" step="{{beamlrData['tuningData'][field]['stepDis']}}" ng-change="tuneChanged(field)" ng-model="beamlrData['tuningValues'][field]" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()">
+</md-slider>
+</td>
+<td ng-click="preciseTuneIncrease(field, beamlrData['tuningData'][field]['stepDis'])" style="text-align:center; width:20px; font-size:17px; font-weight:bold;">+</td>
 <td style="text-align:right;">{{getTuneData(field)}} &nbsp {{beamlrData['tuningData'][field]['unit']}}</td>
 </tr>
 </table>
@@ -987,9 +1032,18 @@ No missing parts found!
 
 <div ng-if="menuPage == 6" style="">
 
-<h3 style="text-align:center; line-height:0px;">Item Inventory</h3>
+<h3 style="text-align:center; line-height:0px;">
+<span ng-click="setInventoryMode(0)" ng-if="invmode == 0" style="color:#FF6600;">Item Inventory</span>
+<span ng-click="setInventoryMode(0)" ng-if="invmode == 1" style="color:white;">Item Inventory</span>
+&nbsp&nbsp&nbsp&nbsp&nbsp
+<span ng-click="setInventoryMode(1)" ng-if="invmode == 1" style="color:#FF6600;">Part Inventory</span>
+<span ng-click="setInventoryMode(1)" ng-if="invmode == 0" style="color:white;">Part Inventory</span>
+</h3>
 
 <div style="overflow:scroll; height:250px; max-height:250px; width:95%; margin:auto; background-color:rgba(0,0,0,0.5);">
+
+<div ng-if="invmode == 0">
+<h3 ng-if="sortedItemInventoryKeys.length <= 0" style="text-align:center; width: 90%; margin:auto; margin-top:10px; font-size:14px;">Tip: You can buy items like oil bottles & fuel cans by getting out of your car at a gas station!</h3>
 <table style="width:100%; table-layout:fixed; text-align:center; border-spacing:3px;">
 <tr style="width:100%; height:10px;">
 <td style="width:25%; font-weight:bold; font-size:20px;"></td>
@@ -1006,6 +1060,53 @@ No missing parts found!
 <td style="width:10%; font-size:17px;"><button ng-click="inventoryDiscard(v)">X</button></td>
 </tr>
 </table>
+</div>
+
+<div ng-if="invmode == 1">
+<h3 style="text-align:center; width: 90%; font-size:14px; margin:auto; margin-top:10px;">
+This menu shows all unused parts in your inventory so you can sell them.
+</h3>
+
+<div ng-repeat="(index,slot) in beamlrData['fidSortedSlots']">
+
+<div style="word-wrap:break-word; text-align:center; font-weight: bold; font-size:20px; width:100%; line-height:40px;">
+<span ng-click="slotToggle(slot, true)" ng-if="visibleSlots[slot] == null || visibleSlots[slot] == false" style="float:left; width:40px; text-align:center;">+</span>
+<span ng-click="slotToggle(slot, false)" ng-if="visibleSlots[slot] == true" style="float:left; width:40px; text-align:center;">-</span>
+<span ng-click="setSlotNameMode(1)" ng-if="slotNameMode == 0" style="display:inline-block; max-width:80%; text-align:center;">{{beamlrData['fidSlotNames'][slot]}}</span>
+<span ng-click="setSlotNameMode(0)" ng-if="slotNameMode == 1" style="display:inline-block; max-width:80%; text-align:center;">{{slot}}</span>
+<span ng-click="slotToggle(slot, true)" ng-if="visibleSlots[slot] == null || visibleSlots[slot] == false" style="float:right; width:40px; text-align:center;">+</span>
+<span ng-click="slotToggle(slot, false)" ng-if="visibleSlots[slot] == true" style="float:right; width:40px; text-align:center;">-</span>
+
+</div>
+
+<div ng-if="visibleSlots[slot] == true">
+<table style="border-collapse: collapse; width: 95%; margin: auto; table-layout: fixed; vertical-align:middle; text-align:center;">
+
+<tr ng-repeat="(key,pid) in beamlrData['fidInventory'][slot]" style="width:100px;">
+	<td style="width: 100px; height:100px; text-align:left;">
+	<img style="display:block;" ng-click="imageClicked(beamlrData['partpreview'][beamlrData['advinvData'][pid][0]])" ng-if="beamlrData['partpreview'][beamlrData['advinvData'][pid][0]] != null" ng-attr-src="{{beamlrData['partpreview'][beamlrData['advinvData'][pid][0]]}}" width=90px height=90px />
+	<img style="display:block;" ng-if="beamlrData['partpreview'][beamlrData['advinvData'][pid][0]] == null" src="/ui/modules/apps/beamlrui/partimg/none.png" width=90px height=90px />
+	</td>
+	<td style="width:240px;" ng-if="slotNameMode == 0 && beamlrData['fidPartNames'][beamlrData['advinvData'][pid][0]] != null"><strong>{{beamlrData['fidPartNames'][beamlrData['advinvData'][pid][0]]}}</strong><br>Odometer {{unitConvertedOdometer(beamlrData['advinvData'][pid][1]) / 1000.0 | number:1}} {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}}<br>Sell Value ${{getPartSellPrice(pid) | number:2}}</td>
+	<td style="width:240px;" ng-if="slotNameMode == 1 || beamlrData['fidPartNames'][beamlrData['advinvData'][pid][0]] == null">{{beamlrData['advinvData'][pid][0]}}<br>Odometer {{unitConvertedOdometer(beamlrData['advinvData'][pid][1]) / 1000.0 | number:1}} {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}}<br>Sell Value ${{getPartSellPrice(pid) | number:2}}</td>
+	<td style="text-align:right;">
+	<button ng-if="partSellConfirm[pid] == false || partSellConfirm[pid] == null" ng-click="advancedPartSell(pid)" style="width:90px;">Sell</button>
+	<button ng-if="partSellConfirm[pid] == true" ng-click="advancedPartSell(pid)" style="width:90px;">Confirm?</button>
+	</td>
+</tr>
+</table>
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+
 </div>
 </div>
 

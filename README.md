@@ -1,10 +1,7 @@
-
-
-
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.16.8/beamLegalRacing1.16.8.zip
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.17/beamLegalRacing1.17.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.16.8
+# Beam Legal Racing 1.17
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -30,7 +27,7 @@ Carefully follow the instructions to ensure all features are working properly:
 2. Extract zip file contents directly to your [BeamNG userfolder][userfolder].
 3. Tell your operating system to replace existing files if asked.
 
-**After installing check the *Read Before Playing* section of this readme for important information and a quick overview of major update features.**
+**After installing check the *[Read Before Playing](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#read-before-playing)* section of this readme for important information and a quick overview of major update features.**
 
 **Installing BeamLR may overwrite custom changes made to levels.** 
 Modders should back up the userfolder before installing.
@@ -49,7 +46,7 @@ Modders should back up the userfolder before installing.
 
 If the backup system fails to work properly you can manually replace the files/folders using your backed up beamLR folder. Ask on the forum if you need help knowing which files to paste over. 
 
-**After updating check the *Read Before Playing* section of this readme for important information and a quick overview of major update features**
+**After updating check the *[Read Before Playing](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#read-before-playing)* section of this readme for important information and a quick overview of major update features**
 
 If you are experiencing issues after updating the mod, try a **clean** userfolder install and copy over your backup.
 
@@ -69,22 +66,19 @@ The game will give you a chance to view the contents of your old userfolder cont
 
 ## Read Before Playing
 
-### **IMPORTANT**: **Do not change the settings shown below while playing BeamLR**. 
-The settings should be automatically restored to your previous values when you abandon the scenario. Keep in mind game crashes and other forceful exit from the scenario may prevent your old setting from being restored.
+**IMPORTANT**: **Do not change the settings shown below while playing BeamLR**. The settings should be automatically restored to your previous values when you abandon the scenario. Keep in mind game crashes and other forceful exit from the scenario may prevent your old setting from being restored.
 
 ![settings](https://i.imgur.com/ZIor6iw.png)
 
-### **IMPORTANT**: **You must abandon the scenario to properly save your progress**. 
-Do not exit the game from main menu until you have abandonned the scenario and are back in freeroam. ALT-F4 or other forceful exit from the game are likely to cause lost progress and/or corrupted save files. Copy the **userfolder/beamLR** folder somewhere if you want to manually backup your career files.
+**IMPORTANT**: **You must abandon the scenario to properly save your progress**. Do not exit the game from main menu until you have abandonned the scenario and are back in freeroam. ALT-F4 or other forceful exit from the game are likely to cause lost progress and/or corrupted save files. Copy the **userfolder/beamLR** folder somewhere if you want to manually backup your career files.
 
-### **IMPORTANT**: **Do not pause the game when interacting with mod menus**. 
-Doing so will cause issues, specifically with part odometer values and inventory links. This could potentially corrupt your save files.
+**IMPORTANT**: **Do not pause the game when interacting with mod menus**. Doing so will cause issues.
 
 **First time players**: The imgui unit detection feature may fail to properly register your unit setting causing a mismatch in displayed units. Switching between metric and imperial fixes this issue. The UI will then show correct units.
 
 The "BeamLR" layout will be loaded on scenario start. Any changes made to this UI layout will be reflected when playing BeamLR in case the default layout doesn't fit on your screen.
 
-## Major Feature Update Overview
+### Major Feature Update Overview
 
 Version 1.6 adds N2O tank persistence. Garage files from previous versions are missing this value and will default to empty N2O tanks. Nitrous tanks can be refilled at the repair shop.
 
@@ -120,7 +114,7 @@ Version 1.16.4 adds performance class restrictions for race club leagues and the
 
 Version 1.16.7 improves mod compatibility for car shops with additive list files. See the [updated tutorial](https://github.com/r3eckon/BNG-BeamLegalRacing/blob/main/Tutorials/Adding%20Shop%20Vehicles.md) to learn more.
 
-Further instructions and various tips on this mods' various features are listed in the BeamLR UI Main Menu.
+Version 1.17 adds new interactive areas ([car meets](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#car-meets) & [properties](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#garage-slots-and-properties)), daily seeded race clubs and a [new part inventory menu](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#part-inventory-menu). Daily seeded race clubs prevent reroll abuse and is the intended way to play (can be turned off in options). 
 
 ## Getting started
 BeamLR is loaded as a freeroam mission. Use the following spawn point depending on map choice:
@@ -142,14 +136,19 @@ Once in the scenario floating markers indicate interactive areas for the player 
 
 ![part shop marker](https://i.imgur.com/84A5emi.png)
 
+Chosen difficulty will affect the amount of money and garage slots you get at the start of your career:
+* Easy: $5000, 5 slots
+* Medium: $1000, 3 slots
+* Hard: $20, 2 slots
+
+
 Purchased or won vehicles are sent to your player garage. You can also scrap vehicles for some money using the player garage menu.
 
-Depending on your chosen difficulty setting (default is medium) you may need to perform delivery missions from part shops before you have enough money to wager in races or challenges. Amount of money depending on start difficulty goes as follows:
-* Easy: $5000
-* Medium: $1000
-* Hard: $20
+Depending on your chosen difficulty setting (default is medium) you may need to perform delivery missions from part shops before you have enough money to wager in races or challenges. 
 
 Version 1.11 updated delivery mission system works using a set of items and destinations. Each destination has a base reward that is scaled to give up to 100% bonus depending on item fragility. Experiencing more Gs than the item can endure will fail the mission. If your vehicle has a tow hitch you can accept trailer delivery missions. 
+
+The main gameplay for this mod is available at various race clubs where you can wager money in races.
 
 ![race clubs](https://i.imgur.com/yPLsjIc.png)
 
@@ -283,6 +282,19 @@ Keep in mind this feature is still early days and may be prone to bugs due to th
 
 As of version 1.16.1 high odometer parts now have decreased integrity values when attached to your car. The decrease is linear, begins at 100,000km (5% decrease) and maxes out at 300,000km (15% decrease). This results in lower performance for certain parts such as the engine which will have more idle play and friction.
 
+## Car Meets
+Added in 1.17, car meets are a new type of interactive area where the player vehicle is compared to a randomly picked selection of vehicles and rated for "coolness". An above average coolness score will increase your rep while a below average score will decrease it. Having the best/worst score of the meet will double the rep change. Coolness score is calculated using raw performance value but also parts such as underglow, spoilers, carbon fiber parts, paint designs and more. Basically, having a riced out car will increase coolness rating.
+
+## Garage Slots and Properties
+Since 1.17 the amount of free slots for vehicles in your garage is now limited. The starting amount of slots is determined by the difficulty setting. Having no free slot in your garage will prevent you from buying cars, participating in pink slips races or joining track events that have a vehicle reward. Joining such an event will also reserve a free slot in your garage for the duration of the event, essentially filling that slot temporarily. Note that while this feature can be turned off in options, limited garage slots are the intended way to play.
+
+To purchase more garage slots, various properties are now available to purchase. The more expensive the property, the more slots it will add to your garage. Some levels have more properties than others. Properties are not shown on GPS or maps and thus must be found by exploring each level.
+
+## Part Inventory Menu
+Added in 1.17, this new menu will show all unused parts in your inventory, including parts for vehicles you no longer own. This menu is used to sell parts that don't show up in the part edit menu, such as subparts of an engine that has been removed from your vehicle. This menu improves the part-out process for vehicles.
+
+This menu requires the game to cache jbeam file data upon first start. This process takes about a minute for a vanilla install and could take longer depending on how many vehicle and part mods you have installed. This process will be started automatically when you start the scenario if the game detects new mods. If you are a mod developer making your own jbeam parts you can start this process manually from the options menu to cache any new jbeam file that isn't stored in a mod zip. 
+
 ## WIP Notice
 This mod is a work in progress. At this stage it is a decent vertical slice of the gameplay the project is trying to achieve with some bugs and quirks remaining that should get better as BeamNG and the mod are updated. That being said a lot of content is missing and reward values may be unbalanced relative to part prices.
 
@@ -314,6 +326,8 @@ Thank you for playing BeamLR!
 * Ecril
 * Jude Thaddeus Persia
 * Soolek
+* Lorenzo Boccaccia (LoSboccacc)
+* Fernando Serafim Marcello
 
 ## Known Issues 
 
@@ -807,3 +821,25 @@ Thank you for playing BeamLR!
 
 ### 1.16.8
 * Fixed West Coast USA dragstrip AI pathing (needs autoJunction enabled for some reason)
+
+### 1.17
+* Added Car Meets interactive area (car rated by "coolness", bad cars lose rep, good cars win rep)
+* Added + and - buttons to tuning UI sliders for more precise edits
+* Added daily seeded race clubs (more SLRR like progression, can't re-roll for pink slips & max wagers)
+* Added Damage Bypass Mode (used to get out of soft lock situations when safe mode doesn't help)
+* Added "Properties" interactive areas (gives extra garage slots when bought, many for sale on each map)
+* Added Part Inventory menu (shows all unused parts for all vehicles, can sell parts with removed parent)
+* Daredevil challenges now sorted by category (can pick challenge type)
+* Fixed tune apply not enabling AVB flag causing default parts to spawn (tune set reloads jbeam)
+* Disabled towing/sleeping while safe mode is active to prevent issues
+* Updated drag/general.lua script with 0.33.3 changes (fixes lua error with old script version)
+* Fixed lua error in performance class check node after entering trigger with "none" as triggerDataPath
+* Optimized IMGUI menu selection flowgraph (also makes it easier to add new interactive areas)
+* Garage slots are now limited & must be purchased (can be turned off in options)
+* Fixed Moonhawk ROH config blowing up at race start due to overtorque
+* Vehicle main part can now be swapped in part edit menu (ex: changing pickup frame type)
+* Lowered rep unlock requirement for class D track events
+* Improved track even part rewards (gives random part within set value range that fits current vehicle)
+* Game will now be force unpaused during part edits to prevent issues
+* Fixed part edit & buying menu layout breaking with slots name taking more than one line
+* Fixed part edit menu issue for slots that have exact same name

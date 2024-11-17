@@ -27,6 +27,8 @@ angular.module('beamng.apps')
 	  scope.templateFixTemplate = {}
 	  scope.templateFixNeeded = false
 	  scope.optshow = {}
+	  scope.actualDamage = 0 //actual damage value, stored when bypass is enabled
+	  scope.invmode = 0 //0 = item inventory, 1 = part inventory 
 	  
 	  scope.buylocked = false //locks buy action until result received
 	  scope.lastbuyitem = ""
@@ -56,7 +58,7 @@ angular.module('beamng.apps')
 		{type: "buyparts", svg:"partshopbutton.svg", id:2, name:"Buy Parts"},
 		{type: "editcar", svg:"editcarbutton.svg", id:3, name:"Edit Car"},
 		{type: "tuning", svg:"tuningbutton.svg", id:4, name:"Tuning"},
-		{type: "inventory", svg:"inventorybutton.svg", id:6, name:"Items"},
+		{type: "inventory", svg:"inventorybutton.svg", id:6, name:"Inventory"},
 		{type: "events", svg:"eventbrowserbutton.svg", id:5, name:"Track Events"}
 	  ];
 	  
@@ -126,8 +128,11 @@ angular.module('beamng.apps')
 		  {
 			  scope.sortedItemInventoryKeys = Object.keys(scope.beamlrData['itemInventory']).sort()
 		  }
-		  if(data.key == "playerDamage")
+		  //Damage Bypass Mode tricks UI into thinking player has no damage to get out of soft locks
+		  if(data.key == "playerDamage" && scope.inputData['dbypass'] == 1)
 		  {
+			  scope.actualDamage = scope.beamlrData["playerDamage"]
+			  scope.beamlrData["playerDamage"] = 0
 			  //console.log("DAMAGE: " + scope.beamlrData['playerDamage'])
 		  }
       })
@@ -171,6 +176,9 @@ angular.module('beamng.apps')
 		  scope.inputData['dwtoggle'] = data['dwtoggle'];
 		  scope.inputData['allowinjury'] = data['allowinjury'];
 		  scope.inputData['lrestrict'] = data['lrestrict']
+		  scope.inputData['rsraces'] = data['rsraces']
+		  scope.inputData['dbypass'] = data['dbypass']
+		  scope.inputData['lgslots'] = data['lgslots']
       })
 	  
 	  
@@ -880,6 +888,58 @@ angular.module('beamng.apps')
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("restrict", ${t})`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setLeagueRestriction", "restrict")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
+	  }
+	  
+	  scope.setRandomRaceSeedMode = function(t)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("rsraces", ${t})`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setRandomRaceSeedMode", "rsraces")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
+	  }
+	  
+	  
+	  scope.preciseTuneDecrease = function(field, step)
+	  {
+		  scope.beamlrData['tuningValues'][field] = Math.max(scope.beamlrData['tuningData'][field]['minDis'],scope.beamlrData['tuningValues'][field] - step)
+	  }
+	  
+	  scope.preciseTuneIncrease = function(field, step)
+	  {
+		  scope.beamlrData['tuningValues'][field] = Math.min(scope.beamlrData['tuningData'][field]['maxDis'],scope.beamlrData['tuningValues'][field] + step)
+	  }
+	  
+	  scope.damageBypassToggle = function(t)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("dbypass", ${t})`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setDamageBypassMode", "dbypass")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
+		  
+		  if(t==1)
+		  {
+			  scope.actualDamage = scope.beamlrData["playerDamage"]
+			  scope.beamlrData["playerDamage"] = 0
+		  }
+		  else
+		  {
+			  scope.beamlrData["playerDamage"] = scope.actualDamage
+		  }
+		  
+	  }
+	  scope.limitedGarageToggle = function(t)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("lgslots", ${t})`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setLimitedGarageSlotsMode", "lgslots")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);  
+	  }
+	  
+	  scope.setInventoryMode = function(m)
+	  {
+		  scope.invmode = m
+	  }
+	  
+	  scope.startManualCache = function(m)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("startManualJbeamCache")`)
 	  }
 	  
     }

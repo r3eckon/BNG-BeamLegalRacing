@@ -77,6 +77,17 @@ angular.module('beamng.apps')
 		bngApi.engineLua('setCEFFocus(true)')
 	  }
 	  
+	  scope.preciseTuneDecrease = function(field, step)
+	  {
+		  scope.tuningValues[field] = Math.max(scope.tuningData[field]['minDis'],scope.tuningValues[field] - step)
+	  }
+	  
+	  scope.preciseTuneIncrease = function(field, step)
+	  {
+		  scope.tuningValues[field] = Math.min(scope.tuningData[field]['maxDis'],scope.tuningValues[field] + step)
+	  }  
+	  
+	  
     }
   }
 }]);

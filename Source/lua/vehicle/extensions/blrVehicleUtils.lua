@@ -1015,6 +1015,148 @@ setOilLeak(leak)
 obj:queueGameEngineLua("extensions.mechDamageLoader.oilLeakMessage(" .. engineRatio .. "," .. oilpanRatio .. ")")
 end
 
+
+
+-- calculate "coolness" rating based on performance and looks
+local function getCarMeetRatingData()
+local final = 0
+local ratingData = {}
+ratingData["details"] = {}
+
+
+-- deal with raw performance scoring
+local pval = getRawPerformanceValue()
+local prel = math.min(1.0, pval / 5.0) -- 100% performance rating if val >= 5.0, a maxed out, stripped down drag scintilla can hit 6.0
+local pscore = 10000 * prel -- score up to 10000 for max performance
+final = final + pscore
+ratingData["details"]["performance"] = pscore
+
+
+-- deal with powertrain clues scoring, +100 points for each device
+local clues = extensions.blrPowertrainClues.getClues()
+if clues["turbocharger"] 
+then final = final + 100 
+ratingData["details"]["turbocharger"] = 100
+end
+if clues["supercharger"] then 
+final = final + 100 
+ratingData["details"]["supercharger"] = 100
+end
+if clues["nitrous"] then 
+ratingData["details"]["nitrous"] = 100
+final = final + 100 
+end
+
+
+-- deal with specific parts
+local parts = v.config.parts
+for k,v in pairs(parts) do
+
+
+if string.find(v, "spoiler") or string.find(v, "wing") then -- spoiler
+ratingData["details"]["spoiler"] = (ratingData["details"]["spoiler"] or 0) + 50
+final = final + 50 
+end
+if string.find(v, "underglow") then -- neons
+ratingData["details"]["underglow"] = (ratingData["details"]["underglow"] or 0) + 50
+final = final + 50 
+end
+if string.find(v, "splitter") or string.find(v, "_lip") then -- splitter or lip
+ratingData["details"]["lip"] = (ratingData["details"]["lip"] or 0) + 50
+final = final + 50 
+end
+if string.find(v, "race_seat") or string.find(v,"seat_race") or string.find(v, "seat_FL_race") or string.find(v,"seat_FR_race") then -- race seats
+ratingData["details"]["race_seat"] = (ratingData["details"]["race_seat"] or 0) + 50
+final = final + 50 
+end
+if string.find(v, "strut_bar") then -- strut bar
+ratingData["details"]["strut_bar"] = (ratingData["details"]["strut_bar"] or 0) + 50
+final = final + 50 
+end
+if string.find(v, "rollcage") then -- rollcage
+ratingData["details"]["rollcage"] = (ratingData["details"]["rollcage"] or 0) + 50
+final = final + 50 
+end
+if string.find(k, "paint_design") and v~="none" and v ~= "" and not string.find(v, "_old") then -- paint design (avoid old paint skin)
+ratingData["details"]["paint"] = 50
+final = final + 50 
+end
+-- could add more of these later if I think of other cool/race/ricer parts
+
+-- now checking for carbon fiber parts and adding score for each part
+if string.find(v, "CF") or string.find(v, "carbon") then
+ratingData["details"]["carbon"] = (ratingData["details"]["carbon"] or 0) + 50
+final = final + 50 
+end
+
+end
+
+
+ratingData["model"] = v.vehicleDirectory:gsub("/vehicles/", ""):gsub("/", "")
+ratingData["total"] = final
+return ratingData
+end
+
+
+
+
+-- opens hood for showoff during car meet, works even for rear/mid engine cars
+local function openCarMeetLatches()
+local controllers = controller.getAllControllers()
+local model = v.vehicleDirectory:gsub("/vehicles/", ""):gsub("/", "")
+local parts = v.config.parts
+
+-- build table of potential latches and catches for all vehicle types
+local latch_rear = {}
+table.insert(latch_rear, controllers.tailgateLatchCoupler)
+table.insert(latch_rear, controllers.tailgateLatch)
+table.insert(latch_rear, controllers.tailgateCoupler)
+table.insert(latch_rear, controllers.decklidCoupler)
+
+local catch_rear = {}
+table.insert(catch_rear, controllers.tailgateCatchCoupler)
+table.insert(catch_rear, controllers.tailgateCatch)
+
+local latch_front = {}
+table.insert(latch_front, controllers.hoodLatchCoupler)
+table.insert(latch_front, controllers.hoodLatch)
+table.insert(latch_front, controllers.hoodCoupler)
+
+local catch_front = {}
+table.insert(catch_front, controllers.hoodCatchCoupler)
+table.insert(catch_front, controllers.hoodCatch)
+
+
+-- first open up hood to show engine
+if model == "bolide" or model == "scintilla" or model=="sbr" or model == "autobello" then
+for k,v in pairs(latch_rear) do v.detachGroup() end
+for k,v in pairs(catch_rear) do v.detachGroup() end
+elseif model == "covet" then
+if parts["covet_body"] == "covet_body_mid" then
+for k,v in pairs(latch_rear) do v.detachGroup() end
+for k,v in pairs(catch_rear) do v.detachGroup() end
+else
+for k,v in pairs(latch_front) do v.detachGroup() end
+for k,v in pairs(catch_front) do v.detachGroup() end
+end
+else
+for k,v in pairs(latch_front) do v.detachGroup() end
+for k,v in pairs(catch_front) do v.detachGroup() end
+end
+
+
+end
+
+
+local function sendMeetScoreData(index)
+local scoredata = jsonEncode(getCarMeetRatingData())
+obj:queueGameEngineLua("extensions.blrCarMeet.onCarMeetScoreReceived(" .. index ..",'" .. scoredata .. "')")
+end
+
+
+M.sendMeetScoreData = sendMeetScoreData
+M.openCarMeetLatches = openCarMeetLatches
+M.getCarMeetRatingData = getCarMeetRatingData
 M.getOilLeakRatio = getOilLeakRatio
 M.cachePartConditions = cachePartConditions
 M.cachePowertrainClues = cachePowertrainClues

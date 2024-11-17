@@ -1,5 +1,6 @@
 day=0
 health=100
+gslots=3
 time=0.0
 carCount=1
 carUsed=0

@@ -11,3 +11,6 @@ BeamLRTrigger_ChallengeArea=dare,challenges1
 BeamLRTrigger_PureDragClub=race,dragRace
 BeamLRTrigger_Scrapyard=carshop,scrapyard1
 BeamLRTrigger_HighStakesDragClub=race,nightDragRace
+BeamLRTrigger_CarMeet=meet,infoCenterMeet
+BeamLRTrigger_CarMeetB=meet,touristParkingMeet
+BeamLRTrigger_TopGasProperty=property,topGasProperty

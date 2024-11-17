@@ -45,9 +45,11 @@ found = partData["powertrainDamage"][2][2] == "intake"
 end
 if not found and partData["beams"] then
 for k,v in pairs(partData["beams"]) do
-if v["deformGroup"] == "mainEngine_intake" then
+if v["deformGroup"] and type(v["deformGroup"]) == "string" then
+if (v["deformGroup"] == "mainEngine_intake" or string.find(v["deformGroup"], "mainEngine_turbo") or string.find(v["deformGroup"], "mainEngine_supercharger")) then
 found = true
 break
+end
 end
 end
 end

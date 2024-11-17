@@ -16,8 +16,12 @@
 <table style="table-layout:fixed; width:95%; margin:auto;">
 <tr style="width:100%;" ng-repeat="(fid, field) in tuningFields[category]">
 <td style="width:40%">{{tuningData[field]["title"]}}</td>
-<td><md-slider flex style="width:100px;" min="{{tuningData[field]['minDis']}}" max="{{tuningData[field]['maxDis']}}" step="{{tuningData[field]['stepDis']}}" ng-change="tuneChanged(field)" ng-model="tuningValues[field]" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()">
-</md-slider></td>
+<td ng-click="preciseTuneDecrease(field, tuningData[field]['stepDis'])" style="text-align:center; width:20px; font-size:17px; font-weight:bold;">-</td>
+<td>
+<md-slider flex style="width:90%; margin:auto;" min="{{tuningData[field]['minDis']}}" max="{{tuningData[field]['maxDis']}}" step="{{tuningData[field]['stepDis']}}" ng-change="tuneChanged(field)" ng-model="tuningValues[field]" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()">
+</md-slider>
+</td>
+<td ng-click="preciseTuneIncrease(field, tuningData[field]['stepDis'])" style="text-align:center; width:20px; font-size:17px; font-weight:bold;">+</td>
 <td style="text-align:right;">{{getTuneData(field)}} &nbsp {{tuningData[field]['unit']}}</td>
 </tr>
 </table>

@@ -76,6 +76,7 @@
 <div ng-if="playerdata['money'] >= eventdata['joincost']">
 <div ng-if="currentevent['status'] == 'over'">
 <div ng-if="eventdata['bossevent'] != 'true' || playerdata['bossunlock'] == true">
+<div ng-if="playerdata['availslots'] >= 1 || eventdata['carreward']=='none'">
 <p><button ng-click="joinEvent(eventdata['efile'], selectedID)">Join Event (Cost: {{eventdata['joincost']}})</button></p>
 <div ng-if="currentevent['status'] != 'over' && eventdata['efile'] == currentevent['efile']">
 <h3>Event joined!</h3>
@@ -86,19 +87,26 @@
 </div>
 </div>
 </div>
+</div>
 <div ng-if="playerdata['money'] < eventdata['joincost']">
-<h3>Need ${{eventdata['joincost']}} to join</h2>
+<h3>Need ${{eventdata['joincost']}} to join</h3>
 </div>
 </div>
 <div ng-if="playerdata['rep'] < eventdata['reputation'] && (eventdata['bossevent'] != 'true' || playerdata['bossunlock'] == true)">
-<h3>Reach {{eventdata['reputation']}} rep to unlock</h2>
+<h3>Reach {{eventdata['reputation']}} rep to unlock</h3>
 </div>
 <div ng-if="playerdata['rep'] < eventdata['reputation'] && eventdata['bossevent'] == 'true' && playerdata['bossunlock'] != true">
-<h3>Must reach Hero league in all race clubs<br>&amp {{eventdata['reputation']}} rep to unlock</h2>
+<h3>Must reach Hero league in all race clubs<br>&amp {{eventdata['reputation']}} rep to unlock</h3>
 </div>
 <div ng-if="playerdata['rep'] >= eventdata['reputation'] && eventdata['bossevent'] == 'true' && playerdata['bossunlock'] != true">
-<h3>Must reach Hero league in all race clubs to unlock</h2>
+<h3>Must reach Hero league in all race clubs to unlock</h3>
 </div>
+
+<div ng-if="playerdata['availslots'] <= 0 && eventdata['carreward']!='none'">
+<h3>You need free space in your garage to join an event with a car reward</h3>
+</div>
+
+
 </div>
 
 <div ng-if="inspection == false" style="text-align:center">

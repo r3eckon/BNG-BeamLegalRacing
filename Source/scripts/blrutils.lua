@@ -331,7 +331,7 @@ if append then filedata = readFile("beamLR/slotHelper") end
 if autoindex then index = locals["shautoindex"] end
 
 filedata = filedata .. (spprefix) .. index .. "=" .. pos[1] .. "," .. pos[2] .. "," .. pos[3] .. "\n"
-filedata = filedata .. (srprefix) .. index .. "=" .. rot[1] .. "," .. rot[2] .. "," .. -rot[4] .. "," .. rot[3] .. "\n"
+filedata = filedata .. (srprefix) .. index .. "=" .. rot[1] .. "," .. rot[2] .. "," .. rot[3] .. "," .. rot[4] .. "\n"
 
 if cam then 
 pos = getCameraPosition():toTable()
@@ -680,14 +680,16 @@ local difficulty = options["difficulty"] or "hard"	-- Default to hard difficulty
 local event = loadDataTable("beamLR/currentTrackEvent")
 local ctemplates = {}
 
-deleteFile("beamLR/mainData")
 deleteFile("beamLR/partInv") -- keeping this in for 1.16 so defunct inventory files are deleted
 deleteFile("beamLR/partInventory") -- 1.16 advanced part inventory
 deleteFile("beamLR/itemInventory") -- 1.15 item inventory needs deletion
 deleteFile("beamLR/usedPartDayData") -- 1.16 used part day data
+deleteFile("beamLR/carMeetDayData") -- 1.17 car meet day data
+deleteFile("beamLR/ownedProperties") -- 1.17 properties
 extensions.blrItemInventory.resetInventory() -- need to do this to avoit items staying after reset
 extensions.blrPartInventory.reset() -- same thing with part inventory
 extensions.blrPartInventory.resetUsedPartShopDayData() -- same thing with used part day data
+extensions.blrCarMeet.resetDayData()
 
 local count = #FS:findFiles("beamLR/garage/", "*", 0)
 
@@ -718,6 +720,8 @@ copyFile("beamLR/init/mainData_" .. difficulty ,  "beamLR/mainData")
 copyFile("beamLR/init/partInventory",  "beamLR/partInventory") -- 1.16 advanced part inventory
 copyFile("beamLR/init/itemInventory",  "beamLR/itemInventory")
 copyFile("beamLR/init/usedPartDayData",  "beamLR/usedPartDayData") -- 1.16 part shop day data
+copyFile("beamLR/init/carMeetDayData",  "beamLR/carMeetDayData") -- 1.17 car meet day data
+copyFile("beamLR/init/ownedProperties",  "beamLR/ownedProperties") -- 1.17 properties
 -- Uses seed based random starter car ID out of available setups, not based on difficulty
 copyFile("beamLR/init/garage/car" .. carid , "beamLR/garage/car0")
 copyFile("beamLR/init/garage/config/car" .. carid , "beamLR/garage/config/car0")
@@ -751,6 +755,10 @@ extensions.blrItemInventory.saveInventory()
 copyFile("beamLR/itemInventory", "beamLR/backup/itemInventory")
 extensions.blrPartInventory.saveUsedPartShopDayData()
 copyFile("beamLR/usedPartDayData", "beamLR/backup/usedPartDayData") -- 1.16 used part day data
+extensions.blrCarMeet.updateDayData()
+copyFile("beamLR/carMeetDayData", "beamLR/backup/carMeetDayData") -- 1.17 car meet
+copyFile("beamLR/ownedProperties", "beamLR/backup/ownedProperties") -- 1.17 properties
+
 
 -- Garage data
 local count = #FS:findFiles("beamLR/garage/", "*", 0)
@@ -804,10 +812,13 @@ copyFile("beamLR/backup/options","beamLR/options")
 copyFile("beamLR/backup/currentTrackEvent","beamLR/currentTrackEvent")
 copyFile("beamLR/backup/itemInventory", "beamLR/itemInventory")
 copyFile("beamLR/backup/usedPartDayData", "beamLR/usedPartDayData") -- 1.16 used part day data
+copyFile("beamLR/backup/carMeetDayData", "beamLR/carMeetDayData") -- 1.17 car meet
+copyFile("beamLR/backup/ownedProperties", "beamLR/ownedProperties") -- 1.17 properties
 
 extensions.blrItemInventory.loadInventory() -- need to load inventory right now otherwise empty inventory table will overwrite restored backup
 extensions.blrPartInventory.load() -- probably should do the same for new part inventory system
 extensions.blrPartInventory.loadUsedPartShopDayData() -- and used part day data
+extensions.blrCarMeet.loadDayData()
 
 -- Garage data
 local count = #FS:findFiles("beamLR/backup/garage/", "*", 0)
@@ -1527,11 +1538,17 @@ end
 
 local function eventBrowserGetPlayerData() -- Returns player data for browser UI
 local toRet = {}
+local lgslots = extensions.blrglobals.blrFlagGet("limitedGarageSlots")
 local pdata = loadDataTable("beamLR/mainData")
 toRet["money"] = extensions.blrglobals.gmGetVal("playerMoney")
 toRet["rep"] = extensions.blrglobals.gmGetVal("playerRep")
 toRet["bossunlock"] = locals["clubCompletionStatus"]()
-dump(toRet)
+if lgslots then
+toRet["availslots"] = extensions.blrglobals.getProjectVariable("playerGarageSlots") - extensions.blrglobals.getProjectVariable("playerCarCount")
+else
+toRet["availslots"] = 999999999
+end
+--dump(toRet)
 return toRet
 end
 
@@ -1547,26 +1564,36 @@ local inspectionDataEvent = {} -- Stores last loaded inspection related fields f
 local function loadEventWithRandoms(event, seed)
 local edata = loadDataTable("beamLR/trackEvents/" .. event)
 math.randomseed(seed)
-local lapssplit = extensions.blrutils.ssplitnum(edata["laps"], ",")
-local roundssplit = extensions.blrutils.ssplitnum(edata["rounds"], ",")
-local opcountsplit = extensions.blrutils.ssplitnum(edata["opcount"], ",")
-local timesplit = extensions.blrutils.ssplitnum(edata["timeofday"], ",")
-local carsplit = extensions.blrutils.ssplit(edata["carreward"], ",")
-local partsplit = extensions.blrutils.ssplit(edata["partreward"], ",")
+local lapssplit = ssplitnum(edata["laps"], ",")
+local roundssplit = ssplitnum(edata["rounds"], ",")
+local opcountsplit = ssplitnum(edata["opcount"], ",")
+local timesplit = ssplitnum(edata["timeofday"], ",")
+local carsplit = ssplit(edata["carreward"], ",")
+
+local partsplit = {}
+local partrange = {}
+local partchance = 0
+local partdata = ""
+if edata["partreward"] ~= "none" then
+partsplit = ssplit(edata["partreward"], ",")
+partrange = ssplitnum(partsplit[2], ":")
+partchance = tonumber(partsplit[1])
+end
+
 
 local moneysplit = extensions.blrutils.ssplit(edata["moneyreward"], ",")
 local moneyrange = {}
 local moneydata = ""
-moneyrange[1] = extensions.blrutils.ssplitnum(moneysplit[1], ":")
-moneyrange[2] = extensions.blrutils.ssplitnum(moneysplit[2], ":")
-moneyrange[3] = extensions.blrutils.ssplitnum(moneysplit[3], ":")
+moneyrange[1] = ssplitnum(moneysplit[1], ":")
+moneyrange[2] = ssplitnum(moneysplit[2], ":")
+moneyrange[3] = ssplitnum(moneysplit[3], ":")
 
 local repsplit = extensions.blrutils.ssplit(edata["repreward"], ",")
 local reprange = {}
 local repdata = ""
-reprange[1] = extensions.blrutils.ssplitnum(repsplit[1], ":")
-reprange[2] = extensions.blrutils.ssplitnum(repsplit[2], ":")
-reprange[3] = extensions.blrutils.ssplitnum(repsplit[3], ":")
+reprange[1] = ssplitnum(repsplit[1], ":")
+reprange[2] = ssplitnum(repsplit[2], ":")
+reprange[3] = ssplitnum(repsplit[3], ":")
 
 
 -- Event params are individually seeded except for reward which is linked to total duration of event
@@ -1574,8 +1601,8 @@ local laproll = math.random()
 local roundroll =  math.random()
 local opcountroll = math.random()
 local timeroll =  math.random()
+local partroll = math.random()
 local carroll = 0
-local partroll = 0
 local rewardfloat = (laproll + timeroll) / 2.0 -- Max laps + max rounds = max reward
 
 if #lapssplit > 1 then
@@ -1634,9 +1661,16 @@ carroll = math.random(1, #carsplit)
 edata["carreward"] = carsplit[carroll]
 end
 
-if #partsplit > 1 then
-partroll = math.random(1, #partsplit)
-edata["partreward"] = partsplit[partroll]
+if partroll <= partchance then
+local partlist = extensions.betterpartmgmt.getValueRangedPartList(partrange[1], partrange[2])
+if #partlist > 0 then
+local partpick = math.random(1, #partlist)
+edata["partreward"] = partlist[partpick]
+else
+edata["partreward"] = "none"
+end
+else
+edata["partreward"] = "none"
 end
 
 return edata
@@ -1670,7 +1704,14 @@ toRet["rounds"] = edata["rounds"]
 toRet["opcount"] = edata["opcount"]
 toRet["moneyreward"] = edata["moneyreward"]
 toRet["repreward"] = edata["repreward"]
-toRet["partreward"] = edata["partreward"] -- Could possibly use actual part names 
+
+if edata["partreward"] ~= "none" then
+toRet["partreward"] = extensions.betterpartmgmt.getPartNameLibrary()[edata["partreward"]] or edata["partreward"]
+else
+toRet["partreward"] = "none"
+end
+
+
 if edata["carreward"] ~= "none" then -- Use proper car name instead of file name
 local cars = ssplit(edata["carreward"], ",")
 local cfirst = true
@@ -2144,7 +2185,7 @@ local paint = paints[pick]
 return createVehiclePaint({x=paint.baseColor[1], y=paint.baseColor[2], z=paint.baseColor[3], w=paint.baseColor[4]}, paint.metallic, paint.roughness, paint.clearcoat, paint.clearcoatRoughness)
 end
 
-local function processRaceRandoms(raceData)
+local function processRaceRandoms(raceData, seed)
 local toRet = {}
 local crand = 0
 local wager= ssplit(raceData["wager"], ",")
@@ -2166,6 +2207,9 @@ local wploop = "" -- looping subsection
 local wptoret = "" -- final waypoint list
 local wrand = 0 -- to link lap count with rewards 
 local traffic = tonumber(raceData["traffic"])--traffic param now interpreted as chance to use traffic
+
+-- 1.16.9 seeded race RNG
+math.randomseed(seed)
 
 if #wager > 1 then 
 wrand = math.random()
@@ -2811,7 +2855,50 @@ end
 return toRet
 end
 
+-- To avoid repetitive code & flowgraph when buttons are needed conditionally
+locals["imButton"] = function(name, id, width, height, sameline, enabled, ignoreToggle)
+local im = ui_imgui
 
+local enable = enabled and (extensions.blrglobals.blrFlagGet("imToggle") or ignoreToggle)
+
+local toRet = {}
+
+if sameline then
+im.SameLine()
+end
+
+im.Button(name .. "##" .. id, im.ImVec2(width, height))
+
+if not enable then return toRet end
+
+if im.IsItemHovered() then
+local down = im.IsMouseClicked(0)
+local hold = im.IsMouseDown(0)
+local up = im.IsMouseReleased(0)
+if (down or hold or up) then
+if down then hold = false up = false end
+if hold then down = false up = false end
+if up then down = false hold = false end
+end
+toRet["down"] = down
+toRet["hold"] = hold
+toRet["up"] = up
+else
+toRet["down"] = false
+toRet["hold"] = false
+toRet["up"] = false
+end
+
+return toRet
+end
+
+
+locals["setPause"] = function(pause)
+simTimeAuthority.pause(pause)
+end
+
+M.setPause = locals["setPause"]
+M.imButton = locals["imButton"]
 M.loadCarShopList = locals["loadCarShopList"]
 M.validateEventWaypoints = locals["validateEventWaypoints"]
 M.spawngroupGenerator = locals["spawngroupGenerator"]
