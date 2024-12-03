@@ -10,6 +10,12 @@ local uidata = {}
 
 local lastdata = {}
 
+-- for simple data that doesn't need auto reload to use
+-- within flowgraph without having to add extra code
+local function customHook(h, d)
+guihooks.trigger(h, d)
+end
+
 local function sendDataToUI(k,v) -- For BLR main menu
 local d = {}
 d.key = k
@@ -410,7 +416,7 @@ local function sendPartBuyResult(result)
 guihooks.trigger("beamlrPartBuyResult", result)
 end
 
-
+M.customHook = customHook
 M.sendDriftCombo = sendDriftCombo
 M.sendPartBuyResult = sendPartBuyResult
 M.sendTemplateFixData = sendTemplateFixData

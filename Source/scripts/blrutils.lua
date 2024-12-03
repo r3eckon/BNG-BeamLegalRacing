@@ -2897,6 +2897,36 @@ locals["setPause"] = function(pause)
 simTimeAuthority.pause(pause)
 end
 
+locals["saveDataTableOptimized"] = function(path, data, gcinterval)
+
+deleteFile(path) -- start by clearing existing file data since we use append mode
+
+local f = io.open(path, "a")
+local iteration = 0
+
+if not f then
+print("saveDataTableOptimized could not open file at path: " .. path)
+return false
+end
+
+for k,v in pairs(data) do
+iteration = iteration + 1
+f:write(k .. "=" .. v .. "\n")
+if (iteration % gcinterval) == 0 then
+collectgarbage()
+end
+end
+
+
+collectgarbage()
+f:flush()
+f:close()
+end
+
+
+
+
+M.saveDataTableOptimized = locals["saveDataTableOptimized"]
 M.setPause = locals["setPause"]
 M.imButton = locals["imButton"]
 M.loadCarShopList = locals["loadCarShopList"]

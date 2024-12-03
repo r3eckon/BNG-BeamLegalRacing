@@ -92,6 +92,15 @@ angular.module('beamng.apps')
 	  } 
 
 	  scope.garagePartClick = function(slot, item){
+		
+		//Prevent double clicking on part edit buttons
+		if(scope.beamlrData["partEditLock"])
+		{
+			return;
+		} 
+		scope.beamlrData["partEditLock"] = true
+		 
+		  
 		bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("garageEdit", "slot", "${slot}")`);
 		bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("garageEdit", "item", "${item}")`);
 		bngApi.engineLua(`extensions.customGuiCallbacks.exec("setPart", "garageEdit")`);
@@ -232,6 +241,15 @@ angular.module('beamng.apps')
 
 	  scope.applyTune = function()
 	  {
+		  
+		//Prevent double clicking
+		if(scope.beamlrData["partEditLock"])
+		{
+			return;
+		} 
+		scope.beamlrData["partEditLock"] = true
+		  
+		  
 		  var ckey = "";
 		  var cval = 0;
 		  
@@ -450,6 +468,15 @@ angular.module('beamng.apps')
 	  
 	  scope.loadTemplate = function (template)
 	  {
+		  
+		  //Prevent double clicking
+		  if(scope.beamlrData["partEditLock"])
+		  {
+			  return;
+		  } 
+		  scope.beamlrData["partEditLock"] = true
+		
+		  
           bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("templateData", "templateName", "${template}")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("templateData", "templateFolder", "${scope.beamlrData["vehicleTemplateFolder"]}")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("loadTemplate", "templateData")`)
@@ -702,6 +729,14 @@ angular.module('beamng.apps')
 	  
 	  scope.advancedPartSet = function(slot, pid, part)
 	  {
+		  
+		  //Prevent double clicking
+		  if(scope.beamlrData["partEditLock"])
+		  {
+			  return;
+		  } 
+		  scope.beamlrData["partEditLock"] = true
+		  
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("advPartSetData", "pid", ${pid})`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("advPartSetData", "slot", "${slot}")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("advPartSetData", "part", "${part}")`)

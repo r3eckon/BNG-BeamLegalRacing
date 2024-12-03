@@ -1,7 +1,7 @@
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.17/beamLegalRacing1.17.zip
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.17.1/beamLegalRacing1.17.1.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.17
+# Beam Legal Racing 1.17.1
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -295,6 +295,8 @@ Added in 1.17, this new menu will show all unused parts in your inventory, inclu
 
 This menu requires the game to cache jbeam file data upon first start. This process takes about a minute for a vanilla install and could take longer depending on how many vehicle and part mods you have installed. This process will be started automatically when you start the scenario if the game detects new mods. If you are a mod developer making your own jbeam parts you can start this process manually from the options menu to cache any new jbeam file that isn't stored in a mod zip. 
 
+Version 1.17.1 will now skip broken jbeam files during the caching process. The process has also been optimized to use less RAM as it caused crashes on some systems.
+
 ## WIP Notice
 This mod is a work in progress. At this stage it is a decent vertical slice of the gameplay the project is trying to achieve with some bugs and quirks remaining that should get better as BeamNG and the mod are updated. That being said a lot of content is missing and reward values may be unbalanced relative to part prices.
 
@@ -328,6 +330,7 @@ Thank you for playing BeamLR!
 * Soolek
 * Lorenzo Boccaccia (LoSboccacc)
 * Fernando Serafim Marcello
+* Andrew Barbot
 
 ## Known Issues 
 
@@ -843,3 +846,13 @@ Thank you for playing BeamLR!
 * Game will now be force unpaused during part edits to prevent issues
 * Fixed part edit & buying menu layout breaking with slots name taking more than one line
 * Fixed part edit menu issue for slots that have exact same name
+
+### 1.17.1
+* Fixed Bolide ROH config blowing up due to overtorque
+* Fixed part edits before odometer reload permanently resetting odometer value
+* Tweaked trackS performance class config list
+* Fixed high RAM usage during jbeam cache process causing a game crash for some users
+* Fixed UI Init Request flowgraph error during jbeam cache generation process
+* Broken jbeam files are now avoided by jbeam cache process (allows good files to get cached anyway)
+* Fixed garage slot count not saving properly when using a save file from previous versions
+* Fixed missing west coast USA level missiongroups

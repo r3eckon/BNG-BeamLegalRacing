@@ -26,6 +26,10 @@ angular.module('beamng.apps')
 	  scope.warnack = false
 	  scope.engine = 0
 	  scope.engineSelected = false
+	  scope.buttonlock = false
+	  
+	  
+	  
 	  
 	  scope.calculateTotal = function()
 	  {
@@ -149,6 +153,10 @@ angular.module('beamng.apps')
 		  scope.picks[scope.mainpart] = true
       })
 	  
+	  scope.$on('beamlrRepairButtonLock', function (event, data) {
+          scope.buttonlock = data
+      })
+	  
 	  scope.toggleui = function(value)
 	  {
 		  scope.enabled = value
@@ -164,6 +172,15 @@ angular.module('beamng.apps')
 	  {
 		  if(scope.totalConfirm)
 		  {
+			  
+		  //prevent double click
+		  if(scope.buttonlock)
+		  {
+			  return;
+		  }
+		  scope.buttonlock = true;		  
+			  
+			  
 			bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("advrepairdata", "cost", ${scope.formatNumber(scope.total * scope.mult)})`)
 			for(k in scope.picks)
 			{
@@ -188,8 +205,17 @@ angular.module('beamng.apps')
 	  
 	  scope.repairAll = function()
 	  {
+		  
 		  if(scope.fullConfirm)
 		  {
+			//prevent double click
+			if(scope.buttonlock)
+			{
+			  return;
+			}
+			scope.buttonlock = true;				  
+			  
+			  
 			bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("advrepairdata", "cost", ${scope.formatNumber(scope.full * scope.mult)})`)
 			bngApi.engineLua(`extensions.customGuiCallbacks.exec("advancedRepairAll", "advrepairdata")`)	
 			scope.fullConfirm = false

@@ -1727,9 +1727,37 @@ return toRet
 end
 
 
+local gciteration = 0
+local gcintercount = 1000
+
+local function gcinterval(interval)
+gciteration = gciteration + 1
+if (gciteration % interval) == 0 then 
+print("GC RUNNING, CURRENT MEM USAGE " .. collectgarbage("count") .. " KB")
+collectgarbage()
+end
+end
+
+
 local jbeamFileMap = {}
 local fullSlotNameLibrary = {}
 local fullPartNameLibrary = {}
+local cacheReady = false -- used to avoid trying to use cache in UI init before its loaded
+
+-- returns false when json file cannot be read 
+local function jsonReadFileSafe(path)
+local result, returned = pcall(jsonReadFile, path)
+local toRet
+
+if result then 
+toRet = returned
+else
+toRet = result 
+end
+
+return toRet 
+end
+
 
 -- creates a jbeam file map for ALL JBEAM FILES including mods 
 local function createFullJbeamMap()
@@ -1737,20 +1765,19 @@ local files = FS:findFiles("vehicles", "*.jbeam", 100)
 local cdata = {}
 jbeamFileMap = {}
 
-
-
-
-
 for k,v in pairs(files) do
-cdata = jsonReadFile(v)
+cdata = jsonReadFileSafe(v)
+
+if cdata then
 for p,pdata in pairs(cdata) do
 jbeamFileMap[p] = v
 end
+else
+print("BEAMLR JBEAM CACHING AVOIDED BROKEN JBEAM FILE: " .. v)
 end
 
-
-
-
+gcinterval(gcintercount)
+end
 
 end
 
@@ -1767,6 +1794,7 @@ fullPartNameLibrary = {}
 for k,v in pairs(jbeamFileMap) do
 cjbeam = getJbeamFromFullMap(k)
 fullPartNameLibrary[k] = cjbeam["information"]["name"] or k
+gcinterval(gcintercount)
 end
 end
 
@@ -1817,7 +1845,7 @@ end
 end
 end
 
-
+gcinterval(gcintercount)
 end
 
 end
@@ -1846,8 +1874,9 @@ end
 
 local function generateJbeamLibraries()
 local cvalid = isJbeamCacheValid()
-
 local cachedMods = {}
+
+gciteration = 0
 
 if cvalid then
 jbeamFileMap = extensions.blrutils.loadDataTable("beamLR/cache/jbeamFileMap")
@@ -1855,11 +1884,14 @@ fullSlotNameLibrary = extensions.blrutils.loadDataTable("beamLR/cache/fullSlotNa
 fullPartNameLibrary = extensions.blrutils.loadDataTable("beamLR/cache/fullPartNameLibrary")
 else
 createFullJbeamMap()
+gcinterval(1)
 createFullPartNameLibrary()
+gcinterval(1)
 createFullSlotNameLibrary()
-extensions.blrutils.saveDataTable("beamLR/cache/jbeamFileMap", jbeamFileMap)
-extensions.blrutils.saveDataTable("beamLR/cache/fullSlotNameLibrary", fullSlotNameLibrary)
-extensions.blrutils.saveDataTable("beamLR/cache/fullPartNameLibrary", fullPartNameLibrary)
+gcinterval(1)
+extensions.blrutils.saveDataTableOptimized("beamLR/cache/jbeamFileMap", jbeamFileMap, gcintercount)
+extensions.blrutils.saveDataTableOptimized("beamLR/cache/fullSlotNameLibrary", fullSlotNameLibrary, gcintercount)
+extensions.blrutils.saveDataTableOptimized("beamLR/cache/fullPartNameLibrary", fullPartNameLibrary, gcintercount)
 
 for k,v in pairs(core_modmanager.getMods()) do
 if v.active then -- skip deactivated mods
@@ -1867,12 +1899,14 @@ cachedMods[k] = "true"
 end
 end
 
-extensions.blrutils.saveDataTable("beamLR/cache/cachedMods", cachedMods)
+extensions.blrutils.saveDataTableOptimized("beamLR/cache/cachedMods", cachedMods)
 
 end
 
 cacheValidBypass = false
+cacheReady = true
 
+extensions.blrglobals.blrFlagSet("uiInitRequest", true) -- force UI init after cache is ready to refresh UI 
 end
 
 
@@ -1949,6 +1983,13 @@ local function setCacheValidBypass(bypass)
 cacheValidBypass = bypass
 end
 
+
+local function jbeamCacheReady()
+return cacheReady
+end
+
+
+M.jbeamCacheReady = jbeamCacheReady
 M.setCacheValidBypass = setCacheValidBypass
 M.generateJbeamLibraries = generateJbeamLibraries
 M.isJbeamCacheValid = isJbeamCacheValid

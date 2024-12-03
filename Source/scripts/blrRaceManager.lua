@@ -45,6 +45,38 @@ local pitpenalty = false
 local pitenabled = false -- Turns on when pit enabler is hit, prevents player skipping laps using pit lane
 
 
+local prefabs = {}
+
+local function spawnPrefabs(list)
+local ptable = extensions.blrutils.ssplit(list, ",")
+prefabs = {}
+
+local cprefab = {}
+local cid = {}
+local ccount = 1
+
+for k,v in pairs(ptable) do
+cprefab = spawnPrefab("blrTrackEventPrefab_" .. ccount, v, "0 0 0", "0 0 1 0", "1 1 1", false)
+cid = cprefab:getId()
+scenetree.missionGroup:add(cprefab)
+ccount = ccount + 1
+table.insert(prefabs, cid)
+end
+
+be:reloadCollision()
+end
+
+local function deletePrefabs()
+for k,v in pairs(prefabs) do
+scenetree.findObjectById(v):delete()
+end
+prefabs = {}
+be:reloadCollision()
+end
+
+
+
+
 local function getPitMarkerData()
 local toRet = {}
 toRet["pos"] = pitpos
@@ -406,6 +438,8 @@ local function setBossMode(mode)
 bossmode = mode
 end
 
+M.deletePrefabs = deletePrefabs
+M.spawnPrefabs = spawnPrefabs
 M.racerFinished = racerFinished
 M.setBossMode = setBossMode
 M.getPointCounts = getPointCounts
