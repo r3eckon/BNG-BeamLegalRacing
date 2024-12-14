@@ -69,7 +69,7 @@ The game will give you a chance to view the contents of your old userfolder cont
 
 **IMPORTANT**: **Do not change the settings shown below while playing BeamLR**. The settings should be automatically restored to your previous values when you abandon the scenario. Keep in mind game crashes and other forceful exit from the scenario may prevent your old setting from being restored.
 
-![settings](https://i.imgur.com/ZIor6iw.png)
+![settings](https://i.imgur.com/4bm3moL.png)
 
 **IMPORTANT**: **You must abandon the scenario to properly save your progress**. Do not exit the game from main menu until you have abandonned the scenario and are back in freeroam. ALT-F4 or other forceful exit from the game are likely to cause lost progress and/or corrupted save files. Copy the **userfolder/beamLR** folder somewhere if you want to manually backup your career files.
 
