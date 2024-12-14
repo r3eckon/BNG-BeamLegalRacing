@@ -1,3 +1,4 @@
+{"class":"Prefab","persistentId":"5bdf860b-1ca1-44f2-8920-9da831b8e724","__parent":"port","annotation":"OBSTACLES","fileName":"levels/italy/art/prefabs/port_cylinder.prefab"}
 {"name":"port_b_sewer_pipe_4m","class":"Prefab","persistentId":"c6faead3-5ea4-44ff-9f6c-9592d6c771b9","__parent":"port","fileName":"levels/italy/art/prefabs/port_b_sewer_pipe_4m.prefab"}
 {"class":"TSStatic","persistentId":"132fb7dd-a483-4301-ad30-7f238e3562e9","__parent":"port","annotation":"ASPHALT","collisionType":"Visible Mesh Final","isRenderEnabled":false,"shapeName":"/levels/italy/art/shapes/buildings/port_base_road.dae","useInstanceRenderData":true}
 {"class":"TSStatic","persistentId":"03d8256a-b48c-45ca-bb02-10cb66a6880e","__parent":"port","position":[449.559906,1672.06323,138.823196],"annotation":"TRAFFIC_SIGNS","isRenderEnabled":false,"rotationMatrix":[0.832878232,0.553456008,0,-0.553456008,0.832878232,0,0,0,1],"shapeName":"/levels/italy/art/shapes/signs/italy_traf_sign_give_way.dae"}
@@ -25,7 +26,6 @@
 {"class":"Prefab","persistentId":"725e2dbd-72ab-4917-b5ff-2c6043d3f9c6","__parent":"port","annotation":"OBSTACLES","fileName":"levels/italy/art/prefabs/port_gas_pallet.dae.prefab"}
 {"class":"Prefab","persistentId":"7261a64e-c501-480d-b67d-aca46f346a38","__parent":"port","annotation":"OBSTACLES","fileName":"levels/italy/art/prefabs/port_s_sewer_pipe_45d.prefab"}
 {"class":"Prefab","persistentId":"754cb8cc-1bec-46dc-a196-554925453080","__parent":"port","annotation":"OBSTACLES","fileName":"levels/italy/art/prefabs/port_s_sewer_pipe_90d.prefab"}
-{"class":"Prefab","persistentId":"768dea05-89be-4b6e-8c30-33a30ba50505","__parent":"port","annotation":"OBSTACLES","fileName":"levels/italy/art/prefabs/container_01_b.prefab"}
 {"class":"Prefab","persistentId":"8a5975b5-aad1-4f42-9c24-2f6cd052384b","__parent":"port","annotation":"OBSTACLES","fileName":"levels/italy/art/prefabs/port_railing.prefab"}
 {"class":"Prefab","persistentId":"8ad643bf-7fcf-4cd3-85ba-85e6dcd0b4ac","__parent":"port","annotation":"OBSTACLES","fileName":"levels/italy/art/prefabs/port_water_container.prefab"}
 {"class":"Prefab","persistentId":"8e19580a-87c5-451f-8a9c-fe43a7b3a333","__parent":"port","annotation":"OBSTACLES","fileName":"levels/italy/art/prefabs/port_scrap1.prefab"}
@@ -38,3 +38,4 @@
 {"class":"Prefab","persistentId":"c94f7117-5823-4111-9cf5-ec7f37bc2e9d","__parent":"port","annotation":"OBSTACLES","fileName":"levels/italy/art/prefabs/port_scrap2.prefab"}
 {"class":"Prefab","persistentId":"cd240945-6385-41f9-87e5-f21ae5dfb3f3","__parent":"port","annotation":"OBSTACLES","fileName":"levels/italy/art/prefabs/port_scrap3.prefab"}
 {"class":"Prefab","persistentId":"dd188366-137d-460a-92f6-736b8b5bb36c","__parent":"port","annotation":"OBSTACLES","fileName":"levels/italy/art/prefabs/port_pallet.prefab"}
+{"class":"Prefab","__parent":"port","fileName":"levels/italy/art/prefabs/container_01_b.prefab"}

@@ -1,11 +1,27 @@
 {
   "data":[
     {
+      "config":"etkc_kc4",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"etkc_kc6",
+      "model":"simple_traffic"
+    },
+    {
       "config":"etki_pre",
       "model":"simple_traffic"
     },
     {
       "config":"etk800_xc",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"tograc_ev",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"vivace_ev",
       "model":"simple_traffic"
     },
     {
@@ -53,11 +69,23 @@
       "model":"simple_traffic"
     },
     {
+      "config":"tograc_base",
+      "model":"simple_traffic"
+    },
+    {
       "config":"van_beamcom",
       "model":"simple_traffic"
     },
     {
       "config":"van_vanster",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"vivace_base",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"vivace_wide",
       "model":"simple_traffic"
     },
     {
@@ -78,6 +106,10 @@
     },
     {
       "config":"van_delivery",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"vivace_sport",
       "model":"simple_traffic"
     },
     {
@@ -113,6 +145,14 @@
       "model":"simple_traffic"
     },
     {
+      "config":"sunburst_base",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"sunburst_wide",
+      "model":"simple_traffic"
+    },
+    {
       "config":"van_passenger",
       "model":"simple_traffic"
     },
@@ -130,6 +170,18 @@
     },
     {
       "config":"fullsize_stock",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"sunburst_sport",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"tograc_standard",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"vivace_standard",
       "model":"simple_traffic"
     },
     {
@@ -170,6 +222,14 @@
     },
     {
       "config":"lansdale_pre_taxi",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"wendover_pre_base",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"wendover_pre_high",
       "model":"simple_traffic"
     },
     {
@@ -226,6 +286,14 @@
     },
     {
       "config":"van_passenger_facelift",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"wendover_facelift_base",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"wendover_facelift_high",
       "model":"simple_traffic"
     },
     {

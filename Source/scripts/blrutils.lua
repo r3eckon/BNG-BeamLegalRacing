@@ -2923,9 +2923,36 @@ f:flush()
 f:close()
 end
 
+locals["sandboxExecute"] = function(path, params)
+local s = readFile(path)
+local f = loadstring(s)
+return f(params)
+end
 
 
+-- generates a new config specific drag race file by copying existing file for a club & league
+locals["generateDragRaceFile"] = function(clublistpath, league, config)
+local clist = loadDataFile(clublistpath)
+local cfolder = ""
+local cfiles = {}
+local cid = 0
+local cdata = {}
 
+for k,v in pairs(clist) do
+cfolder = v .. "/" .. league .. "/"
+cfiles = FS:findFiles(cfolder, "*", 1)
+cid = #cfiles
+cdata = loadDataTable(cfiles[1])
+cdata["enemyConfig"] = config
+saveDataTable(cfolder .. "race" .. cid, cdata)
+end
+
+
+end
+
+
+M.generateDragRaceFile = locals["generateDragRaceFile"]
+M.sandboxExecute = locals["sandboxExecute"]
 M.saveDataTableOptimized = locals["saveDataTableOptimized"]
 M.setPause = locals["setPause"]
 M.imButton = locals["imButton"]

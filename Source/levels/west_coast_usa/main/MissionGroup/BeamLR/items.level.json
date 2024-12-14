@@ -7,3 +7,4 @@
 {"name":"RaceTriggers","class":"SimGroup","persistentId":"b3930e4b-4e05-46b5-93a7-f624b0517a4e","__parent":"BeamLR"}
 {"name":"RaceWaypoints","class":"SimGroup","persistentId":"5279d4e2-79b1-4273-8c09-ad0f9e59955b","__parent":"BeamLR"}
 {"name":"AIRoads","class":"SimGroup","persistentId":"50ce9fbc-3e10-482d-ad2f-7de8c9833ac1","__parent":"BeamLR"}
+{"name":"track","class":"SimGroup","__parent":"BeamLR"}

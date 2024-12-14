@@ -188,6 +188,8 @@ angular.module('beamng.apps')
 		  scope.inputData['rsraces'] = data['rsraces']
 		  scope.inputData['dbypass'] = data['dbypass']
 		  scope.inputData['lgslots'] = data['lgslots']
+		  scope.inputData['allowtesmode'] = data['allowtesmode']
+		  
       })
 	  
 	  
@@ -964,6 +966,13 @@ angular.module('beamng.apps')
 	  {
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("lgslots", ${t})`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setLimitedGarageSlotsMode", "lgslots")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);  
+	  }
+	  
+	  scope.trackEventSlicksToggle = function(t)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("allowtesmode", ${t})`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setTrackEventSlicksMode", "allowtesmode")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);  
 	  }
 	  

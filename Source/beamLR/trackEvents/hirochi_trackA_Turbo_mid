@@ -28,6 +28,7 @@ pentrigs=BeamLRTrigger_RaceAPenalty1,BeamLRTrigger_RaceAPenalty2,BeamLRTrigger_R
 risk=1.4
 aispd=115.0
 aispdmode=limit
+prefabs=/levels/hirochi_raceway/art/prefabs/blrtrackprefab1.prefab.json,/levels/hirochi_raceway/art/prefabs/blrtrackprefab2.prefab.json,/levels/hirochi_raceway/art/prefabs/blrtrackprefab3.prefab.json,/levels/hirochi_raceway/art/prefabs/blrtrackprefab4.prefab.json,/levels/hirochi_raceway/art/prefabs/blrtrackprefab5.prefab.json,/levels/hirochi_raceway/art/prefabs/blrtrackprefab6.prefab.json,/levels/hirochi_raceway/art/prefabs/blrtrackprefab9.prefab.json,/levels/hirochi_raceway/art/prefabs/blrtrackprefab10.prefab.json,/levels/hirochi_raceway/art/prefabs/blrtrackprefab11.prefab.json,/levels/hirochi_raceway/art/prefabs/blrtrackprefab13.prefab.json,/levels/hirochi_raceway/art/prefabs/blrtrackprefab15.prefab.json
 scount=8
 spos1=-407.96200561523,258.68984985352,25.220132827759
 srot1=0.001666872949311,-0.0051416632104061,0.95960989247103,0.28128213435223

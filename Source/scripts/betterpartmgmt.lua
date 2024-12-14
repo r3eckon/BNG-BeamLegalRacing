@@ -1899,7 +1899,7 @@ cachedMods[k] = "true"
 end
 end
 
-extensions.blrutils.saveDataTableOptimized("beamLR/cache/cachedMods", cachedMods)
+extensions.blrutils.saveDataTableOptimized("beamLR/cache/cachedMods", cachedMods, gcintercount)
 
 end
 

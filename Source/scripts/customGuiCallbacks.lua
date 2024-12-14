@@ -1250,6 +1250,13 @@ extensions.blrutils.updateDataTable("beamLR/options", dtable)
 extensions.blrglobals.blrFlagSet("limitedGarageSlots", p == 1)
 end
 
+ftable["setTrackEventSlicksMode"] = function(p)
+local dtable = {}
+dtable["allowtesmode"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+extensions.blrflags.set("trackEventSlickMode", false) -- force disable the slick mode shared flag as a fallback to fix issue if it gets stuck on after crash
+end
+
 ftable["startManualJbeamCache"] = function(p)
 extensions.betterpartmgmt.setCacheValidBypass(true) -- bypass valid cache to force update
 extensions.blrglobals.blrFlagSet("jbeamCacheFinished", false) -- triggers update from flowgraph to show imgui message

@@ -5,6 +5,8 @@ file, You can obtain one at http://beamng.com/bCDDL-1.1.txt
 This module contains a set of functions which manipulate behaviours of vehicles.
 ]]
 
+-- BEAMLR EDITED
+
 local M = {}
 
 local jbeamUtils = require("jbeam/utils")

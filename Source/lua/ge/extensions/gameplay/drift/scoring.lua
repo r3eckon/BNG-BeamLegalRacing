@@ -1,12 +1,29 @@
 local M = {}
 
-local im = ui_imgui
-
 -- BEAMLR EDIT START
 local extensions = require("extensions")
 -- END
 
+
+local im = ui_imgui
+local scoreExperiment = im.BoolPtr(false)
+local imVec4Yellow = im.ImVec4(1,1,0,1)
+
+local isBeingDebugged
+local profiler = LuaProfiler("drift scoring profiler")
+local gc
+local driftDebugInfo = {
+  default = true,
+  canBeChanged = true
+}
+
+local scoreAddedThisFrame = 0
+
 local scoreOptions = {
+  careerRewards = {
+    minScore = 300,
+    scoreMulForXp = 0.0017
+  },
   defaultPoints = {
     driftThrough = 1500,
     donut = 500,
@@ -14,20 +31,20 @@ local scoreOptions = {
     nearPole = 1000,
   },
   minDriftAngleMulti = 1,
-  maxDriftAngleMulti = 2.5,
-  maxWallMulti = 4,
-  maxSpeedMulti = 3,
+  maxDriftAngleMulti = 10,
+  maxWallMulti = 3,
+  maxSpeedMulti = 4,
   maxCombo = 5,
   wallTapScore = 200,
-  continuousDriftPoints = 20,
+  continuousDriftPoints = 0.6,
   comboOptions = {
     stuntZone = {
       creepUp = 70,
     },
     oneSideDrift = {
-      creepUp = 25,
-      timeToCreepup = 0.4, -- has to drift x seconds to increase creep up.
-      maxIncrements = 12 -- how many times can the combo be increased is a single drift
+      creepUp = 3.125,
+      timeToCreepup = 0.05, -- has to drift x seconds to increase creep up.
+      maxIncrements = 96 -- how many times can the creepup be increased is a single drift
     },
     driftTransition = {
       creepUp = 20,
@@ -40,9 +57,8 @@ local scoreOptions = {
     maxCombo = 5,
   }
 }
-local driftScore = {
+local driftScore = {}
 
-}
 local driftActiveData = {}
 local driftOptions = {}
 
@@ -59,7 +75,7 @@ local function resetCachedScore()
   extensions.hook("onDriftCachedScoreReset")
 end
 
-local function resetScore()
+local function reset()
   driftScore = {
     score = 0,
   }
@@ -109,13 +125,13 @@ local function addCachedScore(valueToAdd, useStallingSystem)
   return valueToAdd
 end
 
-local minSpeed = 35 --min speed at which the speedMulti factor starts increasing
+local minSpeed = 22 --min speed at which the speedMulti factor starts increasing
 local maxSpeed = 200 --speed at which the speedMulti factor stops increasing
 local wallMulti
 local speedMulti
 local angleMulti
 local continuousScore
-local function scoreContinuousDrift(dtSim)
+local function scoreContinuousDrift(distSinceLastFrame)
   wallMulti = 1 + linearScale(driftActiveData.closestWallDistanceFront, driftOptions.wallDetectionLength, 0, 0, scoreOptions.maxWallMulti) + linearScale(driftActiveData.closestWallDistanceRear, driftOptions.wallDetectionLength, 0, 0, scoreOptions.maxWallMulti)
   angleMulti = linearScale(driftActiveData.currDegAngle, driftOptions.minAngle, driftOptions.maxAngle, scoreOptions.minDriftAngleMulti, scoreOptions.maxDriftAngleMulti)
   speedMulti = math.min(math.max(1, linearScale(gameplay_drift_drift.getAirSpeed(), minSpeed, maxSpeed, 1, scoreOptions.maxSpeedMulti) ), scoreOptions.maxSpeedMulti)
@@ -125,23 +141,51 @@ local function scoreContinuousDrift(dtSim)
     continuousScore = gameplay_drift_stallingSystem.calculateScore(continuousScore)
   end
 
-  addCachedScore(angleMulti * speedMulti * wallMulti * dtSim * continuousScore)
+  scoreAddedThisFrame = angleMulti * speedMulti * wallMulti * distSinceLastFrame * continuousScore
+  addCachedScore(scoreAddedThisFrame)
 end
 
 local function imguiDebug()
-  if gameplay_drift_general.getDebug() then
+  if isBeingDebugged then
     if im.Begin("Drift score") then
       im.Text(string.format("Score : %d", driftScore.score))
       im.Text(string.format("Cached score : %d", driftScore.cachedScore))
-      im.Text(string.format("Combo : %0.2f", driftScore.combo))
-      im.Text(string.format("Combo creep up : %d", driftScore.comboCreepup))
+      im.Text(string.format("Combo : %0.2f Combo creep up : %d", driftScore.combo, driftScore.comboCreepup))
 
+      im.Checkbox("Experiment with score multipliers", scoreExperiment)
+
+      if scoreExperiment[0] then
+        im.BeginChild1("change", im.ImVec2(0, 140), true)
+        im.Text("Experiment (CTRL + L to reset):")
+        local baseScoreP = im.FloatPtr(scoreOptions.continuousDriftPoints)
+        if im.SliderFloat("Base score", baseScoreP, 0, 3, "%.2f") then
+          scoreOptions.continuousDriftPoints = baseScoreP[0]
+        end
+        local maxSpeedMultiP = im.FloatPtr(scoreOptions.maxSpeedMulti)
+        if im.SliderFloat("Max speed multi", maxSpeedMultiP, 1, 50, "%.1f") then
+          scoreOptions.maxSpeedMulti = maxSpeedMultiP[0]
+        end
+        local maxWallMultiP = im.FloatPtr(scoreOptions.maxWallMulti)
+        if im.SliderFloat("Max wall multi", maxWallMultiP, 1, 50, "%.1f") then
+          scoreOptions.maxWallMulti = maxWallMultiP[0]
+        end
+        local maxDriftAngleMultiP = im.FloatPtr(scoreOptions.maxDriftAngleMulti)
+        if im.SliderFloat("Max angle multi", maxDriftAngleMultiP, 1, 50, "%.1f") then
+          scoreOptions.maxDriftAngleMulti = maxDriftAngleMultiP[0]
+        end
+        im.EndChild()
+      end
       if gameplay_drift_drift.getIsDrifting() then
         if not gameplay_drift_general.getFrozen() then
-          im.Text(string.format("Speed score multi : %0.2f", speedMulti or -1))
-          im.Text(string.format("Wall score multi : %0.2f", wallMulti or -1))
-          im.Text(string.format("Angle score multi : %0.2f", angleMulti or -1))
+          im.Text(string.format("Speed score multi : %0.2f (%i - %i)", speedMulti or -1, 1, scoreOptions.maxSpeedMulti))
+          im.Text(string.format("Wall score multi : %0.2f (%i - %i)", wallMulti or -1, 1, scoreOptions.maxWallMulti))
+          im.Text(string.format("Angle score multi : %0.2f (%i - %i)", angleMulti or -1, scoreOptions.minDriftAngleMulti, scoreOptions.maxDriftAngleMulti))
+          im.Text(string.format("Score added this frame : %0.5f", scoreAddedThisFrame or -1))
         end
+      else
+        im.PushStyleColor2(im.Col_Text, imVec4Yellow)
+        im.Text("Drift to see scoring information")
+        im.PopStyleColor()
       end
     end
   end
@@ -152,12 +196,16 @@ local function onUpdate(dtReal, dtSim)
   -- BEAMLR EDIT START
   if extensions.blrglobals.blrFlagGet("legacyDriftScoring") then return end
   -- END
- 
+
+
   lastDriftInitiationTimer = lastDriftInitiationTimer + dtSim
 
+  isBeingDebugged = gameplay_drift_general.getExtensionDebug("gameplay_drift_scoring")
   imguiDebug()
+  if gameplay_drift_general.getGeneralDebug() then profiler:start() end
 
-  if gameplay_drift_general.getContext() == "stopped" then return end
+
+  if gameplay_drift_general.getPaused() then return end
 
   driftActiveData = gameplay_drift_drift.getDriftActiveData()
   driftOptions = gameplay_drift_drift.getDriftOptions()
@@ -165,51 +213,92 @@ local function onUpdate(dtReal, dtSim)
   if gameplay_drift_drift.getIsDrifting() then
     if not gameplay_drift_general.getFrozen() then
       calculateOneSideDriftCreepUp(dtSim)
-      scoreContinuousDrift(dtSim)
+      scoreContinuousDrift(gameplay_drift_drift.getDistSinceLastFrame())
     end
   else
     resetOneSideDriftData()
   end
+
+  if gameplay_drift_general.getGeneralDebug() then
+    profiler:add("Drift scoring")
+    gc = profiler.sections[1].garbage
+    profiler:finish(false)
+  end
 end
 
 -- Drift stunts --
-local function onAnyStuntZoneScored()
+local function onAnyStuntZoneAccomplished()
   addComboCreepUp(scoreOptions.comboOptions.stuntZone.creepUp)
 end
 
-local function onDriftThroughDetected(data)
+local function onDriftThroughAccomplished(data)
   local score = math.floor(linearScale(data.currDegAngle, 0, 90, 0, data.zoneData.points))
   score = addCachedScore(score, true)
   extensions.hook('onTightDriftScored', score)
 end
 
-local function onHitPoleDetected(data)
+local function onHitPoleAccomplished(data)
   local score = math.floor(linearScale(data.currDegAngle + data.currAirSpeed, 0, 250, 0, data.zoneData.points))
   score = addCachedScore(score, true)
   extensions.hook('onHitPoleScored', score)
 end
 
-local function onNearPoleDetected(data)
+local function onNearPoleAccomplished(data)
   local score = (data.currDegAngle * data.closeness / 90) ^ 1 * data.zoneData.points
   score = addCachedScore(score, true)
   extensions.hook("onNearPoleScored", score)
 end
 
-local function onDonutDriftDetected(data)
+local function onDonutDriftAccomplished(data)
   local score = addCachedScore(data.zoneData.points, true)
   extensions.hook('onDonutDriftScored', score)
 end
 
-local function onDriftCompleted()
+-- preemptively "confirm" cached score
+local function wrapUp()
   local addedScore = math.floor(driftScore.cachedScore * driftScore.combo)
+  if addedScore < 1 then return false end
+
   driftScore.score = driftScore.score + addedScore
 
-  extensions.hook('onDriftCompletedScored', addedScore, math.floor(driftScore.cachedScore), driftScore.combo)
   resetCachedScore()
+  return addedScore
 end
 
-local function onDriftStatusChanged(status)
-  if status then
+local function wrapUpWithText()
+  local addedScore = wrapUp()
+  if addedScore then
+    extensions.hook("onDriftScoreWrappedUp", addedScore)
+  end
+  return addedScore
+end
+
+-- doesn't return anything if too small of a drift
+local function getCareerRewardsForDriftScore(addedScore)
+  if addedScore < scoreOptions.careerRewards.minScore then return end
+
+  local beamXP = math.ceil(addedScore * scoreOptions.careerRewards.scoreMulForXp)
+  return {
+    beamXP = beamXP
+  }
+end
+
+local function onDriftCompleted()
+  local addedScore = wrapUp()
+  if not addedScore then return end
+
+  extensions.hook('onDriftCompletedScored',
+    {
+      addedScore = addedScore,
+      cachedScore = math.floor(driftScore.cachedScore),
+      combo = driftScore.combo,
+      careerRewards = getCareerRewardsForDriftScore(addedScore)
+    }
+  )
+end
+
+local function onDriftStatusChanged(isDrifting)
+  if isDrifting then
     if lastDriftInitiationTimer >= scoreOptions.comboOptions.driftTransition.cooldownTime then
       addComboCreepUp(scoreOptions.comboOptions.driftTransition.creepUp)
     end
@@ -235,30 +324,61 @@ local function getScore()
   return driftScore
 end
 
+local function getScoreAddedThisFrame()
+  return scoreAddedThisFrame
+end
+
+local function getDriftDebugInfo()
+  return driftDebugInfo
+end
+
+local function getGC()
+  return gc
+end
+
 local function getScoreOptions()
   return scoreOptions
 end
 
 local function onDriftPlVehReset()
-  resetScore()
+  reset()
+end
+
+local function onSerialize()
+  return {
+    scoreExperiment = scoreExperiment[0]
+  }
+end
+
+local function onDeserialized(data)
+  scoreExperiment = im.BoolPtr(data.scoreExperiment or false)
 end
 
 M.onDriftPlVehReset = onDriftPlVehReset
 M.onUpdate = onUpdate
+M.onSerialize = onSerialize
+M.onDeserialized = onDeserialized
 
 M.onDriftStatusChanged = onDriftStatusChanged
-M.onAnyStuntZoneScored = onAnyStuntZoneScored
-M.onDriftThroughDetected = onDriftThroughDetected
-M.onHitPoleDetected = onHitPoleDetected
-M.onDonutDriftDetected = onDonutDriftDetected
+M.onAnyStuntZoneAccomplished = onAnyStuntZoneAccomplished
+M.onDriftThroughAccomplished = onDriftThroughAccomplished
+M.onHitPoleAccomplished = onHitPoleAccomplished
+M.onDonutDriftAccomplished = onDonutDriftAccomplished
 M.onDriftCompleted = onDriftCompleted
-M.onNearPoleDetected = onNearPoleDetected
+M.onNearPoleAccomplished = onNearPoleAccomplished
 
 M.onDriftCrash = onDriftCrash
 M.onDriftSpinout = onDriftSpinout
 
 M.getScore = getScore
 M.getScoreOptions = getScoreOptions
+M.getScoreAddedThisFrame = getScoreAddedThisFrame
+M.getDriftDebugInfo = getDriftDebugInfo
+M.getGC = getGC
 
-M.resetScore = resetScore
+M.reset = reset
+M.wrapUp = wrapUp
+M.wrapUpWithText = wrapUpWithText
+M.addCachedScore = addCachedScore
+
 return M

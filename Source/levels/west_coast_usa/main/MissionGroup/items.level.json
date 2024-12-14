@@ -28,6 +28,7 @@
 {"name":"island","class":"SimGroup","persistentId":"ce877d57-80e6-4196-8de0-661b89ab558c","__parent":"MissionGroup"}
 {"name":"fuel_stations","class":"SimGroup","persistentId":"2176011d-fb09-4f2f-af52-976c31164e81","__parent":"MissionGroup"}
 {"name":"beach","class":"SimGroup","persistentId":"3c27cf3c-8978-4ee4-816a-c3b9d66d0200","__parent":"MissionGroup"}
+{"name":"offRoadCircuit","class":"SimGroup","__parent":"MissionGroup"}
 {"name":"dealerships","class":"SimGroup","persistentId":"5ea3f7e9-4120-42fe-90d4-78e44e910856","__parent":"MissionGroup"}
 {"name":"port_public_area","class":"SimGroup","persistentId":"9b7fa8bb-518d-4d01-8480-f6af8802872b","__parent":"MissionGroup"}
 {"name":"riverwayPlazaParking","class":"SimGroup","persistentId":"aca9c41f-e622-402f-a41d-e2101a04f466","__parent":"MissionGroup"}
@@ -37,5 +38,7 @@
 {"name":"trafficCameras_wip","class":"SimGroup","persistentId":"3affc3ba-8eab-4490-a516-fc5ad05f39ce","__parent":"MissionGroup"}
 {"name":"shuffleboard_conversion_area","class":"SimGroup","__parent":"MissionGroup"}
 {"name":"spearleafShuffleboard","class":"SimGroup","__parent":"MissionGroup"}
+{"name":"edit","class":"SimGroup","__parent":"MissionGroup"}
+{"name":"driftZones","class":"SimGroup","__parent":"MissionGroup"}
 {"name":"BeamLR","class":"SimGroup","persistentId":"2d4de71e-7c9b-4033-a09b-abc131dbb8ef","__parent":"MissionGroup"}
 {"class":"DecalRoad","persistentId":"ecc55d7f-45f1-408a-8f7e-5630b1625c8f","__parent":"MissionGroup","position":[144.452148,1730.52222,100.880081],"detail":1,"drivability":1,"gatedRoad":true,"improvedSpline":true,"material":"road_invisible","nodes":[[144.452148,1730.52222,100.880081,8],[143.264725,1738.95984,101.313271,8],[140.954468,1750.85803,102.278374,8],[138.181747,1765.72949,102.490349,8],[147.570541,1770.32861,102.448898,8],[159.812988,1773.62585,102.447937,8],[168.7146,1776.69226,102.324356,8]],"overObjects":true}

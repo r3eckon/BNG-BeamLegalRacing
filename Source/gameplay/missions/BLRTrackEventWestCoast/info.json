@@ -1,0 +1,40 @@
+{
+  "additionalAttributes":{},
+  "customAdditionalAttributes":{},
+  "description":"Beam Legal Racing Track Event",
+  "devNotes":{
+    "devMission":false,
+    "mode":"silent",
+    "text":""
+  },
+  "grouping":{
+    "id":"",
+    "label":""
+  },
+  "missionType":"flowgraph",
+  "missionTypeData":{},
+  "name":"BLR Track Event",
+  "retryBehaviour":"infiniteRetries",
+  "startCondition":{
+    "type":"always"
+  },
+  "startTrigger":{
+    "level":"west_coast_usa",
+    "pos":[
+      350.0248413,
+      -220.5346069,
+      143.9792633
+    ],
+    "radius":3,
+    "rot":[
+      -0.007585307722,
+      -0.01176008344,
+      -0.8402743436,
+      0.5419808033
+    ],
+    "type":"coordinates"
+  },
+  "visibleCondition":{
+    "type":"automatic"
+  }
+}

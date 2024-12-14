@@ -33,6 +33,7 @@ local driftOptions = {}
 --
 local currDriftTimeToCombo = 0
 local currDriftIncrement = 0
+local scoreAddedThisFrame = 0
 
 local function resetCachedScore()
   driftScore.cachedScore = 0
@@ -81,7 +82,8 @@ local function scoreContinuousDrift(dtSim)
   driftAngleScore = linearScale(driftActiveData.currDegAngle, driftOptions.minAngle, driftOptions.maxAngle, scoreOptions.minDriftAngleMulti, scoreOptions.maxDriftAngleMulti)
   speedMulti = math.min(math.max(1, linearScale(gameplay_drift_drift.getAirSpeed(), minSpeed, maxSpeed, scoreOptions.minSpeedMulti, scoreOptions.maxSpeedMulti) ), scoreOptions.maxSpeedMulti)
 
-  addCachedScore(driftAngleScore * speedMulti * wallMulti * dtSim * scoreOptions.continuousDriftPoints)
+  scoreAddedThisFrame = driftAngleScore * speedMulti * wallMulti * dtSim * scoreOptions.continuousDriftPoints
+  addCachedScore(scoreAddedThisFrame)
 end
 
 local function onUpdate(dtReal, dtSim)
@@ -89,14 +91,6 @@ local function onUpdate(dtReal, dtSim)
   if not extensions.blrglobals.blrFlagGet("legacyDriftScoring") then return end
   
   if gameplay_drift_general.getContext() == "stopped" then return end
-
-  if gameplay_drift_general.getDebug() then
-    if im.Begin("Drift score") then
-      im.Text(string.format("Score : %d", driftScore.score))
-      im.Text(string.format("Cached score : %d", driftScore.cachedScore))
-      im.Text(string.format("Combo : %0.2f", driftScore.combo))
-    end
-  end
 
   driftActiveData = gameplay_drift_drift.getDriftActiveData()
   driftOptions = gameplay_drift_drift.getDriftOptions()
@@ -130,8 +124,14 @@ end
 local function onDriftCompleted()
   local addedScore = math.floor(driftScore.cachedScore * driftScore.combo)
   driftScore.score = driftScore.score + addedScore
-
-  extensions.hook('onDriftCompletedScored', addedScore, math.floor(driftScore.cachedScore), driftScore.combo)
+  
+  -- 1.17.2 modified for compatibility with new drift scripts
+  local data = {}
+  data.addedScore = addedScore
+  data.cachedScore = driftScore.cachedScore
+  data.combo = driftScore.combo
+  extensions.hook('onDriftCompletedScored', data)
+  
   resetCachedScore()
 end
 
@@ -150,12 +150,27 @@ local function onDriftSpinout()
 end
 
 local function getScore()
+  driftScore.comboCreepup = 0 -- Added in 1.17.2 for compatibility with new drift display script
   return driftScore
 end
 
 local function onDriftPlVehReset()
   resetScore()
 end
+
+-- Added in 1.17.2 for compatibility with new drift display script
+local function getScoreOptions() 
+return scoreOptions
+end
+
+-- Added in 1.17.2 for compatibility with new drift display script
+local function getScoreAddedThisFrame()
+return scoreAddedThisFrame
+end
+
+M.getScoreOptions = getScoreOptions
+M.getScoreAddedThisFrame = getScoreAddedThisFrame
+
 
 M.onDriftPlVehReset = onDriftPlVehReset
 M.onUpdate = onUpdate

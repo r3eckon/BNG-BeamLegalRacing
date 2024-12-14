@@ -168,8 +168,15 @@ local function addBeamByData(vehicle, beam)
   end
 end
 
+-- BEAMLR EDITED TO GIVE ALL TRACK EVENT OPPONENTS SLICKS
 local function processNodes(vehicle)
   if vehicle.nodes == nil then return end
+  
+  local slickmode = extensions.blrflags.get("trackEventSlickMode")
+  if slickmode then
+  print("BeamLR applied slick tire grip values to vehicle, this should not happen outside BeamLR track events.")
+  end
+  
   for i = 0, tableSizeC(vehicle.nodes) - 1 do
     local node = vehicle.nodes[i]
     local ntype = NORMALTYPE
@@ -197,12 +204,28 @@ local function processNodes(vehicle)
     else
       staticCollision = true
     end
+	
 
     local frictionCoef = type(node.frictionCoef) == 'number' and node.frictionCoef or 1
     local slidingFrictionCoef = type(node.slidingFrictionCoef) == 'number' and node.slidingFrictionCoef or frictionCoef
     local noLoadCoef = type(node.noLoadCoef) == 'number' and node.noLoadCoef or 1
     local fullLoadCoef = type(node.fullLoadCoef) == 'number' and node.fullLoadCoef or 0
     local loadSensitivitySlope = type(node.loadSensitivitySlope) == 'number' and node.loadSensitivitySlope or 0
+	local treadCoef = type(node.treadCoef) == "number" and node.treadCoef or 0.5
+	local stribeckExponent = type(node.stribeckExponent) == "number" and node.stribeckExponent or 1.75
+	local stribeckVelMult = type(node.stribeckVelMult) == "number" and node.stribeckVelMult or 1.0
+
+	if slickmode then
+    frictionCoef = math.max(frictionCoef, 1.00)
+    slidingFrictionCoef = math.max(slidingFrictionCoef, 1.0)
+    noLoadCoef = math.max(noLoadCoef, 2.09)
+    fullLoadCoef = math.max(fullLoadCoef, 0.7)
+    loadSensitivitySlope = math.max(loadSensitivitySlope, 0.00023)
+	treadCoef = 0
+	stribeckExponent = math.max(stribeckExponent, 2.0)
+	stribeckVelMult = math.max(stribeckVelMult, 1.0)
+	end
+
 
     local nodeWeight
     if type(node.nodeWeight) == 'number' then
@@ -224,7 +247,7 @@ local function processNodes(vehicle)
     end
 
     local pos = node.pos
-    obj:setNode(node.cid, pos.x, pos.y, pos.z, nodeWeight, ntype, frictionCoef, slidingFrictionCoef, node.stribeckExponent or 1.75, node.stribeckVelMult or 1, noLoadCoef, fullLoadCoef, loadSensitivitySlope, node.softnessCoef or 0.5, node.treadCoef or 0.5, node.tag or '', node.couplerStrength or math.huge, node.firstGroup or -1, selfCollision, collision, staticCollision, nodeMaterialTypeID)
+    obj:setNode(node.cid, pos.x, pos.y, pos.z, nodeWeight, ntype, frictionCoef, slidingFrictionCoef, stribeckExponent, stribeckVelMult, noLoadCoef, fullLoadCoef, loadSensitivitySlope, node.softnessCoef or 0.5, treadCoef, node.tag or '', node.couplerStrength or math.huge, node.firstGroup or -1, selfCollision, collision, staticCollision, nodeMaterialTypeID)
 
     if node.pairedNode then
       obj:setNodePair2WheelId(node.cid, node.pairedNode, node.pairedNode2 or -1, node.wheelID or -1)
@@ -413,19 +436,21 @@ local function processTorsionbars(vehicle)
   if vehicle.torsionbars == nil then return end
   for _, tb in pairs(vehicle.torsionbars) do
     local spring = tb.spring
+    local spring2 = tb.spring2 or spring
     local damp = checkNum(tb.damp)
+    local damp2 = tb.damp2 and checkNum(tb.damp2) or damp
     local id1, id2, id3, id4 = tb.id1, tb.id2, tb.id3, tb.id4
     if type(id1) ~= 'number' then
-      id1, spring, damp = 0, 0, 0
+      id1, spring, spring2, damp, damp2 = 0, 0, 0, 0, 0
     end
     if type(id2) ~= 'number' then
-      id2, spring, damp = 0, 0, 0
+      id2, spring, spring2, damp, damp2 = 0, 0, 0, 0, 0
     end
     if type(id3) ~= 'number' then
-      id3, spring, damp = 0, 0, 0
+      id3, spring, spring2, damp, damp2 = 0, 0, 0, 0, 0
     end
     if type(id4) ~= 'number' then
-      id4, spring, damp = 0, 0, 0
+      id4, spring, spring2, damp, damp2 = 0, 0, 0, 0, 0
     end
 
     tb.precompressionAngle = checkNum(tb.precompressionAngle)
@@ -438,7 +463,7 @@ local function processTorsionbars(vehicle)
       end
     end
 
-    tb.cid = obj:setTorsionbar(-1, id1, id2, id3, id4, spring, spring, damp, damp,
+    tb.cid = obj:setTorsionbar(-1, id1, id2, id3, id4, spring, spring2, damp, damp2,
       checkNum(tb.strength, math.huge), checkNum(tb.deform, math.huge), precompressionAngle)
   end
 end

@@ -119,7 +119,7 @@ end
 ftable["reloadDriftScoring"] = function(p)
 gameplay_drift_scoring = require("gameplay/drift/scoring")
 extensions.unload("gameplay_drift_scoringLegacy") -- unloads legacy extension so it doesn't interfere with vanilla scoring
-gameplay_drift_scoring.resetScore()
+gameplay_drift_scoring.reset()
 end
 
 

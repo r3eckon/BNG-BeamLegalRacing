@@ -1,7 +1,7 @@
 carid=0
-efile=automation_drag_classA
-cround=1
-ctimes=player:14806172.506312,op1:7493618.5065003,op2:7524848.0068463,op3:7478894.5065608,op4:7473596.006671
+seed=1234
+cround=0
+ctimes=player:22078358.506312,op1:11129711.5065,op2:11148602.006846,op3:11097117.506561,op4:11083570.006671
 eventid=0
 status=over
-seed=1234
+efile=automation_drag_classA

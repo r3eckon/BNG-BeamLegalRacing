@@ -28,6 +28,7 @@ pentrigs=RaceTrigger_PenaltyB1,RaceTrigger_PenaltyB2,RaceTrigger_PenaltyB3,RaceT
 risk=1.2
 aispd=115.0
 aispdmode=limit
+prefabs=/levels/ks_nord/art/prefabs/blrtrackprefab2.prefab.json
 scount=8
 spos1=-1129.1094970703,-2054.47265625,438.40557861328
 srot1=-0.011862887785336,-0.0035857462699553,0.92256591863834,-0.38564042848757

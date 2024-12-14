@@ -1,7 +1,8 @@
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.17.1/beamLegalRacing1.17.1.zip
+
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.17.2/beamLegalRacing1.17.2.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.17.1
+# Beam Legal Racing 1.17.2
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -13,7 +14,7 @@ Perform missions, races and challenges to earn money to buy vehicles and parts. 
 
 ### Track Event Maps | [Hirochi Raceway](hirochimap.md) | [Automation Test Track](automationmap.md) | [Johnson Valley](map_johnson.md) | [Nordschleife](map_ks_nord.md)
 
-### [Addons](Addons) | [Nordschleife](Addons/ks_nord) | [Part Images](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main/Addons/Part%20Images)
+### Download Extra Content | [Addons](Addons) 
 
 ### Enjoying the mod and looking to support the project? [Donate here!](https://www.paypal.com/donate/?hosted_button_id=QQ7SKC6XK7PAE)
 
@@ -115,6 +116,8 @@ Version 1.16.4 adds performance class restrictions for race club leagues and the
 Version 1.16.7 improves mod compatibility for car shops with additive list files. See the [updated tutorial](https://github.com/r3eckon/BNG-BeamLegalRacing/blob/main/Tutorials/Adding%20Shop%20Vehicles.md) to learn more.
 
 Version 1.17 adds new interactive areas ([car meets](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#car-meets) & [properties](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#garage-slots-and-properties)), daily seeded race clubs and a [new part inventory menu](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#part-inventory-menu). Daily seeded race clubs prevent reroll abuse and is the intended way to play (can be turned off in options). 
+
+Version 1.17.2 adds new track events on West Coast USA, track event prefabs and an option to give all track event opponents slick tires to improve their racing ability. This version of the mod also adds content from the 0.34 update of BeamNG including the new Bruckell Nine and updated level files.
 
 ## Getting started
 BeamLR is loaded as a freeroam mission. Use the following spawn point depending on map choice:
@@ -247,11 +250,12 @@ Added in version 1.13 is a new GPS system that allows you to find specific desti
 
 ## Improved Fuel System
 Added in version 1.14.2 the improved fuel system now features diesel fuel and gasoline tiers which give slight performance boost to vehicles. Diesel fuel must now be used with diesel engines. Using the incorrect fuel type will disable the engine until the tank is drained. Draining the tank will allow you to add the correct fuel and start the engine again. Gasoline quality is calculated based on ratio of each fuel tier in the tank, higher quality will slightly increase the vehicle output torque. The maximum increase for each tier (for a fuel tank containing only this tier) is as follows:
+
 * Premium: 5%
 * Mid-Grade: 2.5%
 * Regular: 0%
 
-For example, if a fuel tank contains a 50/50 mix of premium and mid-grade the increase is 15%. For a mix of regular and mid-grade, the increase is 5%. If a fuel tank contains only premium grade, the increase is 20%. While not realistic, BeamNG does not have fuel octane ratings for engines and side effects of incorrect fuel being used, so this is a compromise to give a purpose to higher fuel tiers that makes sense for a racing game. If BeamNG eventually adds this feature the fuel system will be changed to implement fuel tiers in a more realistic way.
+For example, if a fuel tank contains a 50/50 mix of premium and mid-grade the increase is 3.75%. For a mix of regular and mid-grade, the increase is 1.25%. If a fuel tank contains only premium grade, the increase is 5%. While not realistic, BeamNG does not have fuel octane ratings for engines and side effects of incorrect fuel being used, so this is a compromise to give a purpose to higher fuel tiers that makes sense for a racing game. If BeamNG eventually adds this feature the fuel system will be changed to implement fuel tiers in a more realistic way.
 
 ## Part Edit Safe Mode
 Added in version 1.14.2 part edit safe mode is a new advanced option used to help prevent damage during part edits. Certain parts may cause damage when removed, for instance wheels, which cause the vehicle to fall and damage the bumper. This option will temporarily increase beam strength to help prevent taking damage. While in safe mode, the vehicle will be frozen in place. To unfreeze the vehicle you must exit safe mode, at which point the game will reload the normal beam strength values. This option can be kept off for the vast majority of part edits but should help with certain edits that tend to cause damage.
@@ -856,3 +860,18 @@ Thank you for playing BeamLR!
 * Broken jbeam files are now avoided by jbeam cache process (allows good files to get cached anyway)
 * Fixed garage slot count not saving properly when using a save file from previous versions
 * Fixed missing west coast USA level missiongroups
+
+### 1.17.2
+* Added Track Event Slicks Mode (track event opponents get slick tire grip values to help handling)
+* Added Track Events to West Coast USA (3 race track layouts, 2 dirt oval layouts)
+* Track event files can now define a list of prefabs to load during event
+* Fixed jbeam caching using nil gcinterval preventing the saving of cached mods file
+* (0.34) Added Bruckell Nine drag config to drag race clubs
+* (0.34) Added Bruckell Nine and Soliad Lansdale starter configs
+* (0.34) Added Bruckell Nine ROH config
+* (0.34) Added Bruckell Nine used shop config
+* (0.34) Updated level files for new game version
+* (0.34) Updated modified lua scripts for new game version
+* (0.34) Removed some modified lua scripts due to being made obsolete by vanilla script updates
+* (0.34) Freeroam drag disabling now done through game option
+* (0.34) Updated traffic spawngroups with new simple_traffic configs

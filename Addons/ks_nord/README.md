@@ -35,3 +35,5 @@ This addon is currently built for map version **v20231124_v2** (ks_nord_v2023112
 * Replaced timer UI with custom version (shows lap time & previous lap delta)
 ### BeamLR 1.16
 * Fixed custom timer flickering between 00:00:000 and --:--:--- after round completed
+### BeamLR 1.17.2
+* Added prefab barriers to block off parts of the track depending on event layout
