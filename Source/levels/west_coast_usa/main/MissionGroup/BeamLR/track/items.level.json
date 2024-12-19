@@ -1,0 +1,4 @@
+{"name":"TrackTriggers","class":"SimGroup","__parent":"track"}
+{"name":"TrackWaypoints","class":"SimGroup","__parent":"track"}
+{"name":"PenaltyTriggers","class":"SimGroup","__parent":"track"}
+{"name":"TrackPrefabs","class":"SimGroup","__parent":"track"}

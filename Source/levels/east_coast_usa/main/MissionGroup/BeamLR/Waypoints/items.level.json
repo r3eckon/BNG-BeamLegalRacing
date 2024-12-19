@@ -157,3 +157,6 @@
 {"name":"blrwp_seasidelongroadcp3","class":"BeamNGWaypoint","persistentId":"82ac5013-5820-4c9d-98da-5dfde18094ea","__parent":"Waypoints","position":[504.658966,922.739136,57.0626907],"scale":[2.78056645,2.78056645,2.78056645]}
 {"name":"blrwp_towngasstationst","class":"BeamNGWaypoint","persistentId":"9b35fe0b-6989-464e-879e-e482a4a28054","__parent":"Waypoints","position":[733.438354,-31.4683571,51.8632851],"scale":[2.00947285,2.00947285,2.00947285]}
 {"name":"blrwp_midroadendaiwp1","class":"BeamNGWaypoint","persistentId":"c34275d5-b96c-4ae4-871a-dbef39971094","__parent":"Waypoints","position":[454.0802,-831.284119,43.1699333],"scale":[3.04477215,3.04477215,3.04477215]}
+{"name":"wp148","class":"BeamNGWaypoint","__parent":"Waypoints","position":[-656.543091,424.48172,22.6890526],"scale":[2.37890625,2.37890625,2.37890625]}
+{"name":"wp150","class":"BeamNGWaypoint","__parent":"Waypoints","position":[-619.289978,386.058533,21.6096363],"scale":[2.37890625,2.37890625,2.37890625]}
+{"name":"wp152","class":"BeamNGWaypoint","__parent":"Waypoints","position":[-657.574341,388.838715,22.9918957],"scale":[2.37890625,2.37890625,2.37890625]}

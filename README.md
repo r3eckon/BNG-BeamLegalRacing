@@ -1,8 +1,8 @@
 
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.17.2/beamLegalRacing1.17.2.zip
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.17.3/beamLegalRacing1.17.3.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.17.2
+# Beam Legal Racing 1.17.3
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -875,3 +875,9 @@ Thank you for playing BeamLR!
 * (0.34) Removed some modified lua scripts due to being made obsolete by vanilla script updates
 * (0.34) Freeroam drag disabling now done through game option
 * (0.34) Updated traffic spawngroups with new simple_traffic configs
+
+### 1.17.3
+* Fixed broken race waypoints on West Coast USA, East Coast USA, Italy and Utah
+* Fixed incorrect gooseneck delivery destination on West Coast USA
+* Updated West Coast USA level with 0.34.2 changes
+* Fixed missing track event level objects on West Coast USA

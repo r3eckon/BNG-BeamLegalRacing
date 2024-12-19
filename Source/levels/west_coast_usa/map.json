@@ -58,7 +58,7 @@
     },
 
      "tunnel_S" : {
-      "nodes" : ["tunnel_S_1", "tunnel_S_2", "tunnel_S_3", "tunnel_S_4", "tunnel_S_5", "tunnel_S_6", "tunnel_S_7", "tunnel_S_8", "tunnel_S_9", "tunnel_S_10", "tunnel_S_11", "tunnel_S_12", "tunnel_S_13", "tunnel_S_14", "tunnel_S_15", "tunnel_S_16", "tunnel_S_17", "tunnel_S_18", "tunnel_S_19"],
+      "nodes" : ["tunnel_S_1", "tunnel_S_2", "tunnel_S_3", "tunnel_S_4", "tunnel_S_5", "tunnel_S_6", "tunnel_S_7", "tunnel_S_8", "tunnel_S_9", "tunnel_S_10", "tunnel_S_11", "tunnel_S_12", "tunnel_S_13", "tunnel_S_14", "tunnel_S_15"],
       "oneWay": true,
       "lanesLeft": 2,
       "drivability" : 1
