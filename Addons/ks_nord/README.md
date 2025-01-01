@@ -37,3 +37,4 @@ This addon is currently built for map version **v20231124_v2** (ks_nord_v2023112
 * Fixed custom timer flickering between 00:00:000 and --:--:--- after round completed
 ### BeamLR 1.17.2
 * Added prefab barriers to block off parts of the track depending on event layout
+* Fixed broken waypoints preventing AI from racing on both layouts
