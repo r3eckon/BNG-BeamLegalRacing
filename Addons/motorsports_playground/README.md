@@ -20,3 +20,5 @@ This addon is currently built for map version **.33.3**
 ## Changelog
 ### BeamLR 1.17.2
 * Initial release
+### BeamLR 1.17.3
+* Fixed missing mission subfolder
