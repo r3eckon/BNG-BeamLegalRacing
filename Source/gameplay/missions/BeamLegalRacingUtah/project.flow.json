@@ -1,8 +1,8 @@
 {
-  "activeGraphId":1,
+  "activeGraphId":3,
   "authors":"BeamLR",
-  "currentGraphID":1,
-  "date":1734141221,
+  "currentGraphID":3,
+  "date":1737209959,
   "debugEnabled":false,
   "description":"Beam Legal Racing Career",
   "difficulty":100,
@@ -233,14 +233,14 @@
         ],
         [
           4986,
-          "match_3",
+          "match_4",
           25,
           "flow",
           false
         ],
         [
           4986,
-          "match_4",
+          "match_3",
           25,
           "flow",
           false
@@ -337,14 +337,14 @@
           true
         ],
         [
-          1521,
+          1522,
           "flow",
           34,
           "flow",
           false
         ],
         [
-          1522,
+          1521,
           "flow",
           34,
           "flow",
@@ -372,7 +372,7 @@
           false
         ],
         [
-          899,
+          27,
           "down",
           37,
           "flow",
@@ -386,7 +386,7 @@
           false
         ],
         [
-          27,
+          899,
           "down",
           37,
           "flow",
@@ -736,14 +736,14 @@
           false
         ],
         [
-          1510,
+          10295,
           "flow",
           69,
           "flow",
           false
         ],
         [
-          10295,
+          1510,
           "flow",
           69,
           "flow",
@@ -814,14 +814,14 @@
         ],
         [
           99,
-          "match_2",
+          "match_3",
           76,
           "flow_1",
           false
         ],
         [
           99,
-          "match_3",
+          "match_2",
           76,
           "flow_1",
           false
@@ -834,13 +834,6 @@
           false
         ],
         [
-          471,
-          "False",
-          77,
-          "flow",
-          false
-        ],
-        [
           585,
           "false",
           77,
@@ -850,6 +843,13 @@
         [
           613,
           "flow",
+          77,
+          "flow",
+          false
+        ],
+        [
+          471,
+          "False",
           77,
           "flow",
           false
@@ -1093,8 +1093,15 @@
           false
         ],
         [
-          1251,
+          1543,
           "flow",
+          95,
+          "flow",
+          false
+        ],
+        [
+          943,
+          "true",
           95,
           "flow",
           false
@@ -1107,22 +1114,15 @@
           false
         ],
         [
+          1251,
+          "flow",
+          95,
+          "flow",
+          false
+        ],
+        [
           109,
           "flow",
-          95,
-          "flow",
-          false
-        ],
-        [
-          1543,
-          "flow",
-          95,
-          "flow",
-          false
-        ],
-        [
-          943,
-          "true",
           95,
           "flow",
           false
@@ -1317,13 +1317,6 @@
           false
         ],
         [
-          107,
-          "flow",
-          109,
-          "flow",
-          false
-        ],
-        [
           10130,
           "flow",
           109,
@@ -1333,6 +1326,13 @@
         [
           18,
           "false",
+          109,
+          "flow",
+          false
+        ],
+        [
+          107,
+          "flow",
           109,
           "flow",
           false
@@ -1468,6 +1468,13 @@
           "rconfigs",
           115,
           "rconfigs",
+          false
+        ],
+        [
+          238,
+          "dresult",
+          115,
+          "dresult",
           false
         ],
         [
@@ -1611,7 +1618,7 @@
           true
         ],
         [
-          9885,
+          9884,
           "flow",
           123,
           "flow",
@@ -1625,7 +1632,7 @@
           false
         ],
         [
-          9884,
+          9885,
           "flow",
           123,
           "flow",
@@ -1926,15 +1933,15 @@
           true
         ],
         [
-          512,
-          "false",
+          10086,
+          "flow",
           151,
           "flow",
           false
         ],
         [
-          10086,
-          "flow",
+          512,
+          "false",
           151,
           "flow",
           false
@@ -2276,8 +2283,8 @@
           true
         ],
         [
-          949,
-          "false",
+          146,
+          "flow",
           175,
           "flow",
           false
@@ -2285,6 +2292,13 @@
         [
           1175,
           "flow",
+          175,
+          "flow",
+          false
+        ],
+        [
+          949,
+          "false",
           175,
           "flow",
           false
@@ -2298,13 +2312,6 @@
         ],
         [
           1254,
-          "flow",
-          175,
-          "flow",
-          false
-        ],
-        [
-          146,
           "flow",
           175,
           "flow",
@@ -2332,14 +2339,14 @@
           false
         ],
         [
-          206,
+          878,
           "flow",
           178,
           "flow",
           false
         ],
         [
-          878,
+          206,
           "flow",
           178,
           "flow",
@@ -2493,13 +2500,6 @@
           false
         ],
         [
-          1095,
-          "flow",
-          194,
-          "flow",
-          false
-        ],
-        [
           1096,
           "False",
           194,
@@ -2514,6 +2514,13 @@
           false
         ],
         [
+          1094,
+          "False",
+          194,
+          "flow",
+          false
+        ],
+        [
           1552,
           "flow",
           194,
@@ -2521,8 +2528,8 @@
           false
         ],
         [
-          1094,
-          "False",
+          1095,
+          "flow",
           194,
           "flow",
           false
@@ -2759,15 +2766,8 @@
           false
         ],
         [
-          1175,
-          "down",
-          212,
+          124,
           "flow",
-          false
-        ],
-        [
-          1180,
-          "down",
           212,
           "flow",
           false
@@ -2780,8 +2780,15 @@
           false
         ],
         [
-          124,
+          1180,
+          "down",
+          212,
           "flow",
+          false
+        ],
+        [
+          1175,
+          "down",
           212,
           "flow",
           false
@@ -2892,15 +2899,15 @@
           false
         ],
         [
-          200,
-          "flow",
+          1621,
+          "True",
           222,
           "flow",
           false
         ],
         [
-          1621,
-          "True",
+          200,
+          "flow",
           222,
           "flow",
           false
@@ -3312,6 +3319,13 @@
           false
         ],
         [
+          10209,
+          "extras",
+          251,
+          "tpath",
+          false
+        ],
+        [
           229,
           "flow",
           252,
@@ -3361,15 +3375,15 @@
           false
         ],
         [
-          148,
-          "flow",
+          254,
+          "false",
           255,
           "flow",
           false
         ],
         [
-          254,
-          "false",
+          148,
+          "flow",
           255,
           "flow",
           false
@@ -3641,7 +3655,7 @@
           false
         ],
         [
-          763,
+          509,
           "false",
           276,
           "flow",
@@ -3655,7 +3669,7 @@
           false
         ],
         [
-          509,
+          763,
           "false",
           276,
           "flow",
@@ -3670,14 +3684,14 @@
         ],
         [
           689,
-          "partshop",
+          "carshop",
           278,
           "flow",
           false
         ],
         [
           689,
-          "carshop",
+          "partshop",
           278,
           "flow",
           false
@@ -4278,15 +4292,15 @@
           false
         ],
         [
-          1115,
-          "True",
+          1670,
+          "out",
           328,
           "clear",
           false
         ],
         [
-          1670,
-          "out",
+          1115,
+          "True",
           328,
           "clear",
           false
@@ -4740,6 +4754,13 @@
           false
         ],
         [
+          238,
+          "dresult",
+          355,
+          "dresult",
+          false
+        ],
+        [
           1124,
           "true",
           356,
@@ -4838,15 +4859,15 @@
           false
         ],
         [
-          1507,
-          "true",
+          158,
+          "flow",
           365,
           "flow",
           false
         ],
         [
-          158,
-          "flow",
+          1507,
+          "true",
           365,
           "flow",
           false
@@ -4999,41 +5020,6 @@
           false
         ],
         [
-          961,
-          "flow",
-          378,
-          "flow",
-          false
-        ],
-        [
-          10017,
-          "flow",
-          378,
-          "flow",
-          false
-        ],
-        [
-          1182,
-          "flow",
-          378,
-          "flow",
-          false
-        ],
-        [
-          1332,
-          "False",
-          378,
-          "flow",
-          false
-        ],
-        [
-          394,
-          "flow",
-          378,
-          "flow",
-          false
-        ],
-        [
           10011,
           "flow",
           378,
@@ -5049,6 +5035,41 @@
         ],
         [
           966,
+          "flow",
+          378,
+          "flow",
+          false
+        ],
+        [
+          10017,
+          "flow",
+          378,
+          "flow",
+          false
+        ],
+        [
+          961,
+          "flow",
+          378,
+          "flow",
+          false
+        ],
+        [
+          1332,
+          "False",
+          378,
+          "flow",
+          false
+        ],
+        [
+          1182,
+          "flow",
+          378,
+          "flow",
+          false
+        ],
+        [
+          394,
           "flow",
           378,
           "flow",
@@ -6602,15 +6623,15 @@
           false
         ],
         [
-          924,
-          "flow",
+          923,
+          "False",
           499,
           "flow",
           false
         ],
         [
-          923,
-          "False",
+          924,
+          "flow",
           499,
           "flow",
           false
@@ -8247,13 +8268,6 @@
           true
         ],
         [
-          594,
-          "False",
-          613,
-          "flow",
-          false
-        ],
-        [
           553,
           "flow",
           613,
@@ -8263,6 +8277,13 @@
         [
           1551,
           "false",
+          613,
+          "flow",
+          false
+        ],
+        [
+          594,
+          "False",
           613,
           "flow",
           false
@@ -9710,18 +9731,18 @@
           false
         ],
         [
-          1516,
-          "flow",
-          717,
-          "on",
-          false
-        ],
-        [
           591,
           "true",
           717,
           "on",
           true
+        ],
+        [
+          1516,
+          "flow",
+          717,
+          "on",
+          false
         ],
         [
           1514,
@@ -10249,7 +10270,7 @@
           false
         ],
         [
-          1258,
+          1388,
           "flow",
           761,
           "flow",
@@ -10263,7 +10284,7 @@
           false
         ],
         [
-          1388,
+          1258,
           "flow",
           761,
           "flow",
@@ -10424,15 +10445,15 @@
           false
         ],
         [
-          269,
-          "false",
+          10022,
+          "flow",
           773,
           "flow",
           false
         ],
         [
-          10022,
-          "flow",
+          269,
+          "false",
           773,
           "flow",
           false
@@ -10788,13 +10809,6 @@
           false
         ],
         [
-          10245,
-          "down",
-          803,
-          "reset",
-          false
-        ],
-        [
           843,
           "down",
           803,
@@ -10804,6 +10818,13 @@
         [
           800,
           "True",
+          803,
+          "reset",
+          false
+        ],
+        [
+          10245,
+          "down",
           803,
           "reset",
           false
@@ -11089,21 +11110,14 @@
           false
         ],
         [
-          843,
-          "flow",
-          823,
-          "flow",
-          false
-        ],
-        [
-          828,
-          "flow",
-          823,
-          "flow",
-          false
-        ],
-        [
           1149,
+          "flow",
+          823,
+          "flow",
+          false
+        ],
+        [
+          956,
           "flow",
           823,
           "flow",
@@ -11117,7 +11131,14 @@
           false
         ],
         [
-          956,
+          843,
+          "flow",
+          823,
+          "flow",
+          false
+        ],
+        [
+          828,
           "flow",
           823,
           "flow",
@@ -11369,15 +11390,15 @@
           false
         ],
         [
-          808,
-          "False",
+          1010,
+          "flow",
           843,
           "flow",
           false
         ],
         [
-          1010,
-          "flow",
+          808,
+          "False",
           843,
           "flow",
           false
@@ -11432,13 +11453,6 @@
           false
         ],
         [
-          7,
-          "enterState",
-          846,
-          "flow",
-          false
-        ],
-        [
           996,
           "flow",
           846,
@@ -11446,15 +11460,22 @@
           false
         ],
         [
-          24,
-          "true",
-          847,
+          7,
+          "enterState",
+          846,
           "flow",
           false
         ],
         [
           1482,
           "out",
+          847,
+          "flow",
+          false
+        ],
+        [
+          24,
+          "true",
           847,
           "flow",
           false
@@ -11509,15 +11530,15 @@
           false
         ],
         [
-          870,
-          "False",
+          1462,
+          "flow",
           854,
           "clear",
           false
         ],
         [
-          1462,
-          "flow",
+          870,
+          "False",
           854,
           "clear",
           false
@@ -11712,14 +11733,14 @@
           false
         ],
         [
-          878,
+          206,
           "down",
           873,
           "flow",
           false
         ],
         [
-          206,
+          878,
           "down",
           873,
           "flow",
@@ -11733,6 +11754,13 @@
           false
         ],
         [
+          171,
+          "down",
+          874,
+          "reset",
+          false
+        ],
+        [
           148,
           "down",
           874,
@@ -11740,7 +11768,7 @@
           false
         ],
         [
-          171,
+          126,
           "down",
           874,
           "reset",
@@ -11749,13 +11777,6 @@
         [
           1572,
           "True",
-          874,
-          "reset",
-          false
-        ],
-        [
-          126,
-          "down",
           874,
           "reset",
           false
@@ -11831,8 +11852,8 @@
           false
         ],
         [
-          1382,
-          "none",
+          1226,
+          "True",
           879,
           "flow",
           false
@@ -11845,16 +11866,9 @@
           false
         ],
         [
-          1226,
-          "True",
+          1382,
+          "none",
           879,
-          "flow",
-          false
-        ],
-        [
-          1257,
-          "flow",
-          880,
           "flow",
           false
         ],
@@ -11867,6 +11881,13 @@
         ],
         [
           1387,
+          "flow",
+          880,
+          "flow",
+          false
+        ],
+        [
+          1257,
           "flow",
           880,
           "flow",
@@ -12062,6 +12083,13 @@
           false
         ],
         [
+          1307,
+          "true",
+          897,
+          "flow",
+          false
+        ],
+        [
           1438,
           "true",
           897,
@@ -12070,13 +12098,6 @@
         ],
         [
           896,
-          "true",
-          897,
-          "flow",
-          false
-        ],
-        [
-          1307,
           "true",
           897,
           "flow",
@@ -12377,7 +12398,7 @@
           false
         ],
         [
-          185,
+          1478,
           "flow",
           925,
           "flow",
@@ -12391,7 +12412,7 @@
           false
         ],
         [
-          1478,
+          185,
           "flow",
           925,
           "flow",
@@ -12573,14 +12594,14 @@
           false
         ],
         [
-          10292,
+          1508,
           "flow",
           938,
           "flow",
           false
         ],
         [
-          1508,
+          10292,
           "flow",
           938,
           "flow",
@@ -12601,15 +12622,15 @@
           false
         ],
         [
-          918,
-          "flow",
+          193,
+          "down",
           940,
           "flow",
           false
         ],
         [
-          193,
-          "down",
+          918,
+          "flow",
           940,
           "flow",
           false
@@ -13532,15 +13553,15 @@
           false
         ],
         [
-          1134,
-          "down",
+          1107,
+          "flow",
           1026,
           "flow",
           false
         ],
         [
-          1107,
-          "flow",
+          1134,
+          "down",
           1026,
           "flow",
           false
@@ -13560,14 +13581,14 @@
           false
         ],
         [
-          10245,
+          843,
           "down",
           1028,
           "on",
           false
         ],
         [
-          843,
+          10245,
           "down",
           1028,
           "on",
@@ -13602,14 +13623,14 @@
           false
         ],
         [
-          843,
+          10245,
           "down",
           1030,
           "reset",
           false
         ],
         [
-          10245,
+          843,
           "down",
           1030,
           "reset",
@@ -13623,14 +13644,14 @@
           false
         ],
         [
-          843,
+          10245,
           "down",
           1031,
           "reset",
           false
         ],
         [
-          10245,
+          843,
           "down",
           1031,
           "reset",
@@ -14085,15 +14106,15 @@
           false
         ],
         [
-          1514,
-          "True",
+          162,
+          "flow",
           1073,
           "flow",
           false
         ],
         [
-          162,
-          "flow",
+          1514,
+          "True",
           1073,
           "flow",
           false
@@ -14344,15 +14365,15 @@
           false
         ],
         [
-          641,
-          "True",
+          561,
+          "flow",
           1092,
           "flow",
           false
         ],
         [
-          561,
-          "flow",
+          641,
+          "True",
           1092,
           "flow",
           false
@@ -14365,7 +14386,7 @@
           false
         ],
         [
-          271,
+          193,
           "flow",
           1094,
           "flow",
@@ -14379,7 +14400,7 @@
           false
         ],
         [
-          193,
+          271,
           "flow",
           1094,
           "flow",
@@ -14568,13 +14589,6 @@
           false
         ],
         [
-          1559,
-          "True",
-          1106,
-          "flow",
-          false
-        ],
-        [
           1105,
           "flow",
           1106,
@@ -14582,15 +14596,22 @@
           false
         ],
         [
-          1379,
-          "flow",
-          1107,
+          1559,
+          "True",
+          1106,
           "flow",
           false
         ],
         [
           605,
           "True",
+          1107,
+          "flow",
+          false
+        ],
+        [
+          1379,
+          "flow",
           1107,
           "flow",
           false
@@ -14715,7 +14736,21 @@
           true
         ],
         [
+          1131,
+          "flow",
+          1122,
+          "flow",
+          false
+        ],
+        [
           1714,
+          "flow",
+          1122,
+          "flow",
+          false
+        ],
+        [
+          1677,
           "flow",
           1122,
           "flow",
@@ -14729,21 +14764,7 @@
           false
         ],
         [
-          1131,
-          "flow",
-          1122,
-          "flow",
-          false
-        ],
-        [
           1679,
-          "flow",
-          1122,
-          "flow",
-          false
-        ],
-        [
-          1677,
           "flow",
           1122,
           "flow",
@@ -15317,14 +15338,14 @@
           false
         ],
         [
-          1164,
+          1170,
           "flow",
           1171,
           "flow",
           false
         ],
         [
-          1170,
+          1164,
           "flow",
           1171,
           "flow",
@@ -15408,15 +15429,15 @@
           false
         ],
         [
-          255,
-          "false",
+          171,
+          "flow",
           1180,
           "flow",
           false
         ],
         [
-          171,
-          "flow",
+          255,
+          "false",
           1180,
           "flow",
           false
@@ -15457,14 +15478,14 @@
           false
         ],
         [
-          368,
+          10128,
           "flow",
           1185,
           "reset",
           false
         ],
         [
-          10128,
+          368,
           "flow",
           1185,
           "reset",
@@ -16445,7 +16466,7 @@
         ],
         [
           99,
-          "match_5",
+          "match_4",
           1285,
           "flow",
           false
@@ -16459,14 +16480,14 @@
         ],
         [
           99,
-          "match_4",
+          "match_2",
           1285,
           "flow",
           false
         ],
         [
           99,
-          "match_2",
+          "match_5",
           1285,
           "flow",
           false
@@ -16592,14 +16613,14 @@
         ],
         [
           861,
-          "match_1",
+          "match_2",
           1294,
           "flow",
           false
         ],
         [
           861,
-          "match_2",
+          "match_1",
           1294,
           "flow",
           false
@@ -16697,14 +16718,14 @@
         ],
         [
           1172,
-          "match_1",
+          "match_2",
           1304,
           "flow",
           false
         ],
         [
           1172,
-          "match_2",
+          "match_1",
           1304,
           "flow",
           false
@@ -16787,14 +16808,14 @@
           false
         ],
         [
-          1447,
+          1445,
           "flow",
           1312,
           "flow",
           false
         ],
         [
-          1445,
+          1447,
           "flow",
           1312,
           "flow",
@@ -16857,14 +16878,14 @@
           false
         ],
         [
-          9876,
+          210,
           "down",
           1317,
           "flow",
           false
         ],
         [
-          210,
+          9876,
           "down",
           1317,
           "flow",
@@ -17403,15 +17424,15 @@
           false
         ],
         [
-          1180,
-          "down",
+          124,
+          "flow",
           1376,
           "flow",
           false
         ],
         [
-          124,
-          "flow",
+          1180,
+          "down",
           1376,
           "flow",
           false
@@ -17809,13 +17830,6 @@
           false
         ],
         [
-          1575,
-          "flow",
-          1422,
-          "flow",
-          false
-        ],
-        [
           1180,
           "down",
           1422,
@@ -17830,15 +17844,22 @@
           false
         ],
         [
-          637,
-          "false",
-          1423,
+          1575,
+          "flow",
+          1422,
           "flow",
           false
         ],
         [
           639,
           "flow",
+          1423,
+          "flow",
+          false
+        ],
+        [
+          637,
+          "false",
           1423,
           "flow",
           false
@@ -18054,14 +18075,14 @@
           false
         ],
         [
-          1443,
+          309,
           "flow",
           1444,
           "flow",
           false
         ],
         [
-          309,
+          1443,
           "flow",
           1444,
           "flow",
@@ -18097,14 +18118,14 @@
         ],
         [
           1383,
-          "match_2",
+          "match_1",
           1446,
           "flow",
           false
         ],
         [
           1383,
-          "match_1",
+          "match_2",
           1446,
           "flow",
           false
@@ -18915,6 +18936,20 @@
           false
         ],
         [
+          1523,
+          "flow",
+          1521,
+          "flow",
+          false
+        ],
+        [
+          1523,
+          "flow",
+          1521,
+          "flow",
+          false
+        ],
+        [
           1525,
           "flow",
           1521,
@@ -18923,20 +18958,6 @@
         ],
         [
           1524,
-          "flow",
-          1521,
-          "flow",
-          false
-        ],
-        [
-          1523,
-          "flow",
-          1521,
-          "flow",
-          false
-        ],
-        [
-          1523,
           "flow",
           1521,
           "flow",
@@ -20308,15 +20329,15 @@
           false
         ],
         [
-          605,
-          "True",
+          1379,
+          "flow",
           1630,
           "flow",
           false
         ],
         [
-          1379,
-          "flow",
+          605,
+          "True",
           1630,
           "flow",
           false
@@ -20994,8 +21015,8 @@
           false
         ],
         [
-          1681,
-          "stopped",
+          826,
+          "match_3",
           1690,
           "flow",
           false
@@ -21519,8 +21540,8 @@
           false
         ],
         [
-          1732,
-          "True",
+          1736,
+          "flow",
           1735,
           "flow",
           false
@@ -21533,8 +21554,8 @@
           false
         ],
         [
-          1736,
-          "flow",
+          1732,
+          "True",
           1735,
           "flow",
           false
@@ -21613,6 +21634,27 @@
           10091,
           "flow",
           1743,
+          "flow",
+          false
+        ],
+        [
+          7,
+          "flow",
+          1746,
+          "flow",
+          false
+        ],
+        [
+          7,
+          "enterState",
+          1748,
+          "flow",
+          false
+        ],
+        [
+          1746,
+          "out",
+          1748,
           "flow",
           false
         ],
@@ -21715,6 +21757,20 @@
           false
         ],
         [
+          1765,
+          "flow",
+          1757,
+          "flow",
+          false
+        ],
+        [
+          1765,
+          "vehid",
+          1757,
+          "pid",
+          false
+        ],
+        [
           1755,
           "flow",
           1758,
@@ -21771,17 +21827,31 @@
           false
         ],
         [
-          10192,
+          7,
           "flow",
-          10226,
+          1764,
           "flow",
           false
         ],
         [
-          275,
-          "opAvoid",
-          10226,
-          "val",
+          1748,
+          "hasLights",
+          1764,
+          "condition",
+          false
+        ],
+        [
+          1764,
+          "True",
+          1765,
+          "flow",
+          false
+        ],
+        [
+          1767,
+          "vehId",
+          1765,
+          "current",
           false
         ],
         [
@@ -21796,20 +21866,6 @@
           "val",
           10194,
           "val",
-          false
-        ],
-        [
-          660,
-          "flow",
-          10162,
-          "flow",
-          false
-        ],
-        [
-          10022,
-          "flow",
-          10162,
-          "reset",
           false
         ],
         [
@@ -21820,17 +21876,17 @@
           false
         ],
         [
-          10097,
+          10191,
           "flow",
-          10098,
+          4986,
           "flow",
           false
         ],
         [
-          275,
-          "partPrice",
-          10098,
-          "val",
+          10191,
+          "typeName",
+          4986,
+          "value",
           false
         ],
         [
@@ -21855,30 +21911,9 @@
           false
         ],
         [
-          1472,
-          "False",
-          9931,
-          "flow",
-          false
-        ],
-        [
-          266,
-          "output",
-          9931,
-          "text",
-          false
-        ],
-        [
           10202,
           "flow",
           10227,
-          "flow",
-          false
-        ],
-        [
-          681,
-          "flow",
-          10195,
           "flow",
           false
         ],
@@ -21887,27 +21922,6 @@
           "flow",
           10163,
           "flow",
-          false
-        ],
-        [
-          628,
-          "flow",
-          10131,
-          "flow",
-          false
-        ],
-        [
-          626,
-          "val",
-          10131,
-          "X",
-          false
-        ],
-        [
-          114,
-          "imcost",
-          10131,
-          "DX",
           false
         ],
         [
@@ -21925,51 +21939,9 @@
           false
         ],
         [
-          10066,
-          "flow",
-          10067,
-          "flow",
-          false
-        ],
-        [
-          342,
-          "veid",
-          10067,
-          "vehId",
-          false
-        ],
-        [
           10030,
           "flow",
           10035,
-          "flow",
-          false
-        ],
-        [
-          10004,
-          "flow",
-          10003,
-          "flow",
-          false
-        ],
-        [
-          10004,
-          "val",
-          10003,
-          "X",
-          false
-        ],
-        [
-          115,
-          "cost",
-          10003,
-          "DX",
-          false
-        ],
-        [
-          10181,
-          "flow",
-          10228,
           "flow",
           false
         ],
@@ -21985,34 +21957,6 @@
           "league",
           10196,
           "val",
-          false
-        ],
-        [
-          659,
-          "flow",
-          10164,
-          "flow",
-          false
-        ],
-        [
-          10017,
-          "down",
-          10164,
-          "reset",
-          false
-        ],
-        [
-          661,
-          "False",
-          10164,
-          "reset",
-          false
-        ],
-        [
-          10166,
-          "pos",
-          10164,
-          "position",
           false
         ],
         [
@@ -22037,20 +21981,6 @@
           true
         ],
         [
-          10099,
-          "flow",
-          10100,
-          "flow",
-          false
-        ],
-        [
-          275,
-          "paintdata",
-          10100,
-          "val",
-          false
-        ],
-        [
           456,
           "flow",
           10068,
@@ -22058,17 +21988,10 @@
           false
         ],
         [
-          10033,
+          10284,
           "flow",
-          10036,
+          10285,
           "flow",
-          false
-        ],
-        [
-          10033,
-          "Y",
-          10036,
-          "val",
           false
         ],
         [
@@ -22093,20 +22016,6 @@
           false
         ],
         [
-          10196,
-          "flow",
-          10197,
-          "flow",
-          false
-        ],
-        [
-          241,
-          "club",
-          10197,
-          "val",
-          false
-        ],
-        [
           652,
           "ftrig",
           10165,
@@ -22114,17 +22023,10 @@
           false
         ],
         [
-          10100,
+          9875,
           "flow",
-          10133,
+          9876,
           "flow",
-          false
-        ],
-        [
-          275,
-          "laps",
-          10133,
-          "val",
           false
         ],
         [
@@ -22135,59 +22037,10 @@
           false
         ],
         [
-          15,
+          10272,
           "flow",
-          9929,
+          10254,
           "flow",
-          false
-        ],
-        [
-          15,
-          "text",
-          9929,
-          "text",
-          false
-        ],
-        [
-          342,
-          "flow",
-          10286,
-          "flow",
-          false
-        ],
-        [
-          342,
-          "pout",
-          10286,
-          "val",
-          false
-        ],
-        [
-          261,
-          "flow",
-          9928,
-          "flow",
-          false
-        ],
-        [
-          261,
-          "Y",
-          9928,
-          "val",
-          false
-        ],
-        [
-          10226,
-          "flow",
-          10230,
-          "flow",
-          false
-        ],
-        [
-          275,
-          "reputation",
-          10230,
-          "val",
           false
         ],
         [
@@ -22205,17 +22058,17 @@
           false
         ],
         [
-          661,
-          "True",
-          10166,
+          1621,
+          "False",
+          9909,
           "flow",
           false
         ],
         [
-          10165,
-          "objID",
-          10166,
-          "newPin",
+          106,
+          "val",
+          9909,
+          "id",
           false
         ],
         [
@@ -22233,31 +22086,10 @@
           false
         ],
         [
-          10101,
+          9,
           "flow",
-          10102,
+          4988,
           "flow",
-          false
-        ],
-        [
-          9914,
-          "flow",
-          9915,
-          "flow",
-          false
-        ],
-        [
-          9914,
-          "output",
-          9915,
-          "data",
-          false
-        ],
-        [
-          303,
-          "val",
-          9915,
-          "id",
           false
         ],
         [
@@ -22275,20 +22107,6 @@
           false
         ],
         [
-          9913,
-          "flow",
-          9914,
-          "flow",
-          false
-        ],
-        [
-          9913,
-          "filename",
-          9914,
-          "filename",
-          false
-        ],
-        [
           1120,
           "flow",
           10231,
@@ -22303,66 +22121,10 @@
           false
         ],
         [
-          10198,
-          "flow",
-          10199,
-          "flow",
-          false
-        ],
-        [
-          241,
-          "opSpawnRot",
-          10199,
-          "val",
-          false
-        ],
-        [
           10137,
           "flow",
           10167,
           "flow",
-          false
-        ],
-        [
-          10134,
-          "flow",
-          10135,
-          "flow",
-          false
-        ],
-        [
-          275,
-          "wayps",
-          10135,
-          "val",
-          false
-        ],
-        [
-          303,
-          "flow",
-          9913,
-          "flow",
-          false
-        ],
-        [
-          303,
-          "val",
-          9913,
-          "id",
-          false
-        ],
-        [
-          1621,
-          "False",
-          9909,
-          "flow",
-          false
-        ],
-        [
-          106,
-          "val",
-          9909,
-          "id",
           false
         ],
         [
@@ -22380,41 +22142,6 @@
           false
         ],
         [
-          689,
-          "repair",
-          10007,
-          "flow",
-          false
-        ],
-        [
-          689,
-          "garage",
-          10007,
-          "flow",
-          false
-        ],
-        [
-          782,
-          "flow",
-          9901,
-          "flow",
-          false
-        ],
-        [
-          782,
-          "output",
-          9901,
-          "data",
-          false
-        ],
-        [
-          106,
-          "val",
-          9901,
-          "id",
-          false
-        ],
-        [
           10199,
           "flow",
           10200,
@@ -22429,9 +22156,9 @@
           false
         ],
         [
-          652,
-          "flow",
-          10168,
+          440,
+          "true",
+          10136,
           "flow",
           false
         ],
@@ -22443,65 +22170,9 @@
           false
         ],
         [
-          440,
-          "true",
-          10136,
-          "flow",
-          false
-        ],
-        [
-          10096,
-          "flow",
-          10104,
-          "flow",
-          false
-        ],
-        [
-          83,
-          "flow",
-          9899,
-          "flow",
-          false
-        ],
-        [
-          83,
-          "Y",
-          9899,
-          "val",
-          false
-        ],
-        [
-          872,
-          "flow",
-          10257,
-          "flow",
-          false
-        ],
-        [
-          157,
-          "gmwp",
-          10257,
-          "val",
-          false
-        ],
-        [
-          4986,
-          "match_2",
-          9897,
-          "flow",
-          false
-        ],
-        [
           1149,
           "down",
           10233,
-          "flow",
-          false
-        ],
-        [
-          10204,
-          "flow",
-          10201,
           "flow",
           false
         ],
@@ -22513,23 +22184,30 @@
           false
         ],
         [
-          10136,
+          157,
           "flow",
-          10137,
+          9880,
           "flow",
+          false
+        ],
+        [
+          157,
+          "flow",
+          9880,
+          "flow",
+          false
+        ],
+        [
+          157,
+          "reward",
+          9880,
+          "val",
           false
         ],
         [
           10035,
           "flow",
           10105,
-          "flow",
-          false
-        ],
-        [
-          1328,
-          "False",
-          9896,
           "flow",
           false
         ],
@@ -22548,20 +22226,6 @@
           false
         ],
         [
-          157,
-          "flow",
-          9889,
-          "flow",
-          false
-        ],
-        [
-          157,
-          "destpos",
-          9889,
-          "val",
-          false
-        ],
-        [
           10201,
           "flow",
           10202,
@@ -22569,30 +22233,23 @@
           false
         ],
         [
-          22,
+          303,
           "flow",
-          10170,
+          9913,
           "flow",
+          false
+        ],
+        [
+          303,
+          "val",
+          9913,
+          "id",
           false
         ],
         [
           448,
           "enter",
           10138,
-          "flow",
-          false
-        ],
-        [
-          10105,
-          "flow",
-          10106,
-          "flow",
-          false
-        ],
-        [
-          4995,
-          "match_2",
-          9870,
           "flow",
           false
         ],
@@ -22611,20 +22268,6 @@
           false
         ],
         [
-          184,
-          "flow",
-          9885,
-          "flow",
-          false
-        ],
-        [
-          221,
-          "flow",
-          9884,
-          "flow",
-          false
-        ],
-        [
           10170,
           "flow",
           10171,
@@ -22639,24 +22282,10 @@
           false
         ],
         [
-          10138,
+          208,
           "flow",
-          10139,
+          9882,
           "flow",
-          false
-        ],
-        [
-          448,
-          "triggerID",
-          10139,
-          "A",
-          false
-        ],
-        [
-          10138,
-          "val",
-          10139,
-          "B",
           false
         ],
         [
@@ -22681,44 +22310,9 @@
           false
         ],
         [
-          207,
-          "flow",
-          9883,
-          "flow",
-          false
-        ],
-        [
-          207,
-          "y",
-          9883,
-          "val",
-          false
-        ],
-        [
           10042,
           "flow",
           10043,
-          "flow",
-          false
-        ],
-        [
-          1181,
-          "flow",
-          10011,
-          "flow",
-          false
-        ],
-        [
-          247,
-          "False",
-          10011,
-          "flow",
-          false
-        ],
-        [
-          487,
-          "flow",
-          10236,
           "flow",
           false
         ],
@@ -22730,17 +22324,24 @@
           false
         ],
         [
-          311,
-          "True",
-          10172,
+          9914,
+          "flow",
+          9915,
           "flow",
           false
         ],
         [
-          552,
+          9914,
+          "output",
+          9915,
+          "data",
+          false
+        ],
+        [
+          303,
           "val",
-          10172,
-          "condition",
+          9915,
+          "id",
           false
         ],
         [
@@ -22800,20 +22401,6 @@
           false
         ],
         [
-          197,
-          "flow",
-          10108,
-          "flow",
-          false
-        ],
-        [
-          197,
-          "Y",
-          10108,
-          "val",
-          false
-        ],
-        [
           1118,
           "flow",
           10076,
@@ -22821,10 +22408,17 @@
           true
         ],
         [
-          293,
+          912,
+          "False",
+          10293,
           "flow",
-          10044,
-          "flow",
+          false
+        ],
+        [
+          910,
+          "midgrade",
+          10293,
+          "text",
           false
         ],
         [
@@ -22838,13 +22432,6 @@
           10236,
           "flow",
           10237,
-          "flow",
-          false
-        ],
-        [
-          208,
-          "flow",
-          9882,
           "flow",
           false
         ],
@@ -22863,17 +22450,10 @@
           false
         ],
         [
-          10140,
+          221,
           "flow",
-          10141,
+          9884,
           "flow",
-          false
-        ],
-        [
-          10140,
-          "finished",
-          10141,
-          "condition",
           false
         ],
         [
@@ -22891,48 +22471,6 @@
           false
         ],
         [
-          1118,
-          "flow",
-          10077,
-          "flow",
-          true
-        ],
-        [
-          1561,
-          "flow",
-          10294,
-          "flow",
-          false
-        ],
-        [
-          1569,
-          "dstr",
-          10294,
-          "text",
-          false
-        ],
-        [
-          1181,
-          "down",
-          10013,
-          "flow",
-          false
-        ],
-        [
-          10245,
-          "down",
-          10238,
-          "flow",
-          false
-        ],
-        [
-          843,
-          "down",
-          10238,
-          "flow",
-          false
-        ],
-        [
           10200,
           "flow",
           10206,
@@ -22943,27 +22481,6 @@
           241,
           "psrot",
           10206,
-          "val",
-          false
-        ],
-        [
-          157,
-          "flow",
-          9880,
-          "flow",
-          false
-        ],
-        [
-          157,
-          "flow",
-          9880,
-          "flow",
-          false
-        ],
-        [
-          157,
-          "reward",
-          9880,
           "val",
           false
         ],
@@ -22979,13 +22496,6 @@
           "nextId",
           10142,
           "val",
-          false
-        ],
-        [
-          206,
-          "down",
-          9879,
-          "flow",
           false
         ],
         [
@@ -23038,34 +22548,6 @@
           false
         ],
         [
-          9876,
-          "flow",
-          9877,
-          "flow",
-          false
-        ],
-        [
-          9875,
-          "flow",
-          9876,
-          "flow",
-          false
-        ],
-        [
-          10142,
-          "flow",
-          10143,
-          "flow",
-          false
-        ],
-        [
-          633,
-          "objID",
-          10143,
-          "val",
-          false
-        ],
-        [
           10108,
           "flow",
           10111,
@@ -23073,30 +22555,590 @@
           false
         ],
         [
-          9871,
+          10143,
           "flow",
-          9875,
+          10144,
           "flow",
           false
         ],
         [
-          1677,
+          652,
+          "newLap",
+          10144,
+          "val",
+          false
+        ],
+        [
+          7,
+          "flow",
+          10080,
+          "flow",
+          false
+        ],
+        [
+          10017,
           "down",
-          10296,
+          10016,
           "flow",
           false
         ],
         [
-          1679,
-          "down",
-          10296,
+          10209,
+          "flow",
+          10210,
           "flow",
           false
         ],
         [
-          10013,
+          10209,
+          "typeName",
+          10210,
+          "value",
+          false
+        ],
+        [
+          10145,
           "flow",
-          10015,
+          10146,
+          "flow",
+          false
+        ],
+        [
+          10149,
+          "objID",
+          10146,
+          "val",
+          false
+        ],
+        [
+          536,
+          "completed",
+          10082,
+          "flow",
+          false
+        ],
+        [
+          538,
+          "vehId",
+          10082,
+          "vehId",
+          true
+        ],
+        [
+          1693,
+          "False",
+          10299,
+          "flow",
+          false
+        ],
+        [
+          1698,
+          "flow",
+          10299,
+          "flow",
+          false
+        ],
+        [
+          1653,
+          "shownext",
+          10299,
+          "condition",
+          false
+        ],
+        [
+          931,
+          "flow",
+          10268,
+          "flow",
+          false
+        ],
+        [
+          377,
+          "match_1",
+          10212,
+          "flow",
+          false
+        ],
+        [
+          10147,
+          "flow",
+          10148,
+          "flow",
+          false
+        ],
+        [
+          10140,
+          "nextWp",
+          10148,
+          "val",
+          true
+        ],
+        [
+          7,
+          "flow",
+          4994,
+          "flow",
+          true
+        ],
+        [
+          1542,
+          "done",
+          10084,
+          "flow",
+          false
+        ],
+        [
+          332,
+          "vehId",
+          10084,
+          "vehId",
+          false
+        ],
+        [
+          826,
+          "match_1",
+          10301,
+          "flow",
+          false
+        ],
+        [
+          10104,
+          "flow",
+          10181,
+          "flow",
+          false
+        ],
+        [
+          747,
+          "flow",
+          10214,
+          "flow",
+          false
+        ],
+        [
+          742,
+          "num",
+          10214,
+          "val",
+          false
+        ],
+        [
+          10139,
+          "true",
+          10150,
+          "flow",
+          false
+        ],
+        [
+          43,
+          "flow",
+          4995,
+          "flow",
+          false
+        ],
+        [
+          5002,
+          "val",
+          4995,
+          "value",
+          false
+        ],
+        [
+          512,
+          "true",
+          10086,
+          "flow",
+          false
+        ],
+        [
+          129,
+          "walking",
+          10086,
+          "val",
+          false
+        ],
+        [
+          269,
+          "true",
+          10022,
+          "flow",
+          false
+        ],
+        [
+          798,
+          "flow",
+          10272,
+          "flow",
+          false
+        ],
+        [
+          10132,
+          "flow",
+          10216,
+          "flow",
+          false
+        ],
+        [
+          601,
+          "filename",
+          10216,
+          "file",
+          false
+        ],
+        [
+          781,
+          "val",
+          10216,
+          "tval",
+          false
+        ],
+        [
+          10135,
+          "flow",
+          10152,
+          "flow",
+          false
+        ],
+        [
+          275,
+          "cpcount",
+          10152,
+          "val",
+          false
+        ],
+        [
+          639,
+          "flow",
+          10088,
+          "flow",
+          false
+        ],
+        [
+          766,
+          "flow",
+          10088,
+          "flow",
+          false
+        ],
+        [
+          520,
+          "flow",
+          10088,
+          "flow",
+          false
+        ],
+        [
+          68,
+          "time",
+          10088,
+          "time",
+          false
+        ],
+        [
+          846,
+          "daytime",
+          10088,
+          "dayLength",
+          false
+        ],
+        [
+          10238,
+          "flow",
+          10241,
+          "flow",
+          false
+        ],
+        [
+          10186,
+          "flow",
+          10185,
+          "flow",
+          false
+        ],
+        [
+          342,
+          "veid",
+          10185,
+          "veid",
+          false
+        ],
+        [
+          10186,
+          "val",
+          10185,
+          "file",
+          false
+        ],
+        [
+          1328,
+          "False",
+          9896,
+          "flow",
+          false
+        ],
+        [
+          10120,
+          "flow",
+          10121,
+          "flow",
+          false
+        ],
+        [
+          567,
+          "tkttxt",
+          10121,
+          "val",
+          false
+        ],
+        [
+          10254,
+          "flow",
+          10274,
+          "flow",
+          false
+        ],
+        [
+          770,
+          "flow",
+          10218,
+          "flow",
+          false
+        ],
+        [
+          770,
+          "damage",
+          10218,
+          "A",
+          false
+        ],
+        [
+          15,
+          "flow",
+          9929,
+          "flow",
+          false
+        ],
+        [
+          15,
+          "text",
+          9929,
+          "text",
+          false
+        ],
+        [
+          651,
+          "flow",
+          10154,
+          "flow",
+          false
+        ],
+        [
+          10089,
+          "flow",
+          10090,
+          "flow",
+          false
+        ],
+        [
+          10027,
+          "flow",
+          10026,
+          "flow",
+          false
+        ],
+        [
+          275,
+          "aiwp",
+          10026,
+          "val",
+          false
+        ],
+        [
+          10188,
+          "flow",
+          10187,
+          "flow",
+          false
+        ],
+        [
+          10188,
+          "val",
+          10187,
+          "carid",
+          false
+        ],
+        [
+          528,
+          "flow",
+          10059,
+          "flow",
+          false
+        ],
+        [
+          528,
+          "Y",
+          10059,
+          "val",
+          false
+        ],
+        [
+          1016,
+          "true",
+          10276,
+          "flow",
+          false
+        ],
+        [
+          1472,
+          "False",
+          9931,
+          "flow",
+          false
+        ],
+        [
+          266,
+          "output",
+          9931,
+          "text",
+          false
+        ],
+        [
+          10155,
+          "flow",
+          10156,
+          "flow",
+          false
+        ],
+        [
+          10025,
+          "flow",
+          10028,
+          "flow",
+          false
+        ],
+        [
+          275,
+          "wager",
+          10028,
+          "val",
+          false
+        ],
+        [
+          720,
+          "flow",
+          10189,
+          "flow",
+          false
+        ],
+        [
+          720,
+          "num",
+          10189,
+          "val",
+          false
+        ],
+        [
+          579,
+          "flow",
+          10125,
+          "flow",
+          false
+        ],
+        [
+          623,
+          "flow",
+          10125,
+          "flow",
+          false
+        ],
+        [
+          799,
+          "flow",
+          10278,
+          "flow",
+          false
+        ],
+        [
+          526,
+          "flow",
+          10222,
+          "flow",
+          false
+        ],
+        [
+          275,
+          "wayps",
+          10222,
+          "wplist",
+          false
+        ],
+        [
+          10157,
+          "flow",
+          10158,
+          "flow",
+          false
+        ],
+        [
+          275,
+          "destid",
+          10158,
+          "val",
+          false
+        ],
+        [
+          525,
+          "flow",
+          10094,
+          "flow",
+          false
+        ],
+        [
+          10029,
+          "flow",
+          10030,
+          "flow",
+          false
+        ],
+        [
+          423,
+          "flow",
+          10191,
+          "flow",
+          false
+        ],
+        [
+          423,
+          "val",
+          10191,
+          "name",
+          false
+        ],
+        [
+          835,
+          "output",
+          10191,
+          "tdata",
+          true
+        ],
+        [
+          10124,
+          "flow",
+          10127,
+          "flow",
+          false
+        ],
+        [
+          1017,
+          "none",
+          10280,
+          "flow",
+          false
+        ],
+        [
+          10141,
+          "True",
+          10224,
           "flow",
           false
         ],
@@ -23136,9 +23178,695 @@
           false
         ],
         [
-          1488,
-          "false",
-          10176,
+          454,
+          "true",
+          10096,
+          "flow",
+          false
+        ],
+        [
+          10037,
+          "flow",
+          10032,
+          "flow",
+          false
+        ],
+        [
+          10037,
+          "Y",
+          10032,
+          "val",
+          false
+        ],
+        [
+          419,
+          "flow",
+          10193,
+          "flow",
+          false
+        ],
+        [
+          622,
+          "flow",
+          10129,
+          "flow",
+          false
+        ],
+        [
+          441,
+          "flow",
+          10065,
+          "flow",
+          false
+        ],
+        [
+          1057,
+          "flow",
+          10282,
+          "flow",
+          false
+        ],
+        [
+          1057,
+          "time",
+          10282,
+          "val",
+          false
+        ],
+        [
+          10192,
+          "flow",
+          10226,
+          "flow",
+          false
+        ],
+        [
+          275,
+          "opAvoid",
+          10226,
+          "val",
+          false
+        ],
+        [
+          660,
+          "flow",
+          10162,
+          "flow",
+          false
+        ],
+        [
+          10022,
+          "flow",
+          10162,
+          "reset",
+          false
+        ],
+        [
+          880,
+          "down",
+          5001,
+          "flow",
+          false
+        ],
+        [
+          10097,
+          "flow",
+          10098,
+          "flow",
+          false
+        ],
+        [
+          275,
+          "partPrice",
+          10098,
+          "val",
+          false
+        ],
+        [
+          1181,
+          "down",
+          10034,
+          "flow",
+          false
+        ],
+        [
+          681,
+          "flow",
+          10195,
+          "flow",
+          false
+        ],
+        [
+          628,
+          "flow",
+          10131,
+          "flow",
+          false
+        ],
+        [
+          626,
+          "val",
+          10131,
+          "X",
+          false
+        ],
+        [
+          114,
+          "imcost",
+          10131,
+          "DX",
+          false
+        ],
+        [
+          10066,
+          "flow",
+          10067,
+          "flow",
+          false
+        ],
+        [
+          342,
+          "veid",
+          10067,
+          "vehId",
+          false
+        ],
+        [
+          1067,
+          "flow",
+          10284,
+          "flow",
+          false
+        ],
+        [
+          10004,
+          "flow",
+          10003,
+          "flow",
+          false
+        ],
+        [
+          10004,
+          "val",
+          10003,
+          "X",
+          false
+        ],
+        [
+          115,
+          "cost",
+          10003,
+          "DX",
+          false
+        ],
+        [
+          10181,
+          "flow",
+          10228,
+          "flow",
+          false
+        ],
+        [
+          659,
+          "flow",
+          10164,
+          "flow",
+          false
+        ],
+        [
+          661,
+          "False",
+          10164,
+          "reset",
+          false
+        ],
+        [
+          10017,
+          "down",
+          10164,
+          "reset",
+          false
+        ],
+        [
+          10166,
+          "pos",
+          10164,
+          "position",
+          false
+        ],
+        [
+          9871,
+          "flow",
+          9875,
+          "flow",
+          false
+        ],
+        [
+          10099,
+          "flow",
+          10100,
+          "flow",
+          false
+        ],
+        [
+          275,
+          "paintdata",
+          10100,
+          "val",
+          false
+        ],
+        [
+          10033,
+          "flow",
+          10036,
+          "flow",
+          false
+        ],
+        [
+          10033,
+          "Y",
+          10036,
+          "val",
+          false
+        ],
+        [
+          10196,
+          "flow",
+          10197,
+          "flow",
+          false
+        ],
+        [
+          241,
+          "club",
+          10197,
+          "val",
+          false
+        ],
+        [
+          10100,
+          "flow",
+          10133,
+          "flow",
+          false
+        ],
+        [
+          275,
+          "laps",
+          10133,
+          "val",
+          false
+        ],
+        [
+          342,
+          "flow",
+          10286,
+          "flow",
+          false
+        ],
+        [
+          342,
+          "pout",
+          10286,
+          "val",
+          false
+        ],
+        [
+          10226,
+          "flow",
+          10230,
+          "flow",
+          false
+        ],
+        [
+          275,
+          "reputation",
+          10230,
+          "val",
+          false
+        ],
+        [
+          661,
+          "True",
+          10166,
+          "flow",
+          false
+        ],
+        [
+          10165,
+          "objID",
+          10166,
+          "newPin",
+          false
+        ],
+        [
+          9876,
+          "flow",
+          9877,
+          "flow",
+          false
+        ],
+        [
+          10101,
+          "flow",
+          10102,
+          "flow",
+          false
+        ],
+        [
+          10240,
+          "flow",
+          10255,
+          "flow",
+          false
+        ],
+        [
+          10198,
+          "flow",
+          10199,
+          "flow",
+          false
+        ],
+        [
+          241,
+          "opSpawnRot",
+          10199,
+          "val",
+          false
+        ],
+        [
+          10134,
+          "flow",
+          10135,
+          "flow",
+          false
+        ],
+        [
+          275,
+          "wayps",
+          10135,
+          "val",
+          false
+        ],
+        [
+          357,
+          "flow",
+          10288,
+          "flow",
+          false
+        ],
+        [
+          689,
+          "repair",
+          10007,
+          "flow",
+          false
+        ],
+        [
+          689,
+          "garage",
+          10007,
+          "flow",
+          false
+        ],
+        [
+          652,
+          "flow",
+          10168,
+          "flow",
+          false
+        ],
+        [
+          206,
+          "down",
+          9879,
+          "flow",
+          false
+        ],
+        [
+          10096,
+          "flow",
+          10104,
+          "flow",
+          false
+        ],
+        [
+          872,
+          "flow",
+          10257,
+          "flow",
+          false
+        ],
+        [
+          157,
+          "gmwp",
+          10257,
+          "val",
+          false
+        ],
+        [
+          10204,
+          "flow",
+          10201,
+          "flow",
+          false
+        ],
+        [
+          10136,
+          "flow",
+          10137,
+          "flow",
+          false
+        ],
+        [
+          897,
+          "flow",
+          10290,
+          "flow",
+          false
+        ],
+        [
+          128,
+          "flow",
+          10290,
+          "reset",
+          false
+        ],
+        [
+          22,
+          "flow",
+          10170,
+          "flow",
+          false
+        ],
+        [
+          10105,
+          "flow",
+          10106,
+          "flow",
+          false
+        ],
+        [
+          10041,
+          "flow",
+          10042,
+          "flow",
+          false
+        ],
+        [
+          9913,
+          "flow",
+          9914,
+          "flow",
+          false
+        ],
+        [
+          9913,
+          "filename",
+          9914,
+          "filename",
+          false
+        ],
+        [
+          10138,
+          "flow",
+          10139,
+          "flow",
+          false
+        ],
+        [
+          448,
+          "triggerID",
+          10139,
+          "A",
+          false
+        ],
+        [
+          10138,
+          "val",
+          10139,
+          "B",
+          false
+        ],
+        [
+          1520,
+          "flow",
+          10292,
+          "flow",
+          false
+        ],
+        [
+          910,
+          "diesel",
+          10292,
+          "text",
+          false
+        ],
+        [
+          1181,
+          "flow",
+          10011,
+          "flow",
+          false
+        ],
+        [
+          247,
+          "False",
+          10011,
+          "flow",
+          false
+        ],
+        [
+          487,
+          "flow",
+          10236,
+          "flow",
+          false
+        ],
+        [
+          311,
+          "True",
+          10172,
+          "flow",
+          false
+        ],
+        [
+          552,
+          "val",
+          10172,
+          "condition",
+          false
+        ],
+        [
+          207,
+          "flow",
+          9883,
+          "flow",
+          false
+        ],
+        [
+          207,
+          "y",
+          9883,
+          "val",
+          false
+        ],
+        [
+          197,
+          "flow",
+          10108,
+          "flow",
+          false
+        ],
+        [
+          197,
+          "Y",
+          10108,
+          "val",
+          false
+        ],
+        [
+          293,
+          "flow",
+          10044,
+          "flow",
+          false
+        ],
+        [
+          10140,
+          "flow",
+          10141,
+          "flow",
+          false
+        ],
+        [
+          10140,
+          "finished",
+          10141,
+          "condition",
+          false
+        ],
+        [
+          1118,
+          "flow",
+          10077,
+          "flow",
+          true
+        ],
+        [
+          1561,
+          "flow",
+          10294,
+          "flow",
+          false
+        ],
+        [
+          1569,
+          "dstr",
+          10294,
+          "text",
+          false
+        ],
+        [
+          1181,
+          "down",
+          10013,
+          "flow",
+          false
+        ],
+        [
+          10245,
+          "down",
+          10238,
+          "flow",
+          false
+        ],
+        [
+          843,
+          "down",
+          10238,
+          "flow",
+          false
+        ],
+        [
+          184,
+          "flow",
+          9885,
+          "flow",
+          false
+        ],
+        [
+          10142,
+          "flow",
+          10143,
+          "flow",
+          false
+        ],
+        [
+          633,
+          "objID",
+          10143,
+          "val",
+          false
+        ],
+        [
+          1677,
+          "down",
+          10296,
+          "flow",
+          false
+        ],
+        [
+          1679,
+          "down",
+          10296,
+          "flow",
+          false
+        ],
+        [
+          10013,
+          "flow",
+          10015,
           "flow",
           false
         ],
@@ -23150,44 +23878,16 @@
           false
         ],
         [
-          10143,
+          1488,
+          "false",
+          10176,
           "flow",
-          10144,
-          "flow",
-          false
-        ],
-        [
-          652,
-          "newLap",
-          10144,
-          "val",
           false
         ],
         [
           5006,
           "flow",
           9887,
-          "flow",
-          false
-        ],
-        [
-          7,
-          "flow",
-          10080,
-          "flow",
-          false
-        ],
-        [
-          10284,
-          "flow",
-          10285,
-          "flow",
-          false
-        ],
-        [
-          10017,
-          "down",
-          10016,
           "flow",
           false
         ],
@@ -23213,13 +23913,6 @@
           true
         ],
         [
-          4994,
-          "flow",
-          5006,
-          "flow",
-          false
-        ],
-        [
           620,
           "false",
           10145,
@@ -23234,34 +23927,6 @@
           true
         ],
         [
-          240,
-          "flow",
-          5002,
-          "flow",
-          false
-        ],
-        [
-          880,
-          "down",
-          5001,
-          "flow",
-          false
-        ],
-        [
-          43,
-          "flow",
-          4995,
-          "flow",
-          false
-        ],
-        [
-          5002,
-          "val",
-          4995,
-          "value",
-          false
-        ],
-        [
           395,
           "flow",
           10017,
@@ -23269,44 +23934,16 @@
           false
         ],
         [
-          7,
+          157,
           "flow",
-          4994,
-          "flow",
-          true
-        ],
-        [
-          10209,
-          "flow",
-          10210,
+          9889,
           "flow",
           false
         ],
         [
-          10209,
-          "typeName",
-          10210,
-          "value",
-          false
-        ],
-        [
-          9,
-          "flow",
-          4988,
-          "flow",
-          false
-        ],
-        [
-          10145,
-          "flow",
-          10146,
-          "flow",
-          false
-        ],
-        [
-          10149,
-          "objID",
-          10146,
+          157,
+          "destpos",
+          9889,
           "val",
           false
         ],
@@ -23339,58 +23976,9 @@
           false
         ],
         [
-          536,
-          "completed",
-          10082,
-          "flow",
-          false
-        ],
-        [
-          538,
-          "vehId",
-          10082,
-          "vehId",
-          true
-        ],
-        [
-          10191,
-          "flow",
-          4986,
-          "flow",
-          false
-        ],
-        [
-          10191,
-          "typeName",
-          4986,
-          "value",
-          false
-        ],
-        [
-          1698,
-          "flow",
-          10299,
-          "flow",
-          false
-        ],
-        [
-          1693,
-          "False",
-          10299,
-          "flow",
-          false
-        ],
-        [
-          1653,
-          "shownext",
-          10299,
-          "condition",
-          false
-        ],
-        [
-          357,
-          "flow",
-          10288,
+          1178,
+          "down",
+          10267,
           "flow",
           false
         ],
@@ -23409,13 +23997,6 @@
           false
         ],
         [
-          10272,
-          "flow",
-          10254,
-          "flow",
-          false
-        ],
-        [
           10146,
           "flow",
           10147,
@@ -23430,65 +24011,9 @@
           true
         ],
         [
-          10251,
-          "flow",
-          10252,
-          "flow",
-          false
-        ],
-        [
-          10250,
-          "val",
-          10252,
-          "X",
-          false
-        ],
-        [
-          829,
-          "reputation",
-          10252,
-          "DX",
-          false
-        ],
-        [
-          10034,
-          "flow",
-          10033,
-          "flow",
-          false
-        ],
-        [
-          10034,
-          "val",
-          10033,
-          "X",
-          false
-        ],
-        [
-          10029,
-          "val",
-          10033,
-          "DX",
-          false
-        ],
-        [
-          931,
-          "flow",
-          10268,
-          "flow",
-          false
-        ],
-        [
-          1686,
-          "flow",
-          10297,
-          "flow",
-          false
-        ],
-        [
-          377,
-          "match_1",
-          10212,
+          10299,
+          "True",
+          10300,
           "flow",
           false
         ],
@@ -23505,20 +24030,6 @@
           10180,
           "val",
           false
-        ],
-        [
-          10147,
-          "flow",
-          10148,
-          "flow",
-          false
-        ],
-        [
-          10140,
-          "nextWp",
-          10148,
-          "val",
-          true
         ],
         [
           10114,
@@ -23542,41 +24053,6 @@
           false
         ],
         [
-          1542,
-          "done",
-          10084,
-          "flow",
-          false
-        ],
-        [
-          332,
-          "vehId",
-          10084,
-          "vehId",
-          false
-        ],
-        [
-          10238,
-          "flow",
-          10241,
-          "flow",
-          false
-        ],
-        [
-          826,
-          "match_1",
-          10301,
-          "flow",
-          false
-        ],
-        [
-          10239,
-          "flow",
-          10240,
-          "flow",
-          false
-        ],
-        [
           159,
           "flow",
           10213,
@@ -23591,13 +24067,6 @@
           false
         ],
         [
-          10104,
-          "flow",
-          10181,
-          "flow",
-          false
-        ],
-        [
           10140,
           "nextTrig",
           10149,
@@ -23605,79 +24074,9 @@
           false
         ],
         [
-          1017,
-          "match_2",
-          10279,
-          "flow",
-          false
-        ],
-        [
-          1017,
-          "match_1",
-          10279,
-          "flow",
-          false
-        ],
-        [
-          10254,
-          "flow",
-          10274,
-          "flow",
-          false
-        ],
-        [
-          10299,
-          "True",
-          10300,
-          "flow",
-          false
-        ],
-        [
           10016,
           "flow",
           10021,
-          "flow",
-          false
-        ],
-        [
-          10240,
-          "flow",
-          10255,
-          "flow",
-          false
-        ],
-        [
-          747,
-          "flow",
-          10214,
-          "flow",
-          false
-        ],
-        [
-          742,
-          "num",
-          10214,
-          "val",
-          false
-        ],
-        [
-          10028,
-          "flow",
-          10027,
-          "flow",
-          false
-        ],
-        [
-          275,
-          "slips",
-          10027,
-          "val",
-          false
-        ],
-        [
-          10139,
-          "true",
-          10150,
           "flow",
           false
         ],
@@ -23696,98 +24095,14 @@
           false
         ],
         [
-          512,
-          "true",
-          10086,
-          "flow",
-          false
-        ],
-        [
-          129,
-          "walking",
-          10086,
-          "val",
-          false
-        ],
-        [
-          1178,
-          "down",
-          10267,
-          "flow",
-          false
-        ],
-        [
-          269,
-          "true",
-          10022,
-          "flow",
-          false
-        ],
-        [
-          10255,
-          "flow",
-          10275,
-          "flow",
-          false
-        ],
-        [
-          512,
-          "flow",
-          10215,
-          "flow",
-          false
-        ],
-        [
-          10027,
-          "flow",
-          10026,
-          "flow",
-          false
-        ],
-        [
-          275,
-          "aiwp",
-          10026,
-          "val",
-          false
-        ],
-        [
-          10150,
-          "flow",
-          10151,
-          "flow",
-          false
-        ],
-        [
-          799,
-          "flow",
-          10242,
-          "flow",
-          false
-        ],
-        [
-          809,
-          "True",
-          10242,
-          "on",
-          false
-        ],
-        [
-          676,
-          "True",
-          10087,
-          "flow",
-          false
-        ],
-        [
-          258,
+          1575,
           "flow",
           10271,
           "flow",
           false
         ],
         [
-          1575,
+          258,
           "flow",
           10271,
           "flow",
@@ -23801,38 +24116,31 @@
           false
         ],
         [
-          806,
+          512,
           "flow",
-          10023,
-          "flow",
-          false
-        ],
-        [
-          798,
-          "flow",
-          10272,
+          10215,
           "flow",
           false
         ],
         [
-          10132,
+          10150,
           "flow",
-          10216,
+          10151,
           "flow",
           false
         ],
         [
-          601,
-          "filename",
-          10216,
-          "file",
+          676,
+          "True",
+          10087,
+          "flow",
           false
         ],
         [
-          781,
-          "val",
-          10216,
-          "tval",
+          10239,
+          "flow",
+          10240,
+          "flow",
           false
         ],
         [
@@ -23857,20 +24165,6 @@
           false
         ],
         [
-          10135,
-          "flow",
-          10152,
-          "flow",
-          false
-        ],
-        [
-          275,
-          "cpcount",
-          10152,
-          "val",
-          false
-        ],
-        [
           567,
           "flow",
           10120,
@@ -23885,59 +24179,17 @@
           false
         ],
         [
-          520,
-          "flow",
-          10088,
-          "flow",
-          false
-        ],
-        [
-          766,
-          "flow",
-          10088,
+          995,
+          "True",
+          10273,
           "flow",
           false
         ],
         [
-          639,
-          "flow",
-          10088,
-          "flow",
-          false
-        ],
-        [
-          68,
-          "time",
-          10088,
-          "time",
-          false
-        ],
-        [
-          846,
-          "daytime",
-          10088,
-          "dayLength",
-          false
-        ],
-        [
-          339,
-          "flow",
-          10041,
-          "flow",
-          false
-        ],
-        [
-          10015,
-          "flow",
-          10024,
-          "flow",
-          false
-        ],
-        [
-          799,
-          "flow",
-          10244,
-          "flow",
+          1013,
+          "txt",
+          10273,
+          "text",
           false
         ],
         [
@@ -23955,24 +24207,17 @@
           false
         ],
         [
-          10186,
+          261,
           "flow",
-          10185,
+          9928,
           "flow",
           false
         ],
         [
-          342,
-          "veid",
-          10185,
-          "veid",
-          false
-        ],
-        [
-          10186,
+          261,
+          "Y",
+          9928,
           "val",
-          10185,
-          "file",
           false
         ],
         [
@@ -23990,20 +24235,6 @@
           false
         ],
         [
-          10120,
-          "flow",
-          10121,
-          "flow",
-          false
-        ],
-        [
-          567,
-          "tkttxt",
-          10121,
-          "val",
-          false
-        ],
-        [
           547,
           "flow",
           10089,
@@ -24011,52 +24242,17 @@
           false
         ],
         [
-          296,
+          799,
           "flow",
-          10029,
-          "flow",
-          false
-        ],
-        [
-          265,
-          "flow",
-          10025,
+          10242,
           "flow",
           false
         ],
         [
-          275,
-          "desc",
-          10025,
-          "val",
-          false
-        ],
-        [
-          10025,
-          "flow",
-          10028,
-          "flow",
-          false
-        ],
-        [
-          275,
-          "wager",
-          10028,
-          "val",
-          false
-        ],
-        [
-          770,
-          "flow",
-          10218,
-          "flow",
-          false
-        ],
-        [
-          770,
-          "damage",
-          10218,
-          "A",
+          809,
+          "True",
+          10242,
+          "on",
           false
         ],
         [
@@ -24067,23 +24263,9 @@
           false
         ],
         [
-          651,
-          "flow",
-          10154,
-          "flow",
-          false
-        ],
-        [
-          186,
-          "False",
-          10031,
-          "flow",
-          false
-        ],
-        [
-          10089,
-          "flow",
-          10090,
+          4986,
+          "match_2",
+          9897,
           "flow",
           false
         ],
@@ -24102,72 +24284,16 @@
           false
         ],
         [
-          10242,
+          10255,
           "flow",
-          10243,
+          10275,
           "flow",
-          false
-        ],
-        [
-          809,
-          "True",
-          10243,
-          "reset",
-          false
-        ],
-        [
-          837,
-          "flow",
-          10253,
-          "flow",
-          false
-        ],
-        [
-          10252,
-          "Y",
-          10253,
-          "val",
-          false
-        ],
-        [
-          868,
-          "false",
-          10256,
-          "flow",
-          false
-        ],
-        [
-          869,
-          "num",
-          10256,
-          "val",
-          false
-        ],
-        [
-          10188,
-          "flow",
-          10187,
-          "flow",
-          false
-        ],
-        [
-          10188,
-          "val",
-          10187,
-          "carid",
           false
         ],
         [
           10154,
           "flow",
           10155,
-          "flow",
-          false
-        ],
-        [
-          10237,
-          "flow",
-          10298,
           "flow",
           false
         ],
@@ -24179,45 +24305,17 @@
           false
         ],
         [
-          528,
+          10028,
           "flow",
-          10059,
+          10027,
           "flow",
           false
         ],
         [
-          528,
-          "Y",
-          10059,
+          275,
+          "slips",
+          10027,
           "val",
-          false
-        ],
-        [
-          1016,
-          "true",
-          10276,
-          "flow",
-          false
-        ],
-        [
-          10041,
-          "flow",
-          10042,
-          "flow",
-          false
-        ],
-        [
-          897,
-          "flow",
-          10290,
-          "flow",
-          false
-        ],
-        [
-          128,
-          "flow",
-          10290,
-          "reset",
           false
         ],
         [
@@ -24235,23 +24333,23 @@
           false
         ],
         [
-          10155,
+          83,
           "flow",
-          10156,
+          9899,
           "flow",
+          false
+        ],
+        [
+          83,
+          "Y",
+          9899,
+          "val",
           false
         ],
         [
           407,
           "flow",
           10124,
-          "flow",
-          false
-        ],
-        [
-          1181,
-          "down",
-          10034,
           "flow",
           false
         ],
@@ -24270,45 +24368,66 @@
           true
         ],
         [
-          808,
-          "True",
-          10245,
+          1012,
+          "flow",
+          10277,
           "flow",
           false
         ],
         [
-          1057,
+          825,
+          "down",
+          10277,
+          "reset",
+          false
+        ],
+        [
+          1697,
           "flow",
-          10282,
+          10302,
           "flow",
           false
         ],
         [
-          1057,
-          "time",
-          10282,
-          "val",
+          1687,
+          "allvehs",
+          10302,
+          "idtable",
           false
         ],
         [
-          1067,
+          875,
           "flow",
-          10284,
-          "flow",
-          false
-        ],
-        [
-          720,
-          "flow",
-          10189,
+          10259,
           "flow",
           false
         ],
         [
-          720,
-          "num",
-          10189,
-          "val",
+          591,
+          "false",
+          10259,
+          "reset",
+          false
+        ],
+        [
+          875,
+          "data",
+          10259,
+          "group",
+          false
+        ],
+        [
+          846,
+          "trucks",
+          10259,
+          "quantity",
+          false
+        ],
+        [
+          816,
+          "flow",
+          10250,
+          "flow",
           false
         ],
         [
@@ -24326,73 +24445,59 @@
           false
         ],
         [
-          623,
+          10251,
           "flow",
-          10125,
-          "flow",
-          false
-        ],
-        [
-          579,
-          "flow",
-          10125,
+          10252,
           "flow",
           false
         ],
         [
-          1520,
-          "flow",
-          10292,
-          "flow",
-          false
-        ],
-        [
-          910,
-          "diesel",
-          10292,
-          "text",
-          false
-        ],
-        [
-          10241,
-          "flow",
-          10246,
-          "flow",
-          false
-        ],
-        [
-          243,
-          "flow",
-          10037,
-          "flow",
-          false
-        ],
-        [
-          243,
-          "Y",
-          10037,
+          10250,
+          "val",
+          10252,
           "X",
           false
         ],
         [
-          10029,
-          "val",
-          10037,
+          829,
+          "reputation",
+          10252,
           "DX",
           false
         ],
         [
-          526,
+          1686,
           "flow",
-          10222,
+          10297,
           "flow",
           false
         ],
         [
-          275,
-          "wayps",
-          10222,
-          "wplist",
+          296,
+          "flow",
+          10029,
+          "flow",
+          false
+        ],
+        [
+          799,
+          "flow",
+          10244,
+          "flow",
+          false
+        ],
+        [
+          837,
+          "flow",
+          10253,
+          "flow",
+          false
+        ],
+        [
+          10252,
+          "Y",
+          10253,
+          "val",
           false
         ],
         [
@@ -24410,17 +24515,24 @@
           false
         ],
         [
-          10157,
+          782,
           "flow",
-          10158,
+          9901,
           "flow",
           false
         ],
         [
-          275,
-          "destid",
-          10158,
+          782,
+          "output",
+          9901,
+          "data",
+          false
+        ],
+        [
+          106,
           "val",
+          9901,
+          "id",
           false
         ],
         [
@@ -24431,24 +24543,73 @@
           false
         ],
         [
-          525,
-          "flow",
-          10094,
-          "flow",
-          false
-        ],
-        [
-          799,
-          "flow",
-          10278,
+          868,
+          "false",
+          10256,
           "flow",
           false
         ],
         [
-          10029,
+          869,
+          "num",
+          10256,
+          "val",
+          false
+        ],
+        [
+          10237,
           "flow",
-          10030,
+          10298,
           "flow",
+          false
+        ],
+        [
+          1017,
+          "match_1",
+          10279,
+          "flow",
+          false
+        ],
+        [
+          1017,
+          "match_2",
+          10279,
+          "flow",
+          false
+        ],
+        [
+          10026,
+          "flow",
+          10038,
+          "flow",
+          false
+        ],
+        [
+          275,
+          "opModel",
+          10038,
+          "val",
+          false
+        ],
+        [
+          627,
+          "True",
+          10223,
+          "flow",
+          false
+        ],
+        [
+          10039,
+          "flow",
+          10040,
+          "flow",
+          false
+        ],
+        [
+          275,
+          "opRisk",
+          10040,
+          "val",
           false
         ],
         [
@@ -24473,51 +24634,9 @@
           false
         ],
         [
-          627,
-          "True",
-          10223,
-          "flow",
-          false
-        ],
-        [
-          423,
-          "flow",
-          10191,
-          "flow",
-          false
-        ],
-        [
-          423,
-          "val",
-          10191,
-          "name",
-          false
-        ],
-        [
-          835,
-          "output",
-          10191,
-          "tdata",
-          true
-        ],
-        [
-          912,
-          "False",
-          10293,
-          "flow",
-          false
-        ],
-        [
-          910,
-          "midgrade",
-          10293,
-          "text",
-          false
-        ],
-        [
-          10124,
-          "flow",
-          10127,
+          4995,
+          "match_2",
+          9870,
           "flow",
           false
         ],
@@ -24529,44 +24648,44 @@
           false
         ],
         [
-          10039,
+          243,
           "flow",
-          10040,
+          10037,
           "flow",
           false
         ],
         [
-          275,
-          "opRisk",
-          10040,
+          243,
+          "Y",
+          10037,
+          "X",
+          false
+        ],
+        [
+          10029,
           "val",
+          10037,
+          "DX",
           false
         ],
         [
-          1017,
-          "none",
-          10280,
+          186,
+          "False",
+          10031,
           "flow",
           false
         ],
         [
-          10026,
+          10241,
           "flow",
-          10038,
+          10246,
           "flow",
           false
         ],
         [
-          275,
-          "opModel",
-          10038,
-          "val",
-          false
-        ],
-        [
-          10141,
+          808,
           "True",
-          10224,
+          10245,
           "flow",
           false
         ],
@@ -24620,9 +24739,37 @@
           false
         ],
         [
-          454,
-          "true",
-          10096,
+          10242,
+          "flow",
+          10243,
+          "flow",
+          false
+        ],
+        [
+          809,
+          "True",
+          10243,
+          "reset",
+          false
+        ],
+        [
+          265,
+          "flow",
+          10025,
+          "flow",
+          false
+        ],
+        [
+          275,
+          "desc",
+          10025,
+          "val",
+          false
+        ],
+        [
+          843,
+          "down",
+          10281,
           "flow",
           false
         ],
@@ -24634,58 +24781,23 @@
           false
         ],
         [
-          843,
-          "down",
-          10281,
+          10015,
+          "flow",
+          10024,
           "flow",
           false
         ],
         [
-          10037,
+          339,
           "flow",
-          10032,
-          "flow",
-          false
-        ],
-        [
-          10037,
-          "Y",
-          10032,
-          "val",
-          false
-        ],
-        [
-          1012,
-          "flow",
-          10277,
+          10041,
           "flow",
           false
         ],
         [
-          825,
-          "down",
-          10277,
-          "reset",
-          false
-        ],
-        [
-          995,
-          "True",
-          10273,
+          806,
           "flow",
-          false
-        ],
-        [
-          1013,
-          "txt",
-          10273,
-          "text",
-          false
-        ],
-        [
-          419,
-          "flow",
-          10193,
+          10023,
           "flow",
           false
         ],
@@ -24704,9 +24816,9 @@
           false
         ],
         [
-          622,
+          4994,
           "flow",
-          10129,
+          5006,
           "flow",
           false
         ],
@@ -24725,45 +24837,31 @@
           false
         ],
         [
-          441,
+          240,
           "flow",
-          10065,
-          "flow",
-          false
-        ],
-        [
-          816,
-          "flow",
-          10250,
+          5002,
           "flow",
           false
         ],
         [
-          875,
+          10034,
           "flow",
-          10259,
+          10033,
           "flow",
           false
         ],
         [
-          591,
-          "false",
-          10259,
-          "reset",
+          10034,
+          "val",
+          10033,
+          "X",
           false
         ],
         [
-          875,
-          "data",
-          10259,
-          "group",
-          false
-        ],
-        [
-          846,
-          "trucks",
-          10259,
-          "quantity",
+          10029,
+          "val",
+          10033,
+          "DX",
           false
         ]
       ],
@@ -28790,13 +28888,14 @@
           "code":{
             "_executionStarted":"",
             "_executionStopped":"",
-            "work":"local extensions = require(\"extensions\")\nlocal dtable = self.pinIn.data.value\nlocal seed = self.pinIn.seed.value + self.pinIn.sid.value\nlocal processed = {}\nlocal rpaints = self.pinIn.rpaints.value\nlocal sid = self.pinIn.sid.value\nlocal randpaint = self.pinIn.randpaint.value\nlocal rconfigs = self.pinIn.rconfigs.value\nif dtable[\"type\"] ~= nil then\nprocessed = extensions.blrutils.processCarShopRandoms(dtable, seed)\nself.pinOut.type.value = dtable[\"type\"]\nself.pinOut.config.value = rconfigs[sid]\nself.pinOut.cost.value = tonumber(processed[\"baseprice\"]) + tonumber(dtable[\"partprice\"])\nself.pinOut.baseprice.value = tonumber(processed[\"baseprice\"])\nself.pinOut.partprice.value = tonumber(dtable[\"partprice\"])\nself.pinOut.scrapval.value = tonumber(dtable[\"scrapval\"])\nif self.pinIn.randpaint.value then\nself.pinOut.paintdata.value = rpaints[sid]\nelse\nself.pinOut.paintdata.value = dtable[\"paint\"]\nend\n\nself.pinOut.odometer.value = tonumber(processed[\"odometer\"])\n\nlocal odoval = tonumber(processed[\"odometer\"]) / 1000\nlocal units = extensions.blrutils.getSettingValue(\"uiUnits\")\n\n\nlocal fulldesc = dtable[\"name\"] .. \"\\n\" \nif units == \"metric\" then\nfulldesc = fulldesc .. \"Odometer : \" .. string.format(\"%.1f\",odoval) .. \" km\\n\"\nelse\nodoval = odoval / 1.609344\nfulldesc = fulldesc .. \"Odometer : \" .. string.format(\"%.1f\",odoval)  .. \" mi\\n\"\nend\nfulldesc = fulldesc .. \"Cost : $\" .. string.format(\"%.2f\", tonumber(processed[\"baseprice\"]) + tonumber(dtable[\"partprice\"])) .. \"\\n\"\nself.pinOut.fulldesc.value = fulldesc\n\nelse\nself.pinOut.fulldesc.value = \"Empty Lot\"\nself.pinOut.cost.value = 999999999999\nend"
+            "work":"local extensions = require(\"extensions\")\nlocal dtable = self.pinIn.data.value\nlocal seed = self.pinIn.seed.value + self.pinIn.sid.value\nlocal processed = {}\nlocal rpaints = self.pinIn.rpaints.value\nlocal sid = self.pinIn.sid.value\nlocal randpaint = self.pinIn.randpaint.value\nlocal rconfigs = self.pinIn.rconfigs.value\nlocal dresult = self.pinIn.dresult.value\nif dtable[\"type\"] ~= nil then\nprocessed = extensions.blrutils.processCarShopRandoms(dtable, seed, dresult[sid])\nself.pinOut.type.value = dtable[\"type\"]\nself.pinOut.config.value = rconfigs[sid]\nself.pinOut.cost.value = tonumber(processed[\"baseprice\"]) + tonumber(dtable[\"partprice\"])\nself.pinOut.baseprice.value = tonumber(processed[\"baseprice\"])\nself.pinOut.partprice.value = tonumber(dtable[\"partprice\"])\nself.pinOut.scrapval.value = tonumber(dtable[\"scrapval\"])\nif self.pinIn.randpaint.value then\nself.pinOut.paintdata.value = rpaints[sid]\nelse\nself.pinOut.paintdata.value = dtable[\"paint\"]\nend\n\nself.pinOut.odometer.value = tonumber(processed[\"odometer\"])\n\nlocal odoval = tonumber(processed[\"odometer\"]) / 1000\nlocal units = extensions.blrutils.getSettingValue(\"uiUnits\")\n\n\nlocal fulldesc = dtable[\"name\"] .. \"\\n\" \nif units == \"metric\" then\nfulldesc = fulldesc .. \"Odometer : \" .. string.format(\"%.1f\",odoval) .. \" km\\n\"\nelse\nodoval = odoval / 1.609344\nfulldesc = fulldesc .. \"Odometer : \" .. string.format(\"%.1f\",odoval)  .. \" mi\\n\"\nend\nfulldesc = fulldesc .. \"Cost : $\" .. string.format(\"%.2f\", tonumber(processed[\"baseprice\"]) + tonumber(dtable[\"partprice\"])) .. \"\\n\"\nself.pinOut.fulldesc.value = fulldesc\n\nelse\nself.pinOut.fulldesc.value = \"Empty Lot\"\nself.pinOut.cost.value = 999999999999\nend"
           },
           "data":{},
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
               "data":false,
+              "dresult":false,
               "flow":false,
               "randpaint":false,
               "rconfigs":false,
@@ -28931,6 +29030,13 @@
               "in",
               "table",
               "rconfigs",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "table",
+              "dresult",
               null,
               ""
             ]
@@ -31247,11 +31353,11 @@
             },
             "directionBias":{
               "type":"number",
-              "value":0.80000001200001513713
+              "value":0.80000001200001680246
             },
             "spawnRate":{
               "type":"number",
-              "value":0.00009999999750000327
+              "value":0.00009999999750000359
             }
           },
           "hiddenPins":{
@@ -31326,7 +31432,7 @@
           "code":{
             "_executionStarted":"",
             "_executionStopped":"",
-            "work":"local dtable = {}\ndtable[\"body\"] = {}\ndtable[\"engine\"] = {}\ndtable[\"powertrain\"] = {}\ndtable[\"wheels\"] = {}\n\ntable.insert(dtable[\"body\"], \"FL\")\ntable.insert(dtable[\"body\"], \"FR\")\ntable.insert(dtable[\"body\"], \"ML\")\ntable.insert(dtable[\"body\"], \"MR\")\ntable.insert(dtable[\"body\"], \"RL\")\ntable.insert(dtable[\"body\"], \"RR\")\n\ntable.insert(dtable[\"engine\"], \"engineReducedTorque\")\ntable.insert(dtable[\"engine\"], \"engineDisabled\")\ntable.insert(dtable[\"engine\"], \"engineLockedUp\")\ntable.insert(dtable[\"engine\"], \"engineIsHydrolocking\")\ntable.insert(dtable[\"engine\"], \"engineHydrolocked\")\ntable.insert(dtable[\"engine\"], \"overRevDanger\")\ntable.insert(dtable[\"engine\"], \"catastrophicOverrevDamage\")\ntable.insert(dtable[\"engine\"], \"mildOverrevDamage\")\ntable.insert(dtable[\"engine\"], \"overTorqueDanger\")\ntable.insert(dtable[\"engine\"], \"catastrophicOverTorqueDamage\")\ntable.insert(dtable[\"engine\"], \"impactDamage\")\ntable.insert(dtable[\"engine\"], \"oilpanLeak\")\ntable.insert(dtable[\"engine\"], \"oilRadiatorLeak\")\ntable.insert(dtable[\"engine\"], \"headGasketDamaged\")\ntable.insert(dtable[\"engine\"], \"pistonRingsDamaged\")\ntable.insert(dtable[\"engine\"], \"rodBearingsDamaged\")\ntable.insert(dtable[\"engine\"], \"blockMelted\")\ntable.insert(dtable[\"engine\"], \"oilHot\")\ntable.insert(dtable[\"engine\"], \"cylinderWallsMelted\")\ntable.insert(dtable[\"engine\"], \"radiatorLeak\")\ntable.insert(dtable[\"engine\"], \"coolantHot\")\ntable.insert(dtable[\"engine\"], \"oilLevelCritical\")\ntable.insert(dtable[\"engine\"], \"oilStarvation\")\ntable.insert(dtable[\"engine\"], \"oilLevelTooHigh\")\ntable.insert(dtable[\"engine\"], \"exhaustBroken\")\n\ntable.insert(dtable[\"powertrain\"], \"mainEngine\")\ntable.insert(dtable[\"powertrain\"], \"torqueConverter\")\ntable.insert(dtable[\"powertrain\"], \"gearbox\")\ntable.insert(dtable[\"powertrain\"], \"rangebox\")\ntable.insert(dtable[\"powertrain\"], \"transfercase\")\ntable.insert(dtable[\"powertrain\"], \"torsionReactorR\")\ntable.insert(dtable[\"powertrain\"], \"driveshaft\")\ntable.insert(dtable[\"powertrain\"], \"differential_R\")\ntable.insert(dtable[\"powertrain\"], \"transfercase_F\")\ntable.insert(dtable[\"powertrain\"], \"driveshaft_F\")\ntable.insert(dtable[\"powertrain\"], \"torsionReactorF\")\ntable.insert(dtable[\"powertrain\"], \"differential_F\")\ntable.insert(dtable[\"powertrain\"], \"halfshaftFR\")\ntable.insert(dtable[\"powertrain\"], \"halfshaftFL\")\ntable.insert(dtable[\"powertrain\"], \"wheelaxleFL\")\ntable.insert(dtable[\"powertrain\"], \"wheelaxleFR\")\ntable.insert(dtable[\"powertrain\"], \"wheelaxleRL\")\ntable.insert(dtable[\"powertrain\"], \"wheelaxleRR\")\ntable.insert(dtable[\"powertrain\"], \"spindleRR\")\ntable.insert(dtable[\"powertrain\"], \"spindleRL\")\ntable.insert(dtable[\"powertrain\"], \"clutch\")\n\ntable.insert(dtable[\"wheels\"], \"FR\")\ntable.insert(dtable[\"wheels\"], \"brakeFR\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatFR\")\ntable.insert(dtable[\"wheels\"], \"tireFR\")\n\ntable.insert(dtable[\"wheels\"], \"FL\")\ntable.insert(dtable[\"wheels\"], \"brakeFL\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatFL\")\ntable.insert(dtable[\"wheels\"], \"tireFL\")\n\ntable.insert(dtable[\"wheels\"], \"RR\")\ntable.insert(dtable[\"wheels\"], \"brakeRR\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatRR\")\ntable.insert(dtable[\"wheels\"], \"tireRR\")\n\ntable.insert(dtable[\"wheels\"], \"RL\")\ntable.insert(dtable[\"wheels\"], \"brakeRL\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatRL\")\ntable.insert(dtable[\"wheels\"], \"tireRL\")\n\n\nself.pinOut.devices.value = dtable"
+            "work":"local dtable = {}\ndtable[\"body\"] = {}\ndtable[\"engine\"] = {}\ndtable[\"powertrain\"] = {}\ndtable[\"wheels\"] = {}\ndtable[\"gearbox\"] = {}\n\ntable.insert(dtable[\"body\"], \"FL\")\ntable.insert(dtable[\"body\"], \"FR\")\ntable.insert(dtable[\"body\"], \"ML\")\ntable.insert(dtable[\"body\"], \"MR\")\ntable.insert(dtable[\"body\"], \"RL\")\ntable.insert(dtable[\"body\"], \"RR\")\n\ntable.insert(dtable[\"engine\"], \"engineReducedTorque\")\ntable.insert(dtable[\"engine\"], \"engineDisabled\")\ntable.insert(dtable[\"engine\"], \"engineLockedUp\")\ntable.insert(dtable[\"engine\"], \"engineIsHydrolocking\")\ntable.insert(dtable[\"engine\"], \"engineHydrolocked\")\ntable.insert(dtable[\"engine\"], \"overRevDanger\")\ntable.insert(dtable[\"engine\"], \"catastrophicOverrevDamage\")\ntable.insert(dtable[\"engine\"], \"mildOverrevDamage\")\ntable.insert(dtable[\"engine\"], \"overTorqueDanger\")\ntable.insert(dtable[\"engine\"], \"catastrophicOverTorqueDamage\")\ntable.insert(dtable[\"engine\"], \"impactDamage\")\ntable.insert(dtable[\"engine\"], \"oilpanLeak\")\ntable.insert(dtable[\"engine\"], \"oilRadiatorLeak\")\ntable.insert(dtable[\"engine\"], \"headGasketDamaged\")\ntable.insert(dtable[\"engine\"], \"pistonRingsDamaged\")\ntable.insert(dtable[\"engine\"], \"rodBearingsDamaged\")\ntable.insert(dtable[\"engine\"], \"blockMelted\")\ntable.insert(dtable[\"engine\"], \"oilHot\")\ntable.insert(dtable[\"engine\"], \"cylinderWallsMelted\")\ntable.insert(dtable[\"engine\"], \"radiatorLeak\")\ntable.insert(dtable[\"engine\"], \"coolantHot\")\ntable.insert(dtable[\"engine\"], \"oilLevelCritical\")\ntable.insert(dtable[\"engine\"], \"oilStarvation\")\ntable.insert(dtable[\"engine\"], \"oilLevelTooHigh\")\ntable.insert(dtable[\"engine\"], \"exhaustBroken\")\n\ntable.insert(dtable[\"powertrain\"], \"mainEngine\")\ntable.insert(dtable[\"powertrain\"], \"torqueConverter\")\ntable.insert(dtable[\"powertrain\"], \"gearbox\")\ntable.insert(dtable[\"powertrain\"], \"rangebox\")\ntable.insert(dtable[\"powertrain\"], \"transfercase\")\ntable.insert(dtable[\"powertrain\"], \"torsionReactorR\")\ntable.insert(dtable[\"powertrain\"], \"driveshaft\")\ntable.insert(dtable[\"powertrain\"], \"differential_R\")\ntable.insert(dtable[\"powertrain\"], \"transfercase_F\")\ntable.insert(dtable[\"powertrain\"], \"driveshaft_F\")\ntable.insert(dtable[\"powertrain\"], \"torsionReactorF\")\ntable.insert(dtable[\"powertrain\"], \"differential_F\")\ntable.insert(dtable[\"powertrain\"], \"halfshaftFR\")\ntable.insert(dtable[\"powertrain\"], \"halfshaftFL\")\ntable.insert(dtable[\"powertrain\"], \"wheelaxleFL\")\ntable.insert(dtable[\"powertrain\"], \"wheelaxleFR\")\ntable.insert(dtable[\"powertrain\"], \"wheelaxleRL\")\ntable.insert(dtable[\"powertrain\"], \"wheelaxleRR\")\ntable.insert(dtable[\"powertrain\"], \"spindleRR\")\ntable.insert(dtable[\"powertrain\"], \"spindleRL\")\ntable.insert(dtable[\"powertrain\"], \"clutch\")\n\ntable.insert(dtable[\"wheels\"], \"FR\")\ntable.insert(dtable[\"wheels\"], \"brakeFR\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatFR\")\ntable.insert(dtable[\"wheels\"], \"tireFR\")\n\ntable.insert(dtable[\"wheels\"], \"FL\")\ntable.insert(dtable[\"wheels\"], \"brakeFL\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatFL\")\ntable.insert(dtable[\"wheels\"], \"tireFL\")\n\ntable.insert(dtable[\"wheels\"], \"RR\")\ntable.insert(dtable[\"wheels\"], \"brakeRR\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatRR\")\ntable.insert(dtable[\"wheels\"], \"tireRR\")\n\ntable.insert(dtable[\"wheels\"], \"RL\")\ntable.insert(dtable[\"wheels\"], \"brakeRL\")\ntable.insert(dtable[\"wheels\"], \"brakeOverHeatRL\")\ntable.insert(dtable[\"wheels\"], \"tireRL\")\n\nself.pinOut.devices.value = dtable"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -31361,7 +31467,7 @@
           ],
           "pos":[
             -1298,
-            -4290
+            -4278
           ],
           "type":"util/customLua"
         },
@@ -31689,7 +31795,7 @@
           "code":{
             "_executionStarted":"",
             "_executionStopped":"",
-            "work":"local extensions = require(\"extensions\")\nlocal toFetch = \"\"\nlocal devices = self.pinIn.devices.value\nlocal vecmd = \"\"\nlocal dtable = {}\nlocal ve = scenetree.findObjectById(self.pinIn.veid.value)\n\nif ve then\nlocal cfid = \"\"\nlocal cfidval = 0\n\nif ve.queueLuaCommand ~= nil then\nself.pinOut.ready.value = true\n\n-- Loop to fetch damage values and add them to table\n\nfor k,v in pairs(devices) do\ndtable[k] = {}\nfor _,dev in pairs(devices[k]) do\n\ntoFetch = \"damageTracker.getDamage('\" .. k .. \"', '\" .. dev .. \"')\"\ncfid = \"dmgtrk\" .. cfidval\nvecmd = \"obj:queueGameEngineLua(string.format('extensions.vluaFetchModule.fetch(%s,%q)', \" .. toFetch .. \",'\" .. cfid ..\"'))\"\nve:queueLuaCommand(vecmd)\ndtable[k][dev] = extensions.vluaFetchModule.getVal(cfid)\ncfidval = cfidval + 1\nend\nend\n\nelse\n\nself.pinOut.ready.value = false\n\nend\n\nself.pinOut.damageData.value = dtable\n\nelse\nself.pinOut.ready.value = false\nself.pinOut.damageData.value = dtable\nend"
+            "work":"local extensions = require(\"extensions\")\nlocal toFetch = \"\"\nlocal devices = self.pinIn.devices.value\nlocal vecmd = \"\"\nlocal dtable = {}\nlocal ve = scenetree.findObjectById(self.pinIn.veid.value)\n\nif ve then\nlocal cfid = \"\"\nlocal cfidval = 0\n\nif ve.queueLuaCommand ~= nil then\nself.pinOut.ready.value = true\n\n-- Loop to fetch damage values and add them to table\n\nfor k,v in pairs(devices) do\ndtable[k] = {}\nfor _,dev in pairs(devices[k]) do\n\n-- 1.17.4 gearbox synchro wear\nif dev == \"gearbox\" then\ntoFetch = \"extensions.blrVehicleUtils.getGearboxSynchroTotalWear()\"\nvecmd = \"obj:queueGameEngineLua(string.format('extensions.vluaFetchModule.fetch(%s,%q)', \" .. toFetch .. \",'\" .. cfid ..\"'))\"\nve:queueLuaCommand(vecmd)\ndtable[k][dev] = extensions.vluaFetchModule.getVal(cfid)\ncfidval = cfidval + 1\nelse\n\ntoFetch = \"damageTracker.getDamage('\" .. k .. \"', '\" .. dev .. \"')\"\ncfid = \"dmgtrk\" .. cfidval\nvecmd = \"obj:queueGameEngineLua(string.format('extensions.vluaFetchModule.fetch(%s,%q)', \" .. toFetch .. \",'\" .. cfid ..\"'))\"\nve:queueLuaCommand(vecmd)\ndtable[k][dev] = extensions.vluaFetchModule.getVal(cfid)\ncfidval = cfidval + 1\nend\nend\nend\n\nelse\n\nself.pinOut.ready.value = false\n\nend\n\nself.pinOut.damageData.value = dtable\nelse\nself.pinOut.ready.value = false\nself.pinOut.damageData.value = dtable\nend"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -31748,7 +31854,7 @@
           ],
           "pos":[
             -1326,
-            -4416
+            -4417
           ],
           "type":"util/customLua"
         },
@@ -34116,7 +34222,7 @@
           "code":{
             "_executionStarted":"",
             "_executionStopped":"",
-            "work":"local extensions = require(\"extensions\")\nlocal dtable = self.pinIn.dmgTable.value\nlocal ptable = extensions.betterpartmgmt.getGeneratedDamageCost()\nlocal priceTableKey = \"\"\nlocal currentDamage = false\nlocal partCost = 0\nlocal totalCost = 0\nlocal advancedRepairCost = extensions.blrglobals.blrFlagGet(\"advrepaircost\")\nlocal extdmg = self.pinIn.extDmg.value or 0\nlocal minCost = extensions.blrutils.blrvarGet(\"minRepairCost\") or 0\nlocal engineCost = 0 -- 1.16 mech damage update to allow removing engine when blown\n\nif not advancedRepairCost then\nlocal maxExtDmg = self.pinIn.maxExtDmg.value\nlocal extDmgFreeLimit = self.pinIn.extDmgFreeLimit.value\nextdmg = math.min(extdmg, maxExtDmg) -- Caps ext dmg repair cost at $100k\nif extdmg <= extDmgFreeLimit then -- To help avoid issues with body panels that cause ext dmg even after being repaired\nextdmg = 0\nend\nend\n\nfor k,v in pairs(dtable) do\nif dtable[k] ~= nil then\nfor dev,val in pairs(dtable[k]) do\nif val == true then \npriceTableKey = k .. \".\" .. dev\npartCost = ptable[priceTableKey] or 0\nif k == \"engine\" then\nengineCost = engineCost+partCost\nelse\ntotalCost = totalCost+partCost\nend\nend\nend\nend\nend\n--total cost only contains mechanical damage so can be stored for use by advanced repair UI\nextensions.blrutils.blrvarSet(\"mechDamageCost\", totalCost)\n--1.14.1 fix, saved damage sent to advanced repair UI \nextensions.blrutils.blrvarSet(\"minDamageCost\", minCost)\n-- 1.16 send engine cost independently\nextensions.blrutils.blrvarSet(\"mechDamageEngineCost\", engineCost)\n\n\nif advancedRepairCost then\ntotalCost = totalCost + engineCost + (extdmg or 0)\nelse\ntotalCost = totalCost + engineCost + (extdmg or 0) / 100 \nend\n\n-- restores saved vehicle damage cost\ntotalCost = math.max(minCost, totalCost)\n\nextensions.customGuiStream.sendEventBrowserVehicleDamage(totalCost)\n\nself.pinOut.totalCost.value = totalCost"
+            "work":"local extensions = require(\"extensions\")\nlocal dtable = self.pinIn.dmgTable.value\nlocal ptable = extensions.betterpartmgmt.getGeneratedDamageCost()\nlocal priceTableKey = \"\"\nlocal currentDamage = false\nlocal partCost = 0\nlocal totalCost = 0\nlocal advancedRepairCost = extensions.blrglobals.blrFlagGet(\"advrepaircost\")\nlocal extdmg = self.pinIn.extDmg.value or 0\nlocal minCost = extensions.blrutils.blrvarGet(\"minRepairCost\") or 0\nlocal engineCost = 0 -- 1.16 mech damage update to allow removing engine when blown\n\nif not advancedRepairCost then\nlocal maxExtDmg = self.pinIn.maxExtDmg.value\nlocal extDmgFreeLimit = self.pinIn.extDmgFreeLimit.value\nextdmg = math.min(extdmg, maxExtDmg) -- Caps ext dmg repair cost at $100k\nif extdmg <= extDmgFreeLimit then -- To help avoid issues with body panels that cause ext dmg even after being repaired\nextdmg = 0\nend\nend\n\nfor k,v in pairs(dtable) do\nif dtable[k] ~= nil then\nfor dev,val in pairs(dtable[k]) do\nif type(val) == \"boolean\" and val == true then \npriceTableKey = k .. \".\" .. dev\npartCost = ptable[priceTableKey] or 0\nif k == \"engine\" then\nengineCost = engineCost+partCost\nelse\ntotalCost = totalCost+partCost\nend\nelseif type(val) == \"number\" and dev == \"gearbox\" then\npriceTableKey = k .. \".\" .. dev\nif ptable[priceTableKey] then\npartCost = ptable[priceTableKey] * val\ntotalCost = totalCost+partCost\nend\nend\nend\nend\nend\n--total cost only contains mechanical damage so can be stored for use by advanced repair UI\nextensions.blrutils.blrvarSet(\"mechDamageCost\", totalCost)\n--1.14.1 fix, saved damage sent to advanced repair UI \nextensions.blrutils.blrvarSet(\"minDamageCost\", minCost)\n-- 1.16 send engine cost independently\nextensions.blrutils.blrvarSet(\"mechDamageEngineCost\", engineCost)\n\n\nif advancedRepairCost then\ntotalCost = totalCost + engineCost + (extdmg or 0)\nelse\ntotalCost = totalCost + engineCost + (extdmg or 0) / 100 \nend\n\n-- restores saved vehicle damage cost\ntotalCost = math.max(minCost, totalCost)\n\nextensions.customGuiStream.sendEventBrowserVehicleDamage(totalCost)\n\nself.pinOut.totalCost.value = totalCost"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -34414,7 +34520,7 @@
           "code":{
             "_executionStarted":"",
             "_executionStopped":"",
-            "work":"local extensions = require(\"extensions\")\nlocal dtable = self.pinIn.shopData.value\nlocal daydata = self.pinIn.dayData.value\nlocal pslots = daydata[\"pslots\"]\nlocal cams = {}\nlocal stock = {}\nlocal slots = {}\nlocal models = extensions.blrutils.loadCarShopList(dtable[\"models\"])\nlocal rpresult = {}\nlocal rpchance = tonumber(dtable[\"rpchance\"])\n\nif not models then -- Fallback list loading method so shops can also use short CSV lists\nmodels = extensions.blrutils.ssplit(dtable[\"models\"], \",\")\nend\n\n\nlocal shopID = tonumber(dtable[\"shopid\"])\nlocal shopSeed = extensions.blrutils.getShopSeed(shopID)\n\nlocal pick = {}\nlocal roll = {}\nlocal rproll = {}\n\nmath.randomseed(shopSeed)\nfor i=0,tonumber(dtable[\"slots\"]) do\nroll[i] = math.random()\npick[i] = math.random(1,#models)\nrproll[i] = math.random()\nend\n\n--dump(roll)\n\nfor i=0,tonumber(dtable[\"slots\"]) do\nif roll[i] < tonumber(dtable[\"chance\"]) then\nif not string.match(pslots, i) then\nstock[i] = \"beamLR/shop/car/\" .. models[pick[i]]\nrpresult[i] = rproll[i] < tonumber(rpchance)\nend\nend\nend\n\nfor i=0,tonumber(dtable[\"slots\"]) do\n  slots[\"slotp\" .. i] = dtable[\"slotp\" .. i]\n  slots[\"slotr\" .. i] = dtable[\"slotr\" .. i]\n  cams[\"camp\" .. i] = dtable[\"camp\" .. i]\n  cams[\"camr\" .. i] = dtable[\"camr\" .. i]\nend\n\nself.pinOut.stock.value = stock\nself.pinOut.shopID.value = shopID\nself.pinOut.cams.value = cams\nself.pinOut.slots.value = slots\nself.pinOut.slotCount.value = tonumber(dtable[\"slots\"])\nself.pinOut.rpresult.value = rpresult"
+            "work":"local extensions = require(\"extensions\")\nlocal dtable = self.pinIn.shopData.value\nlocal daydata = self.pinIn.dayData.value\nlocal pslots = daydata[\"pslots\"]\nlocal cams = {}\nlocal stock = {}\nlocal slots = {}\nlocal models = extensions.blrutils.loadCarShopList(dtable[\"models\"])\nlocal rpresult = {}\nlocal dresult = {}\nlocal rpchance = tonumber(dtable[\"rpchance\"] or \"0\")\nlocal dchance = tonumber(dtable[\"dchance\"] or \"0\")\n\nif not models then -- Fallback list loading method so shops can also use short CSV lists\nmodels = extensions.blrutils.ssplit(dtable[\"models\"], \",\")\nend\n\n\nlocal shopID = tonumber(dtable[\"shopid\"])\nlocal shopSeed = extensions.blrutils.getShopSeed(shopID)\n\nlocal pick = {}\nlocal roll = {}\nlocal rproll = {}\nlocal droll = {}\n\nmath.randomseed(shopSeed)\nfor i=0,tonumber(dtable[\"slots\"]) do\nroll[i] = math.random()\npick[i] = math.random(1,#models)\nrproll[i] = math.random()\ndroll[i] = math.random() -- 1.17.4 defective roll\nend\n\n--dump(roll)\n\nfor i=0,tonumber(dtable[\"slots\"]) do\nif roll[i] < tonumber(dtable[\"chance\"]) then\nif not string.match(pslots, i) then\nstock[i] = \"beamLR/shop/car/\" .. models[pick[i]]\nrpresult[i] = rproll[i] < tonumber(rpchance)\ndresult[i] = droll[i] < tonumber(dchance)\nend\nend\nend\n\nfor i=0,tonumber(dtable[\"slots\"]) do\n  slots[\"slotp\" .. i] = dtable[\"slotp\" .. i]\n  slots[\"slotr\" .. i] = dtable[\"slotr\" .. i]\n  cams[\"camp\" .. i] = dtable[\"camp\" .. i]\n  cams[\"camr\" .. i] = dtable[\"camr\" .. i]\nend\n\nself.pinOut.stock.value = stock\nself.pinOut.shopID.value = shopID\nself.pinOut.cams.value = cams\nself.pinOut.slots.value = slots\nself.pinOut.slotCount.value = tonumber(dtable[\"slots\"])\nself.pinOut.rpresult.value = rpresult\nself.pinOut.dresult.value = dresult"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -34426,6 +34532,7 @@
             },
             "p_out":{
               "cams":false,
+              "dresult":false,
               "flow":false,
               "rpresult":false,
               "shopID":false,
@@ -34501,11 +34608,18 @@
               "rpresult",
               null,
               ""
+            ],
+            [
+              "out",
+              "table",
+              "dresult",
+              null,
+              ""
             ]
           ],
           "pos":[
             1446,
-            -2862
+            -2877
           ],
           "type":"util/customLua"
         },
@@ -35117,14 +35231,15 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"self.pinOut.progress.value = \"beamLR/races/\" .. self.pinIn.club.value .. \"/progress\""
+            "work":"-- updated in 1.17.3 to allow multiple clubs to share a single progress file\nlocal extensions = require(\"extensions\")\nlocal tdata = extensions.blrutils.loadDataTable(self.pinIn.tpath.value)\nlocal pfile = \"beamLR/races/\" .. self.pinIn.club.value .. \"/progress\"\nif tdata[\"pfoverride\"] then\npfile = \"beamLR/races/\" .. tdata[\"pfoverride\"] .. \"/progress\"\nend\n\nself.pinOut.progress.value = pfile"
           },
           "data":{},
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
               "club":false,
-              "flow":false
+              "flow":false,
+              "tpath":false
             },
             "p_out":{
               "flow":false,
@@ -35157,6 +35272,13 @@
               ""
             ],
             [
+              "in",
+              "string",
+              "tpath",
+              null,
+              ""
+            ],
+            [
               "out",
               "string",
               "progress",
@@ -35165,8 +35287,8 @@
             ]
           ],
           "pos":[
-            304,
-            -1028
+            234,
+            -1058
           ],
           "type":"util/customLua"
         },
@@ -40026,7 +40148,7 @@
           "code":{
             "_executionStarted":"",
             "_executionStopped":"",
-            "work":"local extensions = require(\"extensions\")\nlocal dtable = self.pinIn.slots.value\nlocal idtable = {} -- KEY: SLOT ID / VAL: VEHID\nlocal slottable = {} -- KEY: VEHID / VAL: SLOT ID\nlocal rpaints = {}\nlocal slotCount = self.pinIn.slotCount.value\nlocal currentPos = {}\nlocal currentRot = {}\nlocal currentCarFile = \"\"\nlocal currentCarFileData = \"\"\nlocal currentCarDataTable = {}\nlocal currentCarModel = \"\"\nlocal currentCarConfig = \"\"\nlocal currentSpawnOptions = {}\nlocal currentCarPaintData = \"\"\nlocal currentSpawnPaint = {}\nlocal shopID = self.pinIn.shopID.value\n-- Config randomization vars\nlocal randomSlots = {}\nlocal ioctx = \"\"\nlocal randomConfig = {}\nlocal slotMap = {}\nlocal randomConfigTable = {}\n\nlocal shopSeed = extensions.blrutils.getShopSeed(shopID)\nlocal carSeed = 0\n\nlocal rpresult = self.pinIn.rpresult.value\n\n\nfor i=0,slotCount-1 do\n\n\n-- Create seed for randomization\ncarSeed = shopSeed+i\n\n-- Create spawn position data from slot parameters\nlocal line = dtable[\"slotp\" .. i]\nlocal iter = 0\nlocal posVal = {}\nlocal rotVal = {}\nfor s in string.gmatch(line,\"([^,]+)\") do\n  posVal[iter] = tonumber(s)\n  iter=iter+1\nend\nline = dtable[\"slotr\" .. i]\niter = 0\nfor s in string.gmatch(line,\"([^,]+)\") do\n  rotVal[iter] = tonumber(s)\n  iter=iter+1\nend\n\ncurrentPos = vec3(posVal[0],posVal[1],posVal[2])\ncurrentRot = quat(rotVal[0], rotVal[1], rotVal[2], rotVal[3])\n\nif self.pinIn.stock.value[i] ~= nil then -- Shop slot not empty, spawning actual car\n\n-- Read chosen shop car file data\ncurrentCarFile = self.pinIn.stock.value[i]\n-- 1.12 fix, old table reading code stopped at spaces\ncurrentCarDataTable = extensions.blrutils.loadDataTable(currentCarFile)\ncurrentCarModel = currentCarDataTable[\"type\"]\ncurrentCarConfig = currentCarDataTable[\"config\"]\nrandomConfigTable[i] = currentCarConfig-- Add to table so that new add to garage node receives expected data\ncurrentCarPaintData = currentCarDataTable[\"paint\"]\n\nprint(currentCarModel)\nprint(currentCarConfig)\n\n-- Config randomization process\nif currentCarDataTable[\"randslots\"] and rpresult[i] then\nrandomSlots = extensions.blrutils.ssplit(currentCarDataTable[\"randslots\"], \",\")       -- Get randomized slot list\nioctx = extensions.betterpartmgmt.getCustomIOCTX(currentCarModel)-- Get custom IOCTX\nslotMap = extensions.betterpartmgmt.getSlotMap(ioctx)-- Get slot map with available parts listed\nfilteredMap = extensions.betterpartmgmt.getFilteredSlotMap(slotMap, randomSlots, {\"cargo\"}) -- 1.15.3 fix, avoids cargo boxes since they cause issue with roll cages\nrandomConfig = extensions.betterpartmgmt.generateConfigVariant(currentCarConfig, filteredMap,carSeed)  -- Generate seeded random config\ncurrentCarConfig = randomConfig\nrandomConfigTable[i] = randomConfig-- Use random config\nend\n\n-- Create paint data, FIXED IN 1.12 TO WORK WITH MULTIPLE PAINTS\nlocal paintData = extensions.blrutils.ssplit(currentCarPaintData, \",\")\nif self.pinIn.randpaint.value then\nif rpresult[i] then\ncurrentSpawnPaint[1] = extensions.blrutils.createRandomPaint(carSeed * 10)\ncurrentSpawnPaint[2] = extensions.blrutils.createRandomPaint(carSeed * 10 + 1)\ncurrentSpawnPaint[3] = extensions.blrutils.createRandomPaint(carSeed * 10 + 2)\nelse -- Will pick factory paints for paint2 and paint3, could be more random (used in roll cage, rims, etc)\ncurrentSpawnPaint[1] = extensions.blrutils.createRandomFactoryPaint(carSeed * 10, currentCarModel)\ncurrentSpawnPaint[2] = extensions.blrutils.createRandomFactoryPaint(carSeed * 10 + 1, currentCarModel)\ncurrentSpawnPaint[3] = extensions.blrutils.createRandomFactoryPaint(carSeed * 10 + 2, currentCarModel)\nend\nrpaints[i] = {}\nrpaints[i][1] = extensions.blrutils.vehiclePaintToGaragePaint(currentSpawnPaint[1])\nrpaints[i][2] = extensions.blrutils.vehiclePaintToGaragePaint(currentSpawnPaint[2])\nrpaints[i][3] = extensions.blrutils.vehiclePaintToGaragePaint(currentSpawnPaint[3])\nelse\ncurrentSpawnPaint[1] = extensions.blrutils.createPaint(paintData)\ncurrentSpawnPaint[2] = extensions.blrutils.createPaint(paintData)\ncurrentSpawnPaint[3] = extensions.blrutils.createPaint(paintData)\nend\n\n-- Ready to spawn car got all needed data\n-- Remember to store spawned IDs to delete\ncurrentSpawnOptions = {config = currentCarConfig, pos = currentPos, rot = currentRot, paint = currentSpawnPaint[1],paint2 = currentSpawnPaint[2], paint3 = currentSpawnPaint[3], autoEnterVehicle = false }\nlocal currentVeh = extensions.core_vehicles.spawnNewVehicle(currentCarModel, currentSpawnOptions)\nidtable[i] = currentVeh:getId()\nslottable[idtable[i]] = i\n\nelse -- Shop slot empty, spawning cone instead of car\n\ncurrentSpawnOptions = {config = \"/vehicles/cones/large.pc\", pos = currentPos, rot = currentRot}\nlocal currentVeh = extensions.core_vehicles.spawnNewVehicle(\"cones\", currentSpawnOptions)\nidtable[i] = currentVeh:getId()\nslottable[idtable[i]] = i\nend\nend\n\nself.pinOut.randpaint.value = self.pinIn.randpaint.value\nself.pinOut.rpaints.value = rpaints\nself.pinOut.spawnids.value = idtable\nself.pinOut.slotmap.value = slottable\nself.pinOut.seed.value = shopSeed\nself.pinOut.rconfigs.value = randomConfigTable\n"
+            "work":"local extensions = require(\"extensions\")\nlocal dtable = self.pinIn.slots.value\nlocal idtable = {} -- KEY: SLOT ID / VAL: VEHID\nlocal slottable = {} -- KEY: VEHID / VAL: SLOT ID\nlocal rpaints = {}\nlocal slotCount = self.pinIn.slotCount.value\nlocal currentPos = {}\nlocal currentRot = {}\nlocal currentCarFile = \"\"\nlocal currentCarFileData = \"\"\nlocal currentCarDataTable = {}\nlocal currentCarModel = \"\"\nlocal currentCarConfig = \"\"\nlocal currentSpawnOptions = {}\nlocal currentCarPaintData = \"\"\nlocal currentSpawnPaint = {}\nlocal shopID = self.pinIn.shopID.value\n-- Config randomization vars\nlocal randomSlots = {}\nlocal ioctx = \"\"\nlocal randomConfig = {}\nlocal slotMap = {}\nlocal randomConfigTable = {}\n\nlocal shopSeed = extensions.blrutils.getShopSeed(shopID)\nlocal carSeed = 0\n\nlocal rpresult = self.pinIn.rpresult.value\nlocal dresult = self.pinIn.dresult.value -- 1.17.4 defective result\n\n\nfor i=0,slotCount-1 do\n\n\n-- Create seed for randomization\ncarSeed = shopSeed+i\n\n-- Create spawn position data from slot parameters\nlocal line = dtable[\"slotp\" .. i]\nlocal iter = 0\nlocal posVal = {}\nlocal rotVal = {}\nfor s in string.gmatch(line,\"([^,]+)\") do\n  posVal[iter] = tonumber(s)\n  iter=iter+1\nend\nline = dtable[\"slotr\" .. i]\niter = 0\nfor s in string.gmatch(line,\"([^,]+)\") do\n  rotVal[iter] = tonumber(s)\n  iter=iter+1\nend\n\ncurrentPos = vec3(posVal[0],posVal[1],posVal[2])\ncurrentRot = quat(rotVal[0], rotVal[1], rotVal[2], rotVal[3])\n\nif self.pinIn.stock.value[i] ~= nil then -- Shop slot not empty, spawning actual car\n\n-- Read chosen shop car file data\ncurrentCarFile = self.pinIn.stock.value[i]\n-- 1.12 fix, old table reading code stopped at spaces\ncurrentCarDataTable = extensions.blrutils.loadDataTable(currentCarFile)\ncurrentCarModel = currentCarDataTable[\"type\"]\ncurrentCarConfig = currentCarDataTable[\"config\"]\nrandomConfigTable[i] = currentCarConfig-- Add to table so that new add to garage node receives expected data\ncurrentCarPaintData = currentCarDataTable[\"paint\"]\n\nprint(currentCarModel)\nprint(currentCarConfig)\n\n\n\n-- Config randomization process\nif rpresult[i] then\nif currentCarDataTable[\"randslots\"] then\nrandomSlots = extensions.blrutils.ssplit(currentCarDataTable[\"randslots\"], \",\")       -- Get randomized slot list\nelse\nrandomSlots = {} -- allows car files without random slot list to still be defective\nend\nioctx = extensions.betterpartmgmt.getCustomIOCTX(currentCarModel)-- Get custom IOCTX\nslotMap = extensions.betterpartmgmt.getSlotMap(ioctx)-- Get slot map with available parts listed\nfilteredMap = extensions.betterpartmgmt.getFilteredSlotMap(slotMap, randomSlots, {\"cargo\"}) -- 1.15.3 fix, avoids cargo boxes since they cause issue with roll cages\nif not dresult[i] then\nrandomConfig = extensions.betterpartmgmt.generateConfigVariant(currentCarConfig, filteredMap,carSeed)  -- Generate seeded random config\nelse -- defective vehicle rolled, random config will be missing important parts\nrandomConfig = extensions.betterpartmgmt.generateDefectiveConfigVariant(currentCarConfig, filteredMap,carSeed)  -- Generate seeded random config\nend\ncurrentCarConfig = randomConfig\nrandomConfigTable[i] = randomConfig-- Use random config\nend\n\nprint(\"1\")\n\n-- Create paint data, FIXED IN 1.12 TO WORK WITH MULTIPLE PAINTS\nlocal paintData = extensions.blrutils.ssplit(currentCarPaintData, \",\")\nif self.pinIn.randpaint.value then\nif rpresult[i] then\ncurrentSpawnPaint[1] = extensions.blrutils.createRandomPaint(carSeed * 10)\ncurrentSpawnPaint[2] = extensions.blrutils.createRandomPaint(carSeed * 10 + 1)\ncurrentSpawnPaint[3] = extensions.blrutils.createRandomPaint(carSeed * 10 + 2)\nelse -- Will pick factory paints for paint2 and paint3, could be more random (used in roll cage, rims, etc)\ncurrentSpawnPaint[1] = extensions.blrutils.createRandomFactoryPaint(carSeed * 10, currentCarModel)\ncurrentSpawnPaint[2] = extensions.blrutils.createRandomFactoryPaint(carSeed * 10 + 1, currentCarModel)\ncurrentSpawnPaint[3] = extensions.blrutils.createRandomFactoryPaint(carSeed * 10 + 2, currentCarModel)\nend\nrpaints[i] = {}\nrpaints[i][1] = extensions.blrutils.vehiclePaintToGaragePaint(currentSpawnPaint[1])\nrpaints[i][2] = extensions.blrutils.vehiclePaintToGaragePaint(currentSpawnPaint[2])\nrpaints[i][3] = extensions.blrutils.vehiclePaintToGaragePaint(currentSpawnPaint[3])\nelse\ncurrentSpawnPaint[1] = extensions.blrutils.createPaint(paintData)\ncurrentSpawnPaint[2] = extensions.blrutils.createPaint(paintData)\ncurrentSpawnPaint[3] = extensions.blrutils.createPaint(paintData)\nend\n\nprint(\"2\")\n\n-- Ready to spawn car got all needed data\n-- Remember to store spawned IDs to delete\ncurrentSpawnOptions = {config = currentCarConfig, pos = currentPos, rot = currentRot, paint = currentSpawnPaint[1],paint2 = currentSpawnPaint[2], paint3 = currentSpawnPaint[3], autoEnterVehicle = false }\nlocal currentVeh = extensions.core_vehicles.spawnNewVehicle(currentCarModel, currentSpawnOptions)\nidtable[i] = currentVeh:getId()\nslottable[idtable[i]] = i\n\nelse -- Shop slot empty, spawning cone instead of car\n\ncurrentSpawnOptions = {config = \"/vehicles/cones/large.pc\", pos = currentPos, rot = currentRot}\nlocal currentVeh = extensions.core_vehicles.spawnNewVehicle(\"cones\", currentSpawnOptions)\nidtable[i] = currentVeh:getId()\nslottable[idtable[i]] = i\nend\nend\n\nself.pinOut.randpaint.value = self.pinIn.randpaint.value\nself.pinOut.rpaints.value = rpaints\nself.pinOut.spawnids.value = idtable\nself.pinOut.slotmap.value = slottable\nself.pinOut.seed.value = shopSeed\nself.pinOut.rconfigs.value = randomConfigTable\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -40038,6 +40160,7 @@
           },
           "hiddenPins":{
             "p_in":{
+              "dresult":false,
               "flow":false,
               "randpaint":false,
               "rpresult":false,
@@ -40151,11 +40274,18 @@
               "slotmap",
               null,
               ""
+            ],
+            [
+              "in",
+              "table",
+              "dresult",
+              null,
+              ""
             ]
           ],
           "pos":[
-            1760,
-            -3002
+            1754,
+            -3003
           ],
           "type":"util/customLua"
         },
@@ -52500,9 +52630,7 @@
           "type":"logic/flowSwitch"
         },
         "633":{
-          "data":{
-            "name":""
-          },
+          "data":{},
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
@@ -54256,7 +54384,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local club = self.pinIn.club.value\nself.pinOut.folder.value = \"beamLR/races/\" .. club .. \"/\" .. self.pinIn.league.value .. \"/\"\nself.pinOut.progress.value = \"beamLR/races/\" .. club .. \"/progress\""
+            "work":"local club = self.pinIn.club.value\nself.pinOut.folder.value = \"beamLR/races/\" .. club .. \"/\" .. self.pinIn.league.value .. \"/\"\n\n-- updated in 1.17.3 to allow multiple clubs to share a single progress file\nlocal extensions = require(\"extensions\")\nlocal tdata = extensions.blrutils.loadDataTable(extensions.blrglobals.getProjectVariable(\"triggerDataPath\"))\nlocal pfile = \"beamLR/races/\" .. self.pinIn.club.value .. \"/progress\"\nif tdata[\"pfoverride\"] then\npfile = \"beamLR/races/\" .. tdata[\"pfoverride\"] .. \"/progress\"\nend\n\nself.pinOut.progress.value = pfile"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -55158,7 +55286,7 @@
           ],
           "pos":[
             -606,
-            -412
+            -413
           ],
           "type":"util/customLua"
         },
@@ -59626,7 +59754,7 @@
               "value":[
                 1,
                 0,
-                0.00006008148190000229,
+                0.00006008148190000255,
                 1
               ]
             },
@@ -61518,7 +61646,7 @@
             "_executionStarted":"",
             "_executionStopped":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(\"avbToggle\", false)",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nlocal options = extensions.blrutils.loadDataTable(\"beamLR/options\")\nlocal ctraffic = tonumber(options[\"crazytraffic\"])\nlocal ttotal = (tonumber(options[\"traffic\"]) + tonumber(options[\"police\"]) + tonumber(options[\"trucks\"]))\nif ctraffic == 0 then\nself.pinOut.traffic.value = tonumber(options[\"traffic\"])\nself.pinOut.police.value = tonumber(options[\"police\"])\nself.pinOut.trucks.value = tonumber(options[\"trucks\"])\nself.pinOut.pool.value = math.floor(ttotal - (ttotal / 3))--Changed in 0.28, value now used as amount of active vehs when pooling\nelse\nself.pinOut.traffic.value = 8\nself.pinOut.police.value = 8\nself.pinOut.trucks.value = 8\nself.pinOut.pool.value = 18\nend\nself.pinOut.sseed.value = tonumber(options[\"sseed\"])\nself.pinOut.risk.value = tonumber(options[\"trisk\"]) or 0.7\nself.pinOut.copstrict.value = tonumber(options[\"copstrict\"]) or 0.08\nself.pinOut.sleepTime.value = tonumber(options[\"sleeptime\"]) or 8\nself.pinOut.raceRandPaint.value = (tonumber(options[\"raceRandPaint\"]) == 1) or false\n\nlocal copfix = tonumber(options[\"autoCopfix\"] or \"1\")\nextensions.blrglobals.blrFlagSet(\"roleFixToggle\", copfix == 1)\nlocal bstoggle = tonumber(options[\"bstoggle\"] or \"0\") --can turn this default to 1 when issue is fixed, for old option files\nextensions.blrglobals.blrFlagSet(\"beamstateToggle\", bstoggle == 1)\n\nlocal timescale = tonumber(options[\"timescale\"] or \"1\")\nlocal daytime = 86400.000 / timescale\nself.pinOut.daytime.value = daytime\n\n--1.13 advanced vehicle building\nlocal avbtoggle = tonumber(options[\"avbtoggle\"] or \"0\")==1\nextensions.blrglobals.blrFlagSet(\"avbToggle\", avbtoggle)\nself.pinOut.avbtoggle.value = avbtoggle\n\n--1.13 gps (0=default, 1=always on, 2=always off)\nlocal gpsmode = tonumber(options[\"gpsmode\"] or 0)\nextensions.blrutils.blrvarSet(\"gpsmode\", gpsmode)\nextensions.blrglobals.blrFlagSet(\"gpsForceOff\", false)\n\n--1.13 advanced repair cost\nlocal arctoggle = tonumber(options[\"advrepaircost\"] or \"0\")==1\nextensions.blrglobals.blrFlagSet(\"advrepaircost\", arctoggle)\n\n--1.14 imgui layout \nlocal imscale = tonumber(options[\"imscale\"] or \"1\")\nextensions.ui_imguiUtils.changeUIScale(imscale)\nlocal imautosave = tonumber(options[\"imautosave\"] or \"1\")\nextensions.blrglobals.blrFlagSet(\"imautosave\", imautosave == 1)\nextensions.blrutils.loadCustomIMGUILayout()\n\n--1.14 drag cinematic effects\nlocal dragslowmo = tonumber(options[\"dragslowmo\"] or \"1\")\nextensions.blrglobals.blrFlagSet(\"dragslowmo\",dragslowmo  == 1)\n\n--1.14 option file saved target wager\nlocal targetwager = tonumber(options[\"targetwager\"] or \"100\")\nextensions.blrutils.setWager(targetwager)\n\n--1.14 groundmarkers global toggle\nlocal gmtoggle = tonumber(options[\"gmtoggle\"] or \"100\")\nextensions.blrglobals.blrFlagSet(\"gmtoggle\",gmtoggle  == 1)\n\n--1.14 race traffic mode switch\nlocal raceTrafficMode = tonumber(options[\"rtmode\"] or \"0\")\nextensions.blrutils.blrvarSet(\"raceTrafficMode\", raceTrafficMode)\n\n--1.14 floating markers toggle\nlocal fmtoggle = tonumber(options[\"fmtoggle\"] or \"1\")\nextensions.blrglobals.blrFlagSet(\"fmtoggle\",fmtoggle  == 1)\n\n--1.14 advanced repair UI toggle\nlocal aruitoggle = tonumber(options[\"useadvrepairui\"] or \"0\")\nextensions.blrglobals.blrFlagSet(\"useadvrepairui\",aruitoggle  == 1)\n\n--1.14.1 fast traffic toggle\nlocal tfasttoggle = tonumber(options[\"tfasttoggle\"] or \"0\")\nextensions.blrglobals.blrFlagSet(\"fastTrafficToggle\",tfasttoggle  == 1)\n\n--1.14.2 part edit safe mode toggle\nlocal gsafemode = tonumber(options[\"gsafemode\"] or \"0\")\nextensions.blrglobals.blrFlagSet(\"garageSafeModeToggle\",gsafemode == 1)\n\n--1.14.3 part image viewer mode\nlocal imgmode = tonumber(options[\"imgmode\"] or \"0\")\nextensions.customGuiStream.imageUIMode(imgmode)\n\n--1.14.3 race wager & rep scale\nlocal wagerscl = tonumber(options[\"wagerscl\"] or \"1.0\")\nextensions.blrutils.blrvarSet(\"raceWagerScale\", wagerscl)\nlocal repscl = tonumber(options[\"repscl\"] or \"1.0\")\nextensions.blrutils.blrvarSet(\"raceRepScale\", repscl)\n\n--1.15.4 dynamic weather\nlocal dwtoggle = tonumber(options[\"dwtoggle\"] or \"1.0\")\nextensions.blrglobals.blrFlagSet(\"dynamicWeatherToggle\", dwtoggle == 1)\nlocal ccvar = tonumber(options[\"ccvar\"] or \"1.0\")\nextensions.blrutils.blrvarSet(\"ccvar\", ccvar)\nlocal wsvar = tonumber(options[\"wsvar\"] or \"1.0\")\nextensions.blrutils.blrvarSet(\"wsvar\", wsvar)\nlocal fdvar = tonumber(options[\"fdvar\"] or \"1.0\")\nextensions.blrutils.blrvarSet(\"fdvar\", fdvar)\n\n--1.15.4 health re-enable toggle\nlocal allowinjury = tonumber(options[\"allowinjury\"] or \"1.0\") == 1\nextensions.blrglobals.blrFlagSet(\"healthToggle\", allowinjury)\n\n-- 1.16.4 perf class restricted race leagues\nlocal lrestrict = tonumber(options[\"lrestrict\"] or \"1\") == 1\nextensions.blrglobals.blrFlagSet(\"restrictRaceLeagues\", lrestrict)\n\n-- 1.17 seeded races\nlocal rsraces = tonumber(options[\"rsraces\"] or \"1\") == 1\nextensions.blrglobals.blrFlagSet(\"randomRaceSeedMode\", rsraces)\n\n-- 1.17 part edit damage bypass\nlocal dbypass = tonumber(options[\"dbypass\"] or \"0\") == 1\nextensions.blrglobals.blrFlagSet(\"partEditDamageBypass\", dbypass)\n\n-- 1.17 limited garage slots \nlocal lgslots = tonumber(options[\"lgslots\"] or \"1\") == 1\nextensions.blrglobals.blrFlagSet(\"limitedGarageSlots\", lgslots)\n\n\n-- Finish by sending loaded options to ui\nextensions.customGuiStream.sendCurrentOptionValues()\n\n"
+            "work":"local extensions = require(\"extensions\")\nlocal options = extensions.blrutils.loadDataTable(\"beamLR/options\")\nlocal ctraffic = tonumber(options[\"crazytraffic\"])\nlocal ttotal = (tonumber(options[\"traffic\"]) + tonumber(options[\"police\"]) + tonumber(options[\"trucks\"]))\nif ctraffic == 0 then\nself.pinOut.traffic.value = tonumber(options[\"traffic\"])\nself.pinOut.police.value = tonumber(options[\"police\"])\nself.pinOut.trucks.value = tonumber(options[\"trucks\"])\nself.pinOut.pool.value = math.floor(ttotal - (ttotal / 3))--Changed in 0.28, value now used as amount of active vehs when pooling\nelse\nself.pinOut.traffic.value = 8\nself.pinOut.police.value = 8\nself.pinOut.trucks.value = 8\nself.pinOut.pool.value = 18\nend\nself.pinOut.sseed.value = tonumber(options[\"sseed\"])\nself.pinOut.risk.value = tonumber(options[\"trisk\"]) or 0.7\nself.pinOut.copstrict.value = tonumber(options[\"copstrict\"]) or 0.08\nself.pinOut.sleepTime.value = tonumber(options[\"sleeptime\"]) or 8\nself.pinOut.raceRandPaint.value = (tonumber(options[\"raceRandPaint\"]) == 1) or false\n\nlocal copfix = tonumber(options[\"autoCopfix\"] or \"1\")\nextensions.blrglobals.blrFlagSet(\"roleFixToggle\", copfix == 1)\nlocal bstoggle = tonumber(options[\"bstoggle\"] or \"0\") --can turn this default to 1 when issue is fixed, for old option files\nextensions.blrglobals.blrFlagSet(\"beamstateToggle\", bstoggle == 1)\n\nlocal timescale = tonumber(options[\"timescale\"] or \"1\")\nlocal daytime = 86400.000 / timescale\nself.pinOut.daytime.value = daytime\n\n--1.13 advanced vehicle building\nlocal avbtoggle = tonumber(options[\"avbtoggle\"] or \"0\")==1\nextensions.blrglobals.blrFlagSet(\"avbToggle\", avbtoggle)\nself.pinOut.avbtoggle.value = avbtoggle\n\n--1.13 gps (0=default, 1=always on, 2=always off)\nlocal gpsmode = tonumber(options[\"gpsmode\"] or 0)\nextensions.blrutils.blrvarSet(\"gpsmode\", gpsmode)\nextensions.blrglobals.blrFlagSet(\"gpsForceOff\", false)\n\n--1.13 advanced repair cost\nlocal arctoggle = tonumber(options[\"advrepaircost\"] or \"0\")==1\nextensions.blrglobals.blrFlagSet(\"advrepaircost\", arctoggle)\n\n--1.14 imgui layout \nlocal imscale = tonumber(options[\"imscale\"] or \"1\")\nextensions.ui_imguiUtils.changeUIScale(imscale)\nlocal imautosave = tonumber(options[\"imautosave\"] or \"1\")\nextensions.blrglobals.blrFlagSet(\"imautosave\", imautosave == 1)\nextensions.blrutils.loadCustomIMGUILayout()\n\n--1.14 drag cinematic effects\nlocal dragslowmo = tonumber(options[\"dragslowmo\"] or \"1\")\nextensions.blrglobals.blrFlagSet(\"dragslowmo\",dragslowmo  == 1)\n\n--1.14 option file saved target wager\nlocal targetwager = tonumber(options[\"targetwager\"] or \"100\")\nextensions.blrutils.setWager(targetwager)\n\n--1.14 groundmarkers global toggle\nlocal gmtoggle = tonumber(options[\"gmtoggle\"] or \"100\")\nextensions.blrglobals.blrFlagSet(\"gmtoggle\",gmtoggle  == 1)\n\n--1.14 race traffic mode switch\nlocal raceTrafficMode = tonumber(options[\"rtmode\"] or \"0\")\nextensions.blrutils.blrvarSet(\"raceTrafficMode\", raceTrafficMode)\n\n--1.14 floating markers toggle\nlocal fmtoggle = tonumber(options[\"fmtoggle\"] or \"1\")\nextensions.blrglobals.blrFlagSet(\"fmtoggle\",fmtoggle  == 1)\n\n--1.14 advanced repair UI toggle\nlocal aruitoggle = tonumber(options[\"useadvrepairui\"] or \"0\")\nextensions.blrglobals.blrFlagSet(\"useadvrepairui\",aruitoggle  == 1)\n\n--1.14.1 fast traffic toggle\nlocal tfasttoggle = tonumber(options[\"tfasttoggle\"] or \"0\")\nextensions.blrglobals.blrFlagSet(\"fastTrafficToggle\",tfasttoggle  == 1)\n\n--1.14.2 part edit safe mode toggle\nlocal gsafemode = tonumber(options[\"gsafemode\"] or \"0\")\nextensions.blrglobals.blrFlagSet(\"garageSafeModeToggle\",gsafemode == 1)\n\n--1.14.3 part image viewer mode\nlocal imgmode = tonumber(options[\"imgmode\"] or \"0\")\nextensions.customGuiStream.imageUIMode(imgmode)\n\n--1.14.3 race wager & rep scale\nlocal wagerscl = tonumber(options[\"wagerscl\"] or \"1.0\")\nextensions.blrutils.blrvarSet(\"raceWagerScale\", wagerscl)\nlocal repscl = tonumber(options[\"repscl\"] or \"1.0\")\nextensions.blrutils.blrvarSet(\"raceRepScale\", repscl)\n\n--1.15.4 dynamic weather\nlocal dwtoggle = tonumber(options[\"dwtoggle\"] or \"1.0\")\nextensions.blrglobals.blrFlagSet(\"dynamicWeatherToggle\", dwtoggle == 1)\nlocal ccvar = tonumber(options[\"ccvar\"] or \"1.0\")\nextensions.blrutils.blrvarSet(\"ccvar\", ccvar)\nlocal wsvar = tonumber(options[\"wsvar\"] or \"1.0\")\nextensions.blrutils.blrvarSet(\"wsvar\", wsvar)\nlocal fdvar = tonumber(options[\"fdvar\"] or \"1.0\")\nextensions.blrutils.blrvarSet(\"fdvar\", fdvar)\n\n--1.15.4 health re-enable toggle\nlocal allowinjury = tonumber(options[\"allowinjury\"] or \"1.0\") == 1\nextensions.blrglobals.blrFlagSet(\"healthToggle\", allowinjury)\n\n-- 1.16.4 perf class restricted race leagues\nlocal lrestrict = tonumber(options[\"lrestrict\"] or \"1\") == 1\nextensions.blrglobals.blrFlagSet(\"restrictRaceLeagues\", lrestrict)\n\n-- 1.17 seeded races\nlocal rsraces = tonumber(options[\"rsraces\"] or \"1\") == 1\nextensions.blrglobals.blrFlagSet(\"randomRaceSeedMode\", rsraces)\n\n-- 1.17 part edit damage bypass\nlocal dbypass = tonumber(options[\"dbypass\"] or \"0\") == 1\nextensions.blrglobals.blrFlagSet(\"partEditDamageBypass\", dbypass)\n\n-- 1.17 limited garage slots \nlocal lgslots = tonumber(options[\"lgslots\"] or \"1\") == 1\nextensions.blrglobals.blrFlagSet(\"limitedGarageSlots\", lgslots)\n\n-- 1.17.4 light manager \nlocal lmtoggle = tonumber(options[\"lmtoggle\"] or \"1\") == 1\nextensions.blrglobals.blrFlagSet(\"lightManagerToggle\", lmtoggle)\n\n\n\n-- Finish by sending loaded options to ui\nextensions.customGuiStream.sendCurrentOptionValues()\n\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -91639,7 +91767,7 @@
           "hardcodedPins":{
             "B":{
               "type":"number",
-              "value":0.00999999977600048856
+              "value":0.00999999977600054754
             }
           },
           "hiddenPins":{
@@ -99645,7 +99773,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nlocal vars = self.mgr.variables.variables\nlocal triggerExtras = extensions.blrutils.loadDataTable(vars.triggerDataPath.value)\nlocal restricted = tonumber(triggerExtras[\"restricted\"] or \"0\") == 1\nlocal raceClub = vars.raceClub.value\nlocal raceLeague = vars.raceLeague.value\nlocal progressFilePath = \"beamLR/races/\" .. raceClub .. \"/progress\"\nlocal progressData = extensions.blrutils.loadDataTable(progressFilePath)\n\nif raceLeague == \"bronze\" then\nprogressData[\"current\"] = \"silver\"\nvars.raceLeague.value = \"silver\"\nelseif raceLeague == \"silver\" then\nprogressData[\"current\"] = \"gold\"\nvars.raceLeague.value =  \"gold\"\nend\n\nextensions.blrutils.saveDataTable(progressFilePath, progressData)\n\nvars.leagueProgressUpdate.value = 1\n"
+            "work":"local extensions = require(\"extensions\")\nlocal vars = self.mgr.variables.variables\nlocal triggerExtras = extensions.blrutils.loadDataTable(vars.triggerDataPath.value)\nlocal restricted = tonumber(triggerExtras[\"restricted\"] or \"0\") == 1\nlocal raceClub = vars.raceClub.value\nlocal raceLeague = vars.raceLeague.value\nlocal progressFilePath = \"beamLR/races/\" .. raceClub .. \"/progress\"\n\nif triggerExtras[\"pfoverride\"] then\nprogressFilePath = \"beamLR/races/\" .. triggerExtras[\"pfoverride\"] .. \"/progress\"\nend\n\n\nlocal progressData = extensions.blrutils.loadDataTable(progressFilePath)\n\nif raceLeague == \"bronze\" then\nprogressData[\"current\"] = \"silver\"\nvars.raceLeague.value = \"silver\"\nelseif raceLeague == \"silver\" then\nprogressData[\"current\"] = \"gold\"\nvars.raceLeague.value =  \"gold\"\nend\n\nextensions.blrutils.saveDataTable(progressFilePath, progressData)\n\nvars.leagueProgressUpdate.value = 1\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -100476,7 +100604,7 @@
           "hardcodedPins":{
             "frames":{
               "type":"number",
-              "value":10
+              "value":30
             }
           },
           "hiddenPins":{
@@ -100838,8 +100966,8 @@
             ]
           ],
           "pos":[
-            3300,
-            -4474
+            3252,
+            -4334
           ],
           "type":"util/customLua"
         },
@@ -102746,6 +102874,144 @@
           ],
           "type":"types/genericValue"
         },
+        "1746":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal flag = self.pinIn.flag.value\nlocal onceMode = self.pinIn.onceMode.value\nlocal state = extensions.blrglobals.blrFlagGet(flag)\nlocal notMode = self.pinIn.notMode.value\n\nif notMode then\nstate = not state\nend\n\n\nlocal outflow = state\nif state and onceMode then extensions.blrglobals.blrFlagSet(flag, false) end\nself.pinOut.out.value = outflow and self.pinIn.flow.value"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "flag":{
+              "type":"string",
+              "value":"lightManagerInitRequest"
+            },
+            "notMode":{
+              "type":"bool",
+              "value":false
+            },
+            "onceMode":{
+              "type":"bool",
+              "value":true
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flag":true,
+              "flow":false,
+              "notMode":true,
+              "onceMode":true
+            },
+            "p_out":{
+              "flow":true,
+              "out":false
+            }
+          },
+          "name":"BLR Flag Flow",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "out",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "string",
+              "flag",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "bool",
+              "onceMode",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "bool",
+              "notMode",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -1768,
+            3325
+          ],
+          "type":"util/customLua"
+        },
+        "1748":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"local extensions = require(\"extensions\")\nextensions.blrLightManager.reset()",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal ldpath = \"beamLR/mapdata/\" .. extensions.blrutils.getLevelName() .. \"/lights\"\nlocal hasLights = FS:fileExists(ldpath)\n\nif hasLights then\nlocal ldata = extensions.blrutils.loadDataTable(ldpath)\nextensions.blrLightManager.loadLightData(ldpath)\nextensions.blrLightManager.generateChunks()\nend\n\nself.pinOut.hasLights.value = hasLights"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false
+            },
+            "p_out":{
+              "flow":false,
+              "hasLights":false
+            }
+          },
+          "name":"Init Light Manager",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "bool",
+              "hasLights",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -1768,
+            3424
+          ],
+          "type":"util/customLua"
+        },
         "1749":{
           "data":{},
           "dynamicMode":"repeat",
@@ -102983,7 +103249,7 @@
           "hardcodedPins":{
             "text":{
               "type":"string",
-              "value":"Generating jbeam data cache, please be patient! This can take about 1 minute or more depending on how many mods you have installed.\n\nThis process is started automatically when uncached mods are detected (happens on first launch or after installing new mods). \n\nYou may need to start this process manually from the advanced options if you add jbeam files that aren't stored in a mod zip."
+              "value":"Generating jbeam data cache, please be patient! This can take about 1 minute or more depending on how many mods you have installed.\n\nThis process is started automatically after game updates or when uncached mods are detected (happens on first launch or after installing new mods). \n\nYou may need to start this process manually from the advanced options if you add jbeam files that aren't stored in a mod zip."
             }
           },
           "hiddenPins":{
@@ -103037,6 +103303,56 @@
             3367
           ],
           "type":"logic/branch"
+        },
+        "1757":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrLightManager.setPlayerObjectID(self.pinIn.pid.value)"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "pid":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Set Light Manager PID",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "number",
+              "pid",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -1530,
+            3550
+          ],
+          "type":"util/customLua"
         },
         "1758":{
           "data":{},
@@ -103324,6 +103640,136 @@
             3521
           ],
           "type":"util/customLua"
+        },
+        "1764":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "condition":false,
+              "flow":false
+            },
+            "p_out":{
+              "False":false,
+              "True":false,
+              "flow":true
+            }
+          },
+          "pos":[
+            -1768,
+            3535
+          ],
+          "type":"logic/branch"
+        },
+        "1765":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nif extensions.blrglobals.blrFlagGet(\"shopmode\") then\nself.pinOut.vehid.value = extensions.blrutils.blrvarGet(\"playervehid\")\nelse\nself.pinOut.vehid.value = self.pinIn.current.value\nend"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "current":false,
+              "flow":false
+            },
+            "p_out":{
+              "flow":false,
+              "vehid":false
+            }
+          },
+          "name":"Actual Player Veh",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "number",
+              "current",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "number",
+              "vehid",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -1530,
+            3424
+          ],
+          "type":"util/customLua"
+        },
+        "1767":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{},
+            "p_out":{
+              "exist":true,
+              "vehId":false
+            }
+          },
+          "pos":[
+            -1545,
+            3313
+          ],
+          "type":"scene/getPlayerVehicle"
+        },
+        "1768":{
+          "alpha":0.75000000000000000000,
+          "backgroundColor":[
+            0.50000000000000000000,
+            0.50000000000000000000,
+            0.50000000000000000000,
+            0.50000000000000000000
+          ],
+          "borderColor":[
+            0.80000001192092895508,
+            0.80000001192092895508,
+            0.80000001192092895508,
+            1
+          ],
+          "commentSize":[
+            544,
+            396
+          ],
+          "commentText":"Only for certain maps (notably Valo City) if lights file is defined in mapdata\\nlight manager will optimize amount of\\nactive lights around player object",
+          "commentTitle":"Light Manager",
+          "data":{},
+          "dynamicMode":"repeat",
+          "moveMode":"withoutNodes",
+          "pos":[
+            -1806,
+            3248
+          ],
+          "simple":false,
+          "textColor":[
+            1,
+            1,
+            1,
+            1
+          ],
+          "type":"debug/comment"
         },
         "4986":{
           "count":5,
@@ -107988,9 +108434,7 @@
           "type":"types/genericValue"
         },
         "10149":{
-          "data":{
-            "name":""
-          },
+          "data":{},
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
@@ -108474,9 +108918,7 @@
           "type":"scene/singleMarker"
         },
         "10165":{
-          "data":{
-            "name":""
-          },
+          "data":{},
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
@@ -111970,6 +112412,70 @@
             -4810
           ],
           "type":"types/genericValue"
+        },
+        "10302":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "work":"local ve\n\nfor k,v in pairs(self.pinIn.idtable.value) do\nif v ~= -1 then\nve = scenetree.findObjectById(v)\nve:queueLuaCommand(self.pinIn.cmd.value)\nend\nend"
+          },
+          "customName":"OPEN LATCHES",
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "cmd":{
+              "type":"string",
+              "value":"extensions.blrVehicleUtils.openCarMeetLatches()"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "cmd":true,
+              "flow":false,
+              "idtable":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"VLUA Table Exec",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "table",
+              "idtable",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "string",
+              "cmd",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            3258,
+            -4558
+          ],
+          "type":"util/customLua"
         }
       },
       "showTab":true,
@@ -111979,10 +112485,10 @@
         "list":{}
       },
       "viewPos":[
-        -1288.50000000000000000000,
-        -216.50000000000000000000
+        -336.49987792968750000000,
+        -1165.74938964843750000000
       ],
-      "viewZoom":1
+      "viewZoom":0.23188397288322448730
     },
     "3":{
       "description":"This is the description for graph States",
@@ -111998,14 +112504,14 @@
         ],
         [
           4,
-          "fail",
+          "success",
           6,
           "flow",
           false
         ],
         [
           4,
-          "success",
+          "fail",
           6,
           "flow",
           false
@@ -112103,10 +112609,10 @@
         "list":{}
       },
       "viewPos":[
-        -961.94848632812500000000,
-        2650.25244140625000000000
+        189.00010681152343750000,
+        -1165.74938964843750000000
       ],
-      "viewZoom":0.99999493360519409180
+      "viewZoom":0.23188398778438568115
     }
   },
   "isScenario":true,
@@ -112338,6 +112844,13 @@
         "value":""
       },
       {
+        "index":101,
+        "mergeStrat":"last",
+        "name":"raceClubHours",
+        "type":"string",
+        "value":""
+      },
+      {
         "index":21,
         "mergeStrat":"max",
         "name":"raceWinner",
@@ -112364,13 +112877,6 @@
         "name":"raceEnemyCPID",
         "type":"number",
         "value":0
-      },
-      {
-        "index":101,
-        "mergeStrat":"last",
-        "name":"raceClubHours",
-        "type":"string",
-        "value":""
       },
       {
         "index":35,

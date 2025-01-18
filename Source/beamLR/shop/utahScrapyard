@@ -1,6 +1,7 @@
 name=Scrapyard
 slots=3
 chance=0.8
+dchance=0
 rpchance=0
 shopid=2
 models=scrap_all

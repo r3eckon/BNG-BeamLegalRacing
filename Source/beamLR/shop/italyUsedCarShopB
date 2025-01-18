@@ -1,7 +1,8 @@
 name=Garage Usato Garantito
 slots=5
 chance=0.9
-rpchance=0.2
+dchance=0.4
+rpchance=0.4
 shopid=9
 models=used_all
 slotp0=227.88555908203,-335.75366210938,192.23112487793

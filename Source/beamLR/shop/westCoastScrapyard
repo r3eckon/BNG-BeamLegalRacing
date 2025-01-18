@@ -1,7 +1,8 @@
 name=Scrapyard
 slots=4
 chance=0.8
-rpchance=0.0
+dchance=0
+rpchance=0
 shopid=14
 models=scrap_all
 slotp0=-122.21952819824,-48.674217224121,119.99590301514

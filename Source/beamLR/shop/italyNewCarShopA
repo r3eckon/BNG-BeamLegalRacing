@@ -1,6 +1,7 @@
 name=Claudio Motors
 slots=6
 chance=0.7
+dchance=0
 rpchance=0
 shopid=6
 models=new_all

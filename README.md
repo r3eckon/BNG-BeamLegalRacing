@@ -1,8 +1,9 @@
 
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.17.3/beamLegalRacing1.17.3.zip
+
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.17.4/beamLegalRacing1.17.4.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.17.3
+# Beam Legal Racing 1.17.4
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -10,7 +11,7 @@ Perform missions, races and challenges to earn money to buy vehicles and parts. 
 ## Quick Links
 ### More Info | [Forum thread](https://www.beamng.com/threads/87394/) 
 
-### Career Maps | [Utah](utahmap.md) | [East Coast](eastcoastmap.md) | [Italy](italymap.md) | [West Coast](westcoastmap.md)
+### Career Maps | [Utah](utahmap.md) | [East Coast](eastcoastmap.md) | [Italy](italymap.md) | [West Coast](westcoastmap.md) | [Valo City](valocitymap.md)
 
 ### Track Event Maps | [Hirochi Raceway](hirochimap.md) | [Automation Test Track](automationmap.md) | [Johnson Valley](map_johnson.md) | [Nordschleife](map_ks_nord.md)
 
@@ -118,6 +119,8 @@ Version 1.16.7 improves mod compatibility for car shops with additive list files
 Version 1.17 adds new interactive areas ([car meets](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#car-meets) & [properties](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#garage-slots-and-properties)), daily seeded race clubs and a [new part inventory menu](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#part-inventory-menu). Daily seeded race clubs prevent reroll abuse and is the intended way to play (can be turned off in options). 
 
 Version 1.17.2 adds new track events on West Coast USA, track event prefabs and an option to give all track event opponents slick tires to improve their racing ability. This version of the mod also adds content from the 0.34 update of BeamNG including the new Bruckell Nine and updated level files.
+
+Version 1.17.4 adds the Valo City addon, defective vehicles to used car shops (SLRR like, missing engine, wheels, etc), shared race club progress files (for Valo City, same drag club progress at multiple locations) and gearbox damage persistence (grinding gears damaged saved, must pay to repair). This update also slightly tweaked the odometer based integrity decrease to improve scaling, the effect should be overall a bit lessened for most cars.
 
 ## Getting started
 BeamLR is loaded as a freeroam mission. Use the following spawn point depending on map choice:
@@ -881,3 +884,15 @@ Thank you for playing BeamLR!
 * Fixed incorrect gooseneck delivery destination on West Coast USA
 * Updated West Coast USA level with 0.34.2 changes
 * Fixed missing track event level objects on West Coast USA
+
+### 1.17.4
+* Added manual gearbox synchro wear persistence and repair cost (grinding gears will add repair cost)
+* Added edited manualGearbox.lua script (uncommented worn gear pop out code, tweaked pop out chance)
+* Added Light Manager script (Added for Valo City optimized night lighting)
+* Added defective vehicles to used car shops (can be missing engine, tires, wheels or suspension)
+* Race clubs can now use shared progress files (Added for Valo City, same club at multiple locations)
+* Removed quarterpanels from used sunburst randomized slots list (visible backface issue when removed)
+* Tweaked used car shop randomized vehicle spawn chances (to work with new defective vehicles)
+* Jbeam caching process will now be started after game updates (to load potential jbeam file changes)
+* Tweaked odometer based integrity decrease (starts at 200kkm, better scaling)
+* Fixed bad race waypoint on East Coast USA

@@ -644,6 +644,7 @@ end
 return toRet
 end
 
+
 local function generateConfigVariant(baseFile, fmap, seed)
 math.randomseed(seed)
 local toRet = {}
@@ -668,6 +669,8 @@ end
 end
 return toRet
 end
+
+
 
 local function getTuningFuelLoad()
 local toRet = 0
@@ -1863,10 +1866,16 @@ end
 
 local mods = core_modmanager.getMods()
 local cached = extensions.blrutils.loadDataTable("beamLR/cache/cachedMods")
+local version = cached["cached_game_version"]
+
+-- 1.17.4 fix for potentially uncached jbeam file changes in new game versions
+if version ~= beamng_versiond then return false end
 
 for k,v in pairs(mods) do
 if v.active and not cached[k] then return false end
 end
+
+
 
 return true
 end
@@ -1898,6 +1907,8 @@ if v.active then -- skip deactivated mods
 cachedMods[k] = "true"
 end
 end
+
+cachedMods["cached_game_version"] = beamng_versiond
 
 extensions.blrutils.saveDataTableOptimized("beamLR/cache/cachedMods", cachedMods, gcintercount)
 
@@ -1988,7 +1999,146 @@ local function jbeamCacheReady()
 return cacheReady
 end
 
+local jbcsmap = {}
+local jbcsconfig = {}
 
+local function buildJbeamChildSlotMap(part, start, config)
+if start then 
+jbcsmap = {} 
+jbcsconfig = config
+end
+
+--print("part=" .. part)
+
+local cfile = jbeamFileMap[part]
+
+if not cfile or not FS:fileExists(cfile) then
+--print("JBEAM FILE WAS MISSING FOR PART " .. part)
+if cfile then print("RETURNED FILE PATH WAS " .. cfile) else print("RETURNED FILE PATH WAS NIL") end
+return
+end
+
+local cjbeam = jsonReadFile(cfile)[part]
+local cstype = cjbeam["slotType"]
+
+--print("cstype=" .. cstype)
+
+if cstype then 
+table.insert(jbcsmap, cstype) 
+--print("SHOULD HAVE INSERTED INTO TABLE WTF")
+end -- insert part's own slot into map
+
+local cslots = cjbeam["slots"] or cjbeam["slots2"]
+
+if not cslots then return end -- no child slots, return 
+
+cslots = parseJbeamSlotsTable(cslots) 
+
+local cpart = ""
+
+for k,v in pairs(cslots) do
+
+cpart = jbcsconfig["parts"][v["type"]]
+
+--print(v["type"])
+
+if cpart and cpart ~= "" and cpart ~= "none" then
+--print("cpart=" .. cpart)
+buildJbeamChildSlotMap(cpart)
+end
+
+end
+
+--dump(jbcsmap)
+
+end
+
+local function getJbeamChildSlotMap(part, config)
+buildJbeamChildSlotMap(part, true, config)
+return jbcsmap
+end
+
+-- randomly picks from a set of item with set thresholds from 0.0 to 1.0
+-- set should be in increasing order of rarity, first threshold must be 1.0
+-- picks item if roll is below its threshold
+-- % chance calculated by item threshold - next item threshold (or 0 for last item)
+-- example
+-- items = {"A", "B", "C", "D"}
+-- thresholds = {1.0, 0.5, 0.25, 0.1 }
+-- "A" has a chance of 50% (1.0 - 0.5)
+-- "B" has a chance of 25% (0.5 - 0.25)
+-- "C" has a chance of 15% (0.25 - 0.1)
+-- "D" has a chance of 10% (0.1 - 0.0)
+-- if chances don't add up to 100% they will not be accurate representation of output
+local function getRandomItemSetThresholds(items, thresholds)
+local roll = math.random()
+local pick = -1
+
+for i=#items,1,-1 do
+    if roll <= thresholds[i] then pick = i break end
+end
+
+return items[pick]
+end
+
+
+
+-- 1.17.4 defective (missing important parts) config generator
+local function generateDefectiveConfigVariant(baseFile, fmap, seed)
+math.randomseed(seed)
+local toRet = {}
+local baseConfig = jsonReadFile(baseFile)
+
+if not baseConfig["parts"] then -- Detected old config format, build format 2 config
+toRet["format"] = 2
+toRet["parts"] = baseConfig
+toRet["vars"] = {}
+else
+toRet = baseConfig	-- format 2 config, can use base config table
+end
+
+local cpick = 0		
+for k,v in pairs(fmap) do
+cpick = math.random(0,#fmap[k])	-- If random picks 0 the slot will be empty to allow removed part
+if cpick == 0 then 
+toRet["parts"][k] = ""
+else
+toRet["parts"][k] = fmap[k][cpick]
+end
+end
+
+-- now remove an important part like engine, wheels, tires, etc.
+-- 40% chance engine gets removed, 10% chance for every other item 
+local items = {"engine", "tire_F", "tire_R", "wheel_F", "wheel_R", "suspension_F", "suspension_R"}
+local thresholds = {1.0, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1}
+local pick = getRandomItemSetThresholds(items, thresholds)
+local parent = ""
+local children = {}
+local toremove = {}
+
+--print("Spawning defective vehicle, removed part: " .. pick)
+
+for k,v in pairs(toRet["parts"]) do
+-- checking v to skip empty slots, if no part is installed any child slots it could have are already empty
+if string.find(k, pick) and v and v ~= "" and v ~= "none" then 
+--print("FINDING CHILD SLOTS FOR SLOT: " .. k)
+children = getJbeamChildSlotMap(v, toRet)
+for _,slot in pairs(children) do
+table.insert(toremove, slot)
+end
+end
+end
+
+for k,v in pairs(toremove) do
+if toRet["parts"][v] then toRet["parts"][v] = "" end
+end
+
+return toRet
+end
+
+M.getRandomItemSetThresholds = getRandomItemSetThresholds
+M.getJbeamChildSlotMap = getJbeamChildSlotMap
+M.buildJbeamChildSlotMap = buildJbeamChildSlotMap
 M.jbeamCacheReady = jbeamCacheReady
 M.setCacheValidBypass = setCacheValidBypass
 M.generateJbeamLibraries = generateJbeamLibraries
@@ -2041,6 +2191,7 @@ M.getSortedTuningCategories = getSortedTuningCategories
 M.getTuningFuelLoad = getTuningFuelLoad
 M.getFilteredSlotMap = getFilteredSlotMap
 M.generateConfigVariant = generateConfigVariant
+M.generateDefectiveConfigVariant = generateDefectiveConfigVariant
 M.getCustomIOCTX = getCustomIOCTX
 M.getSlotNameLibrary = getSlotNameLibrary
 M.getVehicleSalePrice = getVehicleSalePrice

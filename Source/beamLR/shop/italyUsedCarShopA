@@ -1,6 +1,7 @@
 name=Temeraria Auto
 slots=6
 chance=0.9
+dchance=0.3
 rpchance=0.7
 shopid=8
 models=used_all

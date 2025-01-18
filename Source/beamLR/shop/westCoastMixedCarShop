@@ -1,7 +1,8 @@
 name=Mixed Car Shop
 slots=7
 chance=0.8
-rpchance=0.3
+dchance=0.3
+rpchance=0.5
 shopid=11
 models=mixed_all
 slotp0=-420.43273925781,160.22689819336,100.31179046631

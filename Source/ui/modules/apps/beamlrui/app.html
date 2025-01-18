@@ -214,6 +214,17 @@ Toggle Health System
 <button ng-class="inputData.allowinjury == 1 ? 'toggleon' : 'toggleoff'" ng-click="toggleHealth(1)">On</button>
 <button ng-class="inputData.allowinjury == 0 ? 'toggleon' : 'toggleoff'" ng-click="toggleHealth(0)">Off</button>
 </p>
+
+
+<p style="text-align:center; margin-top:15px; margin-bottom:15px; margin-left:20px; margin-right:20px;">
+Light manager optimizes night lights on maps that have them. Only used on maps that have light data defined.
+</p>
+
+<p style="text-align:center; transform:translate(60px,0px); width:350px;"> 
+Toggle Light Manager
+<button ng-class="inputData.lmtoggle == 1 ? 'toggleon' : 'toggleoff'" ng-click="toggleLightManager(1)">On</button>
+<button ng-class="inputData.lmtoggle == 0 ? 'toggleon' : 'toggleoff'" ng-click="toggleLightManager(0)">Off</button>
+</p>
 </div>
 
 <div ng-click="toggleOptionShow('career')" style="width:95%; font-size:20px; font-weight:bold; text-align:center; margin:auto; margin-top:10px;">

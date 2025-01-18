@@ -1,6 +1,7 @@
 name=New Car Shop
 slots=5
 chance=0.7
+dchance=0
 rpchance=0
 shopid=1
 models=new_all

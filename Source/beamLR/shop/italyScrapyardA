@@ -1,6 +1,7 @@
 name=Bianco Auto Scrapyard
 slots=5
 chance=0.8
+dchance=0
 rpchance=0
 shopid=7
 models=scrap_all

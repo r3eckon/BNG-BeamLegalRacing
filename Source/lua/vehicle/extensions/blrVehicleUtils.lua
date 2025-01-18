@@ -646,6 +646,7 @@ controller.getAllControllers()['analogOdometer'].updateGFX(1)
 end
 end
 
+
 local function setPartCondition(mainDevice, subDevice, odometer, integrity)
 if powertrain.getDevice(mainDevice) then
 powertrain.getDevice(mainDevice):setPartCondition(subDevice,odometer,integrity)
@@ -681,6 +682,32 @@ end
 return result
 end
 
+-- 1.17.4 manual gearbox synchro wear
+local function setGearboxSynchroWear(wear)
+local gearbox = powertrain.getDevice("gearbox")
+local gtype = gearbox.type
+local cindex = gearbox.gearIndex
+
+-- no synchros on other types of gearboxes
+if gtype ~= "manualGearbox" then return end
+
+local gcount = gearbox.gearCount
+
+-- force update all gear synchros to use new damage values
+for i=-1,gcount-1 do -- start at -1 for reverse gear
+if i ~= 0 then -- must skip neutral to avoid errors
+gearbox.synchroWear[i] = wear[i]
+gearbox.isGrindingShift=true
+gearbox:setGearGrinding(true,i,0)
+gearbox:updateGrinding(0)
+end
+end
+
+-- restore last gear index because it got changed
+gearbox:setGearIndex(cindex) 
+end
+
+
 -- 1.14.3 fix for nil devices when some parts are removed
 local function loadMechanicalDamage(file)
 local dt = loadTableFromFile(file, false)
@@ -689,6 +716,7 @@ local dev = ""
 local split = {}
 local valsplt = {}
 local nval = 0
+local synchroWear = {0,0,0,0,0,0,0,[-1]=0}
 
 -- 1.13.4 now fetching wheel data to build tables
 buildWheelTables()
@@ -783,9 +811,18 @@ for k,v in pairs(dt) do
 			else
 			-- Should not happen unless some sub-devices are forgotten
 			end
+		-- 1.17.4 manual gearbox synchro wear	
+		elseif cat == "gearbox" and powertrain.getDevice('gearbox') and powertrain.getDevice('gearbox').type == "manualGearbox" then
+			local gindex = string.gsub(dev, "synchro_", "")
+			gindex = tonumber(gindex)
+			if gindex < powertrain.getDevice('gearbox').gearCount then
+				synchroWear[gindex] = tonumber(v or "0") -- default to 0% wear 
+			end
 		end
 	end
 end
+-- 1.17.4 gearbox synchro wear loading
+setGearboxSynchroWear(synchroWear)
 end
 
 --Not sure why this is needed but disassembled vehicles aren't registered
@@ -887,8 +924,10 @@ end
 
 local function getIntegrityOffset(odometer)
 local offset = 0
-if odometer >= 150000000 then
-offset = 0.15 * math.min(1.0, odometer / 450000000)
+local minimum = 200000000
+local maximum = 450000000
+if odometer >= minimum then
+offset = 0.15 * math.min(1.0, (odometer-minimum) / (maximum-minimum))
 end
 return offset
 end
@@ -1154,6 +1193,35 @@ obj:queueGameEngineLua("extensions.blrCarMeet.onCarMeetScoreReceived(" .. index 
 end
 
 
+local function getGearboxSynchroTotalWear()
+local gearbox = powertrain.getDevice("gearbox")
+if not gearbox then return 0 end
+local gtype = gearbox.type
+local toRet = 0
+
+local wear = 0
+
+
+if gtype == "manualGearbox" then
+local gcount = gearbox.gearCount
+
+for i=-1,gcount-1 do 
+if i ~= 0 then
+wear = wear + gearbox.synchroWear[i]
+end
+end
+
+toRet = wear / gcount
+end
+
+
+return toRet
+end
+
+
+M.getIntegrityOffset = getIntegrityOffset
+M.getGearboxSynchroTotalWear = getGearboxSynchroTotalWear
+M.setGearboxSynchroWear = setGearboxSynchroWear
 M.sendMeetScoreData = sendMeetScoreData
 M.openCarMeetLatches = openCarMeetLatches
 M.getCarMeetRatingData = getCarMeetRatingData

@@ -13,6 +13,7 @@ local dtable = {}
 dtable["engine"] = {}
 dtable["powertrain"] = {}
 dtable["wheels"] = {}
+dtable["gearbox"] = {}
 
 table.insert(dtable["engine"], "engineReducedTorque")
 table.insert(dtable["engine"], "engineDisabled")
@@ -42,7 +43,7 @@ table.insert(dtable["engine"], "exhaustBroken")
 
 table.insert(dtable["powertrain"], "mainEngine")
 table.insert(dtable["powertrain"], "torqueConverter")
-table.insert(dtable["powertrain"], "gearbox")
+--table.insert(dtable["powertrain"], "gearbox")
 table.insert(dtable["powertrain"], "rangebox")
 table.insert(dtable["powertrain"], "transfercase")
 table.insert(dtable["powertrain"], "torsionReactorR")
@@ -61,6 +62,16 @@ table.insert(dtable["powertrain"], "wheelaxleRR")
 table.insert(dtable["powertrain"], "spindleRR")
 table.insert(dtable["powertrain"], "spindleRL")
 table.insert(dtable["powertrain"], "clutch")
+
+-- 1.17.4 gearbox damage
+table.insert(dtable["gearbox"], "synchro_-1")
+table.insert(dtable["gearbox"], "synchro_1")
+table.insert(dtable["gearbox"], "synchro_2")
+table.insert(dtable["gearbox"], "synchro_3")
+table.insert(dtable["gearbox"], "synchro_4")
+table.insert(dtable["gearbox"], "synchro_5")
+table.insert(dtable["gearbox"], "synchro_6")
+table.insert(dtable["gearbox"], "synchro_7")
 
 
 -- Standard 4 wheel vehicles
@@ -184,6 +195,18 @@ elseif dev == "catastrophicOverTorqueDamage" then
 		dtable[k][dev] = tostring(damageTracker.getDamage(k,dev) or false) .. "," .. tostring(powertrain.getDevice('mainEngine').overTorqueDamage)
 	else
 		dtable[k][dev] = tostring(damageTracker.getDamage(k,dev) or false) .. ",0.0" -- fallback to 0.0 overTorqueDamage if engine missing
+	end
+elseif k == "gearbox" then
+	if powertrain and powertrain.getDevice('gearbox') and powertrain.getDevice('gearbox').type == "manualGearbox" then
+		local gindex = string.gsub(dev, "synchro_", "")
+		gindex = tonumber(gindex)
+		if gindex < powertrain.getDevice('gearbox').gearCount then
+		dtable[k][dev] = "" .. powertrain.getDevice('gearbox').synchroWear[gindex]
+		else
+		dtable[k][dev] = "0"
+		end
+	else
+	   dtable[k][dev] = "0"
 	end
 else
 dtable[k][dev] = tostring(damageTracker.getDamage(k,dev) or false)

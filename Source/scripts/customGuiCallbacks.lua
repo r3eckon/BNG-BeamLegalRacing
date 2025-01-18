@@ -1262,6 +1262,23 @@ extensions.betterpartmgmt.setCacheValidBypass(true) -- bypass valid cache to for
 extensions.blrglobals.blrFlagSet("jbeamCacheFinished", false) -- triggers update from flowgraph to show imgui message
 end
 
+ftable["toggleLightManager"] = function(p)
+local dtable = {}
+local ready = extensions.blrLightManager.isReady()
+dtable["lmtoggle"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+extensions.blrglobals.blrFlagSet("lightManagerToggle", p == 1)
+
+-- to get immediate effects from toggle
+if p==1 and (not ready) then -- if light manager was off, tell fg to init
+extensions.blrglobals.blrFlagSet("lightManagerInitRequest", true)
+elseif (p==0) and ready then -- if light manager was on, turn off lights and reset
+extensions.blrLightManager.reset()
+end
+
+end
+
+
 local ptable = {}
 local rtable = {}
 

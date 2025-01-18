@@ -1,7 +1,8 @@
 name=Used Car Shop
 slots=4
 chance=0.9
-rpchance=0.3
+dchance=0.4
+rpchance=0.4
 shopid=0
 models=used_all
 slotp0=824.29364013672,-0.1175025672017,147.83654785156

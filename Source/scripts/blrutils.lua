@@ -527,7 +527,7 @@ toRet = toRet .. paintdata.clearcoatRoughness
 return toRet
 end
 
-local function processCarShopRandoms(dtable, seed)
+local function processCarShopRandoms(dtable, seed, defective)
 local toRet = {}
 local baseprice = ssplit(dtable["baseprice"], ",")
 local odometer = ssplit(dtable["odometer"], ",")
@@ -541,11 +541,18 @@ else
 toRet["baseprice"] = tonumber(baseprice[1])
 end
 
+
 if #odometer > 1 then 
 toRet["odometer"] = tonumber(odometer[1]) + (1.0-roll) * (tonumber(odometer[2])-tonumber(odometer[1]))
 else 
 toRet["odometer"] = tonumber(odometer[1])
 end
+
+if defective then -- 1.17.4 make defective cars a bit cheaper and lower odometer
+toRet["baseprice"] = toRet["baseprice"] * 0.8
+toRet["odometer"] = toRet["odometer"] * 0.8
+end
+
 math.randomseed(os.time()) -- Return seed to pseudorandom value 
 return toRet
 end
@@ -705,8 +712,10 @@ end
 
 for _,v in pairs(FS:directoryList("beamLR/races")) do	-- Loop over all available race clubs to reset progress files
 if v ~= "/beamLR/races/integrity" then					-- this should automatically detect all folders except integrity store
+if FS:fileExists(v .. "/progress") then -- 1.17.4 shared progress, some club folders have no progress file
 deleteFile(v .. "/progress")
 copyFile("beamLR/init/emptyRaceProgress", v .. "/progress")
+end
 end
 end
 
@@ -781,10 +790,12 @@ end
 
 -- Race progress data
 local dest = ""
-for _,v in pairs(FS:directoryList("beamLR/races")) do	
+for _,v in pairs(FS:directoryList("beamLR/races")) do
 if v ~= "/beamLR/races/integrity" then
-dest = v:gsub("beamLR", "beamLR/backup")				
+dest = v:gsub("beamLR", "beamLR/backup")
+if FS:fileExists(v .. "/progress") then -- 1.17.4 shared progress, some club folders have no progress file
 copyFile(v .. "/progress", dest .. "/progress")
+end
 end
 end
 
@@ -842,8 +853,10 @@ end
 local dest = ""
 for _,v in pairs(FS:directoryList("beamLR/backup/races")) do	
 if v ~= "/beamLR/backup/races/integrity" then
-dest = v:gsub("beamLR/backup", "beamLR")				
+dest = v:gsub("beamLR/backup", "beamLR")		
+if FS:fileExists(v .. "/progress") then -- 1.17.4 shared progress, some club folders have no progress file
 copyFile(v .. "/progress", dest .. "/progress")
+end
 end
 end
 
@@ -1456,9 +1469,11 @@ local list = FS:directoryList("beamLR/races")
 local current = {}
 for k,v in pairs(list) do
 if v ~= "/beamLR/races/integrity" then
+if FS:fileExists(v .. "/progress") then -- 1.17.4 shared progress, some club folders have no progress file
 current = loadDataTable(v .. "/progress" )["current"]
 complete = current == "hero"
 if not complete then break end
+end
 end
 end
 return complete

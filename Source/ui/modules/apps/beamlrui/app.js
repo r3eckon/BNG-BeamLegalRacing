@@ -189,6 +189,7 @@ angular.module('beamng.apps')
 		  scope.inputData['dbypass'] = data['dbypass']
 		  scope.inputData['lgslots'] = data['lgslots']
 		  scope.inputData['allowtesmode'] = data['allowtesmode']
+		  scope.inputData['lmtoggle'] = data['lmtoggle']
 		  
       })
 	  
@@ -975,7 +976,6 @@ angular.module('beamng.apps')
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setTrackEventSlicksMode", "allowtesmode")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);  
 	  }
-	  
 	  scope.setInventoryMode = function(m)
 	  {
 		  scope.invmode = m
@@ -984,6 +984,13 @@ angular.module('beamng.apps')
 	  scope.startManualCache = function(m)
 	  {
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("startManualJbeamCache")`)
+	  }
+	  
+	  scope.toggleLightManager = function(t)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("lmtoggle", ${t})`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("toggleLightManager", "lmtoggle")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);  
 	  }
 	  
     }
