@@ -11,6 +11,10 @@ local partPrice = {}
 local categoryData = {}
 local currentFilter = ""
 
+local jbeamFileMap = {}
+local fullSlotNameLibrary = {}
+local fullPartNameLibrary = {}
+
 local function copytable(input)
 local output = {}
 for k,v in pairs(input) do
@@ -237,8 +241,18 @@ local function getPartPriceLibrary()
 return partPrice
 end
 
+-- 1.17.5 slot favorites
+local favoritesData = {}
+local function loadFavorites()
+favoritesData = loadTableFromFile("beamLR/slotFavorites", false)
+print("loaded favorites dump")
+dump(favoritesData)
+end
+
+
 local function loadCategories(file)
 categoryData = loadTableFromFile(file, false)
+loadFavorites() -- 1.17.5 slot favorites
 currentFilter = "all"
 end
 
@@ -251,6 +265,19 @@ local function categoryFilter(source, keyMode)
 local toRet = {}
 local part = ""
 local cm = false
+-- 1.17.5 slot favorites
+if currentFilter=="favorites" then
+for k,v in pairs(source) do
+if keyMode then part = k else part = v end
+if favoritesData[part] and favoritesData[part] == "true" then
+if not toRet[k] then toRet[k] = {} end
+for i,p in pairs(v) do
+toRet[k][p] = true
+end
+end
+end
+
+else
 
 for k,v in pairs(source) do
 cm = false													-- Reset current match flag
@@ -265,8 +292,12 @@ cm = true
 end
 if cm then break end									-- Stop looping over filters once match has been found
 end
+end
 
 end
+
+
+
 return toRet
 end
 
@@ -534,47 +565,16 @@ return toRet
 end
 
 local function getPartNameLibrary()
-local avail = getMergedSlotMaps()
-local toRet = {}
-for k,v in pairs(avail) do
-for _,part in pairs(v) do
-toRet[part] = getPartName(part)
-end
-end
-return toRet
+-- 1.17.5 simplified, using the jbeam cache full part name library
+-- instead of generating it on the fly
+return fullPartNameLibrary
 end
 
 local function getSlotNameLibrary()
-local toRet = {}
-local avail = getMergedSlotMaps()
-local cjbeam = {}
-local cslots = {}
-local newfmt = false
-for k,v in pairs(avail) do
-for _,part in pairs(v) do
-cjbeam = getPartJbeam(part)
-if cjbeam ~= nil then
-if cjbeam["slots2"] then -- updated for new jbeam slot format
-cslots = cjbeam["slots2"]
-newfmt=true
-else
-cslots = cjbeam["slots"]
-end
-if cslots ~= nil then
-for _,s in pairs(cslots) do
-if newfmt then
-toRet[s["name"]] = s["description"]
-if not s["description"] or s["description"] == "" then toRet[s["name"]] = s["name"] end --1.14.3 fix for missing slot names
-else
-toRet[s["type"]] = s["description"]
-if not s["description"] or s["description"] == "" then toRet[s["type"]] = s["type"] end --1.14.3 fix for missing slot names
-end
-end
-end
-end
-end
-end
-return toRet
+-- 1.17.5 simplified, using the jbeam cache full slot name library
+-- instead of generating it on the fly, should also include some
+-- slots that were missing using previous version
+return fullSlotNameLibrary
 end
 
 local function searchFilter(source, keyMode, deepSearch)	-- Directly matches filter with part list for simple search function
@@ -855,16 +855,54 @@ end
 return toRet
 end
 
+local configDataCache = {}
+local configPathCache = {}
+local ilinksCache = {}
+
+-- parse ilinks strings and cache parsed table to optimize repair cost calc flowgraph
+local parsedInventoryLinksCache = {}
+
+local function parseInventoryLinks()
+parsedInventoryLinksCache = {}
+local ilinks = configDataCache["ilinks"]
+
+if not ilinks then return end -- no ilinks detected, probably a new vehicle
+
+local csplit = {}
+for k,v in pairs(ilinks) do
+csplit = extensions.blrutils.ssplit(v, ",")
+parsedInventoryLinksCache[k] = {tonumber(csplit[1]), tonumber(csplit[2])}
+end
+
+end
+
+local function getScaledPartPrice(value, odometer)
+local toRet = 1.0
+
+if odometer >= 30000000 then
+toRet = 0.9 - (0.8 * (math.min(1.0, odometer / 250000000)))
+end
+
+return toRet * value
+end
+
+
 local function getPartPricesCommonSlots()
 local model = getMainPartName()
 local parts = getVehicleParts()
 local toRet = {}
 local ckey = ""
+local codo = 0
 
 for k,v in pairs(parts) do
 ckey = string.gsub(k, model .. "_", "")
 if v and v ~= "" then
-toRet[ckey] = getPartPrice(v)
+if not parsedInventoryLinksCache[v] then
+codo = 0
+else
+codo = extensions.blrPartInventory.getPart(parsedInventoryLinksCache[v][1])[2]
+end
+toRet[ckey] = getScaledPartPrice(getPartPrice(v) or getPartPrice("default"), codo)
 else
 toRet[ckey] = 0
 end
@@ -989,13 +1027,46 @@ local function getCSLDefaults()
 return csl_defaults
 end
 
-local configDataCache = {}
-local configPathCache = {}
-local ilinksCache = {}
+
+-- Used to scale repair costs on VLUA side to avoid having to parse
+-- advanced repair string on gelua every frame to update repair cost
+local function sendInventoryDataToVLUA()
+local vehid = extensions.blrutils.blrvarGet("playervehid") -- actual veh id, avoids unicycle
+local veh = scenetree.findObjectById(vehid)
+veh:queueLuaCommand("extensions.blrVehicleUtils.resetInventoryData()")
+
+local pid = 0
+local inv_type = "" -- also used as link_key
+local inv_odo = 0
+local inv_int = 0
+local inv_use = 0
+local link_odo = 0
+
+local cinvdata = {}
+
+-- (pid, inv_type, inv_odo, inv_int, inv_use, link_odo)
+for k,v in pairs(parsedInventoryLinksCache) do
+inv_type = k
+pid = v[1]
+link_odo = v[2]
+cinvdata = extensions.blrPartInventory.getPart(pid)
+inv_odo = cinvdata[2]
+inv_int = cinvdata[3]
+inv_use = cinvdata[4]
+veh:queueLuaCommand(string.format("extensions.blrVehicleUtils.receiveInventoryData(%d, %q, %f, %f, %d, %f)", pid, inv_type, inv_odo, inv_int, inv_use, link_odo))
+end
+
+end
+
 
 local function loadConfigFileData(gid)
 configPathCache = "beamLR/garage/config/car" .. gid
 configDataCache = jsonReadFile(configPathCache)
+-- 1.17.5 odo scaled part repair cost
+parseInventoryLinks() -- parse updated inventory links
+sendInventoryDataToVLUA() -- send updated data to vlua
+generateDamageCostTable() -- regenerate damage costs
+-- 1.17.5 ^
 return configDataCache
 end
 
@@ -1065,6 +1136,11 @@ jsonWriteFile(configPathCache, configDataCache)
 extensions.blrPartInventory.save()
 -- 1.16 ^
 extensions.core_vehicle_partmgmt.setPartsConfig(delayedSlotSet)
+-- 1.17.5 odo scaled part repair cost
+parseInventoryLinks() -- parse updated inventory links
+sendInventoryDataToVLUA() -- send updated data to vlua
+generateDamageCostTable() -- regenerate damage costs
+-- 1.17.5 ^
 end
 
 local function setSlotWithChildren(slot, val, pid)
@@ -1473,6 +1549,7 @@ end
 jsonWriteFile(configPathCache, configFile, true)
 end
 
+loadConfigFileData(gid) -- reload config file data to get ilinks into cache
 end
 
 -- For used parts, value represents vehicle odometer when part was added
@@ -1553,8 +1630,14 @@ local filter = currentFilter
 local cname = ""
 
 for slot,_ in pairs(source) do
-cname = sname[slot] or slot
 
+-- 1.17.5 slot favorites
+if filter == "favorites" then
+if favoritesData[slot] and favoritesData[slot] == "true" then
+toRet[slot] = true
+end
+else
+cname = sname[slot] or slot
 for stype,category in pairs(categoryData) do
 if (filter == "all") or (category == filter) then
 if (string.match(cname:upper(), stype:upper())) or (string.match(slot:upper(), stype:upper())) then
@@ -1563,7 +1646,7 @@ break
 end
 end
 end
-
+end
 end
 
 return toRet
@@ -1742,9 +1825,7 @@ end
 end
 
 
-local jbeamFileMap = {}
-local fullSlotNameLibrary = {}
-local fullPartNameLibrary = {}
+
 local cacheReady = false -- used to avoid trying to use cache in UI init before its loaded
 
 -- returns false when json file cannot be read 
@@ -2136,6 +2217,33 @@ end
 return toRet
 end
 
+
+local function getSortedJbeamSlotsTable(slots)
+local sknv = {}
+local toRet = {}
+
+
+-- build internal slot name key, ui slot name value table
+for k,v in pairs(slots) do
+sknv[v.type] = fullSlotNameLibrary[v.type]
+end
+
+for k,v in valueSortedPairs(sknv) do
+table.insert(toRet, k)
+end
+
+return toRet
+end
+
+
+local function getParsedInventoryLinks()
+return parsedInventoryLinksCache
+end
+
+
+M.getParsedInventoryLinks = getParsedInventoryLinks
+M.loadFavorites = loadFavorites
+M.getSortedJbeamSlotsTable = getSortedJbeamSlotsTable
 M.getRandomItemSetThresholds = getRandomItemSetThresholds
 M.getJbeamChildSlotMap = getJbeamChildSlotMap
 M.buildJbeamChildSlotMap = buildJbeamChildSlotMap

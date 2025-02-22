@@ -1,9 +1,10 @@
 
 
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.17.4/beamLegalRacing1.17.4.zip
+
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.17.5/beamLegalRacing1.17.5.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.17.4
+# Beam Legal Racing 1.17.5
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -80,7 +81,7 @@ The game will give you a chance to view the contents of your old userfolder cont
 
 The "BeamLR" layout will be loaded on scenario start. Any changes made to this UI layout will be reflected when playing BeamLR in case the default layout doesn't fit on your screen.
 
-### Major Feature Update Overview
+## Major Feature Update Overview
 
 Version 1.6 adds N2O tank persistence. Garage files from previous versions are missing this value and will default to empty N2O tanks. Nitrous tanks can be refilled at the repair shop.
 
@@ -121,6 +122,8 @@ Version 1.17 adds new interactive areas ([car meets](https://github.com/r3eckon/
 Version 1.17.2 adds new track events on West Coast USA, track event prefabs and an option to give all track event opponents slick tires to improve their racing ability. This version of the mod also adds content from the 0.34 update of BeamNG including the new Bruckell Nine and updated level files.
 
 Version 1.17.4 adds the Valo City addon, defective vehicles to used car shops (SLRR like, missing engine, wheels, etc), shared race club progress files (for Valo City, same drag club progress at multiple locations) and gearbox damage persistence (grinding gears damaged saved, must pay to repair). This update also slightly tweaked the odometer based integrity decrease to improve scaling, the effect should be overall a bit lessened for most cars.
+
+Version 1.17.5 adds nested tree part edit menu similar to vanilla part edit menu (can be toggled in UI options), a button to export your current config to freeroam (done from the config page of part edit), buttons to add slots to a list of favorites accessible in part edit and part buying menu and a UI to view history of past track event results. Part specific repair costs are now linked to part odometer so older parts and vehicles are cheaper to repair.
 
 ## Getting started
 BeamLR is loaded as a freeroam mission. Use the following spawn point depending on map choice:
@@ -896,3 +899,20 @@ Thank you for playing BeamLR!
 * Jbeam caching process will now be started after game updates (to load potential jbeam file changes)
 * Tweaked odometer based integrity decrease (starts at 200kkm, better scaling)
 * Fixed bad race waypoint on East Coast USA
+
+### 1.17.5 
+* Added nested tree view in part edit UI (similar behavior to vanilla part edit menu)
+* Added tracking of approximate total of money spent on car (repairs, added or removed parts)
+* Added button to export current config for use in freeroam (button in config page of part edit menu)
+* Added button to add slots to a list of favorites in part edit and buying menu
+* Added UI to view track event history (accessed through the Track Events page of the main menu)
+* Fixed West Coast USA AI not racing on derby track events 
+* Garage UI can now show extra details on cars (repair cost, fuel in tank, approximate total spent)
+* Advanced Repair Cost & Advanced Repair UI now force enabled to prevent potential inventory issues
+* Potential fix for multiple oil leak messages getting spammed in some situations
+* Slots under wheel category now listed inside suspension category (to make room for favorites)
+* Fixed vanilla waypoints breaking West Coast USA track event pathing
+* Repair cost now linked to part odometer (same price as used part of same odo at a 100% scale part shop)
+* Fixed incorrect orientation for some track event start teleport points
+* Fixed track event "teleport to start" placing player vehicle partly underground on some tracks
+* Fixed vehicle frozen when giving up race before countdown is finished

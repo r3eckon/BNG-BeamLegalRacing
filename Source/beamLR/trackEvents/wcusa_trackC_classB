@@ -1,5 +1,5 @@
 triggers=BLRTrig_TrackCP12,BLRTrig_TrackCP13,BLRTrig_TrackCP14,BLRTrig_TrackCP7,BLRTrig_TrackCP8,BLRTrig_TrackCP1
-waypoints=blrwp_trackwp1,blrwp_trackwp22,blrwp_trackwp23,blrwp_trackwp24,blrwp_trackwp25,blrwp_trackwp26,blrwp_trackwp16,blrwp_trackwp17,blrwp_trackwp18,wp_racetrack1
+waypoints=blrwp_trackwp1,blrwp_trackwp22,blrwp_trackwp23,blrwp_trackwp24,blrwp_trackwp25,blrwp_trackwp26,blrwp_trackwp16,blrwp_trackwp17,blrwp_trackwp18,blrwp_trackwp27
 wpspd=blrwp_trackaiwp7:25,blrwp_trackwp1:22,blrwp_trackwp3:43,blrwp_trackwp4:32,blrwp_trackwp5:30,blrwp_trackwp6:27,blrwp_trackwp7:47,blrwp_trackwp8:47,blrwp_trackwp9:30,blrwp_trackwp11:40,blrwp_trackwp12:28,blrwp_trackwp14:32,blrwp_trackwp15:47,blrwp_trackwp16:28,blrwp_trackwp17:20,blrwp_trackwp18:38,blrwp_trackwp20:25,blrwp_trackwp21:19,blrwp_trackwp26:30,blrwp_trackaiwp1:32,blrwp_trackaiwp2:35,blrwp_trackaiwp3:35,blrwp_trackaiwp4:32,blrwp_trackaiwp5:50
 configs=class:B
 title=WCUSA Race Track Class B Championship (Short Layout)
@@ -46,5 +46,5 @@ spos7=443.18728637695,-248.18939208984,145.73551940918
 srot7=0.0085992166154399,0.0043020024332605,-0.70091254228741,0.71318241307036
 spos8=451.23071289063,-255.61344909668,145.82604980469
 srot8=0.0042135016097142,0.010235323723726,-0.70088769395863,0.71318575771661
-espos=451.23071289063,-255.61344909668,145.82604980469
-esrot=0.0042135016097142,0.010235323723726,-0.70088769395863,0.71318575771661
+espos=471.26510620117,-251.83891296387,146.05332946777
+esrot=0.0078528511447275,0.0072180102021908,-0.70574667364991,0.70838398181333

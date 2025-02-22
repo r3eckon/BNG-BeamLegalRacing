@@ -17,6 +17,8 @@ angular.module('beamng.apps')
 	  scope.vehdamage = 0
 	  scope.inspection = false
 	  scope.currentevent = {}
+	  scope.mode = 0
+	  scope.pastevents = {}
 	  
 	  scope.$on('beamlrEventBrowserPlayerData', function (event, data) {
           scope.playerdata = data
@@ -41,6 +43,7 @@ angular.module('beamng.apps')
 	  
 	  scope.$on('beamlrToggleTrackEventBrowser', function (event, data) {
           scope.enabled = data
+		  scope.mode = 0
       })
 	  
 	  scope.$on('beamlrEventBrowserVehicleDamage', function (event, data) {
@@ -58,7 +61,16 @@ angular.module('beamng.apps')
 	  scope.$on('beamlrEventBrowserReloadUID', function (event, data) {
           scope.selectedID = data
       })
+
+	  scope.$on('beamlrTogglePastEventsList', function (event, data) {
+          scope.enabled = data
+		  scope.mode = 1
+      })
 	  
+	  scope.$on('beamlrPastEventData', function (event, data) {
+          scope.pastevents = data
+      })  
+
 	  scope.eventSelected = function(file, uid){
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("selectedEvent", "file", "${file}")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("selectedEvent", "uid", "${uid}")`)
@@ -80,6 +92,8 @@ angular.module('beamng.apps')
 			  bngApi.engineLua(`extensions.customGuiCallbacks.exec("hideEventBrowser")`)
 		  }
 	  }
+	  
+	  
 	  
     }
   }

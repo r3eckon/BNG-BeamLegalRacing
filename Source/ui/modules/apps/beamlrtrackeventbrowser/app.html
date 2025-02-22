@@ -4,6 +4,8 @@
 
 <span ng-click="toggleui()" style="float:left; text-align:center; transform:translate(0px, 0px); width:40px; font-size:30px;">X</span>
 
+<div ng-if="mode == 0">
+
 <h1 style="text-align:center; margin:auto; width:400px; line-height:50px;">Track Event Browser</h1>
 
 <table style="margin:auto; width:99%; height:550px; table-layout:fixed;">
@@ -143,6 +145,42 @@
 
 </div>
 
+<div ng-if="mode == 1">
+<h1 style="text-align:center; margin:auto; width:400px; line-height:50px;">Event History</h1>
+
+<table style="table-layout:fixed; text-align:center; width:99%; vertical-align:top;">
+<tr style="font-size:20px; font-weight:bold;">
+<td style="width:45%;">Event</td>
+<td style="width:15%;">Layout</td>
+<td style="width:10%;">Position</td>
+<td style="width:30%;">Rewards</td>
+</tr>
+</table>
+
+<div style="margin:auto; overflow-y:scroll; max-height:549px; width:99%; text-align:center; vertical-align:top; background-color:rgba(0,0,0,0.2);" >
+<table style="table-layout:fixed; width:100%;">
+<tr ng-repeat="(k,v) in pastevents">
+<td style="width:45%;">{{v['title']}}</td>
+<td style="width:15%;">{{v['layout']}}</td>
+<td style="width:10%;">{{v['position']}}</td>
+<td style="width:30%;">
+<span ng-if="v['money'] > 0">Money: ${{v['money'] | number:2}}</span>
+<span ng-if="v['rep'] > 0"><br>Reputation: {{v['rep']}}</span>
+<span ng-if="v['parts'] != 'None'"><br>Part: {{v['parts']}}</span>
+<span ng-if="v['cars'] != 'None'"><br>Car: {{v['cars']}}</span>
+<span ng-if="v['money'] <= 0 && v['rep'] <= 0 && v['parts'] == 'None' && v['cars'] == 'None'">None</span>
+</td>
+</tr>
+</table>
+
+</div>
+
+
+
+</div>
+
+
+</div>
 <div ng-if="enabled == false" style="z-index:8; position:relative;">
 
 

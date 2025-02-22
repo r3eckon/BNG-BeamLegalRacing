@@ -275,11 +275,18 @@ local function getSettingValue(key)
 return settings.getValue(key)
 end
 
-local function loadDataTable(file)
+-- 1.17.5 numkey, to load as array, allows appending to table without looping over keys
+local function loadDataTable(file, numkey)
 local filedata = readFile(file)
 local dtable = {}
+if numkey then
+for k,v in string.gmatch(filedata, "([^%c]+)=([^%c]+)") do
+    dtable[tonumber(k)] = v
+end
+else
 for k,v in string.gmatch(filedata, "([^%c]+)=([^%c]+)") do
     dtable[k] = v
+end
 end
 return dtable
 end
@@ -693,6 +700,7 @@ deleteFile("beamLR/itemInventory") -- 1.15 item inventory needs deletion
 deleteFile("beamLR/usedPartDayData") -- 1.16 used part day data
 deleteFile("beamLR/carMeetDayData") -- 1.17 car meet day data
 deleteFile("beamLR/ownedProperties") -- 1.17 properties
+deleteFile("beamLR/trackEventResults") -- 1.17.5 past event data
 extensions.blrItemInventory.resetInventory() -- need to do this to avoit items staying after reset
 extensions.blrPartInventory.reset() -- same thing with part inventory
 extensions.blrPartInventory.resetUsedPartShopDayData() -- same thing with used part day data
@@ -731,6 +739,7 @@ copyFile("beamLR/init/itemInventory",  "beamLR/itemInventory")
 copyFile("beamLR/init/usedPartDayData",  "beamLR/usedPartDayData") -- 1.16 part shop day data
 copyFile("beamLR/init/carMeetDayData",  "beamLR/carMeetDayData") -- 1.17 car meet day data
 copyFile("beamLR/init/ownedProperties",  "beamLR/ownedProperties") -- 1.17 properties
+copyFile("beamLR/init/trackEventResults",  "beamLR/trackEventResults") -- 1.17.5 track event results
 -- Uses seed based random starter car ID out of available setups, not based on difficulty
 copyFile("beamLR/init/garage/car" .. carid , "beamLR/garage/car0")
 copyFile("beamLR/init/garage/config/car" .. carid , "beamLR/garage/config/car0")
@@ -767,6 +776,7 @@ copyFile("beamLR/usedPartDayData", "beamLR/backup/usedPartDayData") -- 1.16 used
 extensions.blrCarMeet.updateDayData()
 copyFile("beamLR/carMeetDayData", "beamLR/backup/carMeetDayData") -- 1.17 car meet
 copyFile("beamLR/ownedProperties", "beamLR/backup/ownedProperties") -- 1.17 properties
+copyFile("beamLR/trackEventResults", "beamLR/backup/trackEventResults") -- 1.17.5 track event results
 
 
 -- Garage data
@@ -825,6 +835,7 @@ copyFile("beamLR/backup/itemInventory", "beamLR/itemInventory")
 copyFile("beamLR/backup/usedPartDayData", "beamLR/usedPartDayData") -- 1.16 used part day data
 copyFile("beamLR/backup/carMeetDayData", "beamLR/carMeetDayData") -- 1.17 car meet
 copyFile("beamLR/backup/ownedProperties", "beamLR/ownedProperties") -- 1.17 properties
+copyFile("beamLR/backup/trackEventResults", "beamLR/trackEventResults") -- 1.17.5 track event results
 
 extensions.blrItemInventory.loadInventory() -- need to load inventory right now otherwise empty inventory table will overwrite restored backup
 extensions.blrPartInventory.load() -- probably should do the same for new part inventory system

@@ -157,6 +157,9 @@ list = extensions.betterpartmgmt.getSortedGarageParts()
 extensions.customGuiStream.sendDataToUI("sortedGarageParts", list)
 end
 
+-- 1.17.5 slot tree search mode, to use old UI with search or category filter
+extensions.customGuiStream.sendDataToUI("searching", true)
+
 -- 1.16.4 fix, clear cache after calling getPart to ensure no AVB cache problems happen
 -- this is in UI related code because getFullPartPrices calls jbeamio.getPart
 -- MAKE SURE THIS STAYS AT THE BOTTOM
@@ -205,6 +208,9 @@ extensions.customGuiStream.sendDataToUI("sortedGarageSlots", list)
 list = extensions.betterpartmgmt.getSortedGarageParts()
 extensions.customGuiStream.sendDataToUI("sortedGarageParts", list)
 end
+
+-- 1.17.5 slot tree search mode, to use old UI with search or category filter
+extensions.customGuiStream.sendDataToUI("searching", lastSearch ~= "all")
 
 -- 1.16.4 fix, clear cache after calling getPart to ensure no AVB cache problems happen
 -- this is in UI related code because getFullPartPrices calls jbeamio.getPart
@@ -302,6 +308,11 @@ extensions.customGuiStream.sendDataToUI("fidInventory",fidlist)
 extensions.customGuiStream.sendDataToUI("fidSortedSlots",fidsortedslots)
 extensions.customGuiStream.sendDataToUI("fidSlotNames",fidslotnames)
 extensions.customGuiStream.sendDataToUI("fidPartNames",fidpartnames)
+
+-- 1.17.5 part tree
+extensions.blrSlotTree.buildSlotTree()
+local slotTree = extensions.blrSlotTree.getTree()
+extensions.customGuiStream.sendDataToUI("slotTree",slotTree)
 
 -- 1.16.4 fix, clear cache after calling getPart to ensure no AVB cache problems happen
 -- this is in UI related code because getFullPartPrices calls jbeamio.getPart
@@ -929,6 +940,15 @@ extensions.blrglobals.blrFlagSet("imToggle", false) -- 1.16.9 fix, toggle off IM
 extensions.customGuiStream.towingUIToggle(false) -- 1.16.9 fix, close towing UI to prevent towing in safe mode
 end
 
+-- 1.17.5 spent money tracking
+local gid = extensions.blrglobals.gmGetVal("cvgid")
+local gdata = extensions.blrutils.loadDataTable("beamLR/garage/car" .. gid)
+local spent = tonumber(gdata["totalspent"] or "0")
+spent = spent + p["cost"]
+if math.floor(math.abs(spent * 100.0)) == 0 then spent = 0 end -- avoids floating point bs (using floats for money is dumb)
+gdata["totalspent"] = spent
+extensions.blrutils.saveDataTable("beamLR/garage/car" .. gid, gdata)
+
 
 -- finally execute delayed slot set
 -- 1.16 edit, passing ilinks as parameter to ensure removed/deleted part ilinks are saved to config
@@ -962,6 +982,15 @@ extensions.customGuiStream.toggleAdvancedRepairUI(false) -- force close advanced
 extensions.blrglobals.blrFlagSet("imToggle", false) -- 1.16.9 fix, toggle off IMGUI buttons in safe mode
 extensions.customGuiStream.towingUIToggle(false) -- 1.16.9 fix, close towing UI to prevent towing in safe mode
 end
+
+-- 1.17.5 spent money tracking
+local gid = extensions.blrglobals.gmGetVal("cvgid")
+local gdata = extensions.blrutils.loadDataTable("beamLR/garage/car" .. gid)
+local spent = tonumber(gdata["totalspent"] or "0")
+spent = spent + p["cost"]
+if math.floor(math.abs(spent * 100.0)) == 0 then spent = 0 end -- avoids floating point bs (using floats for money is dumb)
+gdata["totalspent"] = spent
+extensions.blrutils.saveDataTable("beamLR/garage/car" .. gid, gdata)
 
 -- repair all can just trigger flowgraph repair with flag, skipping part that charges player
 extensions.blrglobals.blrFlagSet("uiAdvancedRepairRequest", true)
@@ -1155,6 +1184,15 @@ extensions.blrglobals.blrFlagSet("advancedVehicleBuilding", true)
 -- BELOW FUNCTION CALL FIXED ISSUE WITH FIRST EDIT NOT USING AVB
 require("jbeam/io").finishLoading() -- clearing jbeam cache before edit
 
+-- 1.17.5 spent money tracking
+local gid = extensions.blrglobals.gmGetVal("cvgid")
+local gdata = extensions.blrutils.loadDataTable("beamLR/garage/car" .. gid)
+local spent = tonumber(gdata["totalspent"] or "0")
+spent = spent + p["price"]
+if math.floor(math.abs(spent * 100.0)) == 0 then spent = 0 end -- avoids floating point bs (using floats for money is dumb)
+gdata["totalspent"] = spent
+extensions.blrutils.saveDataTable("beamLR/garage/car" .. gid, gdata)
+
 -- This function call is modified for 1.16 advanced inventory
 extensions.betterpartmgmt.setSlotWithChildren(p["slot"], p["part"], p["pid"])
 end
@@ -1277,6 +1315,42 @@ extensions.blrLightManager.reset()
 end
 
 end
+
+
+ftable["setEditTreeMode"] = function(p)
+local dtable = {}
+dtable["edittreemode"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+end
+
+
+ftable["guiMessage"] = function(p)
+guihooks.trigger('Message', {ttl = p["ttl"] or 10, category=p["category"] or ("" .. os.time()), msg = p["msg"], icon = p["icon"] or 'directions_car'})
+end
+
+ftable["exportConfig"] = function(p)
+extensions.core_vehicle_partmgmt.saveLocal(p .. ".pc")
+extensions.load('util_screenshotCreator')
+util_screenshotCreator.startWork({selection=p})
+guihooks.trigger('Message', {ttl = 10, category="configsaving", msg = "Config has been exported for use in freeroam!", icon = "save"})
+end
+
+ftable["slotFavoriteToggle"] = function(p)
+local favorites = extensions.blrutils.loadDataTable("beamLR/slotFavorites")
+if favorites[p] and favorites[p] == "true" then
+favorites[p] = "false"
+else
+favorites[p] = "true"
+end
+extensions.blrutils.saveDataTable("beamLR/slotFavorites", favorites)
+extensions.betterpartmgmt.loadFavorites() -- reload new favorites
+end
+
+ftable["showPastEvents"] = function(p)
+local pastevents = extensions.blrutils.loadDataTable("beamLR/trackEventResults")
+extensions.customGuiStream.togglePastEventViewer(pastevents)
+end
+
 
 
 local ptable = {}

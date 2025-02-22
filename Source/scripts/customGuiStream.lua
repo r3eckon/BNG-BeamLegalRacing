@@ -416,6 +416,28 @@ local function sendPartBuyResult(result)
 guihooks.trigger("beamlrPartBuyResult", result)
 end
 
+local function togglePastEventViewer(data)
+local toSend = {}
+local csplit = {}
+
+for k,v in pairs(data) do
+csplit = extensions.blrutils.ssplit(v, ",")
+toSend[k] = {}
+toSend[k]["title"] = csplit[1]
+toSend[k]["layout"] = csplit[2]
+toSend[k]["position"] = csplit[3]
+toSend[k]["money"] = csplit[4]
+toSend[k]["rep"] = csplit[5]
+toSend[k]["parts"] = csplit[6]
+toSend[k]["cars"] = csplit[7]
+end
+
+guihooks.trigger("beamlrPastEventData", toSend)
+guihooks.trigger("beamlrTogglePastEventsList", true)
+end
+
+
+M.togglePastEventViewer = togglePastEventViewer
 M.customHook = customHook
 M.sendDriftCombo = sendDriftCombo
 M.sendPartBuyResult = sendPartBuyResult

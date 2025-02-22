@@ -248,17 +248,17 @@ end
 -- what mileage prevents leak, leak rate, etc.
 local function oilLeakMessage(engine, oilpan)
 if oilpan >= 1000.0 then 
-guihooks.trigger('Message', {ttl = 10, msg = 'No oilpan installed! Vehicle can\'t hold oil!', icon = 'format_color_reset'})
+guihooks.trigger('Message', {ttl = 10, category="oilleak", msg = 'No oilpan installed! Vehicle can\'t hold oil!', icon = 'format_color_reset'})
 return
 end
 
 
 if engine > 0 and oilpan > 0 then
-guihooks.trigger('Message', {ttl = 10, msg = 'Vehicle leaks oil! Use lower mileage engine and oil pan to fix it.', icon = 'format_color_reset'})
+guihooks.trigger('Message', {ttl = 10, category="oilleak", msg = 'Vehicle leaks oil! Use lower mileage engine and oil pan to fix it.', icon = 'format_color_reset'})
 elseif engine > 0 then
-guihooks.trigger('Message', {ttl = 10, msg = 'Vehicle leaks oil! Use lower mileage engine to fix it.', icon = 'format_color_reset'})
+guihooks.trigger('Message', {ttl = 10, category="oilleak", msg = 'Vehicle leaks oil! Use lower mileage engine to fix it.', icon = 'format_color_reset'})
 elseif oilpan > 0 then
-guihooks.trigger('Message', {ttl = 10, msg = 'Vehicle leaks oil! Use lower mileage oil pan to fix it.', icon = 'format_color_reset'})
+guihooks.trigger('Message', {ttl = 10, category="oilleak", msg = 'Vehicle leaks oil! Use lower mileage oil pan to fix it.', icon = 'format_color_reset'})
 end
 end
 

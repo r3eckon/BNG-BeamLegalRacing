@@ -1,6 +1,6 @@
 triggers=BLRTrig_TrackCP2,BLRTrig_TrackCP3,BLRTrig_TrackCP4,BLRTrig_TrackCP5,BLRTrig_TrackCP6,BLRTrig_TrackCP7,BLRTrig_TrackCP8,BLRTrig_TrackCP1
-waypoints=blrwp_trackwp1,blrwp_trackwp2,blrwp_trackwp3,blrwp_trackwp4,blrwp_trackwp5,blrwp_trackwp6,wp_racetrack3,blrwp_trackwp7,blrwp_trackwp8,blrwp_trackwp9,blrwp_trackwp10,blrwp_trackwp11,blrwp_trackwp12,blrwp_trackwp13,blrwp_trackwp14,blrwp_trackwp15,wp_racetrack7,blrwp_trackwp16,blrwp_trackwp17,wp_racetrack8,blrwp_trackwp18
-wpspd=blrwp_trackaiwp6:30,blrwp_trackaiwp4:22,blrwp_trackaiwp3:32,blrwp_trackwp12:28,blrwp_trackaiwp2:35,blrwp_trackaiwp1:27,blrwp_trackwp1:25,blrwp_trackwp3:43,blrwp_trackwp4:27,blrwp_trackwp5:22,blrwp_trackwp6:17,blrwp_trackwp7:30,blrwp_trackwp11:25,blrwp_trackwp14:25,blrwp_trackwp15:47,blrwp_trackwp16:28,blrwp_trackwp17:17,blrwp_trackwp18:27,blrwp_trackaiwp7:22,wp_racetrack8:35
+waypoints=blrwp_trackwp1,blrwp_trackwp2,blrwp_trackwp3,blrwp_trackwp4,blrwp_trackwp5,blrwp_trackwp6,blrwp_trackwp28,blrwp_trackwp7,blrwp_trackwp8,blrwp_trackwp9,blrwp_trackwp10,blrwp_trackwp11,blrwp_trackwp12,blrwp_trackwp13,blrwp_trackwp14,blrwp_trackwp15,blrwp_trackwp31,blrwp_trackwp16,blrwp_trackwp17,blrwp_trackwp30,blrwp_trackwp18
+wpspd=blrwp_trackaiwp6:30,blrwp_trackaiwp4:22,blrwp_trackaiwp3:32,blrwp_trackwp12:28,blrwp_trackaiwp2:35,blrwp_trackaiwp1:27,blrwp_trackwp1:25,blrwp_trackwp3:43,blrwp_trackwp4:27,blrwp_trackwp5:22,blrwp_trackwp6:17,blrwp_trackwp7:30,blrwp_trackwp11:25,blrwp_trackwp14:25,blrwp_trackwp15:47,blrwp_trackwp16:28,blrwp_trackwp17:17,blrwp_trackwp18:27,blrwp_trackaiwp7:22,blrwp_trackwp30:35
 configs=class:C
 title=WCUSA Race Track Class C Championship (Long Layout)
 map=west_coast_usa
@@ -46,5 +46,5 @@ spos7=443.18728637695,-248.18939208984,145.73551940918
 srot7=0.0085992166154399,0.0043020024332605,-0.70091254228741,0.71318241307036
 spos8=451.23071289063,-255.61344909668,145.82604980469
 srot8=0.0042135016097142,0.010235323723726,-0.70088769395863,0.71318575771661
-espos=451.23071289063,-255.61344909668,145.82604980469
-esrot=0.0042135016097142,0.010235323723726,-0.70088769395863,0.71318575771661
+espos=471.26510620117,-251.83891296387,146.05332946777
+esrot=0.0078528511447275,0.0072180102021908,-0.70574667364991,0.70838398181333

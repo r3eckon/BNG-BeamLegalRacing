@@ -29,10 +29,26 @@ angular.module('beamng.apps')
 	  scope.optshow = {}
 	  scope.actualDamage = 0 //actual damage value, stored when bypass is enabled
 	  scope.invmode = 0 //0 = item inventory, 1 = part inventory 
+	  scope.expanded = {} // slot tree expanded states
+	  scope.searching = false // for new tree view, revert to old layout while searching (this is what vanilla does)
 	  
 	  scope.buylocked = false //locks buy action until result received
 	  scope.lastbuyitem = ""
 	  scope.lastbuyused = false // true if used part was bought, false if new part was bough
+	  
+	  scope.beamlrData["slotFavorites"] = {}
+	  
+	  
+	  //helper function to trigger message in vanilla message app
+	  scope.guiMessage = function(msg, ttl, icon, category)
+	  {
+		bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("messageData", "msg", "${msg}")`)
+		bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("messageData", "category", "${category}")`)
+		bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("messageData", "ttl", ${ttl})`)
+		bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("messageData", "icon", "${icon}")`)
+		bngApi.engineLua(`extensions.customGuiCallbacks.exec("guiMessage", "messageData")`)
+	  }
+	  
 	  
 	  scope.toggleOptionShow = function(submenu)
 	  {
@@ -144,6 +160,11 @@ angular.module('beamng.apps')
 			  scope.beamlrData["playerDamage"] = 0
 			  //console.log("DAMAGE: " + scope.beamlrData['playerDamage'])
 		  }
+		  //1.17.5 slot tree search mode, to use old UI with search or category filters
+		  if(data.key == "searching")
+		  {
+			  scope.searching = data.val;
+		  }
       })
 	  
 	  scope.$on('beamlrOptions', function (event, data) {
@@ -190,7 +211,7 @@ angular.module('beamng.apps')
 		  scope.inputData['lgslots'] = data['lgslots']
 		  scope.inputData['allowtesmode'] = data['allowtesmode']
 		  scope.inputData['lmtoggle'] = data['lmtoggle']
-		  
+		  scope.inputData['edittreemode'] = data['edittreemode']
       })
 	  
 	  
@@ -271,7 +292,13 @@ angular.module('beamng.apps')
 	  }
 	  
 	  scope.search = function(m)
-	  {
+	  {  
+		if(scope.inputData.searchFilter == "")
+		{
+			scope.filter(m, "all")
+			return
+		}
+	  
 		bngApi.engineLua(`extensions.customGuiCallbacks.setParam("filter", "${scope.inputData.searchFilter}")`)
 		bngApi.engineLua(`extensions.customGuiCallbacks.exec("setFilter", "filter")`)
 		bngApi.engineLua(`extensions.customGuiCallbacks.setParam("menu", ${m})`)
@@ -435,6 +462,12 @@ angular.module('beamng.apps')
 	  {
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("showEventBrowser")`)
 		  scope.showMenu=false
+	  }	  
+	  
+	  scope.showPastEvents = function(d)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("showPastEvents")`)
+		  scope.showMenu=false
 	  }
 	  
 	  scope.abandonEvent = function(d)
@@ -453,13 +486,6 @@ angular.module('beamng.apps')
 	  scope.slotToggle = function(slot, toggle)
 	  {
 		  scope.visibleSlots[slot] = toggle
-	  }
-	  
-	  scope.saveTemplate = function (template)
-	  {
-		  bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("templateData", "templateName", "${template}")`)
-		  bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("templateData", "templateFolder", "${scope.beamlrData["vehicleTemplateFolder"]}")`)
-		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("saveTemplate", "templateData")`)
 	  }
 	  
 	  scope.deleteTemplate = function (template)
@@ -740,9 +766,15 @@ angular.module('beamng.apps')
 		  } 
 		  scope.beamlrData["partEditLock"] = true
 		  
+		  var currentPID = scope.beamlrData["advinvUsed"][slot];
+		  var currentPrice = (currentPID) ? scope.getPartSellPrice(currentPID) : 0;
+		  var newPrice = (part == "") ? 0 : scope.getPartSellPrice(pid);
+		  var price = newPrice - currentPrice;
+		  
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("advPartSetData", "pid", ${pid})`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("advPartSetData", "slot", "${slot}")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("advPartSetData", "part", "${part}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("advPartSetData", "price", ${price})`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("advPartSet", "advPartSetData")`)
 	  }
 	  
@@ -991,6 +1023,107 @@ angular.module('beamng.apps')
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("lmtoggle", ${t})`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("toggleLightManager", "lmtoggle")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);  
+	  }
+	  
+	  scope.expandSlotTree = function(id)
+	  {
+		  scope.expanded[id] =  !scope.expanded[id]
+	  }
+	  
+	  scope.getSlotName = function(slot)
+	  {
+		  var name = scope.beamlrData['slotNames'][slot]
+		  
+		  if(name == null || scope.slotNameMode == 1)
+		  {
+			  console.log("NO SLOT NAME FOR " + slot)
+			  return slot
+		  }
+		  else
+		  {
+			  return name
+		  }
+			  
+	  }
+	  
+	  scope.toggleSlotNameMode = function()
+	  {
+		  scope.slotNameMode = Math.abs(scope.slotNameMode - 1)
+	  }
+	  
+	  scope.getSlotExpandButton = function(id)
+	  {
+		  return (scope.expanded[id]) ? "-" : "+";
+	  }
+	  
+	  scope.setEditTreeMode = function(mode)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("treemode", ${mode})`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setEditTreeMode", "treemode")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);  
+	  }
+	  
+	  scope.validName = function (testName) {
+		if (!testName || testName == "" || /[<>:"/\\|?*]/.test(testName)) {
+			return false
+		}
+		if (/^ +| +$/.test(testName)) {
+			testName = testName.replace(/^ +| +$/g, "")
+		}
+		if (!testName) {
+			return false
+		}
+		return true
+	  }
+	  
+	  
+	  scope.exportConfig = function(name)
+	  {
+		  if(scope.validName(name))
+		  {
+			bngApi.engineLua(`extensions.customGuiCallbacks.setParam("configName", "${name}")`)
+			bngApi.engineLua(`extensions.customGuiCallbacks.exec("exportConfig", "configName")`)
+		  }
+		  else
+		  {
+			  scope.guiMessage("Could not export config due to invalid name!", 10, "warning", "configsaving")
+		  } 
+	  }
+	  
+	  scope.saveTemplate = function(template)
+	  {
+		  if(scope.validName(template))
+		  {
+			bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("templateData", "templateName", "${template}")`)
+			bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("templateData", "templateFolder", "${scope.beamlrData["vehicleTemplateFolder"]}")`)
+			bngApi.engineLua(`extensions.customGuiCallbacks.exec("saveTemplate", "templateData")`)
+		  }
+		  else
+		  {
+			scope.guiMessage("Could not save template due to invalid name!", 10, "warning", "configsaving")
+		  }
+	  }
+	  
+	  scope.getSlotFavoriteIcon = function(slot)
+	  {
+		  return (scope.beamlrData["slotFavorites"][slot] == "true") ? "star_filled.svg" : "star_empty.svg";
+	  }
+	  
+	  
+	  scope.slotFavoriteToggle = function(slot)
+	  {
+		bngApi.engineLua(`extensions.customGuiCallbacks.setParam("favdata", "${slot}")`)
+		bngApi.engineLua(`extensions.customGuiCallbacks.exec("slotFavoriteToggle", "favdata")`) 
+		//immediate update to data so we don't need to receive full favorites table again
+		if(scope.beamlrData["slotFavorites"][slot] == "true")
+		{
+			scope.beamlrData["slotFavorites"][slot] = "false"
+		}
+		else
+		{
+			scope.beamlrData["slotFavorites"][slot] = "true"
+		}
+			
 	  }
 	  
     }

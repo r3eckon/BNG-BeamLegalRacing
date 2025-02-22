@@ -38,3 +38,5 @@ This addon is currently built for map version **v20231124_v2** (ks_nord_v2023112
 ### BeamLR 1.17.2
 * Added prefab barriers to block off parts of the track depending on event layout
 * Fixed broken waypoints preventing AI from racing on both layouts
+### BeamLR 1.17.5
+* Added flowgraph for track event history UI

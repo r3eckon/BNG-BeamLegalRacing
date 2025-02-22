@@ -522,6 +522,26 @@ partPrices[k] = customPrices[k] or beamData[k].value
 end
 end
 
+-- 1.17.5 part odometer scaled repair cost
+local inventoryLinksData = {}
+local inventoryData = {}
+
+local function getScaledPartPrice(value, odometer)
+local toRet = 1.0
+
+if odometer >= 30000000 then
+toRet = 0.9 - (0.8 * (math.min(1.0, odometer / 250000000)))
+end
+
+return toRet * value
+end
+
+local function getPartOdometer(link_key)
+if not (inventoryData and inventoryLinksData[link_key]) then return 0 end
+return inventoryData[inventoryLinksData[link_key][1]][2]
+end
+
+
 local function getAdvancedRepairCost(dbg)
 local beamData = beamstate.getPartDamageTable()
 local toRet = 0
@@ -533,6 +553,8 @@ local cdeformed = 0 -- deformed count
 local cdcount = 0 -- deformable count
 local cbcount = 0 -- breakable count
 
+local codo = 0 -- 1.17.5 part odometer value scaling
+
 if dbg then print("ADVANCED DAMAGE DEBUG") end
 
 for k,v in pairs(beamData) do
@@ -543,6 +565,9 @@ cbcount = breakBeamCount[k] or 0
 cbdmg = 0
 cddmg = 0
 ctdmg = 0
+
+codo = getPartOdometer(k) or 0
+
 if cbcount > 0 then
 cbdmg = math.min(1.0, cbroken / cbcount)
 else
@@ -559,7 +584,7 @@ else
 ctdmg = 0
 end
 if ctdmg > 0 then
-toRet = toRet + partPrices[k] * (ctdmg*ctdmg*ctdmg)
+toRet = toRet + getScaledPartPrice(partPrices[k],codo) * (ctdmg*ctdmg*ctdmg)
 if dbg then print(k .. "\tCBCOUNT=" .. cbcount .. "\tCBROKEN=" .. cbroken  .. "\tCDCOUNT=" .. cdcount  .. "\tCDEFORMED=" .. cdeformed  .. "\tCTDMG=" .. ctdmg  .. "\tVALUE=" .. partPrices[k]  .. "\tTOTAL=" .. toRet) end
 end
 end
@@ -579,6 +604,8 @@ local cdcount = 0 -- deformable count
 local cbcount = 0 -- breakable count
 local ccost = 0
 
+local codo = 0 -- 1.17.5 odo scaling for part repair cost
+
 for k,v in pairs(beamData) do
 cbroken = v["beamsBroken"] or 0
 cdeformed = v["beamsDeformed"] or 0
@@ -587,6 +614,9 @@ cbcount = breakBeamCount[k] or 0
 cbdmg = 0
 cddmg = 0
 ctdmg = 0
+
+codo = getPartOdometer(k) or 0
+
 if cbcount > 0 then
 cbdmg = math.min(1.0, cbroken / cbcount)
 else
@@ -603,7 +633,7 @@ else
 ctdmg = 0
 end
 if ctdmg > 0 then
-ccost = partPrices[k] * (ctdmg*ctdmg*ctdmg)
+ccost = getScaledPartPrice(partPrices[k],codo) * (ctdmg*ctdmg*ctdmg)
 toRet = toRet .. k .. ":" .. string.format("%.2f",ccost) .. ","
 end
 end
@@ -1219,6 +1249,29 @@ return toRet
 end
 
 
+
+
+
+
+local function resetInventoryData()
+inventoryLinksData = {}
+inventoryData = {}
+end
+
+local function receiveInventoryData(pid, inv_type, inv_odo, inv_int, inv_use, link_odo)
+inventoryData[pid] = {inv_type,inv_odo,inv_int,inv_use}
+inventoryLinksData[inv_type] = {pid, link_odo}
+end
+
+local function dumpInventoryData()
+dump(inventoryData)
+dump(inventoryLinksData)
+end
+
+M.getScaledPartPrice = getScaledPartPrice
+M.dumpInventoryData = dumpInventoryData
+M.resetInventoryData = resetInventoryData
+M.receiveInventoryData = receiveInventoryData
 M.getIntegrityOffset = getIntegrityOffset
 M.getGearboxSynchroTotalWear = getGearboxSynchroTotalWear
 M.setGearboxSynchroWear = setGearboxSynchroWear
