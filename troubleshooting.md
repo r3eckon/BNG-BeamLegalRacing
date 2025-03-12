@@ -4,7 +4,7 @@ If you are experiencing issues with the mod please follow these steps before rep
 ## Step 1 - Update Game & Mod
 Make sure that you are on the latest version of the game and BeamLR. Even though the mod may not be compatible with the latest game version bug reports relating to compatibility with new BeamNG updates are useful and such bugs are usually addressed in quickly released hotfixes.
 
-Also try verifying integrity of game files through Steam in case some corrupt game files might be to blame.
+Also try verifying integrity of game files through Steam in case some corrupt game files might be to blame. Some players have mistakenly installed mods or otherwise messed with the game install folder. If you suspect your game install folder contains such files, the easiest way to fix it is to uninstall the game, delete any remaining files and reinstall the game.
 
 ## Step 2 - Careful Reinstall
 A lot of problems can be caused by incorrect installation. Back up your career files before reinstalling to ensure you don't lose any progress. Make sure to carefully follow the install instructions. You should then be able to restore your backup using the in game options menu or, if this fails to work, by manually overwritting the fresh BeamLR folder with your backup.
