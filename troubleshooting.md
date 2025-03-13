@@ -13,15 +13,24 @@ A lot of problems can be caused by incorrect installation. Back up your career f
 
 Installing the mod in a clean [userfolder](https://documentation.beamng.com/support/userfolder/) can solve most issues caused by incorrect installation or conflicting mods.
 
-1. **Backup your existing userfolder** to keep user data such as custom configs, mods, parameters, BeamLR career progress, etc.
-2. Delete the userfolder
-3. Start BeamNG to create a new userfolder
-4. Close BeamNG
-5. Install BeamLR **carefully following the instructions**
+Following the below process correctly will generate a brand new userfolder in a new location to perform a clean install. **Your current userfolder will not be affected**. Pay close attention and do not skip any step. If you want to be extra safe feel free to backup your current userfolder.
+
+1. Open the BeamNG Launcher
+2. Click **"Manage User Folder"**
+3. Uncheck the **"Move user data"** checkbox as shown below (**IMPORTANT to avoid moving userfolder files to new location!**)
+4. Click **"Choose a new location"**
+5. Select a different folder than the current userfolder
+6. Start BeamNG to generate base files inside the new userfolder
+7. Close BeamNG
+8. Install BeamLR in the newly created userfolder **carefully following the instructions**
+
+![checkbox](https://i.imgur.com/H822pm6.png)
 
 If this process fixes your issue this means you either installed incorrectly the first time or something in your userfolder was conflicting with the mod. 
 
 If you absolutely must play with other mods, add them one at a time and test to make sure there are no conflicts. 
+
+Also, consider using separate userfolders to create "modpacks" or collections of compatible mods. Using the launcher's userfolder moving function with the "move user data" button unchecked you can create and select different userfolders. You can use this to keep BeamLR and compatible mods in a separate userfolder to other mods that cause conflicts without having to manually backup or delete files.
 
 ## Still having issues? 
 
