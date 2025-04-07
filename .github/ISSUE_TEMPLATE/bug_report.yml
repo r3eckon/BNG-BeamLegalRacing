@@ -29,9 +29,15 @@ body:
 - type: markdown
   attributes:
     value: "* Attach log files, reproduction steps and any other information that can help fix the issue you are reporting. The more information you give the faster your issue will be fixed. Issues without log files, screenshots, reproduction steps, etc. are near impossible to fix."
-    
-
-
+body:
+- type: textarea
+  id: repro
+  attributes:
+    label: Describe your issue
+    description: "Describe the problem with as many details as possible, including reproduction steps, screenshots, log files, etc."
+    value: ""
+  validations:
+    required: true    
 
 ---
 
