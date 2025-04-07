@@ -2,7 +2,7 @@
 name: Feature Suggestion
 title: 'Suggestion Title'
 description: 'Suggest a feature for BeamLR'
-labels: ["suggestion"]
+labels: ["enhancement"]
 
 body:
 - type: markdown
