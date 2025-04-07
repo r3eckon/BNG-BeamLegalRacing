@@ -5,6 +5,7 @@ title: ''
 labels: ''
 assignees: ''
 
+
 body:
 - type: markdown
   attributes:
@@ -13,8 +14,20 @@ body:
   attributes:
     value: |
       Thanks for taking the time to fill out this bug!
+- type: input
+  id: prevalence
+  attributes:
+    label: Bug prevalence
+    description: "How often do you or others encounter this bug?"
+    placeholder: "Whenever I visit the user account page (1-2 times a week)"
+  validations:
+    required: true
 
 ---
+
+
+  
+
 
 ## READ BEFORE CREATING ISSUE
 
