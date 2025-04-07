@@ -7,19 +7,10 @@ description: 'Report a bug with BeamLR'
 body:
 - type: markdown
   attributes:
-    value: "## READ BEFORE CREATING ISSUE"
-- type: markdown
-  attributes:
-    value: "### DO NOT CREATE ISSUES ABOUT THE MOD BEING BROKEN BY A BEAMNG UPDATE."
-- type: markdown
-  attributes:
-    value: "### If the game has seen as major update (ex from 0.34 to 0.35) the mod will most likely break."
-- type: markdown
-  attributes:
-    value: "### Be patient while I update the mod."
-- type: markdown
-  attributes:
     value: "## Issue Creation Guidelines"
+- type: markdown
+  attributes:
+    value: "* IMPORTANT: DO NOT CREATE ISSUES ABOUT THE MOD BEING BROKEN BY A BEAMNG UPDATE. If the game has seen as major update (ex from 0.34 to 0.35) the mod will most likely break. Be patient while I update the mod."
 - type: markdown
   attributes:
     value: "* Use english when creating issues. Use google translate if you don't speak english."
