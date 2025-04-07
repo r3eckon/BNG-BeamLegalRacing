@@ -2,7 +2,6 @@
 name: Bug report
 title: 'Issue Title'
 description: 'Report a bug with BeamLR'
-assignees: ["r3eckon"]
 labels: ["bug"]
 
 body:
