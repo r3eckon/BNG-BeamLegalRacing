@@ -20,6 +20,7 @@ body:
   id: details
   attributes:
     label: Describe your suggestion
+    placeholder: Suggestion details
   validations:
     required: true
 
