@@ -29,7 +29,7 @@ body:
   attributes:
     label: Describe your issue
     description: "Describe the problem with as many details as possible, including reproduction steps, screenshots, log files, etc."
-    value: "Replace with issue details"
+    placeholder: "Issue details"
   validations:
     required: true
 
