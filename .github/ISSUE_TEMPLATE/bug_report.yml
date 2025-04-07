@@ -16,16 +16,10 @@ body:
     value: "* Use english when creating issues. Use google translate if you don't speak english."
 - type: markdown
   attributes:
-    value: "* Before reporting an issue look at the **known issues** section of the main repository readme for a list of issues that cannot currently be fixed"
+    value: "* Before reporting an issue look at active issues and the **known issues** section of the main repository readme for a list of issues that cannot currently be fixed"
 - type: markdown
   attributes:
     value: "* Attach log files, reproduction steps and any other information that can help fix the issue you are reporting. The more information you give the faster your issue will be fixed. Issues without log files, screenshots, reproduction steps, etc. are near impossible to fix."
-- type: checkboxes
-  id: confirm
-  attributes:
-    options:
-      - label: "Check this box to confirm that you have carefully read the above guidelines."
-        required: true
 
 - type: textarea
   id: repro
@@ -34,7 +28,22 @@ body:
     description: "Describe the problem with as many details as possible, including reproduction steps, screenshots, log files, etc."
     value: "Replace with issue details"
   validations:
-    required: true    
+    required: true
+
+- type: checkboxes
+  id: confirm
+  attributes:
+    label: "Check the below boxes confirm that your issue adheres to the above guidelines."
+    options:
+      - label: "This issue is NOT related to a major BeamNG update breaking the mod"
+        required: true
+      - label: "This issue is NOT a known issue or duplicate of an existing active issue"
+        required: true
+      - label: "This issue is written in english"
+        required: true
+      
+
+
 
 ---
 
