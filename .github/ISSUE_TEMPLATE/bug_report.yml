@@ -1,9 +1,9 @@
 ---
 name: Bug report
-about: 'Report a problem with the mod '
-title: ''
-labels: ''
-assignees: ''
+about: 'Report a problem with the mod'
+title: 'Issue Title'
+labels: ["bug"]
+assignees: '["r3eckon"]'
 
 
 body:
