@@ -2,7 +2,8 @@
 name: Bug report
 title: 'Issue Title'
 description: 'Report a bug with BeamLR'
-
+assignees: ["r3eckon"]
+labels: ["bug"]
 
 body:
 - type: markdown
@@ -14,6 +15,9 @@ body:
 - type: markdown
   attributes:
     value: "* Use english when creating issues. Use google translate if you don't speak english."
+- type: markdown
+  attributes:
+    value: "* Before reporting an issue go through the troubleshooting guide to see if it fixes the problem."
 - type: markdown
   attributes:
     value: "* Before reporting an issue look at active issues and the **known issues** section of the main repository readme for a list of issues that cannot currently be fixed"
@@ -36,6 +40,8 @@ body:
     label: "Check the below boxes confirm that your issue adheres to the above guidelines."
     options:
       - label: "This issue is NOT related to a major BeamNG update breaking the mod"
+        required: true
+      - label: "This issue is NOT fixed after completing the troubleshooting guide"
         required: true
       - label: "This issue is NOT a known issue or duplicate of an existing active issue"
         required: true
