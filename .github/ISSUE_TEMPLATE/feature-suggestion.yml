@@ -1,0 +1,41 @@
+---
+name: Feature Suggestion
+title: 'Suggestion Title'
+description: 'Suggest a feature for BeamLR'
+labels: ["suggestion"]
+
+body:
+- type: markdown
+  attributes:
+    value: "## Suggestion Guidelines"
+- type: markdown
+  attributes:
+    value: "* Use english when making suggestions. Use google translate if you don't speak english."
+- type: markdown
+  attributes:
+    value: "* Please look through existing suggestions and recent forum postings to avoid duplicates. If your suggestion has been made by someone else please comment on it and say you would like it as well."
+    
+
+- type: textarea
+  id: details
+  attributes:
+    label: Describe your suggestion
+  validations:
+    required: true
+
+- type: checkboxes
+  id: confirm
+  attributes:
+    label: "Check the below boxes confirm that your suggestion adheres to the above guidelines."
+    options:
+      - label: "This suggestion is written in english"
+        required: true
+      - label: "This suggestion is not a duplicate of an existing recent suggestion"
+        required: true
+
+---
+
+
+  
+
+
