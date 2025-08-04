@@ -40,3 +40,6 @@ This addon is currently built for map version **v20231124_v2** (ks_nord_v2023112
 * Fixed broken waypoints preventing AI from racing on both layouts
 ### BeamLR 1.17.5
 * Added flowgraph for track event history UI
+### BeamLR 1.18
+* Updated mission file
+* Fixed broken race waypoints

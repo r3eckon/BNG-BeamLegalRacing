@@ -27,6 +27,8 @@ angular.module('beamng.apps')
 	  scope.engine = 0
 	  scope.engineSelected = false
 	  scope.buttonlock = false
+	  scope.pathNameCache = {}
+	  scope.toggle = {}
 	  
 	  
 	  
@@ -64,22 +66,44 @@ angular.module('beamng.apps')
 	  
 	  scope.linkedPartsUpdate = function(root)
 	  {
-		  if(scope.picks[root])
+
+		  if(scope.toggle["parentSelect"])
 		  {
-			for(k in scope.parentmap[root])
-			{
-				scope.picks[scope.parentmap[root][k]] = true
-			}
+			  if(scope.picks[root])
+			  {
+				for(k in scope.parentmap[root])
+				{
+					scope.picks[scope.parentmap[root][k]] = true
+				}
+			  }
+			  else
+			  {
+				for(k in scope.childmap[root])
+				{
+					scope.picks[scope.childmap[root][k]] = false
+				}
+			  }
+			  scope.calculateTotal()
+			  scope.totalConfirm = false
 		  }
-		  else
+
+		  
+		  //update select all checkbox state
+		  var allselected = true
+		  for(part in scope.damage)
 		  {
-			for(k in scope.childmap[root])
-			{
-				scope.picks[scope.childmap[root][k]] = false
-			}
+			  if(scope.picks[part]!=true)
+			  {
+				  scope.toggle["selectAll"] = false
+				  allselected=false
+				  break
+			  }
 		  }
-		  scope.calculateTotal()
-		  scope.totalConfirm = false
+		  if(allselected && !scope.selectAllToggled)
+		  {
+			  scope.toggle["selectAll"]=true
+		  }
+		  
 	  }
 	  
 	  scope.formatNumber = function(num){
@@ -155,6 +179,10 @@ angular.module('beamng.apps')
 	  
 	  scope.$on('beamlrRepairButtonLock', function (event, data) {
           scope.buttonlock = data
+      })
+	  
+	  scope.$on('beamlrRepairSelectParents', function (event, data) {
+          scope.toggle["parentSelect"] = data
       })
 	  
 	  scope.toggleui = function(value)
@@ -242,10 +270,59 @@ angular.module('beamng.apps')
 		  scope.calculateFull()
 	  }
 	  
+	  //returns a part name from its path 
+	  scope.nameFromPath = function(path)
+	  {
+		  //console.log(path)
+		  if(scope.pathNameCache[path] != null)
+		  {
+			return scope.pathNameCache[path]
+		  }
+		  else
+		  {
+			var cname = path.split("/")
+			cname = cname[cname.length-1]
+			if(cname == null)
+			{
+				console.log("REPAIR UI STRING SPLIT ERROR FOR PATH:" + path)
+				return "???"
+			}
+			if(scope.names[cname] != null)
+			{
+				scope.pathNameCache[path] = scope.names[cname]
+				return scope.names[cname]
+			}
+			else
+			{
+				return cname
+			}
+		  }
+		  
+	  }
 	  
+	  scope.toggleParentSelect = function()
+	  {
+		  if(scope.toggle["parentSelect"])
+		  {
+			  for(pick in scope.picks)
+			  {
+				  if(scope.picks[pick])
+					scope.linkedPartsUpdate(pick)
+			  }
+		  }
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("armparentselect", ${scope.toggle['parentSelect']})`);
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setRepairParentSelectToggle", "armparentselect")`);
+		  
+	  }
 	  
-	  
-	  
+	  scope.selectAll = function()
+	  {
+		  for(part in scope.damage)
+		  {
+			  if(part != scope.mainpart)
+				scope.picks[part] = scope.toggle["selectAll"]		  
+		  }
+	  }
 	  
 	  
     }

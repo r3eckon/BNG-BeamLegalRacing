@@ -11,15 +11,46 @@
 
 <div ng-if="enabled==true" style="background-color:rgba(0.0,0.0,0.0,0.5); transform:translate(0px, -2px); height:100%; z-index:8888;">
 
-<span ng-click="toggleui(false)" style="float:right; text-align:center; transform:translate(0px, 0px); width:40px; font-size:30px;">X</span>
-<h2 style="text-align:center; transform:translate(0px,0px); width:70%; margin:auto; margin-top:0px; margin-bottom:0px;">Advanced Repair Menu</h2>
+
+
+<div style="margin:auto; margin-bottom:0px; margin-top:0px; height: 40px; width:100%; text-align:center;">
+<table style="width: 100%; height:100%; table-layout:fixed;">
+<tr>
+
+<td style="text-align:center; vertical-align:top; width:2%;">
+</td>
+
+<td style="text-align:center; line-height:13px; font-size:14px; width:10%;">
+Force Select Parents
+</td>
+
+<td style="text-align:right; font-size:17px; width:8%;">
+<md-checkbox ng-model="toggle['parentSelect']" ng-change="toggleParentSelect()" ></md-checkbox>
+</td>
+
+<td style="text-align:center; vertical-align:top; font-size:27px; font-weight:bold; width:60%;">
+Repair Menu
+</td>
+
+<td style="text-align:center; vertical-align:top; font-size:17px; width:10%;">
+
+</td>
+
+<td style="text-align:center; vertical-align:top; width:10%; font-weight:bold; font-size:27px;">
+<span ng-click="toggleui(false)" >X</span>
+</td>
+
+</tr>
+</table>
+</div>
+
 
 <div style="overflow-y:scroll; width:95%; margin:auto; margin-top:20px; transform:translate(0px,-10px); background-color:rgba(0.0,0.0,0.0,0.3);" ng-style="{height: (warnack) ? '75%' : '65%'}">
 
 <div style="width:100%; font-size:20px; background-color:rgba(0.0,0.0,0.0,0.1);">
 <table style="width:100%; table-layout:fixed; font-weight:bold;">
 <tr>
-<td style="width:5%; text-align:center;"></td>
+<td style="width:5%; text-align:center; padding-left:10px;"><md-checkbox ng-model="toggle['selectAll']" ng-change="selectAll()" ></md-checkbox></td>
 <td style="width:70%; text-align:center; transform:translate(15px,0px);">Item</td>
 <td style="width:25%; text-align:center; transform:translate(-10px,0px);">Cost</td>
 </tr>
@@ -30,7 +61,7 @@
 <table class="listitem">
 <tr>
 <td style="width:5%; text-align:center;"><md-checkbox ng-model="picks[part]" ng-change="linkedPartsUpdate(part)" ></md-checkbox></td>
-<td style="width:70%; text-align:center;">{{names[part]}}</td>
+<td style="width:70%; text-align:center;">{{nameFromPath(part)}}</td>
 <td style="width:25%; text-align:center;" ng-style="picks[part] && {'color':'#FF6600','font-weight':'bold'}">${{formatNumber(cost)| number:2}}</td>
 </tr>
 </table>
@@ -50,7 +81,7 @@
 <table style="width:100%; table-layout:fixed; padding:10px;">
 <tr>
 <td style="width:5%; text-align:center;"></td>
-<td style="width:70%; text-align:center; transform:translate(15px,0px);">{{names[mainpart]}}</td>
+<td style="width:70%; text-align:center; transform:translate(15px,0px);">{{nameFromPath(mainpart)}}</td>
 <td style="width:25%; text-align:center; color:#FF6600; font-weight:bold;">${{formatNumber(damage[mainpart]) | number:2}}</td>
 </tr>
 </table>
@@ -99,6 +130,7 @@
 <p style="text-align:center; height:60px; font-size:17px; margin:0 auto; vertical-align:top;"><strong>Warning: </strong>when using selective repair, unselected damaged parts <strong>will be deleted!</strong> Pristine parts attached<br>to deleted parts will be sent to your part inventory.</p>
 <p ng-click="warnclick()" style="text-align:center; font-size:24px; font-weight:bold; height:40px; margin:0 auto; margin-top:15px; vertical-align:top;">Click here to acknowledge.</p>
 </div>
+
 
 <div ng-if="ready==true && warnack==true" style="width:95%; margin:auto; margin-top:5px; text-align:center;">
 <button ng-if="totalConfirm == true" ng-click="repairSelected()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(total * mult)">Confirm repair?<br>${{formatNumber(total * mult)| number:2}}</button>

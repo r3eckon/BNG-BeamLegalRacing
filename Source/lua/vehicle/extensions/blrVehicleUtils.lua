@@ -1,6 +1,63 @@
 local M = {}
 
 local engineFuelType = "none"
+local jbeamIO = require("jbeam/io")
+
+
+local function ioCtx()
+return {preloadedDirs = v.data.directoriesLoaded}
+end
+
+local function getPartJbeam(partName)
+return jbeamIO.getPart(ioCtx(), partName)
+end
+
+local function ssplit(s, delimiter) 
+local result = {}
+if delimiter == "." then
+for match in (s..delimiter):gmatch("(.-)%"..delimiter) do
+table.insert(result, match)
+end
+else
+for match in (s..delimiter):gmatch("(.-)"..delimiter) do
+table.insert(result, match)
+end
+end
+return result
+end
+
+-- returns table of child slot names for specified part
+local function getPartChildSlotNames(part)
+local jbeam = getPartJbeam(part)
+local slots = {}
+local toRet = {}
+local fmt2 = false
+if jbeam["slots2"] then
+slots = jbeam["slots2"]
+fmt2=true
+elseif jbeam["slots"] then
+slots = jbeam["slots"]
+fmt2=false
+else -- no slots or slots2 table, part has no child slots
+return toRet
+end
+for k,v in pairs(slots) do
+if fmt2 then
+table.insert(toRet, v.name)
+else
+table.insert(toRet, v.type)
+end
+end
+return toRet
+end
+
+
+-- updated in 1.18 for 0.36 update to work with slotPartMap which uses slot paths but
+-- doesn't include empty child slots so have to add them manually
+local function getVehicleParts()
+return v.data.slotPartMap
+end
+
 
 -- Total fuel in all tanks
 local function getFuelTotal()
@@ -295,9 +352,79 @@ local function getSmoothFuelTotal()
 return smoothFuelTotal
 end
 
+-- 0.36 update removed vehicleCertifications, replaced with vehiclePerformanceData.lua
+-- but that script doesn't have "static" performance data anymore, using this legacy code
+-- here to get these values back. script says "we can't use in the future" about this code
+-- so might not work for future versions of the game at some point.
+local function getPowerValues()
+   local toRet = {}
+   local engines = powertrain.getDevicesByCategory("engine")
+   if not engines or #engines <= 0 then
+     log("I", "vehicleCertifications", "Can't find any engine, not getting static performance data")
+     return 0, 0
+   end
+
+   local maxRPM = 0
+   local maxTorque = -1
+   local maxPower = -1
+   if #engines > 1 then
+     local torqueData = {}
+     for _, v in pairs(engines) do
+       local tData = v:getTorqueData()
+       maxRPM = max(maxRPM, tData.maxRPM)
+       table.insert(torqueData, tData)
+     end
+
+     local torqueCurve = {}
+     local powerCurve = {}
+     for _, td in ipairs(torqueData) do
+       local engineCurves = td.curves[td.finalCurveName]
+       for rpm, torque in pairs(engineCurves.torque) do
+         torqueCurve[rpm] = (torqueCurve[rpm] or 0) + torque
+       end
+       for rpm, power in pairs(engineCurves.power) do
+         powerCurve[rpm] = (powerCurve[rpm] or 0) + power
+       end
+     end
+     for _, torque in pairs(torqueCurve) do
+       maxTorque = max(maxTorque, torque)
+     end
+     for _, power in pairs(powerCurve) do
+       maxPower = max(maxPower, power)
+     end
+   else
+     local torqueData = engines[1]:getTorqueData()
+     maxRPM = torqueData.maxRPM
+     maxTorque = torqueData.maxTorque
+     maxPower = torqueData.maxPower
+   end
+
+	toRet["power"] = maxPower
+	toRet["torque"] = maxTorque
+	toRet["rpm"] = maxRPM
+   return toRet
+end
+
+
+local function getLegacyCertifications()
+local toRet = {}
+local staticData = extensions.vehiclePerformanceData.getStaticData()
+local powerValues = getPowerValues()
+
+for k,v in pairs(staticData) do
+toRet[k] = v
+end
+
+for k,v in pairs(powerValues) do
+toRet[k] = v
+end
+
+return toRet
+end
+
 
 local function getPowertrainLayoutName()
-local layout = extensions.vehicleCertifications.getCertifications()["powertrainLayout"]
+local layout = getLegacyCertifications()["powertrainLayout"]
 local toRet = ""
 if layout["poweredWheelsFront"] == 0 and layout["poweredWheelsRear"] == 0 then
 toRet = "ERROR"
@@ -312,7 +439,7 @@ return toRet
 end
 
 local function getRawPerformanceValue()
-local cdata = extensions.vehicleCertifications.getCertifications()
+local cdata = getLegacyCertifications()
 local horsepower = cdata["power"]
 local torque = cdata["torque"]
 local weight = cdata["weight"]
@@ -359,7 +486,7 @@ end
 end
 
 local function getInductionType()
-local induction = extensions.vehicleCertifications.getCertifications()["inductionTypes"]
+local induction = getLegacyCertifications()["inductionType"]
 local natural = induction["naturalAspiration"]
 local nitrous = induction["N2O"]
 local supercharged = induction["supercharger"]
@@ -385,7 +512,7 @@ return length
 end
 
 local function getPerformanceData()
-local cdata = extensions.vehicleCertifications.getCertifications()
+local cdata = getLegacyCertifications()
 local horsepower = cdata["power"]
 local torque = cdata["torque"]
 local weight = cdata["weight"]
@@ -446,6 +573,12 @@ end
 return toRet
 end
 
+-- 1.18 breakable beam issue: for some reason legran (that i know of) now (used to work fine afaik) has 2 nodes 
+-- that are on the door but has the mirror itself as part origin, where mirror connects to door, 
+-- connecting to another node on the door so two beams never get broken even if mirror is completely pulled off
+-- keeping things as is for now, should only result in slightly less repair cost for some parts that have this
+-- problem, only solution would be to keep a % of breakable beams but then it makes it so ex: bumper that isn't
+-- fully ripped off has the full repair cost
 local function getBreakableBeamCount(part)
 local beams = v.data.beams
 local nodes = v.data.nodes
@@ -509,17 +642,31 @@ local breakBeamCount = {}
 local deformBeamCount = {}
 local partPrices = {}
 
+-- 1.18 fix, using part paths, need to grab last part of path to find part name 
+-- for deformable and breakable beam lookup
 local function buildAdvancedDamageTables()
 local beamData = beamstate.getPartDamageTable()
 local customPrices = loadTableFromFile("beamLR/partprices", true)
+local cpart = ""
 breakBeamCount = {}
 deformBeamCount = {}
 partPrices = {}
+
 for k,v in pairs(beamData) do
-breakBeamCount[k] = getBreakableBeamCount(k)
-deformBeamCount[k] = getDeformableBeamCount(k)
-partPrices[k] = customPrices[k] or beamData[k].value 
+csplit = ssplit(k, "/")
+cpart = csplit[#csplit]
+breakBeamCount[k] = getBreakableBeamCount(cpart)
+deformBeamCount[k] = getDeformableBeamCount(cpart)
+partPrices[k] = customPrices[cpart] or beamData[k].value 
+
+--print("BEAM COUNT DEBUG FOR PART: " .. k .. "," .. breakBeamCount[k] .. "," .. deformBeamCount[k] .. "," .. partPrices[k])
+
 end
+
+--dump(breakBeamCount)
+--dump(deformBeamCount)
+--dump(partPrices)
+
 end
 
 -- 1.17.5 part odometer scaled repair cost
@@ -696,20 +843,6 @@ wheelName = "wheel_" .. v.name
 wheelPosName = v.name
 wheelID[wheelPosName] = v.id
 end
-end
-
-local function ssplit(s, delimiter) 
-local result = {}
-if delimiter == "." then
-for match in (s..delimiter):gmatch("(.-)%"..delimiter) do
-table.insert(result, match)
-end
-else
-for match in (s..delimiter):gmatch("(.-)"..delimiter) do
-table.insert(result, match)
-end
-end
-return result
 end
 
 -- 1.17.4 manual gearbox synchro wear
@@ -1268,6 +1401,11 @@ dump(inventoryData)
 dump(inventoryLinksData)
 end
 
+
+
+
+M.getVehicleParts = getVehicleParts
+M.getLegacyCertifications = getLegacyCertifications
 M.getScaledPartPrice = getScaledPartPrice
 M.dumpInventoryData = dumpInventoryData
 M.resetInventoryData = resetInventoryData

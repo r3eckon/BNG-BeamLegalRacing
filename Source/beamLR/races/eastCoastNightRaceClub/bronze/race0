@@ -1,8 +1,8 @@
 desc=Another long drag race
 wager=700,1500
 slips=0.1
-enemyModel=sunburst
-enemyConfig=vehicles/sunburst/sport_RS_M.pc
+enemyModel=sunburst2
+enemyConfig=vehicles/sunburst2/sport_RS_M.pc
 enemyRisk=2.0
 enemyBasePrice=0
 enemyPartPrice=0

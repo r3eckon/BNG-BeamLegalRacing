@@ -2,7 +2,7 @@
   "activeGraphId":1,
   "authors":"BeamLR",
   "currentGraphID":1,
-  "date":1740110143,
+  "date":1754230567,
   "debugEnabled":false,
   "description":"Beam Legal Racing Track Event",
   "difficulty":100,
@@ -183,6 +183,13 @@
           false
         ],
         [
+          86,
+          "flow",
+          16,
+          "flow",
+          false
+        ],
+        [
           100,
           "False",
           16,
@@ -192,13 +199,6 @@
         [
           126,
           "False",
-          16,
-          "flow",
-          false
-        ],
-        [
-          86,
-          "flow",
           16,
           "flow",
           false
@@ -673,6 +673,13 @@
           false
         ],
         [
+          33,
+          "match_1",
+          51,
+          "reset",
+          false
+        ],
+        [
           37,
           "down",
           51,
@@ -682,20 +689,13 @@
         [
           33,
           "match_1",
-          51,
-          "reset",
-          false
-        ],
-        [
-          33,
-          "match_3",
           52,
           "flow",
           false
         ],
         [
           33,
-          "match_1",
+          "match_3",
           52,
           "flow",
           false
@@ -848,15 +848,15 @@
           false
         ],
         [
-          231,
-          "true",
+          54,
+          "down",
           63,
           "flow",
           false
         ],
         [
-          54,
-          "down",
+          231,
+          "true",
           63,
           "flow",
           false
@@ -946,15 +946,15 @@
           false
         ],
         [
-          75,
-          "False",
+          33,
+          "match_1",
           69,
           "reset",
           false
         ],
         [
-          33,
-          "match_1",
+          75,
+          "False",
           69,
           "reset",
           false
@@ -1178,14 +1178,14 @@
         ],
         [
           78,
-          "match_2",
+          "match_1",
           83,
           "flow",
           false
         ],
         [
           78,
-          "match_1",
+          "match_2",
           83,
           "flow",
           false
@@ -1507,14 +1507,14 @@
         ],
         [
           78,
-          "match_1",
+          "match_2",
           108,
           "flow",
           false
         ],
         [
           78,
-          "match_2",
+          "match_1",
           108,
           "flow",
           false
@@ -4206,6 +4206,7 @@
           },
           "hiddenPins":{
             "p_in":{
+              "appContainerContext":true,
               "flow":false,
               "gameStateName":true,
               "keepLayout":false,
@@ -4960,7 +4961,7 @@
             "color_in":{
               "type":"color",
               "value":[
-                0.44597768800000692213,
+                0.44597768800000697764,
                 1,
                 0,
                 1
@@ -8454,6 +8455,7 @@
           },
           "hiddenPins":{
             "p_in":{
+              "appContainerContext":true,
               "flow":false,
               "gameStateName":true,
               "keepLayout":true,
@@ -9218,7 +9220,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nlocal list = {}\nlist = extensions.betterpartmgmt.getTuningUIData(true)\nextensions.customGuiStream.sendTrackTuningData(list)\nlist = extensions.betterpartmgmt.getTuningUIValues()\nextensions.customGuiStream.sendTrackTuningValues(list)\nlocal categories = extensions.betterpartmgmt.getSortedTuningCategories(true)\nextensions.customGuiStream.sendTrackTuningCategories(categories)\nlocal fields = extensions.betterpartmgmt.getSortedTuningFields(true)\nextensions.customGuiStream.sendTrackTuningFields(fields)\n\n\nextensions.customGuiStream.toggleTrackTuningUI(true)\n"
+            "work":"local extensions = require(\"extensions\")\nlocal list = {}\nlist = extensions.blrpartmgmt.getTuningUIData(true)\nextensions.customGuiStream.sendTrackTuningData(list)\nlist = extensions.blrpartmgmt.getTuningUIValues()\nextensions.customGuiStream.sendTrackTuningValues(list)\nlocal categories = extensions.blrpartmgmt.getSortedTuningCategories(true)\nextensions.customGuiStream.sendTrackTuningCategories(categories)\nlocal fields = extensions.blrpartmgmt.getSortedTuningFields(true)\nextensions.customGuiStream.sendTrackTuningFields(fields)\n\n\nextensions.customGuiStream.toggleTrackTuningUI(true)\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -9760,7 +9762,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nextensions.betterpartmgmt.saveConfig(self.pinIn.filename.value)"
+            "work":"local extensions = require(\"extensions\")\nextensions.blrpartmgmt.saveConfig(self.pinIn.filename.value)"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -9936,7 +9938,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nself.pinOut.fuel.value = extensions.betterpartmgmt.getTuningFuelLoad()"
+            "work":"local extensions = require(\"extensions\")\nself.pinOut.fuel.value = extensions.blrpartmgmt.getTuningFuelLoad()"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -9986,7 +9988,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nself.pinOut.fuel.value = extensions.betterpartmgmt.getTuningFuelLoad()"
+            "work":"local extensions = require(\"extensions\")\nself.pinOut.fuel.value = extensions.blrpartmgmt.getTuningFuelLoad()"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -10036,7 +10038,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nself.pinOut.fuel.value = extensions.betterpartmgmt.getTuningFuelLoad()"
+            "work":"local extensions = require(\"extensions\")\nself.pinOut.fuel.value = extensions.blrpartmgmt.getTuningFuelLoad()"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -10138,7 +10140,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nself.pinOut.fuel.value = extensions.betterpartmgmt.getTuningFuelLoad()"
+            "work":"local extensions = require(\"extensions\")\nself.pinOut.fuel.value = extensions.blrpartmgmt.getTuningFuelLoad()"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -10398,7 +10400,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nself.pinOut.hasNos.value = extensions.betterpartmgmt.getVehicleParts()[\"n2o_system\"] ~= \"\""
+            "work":"local extensions = require(\"extensions\")\n-- 1.18 update, new method to check for universal parts using slot ids\n-- function returns a table of parts attached to slots with this id, so > 1 means there's\n-- a n2o_system slot with an attached part, meaning the car has nitrous installed\nself.pinOut.hasNos.value = #extensions.blrpartmgmt.getSlotIDPartMap()[\"n2o_system\"] >=1"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -10449,7 +10451,7 @@
           "hardcodedPins":{
             "duration":{
               "type":"number",
-              "value":0.75000000000000799361
+              "value":0.75000000000000810463
             }
           },
           "hiddenPins":{
@@ -11451,7 +11453,7 @@
           "hardcodedPins":{
             "dx":{
               "type":"number",
-              "value":0.05000000074505886460
+              "value":0.05000000074505888542
             },
             "mn":{
               "type":"number",
@@ -11539,7 +11541,7 @@
           "hardcodedPins":{
             "dx":{
               "type":"number",
-              "value":0.05000000074505886460
+              "value":0.05000000074505888542
             },
             "mn":{
               "type":"number",
@@ -13666,10 +13668,10 @@
         "list":{}
       },
       "viewPos":[
-        -127.90475463867187500000,
-        -1000.50683593750000000000
+        208.54043579101562500000,
+        -1273.94409179687500000000
       ],
-      "viewZoom":0.75000000000000000000
+      "viewZoom":0.50000000000000000000
     },
     "3":{
       "description":"This is the description for graph States",
@@ -13685,14 +13687,14 @@
         ],
         [
           4,
-          "fail",
+          "success",
           6,
           "flow",
           false
         ],
         [
           4,
-          "success",
+          "fail",
           6,
           "flow",
           false

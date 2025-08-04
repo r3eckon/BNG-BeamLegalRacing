@@ -289,7 +289,7 @@ local function applyDeformGroupDamageOilRadiator(damageAmount)
 end
 
 local function headGasketBlown()
-  damageTracker.setDamage("engine", "headGasketDamaged", true)
+  damageTracker.setDamage("engine", "headGasketDamaged", true, true)
   M.headGasketBlown = true
   --without a working headgasket we don't have full compression anymore -> less torque
   parentEngine:scaleOutputTorque(0.8)
@@ -312,7 +312,7 @@ end
 local function engineBlockMelted()
   parentEngine:scaleFriction(10000) --essentially kill the engine
   M.engineBlockMelted = true
-  damageTracker.setDamage("engine", "blockMelted", true)
+  damageTracker.setDamage("engine", "blockMelted", true, true)
 end
 
 local function cylinderWallsMelted()
@@ -707,7 +707,7 @@ local function updateWaterCoolingGFX(dt)
     updateCoolantRadiatorDamage()
 
     if adjustedRadiatorDamage > 0 and not damageTracker.getDamage("engine", "radiatorLeak") then
-      damageTracker.setDamage("engine", "radiatorLeak", true)
+      damageTracker.setDamage("engine", "radiatorLeak", true, true)
     end
     fluidLeakRates.coolant.radiator = adjustedRadiatorDamage * 10
   end
@@ -743,14 +743,14 @@ local function updateWaterCoolingGFX(dt)
 
   local airSpeedThroughVehicle = abs(obj:getFrontAirflowSpeed())
 
-  --radiator is only actually used above a certain temperature
+   --radiator is only actually used above a certain temperature
   local radiatorActive = min((hasCoolantRadiator and M.coolantTemperature > thermostatTemperature and not parentEngine.isDisabled) and M.coolantTemperature - thermostatTemperature or 0, 1)
   local oilRadiatorActive = min((hasOilRadiator and M.oilTemperature > oilThermostatTemperature and not parentEngine.isDisabled) and M.oilTemperature - oilThermostatTemperature or 0, 1)
   --Efficiency of the cooling system drops with decreasing coolant mass and raising temps above damage threshold
   local coolantEmpty = fluidReservoirs.coolant.currentMass <= constants.minimumCoolantMass
-  local coolantIsMaxTemp = M.coolantTemperature >= constants.maxCoolantTemperature
-  local useRegularCoolantLogic = not (coolantEmpty or coolantIsMaxTemp)
-  local coolantEfficiency = useRegularCoolantLogic and (fluidReservoirs.coolant.currentMass * fluidReservoirs.coolant.invInitialMass * max(min((constants.maxCoolantTemperature - M.coolantTemperature) * 0.1, 1), 0)) or 0.01
+																				  
+																	   
+  local coolantEfficiency = (not coolantEmpty) and (fluidReservoirs.coolant.currentMass * fluidReservoirs.coolant.invInitialMass) or 0.01
 
   local underWaterBlockCoolingCoef = 1
   --if a node is underwater we want to increase the block to air cooling to simulate water cooling of the block

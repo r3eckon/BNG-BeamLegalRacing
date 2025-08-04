@@ -12,6 +12,10 @@
     2048,
     2048
   ],
+  "localUnits":{
+    "gasoline":"gallonUS",
+    "diesel":"gallonUS"
+  },
 
   "previews":[
     "spawns_industrial.jpg",
@@ -70,6 +74,14 @@
       "logbookEntry":"levels.west_coast_usa.spawnpoints.racetrack.logbookEntry",
       "objectname":"spawns_racetrack",
       "preview":"spawns_racetrack.jpg"
+    },
+
+    {
+      "translationId":"levels.west_coast_usa.spawnpoints.driftTrack",
+      "description":"levels.west_coast_usa.spawnpoints.driftTrack.description",
+      "logbookEntry":"levels.west_coast_usa.spawnpoints.driftTrack.logbookEntry",
+      "objectname":"spawns_driftTrack",
+      "preview":"spawns_drifttrack.jpg"
     },
 
     {

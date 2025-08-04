@@ -22,7 +22,7 @@
     },
     {
       "config":"police",
-      "model":"sunburst"
+      "model":"sunburst2"
     },
     {
       "config":"police",
@@ -30,7 +30,7 @@
     },
     {
       "config":"interceptor",
-      "model":"sunburst"
+      "model":"sunburst2"
     },
     {
       "config":"interceptor",

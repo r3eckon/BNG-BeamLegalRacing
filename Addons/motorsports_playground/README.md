@@ -24,3 +24,5 @@ This addon is currently built for map version **.33.3**
 * Fixed missing mission subfolder
 ### BeamLR 1.17.5
 * Added flowgraph for track event history UI
+### BeamLR 1.18
+* Updated mission file

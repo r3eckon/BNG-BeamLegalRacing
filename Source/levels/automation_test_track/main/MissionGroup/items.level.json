@@ -9,4 +9,5 @@
 {"name":"decal_road","class":"SimGroup","persistentId":"59b75cdc-dc36-40cd-b9ad-5222d227ee8b","__parent":"MissionGroup"}
 {"name":"water_objects","class":"SimGroup","persistentId":"792af245-a0a1-46b9-b310-f8bd90b22685","__parent":"MissionGroup"}
 {"name":"point_lights","class":"SimGroup","persistentId":"b21ea2fa-ce65-4898-85d8-fd133bfadb10","__parent":"MissionGroup"}
+{"name":"driftSpots","class":"SimGroup","__parent":"MissionGroup"}
 {"name":"BeamLR","class":"SimGroup","persistentId":"8a98f9ea-ffcb-47b8-bc9e-5bbe9fc98b87","__parent":"MissionGroup"}

@@ -145,14 +145,6 @@
       "model":"simple_traffic"
     },
     {
-      "config":"sunburst_base",
-      "model":"simple_traffic"
-    },
-    {
-      "config":"sunburst_wide",
-      "model":"simple_traffic"
-    },
-    {
       "config":"van_passenger",
       "model":"simple_traffic"
     },
@@ -170,10 +162,6 @@
     },
     {
       "config":"fullsize_stock",
-      "model":"simple_traffic"
-    },
-    {
-      "config":"sunburst_sport",
       "model":"simple_traffic"
     },
     {
@@ -257,6 +245,30 @@
       "model":"simple_traffic"
     },
     {
+      "config":"sunburst2_sedan_aero",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"sunburst2_sedan_base",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"sunburst2_sedan_wide",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"sunburst2_wagon_aero",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"sunburst2_wagon_base",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"sunburst2_wagon_wide",
+      "model":"simple_traffic"
+    },
+    {
       "config":"van_vanster_facelift",
       "model":"simple_traffic"
     },
@@ -270,6 +282,14 @@
     },
     {
       "config":"legran_wagon_pre_luxe",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"sunburst2_sedan_sport",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"sunburst2_wagon_sport",
       "model":"simple_traffic"
     },
     {

@@ -24,6 +24,7 @@ angular.module('beamng.apps')
 	  scope.templateFixMode = false;
 	  scope.templateFixData = {}
 	  scope.templateFixSelected = {}
+	  scope.templateFixUsedIDs = {}
 	  scope.templateFixTemplate = {}
 	  scope.templateFixNeeded = false
 	  scope.optshow = {}
@@ -37,6 +38,8 @@ angular.module('beamng.apps')
 	  scope.lastbuyused = false // true if used part was bought, false if new part was bough
 	  
 	  scope.beamlrData["slotFavorites"] = {}
+	  
+	  scope.pathNameCache = {}
 	  
 	  
 	  //helper function to trigger message in vanilla message app
@@ -876,6 +879,7 @@ angular.module('beamng.apps')
 		   scope.templateFixMode = true
 		   scope.templateFixData = data
 		   scope.templateFixSelected = {}
+		   scope.templateFixUsedIDs = {}
 		   scope.templateFixNeeded = Object.keys(data["missing"]).length > 0
 	   })
 	   
@@ -888,14 +892,20 @@ angular.module('beamng.apps')
 	   scope.onReplacementSelected = function(part,id)
 	   {
 		   var selected = scope.templateFixSelected[part][id] == true
-		   scope.templateFixSelected[part] = {}
+		   scope.templateFixSelected[part] = null
 		   if(selected)
-			scope.templateFixSelected[part][id] = true
+		   {
+			  scope.templateFixSelected[part] = {} 
+			  scope.templateFixSelected[part][id] = true 
+		   }
+			
+			scope.templateFixUsedIDs[id] = selected
 	   }
 	   
 	   scope.cancelTemplateFix = function()
 	   {
 		   scope.templateFixSelected = {}
+		   scope.templateFixUsedIDs = {}
 		   scope.templateFixMode = false
 	   }
 	   
@@ -1032,12 +1042,16 @@ angular.module('beamng.apps')
 	  
 	  scope.getSlotName = function(slot)
 	  {
-		  var name = scope.beamlrData['slotNames'][slot]
+		  var name = scope.beamlrData['slotNames'][scope.beamlrData['slotPathIDMap'][slot]]
+		  
+		  if(name == null)
+		  {
+			  name = scope.beamlrData['slotNames'][slot]
+		  }
 		  
 		  if(name == null || scope.slotNameMode == 1)
 		  {
-			  console.log("NO SLOT NAME FOR " + slot)
-			  return slot
+			  return scope.beamlrData['slotPathIDMap'][slot]
 		  }
 		  else
 		  {
@@ -1124,6 +1138,30 @@ angular.module('beamng.apps')
 			scope.beamlrData["slotFavorites"][slot] = "true"
 		}
 			
+	  }
+	  
+	  //returns a part name from its path 
+	  scope.nameFromPath = function(path)
+	  {
+		  //console.log(path)
+		  if(scope.pathNameCache[path] != null)
+		  {
+			return scope.pathNameCache[path]
+		  }
+		  else
+		  {
+			var cname = path.split("/")
+			cname = cname[cname.length-1]
+			if(cname == null)
+			{
+				console.log("MAIN UI STRING SPLIT ERROR FOR PATH:" + path)
+				return "???"
+			}
+			
+			scope.pathNameCache[path] = cname
+			return cname
+		  }
+		
 	  }
 	  
     }

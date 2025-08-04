@@ -30,7 +30,7 @@
     },
 
     "tunnel_city_C" : {
-      "nodes" : ["tunnel_city_C_0","tunnel_city_C_1", "tunnel_city_C_2", "tunnel_city_C_3", "tunnel_city_C_4", "tunnel_city_C_5", "tunnel_city_C_6", "tunnel_city_C_7", "tunnel_city_C_8", "tunnel_city_C_9", "tunnel_city_C_10", "tunnel_city_C_11", "tunnel_city_C_12", "tunnel_city_C_13", "tunnel_city_C_14", "tunnel_city_C_15", "tunnel_city_C_16", "tunnel_city_C_17", "tunnel_city_C_18", "tunnel_city_C_19", "tunnel_city_C_20", "tunnel_city_C_21", "tunnel_city_C_22", "tunnel_city_C_23", "tunnel_city_C_24", "tunnel_city_C_25", "tunnel_city_C_26", "tunnel_city_C_27", "tunnel_city_C_28", "tunnel_city_C_29", "tunnel_city_C_30","tunnel_city_C_31", "tunnel_city_C_32", "tunnel_city_C_33", "tunnel_city_C_34", "tunnel_city_C_35", "tunnel_city_C_36", "tunnel_city_C_37", "tunnel_city_C_38", "tunnel_city_C_39", "tunnel_city_C_40", "tunnel_city_C_41", "tunnel_city_C_42", "tunnel_city_C_43", "tunnel_city_C_44", "tunnel_city_C_45", "tunnel_city_C_46", "tunnel_city_C_47", "tunnel_city_C_48", "tunnel_city_C_49", "tunnel_city_C_50", "tunnel_city_C_51", "tunnel_city_C_52", "tunnel_city_C_53", "tunnel_city_C_54", "tunnel_city_C_55", "tunnel_city_C_56", "tunnel_city_C_57", "tunnel_city_B_35"],
+      "nodes" : ["tunnel_city_C_1", "tunnel_city_C_2", "tunnel_city_C_3", "tunnel_city_C_4", "tunnel_city_C_5", "tunnel_city_C_6", "tunnel_city_C_7", "tunnel_city_C_8", "tunnel_city_C_9", "tunnel_city_C_10", "tunnel_city_C_11", "tunnel_city_C_12", "tunnel_city_C_13", "tunnel_city_C_14", "tunnel_city_C_15", "tunnel_city_C_16", "tunnel_city_C_17", "tunnel_city_C_18", "tunnel_city_C_19", "tunnel_city_C_20", "tunnel_city_C_21", "tunnel_city_C_22", "tunnel_city_C_23", "tunnel_city_C_24", "tunnel_city_C_25", "tunnel_city_C_26", "tunnel_city_C_27", "tunnel_city_C_28", "tunnel_city_C_29", "tunnel_city_C_30","tunnel_city_C_31", "tunnel_city_C_32", "tunnel_city_C_33", "tunnel_city_C_34", "tunnel_city_C_35", "tunnel_city_C_36", "tunnel_city_C_37", "tunnel_city_C_38", "tunnel_city_C_39", "tunnel_city_C_40", "tunnel_city_C_41", "tunnel_city_C_42", "tunnel_city_C_43", "tunnel_city_C_44", "tunnel_city_C_45", "tunnel_city_C_46", "tunnel_city_C_47", "tunnel_city_C_48", "tunnel_city_C_49", "tunnel_city_C_50", "tunnel_city_C_51", "tunnel_city_C_52", "tunnel_city_C_53", "tunnel_city_C_54", "tunnel_city_C_55", "tunnel_city_C_56", "tunnel_city_C_57", "tunnel_city_B_35"],
       "oneWay": true,
       "lanesLeft": 1,
       "drivability" : 1
@@ -221,11 +221,11 @@
       "drivability" : 1
     },
 
-    "bridge18" : {
-      "nodes" : ["Bridge18_1", "Bridge18_2"],
-      "gatedRoad": true,
-      "drivability" : 1
-    },
+    //"bridge18" : {
+    //  "nodes" : ["Bridge18_1", "Bridge18_2"],
+    //  "gatedRoad": true,
+    //  "drivability" : 1
+    //},
 
     "bridge19" : {
       "nodes" : ["Bridge19_1", "Bridge19_2"],
@@ -360,7 +360,7 @@
       "drivability" : 1
     },
 
-    "dragRace" : {
+	 "dragRace" : {
       "nodes" : ["drag_3","drag_4"],
       "oneWay": true,
       "flipDirection": false,
@@ -374,8 +374,7 @@
       "flipDirection": true,
       "gatedRoad": true,
       "drivability" : 1
-    },
-
+    },			  
     "dirttrack" : {
       "nodes" : ["dirttrack_1", "dirttrack_2", "dirttrack_3", "dirttrack_4", "dirttrack_5", "dirttrack_6", "dirttrack_7", "dirttrack_8", "dirttrack_9", "dirttrack_10","dirttrack_11", "dirttrack_12", "dirttrack_13", "dirttrack_14", "dirttrack_15", "dirttrack_15a", "dirttrack_15b", "dirttrack_15c", "dirttrack_16", "dirttrack_17", "dirttrack_18", "dirttrack_19", "dirttrack_19a", "dirttrack_19b", "dirttrack_19c", "dirttrack_19d", "dirttrack_20","dirttrack_21", "dirttrack_22", "dirttrack_23", "dirttrack_23a", "dirttrack_23b", "dirttrack_23c", "dirttrack_23d", "dirttrack_23e", "dirttrack_24", "dirttrack_25", "dirttrack_26", "dirttrack_27", "dirttrack_28", "dirttrack_29", "dirttrack_30","dirttrack_31", "dirttrack_32"],
       "oneWay": true,
@@ -427,14 +426,14 @@
       "nodes" : ["junction1_wp4", "junction1_wp32", "junction1_wp33", "junction1_wp12"],
       "oneWay": true,
       "flipDirection": false,
-      "drivability" : 1
-    },
+      "drivability" : 1																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																										   
+    }
 	
-    "beamlrfix1" : {
+	"beamlrfix1" : {
       "nodes" : ["tunnel_city_C_1", "tunnel_city_D_4"],
       "oneWay": true,
       "flipDirection": false,
       "drivability" : 1
-    }		
+    }
   }
 }

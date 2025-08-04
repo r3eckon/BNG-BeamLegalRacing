@@ -1,6 +1,6 @@
-name=Hirochi Sunburst (2.0 Sport,Manual)
+name=Hirochi Sunburst (2.0 Sport S,Manual)
 type=sunburst
-config=vehicles/sunburst/sport_M.pc
+config=vehicles/sunburst2/sport_S_M.pc
 baseprice=30000
 odometer=0
 scrapval=200

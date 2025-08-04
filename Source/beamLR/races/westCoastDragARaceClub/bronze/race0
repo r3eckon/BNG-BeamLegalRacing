@@ -1,8 +1,8 @@
 desc=Another highway drag race
 wager=150,500
 slips=0.05
-enemyModel=sunburst
-enemyConfig=vehicles/sunburst/base_M.pc
+enemyModel=sunburst2
+enemyConfig=vehicles/sunburst2/base_EU_M.pc,vehicles/sunburst2/base_EU_wagon_M.pc
 enemyRisk=2.0
 enemyBasePrice=0
 enemyPartPrice=0

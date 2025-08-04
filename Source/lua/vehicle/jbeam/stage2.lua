@@ -1,9 +1,6 @@
---[[
-This Source Code Form is subject to the terms of the bCDDL, v. 1.1.
-If a copy of the bCDDL was not distributed with this
-file, You can obtain one at http://beamng.com/bCDDL-1.1.txt
-This module contains a set of functions which manipulate behaviours of vehicles.
-]]
+-- This Source Code Form is subject to the terms of the bCDDL, v. 1.1.
+-- If a copy of the bCDDL was not distributed with this
+-- file, You can obtain one at http://beamng.com/bCDDL-1.1.txt
 
 local M = {}
 
@@ -168,14 +165,16 @@ local function addBeamByData(vehicle, beam)
   end
 end
 
--- BEAMLR EDITED TO GIVE ALL TRACK EVENT OPPONENTS SLICKS
+
 local function processNodes(vehicle)
   if vehicle.nodes == nil then return end
   
+  -- BEAMLR EDIT BEGIN
   local slickmode = extensions.blrflags.get("trackEventSlickMode")
   if slickmode then
   print("BeamLR applied slick tire grip values to vehicle, this should not happen outside BeamLR track events.")
   end
+  -- BEAMLR EDIT END
   
   for i = 0, tableSizeC(vehicle.nodes) - 1 do
     local node = vehicle.nodes[i]
@@ -204,8 +203,8 @@ local function processNodes(vehicle)
     else
       staticCollision = true
     end
-	
 
+	-- BEAMLR EDIT BEGIN
     local frictionCoef = type(node.frictionCoef) == 'number' and node.frictionCoef or 1
     local slidingFrictionCoef = type(node.slidingFrictionCoef) == 'number' and node.slidingFrictionCoef or frictionCoef
     local noLoadCoef = type(node.noLoadCoef) == 'number' and node.noLoadCoef or 1
@@ -225,7 +224,7 @@ local function processNodes(vehicle)
 	stribeckExponent = math.max(stribeckExponent, 2.0)
 	stribeckVelMult = math.max(stribeckVelMult, 1.0)
 	end
-
+	-- BEAMLR EDIT END
 
     local nodeWeight
     if type(node.nodeWeight) == 'number' then
@@ -247,7 +246,7 @@ local function processNodes(vehicle)
     end
 
     local pos = node.pos
-    obj:setNode(node.cid, pos.x, pos.y, pos.z, nodeWeight, ntype, frictionCoef, slidingFrictionCoef, stribeckExponent, stribeckVelMult, noLoadCoef, fullLoadCoef, loadSensitivitySlope, node.softnessCoef or 0.5, treadCoef, node.tag or '', node.couplerStrength or math.huge, node.firstGroup or -1, selfCollision, collision, staticCollision, nodeMaterialTypeID)
+    obj:setNode(node.cid, pos.x, pos.y, pos.z, nodeWeight, ntype, frictionCoef, slidingFrictionCoef, node.stribeckExponent or 1.75, node.stribeckVelMult or 1, noLoadCoef, fullLoadCoef, loadSensitivitySlope, node.softnessCoef or 0.5, node.treadCoef or 0.5, node.tag or '', node.couplerStrength or math.huge, node.firstGroup or -1, selfCollision, collision, staticCollision, nodeMaterialTypeID)
 
     if node.pairedNode then
       obj:setNodePair2WheelId(node.cid, node.pairedNode, node.pairedNode2 or -1, node.wheelID or -1)
@@ -571,7 +570,7 @@ local function loadVehicleStage2(vdataStage1)
   -- backward compatibility
   M.vehicleDirectory = M.data.vehicleDirectory
 
-  profilerPopEvent() -- jbeam/loadVehicleStage2
+  profilerPopEvent("jbeam/loadVehicleStage2")
 
   log('D', 'loader', 'Vehicle loading took: ' .. tostring(t:stop()) .. ' ms')
   return vdataStage1.vdata

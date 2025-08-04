@@ -29,9 +29,18 @@
       "model":"etk800"
     },
 	{
+      "config":"polizia",
+      "model":"sunburst2"
+    },
+	{
       "config":"kc6x_340_police_highway_A",
       "model":"etkc"
+    },
+	{
+      "config":"854_police_A_alt",
+      "model":"etk800"
     }
+	
   ],
   "name":"Police - Europe",
   "type":"custom"

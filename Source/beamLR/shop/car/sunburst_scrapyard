@@ -1,6 +1,6 @@
 name=Hirochi Sunburst
 type=sunburst
-config=vehicles/sunburst/blr_scrapyard.pc
+config=vehicles/sunburst2/blr_scrapyard.pc
 baseprice=200,400
 odometer=200000000,400000000
 scrapval=80

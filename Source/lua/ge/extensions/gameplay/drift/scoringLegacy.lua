@@ -30,6 +30,16 @@ local driftScore = {}
 local driftActiveData = {}
 local driftOptions = {}
 
+local driftTiers = {
+  { minScore =     0, continuousScore = 10, id = "drift", order = 1 },
+  { minScore =   250, continuousScore = 20, id = "greatDrift" , order = 2},
+  { minScore =   750, continuousScore = 30, id = "awesomeDrift" , order = 3},
+  { minScore =  2000, continuousScore = 40, id = "superiorDrift" , order = 4},
+  { minScore =  5000, continuousScore = 50, id = "epicDrift" , order = 5},
+  { minScore =  9000, continuousScore = 60, id = "apexDrift" , order = 6},
+  { minScore =  15000, continuousScore = 75, id = "legendaryDrift" , order = 7},
+}
+
 --
 local currDriftTimeToCombo = 0
 local currDriftIncrement = 0
@@ -168,10 +178,17 @@ local function getScoreAddedThisFrame()
 return scoreAddedThisFrame
 end
 
+-- Added in 1.17.6 for compatibility 
+local function getDriftPerformanceFactor()
+  return performanceFactor
+end
+
+local function getSteppedDriftPerformanceFactor()
+  return smoothedSteppedPerformanceFactor
+end
+
 M.getScoreOptions = getScoreOptions
 M.getScoreAddedThisFrame = getScoreAddedThisFrame
-
-
 M.onDriftPlVehReset = onDriftPlVehReset
 M.onUpdate = onUpdate
 M.onDriftThroughDetected = onDriftThroughDetected
@@ -179,7 +196,31 @@ M.onDonutDriftDetected = onDonutDriftDetected
 M.onDriftCompleted = onDriftCompleted
 M.onDriftCrash = onDriftCrash
 M.onDriftSpinout = onDriftSpinout
-
 M.getScore = getScore
-M.resetScore = resetScore
+M.reset = resetScore
+
+
+
+
+-- Vanilla functions that might be called by drift script but useless for legacy scoring
+M.onDriftTransition = function() end
+M.onAnyStuntZoneAccomplished = function() end
+M.onDriftThroughAccomplished = function() end
+M.onHitPoleAccomplished = function() end
+M.onDonutDriftAccomplished = function() end
+M.onNearPoleAccomplished = function() end
+M.onDriftChainStarted = function() end
+M.onDriftSpinout = function() end
+M.getPotentialScore = function() return 0 end
+M.getStuntZoneBasePoints = function() return 0 end
+M.getDriftDebugInfo = function() return {} end
+M.getGC = function() return {} end
+M.getDriftTiers = function() return driftTiers end
+M.getDriftPerformanceFactor = function() return 0 end
+M.getSteppedDriftPerformanceFactor = function() return 0 end
+M.getCurrentDriftTier = function() return driftTiers[1] end
+M.wrapUp = function() end
+M.wrapUpWithText = function() end
+M.addCachedScore = function() return 0 end
+
 return M

@@ -1,9 +1,12 @@
-/vehicles/sunburst/street.pc
-/vehicles/sunburst/hillclimb_SQ.pc
 /vehicles/sbr/TT_AWD_S2_M.pc
 /vehicles/sbr/electric_500.pc
-/vehicles/sbr/electric_800.pc
-/vehicles/sbr/hillclimb.pc
+/vehicles/sbr/custom.pc
 /vehicles/sbr/TT_AWD_S2_DCT.pc
-/vehicles/sbr/hillclimb_SQ.pc
+/vehicles/sbr/hillclimb.pc
+/vehicles/sbr/electric_800.pc
 /vehicles/sbr/powerglow.pc
+/vehicles/sbr/hillclimb_SQ.pc
+/vehicles/sbr/track.pc
+/vehicles/sunburst2/street_tuned.pc
+/vehicles/sunburst2/drift_pro.pc
+/vehicles/sunburst2/track_attack.pc

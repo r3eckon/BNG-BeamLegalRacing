@@ -9,6 +9,8 @@ This module contains a set of functions which manipulate behaviours of vehicles.
 
 local M = {}
 
+local tableInsert, tableClear = table.insert, table.clear
+
 local jbeamUtils = require("jbeam/utils")
 local jbeamTableSchema = require('jbeam/tableSchema')
 local json = require("json")
@@ -58,7 +60,7 @@ local function processSlotsV1DestructiveBackwardCompatibility(slots, newSlots)
     if #slotSectionRow > 3 and type(slotSectionRow[4]) == 'table' then
       tableMerge(slot, slotSectionRow[4])
     end
-    table.insert(newSlots, slot)
+    tableInsert(newSlots, slot)
     addedSlots = addedSlots + 1
 
     ::continue::
@@ -73,7 +75,7 @@ local function _processSlotsDestructiveLegacy(part, sourceFilename)
   if #part.slots > 0 and type(part.slots[1]) == 'table' and part.slots[1][1] ~= 'type' then
     -- backward compatibility: some parts miss the table header, which worked due to limitations before.
     log('W', 'slotSystem', 'Slot section of part ' .. tostring(part.partName) .. ' in file ' .. tostring(sourceFilename) ..' misses the table header. Adding default: ["type", "default", "description"]. Please fix.')
-    table.insert(part.slots, 1, {"type", "default", "description"})
+    tableInsert(part.slots, 1, {"type", "default", "description"})
   end
   local newListSize = jbeamTableSchema.processTableWithSchemaDestructive(part.slots, newSlots)
   if newListSize < 0 then
@@ -132,7 +134,7 @@ local function getSlotInfoDataForUi(slots)
     s.coreSlot = slot.coreSlot
     res[slot.name or slot.type] = s
   end
-  return res    
+  return res
 end
 
 local function loadJBeamFile(dir, filename, addToCache)
@@ -146,9 +148,10 @@ local function loadJBeamFile(dir, filename, addToCache)
   for partName, part in pairs(fileContent) do
     partCount = partCount + 1
     part.partName = partName
-	
+
     -- this processes the slot and slot2 section
     processSlotsDestructive(part, filename)
+	
 	
 	-- BeamLR 1.13 Advanced Vehicle Building Code Start
 	-- Updated in 1.16 due to change in jbeam table format preventing
@@ -166,7 +169,8 @@ local function loadJBeamFile(dir, filename, addToCache)
 	end
 	end
 	-- BeamLR 1.13 Advanced Vehicle Building Code end	
-
+	
+	
     local slotInfoUi = getSlotInfoDataForUi(part.slots2 or {})
 
     if addToCache then
@@ -182,7 +186,7 @@ local function loadJBeamFile(dir, filename, addToCache)
       -- support for a part that fits in the correct slottype
       local slotTypes = {}
       if type(part.slotType) == 'string' then
-        table.insert(slotTypes, part.slotType)
+        tableInsert(slotTypes, part.slotType)
       elseif type(part.slotType) == 'table' then
         slotTypes = part.slotType
       end
@@ -213,7 +217,7 @@ local function loadJBeamFile(dir, filename, addToCache)
         else
           partFileMap[dir][partName] = filename
           partNameMap[dir][partName] = partDesc
-          table.insert(partSlotMap[dir][slotType], partName)
+          tableInsert(partSlotMap[dir][slotType], partName)
         end
       end
       ::continue::
@@ -238,7 +242,7 @@ local function startLoading(directories)
       --log('D', 'jbeam.startLoading', "Loaded " .. tostring(partCountTotal) .. " parts from " .. tostring(tableSize(jbeamCache)) .. ' jbeam files in ' .. tostring(dir))
     end
   end
-  profilerPopEvent() -- jbeam/io.startLoading
+  profilerPopEvent('jbeam/io.startLoading')
 
   return { preloadedDirs = directories }
 end
@@ -250,7 +254,7 @@ local function getPart(ioCtx, partName)
     if jbeamFilename then
       if not jbeamCache[jbeamFilename] then
         local partCount = loadJBeamFile(dir, jbeamFilename)
-        log('D', 'jbeam.getPart', "Loaded " .. tostring(partCount) .. " part(s) from file " .. tostring(jbeamFilename))
+        --log('D', 'jbeam.getPart', "Loaded " .. tostring(partCount) .. " part(s) from file " .. tostring(jbeamFilename))
       end
       if jbeamCache[jbeamFilename] then
         return jbeamCache[jbeamFilename][partName], jbeamFilename
@@ -273,10 +277,10 @@ local function getMainPartName(ioCtx)
 end
 
 local function finishLoading()
-  table.clear(jbeamCache)
+  print("jbeamIO cache cleared")
+  tableClear(jbeamCache)
   fileCacheOld = fileCache or {}
   fileCache = {}
-  print("CLEARED JBEAM CACHE")
 end
 
 local function getAvailableParts(ioCtx)
@@ -301,10 +305,11 @@ local function getAvailableParts(ioCtx)
   return res
 end
 
-local function getAvailableSlotMap(ioCtx)
+-- DEPRECATED FUNCTION: IT IS NOT COMPATIBLE WITH SLOTS2, USE getCompatiblePartNamesForSlot() INSTEAD
+local function getAvailableSlotNameMap(ioCtx)
   if not isContextValid(ioCtx) then return end
 
-  local res = {}
+  local slotsPartMap, res = {}, {}
   local loaded = false
   for _, dir in ipairs(ioCtx.preloadedDirs) do
     if not partSlotMap[dir] then
@@ -313,14 +318,14 @@ local function getAvailableSlotMap(ioCtx)
     end
     -- merge manually to catch errors
     for slotName, partList in pairs(partSlotMap[dir]) do
-      if not res[slotName] then res[slotName] = {} end
-      for _, partName  in ipairs(partList) do
-        for _, partName2  in ipairs(res[slotName]) do
-          if partName == partName2 then
-            log('E', "jbeam.getAvailableSlotMap", "parts names are duplicate: " .. tostring(partName) .. ' in folders: ' .. dumps(ioCtx.preloadedDirs))
-          end
+      if not res[slotName] then res[slotName], slotsPartMap[slotName] = {}, {} end
+      local partMap = slotsPartMap[slotName]
+      for _, partName in ipairs(partList) do
+        if partMap[partName] then
+          log('E', "jbeam.getAvailableSlotNameMap", "parts names are duplicate: " .. tostring(partName) .. ' in folders: ' .. dumps(ioCtx.preloadedDirs))
         end
-        table.insert(res[slotName], partName)
+        tableInsert(res[slotName], partName)
+        partMap[partName] = true
       end
     end
   end
@@ -328,6 +333,120 @@ local function getAvailableSlotMap(ioCtx)
   return res
 end
 
+local function getAvailablePartNamesForSlot(ioCtx, slotType)
+  local slotMap = getAvailableSlotNameMap(ioCtx)
+  return slotMap and slotMap[slotType] or {}
+end
+
+-- supply slotMap with getAvailableSlotNameMap() , especially if you will be calling this function multiple times as an optimization
+-- slotDef comes from:
+--  local part = getPart(ioCtx, partName)
+--  local slots = part.slots2 or part.slots
+--  local slotDef = slots[i]
+local function getCompatiblePartNamesForSlot(ioCtx, slotDef, slotMap)
+  slotMap = slotMap or getAvailableSlotNameMap(ioCtx)
+  if not slotMap then return {}, {} end
+
+  -- slot version 1
+  if slotDef.type then
+    return slotMap[slotDef.type] or {}, {}
+
+  -- slot version 2
+  elseif slotDef.allowTypes then
+    local suitablePartNames, unsuitablePartNames = {}, {}
+    local suitablePartsMap = {}
+    local denyTypesMap = next(slotDef.denyTypes) and {}
+    if denyTypesMap then
+      for _, denyType in ipairs(slotDef.denyTypes) do
+        denyTypesMap[denyType] = true
+      end
+    end
+    for _, slotType in ipairs(slotDef.allowTypes) do
+      -- get all parts that fit the slot allow type
+      local allowedParts = slotMap[slotType] or {}
+      for _, partName in ipairs(allowedParts) do
+        if not suitablePartsMap[partName] then
+          local part = getPart(ioCtx, partName)
+          if part then
+            local partSlotType = type(part.slotType)
+            if partSlotType == 'string' then
+              -- case 1: the slotType on the part side is a string only
+              -- check if the part is denied by any of the slot deny types
+              if denyTypesMap then
+                if not denyTypesMap[part.slotType] then
+                  tableInsert(suitablePartNames, partName)
+                  suitablePartsMap[partName] = true
+                else
+                  tableInsert(unsuitablePartNames, {partName = partName, reason = "Part type is in deny list"})
+                end
+              else
+                tableInsert(suitablePartNames, partName)
+                suitablePartsMap[partName] = true
+              end
+            elseif partSlotType == 'table' then
+              -- case 2: the slotType on the part is a table
+              -- check if the part is denied by any of the slot deny types
+              if denyTypesMap then
+                local allowed = true
+                for _, slotType in ipairs(part.slotType) do
+                  if denyTypesMap[slotType] then
+                    allowed = false
+                    break
+                  end
+                end
+                if allowed then
+                  tableInsert(suitablePartNames, partName)
+                  suitablePartsMap[partName] = true
+                else
+                  tableInsert(unsuitablePartNames, {partName = partName, reason = "Part type is in deny list"})
+                end
+              else
+                tableInsert(suitablePartNames, partName)
+                suitablePartsMap[partName] = true
+              end
+            end
+          else
+            log("E", "jbeam.getCompatiblePartNamesForSlot", "Part \"" .. tostring(partName) .. "\" not found; skipping.")
+          end
+        end
+      end
+    end
+    return suitablePartNames, unsuitablePartNames
+  end
+
+  return {}, {}
+end
+
+local function updateAllVehiclesCompatibleParts()
+  local function updateSlotRec(ioCtx, slotTreeEntry, slotMap)
+    local part = getPart(ioCtx, slotTreeEntry.chosenPartName)
+    if part then
+      local slots = part.slots2 or part.slots
+      if slots then
+        for _, slotDef in ipairs(slots) do
+          local slotId = slotDef.name or slotDef.type
+          local childSlotTreeEntry = slotTreeEntry.children[slotId]
+          if childSlotTreeEntry then
+            childSlotTreeEntry.suitablePartNames, childSlotTreeEntry.unsuitablePartNames = getCompatiblePartNamesForSlot(ioCtx, slotDef, slotMap)
+            updateSlotRec(ioCtx, childSlotTreeEntry, slotMap)
+          end
+        end
+      end
+    end
+  end
+
+  for vehId, veh in vehiclesIterator() do
+    local vehData = core_vehicle_manager.getVehicleData(vehId)
+    local ioCtx = vehData.ioCtx
+    startLoading(ioCtx.preloadedDirs)
+    local slotMap = getAvailableSlotNameMap(ioCtx)
+    if not slotMap then
+      log('E', "jbeam.updateAllVehiclesCompatibleParts", "unable to get slot map, unable to update compatible parts")
+      return
+    end
+    updateSlotRec(ioCtx, vehData.config.partsTree, slotMap)
+  end
+end
 
 local function onFileChanged(filename, type)
   local dir = string.match(filename, "(/vehicles/[^/]*/).*$") -- yeah it's weird to have no leading slash :/
@@ -353,6 +472,7 @@ end
 
 local function onFileChangedEnd()
   if invalidatedCache then
+    updateAllVehiclesCompatibleParts()
     invalidatedCache = false
     guihooks.trigger("VehicleJbeamIoChanged") --propagate change to partmgmt UI
   end
@@ -372,6 +492,9 @@ M.getPart = getPart
 M.getMainPartName = getMainPartName
 
 M.getAvailableParts = getAvailableParts
-M.getAvailableSlotMap = getAvailableSlotMap
+M.getAvailableSlotNameMap = getAvailableSlotNameMap
+M.getAvailablePartNamesForSlot = getAvailablePartNamesForSlot
+M.getCompatiblePartNamesForSlot = getCompatiblePartNamesForSlot
+
 
 return M

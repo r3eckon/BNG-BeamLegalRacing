@@ -54,6 +54,7 @@ local attachedCouplers = {}
 local transmitCouplers = {}
 local recievedElectrics = {}
 local hasActiveCoupler = false
+local hasBasicCoupler = false
 local skeletonStateTimer = 0.25
 
 local beamBodyPartLookup = nil
@@ -64,7 +65,9 @@ local bodyPartDamageTracker = nil
 local planets = {}
 local planetTimers = {}
 
-local function setPartCondition(partName, partTypeData, odometer, integrity, visual)
+local hasRegisteredQuickAccessMenu
+
+local function setPartCondition(partId, partTypeData, odometer, integrity, visual)
   if type(integrity) == "number" then
     local integrityValue = integrity
     integrity = {
@@ -95,11 +98,11 @@ local function setPartCondition(partName, partTypeData, odometer, integrity, vis
   end
 
   if visual and visual.jbeam and visual.jbeam.needsReplacement then
-  --partCondition.setPartMeshColor(partName, 170, 160, 160, 255, 255, 255, 255, 255, 255, 255, 255, 255) -- make the part look primered
+  --partCondition.setPartMeshColor(partId, 170, 160, 160, 255, 255, 255, 255, 255, 255, 255, 255, 255) -- make the part look primered
   end
 end
 
-local function getPartCondition(partName, partTypeData)
+local function getPartCondition(partId, partTypeData)
   local canProvideCondition = false
   local partCondition = {integrityValue = 1, integrityState = {}, visualValue = 1, visualState = {}}
 
@@ -144,7 +147,7 @@ local function getPartCondition(partName, partTypeData)
       local tooMuchBeamDamage = deformedBeamCount > (#damageableBeams * 0.01)
       local tooManyBrokenBeams = brokenBeamCount > 2
       local tooManyBreakGroupsBroken = breakGroupCount > 0 and (brokenBreakGroupCount > 1 or (brokenBreakGroupCount == breakGroupCount))
-      --print(string.format("%q: Breakgroups: %s, broken beams: %s/%s, deformed beams: %s/%s", partName, brokenBreakGroupCount, brokenBeamCount, #damageableBeams, deformedBeamCount, #damageableBeams))
+      --print(string.format("%q: Breakgroups: %s, broken beams: %s/%s, deformed beams: %s/%s", partId, brokenBreakGroupCount, brokenBeamCount, #damageableBeams, deformedBeamCount, #damageableBeams))
 
       if tooManyBreakGroupsBroken or tooMuchBeamDamage or tooManyBrokenBeams then
         partCondition.visualState.needsReplacement = true
@@ -770,6 +773,32 @@ local function registerExternalCouplerBreakGroup(breakGroup, cid)
   table.insert(couplerBreakGroupCache[breakGroup], cid)
 end
 
+local function torsionBarBroken(id, energy)
+  if v.data.torsionbars[id] ~= nil then
+    local torsionbar = v.data.torsionbars[id]
+
+    --this code closely mimmicks what happens in beamBroken, but for torsionbars
+    if torsionbar.breakGroup then
+      if type(torsionbar.breakGroup) ~= "table" and breakGroupCache[torsionbar.breakGroup] == nil then
+        -- shortcircuit in case of broken single breakGroup
+      else
+        local breakGroups = type(torsionbar.breakGroup) == "table" and torsionbar.breakGroup or {torsionbar.breakGroup}
+        for _, g in ipairs(breakGroups) do
+          if breakGroupCache[g] then
+            props.hidePropsInBreakGroup(g)
+
+            -- breakGroupType = 0 breaks the group
+            -- breakGroupType = 1 does not break the group but will be broken by the group
+            if torsionbar.breakGroupType == 0 or torsionbar.breakGroupType == nil then
+              breakBreakGroup(g)
+            end
+          end
+        end
+      end
+    end
+  end
+end
+
 local function beamBroken(id, energy)
   --beamDamageTracker[id] = 0
   --beamDamageTrackerDirty = true
@@ -786,8 +815,8 @@ local function beamBroken(id, energy)
   luaBreakBeam(id)
   if v.data.beams[id] ~= nil then
     local beam = v.data.beams[id]
-    if beam.partOrigin and partDamageData[beam.partOrigin] then
-      partDamageData[beam.partOrigin].beamsBroken = partDamageData[beam.partOrigin].beamsBroken + 1
+    if beam.partPath and partDamageData[beam.partPath] then
+      partDamageData[beam.partPath].beamsBroken = partDamageData[beam.partPath].beamsBroken + 1
     end
 
     -- Check for punctured tire
@@ -818,6 +847,7 @@ local function beamBroken(id, energy)
     obj:breakRails(id)
 
     -- breakgroup handling
+    -- this same code is also in torsionbarBroken, if you change this, check the other one too
     if beam.breakGroup then
       if type(beam.breakGroup) ~= "table" and breakGroupCache[beam.breakGroup] == nil then
         -- shortcircuit in case of broken single breakGroup
@@ -928,6 +958,61 @@ local function isTriangleBroken(triId)
   return collTriState[triId] == nil
 end
 
+local function registerQuickAccessMenu()
+  if not core_quickAccess or hasRegisteredQuickAccessMenu then
+    return
+  end
+  hasRegisteredQuickAccessMenu = true
+
+  if hasBasicCoupler then
+    -- couplers
+    core_quickAccess.addEntry(
+      {
+        level = "/root/playerVehicle/helperSystems/",
+        generator = function(entries)
+          -- TODO: if multiple couplers, add submenu to control individual couplers
+          table.insert(
+            entries,
+            {
+              title = "ui.radialmenu2.couplers.attach_all",
+              icon = "jointLockedMultiple",
+              originalActionInfo = {level = "/root/playerVehicle/", uniqueID = "helperSystems"},
+              onSelect = function()
+                beamstate.attachCouplers()
+                return {"reload"}
+              end
+            }
+          )
+          table.insert(
+            entries,
+            {
+              title = "ui.radialmenu2.couplers.toggle",
+              icon = "jointCycleMultiple",
+              originalActionInfo = {level = "/root/playerVehicle/", uniqueID = "helperSystems"},
+              onSelect = function()
+                beamstate.toggleCouplers()
+                return {"reload"}
+              end
+            }
+          )
+          table.insert(
+            entries,
+            {
+              title = "ui.radialmenu2.couplers.detach_all",
+              icon = "jointUnlockedMultiple",
+              originalActionInfo = {level = "/root/playerVehicle/", uniqueID = "helperSystems"},
+              onSelect = function()
+                beamstate.detachCouplers()
+                return {"reload"}
+              end
+            }
+          )
+        end
+      }
+    )
+  end
+end
+
 local function init()
   M.damage = 0
   M.damageExt = 0
@@ -984,6 +1069,7 @@ local function init()
   table.clear(couplerCache)
   couplerTags = {}
   hasActiveCoupler = false
+  hasBasicCoupler = false
 
   table.clear(M.nodeNameMap)
 
@@ -1006,6 +1092,7 @@ local function init()
         local data = shallowcopy(n)
         couplerCache[n.cid] = data
         hasActiveCoupler = n.couplerTag ~= nil or hasActiveCoupler
+        hasBasicCoupler = (not n.couplerWeld and not n.couplerLock and n.couplerTag) and hasActiveCoupler --basic coupler that can be toggled
 
         if n.breakGroup then
           local breakGroups = type(n.breakGroup) == "table" and n.breakGroup or {n.breakGroup}
@@ -1039,28 +1126,31 @@ local function init()
 
   local partValueSum = 0
 
-  for partName, part in pairs(v.data.activeParts or {}) do
-    if part then
-      local beamCount = tableSize(part.beams)
-      local partValue = 0
-      local name = "Unknown"
-      if part.information then
-        partValue = part.information.value or partValue
-        name = part.information.name or name
+  if v.data.activeParts and v.data.activePartsData then
+    for partPath, partName in pairs(v.data.activeParts) do
+      local part = v.data.activePartsData[partName]
+      if part then
+        local beamCount = tableSize(part.beams)
+        local partValue = 0
+        local name = "Unknown"
+        if part.information then
+          partValue = part.information.value or partValue
+          name = part.information.name or name
+        end
+        partDamageData[partPath] = {
+          beamsBroken = 0,
+          beamsDeformed = 0,
+          beamCount = beamCount,
+          currentDamage = 0,
+          brokenBeamsThreshold = max(beamCount * 0.01, 1),
+          deformedBeamsThreshold = max(beamCount * 0.75, 1),
+          value = partValue,
+          name = name
+        }
+        partValueSum = partValueSum + partValue
+      else
+        --log('E', 'beamstate', 'unable to get part: ' .. tostring(partPath))
       end
-      partDamageData[partName] = {
-        beamsBroken = 0,
-        beamsDeformed = 0,
-        beamCount = beamCount,
-        currentDamage = 0,
-        brokenBeamsThreshold = max(beamCount * 0.01, 1),
-        deformedBeamsThreshold = max(beamCount * 0.75, 1),
-        value = partValue,
-        name = name
-      }
-      partValueSum = partValueSum + partValue
-    else
-      --log('E', 'beamstate', 'unable to get part: ' .. tostring(partName))
     end
   end
 
@@ -1148,11 +1238,11 @@ local function init()
         invBodyPartBeamCount[bodyPart] = invBodyPartBeamCount[bodyPart] + 1
       end
 
-      local bpo = b.partOrigin
-      if bpo and partDamageData[bpo] then
-        partDamageData[bpo].beamCount = partDamageData[bpo].beamCount + 1
-        partBeams[bpo] = partBeams[bpo] or table.new(2, 0)
-        table.insert(partBeams[bpo], b.cid)
+      local bpp = b.partPath
+      if bpp and partDamageData[bpp] then
+        partDamageData[bpp].beamCount = partDamageData[bpp].beamCount + 1
+        partBeams[bpp] = partBeams[bpp] or table.new(2, 0)
+        table.insert(partBeams[bpp], b.cid)
       end
     end
   end
@@ -1174,10 +1264,12 @@ local function init()
     invBodyPartBeamCount[k] = 1 / v
     damageTracker.setDamage("body", k, 0)
   end
+
+  registerQuickAccessMenu()
 end
 
 -- only being called if the beam has deform triggers
-local function beamDeformed(id, ratio)
+local function onBeamDeformed(id, ratio)
   --log('D', "beamstate.beamDeformed","beam "..id.." deformed with ratio "..ratio)
   beamDamageTracker[id] = ratio
   beamDamageTrackerDirty = true
@@ -1193,8 +1285,8 @@ local function beamDeformed(id, ratio)
 
   local b = v.data.beams[id]
   if b then
-    if b.partOrigin and partDamageData[b.partOrigin] then
-      partDamageData[b.partOrigin].beamsDeformed = partDamageData[b.partOrigin].beamsDeformed + 1
+    if b.partPath and partDamageData[b.partPath] then
+      partDamageData[b.partPath].beamsDeformed = partDamageData[b.partPath].beamsDeformed + 1
     end
 
     if b.deformSwitches then
@@ -1401,7 +1493,7 @@ local function load(filename)
     if beam[3] > 0 then
       -- deformation: do not call c++ at all, its just used on the lua side anyways
       --print('deformed: ' .. tostring(cid) .. ' = ' .. tostring(beam[3]))
-      beamDeformed(cid, beam[3])
+      onBeamDeformed(cid, beam[3])
     end
   end
 
@@ -1455,11 +1547,12 @@ M.getPartDamageTable = getPartDamageTable
 
 -- public interface
 M.beamBroken = beamBroken
+M.torsionBarBroken = torsionBarBroken
 M.reset = reset
 M.init = init
 M.deflateTire = deflateTire
 M.updateGFX = updateGFX
-M.beamDeformed = beamDeformed
+M.onBeamDeformed = onBeamDeformed
 M.breakAllBreakgroups = breakAllBreakgroups
 M.breakHinges = breakHinges
 M.deflateTires = deflateTires

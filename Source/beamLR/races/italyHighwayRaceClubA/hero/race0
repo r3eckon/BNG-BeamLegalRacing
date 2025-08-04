@@ -1,8 +1,8 @@
 desc=Quick highway drag race
 wager=1000,2500
 slips=0.01
-enemyModel=sunburst
-enemyConfig=vehicles/sunburst/hillclimb_SQ.pc
+enemyModel=sunburst2
+enemyConfig=vehicles/sunburst2/track_attack.pc
 enemyRisk=1.0
 enemyBasePrice=0
 enemyPartPrice=0

@@ -1,10 +1,11 @@
 
 
 
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.17.5/beamLegalRacing1.17.5.zip
+
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.18/beamLegalRacing1.18.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.17.5
+# Beam Legal Racing 1.18
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -38,7 +39,7 @@ Modders should back up the userfolder before installing.
 ## Update Instructions ([Video](https://www.youtube.com/watch?v=iKZckDVPjR4))
 **BEFORE UPDATING**:  Back up the userfolder/beamLR folder to archive your career
 
-**IMPORTANT NOTE**: Version 1.16 and above are not compatible with previous version backups
+**IMPORTANT NOTE**: Version 1.18 and above are not compatible with previous version backups
 
 1. [Download the latest release][latest].
 2. Extract updated mod zip contents to the [BeamNG userfolder][userfolder].
@@ -124,6 +125,8 @@ Version 1.17.2 adds new track events on West Coast USA, track event prefabs and 
 Version 1.17.4 adds the Valo City addon, defective vehicles to used car shops (SLRR like, missing engine, wheels, etc), shared race club progress files (for Valo City, same drag club progress at multiple locations) and gearbox damage persistence (grinding gears damaged saved, must pay to repair). This update also slightly tweaked the odometer based integrity decrease to improve scaling, the effect should be overall a bit lessened for most cars.
 
 Version 1.17.5 adds nested tree part edit menu similar to vanilla part edit menu (can be toggled in UI options), a button to export your current config to freeroam (done from the config page of part edit), buttons to add slots to a list of favorites accessible in part edit and part buying menu and a UI to view history of past track event results. Part specific repair costs are now linked to part odometer so older parts and vehicles are cheaper to repair.
+
+Version 1.18 brings compatibility for BeamNG version 0.36 and adds content from 0.35 and 0.36 to the mod. This version also adds the ability to selectively repair child parts of a broken parent without repairing the parent part (repaired part will be sent to inventory).
 
 ## Getting started
 BeamLR is loaded as a freeroam mission. Use the following spawn point depending on map choice:
@@ -249,7 +252,9 @@ Added in version 1.13, advanced repair cost calculation makes use of broken/defo
 Since repair cost becomes related to vehicle part value, repair costs will be higher especially for high end vehicles like the scintilla or vehicles using costly parts. Race wagers have been increased to help balance this change.
 
 ## Part Specific Repairs
-Added in version 1.14 part specific repairs adds a menu allowing players to choose which parts to repair. Damaged parts that aren't repaired will be removed from the vehicle config and **will not be added to inventory**. Some parts must be repaired such as mechanical damage and the vehicle 'main' part and cannot be deselected. To repair a sub-part, damaged parent parts must be repaired and will be force selected if an attached sub-part is selected for repair. Undamaged sub-parts removed by a damaged parent part will be added to the part inventory. When repairing your vehicle from the player garage an on-site mechanic fee is added to the repair cost.
+Added in version 1.14 part specific repairs adds a menu allowing players to choose which parts to repair. Damaged parts that aren't repaired will be removed from the vehicle config and **will not be added to inventory**. Some parts must be repaired such as mechanical damage and the vehicle 'main' part and cannot be deselected. 
+
+Since 1.18 you can now repair damaged sub-parts without repairing a damaged parent. Undamaged or repaired sub-parts removed when you choose not to repair a damaged parent part will be returned to the part inventory. When repairing your vehicle from the player garage an on-site mechanic fee is added to the repair cost.
 
 ## GPS System
 Added in version 1.13 is a new GPS system that allows you to find specific destinations or nearest destinations of certain types like gas stations, vehicle shops, repair garages, part shops, etc. By default, the GPS UI will only show when using a vehicle that has a GPS (BeamNavigator) installed. It is also possible to force enable or disable the GPS UI through the options menu. Regardless of chosen setting, the GPS UI will be disabled in some situations where groundmarkers are required, such as during delivery missions and daredevil challenges.
@@ -341,6 +346,10 @@ Thank you for playing BeamLR!
 * Lorenzo Boccaccia (LoSboccacc)
 * Fernando Serafim Marcello
 * Andrew Barbot
+* Joe Franco
+* Zbignev Ulevic
+* Nuno Medeiros
+* Preston Knapp
 
 ## Known Issues 
 
@@ -916,3 +925,28 @@ Thank you for playing BeamLR!
 * Fixed incorrect orientation for some track event start teleport points
 * Fixed track event "teleport to start" placing player vehicle partly underground on some tracks
 * Fixed vehicle frozen when giving up race before countdown is finished
+
+### 1.18
+* Added ability to repair subparts of a damaged part without repairing parent (subparts go back to inv)
+* Added select all checkbox to advanced repair menu
+* Added different marker icons for each type of interactive area
+* Fixed missing favorite button svg files in part edit menu
+* Moved lua files from scripts folder to lua/ge/extensions
+* Renamed betterpartmgmt.lua to blrpartmgmt.lua
+* Fixed config fixing allowing multiple replacement parts to be selected
+* (0.36) Updated ilinks system to new slot tree system using slot/part path references
+* (0.36) Updated part edit UI to work with slot paths
+* (0.36) Updated vanilla scripts for new game version
+* (0.36) Updated code using vehicleCertifications.lua to vehiclePerformanceData.lua
+* (0.36) Updated traffic spawngroups with new simple traffic variants and vehicles
+* (0.36) Updated legacy drift scoring script to include missing functions needed in drift.lua
+* (0.36) Updated Burnside configs in shops and races
+* (0.36) Updated Sunburst configs in shops and races
+* (0.36) Updated blrdragdisplay.lua script to use new drag strip object names on WCUSA
+* (0.36) Fixed delivery mission G force and damage UI app to work with updated meter component
+* (0.36) Updated advanced repair UI & system to work with slot/part paths
+* (0.36) Fixed broken race waypoints (using automated script, some may remain that tscript can't detect)
+* (0.36) Fixed GPS detection broken by slot path system
+* (0.36) Fixed car shop random configs broken by slot path system
+* (0.36) Fixed car config saving and loading broken by slot path system
+* (0.36) Fixed track event N2O detection broken by slot path system

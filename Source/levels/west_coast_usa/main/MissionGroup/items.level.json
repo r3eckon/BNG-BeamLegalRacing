@@ -4,6 +4,7 @@
 {"name":"sidewalk_patches","class":"SimGroup","persistentId":"6e01be7c-e438-4a4a-8b04-b1ee7c4837f0","__parent":"MissionGroup"}
 {"name":"PlayerDropPoints","class":"SimGroup","persistentId":"6ff78b92-7ec8-44ad-bb50-a2d03c2d8b84","__parent":"MissionGroup","enabled":"1"}
 {"name":"DragRace","class":"SimGroup","persistentId":"7fb72f73-d488-4e7e-9727-6a68f0232f42","__parent":"MissionGroup"}
+{"name":"driftTrack","class":"SimGroup","__parent":"MissionGroup"}
 {"name":"Audio","class":"SimGroup","persistentId":"7fb72f73-d488-4e7e-9727-6a68f0232f46","__parent":"MissionGroup"}
 {"name":"pumpjacks","class":"SimGroup","persistentId":"25593862-4a26-4ed5-b8c9-96c151eaea7e","__parent":"MissionGroup"}
 {"name":"busstops","class":"SimGroup","persistentId":"99516639-67eb-45cc-a2fd-e5edc0cd1418","__parent":"MissionGroup"}
@@ -38,11 +39,12 @@
 {"name":"trafficCameras_wip","class":"SimGroup","persistentId":"3affc3ba-8eab-4490-a516-fc5ad05f39ce","__parent":"MissionGroup"}
 {"name":"shuffleboard_conversion_area","class":"SimGroup","__parent":"MissionGroup"}
 {"name":"spearleafShuffleboard","class":"SimGroup","__parent":"MissionGroup"}
-{"name":"edit","class":"SimGroup","__parent":"MissionGroup"}
 {"name":"driftZones","class":"SimGroup","__parent":"MissionGroup"}
+{"name":"dragTunnel","class":"SimGroup","__parent":"MissionGroup"}
+{"name":"raceTrackParkingLotGrandStands","class":"SimGroup","__parent":"MissionGroup"}
+{"name":"skidpadTestTrack","class":"SimGroup","__parent":"MissionGroup"}
+{"name":"skidpadWP1","class":"BeamNGWaypoint","__parent":"MissionGroup","position":[407.55658,-60.9128342,145.044159],"rotationMatrix":[-0.000852346304,0.999999523,0,-0.99993062,-0.000852197234,-0.0117333187,-0.0117332889,-1.00136531e-05,0.999930918]}
+{"name":"skidpadWP2","class":"BeamNGWaypoint","__parent":"MissionGroup","position":[381.004944,-101.403893,144.770889],"rotationMatrix":[0.447065532,0.89450103,-2.98023188e-08,-0.894424021,0.447026998,-0.0131171001,-0.0117331902,0.0058643003,0.999913752]}
+{"name":"skidpadWP3","class":"BeamNGWaypoint","__parent":"MissionGroup","position":[413.540039,-122.672554,145.095764],"rotationMatrix":[-0.44736141,0.894353032,-2.98023188e-08,-0.894276083,-0.447322905,-0.0131188286,-0.0117329219,-0.00586883025,0.999913752]}
+{"name":"skidpadWP4","class":"BeamNGWaypoint","__parent":"MissionGroup","position":[441.489929,-90.0654068,145.4832],"rotationMatrix":[5.96046377e-08,0.999999821,0,-0.99984479,-5.21080312e-15,-0.0176059846,-0.017605925,5.96046341e-08,0.99984479]}
 {"name":"BeamLR","class":"SimGroup","persistentId":"2d4de71e-7c9b-4033-a09b-abc131dbb8ef","__parent":"MissionGroup"}
-{"class":"DecalRoad","persistentId":"ecc55d7f-45f1-408a-8f7e-5630b1625c8f","__parent":"MissionGroup","position":[144.452148,1730.52222,100.880081],"detail":1,"drivability":1,"gatedRoad":true,"improvedSpline":true,"material":"road_invisible","nodes":[[144.452148,1730.52222,100.880081,8],[143.264725,1738.95984,101.313271,8],[140.954468,1750.85803,102.278374,8],[138.181747,1765.72949,102.490349,8],[147.570541,1770.32861,102.448898,8],[159.812988,1773.62585,102.447937,8],[168.7146,1776.69226,102.324356,8]],"overObjects":true}
-{"class":"DecalRoad","persistentId":"59646244-cadd-4f90-96ca-59bc083d46ed","__parent":"MissionGroup","position":[258.924652,0.858218193,126.532806],"drivability":1,"gatedRoad":true,"material":"road_invisible","nodes":[[258.924652,0.858218193,126.532806,12],[238.813446,21.9427166,126.532806,12],[243.982819,49.0273895,126.532806,12]]}
-{"class":"DecalRoad","persistentId":"50f269a4-b7be-4b04-b6fd-55ecbfbd7ec0","__parent":"MissionGroup","position":[377.034973,148.043457,126.532806],"drivability":1,"gatedRoad":true,"material":"road_invisible","nodes":[[377.034973,148.043457,126.532806,12],[385.585022,118.849541,126.532806,12],[401.45993,112.21199,126.532806,12]]}
-{"class":"DecalRoad","persistentId":"83a6b5bf-690f-4cbe-a974-e6d7269c15fb","__parent":"MissionGroup","position":[375.696106,152.722183,126.532806],"drivability":1,"material":"road_invisible","nodes":[[375.696106,152.722183,126.532806,12],[402.934174,145.218811,126.532806,12],[406.31662,113.672218,126.532806,12]]}
-{"class":"DecalRoad","persistentId":"2d8a692d-fe58-42b5-95b6-19d67c935e77","__parent":"MissionGroup","position":[262.530701,3.88465881,126.532806],"drivability":1,"gatedRoad":true,"material":"road_invisible","nodes":[[262.530701,3.88465881,126.532806,12],[235.741745,20.2190533,126.532806,12],[243.027557,54.745018,126.532806,12]]}

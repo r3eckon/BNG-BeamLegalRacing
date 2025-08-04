@@ -22,7 +22,7 @@
     },
     {
       "config":"police",
-      "model":"sunburst"
+      "model":"sunburst2"
     },
     {
       "config":"police",
@@ -30,15 +30,19 @@
     },
     {
       "config":"interceptor",
-      "model":"sunburst"
+      "model":"sunburst2"
     },
     {
       "config":"interceptor",
       "model":"fullsize"
-    }
+    },
 	{
       "config":"33_police_late_A",
       "model":"lansdale"
+    },
+	{
+      "config":"844_police_A",
+      "model":"etk800"
     }
 	
   ],

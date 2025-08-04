@@ -95,60 +95,68 @@ local toRet = {}
 -- have oilpan deform groups attached to engine so first try finding actual oilpan part
 local foundSlot = false -- if found slot but not found part it means oilpan is separate
 local foundPart = false -- part but not currently installed on vehicle
-for k,v in pairs(v.config.parts) do
+for k,v in pairs(v.data.slotPartMap) do
 if string.find(k, "oilpan") then
 foundSlot = true
 foundPart = (v ~= "")
-if foundPart then toRet["oilpan"] = v end
+if foundPart then toRet["oilpan"] = k .. v end
 break
 end
 end
 
--- Now dealing with other powertrain parts
-for k,v in pairs(v.data.activeParts) do
+local cdata = {}
+local ckey = ""
 
-if (not toRet["engine"]) and lookForEngine(v) then
-toRet["engine"] = k 
+-- Now dealing with other powertrain parts
+for slotPath,part in pairs(v.data.slotPartMap) do
+if part ~= "" then
+
+cdata = v.data.activePartsData[part]
+ckey = slotPath .. part
+
+
+if (not toRet["engine"]) and lookForEngine(cdata) then
+toRet["engine"] = ckey 
 end
 
 -- this will likely set engine as oilpan part, happens if vehicle has no separate oilpan part
-if (not toRet["oilpan"]) and (not foundSlot) and lookForOilpan(v) then
-toRet["oilpan"] = k 
+if (not toRet["oilpan"]) and (not foundSlot) and lookForOilpan(cdata) then
+toRet["oilpan"] = ckey 
 end
 
-if (not toRet["longblock"]) and lookForLongBlock(v) then
-toRet["longblock"] = k 
+if (not toRet["longblock"]) and lookForLongBlock(cdata) then
+toRet["longblock"] = ckey 
 end
 
-if (not toRet["radiator"]) and lookForRadiator(v) then
-toRet["radiator"] = k 
+if (not toRet["radiator"]) and lookForRadiator(cdata) then
+toRet["radiator"] = ckey 
 end
 
-if (not toRet["intake"]) and lookForIntake(v) then
-toRet["intake"] = k 
+if (not toRet["intake"]) and lookForIntake(cdata) then
+toRet["intake"] = ckey 
 end
 
-if (not toRet["turbocharger"]) and lookForTurbocharger(v) then
-toRet["turbocharger"] = k 
+if (not toRet["turbocharger"]) and lookForTurbocharger(cdata) then
+toRet["turbocharger"] = ckey 
 end
 
-if (not toRet["supercharger"]) and lookForSupercharger(v) then
-toRet["supercharger"] = k 
+if (not toRet["supercharger"]) and lookForSupercharger(cdata) then
+toRet["supercharger"] = ckey 
 end
 
-if (not toRet["transmission"]) and lookForTransmission(v) then
-toRet["transmission"] = k 
+if (not toRet["transmission"]) and lookForTransmission(cdata) then
+toRet["transmission"] = ckey 
 end
 
-if (not toRet["exhaust"]) and lookForExhaust(v) then
-toRet["exhaust"] = k 
+if (not toRet["exhaust"]) and lookForExhaust(cdata) then
+toRet["exhaust"] = ckey 
 end
 
-if (not toRet["nitrous"]) and lookForNitrous(v) then
-toRet["nitrous"] = k 
+if (not toRet["nitrous"]) and lookForNitrous(cdata) then
+toRet["nitrous"] = ckey 
 end
 
-
+end
 end
 
 return toRet

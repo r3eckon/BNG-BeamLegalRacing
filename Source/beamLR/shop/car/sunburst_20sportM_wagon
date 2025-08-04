@@ -1,0 +1,8 @@
+name=Hirochi Sunburst (2.0 Sport S,Manual)
+type=sunburst
+config=vehicles/sunburst2/sport_S_wagon_M.pc
+baseprice=30000
+odometer=0
+scrapval=200
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1
