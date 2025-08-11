@@ -618,17 +618,183 @@ return toRet
 end
 
 
+
+local function tableValuesToKeys(input) -- basically converts into hashmap, no duplicates
+local toRet = {}
+for k,v in pairs(input) do
+toRet[v] = true
+end
+return toRet
+end
+
+local function tableKeysToValues(input)
+local toRet = {}
+for k,v in pairs(input) do
+table.insert(toRet, k)
+end
+return toRet
+end
+
+local function getJbeamFromFullMap(p)
+return jsonReadFile(jbeamFileMap[p])[p]
+end
+
+local function parseJbeamSlotsTable(data)
+local toRet = {}
+local header = data[1]
+local sid = 1
+
+
+for i=2,#data do
+if not toRet[sid] then toRet[sid] = {} end
+for j=1,#header do
+toRet[sid][header[j]] = data[i][j]
+end
+sid = sid + 1
+end
+
+
+return toRet
+end
+
+local function getTypeKeyedJbeamSlots(part)
+local jdata = getJbeamFromFullMap(part)
+local slots = {}
+local toRet = {}
+
+if jdata then
+slots = jdata["slots2"] or jdata["slots"]
+if slots then
+slots = parseJbeamSlotsTable(slots)
+for k,v in pairs(slots) do
+toRet[v.type or v.name] = v
+end
+end
+else
+print("getNameKeyedJbeamSlots error, no jbeam data for part: " .. part)
+end
+
+return toRet
+end
+
+
+local function getSlotAllowTypes()
+local model = getMainPartName()
+local parts = getVehicleParts()
+local cslots = {}
+local toRetPaths = {}
+local toRetIDs = {}
+local cpath = ""
+
+local mainPath = "/"
+local mainPart = model
+
+-- starting with main part for vehicle for allowTypes at root of slot tree.
+-- doing it this way because previous method was adding main part to parts table
+-- caused issues because tables are passed by reference, alternative would be to
+-- deepcopy the parts table and then add main part to copy but that would take longer
+cslots = getTypeKeyedJbeamSlots(mainPart)
+if cslots then
+	for slotId,slotData in pairs(cslots) do
+		cpath = mainPath .. slotId .. "/"
+		if not toRetPaths[cpath] then toRetPaths[cpath] = {} end
+		if not toRetIDs[cpath] then toRetIDs[cpath] = {} end
+		if slotData["allowTypes"] then
+			for _,allowType in pairs(slotData["allowTypes"]) do
+			table.insert(toRetPaths[cpath], mainPath .. allowType .. "/")
+			table.insert(toRetIDs[cpath], allowType)
+			end
+		else
+			table.insert(toRetPaths[cpath],mainPath .. slotId .. "/")
+			table.insert(toRetIDs[cpath],slotId)
+		end
+	end
+end
+
+-- now looping over the rest of vehicle parts
+for slotPath,part in pairs(parts) do
+	if part and part ~= "" then
+		cslots = getTypeKeyedJbeamSlots(part)
+		if cslots then
+			for slotId,slotData in pairs(cslots) do
+				cpath = slotPath .. slotId .. "/"
+				if not toRetPaths[cpath] then toRetPaths[cpath] = {} end
+				if not toRetIDs[cpath] then toRetIDs[cpath] = {} end
+				if slotData["allowTypes"] then
+					for _,allowType in pairs(slotData["allowTypes"]) do
+					table.insert(toRetPaths[cpath], slotPath .. allowType .. "/")
+					table.insert(toRetIDs[cpath], allowType)
+					end
+				else
+					table.insert(toRetPaths[cpath],slotPath .. slotId .. "/")
+					table.insert(toRetIDs[cpath],slotId)
+				end
+			end
+		end
+	end
+end
+
+return toRetPaths,toRetIDs
+end
+
+
+local function getSlotMapForAllowTypes()
+local allowTypePaths, allowTypeIDs = getSlotAllowTypes()
+local slots = getPathKeyedSlots()
+local map = getSlotMap()
+local toRet = {}
+
+for slotPath,slotId in pairs(slots) do
+	if allowTypeIDs[slotPath] then
+		for _,allowType in pairs(allowTypeIDs[slotPath]) do
+			
+			if map[allowType] then
+				
+				for _,part in pairs(map[allowType]) do
+					if not toRet[slotPath] then toRet[slotPath] = {} end
+					table.insert(toRet[slotPath], part)
+				end
+			
+			end
+		
+		end
+	end
+	
+end
+
+
+return toRet
+end
+
+
+
+local mergedSlotMapsCache = {}
+local mergedSlotMapsCacheValid = false
+
+local function invalidateMergedSlotsMapsCache()
+mergedSlotMapsCacheValid = false
+end
+
+
 -- 1.18 fix for some universal parts no longer showing up in shops, like GPS
 local function getMergedSlotMaps() -- Should give player access to all vehicle parts except wheels which are too numerous to give good UX
+
+if mergedSlotMapsCacheValid then
+return mergedSlotMapsCache
+end
+
 local slotMap = getAvailablePartList()
 local fullMap = getFullSlotMap()
 local allParts = getAllAvailableParts() -- will contain non veh specific parts
 local vehSlots = getVehicleSlotIDsList() 
+local idkslots = getIDKeyedSlots()
 local cjbeam = {}
 local ctype = ""
 local pairings = {}
+local allowTypePaths, allowTypeIDs = getSlotAllowTypes()
 
 local toRet = {}
+local toRetFinal = {}
 
 for k,v in pairs(slotMap) do
 if not string.match(k, "simple_traffic") then -- Remove simple traffic from this part list
@@ -672,7 +838,45 @@ end
 end
 end
 
-return toRet
+-- 1.18.1 fixes, adding parts that fit in an allowType of an installed slot 
+-- into table for that slot and removing the allowType slot from the shop list
+for k,v in pairs(toRet) do
+toRetFinal[k] = tableValuesToKeys(v)
+end
+
+
+local cpath = ""
+for k,v in pairs(toRet) do
+	
+	if idkslots[k] then
+		
+		for _,cpath in pairs(idkslots[k]) do
+			
+			if allowTypeIDs[cpath] then
+				
+				for _,allowType in pairs(allowTypeIDs[cpath]) do
+					
+					if allowType ~= k and fullMap[allowType] then
+						for _,part in pairs(fullMap[allowType]) do
+							toRetFinal[k][part] = true
+						end
+						
+						toRetFinal[allowType] = nil
+					end
+				end
+			end
+		
+		end
+	
+	end
+	if toRetFinal[k] then -- skip slots that were removed during process
+		toRetFinal[k] = tableKeysToValues(toRetFinal[k])
+	end
+end
+
+mergedSlotMapsCacheValid = true
+mergedSlotMapsCache = toRetFinal
+return toRetFinal
 end
 
 local function getFullPartPrices() -- This is the new function to send part prices to UI
@@ -885,18 +1089,26 @@ local toRet = {}
 local cname = ""
 
 for k,v in pairs(sdata) do
-if snames[k] then
-cname = snames[k] .. " " .. k
-else -- 1.10.1 fix for missing paint_design part, default to using internal slot name in case no name is found
-cname = k
+cname = snames[k] or k
+
+-- 1.18.1 fixing incorrect sorting due to internal name previously being added to 
+-- proper name as a way to avoid conflicts in mapping, now adding to table like garage slots do it
+if not smap[cname] then
+smap[cname] = {}
+table.insert(sortedSlots, cname) -- inside condition to avoid adding same name twice to sorted slots
 end
-smap[cname] = k -- Adding internal slot name to proper name to avoid duplicates in mapping
-table.insert(sortedSlots, cname) -- Sort by name
+
+table.insert(smap[cname], k)
 end
+
 table.sort(sortedSlots)
 
-for k,v in ipairs(sortedSlots) do
-table.insert(toRet, smap[v])
+local index = 1
+for _,name in ipairs(sortedSlots) do
+for _,slot in ipairs(smap[name]) do
+toRet[index] = slot
+index = index + 1
+end
 end
 
 return toRet
@@ -929,6 +1141,7 @@ end
 return toRet
 end
 
+-- 1.18.1 fix to handle slot paths
 -- fixed in 1.17 to handle slots with the same proper name
 local function getSortedGarageSlots()
 local sdata = getGarageUIData()
@@ -938,9 +1151,14 @@ local sortedSlots = {} -- KEY=POSITION,VAL=SLOT NAME
 local smap = {}
 local toRet = {} -- KEY=POSITION,VAL=SLOT
 local cname = ""
+local csplit = {}
+local cslot = ""
 
 for k,v in pairs(sdata) do
-cname = snames[k] or k -- 1.10.1 fix
+csplit = extensions.blrutils.ssplit(k,"/")
+cslot = csplit[#csplit-1] -- 1.18.1 fix, parse slot id from slot path
+
+cname = snames[cslot] or cslot -- 1.10.1 fix
 
 if not smap[cname] then 
 smap[cname] = {} -- 1.17 fix for slots using exact same name
@@ -949,13 +1167,14 @@ end
 
 table.insert(smap[cname], k)
 end
+
 table.sort(sortedSlots)
 
 local index = 1
 
-for k,v in ipairs(sortedSlots) do
-for _,n in pairs(smap[v]) do
-toRet[index] = n
+for _,name in ipairs(sortedSlots) do
+for _,slot in pairs(smap[name]) do
+toRet[index] = slot
 index = index + 1
 end
 end
@@ -1537,26 +1756,79 @@ end
 return toRet
 end
 
-local function getPartKeyedSlotMap()
-local slots = getIDKeyedSlots(true)
-local map = getSlotMap()
-local toRet = {}
-local stemp = ""
-for slot,avail in pairs(map) do
-if slots[slot] ~= nil then
-for _,part in pairs(avail) do
+
+local pksmapCacheValid = false
+local pksmapCache = {}
+
+local function invalidatePKSMapCache()
+pksmapCache = {}
+pksmapCacheValid = false
+end
+
+
+
+
 -- 1.16.4 fix for missing slots in part edit, handle case where part fits in multiple slots
 -- 1.18 update, since slot ids can have multiple paths, might as well only use tables in here
 -- also now inserting the slot paths, not the slot ID
-if toRet[part] == nil then
-toRet[part] = {}
+local function getPartKeyedSlotMap()
+
+if pksmapCacheValid then
+return pksmapCache
 end
-for _,slotPath in pairs(slots[slot]) do
-table.insert(toRet[part], slotPath)
+
+
+local slots = getIDKeyedSlots(true)
+local allowTypePaths, allowTypeIDs = getSlotAllowTypes()
+local map = getSlotMap()
+local callow = {}
+local cjbeam = {}
+local toRet = {}
+local stemp = ""
+local cslot = ""
+
+for slot,avail in pairs(map) do
+	for _,part in pairs(avail) do
+
+		if slots[slot] ~= nil then
+		
+			if not toRet[part] then toRet[part] = {} end
+			
+			for _,slotPath in pairs(slots[slot]) do
+				table.insert(toRet[part], slotPath)
+				
+				-- 1.18.1 fix, adding parts for slots with extra allowTypes to pksmap
+				if allowTypeIDs[slotPath] and #allowTypeIDs[slotPath] > 1 then
+				
+					print("Found slot with extra allowTypes: " .. slotPath)
+				
+					for _,allowType in pairs(allowTypeIDs[slotPath]) do
+						
+						if allowType ~= slot then
+						
+							for _,allowPart in pairs(map[allowType]) do
+								if not toRet[allowPart] then toRet[allowPart] = {} end
+							
+								table.insert(toRet[allowPart], slotPath)
+							end
+							
+						end
+					
+					end
+				
+				end
+
+			end
+			
+		end
+		
+	end
+	
 end
-end
-end
-end
+
+pksmapCache = toRet
+pksmapCacheValid = true
+
 return toRet
 end
 
@@ -1631,14 +1903,15 @@ local invmap = getAdvancedInventoryPartMap() -- Inventory map KEY=part name, VAL
 local pksmap = getPartKeyedSlotMap() -- part keyed slot map KEY=part name, VAL=slot in which it fits
 local names = getPartNameLibrary()
 local inventory = extensions.blrPartInventory.getInventory()
+local allowTypeMap = getSlotMapForAllowTypes()
 local sorted = {}
 
 local cslot = ""
 
 -- build initially unsorted table
 for slotPath,slotID in pairs(slots) do -- loop over slots
-if avail[slotID] then
-	for _,part in pairs(avail[slotID]) do -- loop over parts that fit in this slot
+if allowTypeMap[slotPath] then
+	for _,part in pairs(allowTypeMap[slotPath]) do -- loop over parts that fit in this slot
 		if invmap[part] then -- check if inventory contains current part
 			-- 1.16.4 fix for missing slots due to part fitting in multiple slots
 			if type(pksmap[part]) == "table" then
@@ -1651,7 +1924,7 @@ if avail[slotID] then
 					end
 				end
 				
-				else
+			else
 				
 				cslot = pksmap[part] -- get current slot from part keyed slot map
 				if not unsorted[cslot] then unsorted[cslot] = {} end
@@ -2076,9 +2349,6 @@ end
 
 end
 
-local function getJbeamFromFullMap(p)
-return jsonReadFile(jbeamFileMap[p])[p]
-end
 
 local function createFullPartNameLibrary()
 local cjbeam = {}
@@ -2088,28 +2358,17 @@ local cpart = ""
 fullPartNameLibrary = {}
 for k,v in pairs(jbeamFileMap) do
 cjbeam = getJbeamFromFullMap(k)
-fullPartNameLibrary[k] = cjbeam["information"]["name"] or k
+if cjbeam and cjbeam["information"] and cjbeam["information"]["name"] then
+fullPartNameLibrary[k] = cjbeam["information"]["name"]
+else
+print("Jbeam part name caching error, missing jbeam file or information table or name data for part: " .. k)
+print("This is most likely caused by incorrectly formatted jbeam file")
+fullPartNameLibrary[k] = k
+end
 gcinterval(gcintercount)
 end
 end
 
-local function parseJbeamSlotsTable(data)
-local toRet = {}
-local header = data[1]
-local sid = 1
-
-
-for i=2,#data do
-if not toRet[sid] then toRet[sid] = {} end
-for j=1,#header do
-toRet[sid][header[j]] = data[i][j]
-end
-sid = sid + 1
-end
-
-
-return toRet
-end
 
 -- can't optimize this one, part jbeam doesn't contain parent slot UI name so no way around
 -- looping over every single jbeam file to build a list of slot names
@@ -2122,20 +2381,24 @@ local newfmt = false
 for k,v in pairs(jbeamFileMap) do
 cjbeam = getJbeamFromFullMap(k)
 cslotdata = nil -- reset to nil to avoid parts that have no child slots
-if cjbeam["slots2"] then
+if cjbeam and cjbeam["slots2"] then
 newfmt = true
 cslotdata = parseJbeamSlotsTable(cjbeam["slots2"])
-elseif cjbeam["slots"] then
+elseif cjbeam and cjbeam["slots"] then
 newfmt = false
 cslotdata = parseJbeamSlotsTable(cjbeam["slots"])
+elseif not cjbeam then
+print("Missing jbeam file for " .. k)
 end
 
 if cslotdata then
-for _,slot in pairs(cslotdata) do
-if newfmt then
+for i,slot in pairs(cslotdata) do
+if newfmt and slot["name"] then
 fullSlotNameLibrary[slot["name"]] = slot["description"] or slot["name"]
-else
+elseif slot["type"] then
 fullSlotNameLibrary[slot["type"]] = slot["description"] or slot["type"]
+else
+print("Missing slot name/type data for " .. i .. ", slot data dump: " .. dumps(slot))
 end
 end
 end
@@ -2144,8 +2407,6 @@ gcinterval(gcintercount)
 end
 
 end
-
-
 
 local cacheValidBypass = false
 
@@ -2454,11 +2715,17 @@ end
 local function getSortedJbeamSlotsTable(slots, ppath)
 local sknv = {}
 local toRet = {}
+local ctype = ""
 
 
 -- build internal slot name key, ui slot name value table
 for k,v in pairs(slots) do
-sknv[v.type] = fullSlotNameLibrary[v.type]
+ctype = v.type or v.name -- 1.18.1 fix for slot2 format using "name" instead of "type" for slod id
+if ctype == nil then
+print("getSortedJbeamSlotsTable error, ctype was nil for slot: " .. k .. " dump data: " .. dumps(v))
+else
+sknv[ctype] = fullSlotNameLibrary[ctype]
+end
 end
 
 for k,v in valueSortedPairs(sknv) do
@@ -2506,6 +2773,13 @@ end
 return toRet
 end
 
+M.getSlotMapForAllowTypes = getSlotMapForAllowTypes
+M.invalidatePKSMapCache = invalidatePKSMapCache
+M.invalidateMergedSlotsMapsCache = invalidateMergedSlotsMapsCache
+M.tableValuesToKeys = tableValuesToKeys
+M.tableKeysToValues = tableKeysToValues
+M.getSlotAllowTypes = getSlotAllowTypes
+M.getTypeKeyedJbeamSlots = getTypeKeyedJbeamSlots
 M.getSlotIDPartMap = getSlotIDPartMap
 M.getPartPathToPartIDMap = getPartPathToPartIDMap
 M.getVehicleInstalledPartsList = getVehicleInstalledPartsList

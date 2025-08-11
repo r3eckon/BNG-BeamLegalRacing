@@ -2,10 +2,11 @@
 
 
 
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.18/beamLegalRacing1.18.zip
+
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.18.1/beamLegalRacing1.18.1.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.18
+# Beam Legal Racing 1.18.1
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -950,3 +951,13 @@ Thank you for playing BeamLR!
 * (0.36) Fixed car shop random configs broken by slot path system
 * (0.36) Fixed car config saving and loading broken by slot path system
 * (0.36) Fixed track event N2O detection broken by slot path system
+
+### 1.18.1
+* Fixed "slot2" jbeam format not properly handled breaking part edit UI for some cars
+* Fixed "slotType" jbeam field being a table instead of a single value causing part edit UI issues
+* Fixed sorting issues with part edit & part buying menus
+* Jbeam caching process should now avoid incorrectly formatted jbeam files and prevent errors
+* Fixed gearbox synchro wear setting function error with cars that don't have gearbox installed
+* Fixed allowType jbeam data causing various issues with part edit & buy menu (both regular and tree)
+* Fixed empty name fields for certain parts in the full part inventory menu
+* Fixed missing "installed" indicator in part shop when using internal slot names

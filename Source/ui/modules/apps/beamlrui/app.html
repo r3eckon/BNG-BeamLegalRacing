@@ -795,9 +795,9 @@ Manual Cache Update
 </div>
 
 <div ng-if="slotNameMode==1">
-<span ng-if="beamlrData['usedParts'][key] != part && (beamlrData['advinvOwned'][part] == null || beamlrData['advinvOwned'][part] == 0)" style="transform:translate(20px, 0px); display:inline-block; text-align:center; line-height:20px; width: 200px; margin-left:20px; vertical-align:middle; overflow-wrap:break-word;">{{part}}</span>
-<span ng-if="beamlrData['usedParts'][key] != part && beamlrData['advinvOwned'][part] > 0" style="transform:translate(20px, 0px); display:inline-block; text-align:center; line-height:20px; width: 200px; margin-left:20px; vertical-align:middle; overflow-wrap:break-word;">{{part}} (OWN {{beamlrData['advinvOwned'][part]}})</span>
-<span ng-if="beamlrData['usedParts'][key] == part" style="transform:translate(20px, 0px); display:inline-block; text-align:center; line-height:20px; width: 200px; margin-left:20px; vertical-align:middle; overflow-wrap:break-word;">{{part}} (INSTALLED)</span>
+<span ng-if="beamlrData['vehInstParts'][part] == null && (beamlrData['advinvOwned'][part] == null || beamlrData['advinvOwned'][part] == 0)" style="transform:translate(20px, 0px); display:inline-block; text-align:center; line-height:20px; width: 200px; margin-left:20px; vertical-align:middle; overflow-wrap:break-word;">{{part}}</span>
+<span ng-if="beamlrData['vehInstParts'][part] == null && beamlrData['advinvOwned'][part] > 0" style="transform:translate(20px, 0px); display:inline-block; text-align:center; line-height:20px; width: 200px; margin-left:20px; vertical-align:middle; overflow-wrap:break-word;">{{part}} (OWN {{beamlrData['advinvOwned'][part]}})</span>
+<span ng-if="beamlrData['vehInstParts'][part] != null" style="transform:translate(20px, 0px); display:inline-block; text-align:center; line-height:20px; width: 200px; margin-left:20px; vertical-align:middle; overflow-wrap:break-word;">{{part}} (INSTALLED)</span>
 <span style="float:right; margin-right:5px; vertical-align:middle;">
 
 <table style="height:100px; line-height:20px;">
@@ -1246,8 +1246,8 @@ This menu shows all unused parts in your inventory so you can sell them.
 <div style="word-wrap:break-word; text-align:center; font-weight: bold; font-size:20px; width:100%; line-height:40px;">
 <span ng-click="slotToggle(slot, true)" ng-if="visibleSlots[slot] == null || visibleSlots[slot] == false" style="float:left; width:40px; text-align:center;">+</span>
 <span ng-click="slotToggle(slot, false)" ng-if="visibleSlots[slot] == true" style="float:left; width:40px; text-align:center;">-</span>
-<span ng-click="setSlotNameMode(1)" ng-if="slotNameMode == 0" style="display:inline-block; max-width:80%; text-align:center;">{{beamlrData['fidSlotNames'][slot]}}</span>
-<span ng-click="setSlotNameMode(0)" ng-if="slotNameMode == 1" style="display:inline-block; max-width:80%; text-align:center;">{{slot}}</span>
+<span ng-click="setSlotNameMode(1)" ng-if="slotNameMode == 0 && beamlrData['fidSlotNames'][slot] != null" style="display:inline-block; max-width:80%; text-align:center;">{{beamlrData['fidSlotNames'][slot]}}</span>
+<span ng-click="setSlotNameMode(0)" ng-if="slotNameMode == 1 || beamlrData['fidSlotNames'][slot] == null" style="display:inline-block; max-width:80%; text-align:center;">{{slot}}</span>
 <span ng-click="slotToggle(slot, true)" ng-if="visibleSlots[slot] == null || visibleSlots[slot] == false" style="float:right; width:40px; text-align:center;">+</span>
 <span ng-click="slotToggle(slot, false)" ng-if="visibleSlots[slot] == true" style="float:right; width:40px; text-align:center;">-</span>
 

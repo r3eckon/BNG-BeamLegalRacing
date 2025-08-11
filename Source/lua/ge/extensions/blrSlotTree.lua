@@ -39,10 +39,41 @@ local cmodel = ""
 local function recursiveChildLookup(p, n)
 local cjbeam = extensions.blrpartmgmt.getJbeamFromFullMap(p)
 local cslots = cjbeam["slots"] or cjbeam["slots2"]
-local cstype = cjbeam["slotType"]
+local stdata = cjbeam["slotType"]
+local cstype = ""
 local cpart = ""
 local cmap = {}
 local cspath = ""
+local tcheckpath = ""
+
+
+-- 1.18.1 handle "slotType" that's a table instead of a single value, happens on new sunburst
+-- since we're checking for child slots of a part, only the slot that actually contains the part 
+-- matters, ignore other slots the part could fit in, this shouldn't affect the same part fitting
+-- in other slots because path will be different
+if type(stdata) == "table" then
+	print("JBEAM FIELD slotType IS A TABLE CONTAINING: " .. dumps(stdata))
+	for _,t in pairs(stdata) do
+		tcheckpath = n .. t .. "/"
+		if config[tcheckpath] then 
+			print("FOUND SLOT " .. tcheckpath .. " IN CONFIG, IGNORING OTHER SLOTS FROM slotType TABLE")
+			cstype = t
+			break
+		end
+	end
+	if cstype == "" then -- 1.18.1 fix for empty slot in part tree
+		print("DIDN'T FIND ANY SLOTS FROM slotType TABLE IN CONFIG (LIKELY CAUSED BY allowType TABLE)")
+		return
+	end
+else
+	cstype = stdata
+end
+
+if not cstype then -- 1.18.1, just adding a check to make sure process doesn't crash due to jbeam error
+	print("PART DID NOT HAVE A slotType DEFINED (LIKELY CAUSED BY INCORRECT JBEAM)")
+	return
+end
+
 
 if n == "root" then
 cspath = "/"

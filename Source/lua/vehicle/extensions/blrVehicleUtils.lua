@@ -845,9 +845,17 @@ wheelID[wheelPosName] = v.id
 end
 end
 
+
+-- 1.18.1 fix for cars with no gearbox installed
 -- 1.17.4 manual gearbox synchro wear
 local function setGearboxSynchroWear(wear)
 local gearbox = powertrain.getDevice("gearbox")
+
+if not gearbox then
+print("setGearboxSynchroWear did not find gearbox device on vehicle, skipping.")
+return
+end
+
 local gtype = gearbox.type
 local cindex = gearbox.gearIndex
 

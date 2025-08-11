@@ -720,6 +720,34 @@ math.randomseed(seed)
 return math.random(0,count-1)
 end
 
+-- test function, returns a list of starter car models and seeds that spawn them
+locals["getStarterCarSeedList"] = function(dbg)
+local count = #FS:findFiles("beamLR/init/garage/", "*", 0)
+local found = 0
+local cseed = 1
+local cid = 0
+local ccarfile = {}
+local cmodel = ""
+local toRet = {}
+
+while found < count do
+cid = getStarterCarID(cseed, count)
+ccarfile = loadDataTable("beamLR/init/garage/car" .. cid)
+cmodel = ccarfile["type"]
+
+if not toRet[cmodel] then
+toRet[cmodel] = cseed
+found = found + 1
+if dbg then print(cseed .. "=" .. cmodel) end
+end
+
+cseed = cseed + 1
+end
+
+return toRet
+end
+
+
 local function getOptionsTable()
 return loadDataTable("beamLR/options")
 end
@@ -3240,6 +3268,34 @@ locals["racePathDebuggerClear"] = function()
 require("editor/aiTests").clear()
 end
 
+-- sets default values used for new releases
+locals["loadReleaseValues"] = function()
+-- starting with options
+local dtable = loadDataTable("beamLR/options")
+dtable["autoseed"] = "1"
+dtable["advrepwarnack"] = "0"
+dtable["traffic"] = "3"
+dtable["trucks"] = "1"
+dtable["police"] = "1"
+dtable["edittreemode"] = "0"
+dtable["targetwager"] = "10000"
+saveDataTable("beamLR/options", dtable)
+
+-- next doing mainData
+dtable = loadDataTable("beamLR/mainData")
+dtable["time"] = "0.0"
+saveDataTable("beamLR/mainData", dtable)
+
+-- next doing car0 file
+dtable = loadDataTable("beamLR/garage/car0")
+dtable["oil"] = "3.83" -- works for starter legran, if another car is used need to adjust value
+dtable["gas"] = "10.0"
+saveDataTable("beamLR/garage/car0", dtable)
+end
+
+
+M.loadReleaseValues = locals["loadReleaseValues"]
+M.getStarterCarSeedList = locals["getStarterCarSeedList"]
 M.racePathDebuggerClear = locals["racePathDebuggerClear"]
 M.racePathDebugger = locals["racePathDebugger"]
 M.validateMatchingEventWaypoints = locals["validateMatchingEventWaypoints"]
