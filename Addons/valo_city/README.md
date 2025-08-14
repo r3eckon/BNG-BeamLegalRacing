@@ -30,3 +30,5 @@ This addon is currently built for map version **0.79**.
 * Updated mission file
 ### BeamLR 1.18.1
 * Updated mission file
+### Addon hotfix 1
+* Fixed missing race files
