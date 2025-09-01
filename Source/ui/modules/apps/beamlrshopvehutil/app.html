@@ -1,0 +1,381 @@
+<div class="bngApp beamlrshopvehutil" style="background-color:transparent; height:100%;" >
+
+<style>
+.dropdown {
+	text-align:center;
+	color:red;
+	background-color:white;
+}
+</style>
+
+<div style="background-color:rgba(0.0,0.0,0.0,0.5); height:100%; width:100%; margin:0; z-index:9999;">
+
+<h3 style="margin: 0px; font-size:17px; font-weight:bold; text-align:center;">BeamLR Dealership Cars Editor</h3>
+
+<div ng-if="init==true && !walking" style="height:100%;">
+
+<div ng-if="page==page_main" style="height:100%">
+
+<div style="width:100%; margin-top:10px; display:flex; justify-content:space-around">
+<button ng-disabled="!mainPageSaveParamsValid()" ng-click="setPage(page_save)">Save</button>
+<button ng-click="setPage(page_load)">Load</button>
+<button ng-click="setPage(page_editlists)">Lists</button>
+<button ng-click="setPage(page_editshops)">Shops</button>
+<button ng-click="reset()">Reset</button>
+</div>
+
+<div style="width:100%; height:125px; line-height:15px;">
+<table style="width:100%; padding:10px;">
+
+<tr style="height:20px;">
+<td style="width:calc(100% - 150px); font-weight:bold;">Current Vehicle Info</td>
+<td style="width:150px; font-weight:bold; text-align:center;">Spawn</td>
+</tr>
+
+<tr style="height:20px;"><td><strong>Name:</strong> {{data['modelName']}}</td>
+<td style="width:calc(100% - 150px); text-align:center;" rowspan="1">
+<button ng-click="showOriginalConfig()" style="font-size:12px; height:20px;  width:120px;">Original Config</button>
+</td>
+</tr>
+<tr style="height:20px;"><td><strong>Model:</strong> {{data['model']}}</td>
+<td style="width:calc(100% - 150px); text-align:center;" rowspan="1">
+<button ng-click="showRandomConfig()" style="font-size:12px; height:20px; width:120px;">Random Config</button>
+</td>
+</tr>
+<tr style="height:20px; width:100%;"><td style="word-wrap:anywhere; overflow:wrap;"colspan="2"><strong>Config:</strong> {{data['config']}}</td></tr>
+</table>
+</div>
+
+<div style="margin:10px; width:95%; line-height:15px;">
+<p style="font-weight:bold; margin:0;">Shop Parameters</p>
+<table style="table-layout:fixed; width:100%;">
+<tr>
+<td style="width:30%">Title</td>
+<td style="width:70%;"><input ng-change="cache()" style="width:100%; height:30px;" type="text" placeholder="Ibishu Covet (Type-L, Manual)" ng-model="saveParams['name']"></input></td>
+</tr>
+<tr>
+<td style="width:30%">Cost (Min)</td>
+<td style="width:70%;"><input ng-change="cache()" style="width:100%; height:30px;" type="number" min=0 max="{{saveParams['maxcost']}}" step=10 placeholder="1000" ng-model="saveParams['mincost']"></input></td>
+</tr>
+<tr>
+<td style="width:30%">Cost (Max)</td>
+<td style="width:70%;"><input ng-change="cache()" style="width:100%; height:30px;" type="number" min="{{saveParams['mincost'] || 0}}" step=10 placeholder="10000" ng-model="saveParams['maxcost']"></input></td>
+</tr>
+<tr>
+<td style="width:30%">Odometer (Min) (Km)</td>
+<td style="width:70%;"><input ng-change="cache()" style="width:100%; height:30px;" type="number" min=0 max="{{saveParams['maxodo']}}" step=1000 placeholder="50000" ng-model="saveParams['minodo']"></input></td>
+</tr>
+<tr>
+<td style="width:30%">Odometer (Max) (Km)</td>
+<td style="width:70%;"><input ng-change="cache()" style="width:100%; height:30px;" type="number" min="{{saveParams['minodo'] || 0}}" step=1000 placeholder="200000" ng-model="saveParams['maxodo']"></input></td>
+</tr>
+<tr>
+<td style="width:30%">Scrap Value</td>
+<td style="width:70%;"><input ng-change="cache()" style="width:100%; height:30px;" type="number" min=0 max="{{saveParams['mincost']}}" step=10 placeholder="300" ng-model="saveParams['scrapval']"></input></td>
+</tr>
+</table>
+</div>
+
+<p style="font-weight:bold; line-height:10px; margin-left:10px;">Randomized Slots <span style="font-weight:normal; font-size:12px;">(Only select body panels for best results)</span> </p>
+
+<div style="margin:auto; width:95%; height:calc(100% - 470px); max-height:calc(100% - 470px); overflow-y:scroll; background-color:rgba(0.0,0.0,0.0,0.5);">
+<table style="table-layout:fixed; width:100%; ">
+<tr style="height:20px;" ng-repeat="(index,slotPath) in data['slots']" ng-if="slotPath != data['mainPartChild'] && idFromPath(slotPath) != data['model'] + '_mod'">
+<td style="width:10%; height:20px;"><md-checkbox ng-change="cache()" style="height:20px;" ng-model="saveParams.selectedSlots[slotPath]" ng-change=""></md-checkbox></td>
+<td style="width:90%; height:20px;" ng-if="data['slotName'][idFromPath(slotPath)] != null">{{data['slotName'][idFromPath(slotPath)]}}</td>
+<td style="width:90%; height:20px;" ng-if="data['slotName'][idFromPath(slotPath)] == null">{{idFromPath(slotPath)}}</td>
+</tr>
+</table>
+</div>
+
+</div>
+
+<div ng-if="page==page_save" style="height:100%;">
+
+
+<div style="margin:10px; width:100%; line-height:10px;">
+<p style="font-weight:bold;">
+Shop car filename
+<span ng-if="!carShopFileNameValid()" style="color:yellow; font-weight:normal; font-size:13px;">({{carFileNameInvalidReason}})</span>
+</p>
+</div>
+
+<input ng-change="cache()" style="width:90%; margin-left:10px; height:30px;" type="text" placeholder="covet_LS_M" ng-model="saveParams.carFileName"></input>
+
+<div style="margin:10px; width:100%; line-height:10px;">
+<p style="font-weight:bold;">Select list files to add vehicle to</p>
+</div>
+
+<div style="margin:auto; width:95%; height:200px; max-height:200px; overflow-y:scroll; background-color:rgba(0.0,0.0,0.0,0.5);">
+
+<table style="table-layout:fixed; width:100%; ">
+<tr ng-repeat="(i,list) in data['sortedListFiles']">
+<td style="width:10%; height:20px;"><md-checkbox style="height:20px; width:20px;" ng-model="saveParams.selectedLists[list]" ng-change="selectedListsChange();"></md-checkbox></td>
+<td style="width:90%; height:20px;">{{listNameFromPath(list)}}<span ng-if="officialListNames[listNameFromPath(list)] != null"> ({{officialListNames[listNameFromPath(list)]}})</span> </td>
+</tr>
+<tr style="height:20px;">
+<td style="width:10%; height:20px; font-weight:bold; text-align:center; font-size:20px;" ng-click="addCustomList();">+</td>
+<td style="width:90%; height:20px;"><input ng-change="cache()" style="width:90%; height:30px;" type="text" placeholder="Enter new list name" ng-model="saveParams.customListName"></input></td>
+</tr>
+<tr style="height:10px;"><td></td></tr>
+</table>
+</div>
+
+<div style="margin:10px; width:100%; line-height:10px;">
+<p style="font-weight:bold;">Add car to list as</p>
+</div>
+
+<div style="margin:10px; width:100%; line-height:10px;">
+<md-radio-group ng-change="cache()" ng-model="saveParams.listAddonMode">
+<md-radio-button ng-value="true">List Addon <span style="font-size:12px;">(Recommended)</span></md-radio-button>
+<md-radio-button ng-value="false">List Edit <span style="font-size:12px;"></span> </md-radio-button>
+</md-radio-group>
+</div>
+
+
+<div ng-if="saveParams.listAddonMode">
+<div style="margin:10px; width:100%; line-height:10px;">
+<p style="font-weight:bold;">Select addon files to use</p>
+</div>
+
+<div style="background-color:rgba(0.0,0.0,0.0,0.5); margin:auto; width:95%; height:200px; max-height:200px; overflow-y:scroll;">
+
+<table style="width:100%;">
+<tr style="width:100%;" ng-repeat="(i,list) in data['sortedListFiles']" ng-if="saveParams.selectedLists[list]">
+<td>
+<span style="font-weight:bold;">&nbsp{{addonFolderNameFromPath(listAddonFolderFromFile(list))}} <span ng-if="officialListNames[addonFolderNameFromPath(listAddonFolderFromFile(list))] != null">({{officialListNames[addonFolderNameFromPath(listAddonFolderFromFile(list))]}})</span></span>
+<table>
+
+<tr ng-if="data['listAddonFiles'][listAddonFolderFromFile(list)] != null" ng-repeat="(i,addon) in data['sortedAddonFiles'][listAddonFolderFromFile(list)]">
+<td style="width:10%;">
+<md-radio-group ng-model="saveParams.selectedAddons[list]" ng-change="selectedAddonsChange()">
+<md-radio-button style="margin:0; margin-left:10px;" ng-value="addon"></md-radio-button>
+</md-radio-group>
+</td>
+<td style="width:90%;">{{addonFileNameFromPath(addon)}}</td>
+</tr>
+<tr>
+<td style="width:10%; font-weight:bold; text-align:center; font-size:20px;" ng-click="addCustomAddon(list);">+</td>
+<td style="width:90%;"><input ng-change="cache()" style="width:90%; height:30px;" type="text" placeholder="Enter new addon name" ng-model="saveParams.customAddonName[list]"></input></td>
+</tr>
+
+</table>
+
+</td>
+</tr>
+
+</table>
+</div>
+
+</div>
+
+<div ng-if="!saveParams.listAddonMode">
+<div style="margin:10px; width:90%;">
+<hr>
+<p style="font-weight:bold; width:100%; text-align:center; color:yellow;">Warning: Using 'List Edit' mode with official BeamLR list files will cause your edits to be overwritten by BeamLR updates and reinstalls. Use at your own risk!</p>
+<hr>
+</div>
+</div>
+
+<div style="margin:auto; width:90%; line-height:14px; text-align:center;">
+<p ng-if="saveParamsValid()" style="font-weight:bold; width:100%;">Ready to create car file and add to lists</p>
+<p ng-if="!carShopFileNameValid(true)" style="color:yellow; font-weight:bold; width:100%;">Cannot create car file, please fix invalid filename</p>
+<p ng-if="carShopFileNameValid(true) && !saveParamsValid()" style="color:yellow; font-weight:bold; width:100%;">Cannot add to lists, please select lists and addons</p>
+</div>
+
+<div style="width:100%; margin-top:10px; display:flex; justify-content:space-around">
+<button ng-click="setPage(page_main);">Cancel</button>
+<button ng-click="saveCarFile()" ng-disabled="!carShopFileNameValid(true)">Save Car</button>
+<button ng-click="saveCarFileAndAddToList()" ng-disabled="!saveParamsValid()">Save Car & Add To List</button>
+</div>
+
+
+</div>
+
+<div ng-if="page==page_load" style="height:100%;">
+
+<div style="margin:10px; width:100%; line-height:10px;">
+<p style="font-weight:bold;">
+Select car file to load <span style="font-size:12px; font-weight:normal;">(Double click to replace current)</span>
+</p>
+</div>
+
+<div style="margin:auto; width:95%; height:calc(100% - 100px); max-height:calc(100% - 100px); overflow-y:scroll; background-color:rgba(0.0,0.0,0.0,0.5);">
+
+<table style="table-layout:fixed; border-collapse:collapse; width:99%; text-align:left; vertical-align:top;">
+<tr style="font-weight:bold; font-size:17px;">
+<td style="width:40%; padding-left:5px;">File</td><td style="width:30%;">Model</td><td style="width:30%;">Config</td>
+</tr>
+<tr ng-repeat="(i,file) in data['sortedCarFiles']" style="border-top:1px solid white;" ng-style="selectedCarFile == file && {'color':'orange'} || {'color':'white'}" ng-click="selectCarFile(file, false);" >
+<td style="padding-left:5px; padding-top:2px; padding-bottom:2px; text-align:left; font-size:15px; vertical-align:top; text-overflow:wrap; max-width:100%; word-wrap: break-word;">{{filenameFromPath(file)}}</td>
+<td style="font-size:15px; padding-top:2px; padding-bottom:2px; text-align:left; vertical-align:top; text-overflow:wrap; max-width:100%; word-wrap: break-word;">{{data['carFilesData'][file]['model']}}</td>
+<td style="padding-right:5px; padding-top:2px; padding-bottom:2px; text-align:left; font-size:15px; vertical-align:top; text-overflow:wrap; max-width:100%; word-wrap: break-word;">{{filenameFromPath(data['carFilesData'][file]['config'])}}</td>
+</tr>
+</table>
+</div>
+
+<div style="display:flex; width:100%; height:30px; text-align:center; layout:space-around;">
+<button style="margin:auto;" ng-click="setPage(page_main)" >Cancel</button>
+<button style="margin:auto;" ng-disabled="selectedCarFile == null || selectedCarFile==''" ng-click="selectCarFile(selectedCarFile, true)">Spawn New</button>
+<button style="margin:auto;" ng-disabled="selectedCarFile == null || selectedCarFile==''" ng-click="deleteCar()">{{deleteCarConfirm && 'Confirm?' || 'Delete'}}</button>
+</div>
+
+</div>
+
+<div ng-if="page==page_editlists" style="height:100%;">
+
+<div style="margin:10px; width:100%; line-height:10px;">
+<p style="font-weight:bold;">
+Select list file to edit
+</p>
+</div>
+
+
+<div style="margin:auto; width:95%; height:200px; max-height:200px; overflow-y:scroll; background-color:rgba(0.0,0.0,0.0,0.5);">
+
+<table style="table-layout:fixed; margin-bottom:10px; border-collapse:collapse; width:99%; text-align:left; vertical-align:top;">
+<tr><td style="font-weight:bold; font-size:20px; margin-left:2px;">Main List Files</td></tr>
+<tr style="height:20px;" ng-repeat="(i,list) in data['sortedListFiles']">
+<td ng-click="selectListFile(list,false)" ng-style="listeditSelectedList == list && {'color':'orange'} || {'color':'white'}"><span style="margin-left:10px;">{{removeListPrefix(filenameFromPath(list))}}</span></td>
+</tr>
+<tr>
+<td style="width:100%; height:20px; padding-left:10px;">
+<span style="font-weight:bold; text-align:center; font-size:20px;" ng-click="listedit_addCustomList();">+</span>
+<input ng-change="cache()" style="width:50%; height:30px;" placeholder="Enter new list name" type="text" ng-model="listeditParams.customListName"></input>
+</td>
+</tr>
+<tr><td style="font-weight:bold; font-size:20px;">Addon List Files</td></tr>
+<tr ng-repeat="(i,list) in data['sortedListFiles']">
+<td>
+<p style="line-height:20px; margin:2px; margin-left:5px; font-weight:bold; font-size:18px;">{{removeAddonPrefix(filenameFromPath(listAddonFolderFromFile(list)))}}</p>
+<table style="table-layout:fixed; margin-bottom:10px; border-collapse:collapse; width:99%; text-align:left; vertical-align:top;">
+<tr ng-repeat="(i,addon) in data['sortedAddonFiles'][listAddonFolderFromFile(list)]">
+<td ng-click="selectListFile(addon,true)" ng-style="listeditSelectedList == addon && {'color':'orange'} || {'color':'white'}" ><span style="margin-left:10px;">{{filenameFromPath(addon)}}</span></td>
+</tr>
+<tr>
+
+<td style="width:100%;">
+<span style="font-weight:bold; text-align:center; font-size:20px; padding-left:10px;" ng-click="listedit_addCustomAddon(listAddonFolderFromFile(list));">+</span>
+<input ng-change="cache()" style="width:50%; height:30px;" type="text" placeholder="Enter new addon name" ng-model="listeditParams.customAddonName[listAddonFolderFromFile(list)]"></input>
+</td>
+</tr>
+</table>
+
+</td>
+</tr>
+
+</table>
+</div>
+
+<div style="margin:10px; width:100%; line-height:10px;">
+<p style="font-weight:bold;">
+Select car files for list
+</p>
+</div>
+
+<div style="margin:auto; width:95%; height:calc(100% - 350px); max-height:calc(100% - 350px); overflow-y:scroll; background-color:rgba(0.0,0.0,0.0,0.5);">
+<table style="table-layout:fixed; border-collapse:collapse; width:99%; text-align:left; vertical-align:top;">
+<tr ng-repeat="(index,car) in data['sortedCarFiles']">
+<td style="width:10%;"><md-checkbox ng-change="cache()" name="{{car}}" checked="listeditSelectedCars[car]" ng-model="listeditSelectedCars[car]"></md-checkbox></td>
+<td style="width:90%;">{{filenameFromPath(car)}}</td>
+</tr>
+
+</table>
+</div>
+
+<div style="width:100%; margin-top:10px; display:flex; justify-content:space-around">
+<button ng-click="setPage(page_main)">Cancel</button>
+<button ng-disabled="listeditSelectedList == null || listeditSelectedList == ''" ng-click="editList()">Save</button>
+<button ng-disabled="listeditSelectedList == null" ng-click="deleteList()">{{deleteListConfirm && 'Confirm?' || 'Delete'}}</button>
+</div>
+
+</div>
+
+<div ng-if="page==page_editshops" style="height:100%;">
+
+<div style="margin:10px; width:100%; line-height:10px;">
+<p style="font-weight:bold;">
+Select shop file to edit
+</p>
+</div>
+
+<div style="margin:auto; width:95%; height:200px; max-height:200px; overflow-y:scroll; background-color:rgba(0.0,0.0,0.0,0.5);">
+<table>
+<tr ng-repeat="(i,file) in data['sortedShopFiles']" ng-click="selectShopFile(file)">
+<td ng-style="shopEditSelectedShop == file && {'color':'orange'} || {'color':'white'}">{{filenameFromPath(file)}}</td>
+</tr>
+</table>
+</div>
+
+<div style="margin:10px; width:100%; line-height:10px;">
+<p style="font-weight:bold;">
+Selected shop parameters
+</p>
+</div>
+
+<div style="margin:10px; width:95%; line-height:15px;">
+<table style="table-layout:fixed; width:100%;">
+<tr>
+<td style="width:50%">Name</td>
+<td style="width:50%;"><input ng-change="cache()" style="width:100%; height:30px;" type="text" placeholder="Used Car Shop" ng-model="shopParams['name']"></input></td>
+</tr>
+<tr>
+<td style="width:50%; font-weight:bold;">Chances (0% to 100%)</td>
+<td style="width:50%;"></td>
+</tr>
+<tr>
+<td style="width:50%">Spawn vehicle in slot</td>
+<td style="width:50%;"><input ng-change="cache()" style="width:100%; height:30px;" type="number" min=0 max=100 step=1 placeholder="70" ng-model="shopParams['chance']"></input></td>
+</tr>
+<tr>
+<td style="width:70%">Randomized parts</td>
+<td style="width:30%;"><input ng-change="cache()" style="width:100%; height:30px;" type="number" min=0 max=100 step=1 placeholder="40" ng-model="shopParams['rpchance']"></input></td>
+</tr>
+<tr>
+<td style="width:70%">Defective parts</td>
+<td style="width:30%;"><input ng-change="cache()" style="width:100%; height:30px;" type="number" min=0 max=100 step=1 placeholder="40" ng-model="shopParams['dchance']"></input></td>
+</tr>
+<tr style="height:50px;">
+<td style="width:70%">List file</td>
+<td style="width:30%;">
+
+<md-select ng-model="shopParams['models']" ng-change="cache()"  style="height:30px; line-height:30px;">
+<md-option ng-repeat="(i,file) in data['sortedListFiles']" ng-value="'{{listNameFromPath(file)}}'">{{listNameFromPath(file)}}</md-option>
+</md-select>
+
+</td>
+</tr>
+</table>
+
+<p style="width:95%; margin:auto; margin-bottom:10px; margin-top:10px; text-align:center;">
+Note: this menu is intended for testing (ex: set a shop to a test list to test specific vehicles) and modders implementing new maps or adding shops to existing maps. 
+</p>
+
+
+
+<p style="width:95%; font-weight:bold; color:yellow; margin:auto; margin-bottom:10px; margin-top:10px; text-align:center;">
+Edits made to official BeamLR shops will be overwritten by updates. 
+</p>
+
+<div style="display:flex; justify-content:space-around; width:100%;">
+<button ng-click="setPage(page_main)">Cancel</button>
+<button ng-click="saveShopFile()" ng-disabled="shopEditSelectedShop == null">Save</button>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div style="width: 90%; margin:auto; margin-top:10px;" ng-if="init==false">
+<p style="width:90%; text-align:center;">Loading data, please wait. Note that this involves generating jbeam cache if it was not valid and this process can take some time to complete.</p> 
+</div>
+
+<div style="width: 90%; margin:auto; margin-top:10px;" ng-if="walking==true">
+<p style="width:100%; text-align:center;">This app cannot be used while walking, please enter a vehicle.</p>
+</div>
+
+</div>
+
+</div>

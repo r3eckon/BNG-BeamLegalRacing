@@ -476,15 +476,23 @@ Part Preview Scaling Mode
 <p style="text-align:center; margin-top:15px; margin-bottom:15px; margin-left:20px; margin-right:20px;">
 Part Edit List Mode changes the list view in part edit. Sorted View is the original BeamLR view. Tree View has slots nested inside their parent slot, similar to vanilla BeamNG.
 </p>
-
-
 <p style="text-align:center; margin-top:15px; margin-bottom:10px; margin-left:20px; margin-right:20px;">
 Part Edit List Mode
 </p>
-
 <p style="text-align:center; margin-top:5px; margin-bottom:5px;"> 
 <button ng-class="inputData.edittreemode == 0 ? 'toggleon' : 'toggleoff'" ng-click="setEditTreeMode(0)">Sorted View</button>
 <button ng-class="inputData.edittreemode == 1 ? 'toggleon' : 'toggleoff'" ng-click="setEditTreeMode(1)">Tree View</button>
+</p>
+
+<p style="text-align:center; margin-top:15px; margin-bottom:15px; margin-left:20px; margin-right:20px;">
+Part Shop Show Incompatible turned on will show currently incompatible slots in yellow with a warning label. Off will ignore such slots.
+</p>
+<p style="text-align:center; margin-top:15px; margin-bottom:10px; margin-left:20px; margin-right:20px;">
+Part Shop Show Incompatible
+</p>
+<p style="text-align:center; margin-top:5px; margin-bottom:5px;"> 
+<button ng-class="inputData.pshopshowinc == 1 ? 'toggleon' : 'toggleoff'" ng-click="togglePartShopShowIncompatible(1)">On</button>
+<button ng-class="inputData.pshopshowinc == 0 ? 'toggleon' : 'toggleoff'" ng-click="togglePartShopShowIncompatible(0)">Off</button>
 </p>
 
 
@@ -501,45 +509,68 @@ Part Edit List Mode
 
 <div ng-if="optshow['traffic'] == true">
 
-<p style="text-align:center;">  Requires scenario restart to take effect </p>
+<p style="text-align:center;">Changing traffic amounts & parameters requires scenario restart to take effect</p>
 
 <p style="text-align:center;"> 
-Traffic Density  
-<button ng-class="inputData.traffic == 0 ? 'toggleon' : 'toggleoff'" ng-click="setTrafficDensity(0)">Off</button>
-<button ng-class="inputData.traffic == 3 ? 'toggleon' : 'toggleoff'" ng-click="setTrafficDensity(3)">Light</button>
-<button ng-class="inputData.traffic == 6 ? 'toggleon' : 'toggleoff'" ng-click="setTrafficDensity(6)">Medium</button>
-<button ng-class="inputData.traffic == 10 ? 'toggleon' : 'toggleoff'" ng-click="setTrafficDensity(10)">Heavy</button>
-<button ng-class="inputData.traffic == 18 ? 'toggleon' : 'toggleoff'" ng-click="setTrafficDensity(18)">Max</button>
+Civilian Count
+<input type="number" style="text-align:center;" ng-model="inputData.traffic" min=0 max=20 ng-change="setTrafficDensity()"></input>
+<button ng-click="setDefaultValue('traffic')">Reset</button>
 </p>
 
 <p style="text-align:center;"> 
-Police Density 
-<button ng-class="inputData.police == 0 ? 'toggleon' : 'toggleoff'" ng-click="setPoliceDensity(0)">Off</button>
-<button ng-class="inputData.police == 1 ? 'toggleon' : 'toggleoff'" ng-click="setPoliceDensity(1)">Light</button>
-<button ng-class="inputData.police == 2 ? 'toggleon' : 'toggleoff'" ng-click="setPoliceDensity(2)">Medium</button>
-<button ng-class="inputData.police == 3 ? 'toggleon' : 'toggleoff'" ng-click="setPoliceDensity(3)">Heavy</button>
-<button ng-class="inputData.police == 4 ? 'toggleon' : 'toggleoff'" ng-click="setPoliceDensity(4)">Max</button>
+Police Count
+<input type="number" style="text-align:center;"  ng-model="inputData.police" min=0 max=5 ng-change="setPoliceDensity()"></input>
+<button ng-click="setDefaultValue('police')">Reset</button>
 </p>
 
+
 <p style="text-align:center;"> 
-Truck Density 
-<button ng-class="inputData.trucks == 0 ? 'toggleon' : 'toggleoff'" ng-click="setTruckDensity(0)">Off</button>
-<button ng-class="inputData.trucks == 1 ? 'toggleon' : 'toggleoff'" ng-click="setTruckDensity(1)">Light</button>
-<button ng-class="inputData.trucks == 2 ? 'toggleon' : 'toggleoff'" ng-click="setTruckDensity(2)">Medium</button>
-<button ng-class="inputData.trucks == 3 ? 'toggleon' : 'toggleoff'" ng-click="setTruckDensity(3)">Heavy</button>
-<button ng-class="inputData.trucks == 4 ? 'toggleon' : 'toggleoff'" ng-click="setTruckDensity(4)">Max</button>
+Truck Count
+<input type="number" style="text-align:center;"  ng-model="inputData.trucks" min=0 max=5 ng-change="setTruckDensity()"></input>
+<button ng-click="setDefaultValue('trucks')">Reset</button>
 </p>
+
+<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >Max Active Traffic is the max amount of active vehicles on the map. The rest is used to increase traffic diversity.</p>
+
+<p style="text-align:center;"> 
+Max Active Traffic
+<input type="number" style="text-align:center;"  ng-model="inputData.atcount" min=0 max="{{(inputData.traffic + inputData.police + inputData.trucks) || 0}}" ng-change="setActiveTrafficCount()"></input>
+<button ng-click="setDefaultValue('atcount')">Reset</button>
+</p>
+
+<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >Respawn Rate affects how fast the game teleports traffic to a new location. High values will increase perceived traffic but will cause visible traffic pop in. Lower values will prioritize spawning traffic hidden from camera.</p>
+
+<p style="text-align:center;"> 
+Respawn Rate
+<input type="number" style="text-align:center;"  ng-model="inputData.tsrate" min=0.01 max=1 step=0.01 ng-change="setTrafficSpawnRate()"></input>
+<button ng-click="setDefaultValue('tsrate')">Reset</button>
+</p>
+
+<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >Direction Bias affects traffic direction when spawning. Values closer to 1 means more oncoming traffic, closer -1 means more traffic on your side of the road. Note that this parameter is often ignored by the game.</p>
+
+<p style="text-align:center;"> 
+Direction Bias
+<input type="number" style="text-align:center;"  ng-model="inputData.tsbias" min=-1 max=1 step=0.01 ng-change="setTrafficDirectionBias()"></input>
+<button ng-click="setDefaultValue('tsbias')">Reset</button>
+</p>
+
+
 
 <p style="text-align:center;"> 
 Traffic Risk 
-<input type="number" min=0 max=1 step=0.01 maxlength=10 size=5 ng-model="inputData.trisk" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
-<button ng-click="setTrafficRisk(inputData.trisk)">Set</button>
+<input type="number" ng-change="setTrafficRisk()" min=0.01 max=1 step=0.01 maxlength=10 size=5 ng-model="inputData.trisk" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
+<button ng-click="setDefaultValue('trisk')">Reset</button>
 </p>
 
 <p style="text-align:center;"> 
 Police Strictness
-<input type="number" min=0 max=1 step=0.01 size=5 ng-model="inputData.copstrict" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
-<button ng-click="setPoliceStrictness(inputData.copstrict)">Set</button>
+<input type="number" ng-change="setPoliceStrictness()" min=0 max=1 step=0.01 size=5 ng-model="inputData.copstrict" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
+<button ng-click="setDefaultValue('copstrict')">Reset</button>
+</p>
+
+<p style="text-align:center;"> 
+Load default traffic values
+<button ng-click="setAllDefaultValues()">Load Defaults</button>
 </p>
 
 <p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >Race traffic default mode uses race file parameter. Using traffic for all races may negatively impact opponent skill.</p>
@@ -733,7 +764,7 @@ Manual Cache Update
 <div style="margin-left: 5px; margin-right: 5px; overflow-y:scroll; max-height:220px; min-height:220px; max-width:500px; background-color:rgba(0,0,0,0.5);" >
 
 <div ng-repeat="(id,key) in beamlrData['sortedShopSlots'] track by id">
-<div ng-if="beamlrData['availParts'][key] != null && key != 'main'">
+<div ng-if="beamlrData['availParts'][key] != null && key != 'main' && (inputData.pshopshowinc == 1 || beamlrData['vehSlotIDs'][key] != null)">
 
 <div style="word-wrap:break-word; text-align:center; font-weight: bold; font-size:20px; width:100%; line-height:40px;" ng-if="getSlotName(key) != null && slotNameMode != 1">
 	<span ng-if="visibleSlots[key] == null || visibleSlots[key] == false" style="float:left; text-align:center; width:40px;" ng-click="slotToggle(key, true)">+</span>

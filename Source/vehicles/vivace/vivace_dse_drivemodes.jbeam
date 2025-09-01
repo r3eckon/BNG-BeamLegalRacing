@@ -1,0 +1,399 @@
+{
+    "vivace_DSE_drivemodes_ICE": {
+        "information":{
+            "authors":"Diamondback",
+            "name":"Drive Modes (ICE)",
+            "value":250,
+        },
+        "slotType" : "vivace_DSE_drivemodes",
+        "slots":[
+            ["type", "default", "description"],
+            ["vivace_DSE_drivemodes_default","vivace_DSE_drivemodes_default_comfort", "Default Mode"],
+            ["vivace_DSE_drivemodes_comfort","vivace_DSE_drivemodes_comfort", "Comfort Mode"],
+            ["vivace_DSE_drivemodes_sport","vivace_DSE_drivemodes_sport", "Sport Mode"],
+            ["vivace_DSE_drivemodes_off","vivace_DSE_drivemodes_off", "ESC & TC Off Mode"],
+            ["vivace_DSE_drivemodes_arsenic","", "Arsenic Mode"],
+            ["vivace_DSE_drivemodes_offroad","", "Offroad Mode"],
+        ]
+
+        "controller": [
+            ["fileName"],
+            ["driveModes"]
+        ],
+
+        "driveModes": {
+            "enabledModes":[]
+            "defaultMode": "comfort"
+            "defaultSettings": [
+                ["type"]
+                ["exhaust" {"name": "mainEngine", "mufflingOffset": 0, "gainOffset": 0}]
+                ["turbocharger", {"name": "mainEngine", "wastegateOffset": 0}],
+                ["transmission", {"defaultForwardMode": "D"}]
+
+                ["controller", {"controllerName":"electronicSplitShaftLock", "isEnabled":true, "minimumLock":"default"}]
+
+                ["controller", {"controllerName":"adaptiveFrontDamper", "damperMode":"regular"}]
+                ["controller", {"controllerName":"adaptiveRearDamper", "damperMode":"regular"}]
+
+                ["controller", {"controllerName":"tractionControl", "isEnabled":true}]
+                ["controller", {"controllerName":"yawControl", "isEnabled":true}]
+                ["controller", {"controllerName":"motorTorqueControl", "tractionControl": "default", "yawControl": "default"}]
+                ["controller", {"controllerName":"brakeControl", "tractionControl": "default", "yawControl": "default"}]
+
+                ["controller", {"controllerName":"twoStepLaunch", "isEnabled":false, "launchRPM":4000}]
+            ],
+            "modes": {
+                "comfort": {
+                    "name": "Comfort",
+                    "order": 10,
+                    "settings": [
+                        ["type"]
+                        ["controller", {"controllerName":"gauge", "modeName": "COMFORT", "modeColor": "#1e7ccc"}]
+                        ["simpleControlButton", {"buttonId":"dse", "uiName":"DSE","icon":"powertrain_esc","color":"238BE6", "offColor":"343434", "offColorElectric":"dseWarningPulse"}]
+                    ],
+                },
+                "sport": {
+                    "name": "Sport",
+                    "order": 20,
+                    "settings": [
+                        ["type"]
+                        ["exhaust", {"name": "mainEngine", "mufflingOffset": -0.05, "gainOffset": 0}],
+                        ["transmission", {"defaultForwardMode": "S"}],
+
+                        ["controller", {"controllerName":"electronicSplitShaftLock", "isEnabled":true, "minimumLock":0.25}]
+
+                        ["controller", {"controllerName":"adaptiveFrontDamper", "damperMode":"hard"}]
+                        ["controller", {"controllerName":"adaptiveRearDamper", "damperMode":"hard"}]
+
+                        ["controller", {"controllerName":"motorTorqueControl",
+                            "tractionControl.isEnabled":true,
+                            "tractionControl.wheelGroupSettings.mainEngine.slipThreshold": 0.3,
+                            "yawControl.isEnabled":true,
+                        }]
+                        ["controller", {"controllerName":"brakeControl",
+                            "tractionControl.isEnabled":true,
+                            "tractionControl.wheelGroupSettings.mainEngine.slipThreshold": 0.2,
+                            "yawControl.isEnabled":true,
+                            "yawControl.slipAngleThreshold": 0.2,
+                            "yawControl.yawAvThreshold": 0.6
+                        }]
+
+                        ["controller", {"controllerName":"gauge", "modeName": "SPORT", "modeColor": "#8F0101"}]
+                        ["simpleControlButton", {"buttonId":"dse", "uiName":"DSE","icon":"powertrain_esc","color":"DA0C0C", "offColor":"343434", "offColorElectric":"dseWarningPulse"}]
+
+                        ["controller", {"controllerName":"twoStepLaunch", "isEnabled":true, "launchRPM":4500}]
+                    ],
+                },
+                "arsenic": {
+                    "name": "Arsenic",
+                    "order": 30,
+                    "settings": [
+                        ["type"]
+                        ["exhaust", {"name": "mainEngine", "mufflingOffset": -0.1, "gainOffset": 1}],
+                        ["turbocharger", {"name": "mainEngine", "wastegateOffset": 2}],
+                        ["transmission", {"defaultForwardMode": "S"}],
+
+                        ["controller", {"controllerName":"electronicSplitShaftLock", "isEnabled":true, "minimumLock":0.4}]
+
+                        ["controller", {"controllerName":"adaptiveFrontDamper", "damperMode":"hard"}]
+                        ["controller", {"controllerName":"adaptiveRearDamper", "damperMode":"hard"}]
+
+                        ["controller", {"controllerName":"motorTorqueControl",
+                            "tractionControl.isEnabled":true,
+                            "tractionControl.wheelGroupSettings.mainEngine.slipThreshold": 0.3,
+                            "yawControl.isEnabled":true,
+                        }]
+                        ["controller", {"controllerName":"brakeControl",
+                            "tractionControl.isEnabled":true,
+                            "tractionControl.wheelGroupSettings.mainEngine.slipThreshold": 0.2,
+                            "yawControl.isEnabled":true,
+                            "yawControl.slipAngleThreshold": 0.3,
+                            "yawControl.yawAvThreshold": 0.6
+                        }]
+
+                        ["controller", {"controllerName":"gauge", "modeName": "ARSENIC", "modeColor": "#598500"}]
+                        ["simpleControlButton", {"buttonId":"dse", "uiName":"DSE","icon":"powertrain_esc","color":"8ED500", "offColor":"343434", "offColorElectric":"dseWarningPulse"}]
+
+                        ["controller", {"controllerName":"twoStepLaunch", "isEnabled":true, "launchRPM":5000}]
+                    ],
+                },
+                "offroad": {
+                    "name": "Offroad",
+                    "order": 40,
+                    "settings": [
+                        ["type"]
+                        ["transmission", {"defaultForwardMode": "M1"}],
+
+                        ["controller", {"controllerName":"electronicSplitShaftLock", "minimumLock":1.0}]
+
+                        ["controller", {"controllerName":"adaptiveFrontDamper", "damperMode":"soft"}]
+                        ["controller", {"controllerName":"adaptiveRearDamper", "damperMode":"soft"}]
+
+                        ["controller", {"controllerName":"tractionControl", "isEnabled":false}]
+                        ["controller", {"controllerName":"motorTorqueControl", "tractionControl.isEnabled":false}]
+                        ["controller", {"controllerName":"brakeControl", "tractionControl.isEnabled":false}]
+
+                        ["controller", {"controllerName":"gauge", "modeName": "OFFROAD", "modeColor": "#EC6B00"}]
+                        ["simpleControlButton", {"buttonId":"dse", "uiName":"DSE","icon":"powertrain_esc","color":"EC6B00", "offColor":"343434", "offColorElectric":"dseWarningPulse"}]
+                    ],
+                },
+                "off": {
+                    "name": "ESC & TC Off",
+                    "order": 50,
+                    "settings": [
+                        ["type"]
+                        ["exhaust", {"name": "mainEngine", "mufflingOffset": -0.1, "gainOffset": 1}],
+                        ["transmission", {"defaultForwardMode": "S"}],
+                        ["controller", {"controllerName":"electronicSplitShaftLock", "isEnabled":true, "minimumLock":0.25}]
+
+                        ["controller", {"controllerName":"adaptiveFrontDamper", "damperMode":"hard"}]
+                        ["controller", {"controllerName":"adaptiveRearDamper", "damperMode":"hard"}]
+
+                        ["controller", {"controllerName":"tractionControl", "isEnabled":false}]
+                        ["controller", {"controllerName":"yawControl", "isEnabled":false}]
+                        ["controller", {"controllerName":"motorTorqueControl"}]
+                        ["controller", {"controllerName":"brakeControl"}]
+
+                        ["controller", {"controllerName":"gauge", "modeName": "ESC OFF", "modeColor": "#343838"}]
+                        ["simpleControlButton", {"buttonId":"dse", "uiName":"DSE","icon":"powertrain_esc","color":"999999", "offColor":"343434", "offColorElectric":"dseWarningPulse"}]
+
+                    ],
+                }
+            },
+        },
+    },
+
+    "vivace_DSE_drivemodes_electricMotor": {
+        "information":{
+            "authors":"Diamondback",
+            "name":"Drive Modes (eMotor)",
+            "value":250,
+        },
+        "slotType" : "vivace_DSE_drivemodes",
+        "slots":[
+            ["type", "default", "description"],
+            ["vivace_DSE_drivemodes_default","vivace_DSE_drivemodes_default_comfort", "Default Mode"],
+            ["vivace_DSE_drivemodes_comfort","vivace_DSE_drivemodes_comfort", "Comfort Mode"],
+            ["vivace_DSE_drivemodes_sport","vivace_DSE_drivemodes_sport", "Sport Mode"],
+            ["vivace_DSE_drivemodes_off","vivace_DSE_drivemodes_off", "ESC & TC Off Mode"],
+            ["vivace_DSE_drivemodes_arsenic_ev","", "Arsenic Mode"],
+            ["vivace_DSE_drivemodes_offroad_ev","", "Offroad Mode"],
+        ]
+
+        "controller": [
+            ["fileName"],
+            ["driveModes"]
+            ["AVAS"]
+        ],
+        "AVAS": {
+            "forwardSoundEvent":"event:>Engine>Pedestrian Warning>Version_02",
+            "reverseSoundEvent":"event:>Engine>Pedestrian Warning>Version_02",
+            "forwardSoundNode:":["f18"],
+            "reverseSoundNode:":["r2"],
+            "warningMaxSpeed": 14,
+            "warningVolume": 0.5
+        }
+
+        "driveModes": {
+            "enabledModes":[]
+            "defaultMode": "comfort"
+            "defaultSettings": [
+                ["type"]
+
+                ["controller", {"controllerName":"adaptiveFrontDamper", "damperMode":"regular"}]
+                ["controller", {"controllerName":"adaptiveRearDamper", "damperMode":"regular"}]
+
+                ["controller", {"controllerName":"tractionControl", "isEnabled":true}]
+                ["controller", {"controllerName":"yawControl", "isEnabled":true}]
+                ["controller", {"controllerName":"motorTorqueControl", "tractionControl": "default", "yawControl": "default"}]
+                ["controller", {"controllerName":"brakeControl", "tractionControl": "default", "yawControl": "default"}]
+            ],
+            "modes": {
+                "comfort": {
+                    "name": "Comfort",
+                    "order": 10,
+                    "settings": [
+                        ["type"]
+                        ["controller", {"controllerName":"gauge", "modeName": "COMFORT", "modeColor": "#1e7ccc"}]
+                        ["simpleControlButton", {"buttonId":"dse", "uiName":"DSE","icon":"powertrain_esc","color":"238BE6", "offColor":"343434", "offColorElectric":"dseWarningPulse"}]
+                    ],
+                },
+                "sport": {
+                    "name": "Sport",
+                    "order": 20,
+                    "settings": [
+                        ["type"]
+                        ["controller", {"controllerName":"adaptiveFrontDamper", "damperMode":"hard"}]
+                        ["controller", {"controllerName":"adaptiveRearDamper", "damperMode":"hard"}]
+
+                        ["controller", {"controllerName":"motorTorqueControl",
+                            "tractionControl.isEnabled":true,
+                            "tractionControl.wheelGroupSettings.frontMotor.slipThreshold": 0.3,
+                            "tractionControl.wheelGroupSettings.rearMotor.slipThreshold": 0.3,
+                             "yawControl.isEnabled":true,
+                        }]
+                        ["controller", {"controllerName":"brakeControl",
+                            "tractionControl.isEnabled":true,
+                            "tractionControl.wheelGroupSettings.frontMotor.slipThreshold": 0.2,
+                            "tractionControl.wheelGroupSettings.rearMotor.slipThreshold": 0.2,
+                            "yawControl.isEnabled":true,
+                            "yawControl.slipAngleThreshold": 0.2,
+                            "yawControl.yawAvThreshold": 0.6
+                        }]
+
+                        ["controller", {"controllerName":"gauge", "modeName": "SPORT", "modeColor": "#8F0101"}]
+                        ["simpleControlButton", {"buttonId":"dse", "uiName":"DSE","icon":"powertrain_esc","color":"DA0C0C", "offColor":"343434", "offColorElectric":"dseWarningPulse"}]
+                    ],
+                },
+
+                "off": {
+                    "name": "ESC & TC Off",
+                    "order": 50,
+                    "settings": [
+                        ["type"]
+                        ["controller", {"controllerName":"adaptiveFrontDamper", "damperMode":"hard"}]
+                        ["controller", {"controllerName":"adaptiveRearDamper", "damperMode":"hard"}]
+
+                        ["controller", {"controllerName":"tractionControl", "isEnabled":false}]
+                        ["controller", {"controllerName":"yawControl", "isEnabled":false}]
+                        ["controller", {"controllerName":"motorTorqueControl"}]
+                        ["controller", {"controllerName":"brakeControl"}]
+
+                        ["controller", {"controllerName":"gauge", "modeName": "ESC OFF", "modeColor": "#343838"}]
+                        ["simpleControlButton", {"buttonId":"dse", "uiName":"DSE","icon":"powertrain_esc","color":"545454", "offColor":"343434", "offColorElectric":"dseWarningPulse"}]
+                    ],
+                }
+            },
+        },
+    },
+
+    "vivace_DSE_drivemodes_comfort": {
+        "information":{
+            "authors":"Diamondback",
+            "name":"Comfort Mode",
+            "value":500,
+        },
+        "slotType" : "vivace_DSE_drivemodes_comfort",
+
+        "driveModes": {
+            "enabledModes_comfort":["comfort"]
+        }
+    }
+
+    "vivace_DSE_drivemodes_sport": {
+        "information":{
+            "authors":"Diamondback",
+            "name":"Sport Mode",
+            "value":500,
+        },
+        "slotType" : "vivace_DSE_drivemodes_sport",
+
+        "driveModes": {
+            "enabledModes_sport":["sport"]
+        }
+    }
+
+    "vivace_DSE_drivemodes_off": {
+        "information":{
+            "authors":"Diamondback",
+            "name":"ESC & TC Off Mode",
+            "value":500,
+        },
+        "slotType" : "vivace_DSE_drivemodes_off",
+
+        "driveModes": {
+            "enabledModes_off":["off"]
+        }
+    }
+
+    "vivace_DSE_drivemodes_arsenic": {
+        "information":{
+            "authors":"Diamondback",
+            "name":"Arsenic Mode",
+            "value":500,
+        },
+        "slotType" : "vivace_DSE_drivemodes_arsenic",
+
+        "driveModes": {
+            "enabledModes_arsenic":["arsenic"]
+        }
+    },
+
+    "vivace_DSE_drivemodes_offroad": {
+        "information":{
+            "authors":"Diamondback",
+            "name":"Offroad Mode",
+            "value":500,
+        },
+        "slotType" : "vivace_DSE_drivemodes_offroad",
+
+        "driveModes": {
+            "enabledModes_offroad":["offroad"]
+        }
+    },
+
+    "vivace_DSE_drivemodes_default_comfort": {
+        "information":{
+            "authors":"Diamondback",
+            "name":"Comfort Mode",
+            "value":500,
+        },
+        "slotType" : "vivace_DSE_drivemodes_default",
+
+        "driveModes": {
+            "defaultMode":"comfort"
+        }
+    },
+
+    "vivace_DSE_drivemodes_default_sport": {
+        "information":{
+            "authors":"Diamondback",
+            "name":"Sport Mode",
+            "value":500,
+        },
+        "slotType" : "vivace_DSE_drivemodes_default",
+
+        "driveModes": {
+            "defaultMode":"sport"
+        }
+    },
+
+    "vivace_DSE_drivemodes_default_arsenic": {
+        "information":{
+            "authors":"Diamondback",
+            "name":"Arsenic Mode",
+            "value":500,
+        },
+        "slotType" : "vivace_DSE_drivemodes_default",
+
+        "driveModes": {
+            "defaultMode":"arsenic"
+        }
+    },
+
+    "vivace_DSE_drivemodes_default_offroad": {
+        "information":{
+            "authors":"Diamondback",
+            "name":"Offroad Mode",
+            "value":500,
+        },
+        "slotType" : "vivace_DSE_drivemodes_default",
+
+        "driveModes": {
+            "defaultMode":"offroad"
+        }
+    },
+
+    "vivace_DSE_drivemodes_default_off": {
+        "information":{
+            "authors":"Diamondback",
+            "name":"ESC & TC Off Mode",
+            "value":500,
+        },
+        "slotType" : "vivace_DSE_drivemodes_default",
+
+        "driveModes": {
+            "defaultMode":"off"
+        }
+    },
+}

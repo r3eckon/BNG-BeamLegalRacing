@@ -423,23 +423,38 @@ extensions.customGuiStream.sendDataToUI("paint", paintTable)
 end
 
 ftable["setTrafficDensity"] = function(p)
-local density = p
 local otable = extensions.blrutils.loadDataTable("beamLR/options")
 otable["traffic"] = p
 extensions.blrutils.saveDataTable("beamLR/options", otable)
 end
 
 ftable["setPoliceDensity"] = function(p)
-local density = p
 local otable = extensions.blrutils.loadDataTable("beamLR/options")
 otable["police"] = p
 extensions.blrutils.saveDataTable("beamLR/options", otable)
 end
 
 ftable["setTruckDensity"] = function(p)
-local density = p
 local otable = extensions.blrutils.loadDataTable("beamLR/options")
 otable["trucks"] = p
+extensions.blrutils.saveDataTable("beamLR/options", otable)
+end
+
+ftable["setActiveTrafficCount"] = function(p)
+local otable = extensions.blrutils.loadDataTable("beamLR/options")
+otable["atcount"] = p
+extensions.blrutils.saveDataTable("beamLR/options", otable)
+end
+
+ftable["setTrafficSpawnRate"] = function(p)
+local otable = extensions.blrutils.loadDataTable("beamLR/options")
+otable["tsrate"] = p
+extensions.blrutils.saveDataTable("beamLR/options", otable)
+end
+
+ftable["setTrafficDirectionBias"] = function(p)
+local otable = extensions.blrutils.loadDataTable("beamLR/options")
+otable["tsbias"] = p
 extensions.blrutils.saveDataTable("beamLR/options", otable)
 end
 
@@ -686,6 +701,7 @@ extensions.blrhooks.linkHook("vehReset", "postedit")
 -- Need to handle inventory updates by comparing current config to target config
 extensions.blrpartmgmt.templateLoadInventorySwap(currentConfig, targetConfig, extensions.blrglobals.gmGetVal("codo"))
 
+require("jbeam/io").finishLoading() -- clearing jbeam cache ADDED 1.18.2
 -- finally load the actual config
 extensions.blrpartmgmt.loadConfig(fullpath) 
 
@@ -865,6 +881,8 @@ extensions.blrhooks.linkHook("vehReset", "postedit")							-- link to post edit 
 extensions.blrglobals.gmSetVal("playerMoney", money - p["cost"])
 extensions.blrutils.playSFX("event:>UI>Career>Buy_01")
 
+require("jbeam/io").finishLoading() -- clearing jbeam cache ADDED 1.18.2
+
 -- load current config data into delayed slot set table
 extensions.blrpartmgmt.initDelayedSlotTable()
 
@@ -965,6 +983,8 @@ gdata["totalspent"] = spent
 extensions.blrutils.saveDataTable("beamLR/garage/car" .. gid, gdata)
 
 
+require("jbeam/io").finishLoading() -- clearing jbeam cache ADDED 1.18.2
+
 -- finally execute delayed slot set
 -- 1.16 edit, passing ilinks as parameter to ensure removed/deleted part ilinks are saved to config
 extensions.blrpartmgmt.executeDelayedSlotSet(ilinks)
@@ -991,6 +1011,8 @@ extensions.blrglobals.gmSetVal("pfratio", extensions.blrutils.blrvarGet("fuelRat
 extensions.blrglobals.gmSetVal("poil", extensions.blrglobals.gmGetVal("coil"))	-- 1.15 addition, oil 
 extensions.blrglobals.gmSetVal("pmirrors", extensions.core_vehicle_mirror.getAnglesOffset()) -- 1.16 dynamic mirrors
 extensions.blrhooks.linkHook("vehReset", "postedit")							-- link to post edit action hook
+
+require("jbeam/io").finishLoading() -- clearing jbeam cache ADDED 1.18.2
 
 -- 1.16.7, adding part edit safe mode to repairs
 if extensions.blrglobals.blrFlagGet("garageSafeModeToggle") then
@@ -1377,6 +1399,12 @@ end
 ftable["setRepairParentSelectToggle"] = function(p)
 local dtable = {}
 dtable["armparentselect"] = (p and "1") or "0"
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+end
+
+ftable["togglePartShopShowIncompatible"] = function(p)
+local dtable = {}
+dtable["pshopshowinc"] = p
 extensions.blrutils.updateDataTable("beamLR/options", dtable)
 end
 

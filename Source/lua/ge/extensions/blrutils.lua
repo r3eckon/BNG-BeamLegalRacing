@@ -9,6 +9,7 @@ local locals = {}
 
 local json = require("json")
 local extensions = require("extensions")
+local uiapps = require("ui/apps")
 
 local dailySeedOffset = 1000	-- Seed offset for daily seed should be bigger value than total amount of needed rolls in flowgraph.
 local startSeed = 1234			-- in order to avoid repeating random values. Without this value the paint colors in shop
@@ -341,10 +342,19 @@ end
 return dtable
 end
 
-local function saveDataTable(file, data)
+-- 1.18.2 addition for car shop util ui, fmt specifies orders and which lines are added to saved file
+local function saveDataTable(file, data, fmt)
 local filedata = ""
+if fmt then
+for _,k in ipairs(fmt) do
+if data[k] then
+filedata = filedata .. k .. "=" .. data[k] .. "\n"
+end
+end
+else
 for k,v in pairs(data) do
 filedata = filedata .. k .. "=" .. v .. "\n"
+end
 end
 writeFile(file, filedata)
 end
@@ -1426,6 +1436,21 @@ end
 end
 return toRet
 end
+
+local function saveDataFile(path, data, useKeys)
+local filedata = ""
+for k,v in pairs(data) do
+if useKeys then
+filedata = filedata .. k .. "\n"
+else
+filedata = filedata .. v .. "\n"
+end
+end
+writeFile(path, filedata:sub(1,-2))--sub removes last newline, wouldn't be a problem because loadDataFile ignores it but still makes cleaner files
+end
+
+
+
 
 local function perfclassConfigLoader(configData) -- Creates config and model tables for race systems, works with class files and regular list
 local toRet = {}
@@ -2879,7 +2904,7 @@ end
 -- Moves the trigger up and down to trigger the onEnter event which
 -- sometimes doesn't happen after towing
 locals["refreshOldPos"] = {}
-local function towingTriggerRefresh(step, trig)
+locals["towingTriggerRefresh"] = function(step, trig)
 local obj = scenetree.findObject(trig)
 if obj then
 if step == 1 then
@@ -3274,11 +3299,18 @@ locals["loadReleaseValues"] = function()
 local dtable = loadDataTable("beamLR/options")
 dtable["autoseed"] = "1"
 dtable["advrepwarnack"] = "0"
-dtable["traffic"] = "3"
+dtable["traffic"] = "8"
 dtable["trucks"] = "1"
 dtable["police"] = "1"
 dtable["edittreemode"] = "0"
 dtable["targetwager"] = "10000"
+dtable["sleeptime"] = "8"
+dtable["dwtoggle"] = "1"
+dtable["atcount"] = "10"
+dtable["tsbias"] = "0.8"
+dtable["trisk"] = "0.2"
+dtable["tsrate"] = "0.1"
+dtable["lrestrict"] = "1"
 saveDataTable("beamLR/options", dtable)
 
 -- next doing mainData
@@ -3294,6 +3326,39 @@ saveDataTable("beamLR/garage/car0", dtable)
 end
 
 
+-- tail this file with powershell for instant logs during main thread locking loops
+-- EX: Get-Content C:\Users\r3eck\AppData\Local\BeamNG.drive\0.36\beamLR\blrlog.txt  -Wait -Tail 1
+locals["blrlog"] = function(txt)
+local f = io.open("beamLR/blrlog.txt", "a")
+f:write("[" .. string.format("%.3f",os.clock()) .. "] " ..  txt .. "\n")
+f:flush()
+f:close()
+end
+
+
+
+locals["isAppOnLayout"] = function(app, layout)
+local layouts = uiapps.getAvailableLayouts()
+for _,layoutData in pairs(layouts) do
+if layoutData.type == layout then
+for _,appData in pairs(layoutData.apps) do
+if appData.appName == app then return true end
+end
+end
+end
+return false
+end
+
+locals["deleteFolder"] = function(path)
+if FS:directoryExists(path) then
+FS:remove(path)
+end
+end
+
+
+M.deleteFolder = locals["deleteFolder"]
+M.isAppOnLayout = locals["isAppOnLayout"]
+M.blrlog = locals["blrlog"]
 M.loadReleaseValues = locals["loadReleaseValues"]
 M.getStarterCarSeedList = locals["getStarterCarSeedList"]
 M.racePathDebuggerClear = locals["racePathDebuggerClear"]
@@ -3318,7 +3383,8 @@ M.getDailySeedOffset = locals["getDailySeedOffset"]
 M.validateWaypoints = locals["validateWaypoints"]
 M.gpsCheck = locals["gpsCheck"]
 M.clubCompletionStatus = locals["clubCompletionStatus"]
-M.towingTriggerRefresh = towingTriggerRefresh
+M.towingTriggerRefresh = locals["towingTriggerRefresh"]
+M.saveDataFile = saveDataFile
 M.onSettingsChanged = onSettingsChanged
 M.blrStationDisplays = blrStationDisplays
 M.smoothFuelCharge = smoothFuelCharge

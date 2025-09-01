@@ -52,17 +52,17 @@ local tcheckpath = ""
 -- matters, ignore other slots the part could fit in, this shouldn't affect the same part fitting
 -- in other slots because path will be different
 if type(stdata) == "table" then
-	print("JBEAM FIELD slotType IS A TABLE CONTAINING: " .. dumps(stdata))
+	--print("JBEAM FIELD slotType IS A TABLE CONTAINING: " .. dumps(stdata))
 	for _,t in pairs(stdata) do
 		tcheckpath = n .. t .. "/"
 		if config[tcheckpath] then 
-			print("FOUND SLOT " .. tcheckpath .. " IN CONFIG, IGNORING OTHER SLOTS FROM slotType TABLE")
+			--print("FOUND SLOT " .. tcheckpath .. " IN CONFIG, IGNORING OTHER SLOTS FROM slotType TABLE")
 			cstype = t
 			break
 		end
 	end
 	if cstype == "" then -- 1.18.1 fix for empty slot in part tree
-		print("DIDN'T FIND ANY SLOTS FROM slotType TABLE IN CONFIG (LIKELY CAUSED BY allowType TABLE)")
+		--print("DIDN'T FIND ANY SLOTS FROM slotType TABLE IN CONFIG (LIKELY CAUSED BY allowType TABLE)")
 		return
 	end
 else
@@ -70,7 +70,7 @@ else
 end
 
 if not cstype then -- 1.18.1, just adding a check to make sure process doesn't crash due to jbeam error
-	print("PART DID NOT HAVE A slotType DEFINED (LIKELY CAUSED BY INCORRECT JBEAM)")
+	--print("PART DID NOT HAVE A slotType DEFINED (LIKELY CAUSED BY INCORRECT JBEAM)")
 	return
 end
 
@@ -81,7 +81,7 @@ else
 cspath = n .. cstype .. "/"
 end
 
-print("CSPATH: " .. cspath)
+--print("CSPATH: " .. cspath)
 
 -- create node for current slot (should only happen for first slot)
 if not nodedict[cspath] then
@@ -91,7 +91,7 @@ end
 
 -- find child slots for currently attached part
 if not cslots then 
-print("NO CHILD SLOTS FOUND FOR " .. p)
+--print("NO CHILD SLOTS FOUND FOR " .. p)
 return 
 end -- no child slots for part
 
@@ -114,7 +114,7 @@ slotPath = string.gsub(slotPath, "/main", "")
 
 -- find part attached to child slot
 cpart = config[slotPath] or ""
-print("CPART FOR " .. slotPath .. " = " .. cpart)
+--print("CPART FOR " .. slotPath .. " = " .. cpart)
 if cpart ~= "" and cpart ~= "none" then
 recursiveChildLookup(cpart, cspath)
 end

@@ -41,6 +41,26 @@ angular.module('beamng.apps')
 	  
 	  scope.pathNameCache = {}
 	  
+	  scope.defaults = {}
+	  scope.defaults['traffic'] = 8
+	  scope.defaults['trucks'] = 1
+	  scope.defaults['police'] = 1
+	  scope.defaults['trisk'] = 0.2
+	  scope.defaults['tsrate'] = 0.1
+	  scope.defaults['atcount'] = 10
+	  scope.defaults['copstrict'] = 0.08
+	  scope.defaults['tsbias'] = 0.8
+	  
+	  scope.defaultFunctions = {}
+	  scope.defaultFunctions["traffic"] = "setTrafficDensity"
+	  scope.defaultFunctions["trucks"] = "setTruckDensity"
+	  scope.defaultFunctions["police"] = "setPoliceDensity"
+	  scope.defaultFunctions["trisk"] = "setTrafficRisk"
+	  scope.defaultFunctions["tsrate"] = "setTrafficSpawnRate"
+	  scope.defaultFunctions["atcount"] = "setActiveTrafficCount"
+	  scope.defaultFunctions["copstrict"] = "setPoliceStrictness"
+	  scope.defaultFunctions["tsbias"] = "setTrafficDirectionBias"
+	  
 	  
 	  //helper function to trigger message in vanilla message app
 	  scope.guiMessage = function(msg, ttl, icon, category)
@@ -215,8 +235,17 @@ angular.module('beamng.apps')
 		  scope.inputData['allowtesmode'] = data['allowtesmode']
 		  scope.inputData['lmtoggle'] = data['lmtoggle']
 		  scope.inputData['edittreemode'] = data['edittreemode']
+		  scope.inputData['pshopshowinc'] = data['pshopshowinc']
+		  scope.inputData['atcount'] = data['atcount']
+		  scope.inputData['tsrate'] = data['tsrate']
+		  scope.inputData['tsbias'] = data['tsbias']
       })
 	  
+	  scope.setDefaultValue = function(param)
+	  {
+		  scope.inputData[param] = scope.defaults[param]
+		  scope[scope.defaultFunctions[param]]()
+	  }
 	  
 	  scope.setNameClick = function (name) {
 		bngApi.engineLua(`extensions.customGuiCallbacks.setParam("playername", "${scope.inputData.name}")`)
@@ -342,26 +371,81 @@ angular.module('beamng.apps')
 	  {
 		  scope.slotNameMode = m
 	  }
-	  
-	  scope.setTrafficDensity= function(d)
+
+	  scope.setAllDefaultValues = function()
 	  {
-		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("traffic", "${d}")`)
+		  for(param in scope.defaults)
+		  {
+			  scope.setDefaultValue(param)
+		  }
+	  }
+
+	  scope.setActiveTrafficCount = function()
+	  {
+		  var val = scope.inputData.atcount
+		  
+		  if(val == null || val > scope.inputData.traffic + scope.inputData.police + scope.inputData.trucks)
+		  {
+			  scope.inputData.atcount = scope.inputData.traffic + scope.inputData.police + scope.inputData.trucks
+			  val = scope.inputData.atcount
+		  }
+			  
+		  
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("traffic", "${val}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setActiveTrafficCount", "traffic")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
+	  }
+	  
+	  scope.setTrafficSpawnRate = function()
+	  {
+		  var val = scope.inputData.tsrate
+		  
+		  if(val == null)
+			  val = 0.1
+		  
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("traffic", "${val}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setTrafficSpawnRate", "traffic")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
+	  }
+	  
+	  scope.setTrafficDensity= function()
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("traffic", "${scope.inputData.traffic}")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setTrafficDensity", "traffic")`)
-		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
+		  
+		  if(scope.inputData.traffic + scope.inputData.police + scope.inputData.trucks < scope.inputData.atcount)
+		  {
+			  scope.inputData.atcount = scope.inputData.traffic + scope.inputData.police + scope.inputData.trucks
+			  scope.setActiveTrafficCount()
+		  }			  
+		  else
+			bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
 	  
-	  scope.setPoliceDensity= function(d)
+	  scope.setPoliceDensity= function()
 	  {
-		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("traffic", "${d}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("traffic", "${scope.inputData.police}")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setPoliceDensity", "traffic")`)
-		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
+		  if(scope.inputData.traffic + scope.inputData.police + scope.inputData.trucks < scope.inputData.atcount)
+		  {
+			  scope.inputData.atcount = scope.inputData.traffic + scope.inputData.police + scope.inputData.trucks
+			  scope.setActiveTrafficCount()
+		  }			  
+		  else
+			bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
 	  
-	  scope.setTruckDensity= function(d)
+	  scope.setTruckDensity= function()
 	  {
-		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("traffic", "${d}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("traffic", "${scope.inputData.trucks}")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setTruckDensity", "traffic")`)
-		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
+		  if(scope.inputData.traffic + scope.inputData.police + scope.inputData.trucks < scope.inputData.atcount)
+		  {
+			  scope.inputData.atcount = scope.inputData.traffic + scope.inputData.police + scope.inputData.trucks
+			  scope.setActiveTrafficCount()
+		  }			  
+		  else
+			bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
 	  
 	  scope.setSeed = function(d)
@@ -401,17 +485,31 @@ angular.module('beamng.apps')
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("restoreBackup")`)
 	  }
 	  
-	  scope.setTrafficRisk= function(d)
+	  scope.setTrafficRisk= function()
 	  {
-		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("risk", "${d}")`)
+		  var val = scope.inputData.trisk || 0.2
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("risk", "${val}")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setTrafficRisk", "risk")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
 	  
-	  scope.setPoliceStrictness= function(d)
+	  scope.setPoliceStrictness= function()
 	  {
-		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("copstrict", "${d}")`)
+		  var val = scope.inputData.copstrict || 0.08
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("copstrict", "${val}")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setPoliceStrictness", "copstrict")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
+	  }
+	  
+	  scope.setTrafficDirectionBias= function()
+	  {
+		  if(!scope.inputData.tsbias)
+			  scope.inputData.tsbias = 0
+		  
+		  var val = scope.inputData.tsbias
+		  
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("tsbias", "${val}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setTrafficDirectionBias", "tsbias")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
 	  
@@ -977,7 +1075,6 @@ angular.module('beamng.apps')
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
 	  
-	  
 	  scope.preciseTuneDecrease = function(field, step)
 	  {
 		  scope.beamlrData['tuningValues'][field] = Math.max(scope.beamlrData['tuningData'][field]['minDis'],scope.beamlrData['tuningValues'][field] - step)
@@ -1163,6 +1260,14 @@ angular.module('beamng.apps')
 		  }
 		
 	  }
+	  
+	  scope.togglePartShopShowIncompatible = function(t)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("pshopshowinc", ${t})`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("togglePartShopShowIncompatible", "pshopshowinc")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
+	  }
+	  
 	  
     }
   }

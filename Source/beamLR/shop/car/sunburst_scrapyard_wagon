@@ -1,5 +1,5 @@
 name=Hirochi Sunburst
-type=sunburst
+type=sunburst2
 config=vehicles/sunburst2/blr_scrapyard_wagon.pc
 baseprice=200,400
 odometer=200000000,400000000

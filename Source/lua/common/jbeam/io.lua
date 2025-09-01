@@ -137,6 +137,14 @@ local function getSlotInfoDataForUi(slots)
   return res
 end
 
+
+local function finishLoading()
+  print("jbeamIO cache cleared")
+  tableClear(jbeamCache)
+  fileCacheOld = {} -- BEAMLR EDITED TO ALWAYS CLEAR fileCacheOld
+  fileCache = {}
+end
+
 local function loadJBeamFile(dir, filename, addToCache)
   local fileContent = parseFile(filename)
   if not fileContent then
@@ -247,19 +255,32 @@ local function startLoading(directories)
   return { preloadedDirs = directories }
 end
 
+local function deepcopy(t)
+local toRet = {}
+for k,v in pairs(t) do
+if type(v) == "table" then
+toRet[k] = deepcopy(v)
+else
+toRet[k] = v
+end
+end
+return toRet
+end
+
+
 local function getPart(ioCtx, partName)
   if not partName then return end
   for _, dir in ipairs(ioCtx.preloadedDirs) do
-    local jbeamFilename = partFileMap[dir][partName]
-    if jbeamFilename then
-      if not jbeamCache[jbeamFilename] then
-        local partCount = loadJBeamFile(dir, jbeamFilename)
-        --log('D', 'jbeam.getPart', "Loaded " .. tostring(partCount) .. " part(s) from file " .. tostring(jbeamFilename))
-      end
-      if jbeamCache[jbeamFilename] then
-        return jbeamCache[jbeamFilename][partName], jbeamFilename
-      end
-    end
+	local jbeamFilename = partFileMap[dir][partName]
+	if jbeamFilename then
+	  if not jbeamCache[jbeamFilename] then
+		local partCount = loadJBeamFile(dir, jbeamFilename)
+		--log('D', 'jbeam.getPart', "Loaded " .. tostring(partCount) .. " part(s) from file " .. tostring(jbeamFilename))
+	  end
+	  if jbeamCache[jbeamFilename] then
+		return jbeamCache[jbeamFilename][partName], jbeamFilename
+	  end
+	end
   end
 end
 
@@ -276,12 +297,6 @@ local function getMainPartName(ioCtx)
   end
 end
 
-local function finishLoading()
-  print("jbeamIO cache cleared")
-  tableClear(jbeamCache)
-  fileCacheOld = fileCache or {}
-  fileCache = {}
-end
 
 local function getAvailableParts(ioCtx)
   if not isContextValid(ioCtx) then return end

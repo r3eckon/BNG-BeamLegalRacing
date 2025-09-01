@@ -3,10 +3,11 @@
 
 
 
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.18.1/beamLegalRacing1.18.1.zip
+
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.18.2/beamLegalRacing1.18.2.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.18.1
+# Beam Legal Racing 1.18.2
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -128,6 +129,8 @@ Version 1.17.4 adds the Valo City addon, defective vehicles to used car shops (S
 Version 1.17.5 adds nested tree part edit menu similar to vanilla part edit menu (can be toggled in UI options), a button to export your current config to freeroam (done from the config page of part edit), buttons to add slots to a list of favorites accessible in part edit and part buying menu and a UI to view history of past track event results. Part specific repair costs are now linked to part odometer so older parts and vehicles are cheaper to repair.
 
 Version 1.18 brings compatibility for BeamNG version 0.36 and adds content from 0.35 and 0.36 to the mod. This version also adds the ability to selectively repair child parts of a broken parent without repairing the parent part (repaired part will be sent to inventory).
+
+Version 1.18.2 adds a UI option to show/hide incompatible slots in part shop, various new traffic control options (like spawn rate, direction bias) and specific traffic amounts rather than preset values. It also adds a new utility UI app used to add or edit dealership vehicles and list files. This app is used in freeroam, a quick guide on how to use it to add a new vehicle [can be found in this video](https://www.youtube.com/watch?v=1_O6-1_FsVk).
 
 ## Getting started
 BeamLR is loaded as a freeroam mission. Use the following spawn point depending on map choice:
@@ -961,3 +964,16 @@ Thank you for playing BeamLR!
 * Fixed allowType jbeam data causing various issues with part edit & buy menu (both regular and tree)
 * Fixed empty name fields for certain parts in the full part inventory menu
 * Fixed missing "installed" indicator in part shop when using internal slot names
+### 1.18.2
+* Added UI option to show/hide incompatible slots in part shop
+* Added various traffic related options (respawn rate, active count in pool, direction bias)
+* Added dealership cars editor UI app (create & edit cars, create & edit shop lists/addons)
+* Fixed light manager error when switching cars
+* Fixed vanilla jbeam issue with vivace comfort drivemode using wrong slot causing UI init error
+* Fixed list_mixed_all car shop list having two sunbursts on a single line
+* Fixed old sunburst model used in some car shop files
+* Fixed incorrect AI race path on west coast
+* Fixed bugged car meets
+* Added extra AVB cache clearing function calls (potential fix for AVB & ilinks issues)
+* Fixed traffic not spawning & respawning correctly
+* Traffic amount options are now customizable number fields rather than preset values

@@ -1114,7 +1114,7 @@ else
 advancedPartConditions[part].integrityValue = integrity - getIntegrityOffset(odometer) -- decrease integrity for high odometer parts
 end
 advancedPartConditions[part].visualValue = "a" -- if visual value is a number paint bug happens, using string to disable paint integrity
-print("Set part condition for " .. part .. " to " .. odometer .. " odometer and " .. integrity .. " integrity")
+--print("Set part condition for " .. part .. " to " .. odometer .. " odometer and " .. integrity .. " integrity")
 end
 
 local function applyAdvancedPartConditions()
@@ -1130,7 +1130,7 @@ local integrityUpdateQueue = {}
 
 local function queueIntegrityUpdate(id, part)
 integrityUpdateQueue[id] = part
-print("QUEUED INTEGRITY UPDATE FOR ID " .. id .. " PART NAME " .. part)
+--print("QUEUED INTEGRITY UPDATE FOR ID " .. id .. " PART NAME " .. part)
 end
 
 
@@ -1148,7 +1148,7 @@ for k,v in pairs(integrityUpdateQueue) do
 	if conditions[v] then
 		-- math.min to avoid cases where increased odometer would restore more integrity than was removed
 		integrity = math.min(1.0, conditions[v].integrityValue + getIntegrityOffset(conditions[v].odometer))
-		print("PART CONDITION FOR " .. v .. "=" .. integrity)
+		--print("PART CONDITION FOR " .. v .. "=" .. integrity)
 	else
 		integrity = 1
 		print("MISSING PART CONDITION FOR " .. v)
@@ -1166,6 +1166,11 @@ end
 local function getOilLeakRatio()
 local clues = extensions.blrPowertrainClues.getClues()
 local conditions = partCondition.getConditions()
+
+if not conditions or type(conditions) ~= "table" then
+return
+end
+
 local oilpanPart = clues["oilpan"]
 local enginePart = clues["engine"]
 local oilpanOdo = 0
@@ -1173,7 +1178,7 @@ local engineOdo = 0
 local engineRatio = 0
 local oilpanRatio = 0
 
-if enginePart and conditions[enginePart] then
+if enginePart and conditions and conditions[enginePart] then
 engineOdo = conditions[enginePart].odometer
 else
 engineOdo = 0
@@ -1259,7 +1264,7 @@ end
 
 
 -- deal with specific parts
-local parts = v.config.parts
+local parts = v.data.slotPartMap -- 1.18.2 fix for 0.36 slot tree
 for k,v in pairs(parts) do
 
 
@@ -1314,7 +1319,7 @@ end
 local function openCarMeetLatches()
 local controllers = controller.getAllControllers()
 local model = v.vehicleDirectory:gsub("/vehicles/", ""):gsub("/", "")
-local parts = v.config.parts
+local parts = v.data.slotPartMap -- 1.18.2 fix for 0.38 slot tree
 
 -- build table of potential latches and catches for all vehicle types
 local latch_rear = {}

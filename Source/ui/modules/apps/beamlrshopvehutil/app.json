@@ -1,0 +1,18 @@
+{
+  "domElement": "<beamlrshopvehutil></beamlrshopvehutil>",
+  "name": "BeamLR Shop Vehicle Creator",
+  "types": [
+    "ui.apps.categories.vehicle_info"
+  ],
+  "description": "Allows creating shop vehicle files for BeamLR",
+  "css": {
+    "left": "0px",
+    "height": "810px",
+    "top": "0px",
+    "width": "420px",
+  },
+  "author": "Revision3",
+  "version": "0.1",
+  "preserveAspectRatio" : false,
+  "directive": "beamlrshopvehutil"
+}

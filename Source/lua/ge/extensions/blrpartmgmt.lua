@@ -230,7 +230,23 @@ end
 
 for slot,part in pairs(current) do	-- Fix for search function not finding current used parts
 if part ~= "" and slots[slot] ~= "main" then
-table.insert(toRet[slot], part)
+
+if not toRet[slot] then 
+print("getGarageUIData error happened, toRet[slot] was nil")
+print("slot:" .. slot)
+print("current parts table dump")
+dump(current)
+print("toRet table dump")
+dump(toRet)
+print("avail table dump")
+dump(avail)
+print("slots table dump")
+dump(slots)
+toRet[slot] = {} 
+end
+
+
+table.insert(toRet[slot], part) -- THIS LINE CAUSES ERROR
 end
 end
 
@@ -1182,6 +1198,45 @@ end
 return toRet
 end
 
+local function getSortedActualSlots()
+local sdata = getPathKeyedSlots()
+local snames = getSlotNameLibrary()
+
+local sortedSlots = {} -- KEY=POSITION,VAL=SLOT NAME
+local smap = {}
+local toRet = {} -- KEY=POSITION,VAL=SLOT
+local cname = ""
+local csplit = {}
+local cslot = ""
+
+for k,v in pairs(sdata) do
+csplit = extensions.blrutils.ssplit(k,"/")
+cslot = csplit[#csplit-1] -- 1.18.1 fix, parse slot id from slot path
+
+cname = snames[cslot] or cslot -- 1.10.1 fix
+
+if not smap[cname] then 
+smap[cname] = {} -- 1.17 fix for slots using exact same name
+table.insert(sortedSlots, cname)
+end
+
+table.insert(smap[cname], k)
+end
+
+table.sort(sortedSlots)
+
+local index = 1
+
+for _,name in ipairs(sortedSlots) do
+for _,slot in pairs(smap[name]) do
+toRet[index] = slot
+index = index + 1
+end
+end
+
+return toRet
+end
+
 local function getSortedGarageParts()
 local sdata = getGarageUIData()
 local pnames = getPartNameLibrary()
@@ -1528,6 +1583,7 @@ cnode["chosenPartName"] = part
 print("Should have set part for slot " .. cnode.id .. " to: " .. part)
 end
 
+require("jbeam/io").finishLoading() -- clearing jbeam cache ADDED 1.18.2
 extensions.core_vehicle_partmgmt.setPartsTreeConfig(tree)
 end
 
@@ -1628,8 +1684,8 @@ end
 
 
 
-
-local function getMainPartChild(veid)
+-- small addition in 1.18.2, pass true as second param to get slot path without part
+local function getMainPartChild(veid, slotOnly)
 local vehicleData = {}
 local activeParts = {}
 local chosenParts = {}
@@ -1656,11 +1712,18 @@ chosenParts = vehicleData.vdata.slotPartMap
 for k,v in pairs(slotdata) do
 if newfmt then
 if v[6] and v[6]["coreSlot"] then
-toRet = "/" .. v[1] .. "/" .. chosenParts["/" .. v[1] .. "/"]
-end
+	if slotOnly then 
+		toRet = "/" .. v[1] .. "/"
+	else 
+		toRet = "/" .. v[1] .. "/" .. chosenParts["/" .. v[1] .. "/"] end
+	end
 else
 if v[4] and v[4]["coreSlot"] then
-toRet = "/" .. v[1] .. "/" .. chosenParts["/" .. v[1] .. "/"]
+	if slotOnly then 
+		toRet = "/" .. v[1] .. "/"
+	else 
+		toRet = "/" .. v[1] .. "/" .. chosenParts["/" .. v[1] .. "/"] 
+	end
 end
 end
 end
@@ -2326,18 +2389,30 @@ end
 return toRet 
 end
 
+local cacheProgress = 0 -- DEBUG CODE
+local cacheProgressMax = 0 -- DEBUG CODE
+local jbeamFileMapCount = 0 -- DEBUG CODE
 
 -- creates a jbeam file map for ALL JBEAM FILES including mods 
 local function createFullJbeamMap()
 local files = FS:findFiles("vehicles", "*.jbeam", 100)
 local cdata = {}
 jbeamFileMap = {}
+cacheProgress = 0 -- DEBUG CODE
+jbeamFileMapCount = 0 -- DEBUG CODE
+cacheProgressMax = #files -- DEBUG CODE
 
 for k,v in pairs(files) do
+-- DEBUG CODE START
+cacheProgress = cacheProgress + 1 
+extensions.blrutils.blrlog("Jbeam caching progress | Step 1/3 | File " .. cacheProgress .. "/" .. cacheProgressMax .. " | " .. string.format("%.2f", (cacheProgress/cacheProgressMax)*100.0) .. "%")
+-- DEBUG CODE end
+
 cdata = jsonReadFileSafe(v)
 
 if cdata then
 for p,pdata in pairs(cdata) do
+if not jbeamFileMap[p] then jbeamFileMapCount = jbeamFileMapCount + 1 end -- DEBUG CODE
 jbeamFileMap[p] = v
 end
 else
@@ -2355,8 +2430,18 @@ local cjbeam = {}
 local inventory = extensions.blrPartInventory.getInventory()
 local cpart = ""
 
+cacheProgress = 0 -- DEBUG CODE
+cacheProgressMax = jbeamFileMapCount -- DEBUG CODE
+
 fullPartNameLibrary = {}
 for k,v in pairs(jbeamFileMap) do
+
+-- DEBUG CODE START
+cacheProgress = cacheProgress + 1
+extensions.blrutils.blrlog("Jbeam caching progress | Step 2/3 | File " .. cacheProgress .. "/" .. cacheProgressMax .. " | " .. string.format("%.2f", (cacheProgress/cacheProgressMax)*100.0) .. "%")
+-- DEBUG CODE end
+
+
 cjbeam = getJbeamFromFullMap(k)
 if cjbeam and cjbeam["information"] and cjbeam["information"]["name"] then
 fullPartNameLibrary[k] = cjbeam["information"]["name"]
@@ -2378,7 +2463,16 @@ fullSlotNameLibrary = {}
 local cslotdata = {}
 local newfmt = false
 
+cacheProgress = 0 -- DEBUG CODE
+cacheProgressMax = jbeamFileMapCount -- DEBUG CODE
+
 for k,v in pairs(jbeamFileMap) do
+-- DEBUG CODE START
+cacheProgress = cacheProgress + 1
+extensions.blrutils.blrlog("Jbeam caching progress | Step 3/3 | File " .. cacheProgress .. "/" .. cacheProgressMax .. " | " .. string.format("%.2f", (cacheProgress/cacheProgressMax)*100.0) .. "%")
+-- DEBUG CODE end
+
+
 cjbeam = getJbeamFromFullMap(k)
 cslotdata = nil -- reset to nil to avoid parts that have no child slots
 if cjbeam and cjbeam["slots2"] then
@@ -2773,6 +2867,7 @@ end
 return toRet
 end
 
+M.getSortedActualSlots = getSortedActualSlots
 M.getSlotMapForAllowTypes = getSlotMapForAllowTypes
 M.invalidatePKSMapCache = invalidatePKSMapCache
 M.invalidateMergedSlotsMapsCache = invalidateMergedSlotsMapsCache

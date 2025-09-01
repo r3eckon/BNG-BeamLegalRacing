@@ -201,7 +201,9 @@ end
 if not enabled then return end
 
 -- if no player object, use last known pos
-if scenetree.objectExistsById(playerObjectID) then
+-- 1.18.2 fix, check that getPosition function exists, apparently can happen to be nil for long enough
+-- to throw error while changing vehicles even if the object exists in the scenetree
+if scenetree.objectExistsById(playerObjectID) and scenetree.findObjectById(playerObjectID).getPosition then
 ppos = scenetree.findObjectById(playerObjectID):getPosition()
 end
 

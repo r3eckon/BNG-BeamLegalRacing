@@ -200,9 +200,9 @@ cpath = k .. v
 cilink = ilinks[cpath]
 csplit = extensions.blrutils.ssplit(cilink, ",")
 ilinkid = tonumber(csplit[1])
-print("ILINK ID: " .. ilinkid)
+--print("ILINK ID: " .. ilinkid)
 ilinkodo = tonumber(csplit[2])
-print("ILINK ODO: " .. ilinkodo)
+--print("ILINK ODO: " .. ilinkodo)
 invodo = inventory[ilinkid][2]
 invint = inventory[ilinkid][3]
 
