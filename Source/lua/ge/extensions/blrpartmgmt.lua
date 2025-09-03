@@ -1011,6 +1011,7 @@ toRet["parts"] = baseConfig
 toRet["vars"] = {}
 else
 toRet = baseConfig	-- format 2 config, can use base config table
+toRet["paints"] = nil -- 1.18.3, remove paint from config data to allow random paints to work
 end
 
 -- 1.18 fix, handle configs that have paths as slots instead of IDs
@@ -1990,6 +1991,7 @@ if allowTypeMap[slotPath] then
 			else
 				
 				cslot = pksmap[part] -- get current slot from part keyed slot map
+				
 				if not unsorted[cslot] then unsorted[cslot] = {} end
 				if not sorted[cslot] then sorted[cslot] = {} end
 				for _,id in pairs(invmap[part]) do -- loop over inventory IDs for current part
@@ -2123,6 +2125,8 @@ if forui and not toRet[0] then toRet[0] = -1 end
 return toRet
 end
 
+
+
 -- source table format: slot={1,2,3,10,20,69,...}
 local function advancedInventorySearch(source)
 local sname = getSlotNameLibrary()
@@ -2131,21 +2135,23 @@ local invdata = extensions.blrPartInventory.getInventory()
 local toRet = {}
 local filter = currentFilter
 
+local cslot = ""
 local cslotname = ""
 local cpart = ""
 local cpartname = ""
 
 
 for slot, list in pairs(source) do
-cslotname = sname[slot] or slot
+cslot = getSlotIDFromPath(slot) -- 1.18.3 fix for broken search due to slot paths
+cslotname = sname[cslot] or cslot
 
 -- slot itself matches search filter
-if (string.match(cslotname:upper(), filter:upper())) or (string.match(slot:upper(), filter:upper())) then
+if (string.match(cslotname:upper(), filter:upper())) or (string.match(cslot:upper(), filter:upper())) then
 toRet[slot] = true
 end
 
 -- didnt find match in slot name, look for matching parts
-if not toRet[slot] then
+if not toRet[cslot] then
 for _,id in ipairs(list) do
 cpart = invdata[id][1]
 cpartname = pname[cpart] or cpart
@@ -2170,9 +2176,11 @@ local invdata = extensions.blrPartInventory.getInventory()
 local toRet = {}
 local filter = currentFilter
 
+local cslot = ""
 local cname = ""
 
 for slot,_ in pairs(source) do
+cslot = getSlotIDFromPath(slot) -- 1.18.3 fix for broken search due to slot paths
 
 -- 1.17.5 slot favorites
 if filter == "favorites" then
@@ -2180,10 +2188,10 @@ if favoritesData[slot] and favoritesData[slot] == "true" then
 toRet[slot] = true
 end
 else
-cname = sname[slot] or slot
+cname = sname[cslot] or cslot
 for stype,category in pairs(categoryData) do
 if (filter == "all") or (category == filter) then
-if (string.match(cname:upper(), stype:upper())) or (string.match(slot:upper(), stype:upper())) then
+if (string.match(cname:upper(), stype:upper())) or (string.match(cslot:upper(), stype:upper())) then
 toRet[slot] = true
 break
 end

@@ -3326,11 +3326,27 @@ saveDataTable("beamLR/garage/car0", dtable)
 end
 
 
+locals["blrlogid"] = 0
+
 -- tail this file with powershell for instant logs during main thread locking loops
 -- EX: Get-Content C:\Users\r3eck\AppData\Local\BeamNG.drive\0.36\beamLR\blrlog.txt  -Wait -Tail 1
-locals["blrlog"] = function(txt)
+locals["blrlog"] = function(txt, wid)
+if wid then
+print("BeamLR Log ID " .. locals["blrlogid"])
+end
+local toprint = txt
+local prefix = "[" .. string.format("%.3f",os.clock()) .. "] "
+if type(txt) == "table" then
+toprint = dumps(txt)
+end
+
+if wid then
+prefix = "[" .. locals["blrlogid"] .. "]" .. prefix
+locals["blrlogid"] = locals["blrlogid"]+1
+end
+
 local f = io.open("beamLR/blrlog.txt", "a")
-f:write("[" .. string.format("%.3f",os.clock()) .. "] " ..  txt .. "\n")
+f:write(prefix .. toprint .. "\n")
 f:flush()
 f:close()
 end

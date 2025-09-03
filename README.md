@@ -4,10 +4,10 @@
 
 
 
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.18.2/beamLegalRacing1.18.2.zip
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.18.3/beamLegalRacing1.18.2.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.18.2
+# Beam Legal Racing 1.18.3
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -977,3 +977,10 @@ Thank you for playing BeamLR!
 * Added extra AVB cache clearing function calls (potential fix for AVB & ilinks issues)
 * Fixed traffic not spawning & respawning correctly
 * Traffic amount options are now customizable number fields rather than preset values
+
+### 1.18.3
+* Fixed bug due to part/slot map cache during inventory reload causing attached parts to show as unused
+* Fixed part edit menu search function broken due to slot paths
+* Fixed VLUA error when trying to set ignition off on cars without engine
+* Fixed inconsistent paint color between shop and garage for some vehicles
+* Fixed inconsistent paint color between race and pink slips reward for some vehicles
