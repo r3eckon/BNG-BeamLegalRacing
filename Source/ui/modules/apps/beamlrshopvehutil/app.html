@@ -368,8 +368,15 @@ Edits made to official BeamLR shops will be overwritten by updates.
 
 </div>
 
-<div style="width: 90%; margin:auto; margin-top:10px;" ng-if="init==false">
-<p style="width:90%; text-align:center;">Loading data, please wait. Note that this involves generating jbeam cache if it was not valid and this process can take some time to complete.</p> 
+<div style="width: 95%; margin:auto; margin-top:10px;" ng-if="init==false">
+<div ng-if="cacheValid" style="margin:auto; width: 100%;">
+<p style="width:90%; text-align:center; margin:auto;">Loading data. If this process takes too long you may need to use CTRL+R to reload vehicle jbeam, then CTRL+F5 to reload the UI.</p> 
+</div>
+
+<div ng-if="!cacheValid" style="width: 100%; text-align:center;">
+<p style="width:90%; margin:auto; margin-bottom:20px; text-align:center;">Jbeam cache is not valid. Click the below button to generate it. Note that this process may take a few minutes to complete depending on your hardware and how many mods you have installed.<br><br>The game will be frozen while this process is running. This UI app should auto refresh once this is done. If it does not, hit CTRL+F5 to refresh it.</p> 
+<button ng-click="generateCache()">Generate Jbeam Cache</button>
+</div>
 </div>
 
 <div style="width: 90%; margin:auto; margin-top:10px;" ng-if="walking==true">

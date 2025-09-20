@@ -250,6 +250,19 @@
         "top":"0px",
         "width":"400px"
       }
+    },
+    {
+      "appName":"beamlrpartshop",
+      "placement":{
+        "bottom":0,
+        "height":"700px",
+        "left":0,
+        "margin":"auto",
+        "position":"absolute",
+        "right":0,
+        "top":0,
+        "width":"1200px"
+      }
     }
   ],
   "description":"BeamLR UI Layout",

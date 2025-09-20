@@ -291,7 +291,7 @@ end
 local function getMainPartName(ioCtx)
   if not isContextValid(ioCtx) then return end
   for _, dir in ipairs(ioCtx.preloadedDirs) do
-    if partSlotMap[dir]['main'] then
+    if partSlotMap[dir] and partSlotMap[dir]['main'] then
       return partSlotMap[dir]['main'][1]
     end
   end

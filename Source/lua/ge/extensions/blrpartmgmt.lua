@@ -6,6 +6,7 @@ local M = {}
 
 local jbeamIO = require('jbeam/io')
 local vehManager = extensions.core_vehicle_manager
+local extensions = require("extensions")
 local partInventory = {}
 local partPrice = {}
 local categoryData = {}
@@ -44,20 +45,20 @@ end
 
 
 
-local function ioCtx()
-return getVehicleData().ioCtx
+local function ioCtx(vehid)
+return getVehicleData(vehid).ioCtx
 end
 
-local function getPartJbeam(partName)
-return jbeamIO.getPart(ioCtx(), partName)
+local function getPartJbeam(partName, vehid)
+return jbeamIO.getPart(ioCtx(vehid), partName)
 end
 
-local function getSlotMap(customIO)
+local function getSlotMap(customIO, vehid)
 local slotMap = {}
 if customIO then
 slotMap = jbeamIO.getAvailableSlotNameMap(customIO)
 else
-local playerVehicle = getVehicleData()
+local playerVehicle = getVehicleData(vehid)
 slotMap = jbeamIO.getAvailableSlotNameMap(playerVehicle.ioCtx)
 end
 return slotMap
@@ -99,14 +100,18 @@ end
 
 local function getSlotIDFromPath(path)
 local csplit = extensions.blrutils.ssplit(path,"/")
+if #csplit > 1 then
 return csplit[#csplit-1]
+else
+return csplit[1]
+end
 end
 
 -- Changed for 0.36 update, used to be called getActualSlots
 -- key = slot path, val = internal slot name
-local function getPathKeyedSlots()
+local function getPathKeyedSlots(vehid)
 local toRet = {}
-local parts = getVehicleParts()
+local parts = getVehicleParts(vehid)
 for k,v in pairs(parts) do
 toRet[k] = getSlotIDFromPath(k)
 end
@@ -119,9 +124,9 @@ end
 -- compatible part indicator (the little warning symbol with yellow text)
 -- Doesn't need paths because the parts will fit for the same slot IDs, duplicates don't matter, only that
 -- the slot ID is present in this table to show in part buying menu that part will immediately fit on vehicle
-local function getVehicleSlotIDsList()
+local function getVehicleSlotIDsList(vehid)
 local toRet = {}
-local slots = getPathKeyedSlots()
+local slots = getPathKeyedSlots(vehid)
 for k,v in pairs(slots) do
 toRet[v] = true
 end
@@ -132,9 +137,9 @@ end
 -- Returns a list of installed parts on vehicle, used for part buying menu to show currently installed part
 -- needed because part buying menu doesn't use slot paths, only slot IDs and old "usedParts" list passed to
 -- UI now uses slot paths. This instead only sends a list of parts currently used regardless of the slot it's on
-local function getVehicleInstalledPartsList()
+local function getVehicleInstalledPartsList(vehid)
 local toRet = {}
-local parts = getVehicleParts()
+local parts = getVehicleParts(vehid)
 for k,v in pairs(parts) do
 if v ~= "" then
 toRet[v] = true
@@ -146,9 +151,9 @@ end
 
 -- Added for 0.36 update (BLR 1.18)
 -- key = slot id, val = table of slot paths
-local function getIDKeyedSlots()
+local function getIDKeyedSlots(vehid)
 local toRet = {}
-local parts = getVehicleParts()
+local parts = getVehicleParts(vehid)
 local csplit = {}
 local ckey = ""
 for slotPath,part in pairs(parts) do
@@ -170,11 +175,11 @@ return jbeamIO.getMainPartName(data.ioCtx)
 end
 end
 
-local function getAvailablePartList()
+local function getAvailablePartList(vehid)
 local toRet = {}
-local playerVehicle = getVehicleData()
-local availParts = getSlotMap()
-local slots = getVehicleParts()
+local playerVehicle = getVehicleData(vehid)
+local availParts = getSlotMap(nil,vehid)
+local slots = getVehicleParts(vehid)
 for k,v in pairs(slots) do		-- Loops over current vehicle slots to show parts available for current build
 if k~="main" then				-- Avoid adding "main" part to list
 toRet[k] = availParts[k]
@@ -183,13 +188,13 @@ end
 return toRet
 end
 
-local function getAllAvailableParts(vehSpecific)
+local function getAllAvailableParts(vehSpecific, vehid)
 local toRet = {}
 if vehSpecific then
-local ioCtx = {preloadedDirs = {ioCtx()["preloadedDirs"][1]}}
+local ioCtx = {preloadedDirs = {ioCtx(vehid)["preloadedDirs"][1]}}
 toRet = jbeamIO.getAvailableParts(ioCtx)
 else
-toRet = jbeamIO.getAvailableParts(ioCtx())
+toRet = jbeamIO.getAvailableParts(ioCtx(vehid))
 end
 return toRet
 end
@@ -201,11 +206,11 @@ local availParts = jbeamIO.getAvailableParts(playerVehicle.ioCtx)
 return availParts[k]
 end
 
-local function getGarageUIData()
+local function getGarageUIData(vehid)
 local toRet = {}
-local current = getVehicleParts()	-- Current parts
-local slots = getPathKeyedSlots() 		-- Gets actual slots from current car
-local avail = getSlotMap()	   		-- Gets all available parts for all available slots of this car
+local current = getVehicleParts(vehid)	-- Current parts
+local slots = getPathKeyedSlots(vehid) 	-- Gets actual slots from current car
+local avail = getSlotMap(nil,vehid)	   	-- Gets all available parts for all available slots of this car
 
 for slotPath,slotID in pairs(slots) do -- Looping over vehicle current slots 
 
@@ -378,7 +383,7 @@ local cm = false
 -- 1.17.5 slot favorites
 if currentFilter=="favorites" then
 for k,v in pairs(source) do
-if keyMode then part = k else part = v end
+if keyMode then part = getSlotIDFromPath(k) else part = v end
 if favoritesData[part] and favoritesData[part] == "true" then
 if not toRet[k] then toRet[k] = {} end
 for i,p in pairs(v) do
@@ -444,8 +449,8 @@ end
 return toRet
 end
 
-local function getTuningUIData(trackMode)
-local dtable = getVehicleData().vdata.variables
+local function getTuningUIData(trackMode, vehid)
+local dtable = getVehicleData(vehid).vdata.variables
 local toRet = {}
 local cname = ""
 local ckey = ""
@@ -469,8 +474,8 @@ return toRet
 end
 
 
-local function getTuningUIValues()
-local dtable = getVehicleData().vdata.variables
+local function getTuningUIValues(vehid)
+local dtable = getVehicleData(vehid).vdata.variables
 local toRet = {}
 local ckey = ""
 local cval = 0
@@ -495,8 +500,8 @@ return toRet
 end
 
 
-local function tuningTableFromUIData(uidata, defaults)
-local dtable = getVehicleData().vdata.variables
+local function tuningTableFromUIData(uidata, defaults, vehid)
+local dtable = getVehicleData(vehid).vdata.variables
 local toRet = {}
 local ckey = ""
 
@@ -581,25 +586,28 @@ return toRet
 end
 
 local function getPartPrice(part)				-- UPDATED TO WORK WITH OFFICIAL PART PRICES
+local cjbeam = {}
 if partPrice[part] == nil then
-return getPartJbeam(part)["information"]["value"]
+cjbeam = getPartJbeam(part) or getPartJbeam(part, extensions.blrutils.blrvarGet("playervehid"))
+return cjbeam["information"]["value"]
 else
 return partPrice[part]
 end
 end
 
 local function getPartName(part)
-return getPartJbeam(part)["information"]["name"]
+local cjbeam = getPartJbeam(part) or getPartJbeam(part, extensions.blrutils.blrvarGet("playervehid"))
+return cjbeam["information"]["name"]
 end
 
 
-local function getFullSlotMap()
-local allParts = getAllAvailableParts(true)
+local function getFullSlotMap(vehid)
+local allParts = getAllAvailableParts(true, vehid)
 local toRet = {}
 local cpart = {}
 local ctype = ""
 for k,v in pairs(allParts) do
-cpart = getPartJbeam(k)
+cpart = getPartJbeam(k, vehid)
 ctype = cpart["slotType"]
 
 -- 0.32.2 fix for table format in slotType (found in BX series bx_bashbar_R.jbeam)
@@ -694,9 +702,9 @@ return toRet
 end
 
 
-local function getSlotAllowTypes()
-local model = getMainPartName()
-local parts = getVehicleParts()
+local function getSlotAllowTypes(vehid)
+local model = getMainPartName(vehid)
+local parts = getVehicleParts(vehid)
 local cslots = {}
 local toRetPaths = {}
 local toRetIDs = {}
@@ -754,10 +762,10 @@ return toRetPaths,toRetIDs
 end
 
 
-local function getSlotMapForAllowTypes()
-local allowTypePaths, allowTypeIDs = getSlotAllowTypes()
-local slots = getPathKeyedSlots()
-local map = getSlotMap()
+local function getSlotMapForAllowTypes(vehid)
+local allowTypePaths, allowTypeIDs = getSlotAllowTypes(vehid)
+local slots = getPathKeyedSlots(vehid)
+local map = getSlotMap(nil,vehid)
 local toRet = {}
 
 for slotPath,slotId in pairs(slots) do
@@ -793,21 +801,21 @@ end
 
 
 -- 1.18 fix for some universal parts no longer showing up in shops, like GPS
-local function getMergedSlotMaps() -- Should give player access to all vehicle parts except wheels which are too numerous to give good UX
+local function getMergedSlotMaps(vehid) -- Should give player access to all vehicle parts except wheels which are too numerous to give good UX
 
 if mergedSlotMapsCacheValid then
 return mergedSlotMapsCache
 end
 
-local slotMap = getAvailablePartList()
-local fullMap = getFullSlotMap()
-local allParts = getAllAvailableParts() -- will contain non veh specific parts
-local vehSlots = getVehicleSlotIDsList() 
-local idkslots = getIDKeyedSlots()
+local slotMap = getAvailablePartList(vehid)
+local fullMap = getFullSlotMap(vehid)
+local allParts = getAllAvailableParts(false, vehid) -- will contain non veh specific parts
+local vehSlots = getVehicleSlotIDsList(vehid)
+local idkslots = getIDKeyedSlots(vehid)
 local cjbeam = {}
 local ctype = ""
 local pairings = {}
-local allowTypePaths, allowTypeIDs = getSlotAllowTypes()
+local allowTypePaths, allowTypeIDs = getSlotAllowTypes(vehid)
 
 local toRet = {}
 local toRetFinal = {}
@@ -831,7 +839,7 @@ end
 -- this is the part added in 1.18, take all parts including common parts and add them to slot map
 -- if the slot they fit in exists on the vehicle
 for part,pdata in pairs(allParts) do
-cjbeam = getPartJbeam(part)
+cjbeam = getPartJbeam(part, vehid)
 ctype = cjbeam["slotType"]
 if type(ctype) == "table" then
 for k,v in pairs(cjbeam["slotType"]) do
@@ -895,8 +903,8 @@ mergedSlotMapsCache = toRetFinal
 return toRetFinal
 end
 
-local function getFullPartPrices() -- This is the new function to send part prices to UI
-local avail = getMergedSlotMaps()
+local function getFullPartPrices(vehid) -- This is the new function to send part prices to UI
+local avail = getMergedSlotMaps(vehid)
 local customprices = partPrice
 local toRet = {}
 
@@ -1043,9 +1051,9 @@ end
 
 
 
-local function getTuningFuelLoad()
+local function getTuningFuelLoad(vehid)
 local toRet = 0
-local tunedata = getTuningUIData(true)
+local tunedata = getTuningUIData(true, vehid)
 for k,v in pairs(tunedata) do
 if v["name"]:match("$fuel") then
 toRet = toRet + v["val"]
@@ -1054,8 +1062,8 @@ end
 return toRet
 end
 
-local function getSortedTuningCategories(trackMode)
-local tdata = getTuningUIData(trackMode)
+local function getSortedTuningCategories(trackMode, vehid)
+local tdata = getTuningUIData(trackMode, vehid)
 local toRet = {}
 local added = {}
 local ccat = ""
@@ -1071,9 +1079,9 @@ return toRet
 end
 
 
-local function getSortedTuningFields(trackMode)
-local tdata = getTuningUIData(trackMode)
-local cats = getSortedTuningCategories(trackMode)
+local function getSortedTuningFields(trackMode, vehid)
+local tdata = getTuningUIData(trackMode, vehid)
+local cats = getSortedTuningCategories(trackMode, vehid)
 local sortedFields = {}
 local fieldMap = {}
 local toRet = {}
@@ -1096,8 +1104,8 @@ end
 return toRet
 end
 
-local function getSortedShopSlots()
-local sdata = getMergedSlotMaps()
+local function getSortedShopSlots(vehid)
+local sdata = getMergedSlotMaps(vehid)
 local snames = getSlotNameLibrary()
 
 local sortedSlots = {} -- KEY=POSITION,VAL=SLOT
@@ -1131,8 +1139,8 @@ end
 return toRet
 end
 
-local function getSortedShopParts()
-local sdata = getMergedSlotMaps()
+local function getSortedShopParts(avail, vehid)
+local sdata = getMergedSlotMaps(vehid)
 local pnames = getPartNameLibrary()
 
 local toRet = {} -- KEY=SLOT,VAL=TABLE:KEY=POSITION,VAL=PART
@@ -1145,9 +1153,11 @@ toRet[k] = {}
 cmap = {}
 csort = {}
 for _,p in pairs(sdata[k]) do
+if (not avail) or (avail[k] and avail[k][p]) then -- 1.18.4 only include search results, for new part shop UI search function
 cname = pnames[p] or p -- 1.10.1 fix
 cmap[cname] = p
 table.insert(csort, cname)
+end
 end
 table.sort(csort)
 for _,p in ipairs(csort) do
@@ -1160,8 +1170,8 @@ end
 
 -- 1.18.1 fix to handle slot paths
 -- fixed in 1.17 to handle slots with the same proper name
-local function getSortedGarageSlots()
-local sdata = getGarageUIData()
+local function getSortedGarageSlots(vehid)
+local sdata = getGarageUIData(vehid)
 local snames = getSlotNameLibrary()
 
 local sortedSlots = {} -- KEY=POSITION,VAL=SLOT NAME
@@ -1199,8 +1209,8 @@ end
 return toRet
 end
 
-local function getSortedActualSlots()
-local sdata = getPathKeyedSlots()
+local function getSortedActualSlots(vehid)
+local sdata = getPathKeyedSlots(vehid)
 local snames = getSlotNameLibrary()
 
 local sortedSlots = {} -- KEY=POSITION,VAL=SLOT NAME
@@ -1238,8 +1248,8 @@ end
 return toRet
 end
 
-local function getSortedGarageParts()
-local sdata = getGarageUIData()
+local function getSortedGarageParts(vehid)
+local sdata = getGarageUIData(vehid)
 local pnames = getPartNameLibrary()
 
 local toRet = {} -- KEY=SLOT,VAL=TABLE:KEY=POSITION,VAL=PART
@@ -1266,9 +1276,9 @@ return toRet
 end
 
 -- Removes vehicle model name from slots for easier finding of universal parts
-local function getPartsCommonSlots()
-local model = getMainPartName()
-local parts = getVehicleParts()
+local function getPartsCommonSlots(vehid)
+local model = getMainPartName(vehid)
+local parts = getVehicleParts(vehid)
 local toRet = {}
 local ckey = ""
 
@@ -1312,9 +1322,9 @@ return toRet * value
 end
 
 
-local function getPartPricesCommonSlots()
-local model = getMainPartName()
-local parts = getVehicleParts()
+local function getPartPricesCommonSlots(vehid)
+local model = getMainPartName(vehid)
+local parts = getVehicleParts(vehid)
 local toRet = {}
 local ckey = ""
 local codo = 0
@@ -1338,9 +1348,9 @@ end
 
 local generatedDamageCostTable = {}
 
-local function generateDamageCostTable()
+local function generateDamageCostTable(vehid)
 local fdata = extensions.blrutils.loadDataTable("beamLR/dmgPrices") -- KEY: damage element, VAL: cost OR comma sep list of common slots
-local cprices = getPartPricesCommonSlots() -- KEY: common slot, VAL: cost
+local cprices = getPartPricesCommonSlots(vehid) -- KEY: common slot, VAL: cost
 generatedDamageCostTable = {} -- KEY: damage element, VAL: cost
 
 local csplit = ""
@@ -1761,7 +1771,7 @@ return toRet
 end
 
 -- 1.18 updated to work with slot/part paths
-local function getChildMap()
+local function getChildMap(veid)
 local toRet = {}
 local vehicleData = {}
 local chosenParts = {}
@@ -1792,8 +1802,8 @@ delayedSlotSet[slot] = val
 end
 
 -- updated in 1.18 to use part path system since non unique part ids would cause missing slots
-local function getPartKeyedSlots()
-local parts = getVehicleParts()
+local function getPartKeyedSlots(vehid)
+local parts = getVehicleParts(vehid)
 local toRet = {}
 local cpath = ""
 for k,v in pairs(parts) do
@@ -1835,16 +1845,16 @@ end
 -- 1.16.4 fix for missing slots in part edit, handle case where part fits in multiple slots
 -- 1.18 update, since slot ids can have multiple paths, might as well only use tables in here
 -- also now inserting the slot paths, not the slot ID
-local function getPartKeyedSlotMap()
+local function getPartKeyedSlotMap(vehid)
 
 if pksmapCacheValid then
 return pksmapCache
 end
 
 
-local slots = getIDKeyedSlots(true)
-local allowTypePaths, allowTypeIDs = getSlotAllowTypes()
-local map = getSlotMap()
+local slots = getIDKeyedSlots(vehid)
+local allowTypePaths, allowTypeIDs = getSlotAllowTypes(vehid)
+local map = getSlotMap(nil,vehid)
 local callow = {}
 local cjbeam = {}
 local toRet = {}
@@ -1957,17 +1967,17 @@ return final
 end
 
 
-local function getAdvancedInventoryUIParts()
+local function getAdvancedInventoryUIParts(vehid)
 local toRet = {}
 local unsorted = {}
-local current = getVehicleParts()	-- Current parts
-local slots = getPathKeyedSlots()		-- Gets actual slots from current car
-local avail = getSlotMap()	   		-- Gets all available parts for all available slots of this car
+local current = getVehicleParts(vehid)	-- Current parts
+local slots = getPathKeyedSlots(vehid)		-- Gets actual slots from current car
+local avail = getSlotMap(nil,vehid)	   		-- Gets all available parts for all available slots of this car
 local invmap = getAdvancedInventoryPartMap() -- Inventory map KEY=part name, VAL=table of inventory IDs
-local pksmap = getPartKeyedSlotMap() -- part keyed slot map KEY=part name, VAL=slot in which it fits
+local pksmap = getPartKeyedSlotMap(vehid) -- part keyed slot map KEY=part name, VAL=slot in which it fits
 local names = getPartNameLibrary()
 local inventory = extensions.blrPartInventory.getInventory()
-local allowTypeMap = getSlotMapForAllowTypes()
+local allowTypeMap = getSlotMapForAllowTypes(vehid)
 local sorted = {}
 
 local cslot = ""
@@ -2026,12 +2036,12 @@ return sorted
 end
 
 
-local function getUsedPartInventoryIDs()
+local function getUsedPartInventoryIDs(vehid)
 local toRet = {}
 local csplit = {}
 local cid = -1
-local pksmap = getPartKeyedSlotMap()
-local main = getMainPartName()
+local pksmap = getPartKeyedSlotMap(vehid)
+local main = getMainPartName(vehid)
 local gid = extensions.blrutils.blrvarGet("playerCurrentCarGarageID")
 local ckey = ""
 loadConfigFileData(gid)
@@ -2039,7 +2049,7 @@ loadConfigFileData(gid)
 if configDataCache["ilinks"] then
 
 for k,v in pairs(configDataCache["ilinks"]) do
-if k ~= getMainPartName() then
+if k ~= main then
 csplit = extensions.blrutils.ssplit(v, ",")
 
 -- 1.18 edit, since ilinks now use paths to define parts but pksmap only uses part name
@@ -2184,7 +2194,7 @@ cslot = getSlotIDFromPath(slot) -- 1.18.3 fix for broken search due to slot path
 
 -- 1.17.5 slot favorites
 if filter == "favorites" then
-if favoritesData[slot] and favoritesData[slot] == "true" then
+if favoritesData[cslot] and favoritesData[cslot] == "true" then
 toRet[slot] = true
 end
 else
@@ -2831,7 +2841,11 @@ end
 end
 
 for k,v in valueSortedPairs(sknv) do
+if ppath then
 table.insert(toRet, ppath .. k .. "/")
+else
+table.insert(toRet, k)
+end
 end
 
 return toRet
@@ -2846,9 +2860,9 @@ end
 
 -- mostly used for repair ui to be able to find part name from part name library
 -- without having to parse part name out of the path
-local function getPartPathToPartIDMap()
+local function getPartPathToPartIDMap(vehid)
 local toRet = {}
-local parts = getVehicleParts()
+local parts = getVehicleParts(vehid)
 local cpath = ""
 for slot,part in pairs(parts) do
 cpath = slot .. "/" .. part
@@ -2859,8 +2873,8 @@ end
 
 
 -- KEY = SLOT ID, VAL = LIST OF PARTS ATTACHED TO SLOTS WITH THIS ID
-local function getSlotIDPartMap()
-local parts = getVehicleParts()
+local function getSlotIDPartMap(vehid)
+local parts = getVehicleParts(vehid)
 local csplit = {}
 local cid = ""
 local toRet = {}
@@ -2875,6 +2889,140 @@ end
 return toRet
 end
 
+-- 1.18.4 part ui v2
+local pui2_cart = {}
+local pui2_usedmap = {}
+
+local function sendPartUI2Cart()
+extensions.customGuiStream.sendDataToUI("pui2_cart", pui2_cart)
+extensions.customGuiStream.sendDataToUI("pui2_usedmap", pui2_usedmap)
+end
+
+local function pui2_addToCart(part, used)
+if not pui2_usedmap[part] or not used then
+table.insert(pui2_cart, {part=part,used=used})
+if used then pui2_usedmap[part] = true end
+end
+sendPartUI2Cart()
+end
+
+local function pui2_removeFromCart(index)
+print("removing cart item at index: " .. index)
+if pui2_cart[index].used then
+pui2_usedmap[pui2_cart[index].part] = nil
+end
+table.remove(pui2_cart,index)
+sendPartUI2Cart()
+end
+
+local function pui2_checkout(data)
+local money = extensions.blrglobals.gmGetVal("playerMoney")
+local cartdata = jsonDecode(data)
+
+-- unpause game to prevent exploits where player money doesn't update after buying
+extensions.blrutils.setPause(false)
+
+if money > cartdata.total then
+-- charge player & play SFX
+extensions.blrglobals.gmSetVal("playerMoney", money - cartdata.total)
+extensions.blrutils.playSFX("event:>UI>Career>Buy_01")
+
+-- adding individual parts in cart to inventory
+for pid,pdata in ipairs(cartdata.items) do
+--extensions.blrpartmgmt.addToInventory(pdata.part) -- old inventory code, no longer needed
+--print("PART BUYING DATA")
+--print("ITEM: " .. pdata.part)
+--print("USED: " .. tostring(pdata.used))
+--print("PRICE: " .. pdata.price)
+if pdata.used then
+--print("ODOMETER: " .. pdata.odometer)
+extensions.blrPartInventory.add(pdata.part, pdata.odometer, 1.0, false)
+extensions.blrPartInventory.onUsedPartPurchased(pdata.part, cartdata.shopid) -- for used part shop day data
+else
+extensions.blrPartInventory.add(pdata.part, 0.0, 1.0, false)
+end
+end
+
+-- done adding parts to inventory, now reloading UI data
+-- advanced inventory data
+local aidata = extensions.blrPartInventory.getInventory(true)
+extensions.customGuiStream.sendDataToUI("advinvData", aidata)
+local sortedPartData = extensions.blrpartmgmt.getAdvancedInventoryUIParts()
+extensions.customGuiStream.sendDataToUI("advinvParts", sortedPartData)
+local advinvUsed = extensions.blrpartmgmt.getUsedPartInventoryIDs()
+
+-- 1.16 force refresh search results so newly bought parts show up 
+local list = extensions.blrpartmgmt.getAdvancedInventoryUIParts()
+if searching then
+list = extensions.blrpartmgmt.advancedInventorySearch(list)
+else
+list = extensions.blrpartmgmt.advancedInventoryCategory(list)
+end
+extensions.customGuiStream.sendDataToUI("advinvFilter", list)
+
+-- 1.17 full inventory display data
+local fidlist = extensions.blrpartmgmt.getSlotKeyedFullInventory()
+local fidsortedslots = extensions.blrpartmgmt.getSortedFullInventorySlots()
+extensions.customGuiStream.sendDataToUI("fidInventory",fidlist)
+extensions.customGuiStream.sendDataToUI("fidSortedSlots",fidsortedslots)
+
+-- 1.16 shop used part day data
+local upsdaydata = extensions.blrPartInventory.getUsedPartShopDayData(cartdata.shopid)
+extensions.customGuiStream.sendDataToUI("advinvUPSDayData",upsdaydata)
+
+-- owned parts
+local advinvOwned = extensions.blrPartInventory.getPartCounts()
+extensions.customGuiStream.sendDataToUI("advinvOwned", advinvOwned)
+
+-- clear cart and send updated cart to UI
+pui2_cart = {}
+pui2_usedmap = {}
+sendPartUI2Cart()
+
+-- 1.16 part buy result confirmation to avoid double buy button press related issues
+extensions.customGuiStream.sendPartBuyResult(true)
+
+else -- player didn't have enough money
+guihooks.trigger('Message', {ttl = 10, msg = 'You don\'t have enough money to pay for parts in your cart!', icon = 'money_off'})
+extensions.customGuiStream.sendPartBuyResult(false)
+end
+
+
+end
+
+local function pui2_clearCart()
+pui2_cart = {}
+pui2_usedmap = {}
+sendPartUI2Cart()
+end
+
+
+local function pui2_checkUsedParts(daydata)
+
+local toRemove = {}
+
+for pid,pdata in ipairs(pui2_cart) do
+if daydata[pdata.part] then
+table.insert(toRemove,1, pid) -- insert as stack so last index is removed first to avoid issues due to order changing
+if pdata.used then
+pui2_usedmap[pui2_cart[pid].part] = nil
+end
+end
+end
+
+for _,index in ipairs(toRemove) do
+table.remove(pui2_cart, index)
+end
+
+sendPartUI2Cart()
+end
+
+M.pui2_checkUsedParts = pui2_checkUsedParts
+M.sendPartUI2Cart = sendPartUI2Cart
+M.pui2_clearCart = pui2_clearCart
+M.pui2_checkout = pui2_checkout
+M.pui2_removeFromCart = pui2_removeFromCart
+M.pui2_addToCart = pui2_addToCart
 M.getSortedActualSlots = getSortedActualSlots
 M.getSlotMapForAllowTypes = getSlotMapForAllowTypes
 M.invalidatePKSMapCache = invalidatePKSMapCache

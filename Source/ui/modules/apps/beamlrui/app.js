@@ -33,6 +33,9 @@ angular.module('beamng.apps')
 	  scope.expanded = {} // slot tree expanded states
 	  scope.searching = false // for new tree view, revert to old layout while searching (this is what vanilla does)
 	  
+	  scope.shopExpanded = {}
+	  scope.shopPartsHidden = {}
+	  
 	  scope.buylocked = false //locks buy action until result received
 	  scope.lastbuyitem = ""
 	  scope.lastbuyused = false // true if used part was bought, false if new part was bough
@@ -105,7 +108,7 @@ angular.module('beamng.apps')
 		scope.menuPage = id;
 		scope.resetConfirm = false;
 		
-		if(id == 3)
+		if(id == 3 || id == 4)
 		{
 			bngApi.engineLua(`extensions.customGuiCallbacks.setParam("perfuitoggle", "1")`);
 			bngApi.engineLua(`extensions.customGuiCallbacks.exec("togglePerfUI", "perfuitoggle")`);
@@ -1137,6 +1140,21 @@ angular.module('beamng.apps')
 		  scope.expanded[id] =  !scope.expanded[id]
 	  }
 	  
+	  scope.expandShopTree = function(id)
+	  {
+		  scope.shopExpanded[id] =  !scope.shopExpanded[id]
+	  }
+	  
+	  scope.toggleShopTreePartsHidden = function(id)
+	  {
+		  scope.shopPartsHidden[id] =  !scope.shopPartsHidden[id]
+	  }
+	  
+	  scope.idFromPath = function(path)
+	  {
+		  return scope.beamlrData['slotPathIDMap'][path] || path
+	  }
+	  
 	  scope.getSlotName = function(slot)
 	  {
 		  var name = scope.beamlrData['slotNames'][scope.beamlrData['slotPathIDMap'][slot]]
@@ -1148,13 +1166,33 @@ angular.module('beamng.apps')
 		  
 		  if(name == null || scope.slotNameMode == 1)
 		  {
-			  return scope.beamlrData['slotPathIDMap'][slot]
+			  if(scope.beamlrData['slotPathIDMap'][slot] != null)
+				name = scope.beamlrData['slotPathIDMap'][slot]
+			  else
+				name = slot
 		  }
-		  else
+		  
+		  return name			  
+	  } 
+	  
+	  scope.getPartDescription = function(part)
+	  {
+		  //beamlrData['vehInstParts'][part] == null && beamlrData['advinvOwned'][part] > 0
+		  var name = (scope.slotNameMode == 0 && scope.beamlrData['partNames'][part]) || part
+		  var suffix = ""
+		  
+		  if(scope.beamlrData['vehInstParts'][part])
 		  {
-			  return name
+			  suffix = "\n(INSTALLED)"
 		  }
-			  
+		  else if(scope.beamlrData['advinvOwned'][part] > 0)
+		  {
+			  suffix = "\n(OWN " + scope.beamlrData['advinvOwned'][part] + ")"
+		  }
+		  
+		  
+		  
+		  return name + suffix
 	  }
 	  
 	  scope.toggleSlotNameMode = function()
@@ -1165,6 +1203,11 @@ angular.module('beamng.apps')
 	  scope.getSlotExpandButton = function(id)
 	  {
 		  return (scope.expanded[id]) ? "-" : "+";
+	  }
+	  
+	  scope.getShopExpandButton = function(id)
+	  {
+		  return (scope.shopExpanded[id]) ? "-" : "+";
 	  }
 	  
 	  scope.setEditTreeMode = function(mode)
@@ -1215,8 +1258,9 @@ angular.module('beamng.apps')
 		  }
 	  }
 	  
-	  scope.getSlotFavoriteIcon = function(slot)
+	  scope.getSlotFavoriteIcon = function(name)
 	  {
+		  var slot = scope.idFromPath(name)
 		  return (scope.beamlrData["slotFavorites"][slot] == "true") ? "star_filled.svg" : "star_empty.svg";
 	  }
 	  
@@ -1268,6 +1312,11 @@ angular.module('beamng.apps')
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);
 	  }
 	  
+	  scope.showPartShopV2 = function()
+	  {
+		  scope.showMenu = false
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("showPartShopV2")`);
+	  }
 	  
     }
   }

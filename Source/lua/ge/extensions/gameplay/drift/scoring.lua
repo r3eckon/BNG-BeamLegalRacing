@@ -10,6 +10,7 @@ local im = ui_imgui
 local scoreExperiment = im.BoolPtr(false)
 local imVec4Yellow = im.ImVec4(1,1,0,1)
 
+local debugToggleSmothnessGraph = im.BoolPtr(false)
 local isBeingDebugged
 local profiler = LuaProfiler("drift scoring profiler")
 local gc
@@ -290,6 +291,8 @@ local function imguiDebug(dtReal)
         end
         im.Text("Tier : " .. driftTiers[currentTier].name .. " ("..(currentTier)..") Next : " .. nextTierScore .. " points")
       end
+      im.Checkbox("Toggle Score Graph", debugToggleSmothnessGraph)
+      if debugToggleSmothnessGraph[0] then
       im.BeginChild1("Data", im.ImVec2(im.GetContentRegionAvailWidth() / 100 * 65, 300), true)
         -- debug graph
         plotHelperUtil = plotHelperUtil or require('/lua/ge/extensions/editor/util/plotHelperUtil')()
@@ -300,23 +303,24 @@ local function imguiDebug(dtReal)
         plotHelperUtil:setDataMulti(data)
         plotHelperUtil:scaleToFitData()
         plotHelperUtil:setScale(nil, nil, 0, nil)
-        plotHelperUtil:draw(im.GetContentRegionAvailWidth(), im.GetContentRegionAvail().y, 400)
-      im.EndChild()
-      im.SameLine()
-      im.BeginChild1("Legend", im.ImVec2(im.GetContentRegionAvailWidth(), 300), true)
-      im.PushStyleColor2(im.Col_Text, im.ImVec4(1, 1, 0.1, 1))
+          plotHelperUtil:draw(im.GetContentRegionAvailWidth(), im.GetContentRegionAvail().y, 400)
+        im.EndChild()
+        im.SameLine()
+        im.BeginChild1("Legend", im.ImVec2(im.GetContentRegionAvailWidth(), 300), true)
+        im.PushStyleColor2(im.Col_Text, im.ImVec4(1, 1, 0.1, 1))
         im.TextWrapped("-Combo")
-      im.PopStyleColor()
-      im.PushStyleColor2(im.Col_Text, im.ImVec4(0.2, 1, 0.1, 1))
-        im.TextWrapped("-Curr. tier bonus score x10")
-      im.PopStyleColor()
-      im.PushStyleColor2(im.Col_Text, im.ImVec4(0.1, 0.3, 1, 1))
-        im.TextWrapped("-Score per frame without tier x10")
-      im.PopStyleColor()
-      im.PushStyleColor2(im.Col_Text, im.ImVec4(1, 0.1, 0.1, 1))
+        im.PopStyleColor()
+        im.PushStyleColor2(im.Col_Text, im.ImVec4(0.2, 1, 0.1, 1))
+          im.TextWrapped("-Curr. tier bonus score x10")
+        im.PopStyleColor()
+        im.PushStyleColor2(im.Col_Text, im.ImVec4(0.1, 0.3, 1, 1))
+          im.TextWrapped("-Score per frame without tier x10")
+        im.PopStyleColor()
+        im.PushStyleColor2(im.Col_Text, im.ImVec4(1, 0.1, 0.1, 1))
         im.TextWrapped("-Score per frame with tier x10")
-      im.PopStyleColor()
-      im.EndChild()
+        im.PopStyleColor()
+        im.EndChild()
+      end
 
       im.Checkbox("Experiment with score multipliers", scoreExperiment)
 
@@ -633,7 +637,8 @@ end
 
 local function onSerialize()
   return {
-    scoreExperiment = scoreExperiment[0]
+    scoreExperiment = scoreExperiment[0],
+    debugToggleSmothnessGraph = debugToggleSmothnessGraph[0],
   }
 end
 
@@ -651,6 +656,7 @@ end
 
 local function onDeserialized(data)
   scoreExperiment = im.BoolPtr(data.scoreExperiment or false)
+  debugToggleSmothnessGraph = im.BoolPtr(data.debugToggleSmothnessGraph or false)
 end
 
 

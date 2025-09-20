@@ -361,7 +361,10 @@ local function getPowerValues()
    local engines = powertrain.getDevicesByCategory("engine")
    if not engines or #engines <= 0 then
      log("I", "vehicleCertifications", "Can't find any engine, not getting static performance data")
-     return 0, 0
+     toRet["power"] = 0
+	 toRet["torque"] = 0
+	 toRet["rpm"] = 0
+	 return toRet
    end
 
    local maxRPM = 0

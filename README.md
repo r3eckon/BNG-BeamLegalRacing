@@ -1,13 +1,8 @@
 
-
-
-
-
-
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.18.3/beamLegalRacing1.18.3.zip
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.18.4/beamLegalRacing1.18.4.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.18.3
+# Beam Legal Racing 1.18.4
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -131,6 +126,8 @@ Version 1.17.5 adds nested tree part edit menu similar to vanilla part edit menu
 Version 1.18 brings compatibility for BeamNG version 0.36 and adds content from 0.35 and 0.36 to the mod. This version also adds the ability to selectively repair child parts of a broken parent without repairing the parent part (repaired part will be sent to inventory).
 
 Version 1.18.2 adds a UI option to show/hide incompatible slots in part shop, various new traffic control options (like spawn rate, direction bias) and specific traffic amounts rather than preset values. It also adds a new utility UI app used to add or edit dealership vehicles and list files. This app is used in freeroam, a quick guide on how to use it to add a new vehicle [can be found in this video](https://www.youtube.com/watch?v=1_O6-1_FsVk).
+
+Version 1.18.4 adds a part shop tree view, a brand new part shop catalogue UI (overall a more user friendly interface to browse parts, uses a shopping cart system to buy multiple parts all at once and a slot tree browser) and now allows part shops to be used on foot.
 
 ## Getting started
 BeamLR is loaded as a freeroam mission. Use the following spawn point depending on map choice:
@@ -358,17 +355,18 @@ Thank you for playing BeamLR!
 ## Known Issues 
 
 * As of BeamNG version 0.28 beamstate loading is broken. This is listed in known issues for the game and should hopefully be fixed soon.
-* ~~Towing mechanic may repair your vehicle. This is due to problems with a teleport function that shouldn't cause a reset yet sometimes does.~~ Should be fixed as of version 1.10
 * Some tuning configurations can cause unfair damage when a vehicle is loaded. A workaround is implemented but may fail to work in certain situations.
-* ~~Various UI problems, input fields stop registering keystrokes, whole UI can refuse to work. Workaround is to keep cursor above input fields.~~ Seems fixed as of 1.11 if any issues arise try CTRL+F5.
-* ~~Race checkpoints sometimes fail to trigger properly.~~ Should be fixed as of version 1.6
-* ~~Beamstate file corruption breaking pristine vehicles. Workaround is implemented but may fail. Use world editor for repair or delete the corrupted beamstate file.~~ Seems fixed.
-* ~~Player can get stuck in place while walking and trying to take bus home. Currently investigating this issue. Reload the mission to get unstuck.~~ Seems fixed.
 * Pausing the game during part edits may reset your vehicle odometer. Do not pause the game when interacting with BeamLR features to prevent issues.
 * ~~Health mechanic is temporarily removed due to vehicle "wiggle" after crashes causing erroneous high enough G forces to injure the player. Fatal crashes from a single high G impact are still enabled like track events.~~ As of version 1.15.4 the health mechanic has been re-introduced into the mod. This feature is disabled by default as G force sensors are still buggy and may lead to unfair deaths. Use at your own risk!
 * Advanced Vehicle Building may not work with certain part mods. If you absolutely want to use part mods, cheat yourself money and test them before using in a real career.
 * Car shop may bug while on foot for some players, requiring forced exit which loses progress. A potential fix has been added in 1.16.1 but before using this feature in a real career test to see if it works properly on your computer.
 * UI apps may fail to show up after initially loading. Use CTRL+F5 to fix.
+
+## Incompatible Mods
+Below is a list of mods known to be incompatible with BeamLR. For best results, create a userfolder specifically for BeamLR and switch to it using the BeamNG launcher. Don't use too many mods and always test new mods in a test career before adding them to your real career. If you find incompatible mods, please let me know so I can add them to the list.
+### RLS Career Overhaul
+
+Cause: Both mods make changes to the same level files. BeamNG has no way to merge level edits from multiple mods so whatever mod is loaded last will have its edits loaded while the other will be ignored.
 
 ## Changelog
 
@@ -984,3 +982,21 @@ Thank you for playing BeamLR!
 * Fixed VLUA error when trying to set ignition off on cars without engine
 * Fixed inconsistent paint color between shop and garage for some vehicles
 * Fixed inconsistent paint color between race and pink slips reward for some vehicles
+
+### 1.18.4
+* Added part shop tree view mode
+* Added V2 part shop UI (part catalogue, slot tree browser, shopping cart system, bigger images)
+* Part shops are now allowed to be used while on foot
+* Tree view modes now underlines slots with children
+* Fixed west coast garage not showing imgui window
+* Fixed dealership util starting jbeam cache automatically when on layout (use button to start process)
+* Fixed favorites category not shared between part buying and edit menu due to slot paths
+* Performance Info app now shows when using tuning menu
+* Fixed nitrous system detection not working due to slot path system (also for track events)
+* Fixed vehicle certifications error when vehicle has no engine
+* Fixed starter burnside spawning without engine
+* (0.37) Updated modified scripts that were changed in new game version
+* (0.37) Fixed blroverlay.lua bug due to removed _ResetForNewFrame imgui api function
+* (0.37) Temporarily using modified vehicleMapData.lua flowgraph node
+* (0.37) Fixed dealership bug due to new factory paint library system
+* (0.37) Temporarily using modified extensions.lua script to fix beamstate saving resetting gas type

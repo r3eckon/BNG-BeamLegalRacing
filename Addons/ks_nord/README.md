@@ -43,3 +43,5 @@ This addon is currently built for map version **v20231124_v2** (ks_nord_v2023112
 ### BeamLR 1.18
 * Updated mission file
 * Fixed broken race waypoints
+### BeamLR 1.18.4
+* Updated mission file

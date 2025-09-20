@@ -122,6 +122,11 @@ extensions.unload("gameplay_drift_scoringLegacy") -- unloads legacy extension so
 gameplay_drift_scoring.reset()
 end
 
+ftable["onShopVehJbeamCacheGenerated"] = function(p)
+print("Should have automatically sent UI data to dealership util after generating jbeam cache")
+extensions.blrShopVehUtil.sendUIData()
+end
+
 
 local function setParamTableValue(p,ti,v)
 if ptable[p] == nil then ptable[p] = {} end

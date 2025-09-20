@@ -1,0 +1,206 @@
+<div class="bngApp beamlrpartshop" style="background-color:transparent; height:100%;" >
+
+
+<script type="text/ng-template" id="slot-tree-partial">
+
+<div style="margin-left:10px; overflow:visible;" ng-repeat="item in items" ng-if="params.showIncompatible || beamlrData['vehSlotIDs'][item] != null">
+<span ng-style="selectedSlot == item && {'color':'orange','font-weight':'bold'}">
+<span ng-click="expandSlot(item)" style="display:inline-block; text-align:center; width:8px;" ng-style="!beamlrData['partShopTree'][item].children[0] && {'color':'rgba(1.0,0.0,0.0,0.0)'}">
+{{getSlotExpandButton(item)}}
+</span>
+<span ng-click="selectSlot(item)" ng-style="(beamlrData['vehSlotIDs'][item] == null && selectedSlot != item) && {'color':'yellow'}">{{getSlotName(item)}}</span>
+<span ng-if="beamlrData['vehSlotIDs'][item] == null" style="color:yellow; margin-right:5px;">&nbsp &#9888;</span>
+</span>
+<div ng-if="slotExpanded[item] && beamlrData['partShopTree'][item].children.length > 0" ng-init="items = beamlrData['partShopTree'][item].children" ng-include="'slot-tree-partial'"></div>
+
+</div>
+
+
+
+</script>
+
+
+
+
+
+
+
+<div ng-if="enabled==true" style="background-color:rgba(0.0,0.0,0.0,0.5); height:100%; width:100%; z-index:999; position:relative;">
+
+<div style="width:100%; height:100%;">
+
+<table style="width:100%; height:100%; padding:5px;">
+
+<tr style="height:20px;">
+<td style="text-align:left; width:50%;" colspan=2>
+<div style="display:inline-block; height:20px; width:35%;">
+<input type="checkbox" ng-model="params.showInternalNames">Show Internal Names</input>
+<input type="checkbox" ng-model="params.showIncompatible">Show Incompatible Slots</input>
+</div>
+<div style="display:inline-block; height:20px; text-align:center; font-size:18px; font-weight:bold; width:54%;">
+<span style="">&nbspShop Price Scale <span ng-style="beamlrData['shopPriceScale'] < 1 && {'color':'lime'} || {'color':'yellow'}">{{beamlrData['shopPriceScale'] * 100.0 | number:0}}%</span></span>
+</div>
+<div style="display:inline-block; height:20px; width:10%;">
+<span ng-click="closeMenu()" style="height:30px; width:30px; line-height:30px; float:right; font-size:30px; text-align:center; font-weight:bold; transform:translate(5px, -3px);">X</span>
+</div>
+</td>
+</tr>
+
+<tr style="height:200px;">
+
+<!-- Slot Tree -->
+<td style="height:100%; width:300px;">
+
+<div style="width:100%; height:35px;">
+<input type="text" ng-model="params.searchFilter" style="width:70%; height:30px;"></input>
+<button ng-click="search()" style="width:13%; border-radius:10px; border-color:white; transform:translate(0px,2px)">&#x1F50D;</button>
+<button ng-click="searchReset()" style="width:13%; border-radius:10px; border-color:white; transform:translate(0px,2px)">&#x274C;</button>
+</div>
+
+<div style="font-size:18px; height:calc(100% - 35px); text-wrap:nowrap; background-color:rgba(0.0,0.0,0.0,0.5); max-width:300px; width:300px; overflow:scroll;">
+
+<div ng-if="searching && canUseMenu()">
+<div style="margin-left:10px; overflow:visible;" ng-repeat="(id,item) in beamlrData['sortedShopSlots'] track by id" ng-if="(params.showIncompatible || beamlrData['vehSlotIDs'][item] != null) && beamlrData['availParts'][item] != null && item != null" >
+<span ng-style="selectedSlot == item && {'color':'orange','font-weight':'bold'}">
+<span ng-click="selectSlot(item)" ng-style="(beamlrData['vehSlotIDs'][item] == null && selectedSlot != item) && {'color':'yellow'}">{{getSlotName(item)}}</span>
+<span ng-if="beamlrData['vehSlotIDs'][item] == null" style="color:yellow; margin-right:5px;">&nbsp &#9888;</span>
+</span>
+</div>
+</div>
+
+<div ng-if="!searching && canUseMenu()">
+<div style="margin-left:10px; overflow:visible;" ng-repeat="item in beamlrData['partShopTree'][beamlrData['vehmodel']].children" ng-if="(params.showIncompatible || beamlrData['vehSlotIDs'][item] != null) && item != null">
+<span ng-style="selectedSlot == item && {'color':'orange','font-weight':'bold'}">
+<span ng-click="expandSlot(item)" style="display:inline-block; text-align:center; width:8px;" ng-style="!beamlrData['partShopTree'][item].children[0] && {'color':'rgba(1.0,0.0,0.0,0.0)'}">
+{{getSlotExpandButton(item)}}
+</span>
+<span ng-click="selectSlot(item)" ng-style="(beamlrData['vehSlotIDs'][item] == null && selectedSlot != item) && {'color':'yellow'}">{{getSlotName(item)}}</span>
+<span ng-if="beamlrData['vehSlotIDs'][item] == null" style="color:yellow; margin-right:5px;">&nbsp &#9888;</span>
+</span>
+<div ng-if="slotExpanded[item] && beamlrData['partShopTree'][item].children.length > 0" ng-init="items = beamlrData['partShopTree'][item].children" ng-include="'slot-tree-partial'"></div>
+</div>
+</div>
+
+</div>
+</td>
+
+
+<!-- Parts Browser -->
+<td style="width:100%;" rowspan=3>
+<div style="background-color:rgba(0.0,0.0,0.0,0.5); width:100%; height:100%; max-height:100%; overflow-y:scroll;">
+
+<div ng-if="selectedSlot != '' && canUseMenu()" style="width:100%; height:100%;" >
+
+<table style="table-layout:fixed; width:100%; height:100%; overflow:hidden;">
+
+<tr ng-repeat="i in range(grid_y())" style="width:100%; height:50%;">
+<td ng-repeat="j in range(grid_x)" style="width:25%; height:50%; text-align:center;">
+<div x="{{part = beamlrData['sortedShopParts'][selectedSlot][i * grid_x + j]}}" ng-if="beamlrData['sortedShopParts'][selectedSlot][i * grid_x + j] != null && beamlrData['availParts'][selectedSlot][beamlrData['sortedShopParts'][selectedSlot][i * grid_x + j]] != null" style="width:100%; height:100%; background-color:rgba(0.0,0.0,0.0,0.5);">
+
+<div style="width:100%; height:100%; padding-top:5px;">
+
+<!-- Part image -->
+<div style="width:90%; height:calc(100% - 130px); margin:auto;">
+<img loading="lazy" style="width:100%; aspect-ratio:1 / 1;" ng-attr-src="{{beamlrData['partpreview'][part] || '/ui/modules/apps/beamlrui/partimg/none.png'}}" ></img>
+</div>
+
+<div style="width:100%; height:130px; overflow:hidden;">
+
+<!-- Dynamic part name scaler test -->
+<div e="{{pnameextras=getPartNameExtras(part)}}" p="{{pname=getPartName(part)}}" i="{{dsid = 'strtest' + (i * grid_x + j)}}" ng-attr-id="{{dsid}}" style="position:absolute; visibility:hidden; z-index:-100;">{{pname}}</div>
+
+<!-- Part name -->
+<div style="margin:3px; height:50px; overflow:hidden; word-wrap:break-word;" ng-style="{'font-size':getDynamicFontSize(dsid) + 'px'}">
+{{pname}}<span ng-if="pnameextras != null" ng-style="{'color':pnameextras.color}"><br>{{pnameextras.text}}</span>
+</div>
+
+<!-- Part buying buttons -->
+<div style="width:100%; height:100%; font-size:14px; table-layout:fixed;">
+<table>
+<tr><td style="width:80%;">New <span>${{getPartPrice(part, false) | number:2}}</span></td><td style="width:20%;"><button ng-click="addToCart(part, false)">&#x1F6D2;</button></td></tr>
+<tr><td style="width:80%;">Used <span>${{getPartPrice(part, true)| number:2}}</span><br>(<span>{{getShopUsedPartOdometer(part, true) / 1000000.0 | number:1}}K {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}}</span>)</td><td style="width:20%;"><button ng-disabled="!canAddUsedPart(part)" ng-click="addToCart(part, true)">&#x1F6D2;</button></td></tr>
+</table>
+
+</div>
+
+</div>
+</div>
+
+</div>
+</td>
+</tr>
+
+
+</table>
+
+
+
+</div>
+
+<div ng-if="!canUseMenu()" style="height:100%; width:100%; text-align:center; font-size:30px; font-weight:bold;" >
+<div ng-if="beamlrData['triggerState'] == 0" style="position:relative; top:40%; margin:auto; width:100%; color:yellow;">Must be at a part shop or garage to use </div>
+</div>
+
+
+
+</div>
+</td>
+</tr>
+
+
+
+
+<!-- Shopping Cart -->
+<tr style="height:20px; width:100%;">
+<td style="text-align:center;">
+<span style="transform:translate(20px,0px); display:inline-block;">Shopping Cart</span><span style="float:right;"><button ng-click="clearCart()" style="width:40px; border-radius:10px; border-color:white;">&#x1F4C4;</button></span>
+</td>
+</tr>
+
+<tr ng-style="!canUseMenu() && {'pointer-events':'none','background':'#CCC'}" style="height:200px; width:100%;">
+<td>
+<div style="background-color:rgba(0.0,0.0,0.0,0.5); height:100%; width:100%; overflow:scroll;">
+<table style="width:100%; height:20px; table-layout:fixed; text-align:center; background-color:rgba(0.0,0.0,0.0,0.2);">
+<tr><th style="width:50%;">Item</th><th style="width:40%;">Cost</th><th style="width:10%;"></th></tr>
+</table>
+
+<table style="width:100%; table-layout:fixed; text-align:center; ">
+<tr ng-repeat="(pid,pdata) in beamlrData['pui2_cart']" x="{{part = beamlrData['pui2_cart'][pid]['part']}}" y="{{used = beamlrData['pui2_cart'][pid]['used']}}">
+<td style="width:50%; word-wrap:break-word;">{{getPartName(part)}}<span ng-if="used"><br>({{getShopUsedPartOdometer(part, true) / 1000000.0 | number:1}}K {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}})</span></td>
+<td style="width:40%;">${{getPartPrice(part, used) | number:2}}</td>
+<td style="width:10%;" ng-click="removeFromCart(pid)"><span>&#x274C;</span></td>
+</tr>
+<tr ng-if="beamlrData['pui2_cart'][0]"><td colspan=3><hr></td></tr>
+<tr ng-if="beamlrData['pui2_cart'][0] && beamlrData['shopPriceScale'] != 1" style="font-weight:bold;" ng-style="beamlrData['shopPriceScale'] < 1 && {'color':'lime'} || {'color':'yellow'}"><td>{{beamlrData['shopPriceScale'] > 1.0 && "Lost" || "Saved"}} ({{beamlrData['shopPriceScale'] * 100.0 | number:0}}%)</td><td>${{cartmetadata.offset | number:2}}</td></tr>
+<tr ng-if="beamlrData['pui2_cart'][0]" style="font-weight:bold; font-size:18px;"><td>Total</td><td>${{cartmetadata.total | number:2}}</td></tr>
+<tr ng-if="beamlrData['pui2_cart'][0]"><td colspan=3><hr></td></tr>
+<tr ng-if="beamlrData['pui2_cart'][0]" style="height:40px;"><td></td><td style="vertical-align:top;"><button ng-click="checkout()">Buy Parts</button></td></tr>
+</table>
+
+
+
+
+</div>
+</td>
+
+</tr>
+
+</table>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+<div ng-if="enabled==false" style="z-index:8; position:relative;">
+</div>
+</div>

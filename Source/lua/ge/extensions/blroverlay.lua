@@ -82,7 +82,7 @@ end
 
 local function clear()
 local drawlist = im.GetBackgroundDrawList1()
-im.ImDrawList__ResetForNewFrame(drawlist)
+-- im.ImDrawList__ResetForNewFrame(drawlist) -- DISABLED IN 0.37 DUE TO VANILLA BUG, NEED TO RE-ENABLE THIS WHEN FIXED
 end
 
 local function setAlpha(a)

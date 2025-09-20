@@ -28,7 +28,17 @@ end
 
 local function sendUIData(withCache)
 
-extensions.blrpartmgmt.generateJbeamLibraries()
+local cacheValid = extensions.blrpartmgmt.isJbeamCacheValid()
+
+if not cacheValid then
+print("BeamLR Dealership Util could not load due to invalid cache")
+guihooks.trigger("beamlrShopVehCacheValid", false)
+return
+end
+
+guihooks.trigger("beamlrShopVehCacheValid", true)
+
+-- extensions.blrpartmgmt.generateJbeamLibraries()
 
 local toSend = {}
 

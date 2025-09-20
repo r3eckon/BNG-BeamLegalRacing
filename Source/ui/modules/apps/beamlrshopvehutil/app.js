@@ -8,6 +8,8 @@ angular.module('beamng.apps')
 
 	  scope.init = false
 	  
+	  scope.cacheValid = false
+	  
 	  scope.walking = false
 	  
 	  scope.data = {}
@@ -160,6 +162,10 @@ angular.module('beamng.apps')
 	  
 	  scope.$on('beamlrShopVehUtilWalking', function (event, data) {
           scope.walking = data
+      })
+	  
+	  scope.$on('beamlrShopVehCacheValid', function (event, data) {
+          scope.cacheValid = data
       })
 	  
 	  scope.reset = function()
@@ -833,6 +839,13 @@ angular.module('beamng.apps')
 
 		  bngApi.engineLua(`extensions.blrShopVehUtil.exec('saveShop')`)
 	  }
+	  
+	  scope.generateCache = function()
+	  {
+		  bngApi.engineLua(`extensions.blrpartmgmt.generateJbeamLibraries()`)
+		  bngApi.engineLua(`extensions.blrdelay.queue('onShopVehJbeamCacheGenerated', nil, 1, 'time')`)
+	  }
+
 	  
     }
   }

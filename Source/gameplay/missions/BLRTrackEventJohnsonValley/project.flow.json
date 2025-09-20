@@ -2,7 +2,7 @@
   "activeGraphId":1,
   "authors":"BeamLR",
   "currentGraphID":1,
-  "date":1754230567,
+  "date":1758359758,
   "debugEnabled":false,
   "description":"Beam Legal Racing Track Event",
   "difficulty":100,
@@ -190,8 +190,15 @@
           false
         ],
         [
-          100,
-          "False",
+          54,
+          "flow",
+          16,
+          "flow",
+          false
+        ],
+        [
+          37,
+          "flow",
           16,
           "flow",
           false
@@ -204,15 +211,8 @@
           false
         ],
         [
-          54,
-          "flow",
-          16,
-          "flow",
-          false
-        ],
-        [
-          37,
-          "flow",
+          100,
+          "False",
           16,
           "flow",
           false
@@ -848,15 +848,15 @@
           false
         ],
         [
-          54,
-          "down",
+          231,
+          "true",
           63,
           "flow",
           false
         ],
         [
-          231,
-          "true",
+          54,
+          "down",
           63,
           "flow",
           false
@@ -1178,14 +1178,14 @@
         ],
         [
           78,
-          "match_1",
+          "match_2",
           83,
           "flow",
           false
         ],
         [
           78,
-          "match_2",
+          "match_1",
           83,
           "flow",
           false
@@ -1213,14 +1213,14 @@
         ],
         [
           33,
-          "match_3",
+          "match_2",
           85,
           "reset",
           false
         ],
         [
           33,
-          "match_2",
+          "match_3",
           85,
           "reset",
           false
@@ -1961,15 +1961,15 @@
           false
         ],
         [
-          76,
-          "False",
+          88,
+          "flow",
           136,
           "flow",
           false
         ],
         [
-          88,
-          "flow",
+          76,
+          "False",
           136,
           "flow",
           false
@@ -2290,14 +2290,14 @@
           false
         ],
         [
-          138,
+          110,
           "flow",
           161,
           "flow",
           false
         ],
         [
-          110,
+          138,
           "flow",
           161,
           "flow",
@@ -4961,7 +4961,7 @@
             "color_in":{
               "type":"color",
               "value":[
-                0.44597768800000697764,
+                0.44597768800000703315,
                 1,
                 0,
                 1
@@ -8277,6 +8277,7 @@
               "dirVec":true,
               "dirVecUp":true,
               "flow":false,
+              "newAPIDamage":false,
               "position":false,
               "rotation":false,
               "velocity":true,
@@ -10400,7 +10401,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\n-- 1.18 update, new method to check for universal parts using slot ids\n-- function returns a table of parts attached to slots with this id, so > 1 means there's\n-- a n2o_system slot with an attached part, meaning the car has nitrous installed\nself.pinOut.hasNos.value = #extensions.blrpartmgmt.getSlotIDPartMap()[\"n2o_system\"] >=1"
+            "work":"local extensions = require(\"extensions\")\n-- 1.18 update, new method to check for universal parts using slot ids\n-- function returns a table of parts attached to slots with this id, so > 1 means there's\n-- a n2o_system slot with an attached part, meaning the car has nitrous installed\n-- 1.18.4 fix, using blrutils function to do this, fixed a bug when part was nil\nself.pinOut.hasNos.value = extensions.blrutils.nitrousCheck()"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -10451,7 +10452,7 @@
           "hardcodedPins":{
             "duration":{
               "type":"number",
-              "value":0.75000000000000810463
+              "value":0.75000000000000821565
             }
           },
           "hiddenPins":{
@@ -10771,7 +10772,7 @@
           "type":"util/customLua"
         },
         "166":{
-          "alpha":0.75000000000000000000,
+          "alpha":0.75000000000000011102,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -10779,9 +10780,9 @@
             0.50000000000000000000
           ],
           "borderColor":[
-            0.80000001192092895508,
-            0.80000001192092895508,
-            0.80000001192092895508,
+            0.80000001192092884406,
+            0.80000001192092884406,
+            0.80000001192092884406,
             1
           ],
           "commentSize":[
@@ -11453,7 +11454,7 @@
           "hardcodedPins":{
             "dx":{
               "type":"number",
-              "value":0.05000000074505888542
+              "value":0.05000000074505890624
             },
             "mn":{
               "type":"number",
@@ -11541,7 +11542,7 @@
           "hardcodedPins":{
             "dx":{
               "type":"number",
-              "value":0.05000000074505888542
+              "value":0.05000000074505890624
             },
             "mn":{
               "type":"number",
@@ -13204,7 +13205,7 @@
           "type":"ui/cornerTimerBLR"
         },
         "238":{
-          "alpha":0.75000000000000000000,
+          "alpha":0.75000000000000011102,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -13212,9 +13213,9 @@
             0.50000000000000000000
           ],
           "borderColor":[
-            0.80000001192092895508,
-            0.80000001192092895508,
-            0.80000001192092895508,
+            0.80000001192092884406,
+            0.80000001192092884406,
+            0.80000001192092884406,
             1
           ],
           "commentSize":[
@@ -13457,7 +13458,7 @@
           "type":"ui/cornerTimerBLR"
         },
         "246":{
-          "alpha":0.75000000000000000000,
+          "alpha":0.75000000000000011102,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -13465,9 +13466,9 @@
             0.50000000000000000000
           ],
           "borderColor":[
-            0.80000001192092895508,
-            0.80000001192092895508,
-            0.80000001192092895508,
+            0.80000001192092884406,
+            0.80000001192092884406,
+            0.80000001192092884406,
             1
           ],
           "commentSize":[
@@ -13668,10 +13669,10 @@
         "list":{}
       },
       "viewPos":[
-        208.54043579101562500000,
-        -1273.94409179687500000000
+        671.32043457031250000000,
+        -2351.16772460937500000000
       ],
-      "viewZoom":0.50000000000000000000
+      "viewZoom":0.99999994039535522461
     },
     "3":{
       "description":"This is the description for graph States",
@@ -13687,14 +13688,14 @@
         ],
         [
           4,
-          "success",
+          "fail",
           6,
           "flow",
           false
         ],
         [
           4,
-          "fail",
+          "success",
           6,
           "flow",
           false
@@ -13795,7 +13796,7 @@
         -127.90475463867187500000,
         -1000.50683593750000000000
       ],
-      "viewZoom":0.75000000000000000000
+      "viewZoom":0.75000000000000011102
     }
   },
   "isScenario":true,

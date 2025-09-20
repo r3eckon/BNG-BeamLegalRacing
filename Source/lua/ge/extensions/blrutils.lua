@@ -988,9 +988,10 @@ local function getRaceTime()
 return blrtime
 end
 
+-- 1.18.4 fix for slot paths system
 local function nitrousCheck(veid) -- To quickly check if a vehicle has bottle before calling VLUA related to N2O
-local parts = extensions.blrpartmgmt.getVehicleParts(veid)
-return not (parts["n2o_bottle"] == nil or parts["n2o_bottle"] == "")
+local parts = extensions.blrpartmgmt.getSlotIDPartMap()
+return parts["n2o_bottle"] and #parts["n2o_bottle"] >=1
 end
 
 local function getMapSpawn()
@@ -2435,18 +2436,30 @@ data = data:sub(1,-2)
 writeFile("beamLR/racePathHelper", data)
 end
 
+locals["paints"] = nil
+
+
 local function createRandomFactoryPaint(seed, model)
+
+-- 1.18.4 / BeamNG 0.37 paint library system, veh info file only refers to paint key
+-- so gotta fetch it from the library file
+if not locals["paints"] then
+locals["paints"] = jsonReadFile("vehicles/common/paintLibraries/common.paintLibrary.json").paints
+end
+
 math.randomseed(seed)
-local paints = getVehicleInfoFile(model)["paints"]
+local paints = getVehicleInfoFile(model)["libraryPaints"] -- changed from "paints" in 1.18.4
 local pkeys = {}
 local pid = 1
 for k,v in pairs(paints) do
-pkeys[pid] = k
+if type(v) ~= "table" then -- avoid table entries in libraryPaints table
+pkeys[pid] = v
 pid = pid+1
+end
 end
 local pick = pkeys[math.random(1, #pkeys)]
 print("Picked random factory paint key: " .. pick)
-local paint = paints[pick]
+local paint = locals["paints"][pick]
 return createVehiclePaint({x=paint.baseColor[1], y=paint.baseColor[2], z=paint.baseColor[3], w=paint.baseColor[4]}, paint.metallic, paint.roughness, paint.clearcoat, paint.clearcoatRoughness)
 end
 
@@ -3329,7 +3342,7 @@ end
 locals["blrlogid"] = 0
 
 -- tail this file with powershell for instant logs during main thread locking loops
--- EX: Get-Content C:\Users\r3eck\AppData\Local\BeamNG.drive\0.36\beamLR\blrlog.txt  -Wait -Tail 1
+-- EX: Get-Content C:\Users\r3eck\AppData\Local\BeamNG.drive\current\beamlr.log  -Wait -Tail 1
 locals["blrlog"] = function(txt, wid)
 if wid then
 print("BeamLR Log ID " .. locals["blrlogid"])
@@ -3345,7 +3358,7 @@ prefix = "[" .. locals["blrlogid"] .. "]" .. prefix
 locals["blrlogid"] = locals["blrlogid"]+1
 end
 
-local f = io.open("beamLR/blrlog.txt", "a")
+local f = io.open("beamlr.log", "a")
 f:write(prefix .. toprint .. "\n")
 f:flush()
 f:close()

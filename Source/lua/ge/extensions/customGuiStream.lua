@@ -441,6 +441,11 @@ local function sendRepairUIParentSelect(toggle)
 guihooks.trigger("beamlrRepairSelectParents", toggle)
 end
 
+local function showPartShopV2()
+guihooks.trigger("beamlrPartShopV2Show", true)
+end
+
+M.showPartShopV2 = showPartShopV2
 M.sendRepairUIParentSelect = sendRepairUIParentSelect
 M.togglePastEventViewer = togglePastEventViewer
 M.customHook = customHook

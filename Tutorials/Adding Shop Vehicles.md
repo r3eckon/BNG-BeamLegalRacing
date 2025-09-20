@@ -1,5 +1,11 @@
-
 # Adding modded vehicles and custom configs to shops
+
+## NOTE THAT THIS GUIDE IS OBSOLETE
+
+A new UI app has been added to add vehicles to dealerships. 
+[See this video for an overview on how to use it](https://www.youtube.com/watch?v=1_O6-1_FsVk).
+
+The below guide can still be a good read for users that wish to understand how dealerships work behind the scenes.
 
 ## Step 1: Creating a car shop file
 

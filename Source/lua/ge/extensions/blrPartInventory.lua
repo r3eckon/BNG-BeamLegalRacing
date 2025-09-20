@@ -1,6 +1,7 @@
 local M = {}
 
 local utils = require("extensions").blrutils
+local blrpartmgmt = require("extensions").blrpartmgmt
 
 local inventory = {}
 local idstore = {}
@@ -144,8 +145,14 @@ end
 usedPartShopDayData["shop" .. shopid][part] = true
 end
 
+-- 1.18.4 updated to integrate with new part UI cart system
+-- forces a check for used parts that are not available in new shop
+-- adding it here since check hould always execute whenever UI is going
+-- to receive used part shop day data
 local function getUsedPartShopDayData(shopid)
-return usedPartShopDayData["shop" .. shopid] or {}
+local toRet = usedPartShopDayData["shop" .. shopid] or {}
+blrpartmgmt.pui2_checkUsedParts(toRet)
+return toRet
 end
 
 local function loadUsedPartShopDayData()

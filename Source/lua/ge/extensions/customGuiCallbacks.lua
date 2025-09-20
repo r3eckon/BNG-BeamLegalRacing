@@ -120,8 +120,8 @@ local list = {}
 searching = true -- Filter used as search term
 if p == 0 then
 list = extensions.blrpartmgmt.getPartShopList()
-list = extensions.blrpartmgmt.searchFilter(list, true, true)
-extensions.customGuiStream.sendDataToUI("availParts", list)
+local result = extensions.blrpartmgmt.searchFilter(list, true, true)
+extensions.customGuiStream.sendDataToUI("availParts", result)
 list = extensions.blrpartmgmt.getFullPartPrices()
 extensions.customGuiStream.sendDataToUI("partPrices", list)
 list = extensions.blrpartmgmt.getPartNameLibrary()
@@ -134,7 +134,7 @@ local inventory = extensions.blrpartmgmt.getPartInventory()
 extensions.customGuiStream.sendDataToUI("ownedParts", inventory)
 list = extensions.blrpartmgmt.getSortedShopSlots()
 extensions.customGuiStream.sendDataToUI("sortedShopSlots", list)
-list = extensions.blrpartmgmt.getSortedShopParts()
+list = extensions.blrpartmgmt.getSortedShopParts(result)
 extensions.customGuiStream.sendDataToUI("sortedShopParts", list)
 elseif p == 1 then
 --list = extensions.blrpartmgmt.getGarageUIData()
@@ -1407,6 +1407,34 @@ local dtable = {}
 dtable["pshopshowinc"] = p
 extensions.blrutils.updateDataTable("beamLR/options", dtable)
 end
+
+ftable["pui2_addToCart"] = function(p)
+local part = p["part"]
+local used = p["used"]
+print("addToCart callback")
+extensions.blrpartmgmt.pui2_addToCart(part,used)
+end
+
+ftable["pui2_removeFromCart"] = function(p)
+local index = p
+extensions.blrpartmgmt.pui2_removeFromCart(index)
+end
+
+ftable["pui2_clearCart"] = function(p)
+extensions.blrpartmgmt.pui2_clearCart()
+end
+
+ftable["pui2_checkout"] = function(p)
+extensions.blrpartmgmt.pui2_checkout(p)
+end
+
+ftable["showPartShopV2"] = function(p)
+extensions.customGuiStream.showPartShopV2()
+end
+
+
+
+
 
 
 local ptable = {}

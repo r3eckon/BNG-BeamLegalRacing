@@ -553,7 +553,7 @@ local function deflateTire(wheelid)
         local frictionCoef = v.data.nodes[nodecid].frictionCoef
         local slidingFrictionCoef = v.data.nodes[nodecid].slidingFrictionCoef
         if frictionCoef then
-          local rnd1, rnd2 = math.random(20, 50), math.random(25, 60)
+          local rnd1, rnd2 = math.random(50, 70), math.random(45, 80)
           obj:setNodeFrictionSlidingCoefs(nodecid, frictionCoef * rnd1 * 0.01, (slidingFrictionCoef or frictionCoef) * rnd2 * 0.01)
         end
       end

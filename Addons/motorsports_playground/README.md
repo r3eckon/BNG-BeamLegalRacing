@@ -26,3 +26,5 @@ This addon is currently built for map version **.33.3**
 * Added flowgraph for track event history UI
 ### BeamLR 1.18
 * Updated mission file
+### BeamLR 1.18.4
+* Updated mission file

@@ -36,3 +36,5 @@ This addon is currently built for map version **0.79**.
 * Updated mission file
 ### BeamLR 1.18.3
 * Updated mission file
+### BeamLR 1.18.4
+* Updated mission file

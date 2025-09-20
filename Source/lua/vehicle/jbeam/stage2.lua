@@ -201,7 +201,7 @@ local function processNodes(vehicle)
     if node.staticCollision ~= nil then
       staticCollision = node.staticCollision
     else
-      staticCollision = true
+      staticCollision = collision
     end
 
 	-- BEAMLR EDIT BEGIN
@@ -529,7 +529,7 @@ local function processRefNodes(vehicle)
       refNode0.leftCorner or refNode0.ref, refNode0.rightCorner or refNode0.ref
     )
   else
-    log('E', "jbeam.pushToPhysics", "Reference nodes missing. Please add them")
+    log('E', "jbeam.pushToPhysics", "Reference nodes missing. Please add them. Installed dummy ref nodes.")
     vehicle.refNodes[0] = {ref = 0, back = 1, left = 2, up = 0}
   end
 end

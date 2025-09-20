@@ -5,6 +5,7 @@
 
 local im = ui_imgui
 
+local logTag = "Basenode"						 
 local gridSize = 14
 local xOffGrid, yOffGrid = 10, 8
 local behaviourOrder = { 'once', 'duration', 'simple', 'singleActive', 'obsolete' }
@@ -39,7 +40,7 @@ function C:init(mgr, graph, forceId)
   self.id = forceId or self.mgr:getNextFreeGraphNodeId()
   if mgr.__safeIds then
     if mgr:checkDuplicateId(self.id) then
-      log("E","","Duplicate ID error! Node")
+      log("E",logTag,"Duplicate ID error! Node")
       print(debug.tracesimple())
     end
   end
@@ -157,7 +158,7 @@ function C:_postInit()
     -- do we have a pin named reset?
     if self.pinInLocal.reset == nil then
       -- create a reset pin directly under the flow pin, also warning/error
-      log("E", "", "Node is dynamic once, but has no reset pin!")
+      log("E", logTag, "Node is dynamic once, but has no reset pin!")
       self:createResetPin()
     end
   end
