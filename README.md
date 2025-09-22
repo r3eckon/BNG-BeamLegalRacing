@@ -16,9 +16,13 @@ Perform missions, races and challenges to earn money to buy vehicles and parts. 
 
 ### Download Extra Content | [Addons](Addons) 
 
+### Important Information | [Incompatible Mods](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#incompatible-mods) | [Known Issues](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#known-issues) | [Read Before Playing](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#read-before-playing)
+
 ### Enjoying the mod and looking to support the project? [Donate here!](https://www.paypal.com/donate/?hosted_button_id=QQ7SKC6XK7PAE)
 
 ### Having issues with the mod? [Please follow this troubleshooting guide.](troubleshooting.md)
+
+
 
 ## Install Instructions ([Video](https://www.youtube.com/watch?v=iKZckDVPjR4))
 **BeamLR cannot be installed like a normal mod due to data persistence issues when zipped**. 
@@ -29,6 +33,8 @@ Carefully follow the instructions to ensure all features are working properly:
 3. Tell your operating system to replace existing files if asked.
 
 **After installing check the *[Read Before Playing](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#read-before-playing)* section of this readme for important information and a quick overview of major update features.**
+
+**Before using other mods with BeamLR check the *[Incompatible Mods](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#incompatible-mods)* list!**
 
 **Installing BeamLR may overwrite custom changes made to levels.** 
 Modders should back up the userfolder before installing.
