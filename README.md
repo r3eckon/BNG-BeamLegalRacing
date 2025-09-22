@@ -364,9 +364,12 @@ Thank you for playing BeamLR!
 
 ## Incompatible Mods
 Below is a list of mods known to be incompatible with BeamLR. For best results, create a userfolder specifically for BeamLR and switch to it using the BeamNG launcher. Don't use too many mods and always test new mods in a test career before adding them to your real career. If you find incompatible mods, please let me know so I can add them to the list.
-### RLS Career Overhaul
 
+### RLS Career Overhaul
 Cause: Both mods make changes to the same level files. BeamNG has no way to merge level edits from multiple mods so whatever mod is loaded last will have its edits loaded while the other will be ignored.
+
+### RK's Highly Customizable Engines
+Cause: Engine jbeam is missing torque data. Data is moved to other subparts. This is fine in vanilla BeamNG since engine spawns with default parts attached. In BeamLR engines spawn without default parts, so torque data is missing which breaks the powertrain and other vehicle scripts.
 
 ## Changelog
 
