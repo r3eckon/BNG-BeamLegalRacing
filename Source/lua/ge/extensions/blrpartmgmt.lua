@@ -2035,13 +2035,16 @@ end
 return sorted
 end
 
-
+-- returns list of inventory part IDs currently used on vehicle 
 local function getUsedPartInventoryIDs(vehid)
 local toRet = {}
 local csplit = {}
 local cid = -1
 local pksmap = getPartKeyedSlotMap(vehid)
 local main = getMainPartName(vehid)
+
+if main == "unicycle" then return {} end -- 1.18.5 fix for infinite sell glitch
+
 local gid = extensions.blrutils.blrvarGet("playerCurrentCarGarageID")
 local ckey = ""
 loadConfigFileData(gid)

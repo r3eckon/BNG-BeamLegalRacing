@@ -22,6 +22,11 @@ angular.module('beamng.apps')
 	  
 	  scope.cartmetadata = {}
 	  
+	  
+	  scope.params.page_current = 0
+	  
+	  scope.params.maxrows = 8
+	  
 	  scope.grid_x = 4
 	  scope.grid_y = function()
 	  {
@@ -31,7 +36,23 @@ angular.module('beamng.apps')
 		  if(scope.beamlrData['sortedShopParts'][scope.selectedSlot] == null)
 			  return 0
 		  
-		  return Math.max(2,Math.ceil(scope.beamlrData['sortedShopParts'][scope.selectedSlot].length / scope.grid_x))
+		  return Math.min(scope.params.maxrows,Math.max(2,Math.ceil(scope.beamlrData['sortedShopParts'][scope.selectedSlot].length / scope.grid_x)))
+	  }
+	  
+	  scope.page_total = function()
+	  {
+		  return Math.ceil((scope.beamlrData['sortedShopParts'][scope.selectedSlot].length / scope.grid_x) / scope.params.maxrows)
+	  }
+	  
+	  scope.page_offset = function()
+	  {
+		  return scope.params.page_current * scope.grid_x * scope.params.maxrows
+	  }
+	  
+	  scope.changePage = function(move)
+	  {
+		  document.getElementById("catalog").scrollTop = 0
+		  scope.params.page_current = Math.min(scope.page_total()-1, Math.max(0, scope.params.page_current+move))
 	  }
 	  
 	  scope.closeMenu = function()
@@ -137,6 +158,15 @@ angular.module('beamng.apps')
 		  {
 			  updateCartMetadata()
 		  }
+		  
+		  // 1.18.5 fix, force view refresh after receiving tree data
+		  if(data.key == "partShopTree")
+		  {
+			  scope.beamlrData["partShopTree"] = {}
+			  scope.$apply()
+			  scope.beamlrData["partShopTree"] = data.val
+			  scope.$apply()
+		  }
       })
 	  
 	  scope.$on('beamlrPartBuyResult', function (event, data) {
@@ -196,6 +226,8 @@ angular.module('beamng.apps')
 	  
 	  scope.selectSlot = function(slot)
 	  {
+		  scope.params.page_current = 0
+		  document.getElementById("catalog").scrollTop = 0
 		  scope.selectedSlot = slot
 	  }
 

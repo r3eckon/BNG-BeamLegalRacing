@@ -191,6 +191,23 @@ angular.module('beamng.apps')
 		  {
 			  scope.searching = data.val;
 		  }
+		  
+		  // 1.18.5 fix, forcing refresh of trees, otherwise UI doesn't update for some reason
+		  if(data.key == "slotTree")
+		  {
+			  scope.beamlrData["slotTree"] = {}
+			  scope.$apply()
+			  scope.beamlrData["slotTree"] = data.val
+			  scope.$apply()
+		  }
+		  if(data.key == "partShopTree")
+		  {
+			  scope.beamlrData["partShopTree"] = {}
+			  scope.$apply()
+			  scope.beamlrData["partShopTree"] = data.val
+			  scope.$apply()
+		  }
+		 
       })
 	  
 	  scope.$on('beamlrOptions', function (event, data) {
@@ -1316,6 +1333,18 @@ angular.module('beamng.apps')
 	  {
 		  scope.showMenu = false
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("showPartShopV2")`);
+	  }
+	  
+	  scope.isSlotFilled = function(slot)
+	  {
+		  return !(scope.beamlrData['advinvUsed'][slot] == null || scope.beamlrData['advinvUsed'][slot] == "")
+	  }
+	  
+	  scope.mainPartCheck = function(slot)
+	  {
+		  var mainPartID = scope.nameFromPath(scope.beamlrData['mainpart'])
+		  var usedPartID = scope.beamlrData['advinvData'][scope.beamlrData['advinvUsed'][slot]][0]
+		  return mainPartID != usedPartID
 	  }
 	  
     }

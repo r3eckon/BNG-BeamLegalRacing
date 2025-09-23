@@ -10,6 +10,7 @@ local locals = {}
 local json = require("json")
 local extensions = require("extensions")
 local uiapps = require("ui/apps")
+local level = require("core/levels")
 
 local dailySeedOffset = 1000	-- Seed offset for daily seed should be bigger value than total amount of needed rolls in flowgraph.
 local startSeed = 1234			-- in order to avoid repeating random values. Without this value the paint colors in shop
@@ -2843,14 +2844,25 @@ end
 return toRet
 end
 
+
 local function setGasStationDisplayValue(id, fueltype, value, enabled, ustax)
+
+-- 1.18.5 fix for incorrect values due to updated vanilla code using level data to set
+-- units specific to each gas type, currently only affects "gasoline" and "diesel" but
+-- might affect others fuel types in the future
+local units = level.getLevelByName(level.getLevelName(getMissionFilename())).localUnits or {}
+local scale = 1
+if units[fueltype] and units[fueltype] == "gallonUS" then scale = 3.78541 end
+local price = value or 0
+if ustax then price = price - 0.01 end --remove 1 cent from actual value for display in US maps
+price = price / scale
+
 local station = getGasStationByID(id)
-station.prices[fueltype].priceBaseline = value
+station.prices[fueltype].priceBaseline = price
 station.prices[fueltype].priceRandomnessBias = nil
 station.prices[fueltype].priceRandomnessGain = nil
 station.prices[fueltype].disabled = not enabled
 station.prices[fueltype].us_9_10_tax = ustax
-if ustax then station.prices[fueltype].priceBaseline = value - 0.01 end --remove 1 cent from actual value for display in US maps
 end
 
 local function applyGasStationsDisplays()
@@ -3324,6 +3336,8 @@ dtable["tsbias"] = "0.8"
 dtable["trisk"] = "0.2"
 dtable["tsrate"] = "0.1"
 dtable["lrestrict"] = "1"
+dtable["sseed"] = "123"
+dtable["nseed"] = "123"
 saveDataTable("beamLR/options", dtable)
 
 -- next doing mainData
@@ -3331,11 +3345,16 @@ dtable = loadDataTable("beamLR/mainData")
 dtable["time"] = "0.0"
 saveDataTable("beamLR/mainData", dtable)
 
--- next doing car0 file
+-- next doing car0 garage file
 dtable = loadDataTable("beamLR/garage/car0")
 dtable["oil"] = "3.83" -- works for starter legran, if another car is used need to adjust value
 dtable["gas"] = "10.0"
 saveDataTable("beamLR/garage/car0", dtable)
+
+-- next doing car0 config file, setting odometer to 300k
+dtable = jsonReadFile("beamLR/garage/config/car0")
+dtable["odometer"] = 300000000
+jsonWriteFile("beamLR/garage/config/car0", dtable, true)
 end
 
 

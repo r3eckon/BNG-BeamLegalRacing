@@ -31,17 +31,17 @@
 <!-- Slot tree item container -->
 <div ng-repeat="item in items" style="width:100%; text-align:center;">
 
-<div ng-style="(expanded[item.id] && item.children.length > 0) && {'border-top':'solid 1px white','border-bottom':'solid 1px white', 'margin-bottom':'2px'}">
+<div ng-style="(expanded[item.id] && item.children.length > 0 && isSlotFilled(item.id)) && {'border-top':'solid 1px white','border-bottom':'solid 1px white', 'margin-bottom':'2px'}">
 
 <!-- Item title & expand buttons -->
 <div style="line-height:40px;">
 <span style="float:left; width:40px;" ng-click="expandSlotTree(item.id)">{{getSlotExpandButton(item.id)}}</span>
-<span ng-click="toggleSlotNameMode()" ng-style="item.children.length > 0 && {'text-decoration':'underline'}">{{getSlotName(item.id)}}</span>
+<span ng-click="toggleSlotNameMode()" ng-style="(item.children.length > 0 && isSlotFilled(item.id)) && {'text-decoration':'underline'}">{{getSlotName(item.id)}}</span>
 <span style="width:40px; height:40px; float:right;"><img style="width:40px; margin-top:5px;" ng-click="slotFavoriteToggle(idFromPath(item.id))" ng-attr-src="/ui/modules/apps/beamlrui/{{getSlotFavoriteIcon(item.id)}}" width=30px height=30px></img></span>
 </div>
 
 <!-- Slot parts container -->
-<div ng-if="expanded[item.id]" ng-init="key = item.id">
+<div ng-if="expanded[item.id]" ng-if="isSlotFilled(item.id)" ng-init="key = item.id">
 <table style="font-size:16px; font-weight:normal; border-collapse: collapse; width: 95%; margin: auto; table-layout: fixed; vertical-align:middle; text-align:center;">
 
 <tr style="width:100px;" ng-if="beamlrData['advinvUsed'][key] != null">
@@ -1081,17 +1081,17 @@ Manual Cache Update
 <div ng-repeat="item in beamlrData['slotTree'].children[0].children"  style="width:100%; text-align:center;">
 
 <!-- Draws border around expanded slots that have children -->
-<div ng-style="(expanded[item.id] && item.children.length > 0) && {'border-top':'solid 1px white','border-bottom':'solid 1px white','margin-bottom':'2px'}">
+<div ng-style="(expanded[item.id] && item.children.length > 0 && isSlotFilled(item.id)) && {'border-top':'solid 1px white','border-bottom':'solid 1px white','margin-bottom':'2px'}">
 
 <!-- Item title & expand buttons -->
 <div style="line-height:40px;">
 <span style="float:left; width:40px;" ng-click="expandSlotTree(item.id)">{{getSlotExpandButton(item.id)}}</span>
-<span ng-click="toggleSlotNameMode()" ng-style="item.children.length > 0 && {'text-decoration':'underline'}">{{getSlotName(item.id)}}</span>
+<span ng-click="toggleSlotNameMode()" ng-style="(item.children.length > 0 && isSlotFilled(item.id)) && {'text-decoration':'underline'}">{{getSlotName(item.id)}}</span>
 <span style="width:40px; height:40px; float:right; "><img style="width:40px; margin-top:5px;" ng-click="slotFavoriteToggle(idFromPath(item.id))" ng-attr-src="/ui/modules/apps/beamlrui/{{getSlotFavoriteIcon(item.id)}}" width=30px height=30px></img></span>
 </div>
 
 <!-- Slot parts container -->
-<div ng-if="expanded[item.id]" ng-init="key = item.id">
+<div ng-if="expanded[item.id] && isSlotFilled(item.id)" ng-init="key = item.id">
 <table style="font-size:16px; font-weight:normal; border-collapse: collapse; width: 95%; margin: auto; table-layout: fixed; vertical-align:middle; text-align:center;">
 
 <tr style="width:100px;" ng-if="beamlrData['advinvUsed'][key] != null">
@@ -1102,7 +1102,7 @@ Manual Cache Update
 	<td style="width:240px;" ng-if="slotNameMode == 0 && beamlrData['partNames'][beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]] != null"><strong>{{beamlrData['partNames'][beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]]}}</strong><br>Odometer {{unitConvertedOdometer(getUsedPartOdometer(beamlrData['advinvUsed'][key])) / 1000.0 | number:1}} {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}}<br>Sell Value ${{getUsedPartSellPrice(beamlrData['advinvUsed'][key]) | number:2}}</td>
 	<td style="width:240px;" ng-if="slotNameMode == 1 || beamlrData['partNames'][beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]] == null">{{beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]}}<br>Odometer {{unitConvertedOdometer(getUsedPartOdometer(beamlrData['advinvUsed'][key])) / 1000.0 | number:1}} {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}}<br>Sell Value ${{getUsedPartSellPrice(beamlrData['advinvUsed'][key]) | number:2}}</td>
 	<td style="text-align:right;">
-	<button ng-disabled="beamlrData['mainpart']==beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]" style="width:90px;" ng-click="advancedPartSet(key, beamlrData['advinvUsed'][key], '')">Remove</button><br><br>
+	<button ng-disabled="mainPartCheck(key)" style="width:90px;" ng-click="advancedPartSet(key, beamlrData['advinvUsed'][key], '')">Remove</button><br><br>
 	<button disabled style="width:90px;">Sell</button>
 	</td>
 </tr>
@@ -1156,7 +1156,7 @@ Manual Cache Update
 					<td style="width:240px;" ng-if="slotNameMode == 0 && beamlrData['partNames'][beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]] != null"><strong>{{beamlrData['partNames'][beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]]}}</strong><br>Odometer {{unitConvertedOdometer(getUsedPartOdometer(beamlrData['advinvUsed'][key])) / 1000.0 | number:1}} {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}}<br>Sell Value ${{getUsedPartSellPrice(beamlrData['advinvUsed'][key]) | number:2}}</td>
 					<td style="width:240px;" ng-if="slotNameMode == 1 || beamlrData['partNames'][beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]] == null">{{beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]}}<br>Odometer {{unitConvertedOdometer(getUsedPartOdometer(beamlrData['advinvUsed'][key])) / 1000.0 | number:1}} {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}}<br>Sell Value ${{getUsedPartSellPrice(beamlrData['advinvUsed'][key]) | number:2}}</td>
 					<td style="text-align:right;">
-					<button ng-disabled="beamlrData['mainpart']==beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]" style="width:90px;" ng-click="advancedPartSet(key, beamlrData['advinvUsed'][key], '')">Remove</button><br><br>
+					<button ng-disabled="mainPartCheck(key)" style="width:90px;" ng-click="advancedPartSet(key, beamlrData['advinvUsed'][key], '')">Remove</button><br><br>
 					<button disabled style="width:90px;">Sell</button>
 					</td>
 				</tr>

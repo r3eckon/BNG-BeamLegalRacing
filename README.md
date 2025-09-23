@@ -1,8 +1,9 @@
 
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.18.4/beamLegalRacing1.18.4.zip
+
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.18.5/beamLegalRacing1.18.5.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.18.4
+# Beam Legal Racing 1.18.5
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -1009,3 +1010,12 @@ Cause: Engine jbeam is missing torque data. Data is moved to other subparts. Thi
 * (0.37) Temporarily using modified vehicleMapData.lua flowgraph node
 * (0.37) Fixed dealership bug due to new factory paint library system
 * (0.37) Temporarily using modified extensions.lua script to fix beamstate saving resetting gas type
+
+### 1.18.5
+* Fixed incorrect gas station trigger position on west coast (trilobite_city)
+* Fixed gas station displays showing wrong value for Regular Unleaded and Diesel
+* Fixed slot tree view mode not updating properly after removing/adding part to a parent slot
+* Fixed main part detection bug allowing removal of vehicle main part
+* Fixed part selling glitch after scrapping car and selling parts while on foot
+* Part shop catalog now uses pages when displaying large amount of parts to improve performance
+* Fixed repair UI not respecting z-index parameter preventing interaction with left half of menu

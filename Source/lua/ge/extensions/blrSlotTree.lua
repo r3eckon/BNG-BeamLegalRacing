@@ -63,7 +63,7 @@ local function treedump(n, d)
     cout = cout .. "   "
   end
   cout = cout .. n.id .. "=" .. (extensions.blrpartmgmt.getFullSlotNameLibrary()[extensions.blrpartmgmt.getSlotIDFromPath(n.id)] or "!!! NO UI NAME !!!")
-  print(cout)
+  extensions.blrutils.blrlog(cout)
   for k,v in ipairs(n.children) do
     treedump(v, depth+1)
   end
