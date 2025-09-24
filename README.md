@@ -1024,7 +1024,7 @@ Cause: Engine jbeam is missing torque data. Data is moved to other subparts. Thi
 * Fixed repair UI not respecting z-index parameter preventing interaction with left half of menu
 
 ### 1.18.6
-* Added coolant persistance & leak mechanic (same as oil, use low odometer radiator to fix leak)
+* Added coolant persistence & leak mechanic (same as oil, use low odometer radiator to fix leak)
 * Added coolant bottle item
 * Fixed main part check bug preventing all parts from being removed
 * Fixed convenience store not checking if player has enough money before buying oil bottles
