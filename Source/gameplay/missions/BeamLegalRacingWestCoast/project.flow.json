@@ -2,7 +2,7 @@
   "activeGraphId":1,
   "authors":"BeamLR",
   "currentGraphID":1,
-  "date":1758623132,
+  "date":1758728930,
   "debugEnabled":false,
   "description":"Beam Legal Racing Career",
   "difficulty":100,
@@ -32,6 +32,11 @@
     "node_1407":1698480615,
     "node_1423":1705470015,
     "node_1453":1726915005,
+    "node_1599":1758716536,
+    "node_1601":1758709622,
+    "node_1604":1758709726,
+    "node_1606":1758709941,
+    "node_1609":1758709475,
     "node_1725":1754883827,
     "node_307":1712910874,
     "node_467":1758357608,
@@ -132,15 +137,15 @@
           false
         ],
         [
-          57,
-          "false",
+          60,
+          "flow",
           18,
           "flow",
           false
         ],
         [
-          60,
-          "flow",
+          57,
+          "false",
           18,
           "flow",
           false
@@ -279,15 +284,15 @@
           false
         ],
         [
-          979,
-          "completed",
+          494,
+          "flow",
           30,
           "flow",
           false
         ],
         [
-          494,
-          "flow",
+          979,
+          "completed",
           30,
           "flow",
           false
@@ -342,14 +347,14 @@
           true
         ],
         [
-          1522,
+          1521,
           "flow",
           34,
           "flow",
           false
         ],
         [
-          1521,
+          1522,
           "flow",
           34,
           "flow",
@@ -370,6 +375,13 @@
           false
         ],
         [
+          27,
+          "down",
+          37,
+          "flow",
+          false
+        ],
+        [
           899,
           "down",
           37,
@@ -378,13 +390,6 @@
         ],
         [
           1389,
-          "down",
-          37,
-          "flow",
-          false
-        ],
-        [
-          27,
           "down",
           37,
           "flow",
@@ -503,13 +508,6 @@
           false
         ],
         [
-          1210,
-          "flow",
-          47,
-          "flow",
-          false
-        ],
-        [
           653,
           "flow",
           48,
@@ -622,15 +620,15 @@
           false
         ],
         [
-          53,
-          "false",
+          64,
+          "flow",
           57,
           "flow",
           false
         ],
         [
-          64,
-          "flow",
+          53,
+          "false",
           57,
           "flow",
           false
@@ -734,7 +732,7 @@
           false
         ],
         [
-          10295,
+          1766,
           "flow",
           69,
           "flow",
@@ -832,6 +830,13 @@
           false
         ],
         [
+          585,
+          "false",
+          77,
+          "flow",
+          false
+        ],
+        [
           613,
           "flow",
           77,
@@ -841,13 +846,6 @@
         [
           471,
           "False",
-          77,
-          "flow",
-          false
-        ],
-        [
-          585,
-          "false",
           77,
           "flow",
           false
@@ -1091,14 +1089,14 @@
           false
         ],
         [
-          1178,
+          1251,
           "flow",
           95,
           "flow",
           false
         ],
         [
-          1543,
+          109,
           "flow",
           95,
           "flow",
@@ -1112,14 +1110,14 @@
           false
         ],
         [
-          109,
+          1543,
           "flow",
           95,
           "flow",
           false
         ],
         [
-          1251,
+          1178,
           "flow",
           95,
           "flow",
@@ -1207,6 +1205,20 @@
           "oilCap",
           98,
           "oilcap",
+          false
+        ],
+        [
+          72,
+          "coolVal",
+          98,
+          "coolval",
+          false
+        ],
+        [
+          72,
+          "coolCap",
+          98,
+          "coolcap",
           false
         ],
         [
@@ -1630,20 +1642,6 @@
           true
         ],
         [
-          9885,
-          "flow",
-          123,
-          "flow",
-          false
-        ],
-        [
-          183,
-          "flow",
-          123,
-          "flow",
-          false
-        ],
-        [
           9884,
           "flow",
           123,
@@ -1652,6 +1650,20 @@
         ],
         [
           9879,
+          "flow",
+          123,
+          "flow",
+          false
+        ],
+        [
+          9885,
+          "flow",
+          123,
+          "flow",
+          false
+        ],
+        [
+          183,
           "flow",
           123,
           "flow",
@@ -1966,14 +1978,14 @@
           false
         ],
         [
-          1179,
+          1723,
           "flow",
           152,
           "flow",
           false
         ],
         [
-          1723,
+          1179,
           "flow",
           152,
           "flow",
@@ -2267,14 +2279,14 @@
           false
         ],
         [
-          1320,
+          1175,
           "flow",
           175,
           "flow",
           false
         ],
         [
-          1175,
+          1254,
           "flow",
           175,
           "flow",
@@ -2288,7 +2300,7 @@
           false
         ],
         [
-          1254,
+          1320,
           "flow",
           175,
           "flow",
@@ -2477,22 +2489,8 @@
           false
         ],
         [
-          1094,
-          "False",
-          194,
+          1095,
           "flow",
-          false
-        ],
-        [
-          1552,
-          "flow",
-          194,
-          "flow",
-          false
-        ],
-        [
-          1096,
-          "False",
           194,
           "flow",
           false
@@ -2505,8 +2503,22 @@
           false
         ],
         [
-          1095,
+          1552,
           "flow",
+          194,
+          "flow",
+          false
+        ],
+        [
+          1094,
+          "False",
+          194,
+          "flow",
+          false
+        ],
+        [
+          1096,
+          "False",
           194,
           "flow",
           false
@@ -2743,15 +2755,15 @@
           false
         ],
         [
-          1180,
-          "down",
+          1575,
+          "flow",
           212,
           "flow",
           false
         ],
         [
-          1575,
-          "flow",
+          1180,
+          "down",
           212,
           "flow",
           false
@@ -2876,15 +2888,15 @@
           false
         ],
         [
-          1621,
-          "True",
+          200,
+          "flow",
           222,
           "flow",
           false
         ],
         [
-          200,
-          "flow",
+          1621,
+          "True",
           222,
           "flow",
           false
@@ -3639,15 +3651,15 @@
           false
         ],
         [
-          763,
-          "false",
+          762,
+          "flow",
           276,
           "flow",
           false
         ],
         [
-          762,
-          "flow",
+          763,
+          "false",
           276,
           "flow",
           false
@@ -3661,14 +3673,14 @@
         ],
         [
           689,
-          "carshop",
+          "partshop",
           278,
           "flow",
           false
         ],
         [
           689,
-          "partshop",
+          "carshop",
           278,
           "flow",
           false
@@ -4269,15 +4281,15 @@
           false
         ],
         [
-          1670,
-          "out",
+          1115,
+          "True",
           328,
           "clear",
           false
         ],
         [
-          1115,
-          "True",
+          1670,
+          "out",
           328,
           "clear",
           false
@@ -4836,15 +4848,15 @@
           false
         ],
         [
-          158,
-          "flow",
+          1507,
+          "true",
           365,
           "flow",
           false
         ],
         [
-          1507,
-          "true",
+          158,
+          "flow",
           365,
           "flow",
           false
@@ -4990,6 +5002,20 @@
           false
         ],
         [
+          377,
+          "none",
+          378,
+          "flow",
+          false
+        ],
+        [
+          1674,
+          "flow",
+          378,
+          "flow",
+          false
+        ],
+        [
           966,
           "flow",
           378,
@@ -4997,21 +5023,7 @@
           false
         ],
         [
-          1332,
-          "False",
-          378,
-          "flow",
-          false
-        ],
-        [
-          961,
-          "flow",
-          378,
-          "flow",
-          false
-        ],
-        [
-          10011,
+          1182,
           "flow",
           378,
           "flow",
@@ -5025,8 +5037,15 @@
           false
         ],
         [
-          377,
-          "none",
+          1332,
+          "False",
+          378,
+          "flow",
+          false
+        ],
+        [
+          10011,
+          "flow",
           378,
           "flow",
           false
@@ -5039,14 +5058,7 @@
           false
         ],
         [
-          1674,
-          "flow",
-          378,
-          "flow",
-          false
-        ],
-        [
-          1182,
+          961,
           "flow",
           378,
           "flow",
@@ -5172,6 +5184,13 @@
           false
         ],
         [
+          72,
+          "coolVal",
+          386,
+          "coolant",
+          false
+        ],
+        [
           291,
           "flow",
           387,
@@ -5249,9 +5268,23 @@
           false
         ],
         [
+          72,
+          "coolVal",
+          389,
+          "coolant",
+          false
+        ],
+        [
           1197,
           "true",
           390,
+          "flow",
+          false
+        ],
+        [
+          1600,
+          "flow",
+          391,
           "flow",
           false
         ],
@@ -5800,13 +5833,6 @@
           433,
           "data",
           true
-        ],
-        [
-          47,
-          "flow",
-          434,
-          "flow",
-          false
         ],
         [
           10017,
@@ -7188,15 +7214,15 @@
           true
         ],
         [
-          1298,
-          "flow",
+          167,
+          "true",
           540,
           "flow",
           false
         ],
         [
-          167,
-          "true",
+          1298,
+          "flow",
           540,
           "flow",
           false
@@ -7419,15 +7445,15 @@
           false
         ],
         [
-          641,
-          "True",
+          561,
+          "flow",
           559,
           "flow",
           false
         ],
         [
-          561,
-          "flow",
+          641,
+          "True",
           559,
           "flow",
           false
@@ -8063,15 +8089,15 @@
           false
         ],
         [
-          48,
-          "false",
+          153,
+          "activated",
           607,
           "on",
           false
         ],
         [
-          153,
-          "activated",
+          48,
+          "false",
           607,
           "on",
           false
@@ -8231,13 +8257,6 @@
           true
         ],
         [
-          1551,
-          "false",
-          613,
-          "flow",
-          false
-        ],
-        [
           553,
           "flow",
           613,
@@ -8247,6 +8266,13 @@
         [
           594,
           "False",
+          613,
+          "flow",
+          false
+        ],
+        [
+          1551,
+          "false",
           613,
           "flow",
           false
@@ -9631,15 +9657,15 @@
           false
         ],
         [
-          1482,
-          "out",
+          24,
+          "true",
           713,
           "reset",
           false
         ],
         [
-          24,
-          "true",
+          1482,
+          "out",
           713,
           "reset",
           false
@@ -9708,18 +9734,18 @@
           false
         ],
         [
-          591,
-          "false",
-          717,
-          "off",
-          true
-        ],
-        [
           1514,
           "False",
           717,
           "off",
           false
+        ],
+        [
+          591,
+          "false",
+          717,
+          "off",
+          true
         ],
         [
           591,
@@ -10233,6 +10259,13 @@
           false
         ],
         [
+          1259,
+          "flow",
+          761,
+          "flow",
+          false
+        ],
+        [
           1258,
           "flow",
           761,
@@ -10241,13 +10274,6 @@
         ],
         [
           1388,
-          "flow",
-          761,
-          "flow",
-          false
-        ],
-        [
-          1259,
           "flow",
           761,
           "flow",
@@ -10597,15 +10623,15 @@
           false
         ],
         [
-          167,
-          "true",
+          1298,
+          "flow",
           787,
           "on",
           false
         ],
         [
-          1298,
-          "flow",
+          167,
+          "true",
           787,
           "on",
           false
@@ -10772,13 +10798,6 @@
           false
         ],
         [
-          10245,
-          "down",
-          803,
-          "reset",
-          false
-        ],
-        [
           843,
           "down",
           803,
@@ -10788,6 +10807,13 @@
         [
           800,
           "True",
+          803,
+          "reset",
+          false
+        ],
+        [
+          10245,
+          "down",
           803,
           "reset",
           false
@@ -10849,15 +10875,15 @@
           false
         ],
         [
-          995,
-          "False",
+          10273,
+          "flow",
           808,
           "flow",
           false
         ],
         [
-          10273,
-          "flow",
+          995,
+          "False",
           808,
           "flow",
           false
@@ -10912,14 +10938,14 @@
           false
         ],
         [
-          843,
+          10245,
           "down",
           812,
           "reset",
           false
         ],
         [
-          10245,
+          843,
           "down",
           812,
           "reset",
@@ -11073,7 +11099,7 @@
           false
         ],
         [
-          10245,
+          1149,
           "flow",
           823,
           "flow",
@@ -11087,7 +11113,14 @@
           false
         ],
         [
-          1149,
+          828,
+          "flow",
+          823,
+          "flow",
+          false
+        ],
+        [
+          10245,
           "flow",
           823,
           "flow",
@@ -11095,13 +11128,6 @@
         ],
         [
           843,
-          "flow",
-          823,
-          "flow",
-          false
-        ],
-        [
-          828,
           "flow",
           823,
           "flow",
@@ -11416,13 +11442,6 @@
           false
         ],
         [
-          7,
-          "enterState",
-          846,
-          "flow",
-          false
-        ],
-        [
           996,
           "flow",
           846,
@@ -11430,15 +11449,22 @@
           false
         ],
         [
-          1482,
-          "out",
-          847,
+          7,
+          "enterState",
+          846,
           "flow",
           false
         ],
         [
           24,
           "true",
+          847,
+          "flow",
+          false
+        ],
+        [
+          1482,
+          "out",
           847,
           "flow",
           false
@@ -11521,7 +11547,7 @@
           false
         ],
         [
-          1600,
+          391,
           "flow",
           856,
           "flow",
@@ -11689,14 +11715,14 @@
           false
         ],
         [
-          878,
+          9876,
           "down",
           873,
           "flow",
           false
         ],
         [
-          9876,
+          878,
           "down",
           873,
           "flow",
@@ -11717,6 +11743,13 @@
           false
         ],
         [
+          148,
+          "down",
+          874,
+          "reset",
+          false
+        ],
+        [
           171,
           "down",
           874,
@@ -11733,13 +11766,6 @@
         [
           1572,
           "True",
-          874,
-          "reset",
-          false
-        ],
-        [
-          148,
-          "down",
           874,
           "reset",
           false
@@ -11815,15 +11841,15 @@
           false
         ],
         [
-          1385,
-          "True",
+          1382,
+          "none",
           879,
           "flow",
           false
         ],
         [
-          1382,
-          "none",
+          1385,
+          "True",
           879,
           "flow",
           false
@@ -11836,7 +11862,7 @@
           false
         ],
         [
-          879,
+          1257,
           "flow",
           880,
           "flow",
@@ -11850,7 +11876,7 @@
           false
         ],
         [
-          1257,
+          879,
           "flow",
           880,
           "flow",
@@ -12046,6 +12072,13 @@
           false
         ],
         [
+          896,
+          "true",
+          897,
+          "flow",
+          false
+        ],
+        [
           1307,
           "true",
           897,
@@ -12054,13 +12087,6 @@
         ],
         [
           1438,
-          "true",
-          897,
-          "flow",
-          false
-        ],
-        [
-          896,
           "true",
           897,
           "flow",
@@ -12361,7 +12387,7 @@
           false
         ],
         [
-          1634,
+          185,
           "flow",
           925,
           "flow",
@@ -12375,7 +12401,7 @@
           false
         ],
         [
-          185,
+          1634,
           "flow",
           925,
           "flow",
@@ -12557,6 +12583,13 @@
           false
         ],
         [
+          10292,
+          "flow",
+          938,
+          "flow",
+          false
+        ],
+        [
           912,
           "True",
           938,
@@ -12565,13 +12598,6 @@
         ],
         [
           1508,
-          "flow",
-          938,
-          "flow",
-          false
-        ],
-        [
-          10292,
           "flow",
           938,
           "flow",
@@ -13509,13 +13535,6 @@
           false
         ],
         [
-          1134,
-          "down",
-          1026,
-          "flow",
-          false
-        ],
-        [
           1175,
           "down",
           1026,
@@ -13525,6 +13544,13 @@
         [
           1107,
           "flow",
+          1026,
+          "flow",
+          false
+        ],
+        [
+          1134,
+          "down",
           1026,
           "flow",
           false
@@ -13565,14 +13591,14 @@
           false
         ],
         [
-          10245,
+          843,
           "down",
           1029,
           "reset",
           false
         ],
         [
-          843,
+          10245,
           "down",
           1029,
           "reset",
@@ -13607,14 +13633,14 @@
           false
         ],
         [
-          843,
+          10245,
           "down",
           1031,
           "reset",
           false
         ],
         [
-          10245,
+          843,
           "down",
           1031,
           "reset",
@@ -13635,15 +13661,15 @@
           false
         ],
         [
-          843,
-          "down",
+          1033,
+          "False",
           1032,
           "reset",
           false
         ],
         [
-          1033,
-          "False",
+          843,
+          "down",
           1032,
           "reset",
           false
@@ -14300,15 +14326,15 @@
           false
         ],
         [
-          561,
-          "flow",
+          641,
+          "True",
           1092,
           "flow",
           false
         ],
         [
-          641,
-          "True",
+          561,
+          "flow",
           1092,
           "flow",
           false
@@ -14328,14 +14354,14 @@
           false
         ],
         [
-          271,
+          1473,
           "flow",
           1094,
           "flow",
           false
         ],
         [
-          1473,
+          271,
           "flow",
           1094,
           "flow",
@@ -14524,6 +14550,13 @@
           false
         ],
         [
+          1105,
+          "flow",
+          1106,
+          "flow",
+          false
+        ],
+        [
           1559,
           "True",
           1106,
@@ -14531,9 +14564,9 @@
           false
         ],
         [
-          1105,
-          "flow",
-          1106,
+          605,
+          "True",
+          1107,
           "flow",
           false
         ],
@@ -14547,13 +14580,6 @@
         [
           1379,
           "flow",
-          1107,
-          "flow",
-          false
-        ],
-        [
-          605,
-          "True",
           1107,
           "flow",
           false
@@ -14671,6 +14697,13 @@
           true
         ],
         [
+          1679,
+          "flow",
+          1122,
+          "flow",
+          false
+        ],
+        [
           1714,
           "flow",
           1122,
@@ -14678,14 +14711,7 @@
           false
         ],
         [
-          1112,
-          "flow",
-          1122,
-          "flow",
-          false
-        ],
-        [
-          1679,
+          1131,
           "flow",
           1122,
           "flow",
@@ -14699,7 +14725,7 @@
           false
         ],
         [
-          1131,
+          1112,
           "flow",
           1122,
           "flow",
@@ -15035,15 +15061,15 @@
           false
         ],
         [
-          825,
-          "flow",
+          840,
+          "false",
           1149,
           "flow",
           false
         ],
         [
-          840,
-          "false",
+          825,
+          "flow",
           1149,
           "flow",
           false
@@ -15245,14 +15271,14 @@
           false
         ],
         [
-          843,
+          10245,
           "down",
           1168,
           "flow",
           false
         ],
         [
-          10245,
+          843,
           "down",
           1168,
           "flow",
@@ -15273,14 +15299,14 @@
           false
         ],
         [
-          1170,
+          1164,
           "flow",
           1171,
           "flow",
           false
         ],
         [
-          1164,
+          1170,
           "flow",
           1171,
           "flow",
@@ -15330,14 +15356,14 @@
         ],
         [
           4986,
-          "match_2",
+          "match_1",
           1177,
           "flow",
           false
         ],
         [
           4986,
-          "match_1",
+          "match_2",
           1177,
           "flow",
           false
@@ -15364,15 +15390,15 @@
           false
         ],
         [
-          255,
-          "false",
+          171,
+          "flow",
           1180,
           "flow",
           false
         ],
         [
-          171,
-          "flow",
+          255,
+          "false",
           1180,
           "flow",
           false
@@ -15413,14 +15439,14 @@
           false
         ],
         [
-          368,
+          10128,
           "flow",
           1185,
           "reset",
           false
         ],
         [
-          10128,
+          368,
           "flow",
           1185,
           "reset",
@@ -15434,14 +15460,14 @@
           false
         ],
         [
-          10128,
+          368,
           "flow",
           1186,
           "reset",
           false
         ],
         [
-          368,
+          10128,
           "flow",
           1186,
           "reset",
@@ -15490,14 +15516,14 @@
           false
         ],
         [
-          210,
+          9876,
           "down",
           1191,
           "flow",
           false
         ],
         [
-          9876,
+          210,
           "down",
           1191,
           "flow",
@@ -15669,13 +15695,6 @@
           "vehId",
           1209,
           "veid",
-          false
-        ],
-        [
-          1437,
-          "flow",
-          1210,
-          "flow",
           false
         ],
         [
@@ -16401,14 +16420,7 @@
         ],
         [
           99,
-          "match_4",
-          1285,
-          "flow",
-          false
-        ],
-        [
-          99,
-          "match_2",
+          "match_3",
           1285,
           "flow",
           false
@@ -16422,7 +16434,14 @@
         ],
         [
           99,
-          "match_3",
+          "match_2",
+          1285,
+          "flow",
+          false
+        ],
+        [
+          99,
+          "match_4",
           1285,
           "flow",
           false
@@ -16813,14 +16832,14 @@
           false
         ],
         [
-          9876,
+          210,
           "down",
           1317,
           "flow",
           false
         ],
         [
-          210,
+          9876,
           "down",
           1317,
           "flow",
@@ -17765,14 +17784,14 @@
           false
         ],
         [
-          1575,
+          124,
           "flow",
           1422,
           "flow",
           false
         ],
         [
-          124,
+          1575,
           "flow",
           1422,
           "flow",
@@ -17926,13 +17945,6 @@
           false
         ],
         [
-          1428,
-          "flow",
-          1437,
-          "flow",
-          false
-        ],
-        [
           1451,
           "flow",
           1438,
@@ -18010,14 +18022,14 @@
           false
         ],
         [
-          309,
+          1443,
           "flow",
           1444,
           "flow",
           false
         ],
         [
-          1443,
+          309,
           "flow",
           1444,
           "flow",
@@ -18053,14 +18065,14 @@
         ],
         [
           1383,
-          "match_2",
+          "match_1",
           1446,
           "flow",
           false
         ],
         [
           1383,
-          "match_1",
+          "match_2",
           1446,
           "flow",
           false
@@ -18108,14 +18120,14 @@
           false
         ],
         [
-          1454,
+          1453,
           "flow",
           1450,
           "reset",
           false
         ],
         [
-          1453,
+          1454,
           "flow",
           1450,
           "reset",
@@ -18396,14 +18408,14 @@
         ],
         [
           4986,
-          "match_2",
+          "match_4",
           1481,
           "flow",
           false
         ],
         [
           4986,
-          "match_4",
+          "match_2",
           1481,
           "flow",
           false
@@ -18871,28 +18883,28 @@
           false
         ],
         [
-          1524,
-          "flow",
-          1521,
-          "flow",
-          false
-        ],
-        [
-          1523,
-          "flow",
-          1521,
-          "flow",
-          false
-        ],
-        [
-          1523,
-          "flow",
-          1521,
-          "flow",
-          false
-        ],
-        [
           1525,
+          "flow",
+          1521,
+          "flow",
+          false
+        ],
+        [
+          1523,
+          "flow",
+          1521,
+          "flow",
+          false
+        ],
+        [
+          1523,
+          "flow",
+          1521,
+          "flow",
+          false
+        ],
+        [
+          1524,
           "flow",
           1521,
           "flow",
@@ -19382,20 +19394,6 @@
           false
         ],
         [
-          1584,
-          "flow",
-          1561,
-          "flow",
-          false
-        ],
-        [
-          1569,
-          "gstr",
-          1561,
-          "text",
-          false
-        ],
-        [
           384,
           "flow",
           1562,
@@ -19484,27 +19482,6 @@
           "enterState",
           1568,
           "flow",
-          false
-        ],
-        [
-          1581,
-          "flow",
-          1569,
-          "flow",
-          false
-        ],
-        [
-          910,
-          "cost_regular",
-          1569,
-          "gasoline",
-          false
-        ],
-        [
-          910,
-          "cost_diesel",
-          1569,
-          "diesel",
           false
         ],
         [
@@ -19676,20 +19653,6 @@
           false
         ],
         [
-          1588,
-          "flow",
-          1584,
-          "flow",
-          false
-        ],
-        [
-          1569,
-          "qstr",
-          1584,
-          "text",
-          false
-        ],
-        [
           7,
           "flow",
           1586,
@@ -19697,63 +19660,21 @@
           false
         ],
         [
-          1561,
-          "down",
-          1587,
-          "gasoline_10",
-          false
-        ],
-        [
-          10294,
-          "down",
-          1587,
-          "diesel_10",
-          false
-        ],
-        [
-          10295,
-          "down",
-          1587,
-          "oil_5",
-          false
-        ],
-        [
-          910,
-          "cost_regular",
-          1587,
-          "gcost",
-          false
-        ],
-        [
-          910,
-          "cost_diesel",
-          1587,
-          "dcost",
-          false
-        ],
-        [
-          1588,
-          "val",
-          1587,
-          "pmoney",
-          false
-        ],
-        [
-          1569,
+          1581,
           "flow",
           1588,
           "flow",
           false
         ],
         [
-          1587,
+          1766,
           "bought",
           1589,
           "flow",
           false
         ],
         [
-          1587,
+          1766,
           "pmoney",
           1589,
           "val",
@@ -19900,6 +19821,13 @@
           false
         ],
         [
+          295,
+          "coolant",
+          1601,
+          "coolant",
+          false
+        ],
+        [
           1128,
           "flow",
           1602,
@@ -19918,6 +19846,13 @@
           "oil",
           1602,
           "oil",
+          false
+        ],
+        [
+          214,
+          "coolant",
+          1602,
+          "coolant",
           false
         ],
         [
@@ -19946,6 +19881,13 @@
           "val",
           1604,
           "oil",
+          false
+        ],
+        [
+          391,
+          "val",
+          1604,
+          "coolant",
           false
         ],
         [
@@ -20121,20 +20063,6 @@
           "vehId",
           1615,
           "veid",
-          false
-        ],
-        [
-          10294,
-          "flow",
-          1616,
-          "flow",
-          false
-        ],
-        [
-          1569,
-          "ostr",
-          1616,
-          "text",
           false
         ],
         [
@@ -20796,15 +20724,15 @@
           false
         ],
         [
-          1679,
-          "down",
+          1688,
+          "flow",
           1681,
           "clear",
           false
         ],
         [
-          1688,
-          "flow",
+          1679,
+          "down",
           1681,
           "clear",
           false
@@ -20999,15 +20927,15 @@
           false
         ],
         [
-          1709,
-          "flow",
+          1708,
+          "False",
           1693,
           "flow",
           false
         ],
         [
-          1708,
-          "False",
+          1709,
+          "flow",
           1693,
           "flow",
           false
@@ -21573,6 +21501,20 @@
           false
         ],
         [
+          1599,
+          "flow",
+          1744,
+          "flow",
+          false
+        ],
+        [
+          72,
+          "coolVal",
+          1744,
+          "val",
+          false
+        ],
+        [
           117,
           "flow",
           1745,
@@ -21608,15 +21550,15 @@
           false
         ],
         [
-          7,
-          "enterState",
+          1746,
+          "out",
           1748,
           "flow",
           false
         ],
         [
-          1746,
-          "out",
+          7,
+          "enterState",
           1748,
           "flow",
           false
@@ -21818,6 +21760,34 @@
           false
         ],
         [
+          1588,
+          "flow",
+          1766,
+          "flow",
+          false
+        ],
+        [
+          1588,
+          "val",
+          1766,
+          "pmoney",
+          false
+        ],
+        [
+          910,
+          "cost_regular",
+          1766,
+          "gcost",
+          false
+        ],
+        [
+          910,
+          "cost_diesel",
+          1766,
+          "dcost",
+          false
+        ],
+        [
           1734,
           "flow",
           1769,
@@ -21825,15 +21795,15 @@
           false
         ],
         [
-          947,
-          "flow",
+          877,
+          "activated",
           1770,
           "flow",
           false
         ],
         [
-          877,
-          "activated",
+          947,
+          "flow",
           1770,
           "flow",
           false
@@ -21881,15 +21851,15 @@
           false
         ],
         [
-          1514,
-          "True",
+          1770,
+          "flow",
           1773,
           "flow",
           false
         ],
         [
-          1770,
-          "flow",
+          1514,
+          "True",
           1773,
           "flow",
           false
@@ -21916,6 +21886,20 @@
           false
         ],
         [
+          10192,
+          "flow",
+          10226,
+          "flow",
+          false
+        ],
+        [
+          275,
+          "opAvoid",
+          10226,
+          "val",
+          false
+        ],
+        [
           15,
           "flow",
           10194,
@@ -21927,6 +21911,20 @@
           "val",
           10194,
           "val",
+          false
+        ],
+        [
+          660,
+          "flow",
+          10162,
+          "flow",
+          false
+        ],
+        [
+          10022,
+          "flow",
+          10162,
+          "reset",
           false
         ],
         [
@@ -21937,17 +21935,17 @@
           false
         ],
         [
-          10191,
+          10097,
           "flow",
-          4986,
+          10098,
           "flow",
           false
         ],
         [
-          10191,
-          "typeName",
-          4986,
-          "value",
+          275,
+          "partPrice",
+          10098,
+          "val",
           false
         ],
         [
@@ -21979,10 +21977,38 @@
           false
         ],
         [
+          681,
+          "flow",
+          10195,
+          "flow",
+          false
+        ],
+        [
           10068,
           "flow",
           10163,
           "flow",
+          false
+        ],
+        [
+          628,
+          "flow",
+          10131,
+          "flow",
+          false
+        ],
+        [
+          626,
+          "val",
+          10131,
+          "X",
+          false
+        ],
+        [
+          114,
+          "imcost",
+          10131,
+          "DX",
           false
         ],
         [
@@ -22000,9 +22026,51 @@
           false
         ],
         [
+          10066,
+          "flow",
+          10067,
+          "flow",
+          false
+        ],
+        [
+          342,
+          "veid",
+          10067,
+          "vehId",
+          false
+        ],
+        [
           10030,
           "flow",
           10035,
+          "flow",
+          false
+        ],
+        [
+          10004,
+          "flow",
+          10003,
+          "flow",
+          false
+        ],
+        [
+          10004,
+          "val",
+          10003,
+          "X",
+          false
+        ],
+        [
+          115,
+          "cost",
+          10003,
+          "DX",
+          false
+        ],
+        [
+          10181,
+          "flow",
+          10228,
           "flow",
           false
         ],
@@ -22018,6 +22086,34 @@
           "league",
           10196,
           "val",
+          false
+        ],
+        [
+          659,
+          "flow",
+          10164,
+          "flow",
+          false
+        ],
+        [
+          661,
+          "False",
+          10164,
+          "reset",
+          false
+        ],
+        [
+          10017,
+          "down",
+          10164,
+          "reset",
+          false
+        ],
+        [
+          10166,
+          "pos",
+          10164,
+          "position",
           false
         ],
         [
@@ -22042,6 +22138,20 @@
           true
         ],
         [
+          10099,
+          "flow",
+          10100,
+          "flow",
+          false
+        ],
+        [
+          275,
+          "paintdata",
+          10100,
+          "val",
+          false
+        ],
+        [
           456,
           "flow",
           10068,
@@ -22049,10 +22159,17 @@
           false
         ],
         [
-          10284,
+          10033,
           "flow",
-          10285,
+          10036,
           "flow",
+          false
+        ],
+        [
+          10033,
+          "Y",
+          10036,
+          "val",
           false
         ],
         [
@@ -22077,6 +22194,20 @@
           false
         ],
         [
+          10196,
+          "flow",
+          10197,
+          "flow",
+          false
+        ],
+        [
+          241,
+          "club",
+          10197,
+          "val",
+          false
+        ],
+        [
           652,
           "ftrig",
           10165,
@@ -22084,10 +22215,17 @@
           false
         ],
         [
-          9875,
+          10100,
           "flow",
-          9876,
+          10133,
           "flow",
+          false
+        ],
+        [
+          275,
+          "laps",
+          10133,
+          "val",
           false
         ],
         [
@@ -22098,10 +22236,66 @@
           false
         ],
         [
-          10272,
+          1472,
+          "False",
+          9931,
           "flow",
-          10254,
+          false
+        ],
+        [
+          266,
+          "output",
+          9931,
+          "text",
+          false
+        ],
+        [
+          243,
           "flow",
+          10037,
+          "flow",
+          false
+        ],
+        [
+          243,
+          "Y",
+          10037,
+          "X",
+          false
+        ],
+        [
+          10029,
+          "val",
+          10037,
+          "DX",
+          false
+        ],
+        [
+          15,
+          "flow",
+          9929,
+          "flow",
+          false
+        ],
+        [
+          15,
+          "text",
+          9929,
+          "text",
+          false
+        ],
+        [
+          10226,
+          "flow",
+          10230,
+          "flow",
+          false
+        ],
+        [
+          275,
+          "reputation",
+          10230,
+          "val",
           false
         ],
         [
@@ -22119,17 +22313,17 @@
           false
         ],
         [
-          1621,
-          "False",
-          9909,
+          661,
+          "True",
+          10166,
           "flow",
           false
         ],
         [
-          106,
-          "val",
-          9909,
-          "id",
+          10165,
+          "objID",
+          10166,
+          "newPin",
           false
         ],
         [
@@ -22147,10 +22341,24 @@
           false
         ],
         [
-          9,
+          10101,
           "flow",
-          4988,
+          10102,
           "flow",
+          false
+        ],
+        [
+          261,
+          "flow",
+          9928,
+          "flow",
+          false
+        ],
+        [
+          261,
+          "Y",
+          9928,
+          "val",
           false
         ],
         [
@@ -22168,6 +22376,27 @@
           false
         ],
         [
+          9914,
+          "flow",
+          9915,
+          "flow",
+          false
+        ],
+        [
+          9914,
+          "output",
+          9915,
+          "data",
+          false
+        ],
+        [
+          303,
+          "val",
+          9915,
+          "id",
+          false
+        ],
+        [
           1120,
           "flow",
           10231,
@@ -22182,6 +22411,20 @@
           false
         ],
         [
+          10198,
+          "flow",
+          10199,
+          "flow",
+          false
+        ],
+        [
+          241,
+          "opSpawnRot",
+          10199,
+          "val",
+          false
+        ],
+        [
           10137,
           "flow",
           10167,
@@ -22189,101 +22432,31 @@
           false
         ],
         [
-          10038,
+          10134,
           "flow",
-          10039,
+          10135,
           "flow",
           false
         ],
         [
           275,
-          "opConfig",
-          10039,
+          "wayps",
+          10135,
           "val",
           false
         ],
         [
-          10199,
+          9913,
           "flow",
-          10200,
-          "flow",
-          false
-        ],
-        [
-          241,
-          "pspos",
-          10200,
-          "val",
-          false
-        ],
-        [
-          44,
-          "flow",
-          10136,
+          9914,
           "flow",
           false
         ],
         [
-          440,
-          "true",
-          10136,
-          "flow",
-          false
-        ],
-        [
-          1149,
-          "down",
-          10233,
-          "flow",
-          false
-        ],
-        [
-          10024,
-          "flow",
-          10169,
-          "flow",
-          false
-        ],
-        [
-          157,
-          "flow",
-          9880,
-          "flow",
-          false
-        ],
-        [
-          157,
-          "flow",
-          9880,
-          "flow",
-          false
-        ],
-        [
-          157,
-          "reward",
-          9880,
-          "val",
-          false
-        ],
-        [
-          10035,
-          "flow",
-          10105,
-          "flow",
-          false
-        ],
-        [
-          339,
-          "flow",
-          10041,
-          "flow",
-          false
-        ],
-        [
-          10201,
-          "flow",
-          10202,
-          "flow",
+          9913,
+          "filename",
+          9914,
+          "filename",
           false
         ],
         [
@@ -22301,10 +22474,234 @@
           false
         ],
         [
+          10038,
+          "flow",
+          10039,
+          "flow",
+          false
+        ],
+        [
+          275,
+          "opConfig",
+          10039,
+          "val",
+          false
+        ],
+        [
+          689,
+          "garage",
+          10007,
+          "flow",
+          false
+        ],
+        [
+          689,
+          "repair",
+          10007,
+          "flow",
+          false
+        ],
+        [
+          1621,
+          "False",
+          9909,
+          "flow",
+          false
+        ],
+        [
+          106,
+          "val",
+          9909,
+          "id",
+          false
+        ],
+        [
+          10199,
+          "flow",
+          10200,
+          "flow",
+          false
+        ],
+        [
+          241,
+          "pspos",
+          10200,
+          "val",
+          false
+        ],
+        [
+          652,
+          "flow",
+          10168,
+          "flow",
+          false
+        ],
+        [
+          440,
+          "true",
+          10136,
+          "flow",
+          false
+        ],
+        [
+          44,
+          "flow",
+          10136,
+          "flow",
+          false
+        ],
+        [
+          10096,
+          "flow",
+          10104,
+          "flow",
+          false
+        ],
+        [
+          782,
+          "flow",
+          9901,
+          "flow",
+          false
+        ],
+        [
+          782,
+          "output",
+          9901,
+          "data",
+          false
+        ],
+        [
+          106,
+          "val",
+          9901,
+          "id",
+          false
+        ],
+        [
+          872,
+          "flow",
+          10257,
+          "flow",
+          false
+        ],
+        [
+          157,
+          "gmwp",
+          10257,
+          "val",
+          false
+        ],
+        [
+          83,
+          "flow",
+          9899,
+          "flow",
+          false
+        ],
+        [
+          83,
+          "Y",
+          9899,
+          "val",
+          false
+        ],
+        [
+          1149,
+          "down",
+          10233,
+          "flow",
+          false
+        ],
+        [
+          10204,
+          "flow",
+          10201,
+          "flow",
+          false
+        ],
+        [
+          10024,
+          "flow",
+          10169,
+          "flow",
+          false
+        ],
+        [
+          10136,
+          "flow",
+          10137,
+          "flow",
+          false
+        ],
+        [
+          10035,
+          "flow",
+          10105,
+          "flow",
+          false
+        ],
+        [
+          4986,
+          "match_2",
+          9897,
+          "flow",
+          false
+        ],
+        [
+          339,
+          "flow",
+          10041,
+          "flow",
+          false
+        ],
+        [
+          1328,
+          "False",
+          9896,
+          "flow",
+          false
+        ],
+        [
+          10201,
+          "flow",
+          10202,
+          "flow",
+          false
+        ],
+        [
+          22,
+          "flow",
+          10170,
+          "flow",
+          false
+        ],
+        [
           448,
           "enter",
           10138,
           "flow",
+          false
+        ],
+        [
+          10105,
+          "flow",
+          10106,
+          "flow",
+          false
+        ],
+        [
+          157,
+          "flow",
+          9889,
+          "flow",
+          false
+        ],
+        [
+          157,
+          "destpos",
+          9889,
+          "val",
           false
         ],
         [
@@ -22322,6 +22719,27 @@
           false
         ],
         [
+          1012,
+          "flow",
+          10277,
+          "flow",
+          false
+        ],
+        [
+          825,
+          "down",
+          10277,
+          "reset",
+          false
+        ],
+        [
+          184,
+          "flow",
+          9885,
+          "flow",
+          false
+        ],
+        [
           10170,
           "flow",
           10171,
@@ -22336,10 +22754,24 @@
           false
         ],
         [
-          208,
+          10138,
           "flow",
-          9882,
+          10139,
           "flow",
+          false
+        ],
+        [
+          448,
+          "triggerID",
+          10139,
+          "A",
+          false
+        ],
+        [
+          10138,
+          "val",
+          10139,
+          "B",
           false
         ],
         [
@@ -22364,9 +22796,37 @@
           false
         ],
         [
+          221,
+          "flow",
+          9884,
+          "flow",
+          false
+        ],
+        [
           10042,
           "flow",
           10043,
+          "flow",
+          false
+        ],
+        [
+          1181,
+          "flow",
+          10011,
+          "flow",
+          false
+        ],
+        [
+          247,
+          "False",
+          10011,
+          "flow",
+          false
+        ],
+        [
+          487,
+          "flow",
+          10236,
           "flow",
           false
         ],
@@ -22378,24 +22838,17 @@
           false
         ],
         [
-          9914,
-          "flow",
-          9915,
+          311,
+          "True",
+          10172,
           "flow",
           false
         ],
         [
-          9914,
-          "output",
-          9915,
-          "data",
-          false
-        ],
-        [
-          303,
+          552,
           "val",
-          9915,
-          "id",
+          10172,
+          "condition",
           false
         ],
         [
@@ -22455,6 +22908,20 @@
           false
         ],
         [
+          197,
+          "flow",
+          10108,
+          "flow",
+          false
+        ],
+        [
+          197,
+          "Y",
+          10108,
+          "val",
+          false
+        ],
+        [
           1118,
           "flow",
           10076,
@@ -22462,17 +22929,10 @@
           true
         ],
         [
-          912,
-          "False",
-          10293,
+          293,
           "flow",
-          false
-        ],
-        [
-          910,
-          "midgrade",
-          10293,
-          "text",
+          10044,
+          "flow",
           false
         ],
         [
@@ -22490,6 +22950,20 @@
           false
         ],
         [
+          207,
+          "flow",
+          9883,
+          "flow",
+          false
+        ],
+        [
+          207,
+          "y",
+          9883,
+          "val",
+          false
+        ],
+        [
           671,
           "flow",
           10173,
@@ -22504,10 +22978,17 @@
           false
         ],
         [
-          221,
+          10140,
           "flow",
-          9884,
+          10141,
           "flow",
+          false
+        ],
+        [
+          10140,
+          "finished",
+          10141,
+          "condition",
           false
         ],
         [
@@ -22525,6 +23006,41 @@
           false
         ],
         [
+          1118,
+          "flow",
+          10077,
+          "flow",
+          true
+        ],
+        [
+          208,
+          "flow",
+          9882,
+          "flow",
+          false
+        ],
+        [
+          1181,
+          "down",
+          10013,
+          "flow",
+          false
+        ],
+        [
+          10245,
+          "down",
+          10238,
+          "flow",
+          false
+        ],
+        [
+          843,
+          "down",
+          10238,
+          "flow",
+          false
+        ],
+        [
           10200,
           "flow",
           10206,
@@ -22535,6 +23051,27 @@
           241,
           "psrot",
           10206,
+          "val",
+          false
+        ],
+        [
+          157,
+          "flow",
+          9880,
+          "flow",
+          false
+        ],
+        [
+          157,
+          "flow",
+          9880,
+          "flow",
+          false
+        ],
+        [
+          157,
+          "reward",
+          9880,
           "val",
           false
         ],
@@ -22553,6 +23090,13 @@
           false
         ],
         [
+          206,
+          "down",
+          9879,
+          "flow",
+          false
+        ],
+        [
           68,
           "flow",
           10078,
@@ -22567,17 +23111,10 @@
           false
         ],
         [
-          1616,
+          9876,
           "flow",
-          10295,
+          9877,
           "flow",
-          false
-        ],
-        [
-          1569,
-          "obtn",
-          10295,
-          "text",
           false
         ],
         [
@@ -22602,590 +23139,37 @@
           false
         ],
         [
+          9875,
+          "flow",
+          9876,
+          "flow",
+          false
+        ],
+        [
+          9871,
+          "flow",
+          9875,
+          "flow",
+          false
+        ],
+        [
+          10142,
+          "flow",
+          10143,
+          "flow",
+          false
+        ],
+        [
+          633,
+          "objID",
+          10143,
+          "val",
+          false
+        ],
+        [
           10108,
           "flow",
           10111,
-          "flow",
-          false
-        ],
-        [
-          10143,
-          "flow",
-          10144,
-          "flow",
-          false
-        ],
-        [
-          652,
-          "newLap",
-          10144,
-          "val",
-          false
-        ],
-        [
-          7,
-          "flow",
-          10080,
-          "flow",
-          false
-        ],
-        [
-          10017,
-          "down",
-          10016,
-          "flow",
-          false
-        ],
-        [
-          10209,
-          "flow",
-          10210,
-          "flow",
-          false
-        ],
-        [
-          10209,
-          "typeName",
-          10210,
-          "value",
-          false
-        ],
-        [
-          10145,
-          "flow",
-          10146,
-          "flow",
-          false
-        ],
-        [
-          10149,
-          "objID",
-          10146,
-          "val",
-          false
-        ],
-        [
-          536,
-          "completed",
-          10082,
-          "flow",
-          false
-        ],
-        [
-          538,
-          "vehId",
-          10082,
-          "vehId",
-          true
-        ],
-        [
-          1693,
-          "False",
-          10299,
-          "flow",
-          false
-        ],
-        [
-          1698,
-          "flow",
-          10299,
-          "flow",
-          false
-        ],
-        [
-          1653,
-          "shownext",
-          10299,
-          "condition",
-          false
-        ],
-        [
-          931,
-          "flow",
-          10268,
-          "flow",
-          false
-        ],
-        [
-          377,
-          "match_1",
-          10212,
-          "flow",
-          false
-        ],
-        [
-          10147,
-          "flow",
-          10148,
-          "flow",
-          false
-        ],
-        [
-          10140,
-          "nextWp",
-          10148,
-          "val",
-          true
-        ],
-        [
-          7,
-          "flow",
-          4994,
-          "flow",
-          true
-        ],
-        [
-          1542,
-          "done",
-          10084,
-          "flow",
-          false
-        ],
-        [
-          332,
-          "vehId",
-          10084,
-          "vehId",
-          false
-        ],
-        [
-          826,
-          "match_1",
-          10301,
-          "flow",
-          false
-        ],
-        [
-          10104,
-          "flow",
-          10181,
-          "flow",
-          false
-        ],
-        [
-          747,
-          "flow",
-          10214,
-          "flow",
-          false
-        ],
-        [
-          742,
-          "num",
-          10214,
-          "val",
-          false
-        ],
-        [
-          10139,
-          "true",
-          10150,
-          "flow",
-          false
-        ],
-        [
-          43,
-          "flow",
-          4995,
-          "flow",
-          false
-        ],
-        [
-          5002,
-          "val",
-          4995,
-          "value",
-          false
-        ],
-        [
-          512,
-          "true",
-          10086,
-          "flow",
-          false
-        ],
-        [
-          129,
-          "walking",
-          10086,
-          "val",
-          false
-        ],
-        [
-          269,
-          "true",
-          10022,
-          "flow",
-          false
-        ],
-        [
-          798,
-          "flow",
-          10272,
-          "flow",
-          false
-        ],
-        [
-          10132,
-          "flow",
-          10216,
-          "flow",
-          false
-        ],
-        [
-          601,
-          "filename",
-          10216,
-          "file",
-          false
-        ],
-        [
-          781,
-          "val",
-          10216,
-          "tval",
-          false
-        ],
-        [
-          10135,
-          "flow",
-          10152,
-          "flow",
-          false
-        ],
-        [
-          275,
-          "cpcount",
-          10152,
-          "val",
-          false
-        ],
-        [
-          639,
-          "flow",
-          10088,
-          "flow",
-          false
-        ],
-        [
-          520,
-          "flow",
-          10088,
-          "flow",
-          false
-        ],
-        [
-          766,
-          "flow",
-          10088,
-          "flow",
-          false
-        ],
-        [
-          68,
-          "time",
-          10088,
-          "time",
-          false
-        ],
-        [
-          846,
-          "daytime",
-          10088,
-          "dayLength",
-          false
-        ],
-        [
-          10238,
-          "flow",
-          10241,
-          "flow",
-          false
-        ],
-        [
-          10186,
-          "flow",
-          10185,
-          "flow",
-          false
-        ],
-        [
-          342,
-          "veid",
-          10185,
-          "veid",
-          false
-        ],
-        [
-          10186,
-          "val",
-          10185,
-          "file",
-          false
-        ],
-        [
-          1328,
-          "False",
-          9896,
-          "flow",
-          false
-        ],
-        [
-          10120,
-          "flow",
-          10121,
-          "flow",
-          false
-        ],
-        [
-          567,
-          "tkttxt",
-          10121,
-          "val",
-          false
-        ],
-        [
-          10254,
-          "flow",
-          10274,
-          "flow",
-          false
-        ],
-        [
-          770,
-          "flow",
-          10218,
-          "flow",
-          false
-        ],
-        [
-          770,
-          "damage",
-          10218,
-          "A",
-          false
-        ],
-        [
-          15,
-          "flow",
-          9929,
-          "flow",
-          false
-        ],
-        [
-          15,
-          "text",
-          9929,
-          "text",
-          false
-        ],
-        [
-          651,
-          "flow",
-          10154,
-          "flow",
-          false
-        ],
-        [
-          10089,
-          "flow",
-          10090,
-          "flow",
-          false
-        ],
-        [
-          10027,
-          "flow",
-          10026,
-          "flow",
-          false
-        ],
-        [
-          275,
-          "aiwp",
-          10026,
-          "val",
-          false
-        ],
-        [
-          10188,
-          "flow",
-          10187,
-          "flow",
-          false
-        ],
-        [
-          10188,
-          "val",
-          10187,
-          "carid",
-          false
-        ],
-        [
-          528,
-          "flow",
-          10059,
-          "flow",
-          false
-        ],
-        [
-          528,
-          "Y",
-          10059,
-          "val",
-          false
-        ],
-        [
-          1016,
-          "true",
-          10276,
-          "flow",
-          false
-        ],
-        [
-          1472,
-          "False",
-          9931,
-          "flow",
-          false
-        ],
-        [
-          266,
-          "output",
-          9931,
-          "text",
-          false
-        ],
-        [
-          10155,
-          "flow",
-          10156,
-          "flow",
-          false
-        ],
-        [
-          808,
-          "True",
-          10245,
-          "flow",
-          false
-        ],
-        [
-          720,
-          "flow",
-          10189,
-          "flow",
-          false
-        ],
-        [
-          720,
-          "num",
-          10189,
-          "val",
-          false
-        ],
-        [
-          579,
-          "flow",
-          10125,
-          "flow",
-          false
-        ],
-        [
-          623,
-          "flow",
-          10125,
-          "flow",
-          false
-        ],
-        [
-          799,
-          "flow",
-          10278,
-          "flow",
-          false
-        ],
-        [
-          526,
-          "flow",
-          10222,
-          "flow",
-          false
-        ],
-        [
-          275,
-          "wayps",
-          10222,
-          "wplist",
-          false
-        ],
-        [
-          10157,
-          "flow",
-          10158,
-          "flow",
-          false
-        ],
-        [
-          275,
-          "destid",
-          10158,
-          "val",
-          false
-        ],
-        [
-          525,
-          "flow",
-          10094,
-          "flow",
-          false
-        ],
-        [
-          10029,
-          "flow",
-          10030,
-          "flow",
-          false
-        ],
-        [
-          423,
-          "flow",
-          10191,
-          "flow",
-          false
-        ],
-        [
-          423,
-          "val",
-          10191,
-          "name",
-          false
-        ],
-        [
-          835,
-          "output",
-          10191,
-          "tdata",
-          true
-        ],
-        [
-          10124,
-          "flow",
-          10127,
-          "flow",
-          false
-        ],
-        [
-          1017,
-          "none",
-          10280,
-          "flow",
-          false
-        ],
-        [
-          10141,
-          "True",
-          10224,
           "flow",
           false
         ],
@@ -23225,88 +23209,130 @@
           false
         ],
         [
-          454,
-          "true",
-          10096,
+          1679,
+          "down",
+          10296,
           "flow",
           false
         ],
         [
-          10037,
-          "flow",
-          10032,
+          1677,
+          "down",
+          10296,
           "flow",
           false
         ],
         [
-          10037,
-          "Y",
-          10032,
+          10013,
+          "flow",
+          10015,
+          "flow",
+          false
+        ],
+        [
+          4995,
+          "match_2",
+          9870,
+          "flow",
+          false
+        ],
+        [
+          699,
+          "flow",
+          10176,
+          "flow",
+          false
+        ],
+        [
+          1488,
+          "false",
+          10176,
+          "flow",
+          false
+        ],
+        [
+          10143,
+          "flow",
+          10144,
+          "flow",
+          false
+        ],
+        [
+          652,
+          "newLap",
+          10144,
           "val",
           false
         ],
         [
-          419,
+          5006,
           "flow",
-          10193,
-          "flow",
-          false
-        ],
-        [
-          622,
-          "flow",
-          10129,
+          9887,
           "flow",
           false
         ],
         [
-          441,
+          7,
           "flow",
-          10065,
-          "flow",
-          false
-        ],
-        [
-          1057,
-          "flow",
-          10282,
+          10080,
           "flow",
           false
         ],
         [
-          1057,
-          "time",
-          10282,
+          10017,
+          "down",
+          10016,
+          "flow",
+          false
+        ],
+        [
+          4994,
+          "flow",
+          5006,
+          "flow",
+          false
+        ],
+        [
+          250,
+          "flowB",
+          10209,
+          "flow",
+          false
+        ],
+        [
+          137,
+          "triggerName",
+          10209,
+          "name",
+          false
+        ],
+        [
+          835,
+          "output",
+          10209,
+          "tdata",
+          true
+        ],
+        [
+          240,
+          "flow",
+          5002,
+          "flow",
+          false
+        ],
+        [
+          620,
+          "false",
+          10145,
+          "flow",
+          false
+        ],
+        [
+          10140,
+          "nextId",
+          10145,
           "val",
-          false
-        ],
-        [
-          10192,
-          "flow",
-          10226,
-          "flow",
-          false
-        ],
-        [
-          275,
-          "opAvoid",
-          10226,
-          "val",
-          false
-        ],
-        [
-          660,
-          "flow",
-          10162,
-          "flow",
-          false
-        ],
-        [
-          10022,
-          "flow",
-          10162,
-          "reset",
-          false
+          true
         ],
         [
           880,
@@ -23316,66 +23342,360 @@
           false
         ],
         [
-          10097,
+          43,
           "flow",
-          10098,
+          4995,
+          "flow",
+          false
+        ],
+        [
+          5002,
+          "val",
+          4995,
+          "value",
+          false
+        ],
+        [
+          7,
+          "flow",
+          4994,
+          "flow",
+          true
+        ],
+        [
+          395,
+          "flow",
+          10017,
+          "flow",
+          false
+        ],
+        [
+          9,
+          "flow",
+          4988,
+          "flow",
+          false
+        ],
+        [
+          10209,
+          "flow",
+          10210,
+          "flow",
+          false
+        ],
+        [
+          10209,
+          "typeName",
+          10210,
+          "value",
+          false
+        ],
+        [
+          10191,
+          "flow",
+          4986,
+          "flow",
+          false
+        ],
+        [
+          10191,
+          "typeName",
+          4986,
+          "value",
+          false
+        ],
+        [
+          10145,
+          "flow",
+          10146,
+          "flow",
+          false
+        ],
+        [
+          10149,
+          "objID",
+          10146,
+          "val",
+          false
+        ],
+        [
+          10118,
+          "flow",
+          10114,
+          "flow",
+          false
+        ],
+        [
+          591,
+          "false",
+          10114,
+          "reset",
+          false
+        ],
+        [
+          10118,
+          "data",
+          10114,
+          "group",
+          false
+        ],
+        [
+          846,
+          "police",
+          10114,
+          "quantity",
+          false
+        ],
+        [
+          536,
+          "completed",
+          10082,
+          "flow",
+          false
+        ],
+        [
+          538,
+          "vehId",
+          10082,
+          "vehId",
+          true
+        ],
+        [
+          357,
+          "flow",
+          10288,
+          "flow",
+          false
+        ],
+        [
+          1693,
+          "False",
+          10299,
+          "flow",
+          false
+        ],
+        [
+          1698,
+          "flow",
+          10299,
+          "flow",
+          false
+        ],
+        [
+          1653,
+          "shownext",
+          10299,
+          "condition",
+          false
+        ],
+        [
+          265,
+          "flow",
+          10025,
           "flow",
           false
         ],
         [
           275,
-          "partPrice",
-          10098,
+          "desc",
+          10025,
           "val",
           false
         ],
         [
-          1181,
-          "down",
-          10034,
+          1329,
+          "flow",
+          10211,
           "flow",
           false
         ],
         [
-          681,
-          "flow",
-          10195,
-          "flow",
-          false
-        ],
-        [
-          628,
-          "flow",
-          10131,
+          1335,
+          "false",
+          10211,
           "flow",
           false
         ],
         [
-          626,
+          10284,
+          "flow",
+          10285,
+          "flow",
+          false
+        ],
+        [
+          10146,
+          "flow",
+          10147,
+          "flow",
+          false
+        ],
+        [
+          10140,
+          "newLap",
+          10147,
           "val",
-          10131,
-          "X",
-          false
+          true
         ],
         [
-          114,
-          "imcost",
-          10131,
-          "DX",
-          false
-        ],
-        [
-          10066,
+          1697,
           "flow",
-          10067,
+          10302,
           "flow",
           false
         ],
         [
-          342,
-          "veid",
-          10067,
+          1687,
+          "allvehs",
+          10302,
+          "idtable",
+          false
+        ],
+        [
+          10238,
+          "flow",
+          10241,
+          "flow",
+          false
+        ],
+        [
+          931,
+          "flow",
+          10268,
+          "flow",
+          false
+        ],
+        [
+          1017,
+          "match_1",
+          10279,
+          "flow",
+          false
+        ],
+        [
+          1017,
+          "match_2",
+          10279,
+          "flow",
+          false
+        ],
+        [
+          377,
+          "match_1",
+          10212,
+          "flow",
+          false
+        ],
+        [
+          385,
+          "flow",
+          10180,
+          "flow",
+          false
+        ],
+        [
+          275,
+          "opifile",
+          10180,
+          "val",
+          false
+        ],
+        [
+          10147,
+          "flow",
+          10148,
+          "flow",
+          false
+        ],
+        [
+          10140,
+          "nextWp",
+          10148,
+          "val",
+          true
+        ],
+        [
+          10114,
+          "loaded",
+          10116,
+          "flow",
+          false
+        ],
+        [
+          591,
+          "false",
+          10116,
+          "reset",
+          true
+        ],
+        [
+          10114,
+          "vehicleIds",
+          10116,
+          "vehicleIds",
+          false
+        ],
+        [
+          1542,
+          "done",
+          10084,
+          "flow",
+          false
+        ],
+        [
+          332,
           "vehId",
+          10084,
+          "vehId",
+          false
+        ],
+        [
+          10254,
+          "flow",
+          10274,
+          "flow",
+          false
+        ],
+        [
+          826,
+          "match_1",
+          10301,
+          "flow",
+          false
+        ],
+        [
+          1686,
+          "flow",
+          10297,
+          "flow",
+          false
+        ],
+        [
+          159,
+          "flow",
+          10213,
+          "flow",
+          false
+        ],
+        [
+          241,
+          "cname",
+          10213,
+          "val",
+          false
+        ],
+        [
+          10104,
+          "flow",
+          10181,
+          "flow",
+          false
+        ],
+        [
+          10140,
+          "nextTrig",
+          10149,
+          "name",
           false
         ],
         [
@@ -23386,178 +23706,17 @@
           false
         ],
         [
-          10004,
+          10028,
           "flow",
-          10003,
-          "flow",
-          false
-        ],
-        [
-          10004,
-          "val",
-          10003,
-          "X",
-          false
-        ],
-        [
-          115,
-          "cost",
-          10003,
-          "DX",
-          false
-        ],
-        [
-          10181,
-          "flow",
-          10228,
-          "flow",
-          false
-        ],
-        [
-          659,
-          "flow",
-          10164,
-          "flow",
-          false
-        ],
-        [
-          661,
-          "False",
-          10164,
-          "reset",
-          false
-        ],
-        [
-          10017,
-          "down",
-          10164,
-          "reset",
-          false
-        ],
-        [
-          10166,
-          "pos",
-          10164,
-          "position",
-          false
-        ],
-        [
-          9871,
-          "flow",
-          9875,
-          "flow",
-          false
-        ],
-        [
-          10099,
-          "flow",
-          10100,
+          10027,
           "flow",
           false
         ],
         [
           275,
-          "paintdata",
-          10100,
+          "slips",
+          10027,
           "val",
-          false
-        ],
-        [
-          837,
-          "flow",
-          10253,
-          "flow",
-          false
-        ],
-        [
-          10252,
-          "Y",
-          10253,
-          "val",
-          false
-        ],
-        [
-          10196,
-          "flow",
-          10197,
-          "flow",
-          false
-        ],
-        [
-          241,
-          "club",
-          10197,
-          "val",
-          false
-        ],
-        [
-          10100,
-          "flow",
-          10133,
-          "flow",
-          false
-        ],
-        [
-          275,
-          "laps",
-          10133,
-          "val",
-          false
-        ],
-        [
-          342,
-          "flow",
-          10286,
-          "flow",
-          false
-        ],
-        [
-          342,
-          "pout",
-          10286,
-          "val",
-          false
-        ],
-        [
-          10226,
-          "flow",
-          10230,
-          "flow",
-          false
-        ],
-        [
-          275,
-          "reputation",
-          10230,
-          "val",
-          false
-        ],
-        [
-          661,
-          "True",
-          10166,
-          "flow",
-          false
-        ],
-        [
-          10165,
-          "objID",
-          10166,
-          "newPin",
-          false
-        ],
-        [
-          9876,
-          "flow",
-          9877,
-          "flow",
-          false
-        ],
-        [
-          10101,
-          "flow",
-          10102,
-          "flow",
           false
         ],
         [
@@ -23568,128 +23727,450 @@
           false
         ],
         [
-          10198,
+          10016,
           "flow",
-          10199,
+          10021,
           "flow",
           false
         ],
         [
-          241,
-          "opSpawnRot",
-          10199,
+          912,
+          "False",
+          10293,
+          "flow",
+          false
+        ],
+        [
+          910,
+          "midgrade",
+          10293,
+          "text",
+          false
+        ],
+        [
+          747,
+          "flow",
+          10214,
+          "flow",
+          false
+        ],
+        [
+          742,
+          "num",
+          10214,
           "val",
           false
         ],
         [
-          10134,
+          10255,
           "flow",
+          10275,
+          "flow",
+          false
+        ],
+        [
+          10139,
+          "true",
+          10150,
+          "flow",
+          false
+        ],
+        [
+          833,
+          "true",
+          10118,
+          "flow",
+          false
+        ],
+        [
+          759,
+          "police",
+          10118,
+          "file",
+          false
+        ],
+        [
+          512,
+          "true",
+          10086,
+          "flow",
+          false
+        ],
+        [
+          129,
+          "walking",
+          10086,
+          "val",
+          false
+        ],
+        [
+          1178,
+          "down",
+          10267,
+          "flow",
+          false
+        ],
+        [
+          269,
+          "true",
+          10022,
+          "flow",
+          false
+        ],
+        [
+          10251,
+          "flow",
+          10252,
+          "flow",
+          false
+        ],
+        [
+          10250,
+          "val",
+          10252,
+          "X",
+          false
+        ],
+        [
+          829,
+          "reputation",
+          10252,
+          "DX",
+          false
+        ],
+        [
+          512,
+          "flow",
+          10215,
+          "flow",
+          false
+        ],
+        [
+          799,
+          "flow",
+          10244,
+          "flow",
+          false
+        ],
+        [
+          10150,
+          "flow",
+          10151,
+          "flow",
+          false
+        ],
+        [
+          258,
+          "flow",
+          10271,
+          "flow",
+          false
+        ],
+        [
+          1575,
+          "flow",
+          10271,
+          "flow",
+          false
+        ],
+        [
+          968,
+          "output",
+          10271,
+          "vehId",
+          false
+        ],
+        [
+          676,
+          "True",
+          10087,
+          "flow",
+          false
+        ],
+        [
+          10272,
+          "flow",
+          10254,
+          "flow",
+          false
+        ],
+        [
+          10239,
+          "flow",
+          10240,
+          "flow",
+          false
+        ],
+        [
+          798,
+          "flow",
+          10272,
+          "flow",
+          false
+        ],
+        [
+          10132,
+          "flow",
+          10216,
+          "flow",
+          false
+        ],
+        [
+          601,
+          "filename",
+          10216,
+          "file",
+          false
+        ],
+        [
+          781,
+          "val",
+          10216,
+          "tval",
+          false
+        ],
+        [
+          727,
+          "flow",
+          10184,
+          "flow",
+          false
+        ],
+        [
+          602,
+          "config",
+          10184,
+          "file",
+          false
+        ],
+        [
+          614,
+          "output",
+          10184,
+          "veid",
+          false
+        ],
+        [
           10135,
+          "flow",
+          10152,
           "flow",
           false
         ],
         [
           275,
-          "wayps",
-          10135,
+          "cpcount",
+          10152,
           "val",
           false
         ],
         [
-          357,
+          567,
           "flow",
-          10288,
-          "flow",
-          false
-        ],
-        [
-          689,
-          "garage",
-          10007,
+          10120,
           "flow",
           false
         ],
         [
-          689,
-          "repair",
-          10007,
+          567,
+          "cost",
+          10120,
+          "val",
+          false
+        ],
+        [
+          639,
+          "flow",
+          10088,
           "flow",
           false
         ],
         [
-          652,
+          520,
           "flow",
-          10168,
-          "flow",
-          false
-        ],
-        [
-          206,
-          "down",
-          9879,
+          10088,
           "flow",
           false
         ],
         [
-          10096,
+          766,
           "flow",
-          10104,
-          "flow",
-          false
-        ],
-        [
-          872,
-          "flow",
-          10257,
+          10088,
           "flow",
           false
         ],
         [
-          157,
+          68,
+          "time",
+          10088,
+          "time",
+          false
+        ],
+        [
+          846,
+          "daytime",
+          10088,
+          "dayLength",
+          false
+        ],
+        [
+          10027,
+          "flow",
+          10026,
+          "flow",
+          false
+        ],
+        [
+          275,
+          "aiwp",
+          10026,
+          "val",
+          false
+        ],
+        [
+          10015,
+          "flow",
+          10024,
+          "flow",
+          false
+        ],
+        [
+          186,
+          "False",
+          10031,
+          "flow",
+          false
+        ],
+        [
+          767,
+          "flow",
+          10217,
+          "flow",
+          false
+        ],
+        [
+          214,
+          "damage",
+          10217,
+          "A",
+          false
+        ],
+        [
+          10186,
+          "flow",
+          10185,
+          "flow",
+          false
+        ],
+        [
+          342,
+          "veid",
+          10185,
+          "veid",
+          false
+        ],
+        [
+          10186,
+          "val",
+          10185,
+          "file",
+          false
+        ],
+        [
+          10144,
+          "flow",
+          10153,
+          "flow",
+          false
+        ],
+        [
+          633,
+          "objID",
+          10153,
+          "newPin",
+          false
+        ],
+        [
+          10120,
+          "flow",
+          10121,
+          "flow",
+          false
+        ],
+        [
+          567,
+          "tkttxt",
+          10121,
+          "val",
+          false
+        ],
+        [
+          547,
+          "flow",
+          10089,
+          "flow",
+          false
+        ],
+        [
+          1193,
+          "flow",
+          10258,
+          "flow",
+          false
+        ],
+        [
+          829,
           "gmwp",
-          10257,
+          10258,
           "val",
           false
         ],
         [
-          10204,
+          799,
           "flow",
-          10201,
-          "flow",
-          false
-        ],
-        [
-          10136,
-          "flow",
-          10137,
+          10242,
           "flow",
           false
         ],
         [
-          897,
+          809,
+          "True",
+          10242,
+          "on",
+          false
+        ],
+        [
+          10237,
           "flow",
-          10290,
+          10298,
           "flow",
           false
         ],
         [
-          128,
+          770,
           "flow",
-          10290,
-          "reset",
-          false
-        ],
-        [
-          22,
-          "flow",
-          10170,
+          10218,
           "flow",
           false
         ],
         [
-          10105,
+          770,
+          "damage",
+          10218,
+          "A",
+          false
+        ],
+        [
+          526,
           "flow",
-          10106,
+          10186,
+          "flow",
+          false
+        ],
+        [
+          651,
+          "flow",
+          10154,
           "flow",
           false
         ],
@@ -23722,618 +24203,9 @@
           false
         ],
         [
-          9913,
-          "flow",
-          9914,
-          "flow",
-          false
-        ],
-        [
-          9913,
-          "filename",
-          9914,
-          "filename",
-          false
-        ],
-        [
-          10138,
-          "flow",
-          10139,
-          "flow",
-          false
-        ],
-        [
-          448,
-          "triggerID",
-          10139,
-          "A",
-          false
-        ],
-        [
-          10138,
-          "val",
-          10139,
-          "B",
-          false
-        ],
-        [
-          1520,
-          "flow",
-          10292,
-          "flow",
-          false
-        ],
-        [
-          910,
-          "diesel",
-          10292,
-          "text",
-          false
-        ],
-        [
-          1181,
-          "flow",
-          10011,
-          "flow",
-          false
-        ],
-        [
-          247,
-          "False",
-          10011,
-          "flow",
-          false
-        ],
-        [
-          487,
-          "flow",
-          10236,
-          "flow",
-          false
-        ],
-        [
-          311,
-          "True",
-          10172,
-          "flow",
-          false
-        ],
-        [
-          552,
-          "val",
-          10172,
-          "condition",
-          false
-        ],
-        [
-          207,
-          "flow",
-          9883,
-          "flow",
-          false
-        ],
-        [
-          207,
-          "y",
-          9883,
-          "val",
-          false
-        ],
-        [
-          197,
-          "flow",
-          10108,
-          "flow",
-          false
-        ],
-        [
-          197,
-          "Y",
-          10108,
-          "val",
-          false
-        ],
-        [
-          293,
-          "flow",
-          10044,
-          "flow",
-          false
-        ],
-        [
-          10140,
-          "flow",
-          10141,
-          "flow",
-          false
-        ],
-        [
-          10140,
-          "finished",
-          10141,
-          "condition",
-          false
-        ],
-        [
-          1118,
-          "flow",
-          10077,
-          "flow",
-          true
-        ],
-        [
-          1561,
-          "flow",
-          10294,
-          "flow",
-          false
-        ],
-        [
-          1569,
-          "dstr",
-          10294,
-          "text",
-          false
-        ],
-        [
-          1181,
-          "down",
-          10013,
-          "flow",
-          false
-        ],
-        [
-          10245,
-          "down",
-          10238,
-          "flow",
-          false
-        ],
-        [
-          843,
-          "down",
-          10238,
-          "flow",
-          false
-        ],
-        [
-          184,
-          "flow",
-          9885,
-          "flow",
-          false
-        ],
-        [
-          10142,
-          "flow",
-          10143,
-          "flow",
-          false
-        ],
-        [
-          633,
-          "objID",
-          10143,
-          "val",
-          false
-        ],
-        [
-          1679,
-          "down",
-          10296,
-          "flow",
-          false
-        ],
-        [
-          1677,
-          "down",
-          10296,
-          "flow",
-          false
-        ],
-        [
-          10013,
-          "flow",
-          10015,
-          "flow",
-          false
-        ],
-        [
-          699,
-          "flow",
-          10176,
-          "flow",
-          false
-        ],
-        [
-          1488,
-          "false",
-          10176,
-          "flow",
-          false
-        ],
-        [
-          5006,
-          "flow",
-          9887,
-          "flow",
-          false
-        ],
-        [
-          250,
-          "flowB",
-          10209,
-          "flow",
-          false
-        ],
-        [
-          137,
-          "triggerName",
-          10209,
-          "name",
-          false
-        ],
-        [
-          835,
-          "output",
-          10209,
-          "tdata",
-          true
-        ],
-        [
-          620,
-          "false",
-          10145,
-          "flow",
-          false
-        ],
-        [
-          10140,
-          "nextId",
-          10145,
-          "val",
-          true
-        ],
-        [
-          395,
-          "flow",
-          10017,
-          "flow",
-          false
-        ],
-        [
-          157,
-          "flow",
-          9889,
-          "flow",
-          false
-        ],
-        [
-          157,
-          "destpos",
-          9889,
-          "val",
-          false
-        ],
-        [
-          10118,
-          "flow",
-          10114,
-          "flow",
-          false
-        ],
-        [
-          591,
-          "false",
-          10114,
-          "reset",
-          false
-        ],
-        [
-          10118,
-          "data",
-          10114,
-          "group",
-          false
-        ],
-        [
-          846,
-          "police",
-          10114,
-          "quantity",
-          false
-        ],
-        [
-          1178,
-          "down",
-          10267,
-          "flow",
-          false
-        ],
-        [
-          1329,
-          "flow",
-          10211,
-          "flow",
-          false
-        ],
-        [
-          1335,
-          "false",
-          10211,
-          "flow",
-          false
-        ],
-        [
-          10146,
-          "flow",
-          10147,
-          "flow",
-          false
-        ],
-        [
-          10140,
-          "newLap",
-          10147,
-          "val",
-          true
-        ],
-        [
-          10299,
-          "True",
-          10300,
-          "flow",
-          false
-        ],
-        [
-          385,
-          "flow",
-          10180,
-          "flow",
-          false
-        ],
-        [
-          275,
-          "opifile",
-          10180,
-          "val",
-          false
-        ],
-        [
-          10114,
-          "loaded",
-          10116,
-          "flow",
-          false
-        ],
-        [
-          591,
-          "false",
-          10116,
-          "reset",
-          true
-        ],
-        [
-          10114,
-          "vehicleIds",
-          10116,
-          "vehicleIds",
-          false
-        ],
-        [
-          159,
-          "flow",
-          10213,
-          "flow",
-          false
-        ],
-        [
-          241,
-          "cname",
-          10213,
-          "val",
-          false
-        ],
-        [
-          10140,
-          "nextTrig",
-          10149,
-          "name",
-          false
-        ],
-        [
-          10016,
-          "flow",
-          10021,
-          "flow",
-          false
-        ],
-        [
-          833,
-          "true",
-          10118,
-          "flow",
-          false
-        ],
-        [
-          759,
-          "police",
-          10118,
-          "file",
-          false
-        ],
-        [
-          1575,
-          "flow",
-          10271,
-          "flow",
-          false
-        ],
-        [
-          258,
-          "flow",
-          10271,
-          "flow",
-          false
-        ],
-        [
-          968,
-          "output",
-          10271,
-          "vehId",
-          false
-        ],
-        [
-          512,
-          "flow",
-          10215,
-          "flow",
-          false
-        ],
-        [
-          10150,
-          "flow",
-          10151,
-          "flow",
-          false
-        ],
-        [
-          676,
-          "True",
-          10087,
-          "flow",
-          false
-        ],
-        [
-          10239,
-          "flow",
-          10240,
-          "flow",
-          false
-        ],
-        [
-          727,
-          "flow",
-          10184,
-          "flow",
-          false
-        ],
-        [
-          602,
-          "config",
-          10184,
-          "file",
-          false
-        ],
-        [
-          614,
-          "output",
-          10184,
-          "veid",
-          false
-        ],
-        [
-          567,
-          "flow",
-          10120,
-          "flow",
-          false
-        ],
-        [
-          567,
-          "cost",
-          10120,
-          "val",
-          false
-        ],
-        [
-          995,
-          "True",
-          10273,
-          "flow",
-          false
-        ],
-        [
-          1013,
-          "txt",
-          10273,
-          "text",
-          false
-        ],
-        [
-          767,
-          "flow",
-          10217,
-          "flow",
-          false
-        ],
-        [
-          214,
-          "damage",
-          10217,
-          "A",
-          false
-        ],
-        [
-          261,
-          "flow",
-          9928,
-          "flow",
-          false
-        ],
-        [
-          261,
-          "Y",
-          9928,
-          "val",
-          false
-        ],
-        [
-          10144,
-          "flow",
-          10153,
-          "flow",
-          false
-        ],
-        [
-          633,
-          "objID",
-          10153,
-          "newPin",
-          false
-        ],
-        [
-          547,
-          "flow",
           10089,
           "flow",
-          false
-        ],
-        [
-          265,
-          "flow",
-          10025,
-          "flow",
-          false
-        ],
-        [
-          275,
-          "desc",
-          10025,
-          "val",
-          false
-        ],
-        [
-          526,
-          "flow",
-          10186,
-          "flow",
-          false
-        ],
-        [
-          4986,
-          "match_2",
-          9897,
+          10090,
           "flow",
           false
         ],
@@ -24352,10 +24224,59 @@
           false
         ],
         [
-          10255,
+          10242,
           "flow",
-          10275,
+          10243,
           "flow",
+          false
+        ],
+        [
+          809,
+          "True",
+          10243,
+          "reset",
+          false
+        ],
+        [
+          897,
+          "flow",
+          10290,
+          "flow",
+          false
+        ],
+        [
+          128,
+          "flow",
+          10290,
+          "reset",
+          false
+        ],
+        [
+          10026,
+          "flow",
+          10038,
+          "flow",
+          false
+        ],
+        [
+          275,
+          "opModel",
+          10038,
+          "val",
+          false
+        ],
+        [
+          10188,
+          "flow",
+          10187,
+          "flow",
+          false
+        ],
+        [
+          10188,
+          "val",
+          10187,
+          "carid",
           false
         ],
         [
@@ -24366,6 +24287,20 @@
           false
         ],
         [
+          342,
+          "flow",
+          10286,
+          "flow",
+          false
+        ],
+        [
+          342,
+          "pout",
+          10286,
+          "val",
+          false
+        ],
+        [
           10090,
           "flow",
           10091,
@@ -24373,16 +24308,44 @@
           false
         ],
         [
-          10028,
+          528,
           "flow",
-          10027,
+          10059,
           "flow",
           false
         ],
         [
-          275,
-          "slips",
-          10027,
+          528,
+          "Y",
+          10059,
+          "val",
+          false
+        ],
+        [
+          1016,
+          "true",
+          10276,
+          "flow",
+          false
+        ],
+        [
+          1181,
+          "down",
+          10034,
+          "flow",
+          false
+        ],
+        [
+          1057,
+          "flow",
+          10282,
+          "flow",
+          false
+        ],
+        [
+          1057,
+          "time",
+          10282,
           "val",
           false
         ],
@@ -24401,17 +24364,10 @@
           false
         ],
         [
-          83,
+          10155,
           "flow",
-          9899,
+          10156,
           "flow",
-          false
-        ],
-        [
-          83,
-          "Y",
-          9899,
-          "val",
           false
         ],
         [
@@ -24419,6 +24375,20 @@
           "flow",
           10124,
           "flow",
+          false
+        ],
+        [
+          1520,
+          "flow",
+          10292,
+          "flow",
+          false
+        ],
+        [
+          910,
+          "diesel",
+          10292,
+          "text",
           false
         ],
         [
@@ -24436,17 +24406,24 @@
           true
         ],
         [
-          1012,
-          "flow",
-          10277,
+          808,
+          "True",
+          10245,
           "flow",
           false
         ],
         [
-          825,
-          "down",
-          10277,
-          "reset",
+          995,
+          "True",
+          10273,
+          "flow",
+          false
+        ],
+        [
+          1013,
+          "txt",
+          10273,
+          "text",
           false
         ],
         [
@@ -24471,37 +24448,16 @@
           false
         ],
         [
-          10034,
+          720,
           "flow",
-          10033,
-          "flow",
-          false
-        ],
-        [
-          10034,
-          "val",
-          10033,
-          "X",
-          false
-        ],
-        [
-          10029,
-          "val",
-          10033,
-          "DX",
-          false
-        ],
-        [
-          868,
-          "false",
-          10256,
+          10189,
           "flow",
           false
         ],
         [
-          869,
+          720,
           "num",
-          10256,
+          10189,
           "val",
           false
         ],
@@ -24520,38 +24476,24 @@
           false
         ],
         [
-          243,
+          623,
           "flow",
-          10037,
-          "flow",
-          false
-        ],
-        [
-          243,
-          "Y",
-          10037,
-          "X",
-          false
-        ],
-        [
-          10029,
-          "val",
-          10037,
-          "DX",
-          false
-        ],
-        [
-          10025,
-          "flow",
-          10028,
+          10125,
           "flow",
           false
         ],
         [
-          275,
-          "wager",
-          10028,
-          "val",
+          579,
+          "flow",
+          10125,
+          "flow",
+          false
+        ],
+        [
+          10241,
+          "flow",
+          10246,
+          "flow",
           false
         ],
         [
@@ -24562,31 +24504,24 @@
           false
         ],
         [
-          1193,
+          799,
           "flow",
-          10258,
-          "flow",
-          false
-        ],
-        [
-          829,
-          "gmwp",
-          10258,
-          "val",
-          false
-        ],
-        [
-          10242,
-          "flow",
-          10243,
+          10278,
           "flow",
           false
         ],
         [
-          809,
-          "True",
-          10243,
-          "reset",
+          526,
+          "flow",
+          10222,
+          "flow",
+          false
+        ],
+        [
+          275,
+          "wayps",
+          10222,
+          "wplist",
           false
         ],
         [
@@ -24604,24 +24539,17 @@
           false
         ],
         [
-          782,
+          10157,
           "flow",
-          9901,
+          10158,
           "flow",
           false
         ],
         [
-          782,
-          "output",
-          9901,
-          "data",
-          false
-        ],
-        [
-          106,
+          275,
+          "destid",
+          10158,
           "val",
-          9901,
-          "id",
           false
         ],
         [
@@ -24632,107 +24560,30 @@
           false
         ],
         [
-          4994,
+          525,
           "flow",
-          5006,
-          "flow",
-          false
-        ],
-        [
-          10241,
-          "flow",
-          10246,
+          10094,
           "flow",
           false
         ],
         [
-          1017,
-          "match_1",
-          10279,
+          10039,
           "flow",
-          false
-        ],
-        [
-          1017,
-          "match_2",
-          10279,
-          "flow",
-          false
-        ],
-        [
-          10026,
-          "flow",
-          10038,
+          10040,
           "flow",
           false
         ],
         [
           275,
-          "opModel",
-          10038,
+          "opRisk",
+          10040,
           "val",
           false
         ],
         [
-          627,
-          "True",
-          10223,
+          10029,
           "flow",
-          false
-        ],
-        [
-          1686,
-          "flow",
-          10297,
-          "flow",
-          false
-        ],
-        [
-          799,
-          "flow",
-          10242,
-          "flow",
-          false
-        ],
-        [
-          809,
-          "True",
-          10242,
-          "on",
-          false
-        ],
-        [
-          4995,
-          "match_2",
-          9870,
-          "flow",
-          false
-        ],
-        [
-          558,
-          "flow",
-          10095,
-          "flow",
-          false
-        ],
-        [
-          10033,
-          "flow",
-          10036,
-          "flow",
-          false
-        ],
-        [
-          10033,
-          "Y",
-          10036,
-          "val",
-          false
-        ],
-        [
-          186,
-          "False",
-          10031,
+          10030,
           "flow",
           false
         ],
@@ -24744,9 +24595,107 @@
           false
         ],
         [
-          10237,
+          627,
+          "True",
+          10223,
           "flow",
-          10298,
+          false
+        ],
+        [
+          423,
+          "flow",
+          10191,
+          "flow",
+          false
+        ],
+        [
+          423,
+          "val",
+          10191,
+          "name",
+          false
+        ],
+        [
+          835,
+          "output",
+          10191,
+          "tdata",
+          true
+        ],
+        [
+          10034,
+          "flow",
+          10033,
+          "flow",
+          false
+        ],
+        [
+          10034,
+          "val",
+          10033,
+          "X",
+          false
+        ],
+        [
+          10029,
+          "val",
+          10033,
+          "DX",
+          false
+        ],
+        [
+          10124,
+          "flow",
+          10127,
+          "flow",
+          false
+        ],
+        [
+          558,
+          "flow",
+          10095,
+          "flow",
+          false
+        ],
+        [
+          837,
+          "flow",
+          10253,
+          "flow",
+          false
+        ],
+        [
+          10252,
+          "Y",
+          10253,
+          "val",
+          false
+        ],
+        [
+          1017,
+          "none",
+          10280,
+          "flow",
+          false
+        ],
+        [
+          10245,
+          "down",
+          10281,
+          "flow",
+          false
+        ],
+        [
+          843,
+          "down",
+          10281,
+          "flow",
+          false
+        ],
+        [
+          10141,
+          "True",
+          10224,
           "flow",
           false
         ],
@@ -24800,30 +24749,44 @@
           false
         ],
         [
-          10015,
-          "flow",
-          10024,
-          "flow",
-          false
-        ],
-        [
-          799,
-          "flow",
-          10244,
+          454,
+          "true",
+          10096,
           "flow",
           false
         ],
         [
-          10245,
-          "down",
-          10281,
+          10025,
+          "flow",
+          10028,
           "flow",
           false
         ],
         [
-          843,
-          "down",
-          10281,
+          275,
+          "wager",
+          10028,
+          "val",
+          false
+        ],
+        [
+          10037,
+          "flow",
+          10032,
+          "flow",
+          false
+        ],
+        [
+          10037,
+          "Y",
+          10032,
+          "val",
+          false
+        ],
+        [
+          10299,
+          "True",
+          10300,
           "flow",
           false
         ],
@@ -24835,31 +24798,10 @@
           false
         ],
         [
-          1697,
+          419,
           "flow",
-          10302,
+          10193,
           "flow",
-          false
-        ],
-        [
-          1687,
-          "allvehs",
-          10302,
-          "idtable",
-          false
-        ],
-        [
-          10039,
-          "flow",
-          10040,
-          "flow",
-          false
-        ],
-        [
-          275,
-          "opRisk",
-          10040,
-          "val",
           false
         ],
         [
@@ -24877,24 +24819,10 @@
           false
         ],
         [
-          10251,
+          622,
           "flow",
-          10252,
+          10129,
           "flow",
-          false
-        ],
-        [
-          10250,
-          "val",
-          10252,
-          "X",
-          false
-        ],
-        [
-          829,
-          "reputation",
-          10252,
-          "DX",
           false
         ],
         [
@@ -24912,9 +24840,9 @@
           false
         ],
         [
-          240,
+          441,
           "flow",
-          5002,
+          10065,
           "flow",
           false
         ],
@@ -24923,6 +24851,20 @@
           "flow",
           10250,
           "flow",
+          false
+        ],
+        [
+          868,
+          "false",
+          10256,
+          "flow",
+          false
+        ],
+        [
+          869,
+          "num",
+          10256,
+          "val",
           false
         ]
       ],
@@ -25256,7 +25198,7 @@
           "type":"util/customLua"
         },
         "16":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -25332,7 +25274,7 @@
           "type":"logic/compare"
         },
         "19":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000066613,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -26260,48 +26202,6 @@
           ],
           "type":"types/genericValue"
         },
-        "47":{
-          "code":{
-            "_executionStarted":"",
-            "_executionStopped":"",
-            "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nextensions.blrutils.backupCareer()"
-          },
-          "data":{},
-          "dynamicMode":"repeat",
-          "hiddenPins":{
-            "p_in":{
-              "flow":false
-            },
-            "p_out":{
-              "flow":false
-            }
-          },
-          "name":"Backup Career",
-          "pins":[
-            [
-              "in",
-              "flow",
-              "flow",
-              null,
-              "Inflow for this node.",
-              true
-            ],
-            [
-              "out",
-              "flow",
-              "flow",
-              null,
-              "Outflow for this node.",
-              true
-            ]
-          ],
-          "pos":[
-            5974,
-            3578
-          ],
-          "type":"util/customLua"
-        },
         "48":{
           "data":{},
           "dynamicMode":"repeat",
@@ -26789,7 +26689,7 @@
           "type":"types/genericValue"
         },
         "62":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -26825,7 +26725,7 @@
           "type":"debug/comment"
         },
         "63":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -27133,7 +27033,7 @@
           "type":"ui/imgui/elemental/imEnd"
         },
         "70":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -27169,7 +27069,7 @@
           "type":"debug/comment"
         },
         "71":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -27208,7 +27108,7 @@
           "code":{
             "_executionStarted":"",
             "_executionStopped":"",
-            "work":"if not self.pinIn.nocar.value and self.pinIn.vehRdy.value then\nlocal extensions = require(\"extensions\")\nlocal ve = scenetree.findObjectById(self.pinIn.veid.value)\nif ve then\nlocal valFetch = \"extensions.blrVehicleUtils.getFuelTotal()\"\nlocal capFetch = \"extensions.blrVehicleUtils.getFuelCapacityTotal()\"\nlocal oilvalFetch = \"extensions.blrVehicleUtils.getOilVolumeCurrent()\"\nlocal oilcapFetch = \"extensions.blrVehicleUtils.getOilVolumeInitial()\"\nlocal valID = \"fuelval\"\nlocal capID = \"fuelcap\"\nlocal oilvalID = \"oilval\"\nlocal oilcapID = \"oilcap\"\nlocal valcmd = \"obj:queueGameEngineLua(string.format('extensions.vluaFetchModule.fetch(%s,%q)', \" .. valFetch .. \",'\" .. valID .. \"'))\"\nlocal capcmd = \"obj:queueGameEngineLua(string.format('extensions.vluaFetchModule.fetch(%s,%q)', \" .. capFetch .. \",'\" .. capID .. \"'))\"\nlocal oilvalcmd = \"obj:queueGameEngineLua(string.format('extensions.vluaFetchModule.fetch(%s,%q)', \" .. oilvalFetch .. \",'\" .. oilvalID .. \"'))\"\nlocal oilcapcmd = \"obj:queueGameEngineLua(string.format('extensions.vluaFetchModule.fetch(%s,%q)', \" .. oilcapFetch .. \",'\" .. oilcapID .. \"'))\"\nif ve.queueLuaCommand ~= nil then\nve:queueLuaCommand(valcmd)\nve:queueLuaCommand(capcmd)\nve:queueLuaCommand(oilvalcmd)\nve:queueLuaCommand(oilcapcmd)\nend\nself.pinOut.fuelVal.value = tonumber(extensions.vluaFetchModule.getVal(valID))\nself.pinOut.fuelCap.value = tonumber(extensions.vluaFetchModule.getVal(capID))\nself.pinOut.oilVal.value = tonumber(extensions.vluaFetchModule.getVal(oilvalID))\nself.pinOut.oilCap.value = tonumber(extensions.vluaFetchModule.getVal(oilcapID))\nelse\nself.pinOut.fuelVal.value = 0\nself.pinOut.fuelCap.value = 0\nself.pinOut.oilVal.value = 0\nself.pinOut.oilCap.value = 0\nend\nelse\nself.pinOut.fuelVal.value = 0\nself.pinOut.fuelCap.value = 0\nself.pinOut.oilVal.value = 0\nself.pinOut.oilCap.value = 0\nend"
+            "work":"if not self.pinIn.nocar.value and self.pinIn.vehRdy.value then\nlocal extensions = require(\"extensions\")\nlocal ve = scenetree.findObjectById(self.pinIn.veid.value)\nif ve then\n\nlocal valFetch = \"extensions.blrVehicleUtils.getFuelTotal()\"\nlocal capFetch = \"extensions.blrVehicleUtils.getFuelCapacityTotal()\"\nlocal valID = \"fuelval\"\nlocal capID = \"fuelcap\"\nlocal valcmd = \"obj:queueGameEngineLua(string.format('extensions.vluaFetchModule.fetch(%s,%q)', \" .. valFetch .. \",'\" .. valID .. \"'))\"\nlocal capcmd = \"obj:queueGameEngineLua(string.format('extensions.vluaFetchModule.fetch(%s,%q)', \" .. capFetch .. \",'\" .. capID .. \"'))\"\n\n\nlocal oilvalID = \"oilval\"\nlocal oilcapID = \"oilcap\"\nlocal oilvalFetch = \"extensions.blrVehicleUtils.getOilVolumeCurrent()\"\nlocal oilcapFetch = \"extensions.blrVehicleUtils.getOilVolumeInitial()\"\nlocal oilvalcmd = \"obj:queueGameEngineLua(string.format('extensions.vluaFetchModule.fetch(%s,%q)', \" .. oilvalFetch .. \",'\" .. oilvalID .. \"'))\"\nlocal oilcapcmd = \"obj:queueGameEngineLua(string.format('extensions.vluaFetchModule.fetch(%s,%q)', \" .. oilcapFetch .. \",'\" .. oilcapID .. \"'))\"\n\nlocal coolvalID = \"coolval\"\nlocal coolcapID = \"coolcap\"\nlocal coolvalFetch = \"extensions.blrVehicleUtils.getCoolantVolumeCurrent()\"\nlocal coolcapFetch = \"extensions.blrVehicleUtils.getCoolantVolumeInitial()\"\nlocal coolvalcmd = \"obj:queueGameEngineLua(string.format('extensions.vluaFetchModule.fetch(%s,%q)', \" .. coolvalFetch .. \",'\" .. coolvalID .. \"'))\"\nlocal coolcapcmd = \"obj:queueGameEngineLua(string.format('extensions.vluaFetchModule.fetch(%s,%q)', \" .. coolcapFetch .. \",'\" .. coolcapID .. \"'))\"\n\n\n\nif ve.queueLuaCommand ~= nil then\nve:queueLuaCommand(valcmd)\nve:queueLuaCommand(capcmd)\nve:queueLuaCommand(oilvalcmd)\nve:queueLuaCommand(oilcapcmd)\nve:queueLuaCommand(coolvalcmd)\nve:queueLuaCommand(coolcapcmd)\nend\nself.pinOut.fuelVal.value = tonumber(extensions.vluaFetchModule.getVal(valID))\nself.pinOut.fuelCap.value = tonumber(extensions.vluaFetchModule.getVal(capID))\nself.pinOut.oilVal.value = tonumber(extensions.vluaFetchModule.getVal(oilvalID))\nself.pinOut.oilCap.value = tonumber(extensions.vluaFetchModule.getVal(oilcapID))\nself.pinOut.coolVal.value = tonumber(extensions.vluaFetchModule.getVal(coolvalID))\nself.pinOut.coolCap.value = tonumber(extensions.vluaFetchModule.getVal(coolcapID))\nelse\nself.pinOut.fuelVal.value = 0\nself.pinOut.fuelCap.value = 0\nself.pinOut.oilVal.value = 0\nself.pinOut.oilCap.value = 0\nself.pinOut.coolCap.value = 0\nself.pinOut.coolVal.value = 0\nend\nelse\nself.pinOut.fuelVal.value = 0\nself.pinOut.fuelCap.value = 0\nself.pinOut.oilVal.value = 0\nself.pinOut.oilCap.value = 0\nself.pinOut.coolCap.value = 0\nself.pinOut.coolVal.value = 0\nend"
           },
           "customIcon":"local_gas_station",
           "data":{},
@@ -27221,6 +27121,8 @@
               "veid":false
             },
             "p_out":{
+              "coolCap":false,
+              "coolVal":false,
               "flow":false,
               "fuelCap":false,
               "fuelVal":false,
@@ -27288,6 +27190,20 @@
               "oilCap",
               null,
               ""
+            ],
+            [
+              "out",
+              "number",
+              "coolVal",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "number",
+              "coolCap",
+              null,
+              ""
             ]
           ],
           "pos":[
@@ -27297,7 +27213,7 @@
           "type":"util/customLua"
         },
         "73":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -27701,7 +27617,7 @@
           "type":"logic/switchcase"
         },
         "86":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -27756,7 +27672,7 @@
           "type":"types/number"
         },
         "88":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -28172,7 +28088,7 @@
           "code":{
             "_executionStarted":"",
             "_executionStopped":"",
-            "work":"local extensions = require(\"extensions\")\nlocal vars = self.mgr.variables.variables\nlocal unit = extensions.blrutils.getSettingValue(\"uiUnits\")\nlocal money = self.pinIn.money.value or 0\nlocal carCount = self.pinIn.carCount.value or 0\nlocal fuelval = self.pinIn.fuelVal.value or 0\nlocal fuelcap = self.pinIn.fuelCap.value or 0\nlocal damage = self.pinIn.damage.value or 0\nlocal accel = self.pinIn.accel.value or 0\nlocal rep = self.pinIn.rep.value or 0\nlocal health = self.pinIn.health.value or 100\nlocal day = extensions.blrutils.getGameDay()\nlocal oilval = self.pinIn.oilval.value or 0\nlocal oilcap = self.pinIn.oilcap.value or 0\n\nhealth = math.max(health, 0)\n\nlocal text = \"\"\nlocal moneyText = string.format(\"$%.2f\", money)\n\ntext = \"Money: \" .. moneyText .. \"\\n\"\ntext = text .. \"Reputation: \" .. rep .. \"\\n\"\ntext = text .. \"Current Day: \" .. (day + 1) .. \"\\n\"\n\nif extensions.blrglobals.blrFlagGet(\"healthToggle\") then\ntext = text .. \"Health: \" .. (string.format(\"%.1f\", health)) .. \"%% (\" .. (string.format(\"%d\", accel/9.8)) .. \" G)\\n\"\nend\n\nif unit == \"imperial\" then\ntext = text .. \"Fuel: \" .. string.format(\"%.2f / %.2f Gallons\", fuelval / 3.785, fuelcap / 3.785) .. \"\\n\"\ntext = text .. \"Oil: \" .. string.format(\"%.2f / %.2f Gallons\", oilval / 3.785, oilcap / 3.785) .. \"\\n\"\nelse\ntext = text .. \"Fuel: \" .. string.format(\"%.2f / %.2f Liters\", fuelval, fuelcap) .. \"\\n\"\ntext = text .. \"Oil: \" .. string.format(\"%.2f / %.2f Liters\", oilval, oilcap) .. \"\\n\"\nend\n\ntext = text .. \"Repair Cost: \" .. string.format(\"$%.2f\", damage) .. \"\\n\"\n\nself.pinOut.formatted.value = text\n"
+            "work":"local extensions = require(\"extensions\")\nlocal vars = self.mgr.variables.variables\nlocal unit = extensions.blrutils.getSettingValue(\"uiUnits\")\nlocal money = self.pinIn.money.value or 0\nlocal carCount = self.pinIn.carCount.value or 0\nlocal fuelval = self.pinIn.fuelVal.value or 0\nlocal fuelcap = self.pinIn.fuelCap.value or 0\nlocal damage = self.pinIn.damage.value or 0\nlocal accel = self.pinIn.accel.value or 0\nlocal rep = self.pinIn.rep.value or 0\nlocal health = self.pinIn.health.value or 100\nlocal day = extensions.blrutils.getGameDay()\nlocal oilval = self.pinIn.oilval.value or 0\nlocal oilcap = self.pinIn.oilcap.value or 0\nlocal coolval = self.pinIn.coolval.value or 0\nlocal coolcap = self.pinIn.coolcap.value or 0\n\nhealth = math.max(health, 0)\n\nlocal text = \"\"\nlocal moneyText = string.format(\"$%.2f\", money)\n\ntext = \"Money: \" .. moneyText .. \"\\n\"\ntext = text .. \"Reputation: \" .. rep .. \"\\n\"\ntext = text .. \"Current Day: \" .. (day + 1) .. \"\\n\"\n\nif extensions.blrglobals.blrFlagGet(\"healthToggle\") then\ntext = text .. \"Health: \" .. (string.format(\"%.1f\", health)) .. \"%% (\" .. (string.format(\"%d\", accel/9.8)) .. \" G)\\n\"\nend\n\nif unit == \"imperial\" then\ntext = text .. \"Fuel: \" .. string.format(\"%.2f / %.2f gal\", fuelval / 3.785, fuelcap / 3.785) .. \"\\n\"\ntext = text .. \"Oil: \" .. string.format(\"%.2f / %.2f gal\", oilval / 3.785, oilcap / 3.785) .. \"\\n\"\ntext = text .. \"Coolant: \" .. string.format(\"%.2f / %.2f gal\", coolval / 3.785, coolcap / 3.785) .. \"\\n\"\nelse\ntext = text .. \"Fuel: \" .. string.format(\"%.2f / %.2f L\", fuelval, fuelcap) .. \"\\n\"\ntext = text .. \"Oil: \" .. string.format(\"%.2f / %.2f L\", oilval, oilcap) .. \"\\n\"\ntext = text .. \"Coolant: \" .. string.format(\"%.2f / %.2f L\", coolval, coolcap) .. \"\\n\"\nend\n\ntext = text .. \"Repair Cost: \" .. string.format(\"$%.2f\", damage) .. \"\\n\"\n\nself.pinOut.formatted.value = text\n"
           },
           "customName":"Statistics UI Display",
           "data":{},
@@ -28181,6 +28097,8 @@
             "p_in":{
               "accel":false,
               "carCount":false,
+              "coolcap":false,
+              "coolval":false,
               "damage":false,
               "flow":false,
               "fuelCap":false,
@@ -28284,6 +28202,20 @@
               "oilcap",
               null,
               ""
+            ],
+            [
+              "in",
+              "number",
+              "coolval",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "number",
+              "coolcap",
+              null,
+              ""
             ]
           ],
           "pos":[
@@ -28362,7 +28294,7 @@
           "type":"ui/imgui/elemental/imEnd"
         },
         "101":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -29515,7 +29447,7 @@
           "type":"util/customLua"
         },
         "120":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -30170,7 +30102,7 @@
           "type":"util/customLua"
         },
         "134":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -30492,7 +30424,7 @@
           "type":"ui/flashMessage"
         },
         "141":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -30628,7 +30560,7 @@
           "type":"util/customLua"
         },
         "144":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -30785,7 +30717,7 @@
           "type":"util/customLua"
         },
         "147":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -31093,7 +31025,7 @@
           "type":"gameplay/traffic/trafficActivate"
         },
         "154":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -31620,7 +31552,7 @@
           "type":"types/genericValue"
         },
         "170":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -32017,7 +31949,7 @@
           "type":"ui/imgui/elemental/imEnd"
         },
         "179":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -32135,7 +32067,7 @@
           "type":"util/customLua"
         },
         "181":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -33044,7 +32976,7 @@
           "type":"util/customLua"
         },
         "202":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -33058,7 +32990,7 @@
             1
           ],
           "commentSize":[
-            1118,
+            460,
             844
           ],
           "commentText":"",
@@ -33067,7 +32999,7 @@
           "dynamicMode":"repeat",
           "moveMode":"withNodes",
           "pos":[
-            3164,
+            3192,
             -1568
           ],
           "simple":false,
@@ -33509,7 +33441,7 @@
           "code":{
             "_executionStarted":"",
             "_executionStopped":"",
-            "work":"local dtable = self.pinIn.data.value\nself.pinOut.name.value = dtable[\"name\"]\nself.pinOut.type.value = dtable[\"type\"]\nself.pinOut.bsfile.value = \"beamLR/beamstate/car\" .. self.pinIn.id.value .. \".save.json\"\nself.pinOut.config.value = \"beamLR/garage/config/car\" .. self.pinIn.id.value\nself.pinOut.mfile.value = \"beamLR/beamstate/mech/car\" .. self.pinIn.id.value\nself.pinOut.ifile.value = \"beamLR/beamstate/integrity/car\" .. self.pinIn.id.value\nself.pinOut.gas.value = tonumber(dtable[\"gas\"])\nself.pinOut.paintdata.value = {paintA=dtable[\"paintA\"], paintB=dtable[\"paintB\"],paintC=dtable[\"paintC\"] }\nself.pinOut.damage.value = tonumber(dtable[\"damage\"])\nself.pinOut.scrapVal.value = tonumber(dtable[\"scrapval\"])\nself.pinOut.nos.value = tonumber(dtable[\"nos\"]) or 0.000000000001\nself.pinOut.avbrdy.value = (tonumber(dtable[\"avbready\"] or \"0\") == 1)\nself.pinOut.fueltype.value = dtable[\"fueltype\"]\nself.pinOut.fuelratio.value = dtable[\"fuelratio\"]\nself.pinOut.oil.value = tonumber(dtable[\"oil\"] or \"-1\") -- -1 fallback value tells set function to use initial value"
+            "work":"local dtable = self.pinIn.data.value\nself.pinOut.name.value = dtable[\"name\"]\nself.pinOut.type.value = dtable[\"type\"]\nself.pinOut.bsfile.value = \"beamLR/beamstate/car\" .. self.pinIn.id.value .. \".save.json\"\nself.pinOut.config.value = \"beamLR/garage/config/car\" .. self.pinIn.id.value\nself.pinOut.mfile.value = \"beamLR/beamstate/mech/car\" .. self.pinIn.id.value\nself.pinOut.ifile.value = \"beamLR/beamstate/integrity/car\" .. self.pinIn.id.value\nself.pinOut.gas.value = tonumber(dtable[\"gas\"])\nself.pinOut.paintdata.value = {paintA=dtable[\"paintA\"], paintB=dtable[\"paintB\"],paintC=dtable[\"paintC\"] }\nself.pinOut.damage.value = tonumber(dtable[\"damage\"])\nself.pinOut.scrapVal.value = tonumber(dtable[\"scrapval\"])\nself.pinOut.nos.value = tonumber(dtable[\"nos\"]) or 0.000000000001\nself.pinOut.avbrdy.value = (tonumber(dtable[\"avbready\"] or \"0\") == 1)\nself.pinOut.fueltype.value = dtable[\"fueltype\"]\nself.pinOut.fuelratio.value = dtable[\"fuelratio\"]\nself.pinOut.oil.value = tonumber(dtable[\"oil\"] or \"-1\") -- -1 fallback value tells set function to use initial value\nself.pinOut.coolant.value = tonumber(dtable[\"coolant\"] or \"-1\") -- -1 fallback value tells set function to use initial value\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -33523,6 +33455,7 @@
               "avbrdy":false,
               "bsfile":false,
               "config":false,
+              "coolant":false,
               "damage":false,
               "flow":false,
               "fuelratio":false,
@@ -33666,6 +33599,13 @@
               "out",
               "number",
               "oil",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "number",
+              "coolant",
               null,
               ""
             ]
@@ -34090,7 +34030,7 @@
           "type":"types/genericValue"
         },
         "225":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -34386,7 +34326,7 @@
           "type":"types/genericValue"
         },
         "231":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -34670,7 +34610,7 @@
           "type":"util/customLua"
         },
         "239":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -36442,7 +36382,7 @@
           "type":"logic/once"
         },
         "277":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -37044,7 +36984,7 @@
           "type":"util/customLua"
         },
         "287":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -37454,7 +37394,7 @@
           "code":{
             "_executionStarted":"",
             "_executionStopped":"",
-            "work":"local dtable = self.pinIn.data.value\nself.pinOut.name.value = dtable[\"name\"]\nself.pinOut.type.value = dtable[\"type\"]\nself.pinOut.bsfile.value = \"beamLR/beamstate/car\" .. self.pinIn.id.value .. \".save.json\"\nself.pinOut.config.value = \"beamLR/garage/config/car\" .. self.pinIn.id.value\nself.pinOut.mfile.value = \"beamLR/beamstate/mech/car\" .. self.pinIn.id.value\nself.pinOut.ifile.value = \"beamLR/beamstate/integrity/car\" .. self.pinIn.id.value\nself.pinOut.gas.value = tonumber(dtable[\"gas\"])\nself.pinOut.paintdata.value = {paintA=dtable[\"paintA\"], paintB=dtable[\"paintB\"],paintC=dtable[\"paintC\"] }\nself.pinOut.damage.value = tonumber(dtable[\"damage\"])\nself.pinOut.scrapVal.value = tonumber(dtable[\"scrapval\"])\nself.pinOut.nos.value = tonumber(dtable[\"nos\"]) or 0.000000000001\nself.pinOut.avbrdy.value = (tonumber(dtable[\"avbready\"] or \"0\") == 1)\nself.pinOut.fueltype.value = dtable[\"fueltype\"]\nself.pinOut.fuelratio.value = dtable[\"fuelratio\"]\nself.pinOut.oil.value = tonumber(dtable[\"oil\"] or \"-1\") -- -1 fallback value tells set function to use initial value"
+            "work":"local dtable = self.pinIn.data.value\nself.pinOut.name.value = dtable[\"name\"]\nself.pinOut.type.value = dtable[\"type\"]\nself.pinOut.bsfile.value = \"beamLR/beamstate/car\" .. self.pinIn.id.value .. \".save.json\"\nself.pinOut.config.value = \"beamLR/garage/config/car\" .. self.pinIn.id.value\nself.pinOut.mfile.value = \"beamLR/beamstate/mech/car\" .. self.pinIn.id.value\nself.pinOut.ifile.value = \"beamLR/beamstate/integrity/car\" .. self.pinIn.id.value\nself.pinOut.gas.value = tonumber(dtable[\"gas\"])\nself.pinOut.paintdata.value = {paintA=dtable[\"paintA\"], paintB=dtable[\"paintB\"],paintC=dtable[\"paintC\"] }\nself.pinOut.damage.value = tonumber(dtable[\"damage\"])\nself.pinOut.scrapVal.value = tonumber(dtable[\"scrapval\"])\nself.pinOut.nos.value = tonumber(dtable[\"nos\"]) or 0.000000000001\nself.pinOut.avbrdy.value = (tonumber(dtable[\"avbready\"] or \"0\") == 1)\nself.pinOut.fueltype.value = dtable[\"fueltype\"]\nself.pinOut.fuelratio.value = dtable[\"fuelratio\"]\nself.pinOut.oil.value = tonumber(dtable[\"oil\"] or \"-1\") -- -1 fallback value tells set function to use initial value\nself.pinOut.coolant.value = tonumber(dtable[\"coolant\"] or \"-1\") -- -1 fallback value tells set function to use initial value\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -37468,6 +37408,7 @@
               "avbrdy":false,
               "bsfile":false,
               "config":false,
+              "coolant":false,
               "damage":false,
               "flow":false,
               "fuelratio":false,
@@ -37611,6 +37552,13 @@
               "out",
               "number",
               "oil",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "number",
+              "coolant",
               null,
               ""
             ]
@@ -38775,7 +38723,7 @@
           "type":"logic/compare"
         },
         "326":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -39268,7 +39216,7 @@
           "type":"util/customLua"
         },
         "338":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -39321,7 +39269,7 @@
           "type":"logic/bundle"
         },
         "340":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -40412,7 +40360,7 @@
           "type":"types/genericValue"
         },
         "359":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -40871,7 +40819,7 @@
           "type":"logic/bundle"
         },
         "370":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -41572,7 +41520,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nlocal ftstr = extensions.blrutils.blrvarGet(\"fuelTypeString\") or \"none\"\nlocal frstr = extensions.blrutils.blrvarGet(\"fuelRatioString\") or \"1.0,0.0,0.0\"\nlocal dtable = self.pinIn.current.value\n\nif self.pinIn.name.value ~= nil then\ndtable[\"name\"] = self.pinIn.name.value\nend\n\nif self.pinIn.type.value ~= nil then\ndtable[\"type\"] = self.pinIn.type.value\nend\n\nif self.pinIn.gas.value ~= nil then\ndtable[\"gas\"] = self.pinIn.gas.value\nend\n\nif self.pinIn.damage.value ~= nil then\ndtable[\"damage\"] = self.pinIn.damage.value\nend\n\nif self.pinIn.nos.value ~= nil then\ndtable[\"nos\"] = self.pinIn.nos.value\nend\n\nif self.pinIn.oil.value ~= nil then\ndtable[\"oil\"] = self.pinIn.oil.value\nend\n\ndtable[\"fueltype\"] = ftstr\ndtable[\"fuelratio\"] = frstr\n\nself.pinOut.output.value = dtable"
+            "work":"local extensions = require(\"extensions\")\nlocal ftstr = extensions.blrutils.blrvarGet(\"fuelTypeString\") or \"none\"\nlocal frstr = extensions.blrutils.blrvarGet(\"fuelRatioString\") or \"1.0,0.0,0.0\"\nlocal dtable = self.pinIn.current.value\n\nif self.pinIn.name.value ~= nil then\ndtable[\"name\"] = self.pinIn.name.value\nend\n\nif self.pinIn.type.value ~= nil then\ndtable[\"type\"] = self.pinIn.type.value\nend\n\nif self.pinIn.gas.value ~= nil then\ndtable[\"gas\"] = self.pinIn.gas.value\nend\n\nif self.pinIn.damage.value ~= nil then\ndtable[\"damage\"] = self.pinIn.damage.value\nend\n\nif self.pinIn.nos.value ~= nil then\ndtable[\"nos\"] = self.pinIn.nos.value\nend\n\nif self.pinIn.oil.value ~= nil then\ndtable[\"oil\"] = self.pinIn.oil.value\nend\n\nif self.pinIn.coolant.value ~= nil then\ndtable[\"coolant\"] = self.pinIn.coolant.value\nend\n\ndtable[\"fueltype\"] = ftstr\ndtable[\"fuelratio\"] = frstr\n\nself.pinOut.output.value = dtable"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -41580,6 +41528,7 @@
             "p_in":{
               "bsfile":true,
               "config":true,
+              "coolant":false,
               "current":false,
               "damage":false,
               "flow":false,
@@ -41689,11 +41638,18 @@
               "oil",
               null,
               ""
+            ],
+            [
+              "in",
+              "number",
+              "coolant",
+              null,
+              ""
             ]
           ],
           "pos":[
             5848,
-            -384
+            -413
           ],
           "type":"util/customLua"
         },
@@ -41778,12 +41734,13 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nlocal ftstr = extensions.blrutils.blrvarGet(\"fuelTypeString\") or \"none\"\nlocal frstr = extensions.blrutils.blrvarGet(\"fuelRatioString\") or \"1.0,0.0,0.0\"\nlocal dtable = self.pinIn.current.value\n\nif self.pinIn.name.value ~= nil then\ndtable[\"name\"] = self.pinIn.name.value\nend\n\nif self.pinIn.type.value ~= nil then\ndtable[\"type\"] = self.pinIn.type.value\nend\n\nif self.pinIn.gas.value ~= nil then\ndtable[\"gas\"] = self.pinIn.gas.value\nend\n\nif self.pinIn.damage.value ~= nil then\ndtable[\"damage\"] = self.pinIn.damage.value\nend\n\nif self.pinIn.nos.value ~= nil then\ndtable[\"nos\"] = self.pinIn.nos.value\nend\n\nif self.pinIn.oil.value ~= nil then\ndtable[\"oil\"] = self.pinIn.oil.value\nend\n\ndtable[\"fueltype\"] = ftstr\ndtable[\"fuelratio\"] = frstr\n\nself.pinOut.output.value = dtable"
+            "work":"local extensions = require(\"extensions\")\nlocal ftstr = extensions.blrutils.blrvarGet(\"fuelTypeString\") or \"none\"\nlocal frstr = extensions.blrutils.blrvarGet(\"fuelRatioString\") or \"1.0,0.0,0.0\"\nlocal dtable = self.pinIn.current.value\n\nif self.pinIn.name.value ~= nil then\ndtable[\"name\"] = self.pinIn.name.value\nend\n\nif self.pinIn.type.value ~= nil then\ndtable[\"type\"] = self.pinIn.type.value\nend\n\nif self.pinIn.gas.value ~= nil then\ndtable[\"gas\"] = self.pinIn.gas.value\nend\n\nif self.pinIn.damage.value ~= nil then\ndtable[\"damage\"] = self.pinIn.damage.value\nend\n\nif self.pinIn.nos.value ~= nil then\ndtable[\"nos\"] = self.pinIn.nos.value\nend\n\nif self.pinIn.oil.value ~= nil then\ndtable[\"oil\"] = self.pinIn.oil.value\nend\n\nif self.pinIn.coolant.value ~= nil then\ndtable[\"coolant\"] = self.pinIn.coolant.value\nend\n\ndtable[\"fueltype\"] = ftstr\ndtable[\"fuelratio\"] = frstr\n\nself.pinOut.output.value = dtable"
           },
           "data":{},
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
+              "coolant":false,
               "current":false,
               "damage":false,
               "flow":false,
@@ -41871,6 +41828,13 @@
               "oil",
               null,
               ""
+            ],
+            [
+              "in",
+              "number",
+              "coolant",
+              null,
+              ""
             ]
           ],
           "pos":[
@@ -41944,6 +41908,78 @@
           "pos":[
             2726,
             1184
+          ],
+          "type":"util/customLua"
+        },
+        "391":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal k = self.pinIn.key.value\nlocal flag = extensions.blrglobals.getFlag(k)\nlocal toRet = extensions.blrglobals.fgGetVal(k)\nself.pinOut.val.value = toRet\nself.pinOut.flag.value = flag\n"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "key":{
+              "type":"string",
+              "value":"pcool"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "key":false
+            },
+            "p_out":{
+              "flag":true,
+              "flow":false,
+              "val":false
+            }
+          },
+          "name":"BLRGlobal Get",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "string",
+              "key",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "any",
+              "val",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "bool",
+              "flag",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -780,
+            1855
           ],
           "type":"util/customLua"
         },
@@ -42602,7 +42638,7 @@
           "type":"util/customLua"
         },
         "408":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -43804,22 +43840,6 @@
           ],
           "type":"util/customLua"
         },
-        "434":{
-          "data":{},
-          "dynamicMode":"repeat",
-          "hiddenPins":{
-            "p_in":{
-              "attempt":true,
-              "flow":false
-            },
-            "p_out":{}
-          },
-          "pos":[
-            6170,
-            3550
-          ],
-          "type":"activity/activityStop"
-        },
         "435":{
           "code":{
             "_executionStarted":"",
@@ -44109,7 +44129,7 @@
           "type":"util/customLua"
         },
         "439":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -44827,7 +44847,7 @@
           "type":"util/customLua"
         },
         "449":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -45728,7 +45748,7 @@
           "type":"util/customLua"
         },
         "468":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -45764,7 +45784,7 @@
           "type":"debug/comment"
         },
         "469":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -45925,7 +45945,7 @@
           "type":"logic/frameDelay"
         },
         "475":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -46550,7 +46570,7 @@
           "type":"logic/frameDelay"
         },
         "489":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -47390,7 +47410,7 @@
           "type":"scene/camera/returnToVehicle"
         },
         "511":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -47476,7 +47496,7 @@
           "type":"ui/flashMessage"
         },
         "514":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -49413,7 +49433,7 @@
           "type":"util/customLua"
         },
         "556":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -49791,7 +49811,7 @@
           "type":"util/customLua"
         },
         "565":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -50785,7 +50805,7 @@
           "type":"logic/compare"
         },
         "592":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -50873,7 +50893,7 @@
           "type":"logic/branch"
         },
         "595":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -52109,7 +52129,7 @@
           "type":"logic/compare"
         },
         "621":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -53035,7 +53055,7 @@
           "type":"logic/once"
         },
         "646":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -53283,9 +53303,9 @@
         "650":{
           "alpha":1,
           "backgroundColor":[
-            0.50196081399917691357,
-            0.50196081399917691357,
-            0.50196081399917691357,
+            0.50196081399917791277,
+            0.50196081399917791277,
+            0.50196081399917791277,
             1
           ],
           "borderColor":[
@@ -53924,7 +53944,7 @@
           "type":"util/customLua"
         },
         "667":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -54026,8 +54046,8 @@
             ]
           ],
           "pos":[
-            -1068,
-            1856
+            -1102,
+            1855
           ],
           "type":"util/customLua"
         },
@@ -54191,7 +54211,7 @@
           "type":"types/genericValue"
         },
         "674":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -55592,7 +55612,7 @@
           "type":"types/genericValue"
         },
         "705":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -57739,7 +57759,7 @@
           "type":"util/customLua"
         },
         "751":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -58627,7 +58647,7 @@
           "type":"util/customLua"
         },
         "771":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -58899,9 +58919,9 @@
         "779":{
           "alpha":1,
           "backgroundColor":[
-            0.50196081399917691357,
-            0.50196081399917691357,
-            0.50196081399917691357,
+            0.50196081399917791277,
+            0.50196081399917791277,
+            0.50196081399917791277,
             1.00392162799835205078
           ],
           "borderColor":[
@@ -59441,7 +59461,7 @@
           "type":"util/customLua"
         },
         "792":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -59785,7 +59805,7 @@
               "value":[
                 1,
                 0,
-                0.00006008148190000357,
+                0.00006008148190000376,
                 1
               ]
             },
@@ -62361,8 +62381,8 @@
             ]
           ],
           "pos":[
-            -620,
-            1856
+            -676,
+            1855
           ],
           "type":"util/customLua"
         },
@@ -62641,7 +62661,7 @@
           "type":"vehicle/freeze"
         },
         "864":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -64343,7 +64363,7 @@
           "type":"ui/imgui/elemental/imButton"
         },
         "900":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -64705,7 +64725,7 @@
           "type":"util/customLua"
         },
         "907":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -64866,7 +64886,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nlocal dtable = self.pinIn.input.value\nlocal units = extensions.blrutils.getSettingValue(\"uiUnits\")\nlocal seed = extensions.blrutils.getDailySeed() + tonumber(dtable[\"id\"])\nlocal processed = extensions.blrutils.processGasStationRandoms(dtable, seed)\nlocal cost_regular = tonumber(processed[\"cost\"])\nlocal cost_midgrade = tonumber(processed[\"cost_midgrade\"])\nlocal cost_premium = tonumber(processed[\"cost_premium\"])\nlocal cost_diesel = tonumber(processed[\"cost_diesel\"])\nlocal cost_selected = extensions.blrutils.blrvarGet(\"smoothFuelSetCost\")\nlocal fueling = extensions.blrglobals.blrFlagGet(\"smoothFueling\")\n\nlocal pricetxt_regular = \"\"\nlocal pricetxt_midgrade = \"\"\nlocal pricetxt_premium = \"\"\nlocal pricetxt_diesel = \"\"\n\nlocal btntxt_regular = \"\"\nlocal btntxt_midgrade = \"\"\nlocal btntxt_premium = \"\"\nlocal btntxt_diesel = \"\"\n\nif units == \"imperial\" then\npricetxt_regular = \"$\" .. string.format(\"%.2f\",math.floor(cost_regular * 3.785 * 100.0) / 100.0) .. \" / Gallon\"\npricetxt_midgrade = \"$\" .. string.format(\"%.2f\",math.floor(cost_midgrade * 3.785 * 100.0) / 100.0) .. \" / Gallon\"\npricetxt_premium = \"$\" .. string.format(\"%.2f\",math.floor(cost_premium * 3.785 * 100.0) / 100.0) .. \" / Gallon\"\npricetxt_diesel = \"$\" .. string.format(\"%.2f\",math.floor(cost_diesel * 3.785 * 100.0) / 100.0) .. \" / Gallon\"\nelse\npricetxt_regular = \"$\" .. string.format(\"%.2f\",cost_regular) .. \" / Liter\"\npricetxt_midgrade = \"$\" .. string.format(\"%.2f\",cost_midgrade) .. \" / Liter\"\npricetxt_premium = \"$\" .. string.format(\"%.2f\",cost_premium) .. \" / Liter\"\npricetxt_diesel = \"$\" .. string.format(\"%.2f\",cost_diesel) .. \" / Liter\"\nend\n\nif fueling then\nbtntxt_regular = \"Stop Refuel\"\nelse\nbtntxt_regular = \"Regular \" .. pricetxt_regular\nbtntxt_midgrade = \"Mid-Grade \" .. pricetxt_midgrade\nbtntxt_premium = \"Premium \" .. pricetxt_premium\nbtntxt_diesel = \"Diesel \" .. pricetxt_diesel\nend\n\nself.pinOut.name.value = dtable[\"name\"]\nself.pinOut.cost_regular.value = cost_regular\nself.pinOut.cost_midgrade.value = cost_midgrade\nself.pinOut.cost_premium.value = cost_premium\nself.pinOut.cost_diesel.value = cost_diesel\nself.pinOut.btntxt.value = btntxt_regular\nself.pinOut.midgrade.value = btntxt_midgrade\nself.pinOut.premium.value = btntxt_premium\nself.pinOut.diesel.value = btntxt_diesel\nself.pinOut.fueling.value = fueling\nself.pinOut.cost_selected.value = cost_selected"
+            "work":"local extensions = require(\"extensions\")\nlocal dtable = self.pinIn.input.value\nlocal units = extensions.blrutils.getSettingValue(\"uiUnits\")\nlocal seed = extensions.blrutils.getDailySeed() + tonumber(dtable[\"id\"])\nlocal processed = extensions.blrutils.processGasStationRandoms(dtable, seed)\nlocal cost_regular = tonumber(processed[\"cost\"])\nlocal cost_midgrade = tonumber(processed[\"cost_midgrade\"])\nlocal cost_premium = tonumber(processed[\"cost_premium\"])\nlocal cost_diesel = tonumber(processed[\"cost_diesel\"])\nlocal cost_selected = extensions.blrutils.blrvarGet(\"smoothFuelSetCost\")\nlocal fueling = extensions.blrglobals.blrFlagGet(\"smoothFueling\")\n\nlocal pricetxt_regular = \"\"\nlocal pricetxt_midgrade = \"\"\nlocal pricetxt_premium = \"\"\nlocal pricetxt_diesel = \"\"\n\nlocal btntxt_regular = \"\"\nlocal btntxt_midgrade = \"\"\nlocal btntxt_premium = \"\"\nlocal btntxt_diesel = \"\"\n\nif units == \"imperial\" then\npricetxt_regular = \"$\" .. string.format(\"%.2f\",math.floor(cost_regular * 3.785 * 100.0) / 100.0) .. \" / gal\"\npricetxt_midgrade = \"$\" .. string.format(\"%.2f\",math.floor(cost_midgrade * 3.785 * 100.0) / 100.0) .. \" / gal\"\npricetxt_premium = \"$\" .. string.format(\"%.2f\",math.floor(cost_premium * 3.785 * 100.0) / 100.0) .. \" / gal\"\npricetxt_diesel = \"$\" .. string.format(\"%.2f\",math.floor(cost_diesel * 3.785 * 100.0) / 100.0) .. \" / gal\"\nelse\npricetxt_regular = \"$\" .. string.format(\"%.2f\",cost_regular) .. \" / L\"\npricetxt_midgrade = \"$\" .. string.format(\"%.2f\",cost_midgrade) .. \" / L\"\npricetxt_premium = \"$\" .. string.format(\"%.2f\",cost_premium) .. \" / L\"\npricetxt_diesel = \"$\" .. string.format(\"%.2f\",cost_diesel) .. \" / L\"\nend\n\nif fueling then\nbtntxt_regular = \"Stop Refuel\"\nelse\nbtntxt_regular = \"Regular \" .. pricetxt_regular\nbtntxt_midgrade = \"Mid-Grade \" .. pricetxt_midgrade\nbtntxt_premium = \"Premium \" .. pricetxt_premium\nbtntxt_diesel = \"Diesel \" .. pricetxt_diesel\nend\n\nself.pinOut.name.value = dtable[\"name\"]\nself.pinOut.cost_regular.value = cost_regular\nself.pinOut.cost_midgrade.value = cost_midgrade\nself.pinOut.cost_premium.value = cost_premium\nself.pinOut.cost_diesel.value = cost_diesel\nself.pinOut.btntxt.value = btntxt_regular\nself.pinOut.midgrade.value = btntxt_midgrade\nself.pinOut.premium.value = btntxt_premium\nself.pinOut.diesel.value = btntxt_diesel\nself.pinOut.fueling.value = fueling\nself.pinOut.cost_selected.value = cost_selected"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -65952,7 +65972,7 @@
           "type":"util/customLua"
         },
         "929":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -67201,7 +67221,7 @@
             }
           },
           "pos":[
-            3188,
+            3216,
             -1518
           ],
           "type":"ui/imgui/elemental/imText"
@@ -67431,7 +67451,7 @@
           "type":"scene/getPlayerVehicle"
         },
         "970":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -70568,7 +70588,7 @@
           "type":"util/customLua"
         },
         "1043":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -71595,7 +71615,7 @@
           "type":"util/customLua"
         },
         "1069":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -72041,8 +72061,8 @@
             ]
           ],
           "pos":[
-            -998,
-            1856
+            -1032,
+            1855
           ],
           "type":"util/customLua"
         },
@@ -73583,7 +73603,7 @@
           "type":"ui/imgui/elemental/imText"
         },
         "1113":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.00000099999999747524,
             0.00000099998999303352,
@@ -74123,7 +74143,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nlocal total = tonumber(self.pinIn.total.value or \"0\")\nlocal units = extensions.blrutils.getSettingValue(\"uiUnits\")\nlocal cost = self.pinIn.cost.value\nlocal txt = \"\"\n\nif units == \"imperial\" then\ntxt = \"Quantity: \" .. string.format(\"%.2f\", total / 3.785) .. \" gallons\\n\"\ntxt = txt .. \"Cost: $\" .. string.format(\"%.2f\", cost * total)\nelse\ntxt = \"Quantity: \" .. string.format(\"%.2f\", total) .. \" liters\\n\"\ntxt = txt .. \"Cost: $\" .. string.format(\"%.2f\", cost * total)\nend\n\nself.pinOut.txt.value = txt"
+            "work":"local extensions = require(\"extensions\")\nlocal total = tonumber(self.pinIn.total.value or \"0\")\nlocal units = extensions.blrutils.getSettingValue(\"uiUnits\")\nlocal cost = self.pinIn.cost.value\nlocal txt = \"\"\n\nif units == \"imperial\" then\ntxt = \"Quantity: \" .. string.format(\"%.2f\", total / 3.785) .. \" gal\\n\"\ntxt = txt .. \"Cost: $\" .. string.format(\"%.2f\", cost * total)\nelse\ntxt = \"Quantity: \" .. string.format(\"%.2f\", total) .. \"L\\n\"\ntxt = txt .. \"Cost: $\" .. string.format(\"%.2f\", cost * total)\nend\n\nself.pinOut.txt.value = txt"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -74661,7 +74681,7 @@
           "type":"logic/once"
         },
         "1136":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -75327,7 +75347,7 @@
           "type":"util/customLua"
         },
         "1151":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -78436,7 +78456,7 @@
           "type":"util/customLua"
         },
         "1205":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -78644,48 +78664,6 @@
           "pos":[
             -3252,
             1548
-          ],
-          "type":"util/customLua"
-        },
-        "1210":{
-          "code":{
-            "_executionStarted":"",
-            "_executionStopped":"",
-            "onPreRender":"",
-            "work":"print(\"UI Layout Reset\")\ncore_gamestate.setGameState('freeroam','freeroam','freeroam')\n"
-          },
-          "data":{},
-          "dynamicMode":"repeat",
-          "hiddenPins":{
-            "p_in":{
-              "flow":false
-            },
-            "p_out":{
-              "flow":false
-            }
-          },
-          "name":"Enter Freeroam",
-          "pins":[
-            [
-              "in",
-              "flow",
-              "flow",
-              null,
-              "Inflow for this node.",
-              true
-            ],
-            [
-              "out",
-              "flow",
-              "flow",
-              null,
-              "Outflow for this node.",
-              true
-            ]
-          ],
-          "pos":[
-            6352,
-            3494
           ],
           "type":"util/customLua"
         },
@@ -79058,7 +79036,7 @@
           "type":"scene/getPlayerVehicle"
         },
         "1220":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -79772,7 +79750,7 @@
           "type":"util/customLua"
         },
         "1233":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -80156,7 +80134,7 @@
           "type":"util/customLua"
         },
         "1242":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -81322,7 +81300,7 @@
           "type":"types/genericValue"
         },
         "1272":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -84063,7 +84041,7 @@
           "type":"logic/compare"
         },
         "1336":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -85055,7 +85033,7 @@
           "type":"logic/compare"
         },
         "1361":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -86357,7 +86335,7 @@
           "type":"ui/imgui/elemental/imButton"
         },
         "1390":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -86806,7 +86784,7 @@
           "type":"util/customLua"
         },
         "1401":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -87995,48 +87973,6 @@
           ],
           "type":"util/customLua"
         },
-        "1428":{
-          "code":{
-            "_executionStarted":"",
-            "_executionStopped":"",
-            "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nextensions.blrutils.setGPSDestination()\nextensions.customGuiStream.sendGPSPage(0)"
-          },
-          "data":{},
-          "dynamicMode":"repeat",
-          "hiddenPins":{
-            "p_in":{
-              "flow":false
-            },
-            "p_out":{
-              "flow":false
-            }
-          },
-          "name":"GPS Reset",
-          "pins":[
-            [
-              "in",
-              "flow",
-              "flow",
-              null,
-              "Inflow for this node.",
-              true
-            ],
-            [
-              "out",
-              "flow",
-              "flow",
-              null,
-              "Outflow for this node.",
-              true
-            ]
-          ],
-          "pos":[
-            5968,
-            3494
-          ],
-          "type":"util/customLua"
-        },
         "1429":{
           "code":{
             "_executionStarted":"",
@@ -88250,7 +88186,7 @@
           "type":"util/customLua"
         },
         "1434":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -88382,48 +88318,6 @@
           "pos":[
             6786,
             120
-          ],
-          "type":"util/customLua"
-        },
-        "1437":{
-          "code":{
-            "_executionStarted":"",
-            "_executionStopped":"",
-            "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nlocal autosave = extensions.blrglobals.blrFlagGet(\"imautosave\")\nif autosave then\nextensions.ui_imgui.saveIniSettingsToDisk(\"settings/beamlr_imgui.ini\")\nend"
-          },
-          "data":{},
-          "dynamicMode":"repeat",
-          "hiddenPins":{
-            "p_in":{
-              "flow":false
-            },
-            "p_out":{
-              "flow":false
-            }
-          },
-          "name":"Autosave IMGUI",
-          "pins":[
-            [
-              "in",
-              "flow",
-              "flow",
-              null,
-              "Inflow for this node.",
-              true
-            ],
-            [
-              "out",
-              "flow",
-              "flow",
-              null,
-              "Outflow for this node.",
-              true
-            ]
-          ],
-          "pos":[
-            6150,
-            3494
           ],
           "type":"util/customLua"
         },
@@ -89761,7 +89655,7 @@
           "type":"util/customLua"
         },
         "1465":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -91785,7 +91679,7 @@
           "hardcodedPins":{
             "B":{
               "type":"number",
-              "value":0.00999999977600077826
+              "value":0.00999999977600081642
             }
           },
           "hiddenPins":{
@@ -92871,7 +92765,7 @@
           "type":"util/customLua"
         },
         "1527":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -93433,8 +93327,8 @@
             ]
           ],
           "pos":[
-            -922,
-            1856
+            -970,
+            1854
           ],
           "type":"util/customLua"
         },
@@ -93505,8 +93399,8 @@
             ]
           ],
           "pos":[
-            -844,
-            1856
+            -920,
+            1854
           ],
           "type":"util/customLua"
         },
@@ -94521,27 +94415,6 @@
           ],
           "type":"vehicle/removeVehicle"
         },
-        "1561":{
-          "data":{},
-          "dynamicMode":"repeat",
-          "hiddenPins":{
-            "p_in":{
-              "flow":false,
-              "text":false
-            },
-            "p_out":{
-              "down":false,
-              "flow":false,
-              "hold":true,
-              "up":true
-            }
-          },
-          "pos":[
-            3202,
-            -1112
-          ],
-          "type":"ui/imgui/elemental/imButton"
-        },
         "1562":{
           "code":{
             "_executionStarted":"",
@@ -94889,118 +94762,6 @@
           "pos":[
             -116,
             988
-          ],
-          "type":"util/customLua"
-        },
-        "1569":{
-          "code":{
-            "_executionStarted":"",
-            "_executionStopped":"",
-            "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nlocal units = extensions.blrutils.getSettingValue(\"uiUnits\")\nlocal gprice = self.pinIn.gasoline.value\nlocal dprice = self.pinIn.diesel.value\nlocal oprice = self.pinIn.oil.value\n\nif units == \"imperial\" then\nself.pinOut.qstr.value = \"Fuel Can (~2.6 Gallons)\"\nself.pinOut.gstr.value = \"Gasoline ($\" .. string.format(\"%.2f\", gprice * 10.0) .. \")\"\nself.pinOut.dstr.value = \"Diesel ($\" .. string.format(\"%.2f\", dprice * 10.0) .. \")\"\nself.pinOut.ostr.value = \"Oil Bottle (~1.3 Gallons)\"\nself.pinOut.obtn.value = \"OILEX 5W-30 ($\" .. string.format(\"%.2f\", oprice * 5.0) .. \")\"\nelse\nself.pinOut.qstr.value = \"Fuel Can (10 Liters)\"\nself.pinOut.gstr.value = \"Gasoline ($\" .. string.format(\"%.2f\", gprice * 10.0) .. \")\"\nself.pinOut.dstr.value = \"Diesel ($\" .. string.format(\"%.2f\", dprice * 10.0) .. \")\"\nself.pinOut.ostr.value = \"Oil Bottle (5 Liters)\"\nself.pinOut.obtn.value = \"OILEX 5W-30 ($\" .. string.format(\"%.2f\", oprice * 5.0) .. \")\"\nend"
-          },
-          "data":{},
-          "dynamicMode":"repeat",
-          "hardcodedPins":{
-            "oil":{
-              "type":"number",
-              "value":5
-            }
-          },
-          "hiddenPins":{
-            "p_in":{
-              "diesel":false,
-              "flow":false,
-              "gasoline":false,
-              "oil":false
-            },
-            "p_out":{
-              "dstr":false,
-              "flow":false,
-              "gstr":false,
-              "obtn":false,
-              "ostr":false,
-              "qstr":false
-            }
-          },
-          "name":"Walk Store Costs",
-          "pins":[
-            [
-              "in",
-              "flow",
-              "flow",
-              null,
-              "Inflow for this node.",
-              true
-            ],
-            [
-              "out",
-              "flow",
-              "flow",
-              null,
-              "Outflow for this node.",
-              true
-            ],
-            [
-              "in",
-              "number",
-              "gasoline",
-              null,
-              ""
-            ],
-            [
-              "in",
-              "number",
-              "diesel",
-              null,
-              ""
-            ],
-            [
-              "out",
-              "string",
-              "gstr",
-              null,
-              ""
-            ],
-            [
-              "out",
-              "string",
-              "dstr",
-              null,
-              ""
-            ],
-            [
-              "out",
-              "string",
-              "qstr",
-              null,
-              ""
-            ],
-            [
-              "in",
-              "number",
-              "oil",
-              null,
-              ""
-            ],
-            [
-              "out",
-              "string",
-              "ostr",
-              null,
-              ""
-            ],
-            [
-              "out",
-              "string",
-              "obtn",
-              null,
-              ""
-            ]
-          ],
-          "pos":[
-            3196,
-            -1420
           ],
           "type":"util/customLua"
         },
@@ -95393,7 +95154,7 @@
             }
           },
           "pos":[
-            3370,
+            3398,
             -1504
           ],
           "type":"ui/imgui/elemental/imSeparator"
@@ -95468,26 +95229,8 @@
           ],
           "type":"util/customLua"
         },
-        "1584":{
-          "data":{},
-          "dynamicMode":"repeat",
-          "hiddenPins":{
-            "p_in":{
-              "flow":false,
-              "text":false
-            },
-            "p_out":{
-              "flow":false
-            }
-          },
-          "pos":[
-            3210,
-            -1210
-          ],
-          "type":"ui/imgui/elemental/imText"
-        },
         "1585":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -95598,126 +95341,6 @@
           ],
           "type":"util/customLua"
         },
-        "1587":{
-          "code":{
-            "_executionStarted":"",
-            "_executionStopped":"",
-            "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nlocal gasoline_10 = self.pinIn.gasoline_10.value\nlocal diesel_10 = self.pinIn.diesel_10.value\nlocal oil_5 = self.pinIn.oil_5.value\nlocal gcost = self.pinIn.gcost.value\nlocal dcost = self.pinIn.dcost.value\nlocal ocost = self.pinIn.ocost.value\nlocal pmoney = self.pinIn.pmoney.value\nlocal cost = 0\nlocal bought = false\n\nif gasoline_10 then\ncost = gcost * 10.0\nif pmoney >= cost then\npmoney = pmoney - cost\nbought = true\nextensions.blrItemInventory.addToInventory(\"fuelcan\",extensions.blrItemInventory.fuelcan:new(\"gasoline\", \"regular\", 10))\nend\nelseif diesel_10 then\ncost = dcost * 10.0\nif pmoney >= cost then\npmoney = pmoney - cost\nbought = true\nextensions.blrItemInventory.addToInventory(\"fuelcan\",extensions.blrItemInventory.fuelcan:new(\"diesel\", \"regular\", 10))\nend\nelseif oil_5 then\ncost = ocost * 5.0\npmoney = pmoney - cost\nbought = true\nextensions.blrItemInventory.addToInventory(\"oilbottle\",extensions.blrItemInventory.oilbottle:new(\"OILEX\", \"5W-30\",5))\nend\n\nif bought then \nextensions.blrItemInventory.saveInventory()\nextensions.customGuiStream.sendItemInventory()\nend\n\nself.pinOut.bought.value = bought\nself.pinOut.pmoney.value = pmoney\n"
-          },
-          "data":{},
-          "dynamicMode":"repeat",
-          "hardcodedPins":{
-            "ocost":{
-              "type":"number",
-              "value":5
-            }
-          },
-          "hiddenPins":{
-            "p_in":{
-              "dcost":false,
-              "diesel_10":false,
-              "flow":true,
-              "gasoline_10":false,
-              "gcost":false,
-              "ocost":false,
-              "oil_5":false,
-              "pmoney":false
-            },
-            "p_out":{
-              "bought":false,
-              "flow":true,
-              "pmoney":false
-            }
-          },
-          "name":"Convenience Store",
-          "pins":[
-            [
-              "in",
-              "flow",
-              "flow",
-              null,
-              "Inflow for this node.",
-              true
-            ],
-            [
-              "out",
-              "flow",
-              "flow",
-              null,
-              "Outflow for this node.",
-              true
-            ],
-            [
-              "in",
-              "flow",
-              "gasoline_10",
-              null,
-              ""
-            ],
-            [
-              "in",
-              "flow",
-              "diesel_10",
-              null,
-              ""
-            ],
-            [
-              "out",
-              "flow",
-              "bought",
-              null,
-              ""
-            ],
-            [
-              "in",
-              "flow",
-              "oil_5",
-              null,
-              ""
-            ],
-            [
-              "in",
-              "number",
-              "gcost",
-              null,
-              ""
-            ],
-            [
-              "in",
-              "number",
-              "dcost",
-              null,
-              ""
-            ],
-            [
-              "in",
-              "number",
-              "ocost",
-              null,
-              ""
-            ],
-            [
-              "in",
-              "number",
-              "pmoney",
-              null,
-              ""
-            ],
-            [
-              "out",
-              "number",
-              "pmoney",
-              null,
-              ""
-            ]
-          ],
-          "pos":[
-            3706,
-            -1266
-          ],
-          "type":"util/customLua"
-        },
         "1588":{
           "data":{},
           "dynamicMode":"repeat",
@@ -95741,8 +95364,8 @@
             }
           },
           "pos":[
-            3392,
-            -1406
+            3258,
+            -1408
           ],
           "type":"types/genericValue"
         },
@@ -95769,8 +95392,8 @@
             }
           },
           "pos":[
-            4000,
-            -1252
+            3252,
+            -1072
           ],
           "type":"types/genericValue"
         },
@@ -95825,8 +95448,8 @@
             ]
           ],
           "pos":[
-            4000,
-            -1112
+            3258,
+            -946
           ],
           "type":"util/customLua"
         },
@@ -95988,7 +95611,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local veh = scenetree.findObjectById(self.pinIn.vehid.value)\nlocal itype = self.pinIn.itype.value\nlocal ikey = self.pinIn.ikey.value\nlocal idata = self.pinIn.idata.value\n\nlocal cmd = {}\ncmd[\"fuelcan\"] = string.format(\"extensions.blrVehicleUtils.useFuelCanister(%q,%q,%q,%f)\", ikey, idata.ftype, idata.ftier, idata.quantity)\ncmd[\"oilbottle\"] = string.format(\"extensions.blrVehicleUtils.useOilBottle(%q,%q,%q,%f)\",ikey, idata.brand, idata.grade, idata.quantity)\n\n--cmd[\"fuelcan\"] = \"extensions.blrVehicleUtils.useFuelCanister('\" .. ikey ..\"','\".. idata.ftype or \"\" ..\"','\" .. idata.ftier or \"\" .. \"',\" .. idata.quantity or 0 .. \")\"\n--cmd[\"oilbottle\"] = \"extensions.blrVehicleUtils.useOilBottle('\" .. ikey ..\"','\".. idata.brand or \"\"..\"','\" .. idata.grade or \"\" .. \"',\" .. idata.quantity or 0 .. \")\"\n\nif veh and cmd[itype] then\nveh:queueLuaCommand(cmd[itype])\nend"
+            "work":"local inv = require(\"extensions/blrItemInventory\")\nlocal veh = scenetree.findObjectById(self.pinIn.vehid.value)\nlocal itype = self.pinIn.itype.value\nlocal ikey = self.pinIn.ikey.value\nlocal idata = self.pinIn.idata.value\n\nlocal cmd = inv.getUseCommand(itype, ikey, idata)\n\nif veh and cmd then\nveh:queueLuaCommand(cmd)\nend"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -96338,8 +95961,8 @@
             ]
           ],
           "pos":[
-            -754,
-            1856
+            -858,
+            1855
           ],
           "type":"util/customLua"
         },
@@ -96348,12 +95971,13 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local ve = scenetree.findObjectById(self.pinIn.veid.value)\nlocal oil = self.pinIn.oil.value\nve:queueLuaCommand(\"extensions.blrVehicleUtils.setOilVolume(\" .. oil .. \")\")"
+            "work":"local ve = scenetree.findObjectById(self.pinIn.veid.value)\nlocal oil = self.pinIn.oil.value\nlocal coolant = self.pinIn.coolant.value\nve:queueLuaCommand(\"extensions.blrVehicleUtils.setOilVolume(\" .. oil .. \")\")\nve:queueLuaCommand(\"extensions.blrVehicleUtils.setCoolantVolume(\" .. coolant .. \")\")"
           },
           "data":{},
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
+              "coolant":false,
               "flow":false,
               "oil":false,
               "veid":false
@@ -96362,7 +95986,7 @@
               "flow":false
             }
           },
-          "name":"Force Set Oil",
+          "name":"Force Set Fluids",
           "pins":[
             [
               "in",
@@ -96391,6 +96015,13 @@
               "in",
               "number",
               "oil",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "number",
+              "coolant",
               null,
               ""
             ]
@@ -96406,12 +96037,13 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local ve = scenetree.findObjectById(self.pinIn.veid.value)\nlocal oil = self.pinIn.oil.value\nve:queueLuaCommand(\"extensions.blrVehicleUtils.setOilVolume(\" .. oil .. \")\")"
+            "work":"local ve = scenetree.findObjectById(self.pinIn.veid.value)\nlocal oil = self.pinIn.oil.value\nlocal coolant = self.pinIn.coolant.value\nve:queueLuaCommand(\"extensions.blrVehicleUtils.setOilVolume(\" .. oil .. \")\")\nve:queueLuaCommand(\"extensions.blrVehicleUtils.setCoolantVolume(\" .. coolant .. \")\")"
           },
           "data":{},
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
+              "coolant":false,
               "flow":false,
               "oil":false,
               "veid":false
@@ -96420,7 +96052,7 @@
               "flow":false
             }
           },
-          "name":"Force Set Oil",
+          "name":"Force Set Fluids",
           "pins":[
             [
               "in",
@@ -96451,11 +96083,18 @@
               "oil",
               null,
               ""
+            ],
+            [
+              "in",
+              "number",
+              "coolant",
+              null,
+              ""
             ]
           ],
           "pos":[
-            6136,
-            330
+            6122,
+            301
           ],
           "type":"util/customLua"
         },
@@ -96503,12 +96142,13 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local ve = scenetree.findObjectById(self.pinIn.veid.value)\nlocal oil = self.pinIn.oil.value or 0\nve:queueLuaCommand(\"extensions.blrVehicleUtils.setOilVolume(\" .. oil .. \")\")"
+            "work":"local ve = scenetree.findObjectById(self.pinIn.veid.value)\nlocal oil = self.pinIn.oil.value\nlocal coolant = self.pinIn.coolant.value\nve:queueLuaCommand(\"extensions.blrVehicleUtils.setOilVolume(\" .. oil .. \")\")\nve:queueLuaCommand(\"extensions.blrVehicleUtils.setCoolantVolume(\" .. coolant .. \")\")"
           },
           "data":{},
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
+              "coolant":false,
               "flow":false,
               "oil":false,
               "veid":false
@@ -96517,7 +96157,7 @@
               "flow":false
             }
           },
-          "name":"Force Set Oil",
+          "name":"Force Set Fluids",
           "pins":[
             [
               "in",
@@ -96546,6 +96186,13 @@
               "in",
               "number",
               "oil",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "number",
+              "coolant",
               null,
               ""
             ]
@@ -96619,12 +96266,13 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local ve = scenetree.findObjectById(self.pinIn.veid.value)\nlocal oil = self.pinIn.oil.value\nve:queueLuaCommand(\"extensions.blrVehicleUtils.setOilVolume(\" .. oil .. \")\")"
+            "work":"local ve = scenetree.findObjectById(self.pinIn.veid.value)\nlocal oil = self.pinIn.oil.value\nlocal coolant = self.pinIn.coolant.value\nve:queueLuaCommand(\"extensions.blrVehicleUtils.setOilVolume(\" .. oil .. \")\")\nve:queueLuaCommand(\"extensions.blrVehicleUtils.setCoolantVolume(\" .. coolant .. \")\")"
           },
           "data":{},
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
+              "coolant":false,
               "flow":false,
               "oil":false,
               "veid":false
@@ -96633,7 +96281,7 @@
               "flow":false
             }
           },
-          "name":"Force Set Oil",
+          "name":"Force Set Fluids",
           "pins":[
             [
               "in",
@@ -96662,6 +96310,13 @@
               "in",
               "number",
               "oil",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "number",
+              "coolant",
               null,
               ""
             ]
@@ -96799,7 +96454,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nextensions.blrdelay.setParam(\"leakvehid\", self.pinIn.veid.value)\nextensions.blrdelay.queue(\"updateOilLeak\", \"leakvehid\", 10)"
+            "work":"local extensions = require(\"extensions\")\nextensions.blrdelay.setParam(\"leakvehid\", self.pinIn.veid.value)\nextensions.blrdelay.queue(\"updateFluidLeak\", \"leakvehid\", 10)"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -96812,7 +96467,7 @@
               "flow":false
             }
           },
-          "name":"Set oil leak rate",
+          "name":"Set fluid leak rate",
           "pins":[
             [
               "in",
@@ -97070,7 +96725,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nextensions.blrdelay.setParam(\"leakvehid\", self.pinIn.veid.value)\nextensions.blrdelay.queue(\"updateOilLeak\", \"leakvehid\", 100)"
+            "work":"local extensions = require(\"extensions\")\nextensions.blrdelay.setParam(\"leakvehid\", self.pinIn.veid.value)\nextensions.blrdelay.queue(\"updateFluidLeak\", \"leakvehid\", 100)"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -97083,7 +96738,7 @@
               "flow":false
             }
           },
-          "name":"Set oil leak rate",
+          "name":"Set fluid leak rate",
           "pins":[
             [
               "in",
@@ -97120,7 +96775,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nextensions.blrdelay.setParam(\"leakvehid\", self.pinIn.veid.value)\nextensions.blrdelay.queue(\"updateOilLeak\", \"leakvehid\", 100)"
+            "work":"local extensions = require(\"extensions\")\nextensions.blrdelay.setParam(\"leakvehid\", self.pinIn.veid.value)\nextensions.blrdelay.queue(\"updateFluidLeak\", \"leakvehid\", 100)"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -97133,7 +96788,7 @@
               "flow":false
             }
           },
-          "name":"Set oil leak rate",
+          "name":"Set fluid leak rates",
           "pins":[
             [
               "in",
@@ -97170,7 +96825,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nextensions.blrdelay.setParam(\"leakvehid\", self.pinIn.veid.value)\nextensions.blrdelay.queue(\"updateOilLeak\", \"leakvehid\", 10)"
+            "work":"local extensions = require(\"extensions\")\nextensions.blrdelay.setParam(\"leakvehid\", self.pinIn.veid.value)\nextensions.blrdelay.queue(\"updateFluidLeak\", \"leakvehid\", 10)"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -97183,7 +96838,7 @@
               "flow":false
             }
           },
-          "name":"Set oil leak rate",
+          "name":"Set fluid leak rate",
           "pins":[
             [
               "in",
@@ -97214,24 +96869,6 @@
             2625
           ],
           "type":"util/customLua"
-        },
-        "1616":{
-          "data":{},
-          "dynamicMode":"repeat",
-          "hiddenPins":{
-            "p_in":{
-              "flow":false,
-              "text":false
-            },
-            "p_out":{
-              "flow":false
-            }
-          },
-          "pos":[
-            3412,
-            -1210
-          ],
-          "type":"ui/imgui/elemental/imText"
         },
         "1617":{
           "code":{
@@ -99226,7 +98863,7 @@
           "type":"logic/once"
         },
         "1663":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000066613,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -99262,7 +98899,7 @@
           "type":"debug/comment"
         },
         "1664":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -99298,7 +98935,7 @@
           "type":"debug/comment"
         },
         "1665":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -99376,7 +99013,7 @@
           "type":"util/customLua"
         },
         "1667":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -100840,7 +100477,7 @@
           "type":"vehicle/freeze"
         },
         "1700":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -101493,7 +101130,7 @@
           "type":"util/customLua"
         },
         "1716":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -102310,7 +101947,7 @@
           "type":"types/genericValue"
         },
         "1731":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -102829,7 +102466,7 @@
           "type":"util/customLua"
         },
         "1742":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -102891,6 +102528,70 @@
             2092
           ],
           "type":"types/genericValue"
+        },
+        "1744":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal k = self.pinIn.key.value\nlocal v = self.pinIn.val.value\nextensions.blrglobals.fgSetVal(k,v)"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "key":{
+              "type":"string",
+              "value":"ccool"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "key":false,
+              "val":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"BLRGlobal Set",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "string",
+              "key",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "any",
+              "val",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            2796,
+            -217
+          ],
+          "type":"util/customLua"
         },
         "1745":{
           "data":{},
@@ -103783,6 +103484,120 @@
           ],
           "type":"util/customLua"
         },
+        "1766":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local inv = require(\"extensions/blrItemInventory\")\nlocal pmoney = self.pinIn.pmoney.value\nlocal gcost = self.pinIn.gcost.value\nlocal dcost = self.pinIn.dcost.value\nlocal ocost = self.pinIn.ocost.value\nlocal ccost = self.pinIn.ccost.value\n\nlocal bought, money = inv.storeui(pmoney,gcost,dcost,ocost,ccost)\n\nself.pinOut.bought.value = bought\nself.pinOut.pmoney.value = money"
+          },
+          "customColor":[
+            0.17734789848327636719,
+            0.65311503410339355469,
+            0.52724403142929077148,
+            0.75000000000000000000
+          ],
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "ccost":{
+              "type":"number",
+              "value":5
+            },
+            "ocost":{
+              "type":"number",
+              "value":5
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "ccost":false,
+              "dcost":false,
+              "flow":false,
+              "gcost":false,
+              "ocost":false,
+              "pmoney":false
+            },
+            "p_out":{
+              "bought":false,
+              "flow":false,
+              "pmoney":false
+            }
+          },
+          "name":"Convenience Store UI",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "bought",
+              null,
+              ""
+            ],
+            [
+              "out",
+              "number",
+              "pmoney",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "number",
+              "pmoney",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "number",
+              "gcost",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "number",
+              "dcost",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "number",
+              "ocost",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "number",
+              "ccost",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            3244,
+            -1295
+          ],
+          "type":"util/customLua"
+        },
         "1767":{
           "data":{},
           "dynamicMode":"repeat",
@@ -103800,7 +103615,7 @@
           "type":"scene/getPlayerVehicle"
         },
         "1768":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -104328,7 +104143,7 @@
           "type":"util/customLua"
         },
         "1777":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -104948,7 +104763,7 @@
           "type":"types/genericValue"
         },
         "9886":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -106727,7 +106542,7 @@
           "type":"input/blacklistAction"
         },
         "10051":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000166533,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -112800,48 +112615,6 @@
           ],
           "type":"ui/imgui/elemental/imButton"
         },
-        "10294":{
-          "data":{},
-          "dynamicMode":"repeat",
-          "hiddenPins":{
-            "p_in":{
-              "flow":false,
-              "text":false
-            },
-            "p_out":{
-              "down":false,
-              "flow":false,
-              "hold":true,
-              "up":true
-            }
-          },
-          "pos":[
-            3210,
-            -986
-          ],
-          "type":"ui/imgui/elemental/imButton"
-        },
-        "10295":{
-          "data":{},
-          "dynamicMode":"repeat",
-          "hiddenPins":{
-            "p_in":{
-              "flow":false,
-              "text":false
-            },
-            "p_out":{
-              "down":false,
-              "flow":false,
-              "hold":true,
-              "up":true
-            }
-          },
-          "pos":[
-            3406,
-            -1112
-          ],
-          "type":"ui/imgui/elemental/imButton"
-        },
         "10296":{
           "data":{},
           "dynamicMode":"repeat",
@@ -113081,10 +112854,10 @@
         "list":{}
       },
       "viewPos":[
-        6012.50000000000000000000,
-        148.50000000000000000000
+        1062.51220703125000000000,
+        -1046.74450683593750000000
       ],
-      "viewZoom":1
+      "viewZoom":0.71093666553497314453
     },
     "3":{
       "description":"This is the description for graph States",
@@ -113100,14 +112873,14 @@
         ],
         [
           4,
-          "success",
+          "fail",
           6,
           "flow",
           false
         ],
         [
           4,
-          "fail",
+          "success",
           6,
           "flow",
           false
@@ -113205,10 +112978,10 @@
         "list":{}
       },
       "viewPos":[
-        -690.26031494140625000000,
-        -887.29113769531250000000
+        137.72532653808593750000,
+        -439.75518798828125000000
       ],
-      "viewZoom":0.20960693061351773347
+      "viewZoom":0.29062488675117492676
     }
   },
   "isScenario":true,

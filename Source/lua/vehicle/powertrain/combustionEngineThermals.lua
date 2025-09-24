@@ -709,7 +709,9 @@ local function updateWaterCoolingGFX(dt)
     if adjustedRadiatorDamage > 0 and not damageTracker.getDamage("engine", "radiatorLeak") then
       damageTracker.setDamage("engine", "radiatorLeak", true, true)
     end
-    fluidLeakRates.coolant.radiator = adjustedRadiatorDamage * 10
+	-- BEAMLR EDIT TO ALLOW SCRIPTED LEAKS OF COOLANT FROM RADIATOR
+    fluidLeakRates.coolant.radiator = max(fluidLeakRates.coolant.radiator, adjustedRadiatorDamage * 10)
+	-- BEAMLR EDIT END
   end
 
   local radiatorFanRPM = 0

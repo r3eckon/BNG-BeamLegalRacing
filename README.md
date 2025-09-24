@@ -1,9 +1,10 @@
 
 
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.18.5/beamLegalRacing1.18.5.zip
+
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.18.6/beamLegalRacing1.18.6.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.18.5
+# Beam Legal Racing 1.18.6
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -135,6 +136,8 @@ Version 1.18 brings compatibility for BeamNG version 0.36 and adds content from 
 Version 1.18.2 adds a UI option to show/hide incompatible slots in part shop, various new traffic control options (like spawn rate, direction bias) and specific traffic amounts rather than preset values. It also adds a new utility UI app used to add or edit dealership vehicles and list files. This app is used in freeroam, a quick guide on how to use it to add a new vehicle [can be found in this video](https://www.youtube.com/watch?v=1_O6-1_FsVk).
 
 Version 1.18.4 adds a part shop tree view, a brand new part shop catalogue UI (overall a more user friendly interface to browse parts, uses a shopping cart system to buy multiple parts all at once and a slot tree browser) and now allows part shops to be used on foot.
+
+Version 1.18.6 adds coolant persistence and leak mechanic, works like the oil leak mechanic. Coolant bottles can also be purchased by getting out of your car at a gas station.
 
 ## Getting started
 BeamLR is loaded as a freeroam mission. Use the following spawn point depending on map choice:
@@ -1019,3 +1022,9 @@ Cause: Engine jbeam is missing torque data. Data is moved to other subparts. Thi
 * Fixed part selling glitch after scrapping car and selling parts while on foot
 * Part shop catalog now uses pages when displaying large amount of parts to improve performance
 * Fixed repair UI not respecting z-index parameter preventing interaction with left half of menu
+
+### 1.18.6
+* Added coolant persistance & leak mechanic (same as oil, use low odometer radiator to fix leak)
+* Added coolant bottle item
+* Fixed main part check bug preventing all parts from being removed
+* Fixed convenience store not checking if player has enough money before buying oil bottles

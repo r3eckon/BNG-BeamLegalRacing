@@ -68,10 +68,12 @@ extensions.blrglobals.blrFlagSet("shopWalkingMode", false)
 end
 end
 
-ftable["updateOilLeak"] = function(p)
+-- 1.18.6 using function to update coolant leak as well
+ftable["updateFluidLeak"] = function(p)
 local veh = scenetree.findObjectById(p)
 if veh then
 veh:queueLuaCommand("extensions.blrVehicleUtils.updateOilLeakRate()")
+veh:queueLuaCommand("extensions.blrVehicleUtils.updateCoolantLeakRate()")
 end
 end
 
@@ -120,11 +122,6 @@ ftable["reloadDriftScoring"] = function(p)
 gameplay_drift_scoring = require("gameplay/drift/scoring")
 extensions.unload("gameplay_drift_scoringLegacy") -- unloads legacy extension so it doesn't interfere with vanilla scoring
 gameplay_drift_scoring.reset()
-end
-
-ftable["onShopVehJbeamCacheGenerated"] = function(p)
-print("Should have automatically sent UI data to dealership util after generating jbeam cache")
-extensions.blrShopVehUtil.sendUIData()
 end
 
 

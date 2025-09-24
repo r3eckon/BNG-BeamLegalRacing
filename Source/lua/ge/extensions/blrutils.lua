@@ -3349,6 +3349,7 @@ saveDataTable("beamLR/mainData", dtable)
 dtable = loadDataTable("beamLR/garage/car0")
 dtable["oil"] = "3.83" -- works for starter legran, if another car is used need to adjust value
 dtable["gas"] = "10.0"
+dtable["coolant"] = "7.5"
 saveDataTable("beamLR/garage/car0", dtable)
 
 -- next doing car0 config file, setting odometer to 300k

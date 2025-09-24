@@ -331,9 +331,7 @@ lastdata["towtoggle"] = toggle
 guihooks.trigger("beamlrToggleTowUI", toggle)
 end
 
-local function firstToUpper(str)
-return (str:gsub("^%l", string.upper))
-end
+
 
 local function sendItemInventory()
 local uidata = {}
@@ -350,25 +348,7 @@ ksplit = extensions.blrutils.ssplit(k, "_")
 ctype = ksplit[2]
 cname = extensions.blrItemInventory.getUIName(ctype)
 cimage = "/ui/modules/apps/beamlrui/itemimg/" .. extensions.blrItemInventory.getUIImage(ctype)
-
---type specific stuff
-if(ctype == "fuelcan") then
-cdata = "" .. firstToUpper(v.ftype) .. ", " .. firstToUpper(v.ftier) .. ", "
-if units == "imperial" then
-cdata = cdata .. (string.format("%.2f", tonumber(v.quantity) / 3.785)) .. " Gallons"
-else
-cdata = cdata .. (string.format("%.2f", tonumber(v.quantity))) .. " Liters"
-end
-
-elseif (ctype == "oilbottle") then
-cdata = "" .. v.brand .. ", " .. v.grade .. ", "
-if units == "imperial" then
-cdata = cdata .. (string.format("%.2f", tonumber(v.quantity) / 3.785)) .. " Gallons"
-else
-cdata = cdata .. (string.format("%.2f", tonumber(v.quantity))) .. " Liters"
-end
-
-end
+cdata = extensions.blrItemInventory.getUIData(v, ctype, units)
 
 --building table to send to ui
 uidata[k] = {itype=ctype, iname=cname, idata=cdata, image=cimage}

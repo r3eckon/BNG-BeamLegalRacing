@@ -27,6 +27,7 @@ extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-
 extensions.blrglobals.gmSetVal("pftypes", extensions.blrutils.blrvarGet("fuelTypeString")) -- 1.14.2 addition, fuel types
 extensions.blrglobals.gmSetVal("pfratio", extensions.blrutils.blrvarGet("fuelRatioString")) -- 1.14.2 addition, fuel ratio
 extensions.blrglobals.gmSetVal("poil", extensions.blrglobals.gmGetVal("coil"))	-- 1.15 addition, oil 
+extensions.blrglobals.gmSetVal("pcool", extensions.blrglobals.gmGetVal("ccool"))	-- 1.18.6 addition, coolant 
 extensions.blrglobals.gmSetVal("pmirrors", extensions.core_vehicle_mirror.getAnglesOffset()) -- 1.16 dynamic mirrors
 extensions.blrglobals.blrFlagSet("hasNos", false) -- Setting hasNos to false to avoid vlua fetching bug before flag is set by N2O Check node
 extensions.blrhooks.linkHook("vehReset", "postedit")							-- Hooks post edit actions to the vehicle restored callback
@@ -349,6 +350,7 @@ extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-
 extensions.blrglobals.gmSetVal("pftypes", extensions.blrutils.blrvarGet("fuelTypeString")) -- 1.14.2 addition, fuel types
 extensions.blrglobals.gmSetVal("pfratio", extensions.blrutils.blrvarGet("fuelRatioString")) -- 1.14.2 addition, fuel ratio
 extensions.blrglobals.gmSetVal("poil", extensions.blrglobals.gmGetVal("coil"))	-- 1.15 addition, oil 
+extensions.blrglobals.gmSetVal("pcool", extensions.blrglobals.gmGetVal("ccool"))	-- 1.18.6 addition, coolant 
 extensions.blrglobals.gmSetVal("pmirrors", extensions.core_vehicle_mirror.getAnglesOffset()) -- 1.16 dynamic mirrors
 extensions.blrhooks.linkHook("vehReset", "postedit")							-- Link to post edit action hook, reuse the code for tune
 
@@ -369,6 +371,7 @@ extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-
 extensions.blrglobals.gmSetVal("pftypes", extensions.blrutils.blrvarGet("fuelTypeString")) -- 1.14.2 addition, fuel types
 extensions.blrglobals.gmSetVal("pfratio", extensions.blrutils.blrvarGet("fuelRatioString")) -- 1.14.2 addition, fuel ratio
 extensions.blrglobals.gmSetVal("poil", extensions.blrglobals.gmGetVal("coil"))	-- 1.15 addition, oil 
+extensions.blrglobals.gmSetVal("pcool", extensions.blrglobals.gmGetVal("ccool"))	-- 1.18.6 addition, coolant 
 extensions.blrglobals.gmSetVal("pmirrors", extensions.core_vehicle_mirror.getAnglesOffset()) -- 1.16 dynamic mirrors
 extensions.blrhooks.linkHook("vehReset", "postedit")							-- Link to post edit action hook, reuse the code for tune
 
@@ -694,6 +697,7 @@ extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))
 extensions.blrglobals.gmSetVal("pftypes", extensions.blrutils.blrvarGet("fuelTypeString")) -- 1.14.2 addition, fuel types
 extensions.blrglobals.gmSetVal("pfratio", extensions.blrutils.blrvarGet("fuelRatioString")) -- 1.14.2 addition, fuel ratio
 extensions.blrglobals.gmSetVal("poil", extensions.blrglobals.gmGetVal("coil"))	-- 1.15 addition, oil 
+extensions.blrglobals.gmSetVal("pcool", extensions.blrglobals.gmGetVal("ccool"))	-- 1.18.6 addition, coolant 
 extensions.blrglobals.gmSetVal("pmirrors", extensions.core_vehicle_mirror.getAnglesOffset()) -- 1.16 dynamic mirrors
 extensions.blrglobals.blrFlagSet("hasNos", false)
 extensions.blrhooks.linkHook("vehReset", "postedit")	
@@ -874,6 +878,7 @@ extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-
 extensions.blrglobals.gmSetVal("pftypes", extensions.blrutils.blrvarGet("fuelTypeString")) -- 1.14.2 addition, fuel types
 extensions.blrglobals.gmSetVal("pfratio", extensions.blrutils.blrvarGet("fuelRatioString")) -- 1.14.2 addition, fuel ratio
 extensions.blrglobals.gmSetVal("poil", extensions.blrglobals.gmGetVal("coil"))	-- 1.15 addition, oil 
+extensions.blrglobals.gmSetVal("pcool", extensions.blrglobals.gmGetVal("ccool"))	-- 1.18.6 addition, coolant 
 extensions.blrglobals.gmSetVal("pmirrors", extensions.core_vehicle_mirror.getAnglesOffset()) -- 1.16 dynamic mirrors
 extensions.blrhooks.linkHook("vehReset", "postedit")							-- link to post edit action hook
 
@@ -1009,6 +1014,7 @@ extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-
 extensions.blrglobals.gmSetVal("pftypes", extensions.blrutils.blrvarGet("fuelTypeString")) -- 1.14.2 addition, fuel types
 extensions.blrglobals.gmSetVal("pfratio", extensions.blrutils.blrvarGet("fuelRatioString")) -- 1.14.2 addition, fuel ratio
 extensions.blrglobals.gmSetVal("poil", extensions.blrglobals.gmGetVal("coil"))	-- 1.15 addition, oil 
+extensions.blrglobals.gmSetVal("pcool", extensions.blrglobals.gmGetVal("ccool"))	-- 1.18.6 addition, coolant 
 extensions.blrglobals.gmSetVal("pmirrors", extensions.core_vehicle_mirror.getAnglesOffset()) -- 1.16 dynamic mirrors
 extensions.blrhooks.linkHook("vehReset", "postedit")							-- link to post edit action hook
 
@@ -1207,6 +1213,7 @@ extensions.blrglobals.gmSetVal("pnos", extensions.blrglobals.gmGetVal("cnos"))	-
 extensions.blrglobals.gmSetVal("pftypes", extensions.blrutils.blrvarGet("fuelTypeString")) -- 1.14.2 addition, fuel types
 extensions.blrglobals.gmSetVal("pfratio", extensions.blrutils.blrvarGet("fuelRatioString")) -- 1.14.2 addition, fuel ratio
 extensions.blrglobals.gmSetVal("poil", extensions.blrglobals.gmGetVal("coil"))	-- 1.15 addition, oil 
+extensions.blrglobals.gmSetVal("pcool", extensions.blrglobals.gmGetVal("ccool"))	-- 1.18.6 addition, coolant 
 extensions.blrglobals.gmSetVal("pmirrors", extensions.core_vehicle_mirror.getAnglesOffset()) -- 1.16 dynamic mirrors
 extensions.blrglobals.blrFlagSet("hasNos", false) -- Setting hasNos to false to avoid vlua fetching bug before flag is set by N2O Check node
 extensions.blrhooks.linkHook("vehReset", "postedit")							-- Hooks post edit actions to the vehicle restored callback

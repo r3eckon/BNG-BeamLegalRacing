@@ -271,6 +271,17 @@ end
 end
 
 
+local function coolantLeakMessage(radiator)
+if radiator >= 1000.0 then 
+guihooks.trigger('Message', {ttl = 10, category="oilleak", msg = 'No radiator installed! Vehicle can\'t hold coolant!', icon = 'format_color_reset'})
+return
+end
+if radiator > 0 then
+guihooks.trigger('Message', {ttl = 10, category="coolantleak", msg = 'Vehicle leaks coolant! Use lower mileage radiator to fix it.', icon = 'format_color_reset'})
+end
+end
+
+
 local ptclues = {}
 
 local function resetPowertrainClues()
@@ -312,8 +323,8 @@ end
 
 
 
-
-
+M.coolantLeakMessage = coolantLeakMessage
+M.oilLeakMessage = oilLeakMessage
 M.resetPowertrainClues = resetPowertrainClues
 M.getPowertrainClues = getPowertrainClues
 M.processPowertrainClues = processPowertrainClues

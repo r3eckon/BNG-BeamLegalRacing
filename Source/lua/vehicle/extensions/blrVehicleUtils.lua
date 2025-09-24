@@ -1096,6 +1096,73 @@ print("Couldn't use oil bottle, unable find mainEngine powertrain device!")
 end
 end
 
+
+local function setCoolantLeak(rate)
+if powertrain and powertrain.getDevice("mainEngine") then
+local current = powertrain.getDevice("mainEngine").thermals.fluidLeakRates.coolant.radiator --math.max so if radiator is damaged odometer leak doesn't reset it
+powertrain.getDevice("mainEngine").thermals.fluidLeakRates.coolant.radiator = math.max(rate, current)
+else
+print("getCoolantLeak didn't find mainEngine device, skipping.\nThis is normal if vehicle has no engine.")
+end
+end
+
+local function getCoolantLeak()
+if powertrain and powertrain.getDevice("mainEngine") then
+return powertrain.getDevice("mainEngine").thermals.fluidLeakRates.coolant.radiator
+else
+print("getCoolantLeak didn't find mainEngine device, using 0 as fallback.\nThis is normal if vehicle has no engine.")
+return 0
+end
+end
+
+
+local function getCoolantVolumeCurrent()
+if powertrain and powertrain.getDevice("mainEngine") then
+return powertrain.getDevice("mainEngine").thermals.fluidReservoirs.coolant.currentMass
+else
+return 0
+end
+end
+
+local function getCoolantVolumeInitial()
+if powertrain and powertrain.getDevice("mainEngine") then
+return powertrain.getDevice("mainEngine").thermals.fluidReservoirs.coolant.initialMass
+else
+return 0
+end
+end
+
+local function setCoolantVolume(liters)
+if liters < 0 then -- for compatibility with old saves, -1 val to use initial value
+liters = getCoolantVolumeInitial()
+end
+if powertrain and powertrain.getDevice("mainEngine") then
+powertrain.getDevice("mainEngine").thermals.fluidReservoirs.coolant.currentMass = liters
+else
+print("setCoolantVolume didn't find mainEngine device, skipping.\nThis is normal if vehicle has no engine.")
+end
+end
+
+local function refillCoolant(toadd)
+local target = getCoolantVolumeInitial()
+local current = getCoolantVolumeCurrent()
+local needed = target - current
+local added = math.min(toadd, needed)
+setCoolantVolume(current + added)
+return toadd - added -- return quantity remaining in bottle
+end
+
+local function useCoolantBottle(itemkey, brand, grade, quantity)
+if powertrain and powertrain.getDevice("mainEngine") then
+local remain = refillCoolant(quantity)
+local used = quantity-remain
+obj:queueGameEngineLua("extensions.blrVehicleCallbacks.usedCoolantBottle('" .. itemkey .. "'," .. used .. ")")
+else
+print("Couldn't use coolant bottle, unable find mainEngine powertrain device!")
+end
+end
+
+
 local function getIntegrityOffset(odometer)
 local offset = 0
 local minimum = 200000000
@@ -1233,7 +1300,44 @@ setOilLeak(leak)
 obj:queueGameEngineLua("extensions.mechDamageLoader.oilLeakMessage(" .. engineRatio .. "," .. oilpanRatio .. ")")
 end
 
+local function getCoolantLeakRatio()
+local clues = extensions.blrPowertrainClues.getClues()
+local conditions = partCondition.getConditions()
 
+if not conditions or type(conditions) ~= "table" then
+return
+end
+
+local radiatorPart = clues["radiator"]
+local radiatorOdo = 0
+local radiatorRatio = 0
+
+if radiatorPart and conditions and conditions[radiatorPart] then
+radiatorOdo = conditions[radiatorPart].odometer
+else
+print("getCoolantLeakRatio has no conditions or clues data for radiator, setting odometer to 0 as fallback.\nThis is normal if vehicle has no radiator.")
+end
+
+if radiatorPart then
+radiatorRatio = math.min(radiatorOdo / 200000000.0, 2.0) * 1.0  -- 100% of leak from radiator
+
+if radiatorOdo < 100000000.0 then radiatorRatio = 0 end
+
+else
+radiatorRatio = 1000.0 -- leak all coolant from engine very fast if vehicle has no radiator
+end
+
+return radiatorRatio
+end
+
+local function updateCoolantLeakRate()
+local ratio = getCoolantLeakRatio()
+local baserate = getCoolantVolumeInitial() / 3600.0 -- base rate leaks all coolant in 1 hour
+local leak = ratio * baserate
+setCoolantLeak(leak)
+print("Should have set coolant leak to a value of " .. leak)
+obj:queueGameEngineLua("extensions.mechDamageLoader.coolantLeakMessage(" .. ratio .. ")")
+end
 
 -- calculate "coolness" rating based on performance and looks
 local function getCarMeetRatingData()
@@ -1418,7 +1522,14 @@ dump(inventoryLinksData)
 end
 
 
-
+M.refillCoolant = refillCoolant
+M.getCoolantVolumeInitial = getCoolantVolumeInitial
+M.getCoolantVolumeCurrent = getCoolantVolumeCurrent
+M.setCoolantVolume = setCoolantVolume
+M.useCoolantBottle = useCoolantBottle
+M.setCoolantLeak = setCoolantLeak
+M.getCoolantLeakRatio = getCoolantLeakRatio
+M.updateCoolantLeakRate = updateCoolantLeakRate
 
 M.getVehicleParts = getVehicleParts
 M.getLegacyCertifications = getLegacyCertifications

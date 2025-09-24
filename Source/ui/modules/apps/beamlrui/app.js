@@ -1344,7 +1344,7 @@ angular.module('beamng.apps')
 	  {
 		  var mainPartID = scope.nameFromPath(scope.beamlrData['mainpart'])
 		  var usedPartID = scope.beamlrData['advinvData'][scope.beamlrData['advinvUsed'][slot]][0]
-		  return mainPartID != usedPartID
+		  return mainPartID == usedPartID
 	  }
 	  
     }
