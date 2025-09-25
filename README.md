@@ -1,10 +1,11 @@
 
 
 
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.18.6/beamLegalRacing1.18.6.zip
+
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.18.7/beamLegalRacing1.18.7.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.18.6
+# Beam Legal Racing 1.18.7
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -1028,3 +1029,9 @@ Cause: Engine jbeam is missing torque data. Data is moved to other subparts. Thi
 * Added coolant bottle item
 * Fixed main part check bug preventing all parts from being removed
 * Fixed convenience store not checking if player has enough money before buying oil bottles
+
+### 1.18.7
+* Added slot favorites to part catalog UI
+* Fixed coolant not reloading after repair
+* Fixed combustionEngineThermal.lua issue causing radiator integrity loss because of low coolant volume
+* Slot favorites are now saved/restored in career backup

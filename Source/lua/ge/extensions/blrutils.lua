@@ -128,6 +128,34 @@ return function()
 end
 
 
+blrlogid = 0
+
+-- tail this file with powershell for instant logs during main thread locking loops
+-- EX: Get-Content C:\Users\r3eck\AppData\Local\BeamNG.drive\current\beamlr.log  -Wait -Tail 1
+function blrlog(txt, wid)
+if wid then
+print("BeamLR Log ID " .. blrlogid)
+end
+local toprint = txt
+local prefix = "[" .. string.format("%.3f",os.clock()) .. "] "
+if type(txt) == "table" then
+toprint = dumps(txt)
+end
+
+if wid then
+prefix = "[" .. blrlogid .. "]" .. prefix
+blrlogid = blrlogid+1
+end
+
+local f = io.open("beamlr.log", "a")
+f:write(prefix .. toprint .. "\n")
+f:flush()
+f:close()
+end
+
+
+
+
 local function deleteFile(filename)
 if FS:fileExists(filename) then 
 FS:removeFile(filename)
@@ -858,6 +886,7 @@ extensions.blrCarMeet.updateDayData()
 copyFile("beamLR/carMeetDayData", "beamLR/backup/carMeetDayData") -- 1.17 car meet
 copyFile("beamLR/ownedProperties", "beamLR/backup/ownedProperties") -- 1.17 properties
 copyFile("beamLR/trackEventResults", "beamLR/backup/trackEventResults") -- 1.17.5 track event results
+copyFile("beamLR/slotFavorites", "beamLR/backup/slotFavorites") -- 1.18.7 slot favorites
 
 
 -- Garage data
@@ -917,6 +946,7 @@ copyFile("beamLR/backup/usedPartDayData", "beamLR/usedPartDayData") -- 1.16 used
 copyFile("beamLR/backup/carMeetDayData", "beamLR/carMeetDayData") -- 1.17 car meet
 copyFile("beamLR/backup/ownedProperties", "beamLR/ownedProperties") -- 1.17 properties
 copyFile("beamLR/backup/trackEventResults", "beamLR/trackEventResults") -- 1.17.5 track event results
+copyFile("beamLR/backup/slotFavorites", "beamLR/slotFavorites") -- 1.18.7 slot favorites
 
 extensions.blrItemInventory.loadInventory() -- need to load inventory right now otherwise empty inventory table will overwrite restored backup
 extensions.blrPartInventory.load() -- probably should do the same for new part inventory system
@@ -3356,35 +3386,12 @@ saveDataTable("beamLR/garage/car0", dtable)
 dtable = jsonReadFile("beamLR/garage/config/car0")
 dtable["odometer"] = 300000000
 jsonWriteFile("beamLR/garage/config/car0", dtable, true)
+
+-- next resetting slot favorites
+dtable = {}
+saveDataTable("beamLR/slotFavorites", dtable)
+
 end
-
-
-locals["blrlogid"] = 0
-
--- tail this file with powershell for instant logs during main thread locking loops
--- EX: Get-Content C:\Users\r3eck\AppData\Local\BeamNG.drive\current\beamlr.log  -Wait -Tail 1
-locals["blrlog"] = function(txt, wid)
-if wid then
-print("BeamLR Log ID " .. locals["blrlogid"])
-end
-local toprint = txt
-local prefix = "[" .. string.format("%.3f",os.clock()) .. "] "
-if type(txt) == "table" then
-toprint = dumps(txt)
-end
-
-if wid then
-prefix = "[" .. locals["blrlogid"] .. "]" .. prefix
-locals["blrlogid"] = locals["blrlogid"]+1
-end
-
-local f = io.open("beamlr.log", "a")
-f:write(prefix .. toprint .. "\n")
-f:flush()
-f:close()
-end
-
-
 
 locals["isAppOnLayout"] = function(app, layout)
 local layouts = uiapps.getAvailableLayouts()
@@ -3407,7 +3414,6 @@ end
 
 M.deleteFolder = locals["deleteFolder"]
 M.isAppOnLayout = locals["isAppOnLayout"]
-M.blrlog = locals["blrlog"]
 M.loadReleaseValues = locals["loadReleaseValues"]
 M.getStarterCarSeedList = locals["getStarterCarSeedList"]
 M.racePathDebuggerClear = locals["racePathDebuggerClear"]

@@ -2426,7 +2426,7 @@ cacheProgressMax = #files -- DEBUG CODE
 for k,v in pairs(files) do
 -- DEBUG CODE START
 cacheProgress = cacheProgress + 1 
-extensions.blrutils.blrlog("Jbeam caching progress | Step 1/3 | File " .. cacheProgress .. "/" .. cacheProgressMax .. " | " .. string.format("%.2f", (cacheProgress/cacheProgressMax)*100.0) .. "%")
+blrlog("Jbeam caching progress | Step 1/3 | File " .. cacheProgress .. "/" .. cacheProgressMax .. " | " .. string.format("%.2f", (cacheProgress/cacheProgressMax)*100.0) .. "%")
 -- DEBUG CODE end
 
 cdata = jsonReadFileSafe(v)
@@ -2459,7 +2459,7 @@ for k,v in pairs(jbeamFileMap) do
 
 -- DEBUG CODE START
 cacheProgress = cacheProgress + 1
-extensions.blrutils.blrlog("Jbeam caching progress | Step 2/3 | File " .. cacheProgress .. "/" .. cacheProgressMax .. " | " .. string.format("%.2f", (cacheProgress/cacheProgressMax)*100.0) .. "%")
+blrlog("Jbeam caching progress | Step 2/3 | File " .. cacheProgress .. "/" .. cacheProgressMax .. " | " .. string.format("%.2f", (cacheProgress/cacheProgressMax)*100.0) .. "%")
 -- DEBUG CODE end
 
 
@@ -2490,7 +2490,7 @@ cacheProgressMax = jbeamFileMapCount -- DEBUG CODE
 for k,v in pairs(jbeamFileMap) do
 -- DEBUG CODE START
 cacheProgress = cacheProgress + 1
-extensions.blrutils.blrlog("Jbeam caching progress | Step 3/3 | File " .. cacheProgress .. "/" .. cacheProgressMax .. " | " .. string.format("%.2f", (cacheProgress/cacheProgressMax)*100.0) .. "%")
+blrlog("Jbeam caching progress | Step 3/3 | File " .. cacheProgress .. "/" .. cacheProgressMax .. " | " .. string.format("%.2f", (cacheProgress/cacheProgressMax)*100.0) .. "%")
 -- DEBUG CODE end
 
 

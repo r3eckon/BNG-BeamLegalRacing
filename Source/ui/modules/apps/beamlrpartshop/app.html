@@ -5,7 +5,8 @@
 
 <div style="margin-left:10px; overflow:visible;" ng-repeat="item in items" ng-if="params.showIncompatible || beamlrData['vehSlotIDs'][item] != null">
 <span ng-style="selectedSlot == item && {'color':'orange','font-weight':'bold'}">
-<span ng-click="expandSlot(item)" style="display:inline-block; text-align:center; width:8px;" ng-style="!beamlrData['partShopTree'][item].children[0] && {'color':'rgba(1.0,0.0,0.0,0.0)'}">
+<span><img style="width:20px; margin-top:5px;" ng-click="slotFavoriteToggle(item)" ng-attr-src="/ui/modules/apps/beamlrui/{{getSlotFavoriteIcon(item)}}" width=20px height=20px></img></span>
+<span ng-click="expandSlot(item)" style="display:inline-block; text-align:center; font-size:20px; width:16px;" ng-style="!beamlrData['partShopTree'][item].children[0] && {'color':'rgba(1.0,0.0,0.0,0.0)'}">
 {{getSlotExpandButton(item)}}
 </span>
 <span ng-click="selectSlot(item)" ng-style="(beamlrData['vehSlotIDs'][item] == null && selectedSlot != item) && {'color':'yellow'}">{{getSlotName(item)}}</span>
@@ -54,7 +55,7 @@
 <div style="width:100%; height:35px;">
 <input type="text" ng-model="params.searchFilter" style="width:70%; height:30px;"></input>
 <button ng-click="search()" style="width:13%; border-radius:10px; border-color:white; transform:translate(0px,2px)">&#x1F50D;</button>
-<button ng-click="searchReset()" style="width:13%; border-radius:10px; border-color:white; transform:translate(0px,2px)">&#x274C;</button>
+<button ng-click="favresetClicked()" style="width:13%; border-radius:10px; border-color:white; transform:translate(0px,2px)">{{searching && "&#x274C;" || "&#11088;"}}</button>
 </div>
 
 <div style="font-size:18px; height:calc(100% - 35px); text-wrap:nowrap; background-color:rgba(0.0,0.0,0.0,0.5); max-width:300px; width:300px; overflow:scroll;">
@@ -71,7 +72,8 @@
 <div ng-if="!searching && canUseMenu()">
 <div style="margin-left:10px; overflow:visible;" ng-repeat="item in beamlrData['partShopTree'][beamlrData['vehmodel']].children" ng-if="(params.showIncompatible || beamlrData['vehSlotIDs'][item] != null) && item != null">
 <span ng-style="selectedSlot == item && {'color':'orange','font-weight':'bold'}">
-<span ng-click="expandSlot(item)" style="display:inline-block; text-align:center; width:8px;" ng-style="!beamlrData['partShopTree'][item].children[0] && {'color':'rgba(1.0,0.0,0.0,0.0)'}">
+<span><img style="width:20px; margin-top:5px;" ng-click="slotFavoriteToggle(item)" ng-attr-src="/ui/modules/apps/beamlrui/{{getSlotFavoriteIcon(item)}}" width=20px height=20px></img></span>
+<span ng-click="expandSlot(item)" style="display:inline-block; text-align:center; font-size:20px; width:16px;" ng-style="!beamlrData['partShopTree'][item].children[0] && {'color':'rgba(1.0,0.0,0.0,0.0)'}">
 {{getSlotExpandButton(item)}}
 </span>
 <span ng-click="selectSlot(item)" ng-style="(beamlrData['vehSlotIDs'][item] == null && selectedSlot != item) && {'color':'yellow'}">{{getSlotName(item)}}</span>

@@ -63,7 +63,7 @@ local function treedump(n, d)
     cout = cout .. "   "
   end
   cout = cout .. n.id .. "=" .. (extensions.blrpartmgmt.getFullSlotNameLibrary()[extensions.blrpartmgmt.getSlotIDFromPath(n.id)] or "!!! NO UI NAME !!!")
-  extensions.blrutils.blrlog(cout)
+  blrlog(cout)
   for k,v in ipairs(n.children) do
     treedump(v, depth+1)
   end
@@ -76,7 +76,7 @@ for i=1,depth do
 cout = cout .. "-"
 end
 cout = cout .. n.id .. "=" .. (extensions.blrpartmgmt.getFullSlotNameLibrary()[n.id] or "!!! NO UI NAME !!!")
-extensions.blrutils.blrlog(cout)
+blrlog(cout)
 for k,v in ipairs(n.children) do
 parttreedump(tnodedict[v], depth+1)
 end

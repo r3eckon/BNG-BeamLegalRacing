@@ -322,6 +322,7 @@ local function cylinderWallsMelted()
 end
 
 local function setPartConditionRadiator(odometer, integrity, visual)
+  
   local integrityState = integrity
   if type(integrity) == "number" then
     local integrityValue = integrity
@@ -331,6 +332,7 @@ local function setPartConditionRadiator(odometer, integrity, visual)
     }
   end
   radiatorDamage = integrityState.radiatorDamage or 0
+  
   fluidReservoirs.coolant.currentMass = integrityState.coolantMass or fluidReservoirs.coolant.initialMass
 end
 
@@ -380,9 +382,12 @@ local function getPartConditionRadiator()
   }
 
   local radiatorIntegrityValue = linearScale(radiatorDamage, 0, 0.1, 1, 0)
-  local coolantIntegrityValue = linearScale(fluidReservoirs.coolant.currentMass, fluidReservoirs.coolant.initialMass, fluidReservoirs.coolant.initialMass * 0.1, 1, 0)
-
-  local integrityValue = min(radiatorIntegrityValue, coolantIntegrityValue)
+  
+  -- 1.18.7 BEAMLR FIX START, RADIATOR WOULD GET DECREASED INTEGRITY BECAUSE OF LOW COOLANT VOLUME
+  --local coolantIntegrityValue = linearScale(fluidReservoirs.coolant.currentMass, fluidReservoirs.coolant.initialMass, fluidReservoirs.coolant.initialMass * 0.1, 1, 0)
+  local integrityValue = radiatorIntegrityValue
+  -- BEAMLR FIX END
+  
   return integrityValue, integrityState
 end
 

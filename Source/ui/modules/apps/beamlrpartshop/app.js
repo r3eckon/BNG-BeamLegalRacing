@@ -364,6 +364,43 @@ angular.module('beamng.apps')
 		  //return (scope.beamlrData['triggerState'] >= 1) && (scope.beamlrData['playerWalking'] == 0)
 	  }
 	  
+	  scope.slotFavoriteToggle = function(slot)
+	  {
+		bngApi.engineLua(`extensions.customGuiCallbacks.setParam("favdata", "${slot}")`)
+		bngApi.engineLua(`extensions.customGuiCallbacks.exec("slotFavoriteToggle", "favdata")`) 
+		//immediate update to data so we don't need to receive full favorites table again
+		if(scope.beamlrData["slotFavorites"][slot] == "true")
+		{
+			scope.beamlrData["slotFavorites"][slot] = "false"
+		}
+		else
+		{
+			scope.beamlrData["slotFavorites"][slot] = "true"
+		}
+			
+	  }
+
+	  scope.getSlotFavoriteIcon = function(slot)
+	  {
+		  return (scope.beamlrData["slotFavorites"][slot] == "true") ? "star_filled.svg" : "star_empty.svg";
+	  }
+	  
+	  scope.viewFavorites = function()
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("filter", "favorites")`);
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setFilter", "filter")`);
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("menu", 0)`);
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("partUICategory", "menu")`);
+	  }
+	  
+	  scope.favresetClicked = function()
+	  {
+		  if(scope.searching)
+			  scope.searchReset()
+		  else
+			  scope.viewFavorites()
+	  }
+	  
 		
 
     }
