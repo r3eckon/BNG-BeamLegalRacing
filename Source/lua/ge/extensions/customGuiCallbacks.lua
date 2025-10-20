@@ -1439,7 +1439,23 @@ ftable["showPartShopV2"] = function(p)
 extensions.customGuiStream.showPartShopV2()
 end
 
+ftable["toggleOilLeakDecals"] = function(p)
+local dtable = {}
+dtable["odtoggle"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+extensions.blrdecals.toggleOilLeakDecals(p == 1)
+end
 
+ftable["setOilLeakDecalBuffer"] = function(p)
+local dtable = {}
+dtable["odbufsize"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+extensions.blrdecals.setBufferSize(p)
+end
+
+ftable["clearDecals"] = function(p)
+extensions.blrdecals.clearDecals()
+end
 
 
 

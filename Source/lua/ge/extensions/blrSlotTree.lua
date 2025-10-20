@@ -296,7 +296,7 @@ return
 end
 
 if not folders then
-folders = {"/vehicles/" .. model .. "/", "/vehicles/common/"}
+folders = {extensions.blrutils.getVehicleDirectory(model), "/vehicles/common/"}
 end
 
 

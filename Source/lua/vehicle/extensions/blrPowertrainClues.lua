@@ -1,5 +1,70 @@
 local M = {}
 
+local nodeRef = nil
+local leakNodes = nil
+
+local function getLeakNodes()
+return leakNodes
+end
+
+local function generateNodeRef()
+nodeRef = {}
+for k,node in pairs(v.data.nodes) do
+nodeRef[node.name or node.cid] = k
+end
+end
+
+local function lookForLeakNodes(partData)
+if leakNodes then return end
+if not nodeRef then generateNodeRef() end
+
+if nodeRef["oilpan"] then
+leakNodes = {nodeRef["oilpan"]}
+print("Found real oilpan node, using it as leak point")
+return
+end
+
+leakNodes = {}
+for k,v in pairs(partData["nodes"]) do
+if v[1] and nodeRef[v[1]] then
+table.insert(leakNodes, nodeRef[v[1]])
+end
+end
+
+print("Found no real oilpan node, using engine nodes average pos as leak point")
+
+end
+
+
+local function getLeakPosition()
+local cpos = nil
+local count = #leakNodes
+
+if count == 0 then
+print("Leak node error: didn't find any leak nodes, can't spawn decals")
+return
+end
+
+local ax = 0
+local ay = 0
+local az = 0
+
+for k,v in pairs(leakNodes) do
+cpos = vec3(obj:getNodePosition(v)) + vec3(obj:getPositionXYZ())
+ax = ax + cpos.x
+ay = ay + cpos.y
+az = az + cpos.z
+end
+
+ax = ax / count
+ay = ay / count
+az = az / count
+
+return vec3(ax,ay,az)
+end
+
+
+
 local function lookForOilpan(partData, nmode)
 local found = false
 if partData["mainEngine"] then
@@ -7,6 +72,11 @@ found = partData["mainEngine"]["deformGroups_oilPan"]
 found = found or partData["mainEngine"]["oilpanMaximumSafeG"]
 found = found or partData["mainEngine"]["oilpanNodes:"]
 end
+
+if found then
+lookForLeakNodes(partData)
+end
+
 return found
 end
 
@@ -19,6 +89,11 @@ end
 if partData["mainEngine"] then
 found = found or partData["mainEngine"]["engineBlockMaterial"]
 end
+
+if found then
+lookForLeakNodes(partData)
+end
+
 return found
 end
 
@@ -90,6 +165,8 @@ end
 -- engine odometer alone for oil leak in this situation
 local function getClues()
 local toRet = {}
+leakNodes = nil
+nodeRef = nil
 
 -- Start with oilpan, trying to find using string matching first since some vehicles
 -- have oilpan deform groups attached to engine so first try finding actual oilpan part
@@ -162,16 +239,25 @@ end
 return toRet
 end
 
+local function sendLeakNodes()
+local toSend = serialize(leakNodes or "")
+obj:queueGameEngineLua("extensions.blrdecals.receiveLeakNodes('" .. toSend .. "')")
+end
+
 local function sendClues()
 local clues = getClues()
 for k,v in pairs(clues) do
 obj:queueGameEngineLua("extensions.mechDamageLoader.receivePowertrainClues('" .. k .. "','".. v .."')")
 end
 obj:queueGameEngineLua("extensions.mechDamageLoader.processPowertrainClues()")
+
+sendLeakNodes()
 end
 
+M.sendLeakNodes = sendLeakNodes
 
-
+M.getLeakPosition = getLeakPosition
+M.getLeakNodes = getLeakNodes
 M.sendClues = sendClues
 M.getClues = getClues
 

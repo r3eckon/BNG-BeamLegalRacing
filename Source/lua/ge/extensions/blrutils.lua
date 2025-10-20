@@ -1276,7 +1276,7 @@ induction = (cdata["Induction Type"] or "NOINDUCTION"):gsub("%s%+%s", "_") -- Re
 drivetrain = (cdata["Drivetrain"] or "NODRIVETRAIN"):gsub("4WD", "AWD"):gsub("4x4", "AWD"):gsub("4x2", "AWD")
 tier = tiers[cclass] or "NONE"
 
-ccpath = "/vehicles/" .. v .. "/" .. cname .. ".pc" -- Current config path to add to files
+ccpath = locals["getVehicleDirectory"](v) .. cname .. ".pc" -- Current config path to add to files
 
 data[cclass] = data[cclass] .. ccpath .. "\n" -- Add to generic performance class
 
@@ -1345,7 +1345,7 @@ end
 
 
 else
-data["NA"] = data["NA"] .. "/vehicles/" .. v .. "/" .. cname .. ".pc" .. "\n"
+data["NA"] = data["NA"] .. locals["getVehicleDirectory"](v) .. cname .. ".pc" .. "\n"
 end
 
 elseif csource == "BeamNG - Official" then
@@ -1360,7 +1360,7 @@ induction = (cdata["Induction Type"] or "NOINDUCTION"):gsub("%s%+%s", "_") -- Re
 drivetrain = (cdata["Drivetrain"] or "NODRIVETRAIN"):gsub("4WD", "AWD"):gsub("4x4", "AWD"):gsub("4x2", "AWD")
 tier = tiers[cclass] or "NONE"
 
-ccpath = "/vehicles/" .. v .. "/" .. cname .. ".pc" -- Current config path to add to files
+ccpath = locals["getVehicleDirectory"](v) .. cname .. ".pc" -- Current config path to add to files
 
 data[cclass] = data[cclass] .. ccpath .. "\n" -- Add to generic performance class
 
@@ -1429,7 +1429,7 @@ data[ckey] = data[ckey] .. ccpath .. "\n"
 end
 
 else
-data["NA"] = data["NA"] .. "/vehicles/" .. v .. "/" .. cname .. ".pc" .. "\n"
+data["NA"] = data["NA"] .. locals["getVehicleDirectory"](v) .. cname .. ".pc" .. "\n"
 end
 end
 end
@@ -1841,9 +1841,45 @@ end
 return toRet
 end
 
+-- added in 1.18.8 to fix issues with cars that don't have folder named like model
+locals["getVehicleDirectory"] = function(model)
+-- no model provided, use player vehicle
+if not model then
+local vdata = extensions.core_vehicle_manager.getPlayerVehicleData()
+if vdata then return vdata.vehicleDirectory
+else return nil end
+end
+
+-- model provided, first trying to create path assuming veh model is same as folder name
+local path = "/vehicles/" .. model .. "/"
+if FS:directoryExists(path) then
+return path
+end
+
+-- model was not the same as folder name, trying to find vehicle folder by looking for model.jbeam file
+local found = FS:findFiles("/vehicles/", model .. ".jbeam", -1)
+if #found > 0 then
+local csplit = ssplit(found[1], "/")
+if #csplit >= 3 then
+local vfname = csplit[3]
+path = "/vehicles/" .. vfname .. "/"
+if FS:directoryExists(path) then
+return path 
+end
+end
+end
+
+end
+
+
+
+
+
+-- 1.18.8 fix for cars that don't use the model name for the vehicle folder
+-- only works if model isn't passed as parameter, vehicleDirectory value is fetched from player veh data
 local function getVehicleInfoFile(model) -- info.json containing UI name and brand, dont specify model to use current veh model
-if not model then model = getVehicleMainPartName() end
-local data = jsonReadFile("/vehicles/" .. model .. "/info.json")
+local vehdir = locals["getVehicleDirectory"](model)
+local data = jsonReadFile(vehdir .. "info.json")
 return data
 end
 
@@ -2471,7 +2507,6 @@ locals["paints"] = nil
 
 
 local function createRandomFactoryPaint(seed, model)
-
 -- 1.18.4 / BeamNG 0.37 paint library system, veh info file only refers to paint key
 -- so gotta fetch it from the library file
 if not locals["paints"] then
@@ -2482,12 +2517,46 @@ math.randomseed(seed)
 local paints = getVehicleInfoFile(model)["libraryPaints"] -- changed from "paints" in 1.18.4
 local pkeys = {}
 local pid = 1
+
 for k,v in pairs(paints) do
 if type(v) ~= "table" then -- avoid table entries in libraryPaints table
 pkeys[pid] = v
 pid = pid+1
 end
 end
+
+-- 1.18.8 fix for cars that don't have factory paints
+-- first try to fetch factory paint colors from multi paint setups
+-- Could eventually properly implement multipaint setups for dealerships but this will do for now
+if #pkeys == 0 then
+for _,pdata in pairs(getVehicleInfoFile(model)["multiPaintSetups"]) do
+if pdata.class == "factory" then
+
+if pdata["paint1"] then
+pkeys[pid] = pdata["paint1"]
+pid = pid+1
+end
+
+if pdata["paint2"] then
+pkeys[pid] = pdata["paint2"]
+pid = pid+1
+end
+
+if pdata["paint3"] then
+pkeys[pid] = pdata["paint3"]
+pid = pid+1
+end
+
+end
+end
+end
+
+-- if all else fails just generate a random paint
+if #pkeys == 0 then
+return createRandomPaint(seed)
+end
+
+
 local pick = pkeys[math.random(1, #pkeys)]
 print("Picked random factory paint key: " .. pick)
 local paint = locals["paints"][pick]
@@ -3368,6 +3437,8 @@ dtable["tsrate"] = "0.1"
 dtable["lrestrict"] = "1"
 dtable["sseed"] = "123"
 dtable["nseed"] = "123"
+dtable["odbufsize"] = "250"
+dtable["odtoggle"] = "1"
 saveDataTable("beamLR/options", dtable)
 
 -- next doing mainData
@@ -3411,7 +3482,7 @@ FS:remove(path)
 end
 end
 
-
+M.getVehicleDirectory = locals["getVehicleDirectory"]
 M.deleteFolder = locals["deleteFolder"]
 M.isAppOnLayout = locals["isAppOnLayout"]
 M.loadReleaseValues = locals["loadReleaseValues"]

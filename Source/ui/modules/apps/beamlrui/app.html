@@ -240,6 +240,8 @@ Joe Franco<br>
 Zbignev Ulevic<br>
 Nuno Medeiros<br>
 Preston Knapp<br>
+Marcos Da Silva<br>
+Abdullah Alsnani<br>
 </p>
 
 <h2 style="text-align:center;">
@@ -681,7 +683,7 @@ Manual Traffic Toggle
 <div ng-click="toggleOptionShow('weather')" style="width:95%; font-size:20px; font-weight:bold; text-align:center; margin:auto; margin-top:10px;">
 <span ng-if="optshow['weather'] == false || optshow['weather'] == null" style="float:left;">&nbsp+</span>
 <span ng-if="optshow['weather'] == true" style="float:left;">&nbsp-</span>
-<span>Dynamic Weather</span>
+<span>Environment</span>
 <span ng-if="optshow['weather'] == false || optshow['weather'] == null" style="float:right;">+&nbsp</span>
 <span ng-if="optshow['weather'] == true" style="float:right;">-&nbsp</span>
 </div>
@@ -715,6 +717,27 @@ Fog Density Variability
 <input type="number" min=0 max=1 step=0.01 maxlength=10 size=5 ng-model="inputData.fdvar" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
 <button ng-click="setFogDensityVar(inputData.fdvar)">Set</button>
 </p>
+
+
+<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >Oil leak decal system will spawn oil drops & growing puddles underneath leaking engines. Low end PCs should use less than 200 decals. Mid tier PCs can handle 500 decals. Higher end PCs may handle up to 1000 decals.</p>
+
+<p style="text-align:center; margin-top:5px; margin-bottom:5px;"> 
+Oil Leak Decals Toggle
+<button ng-class="inputData.odtoggle == 1 ? 'toggleon' : 'toggleoff'" ng-click="odtoggle(1)">On</button>
+<button ng-class="inputData.odtoggle == 0 ? 'toggleon' : 'toggleoff'" ng-click="odtoggle(0)">Off</button>
+</p>
+
+<p style="text-align:center;"> 
+Maximum Active Decals
+<input type="number" min=50 max=1000 step=50 maxlength=4 size=5 ng-model="inputData.odbufsize" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
+<button ng-click="setOilLeakDecalBuffer(inputData.odbufsize)">Set</button>
+</p>
+
+<p style="text-align:center;"> 
+Clear Active Decals
+<button ng-click="clearDecals()">Clear</button>
+</p>
+
 
 </div>
 

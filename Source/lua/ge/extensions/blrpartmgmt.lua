@@ -967,9 +967,9 @@ end
 return toRet
 end
 
-
+-- 1.18.8 fix for vehicles that don't use same model name as folder name
 local function getCustomIOCTX(model)  -- Returns IOCTX based on model to use for car that hasn't spawned
-return {preloadedDirs = {"/vehicles/" .. model .. "/", "/vehicles/common/"}}
+return {preloadedDirs = {extensions.blrutils.getVehicleDirectory(model), "/vehicles/common/"}}
 end
 
 -- Returns slot map containing data only for specific slots
@@ -1702,7 +1702,15 @@ local activeParts = {}
 local chosenParts = {}
 local toRet = ""
 local mainPart = getMainPartName()
-local jbeamdata = jsonReadFile(string.format("vehicles/%s/%s.jbeam", mainPart,mainPart))[mainPart]
+local vehdir = extensions.blrutils.getVehicleDirectory(mainPart)
+
+-- 1.18.8 fix for vehicle that have weird folder structure with main jbeam file in a subfolder
+-- first try to use jbeam file map, otherwise try to find the file automatically inside the folder structure
+local jbeamfile = jbeamFileMap[mainPart] or FS:findFiles(string.format(vehdir, mainPart), string.format("%s.jbeam", mainPart), -1)[1]
+ 
+--local jbeamdata = jsonReadFile(string.format("vehicles/%s/%s.jbeam", mainPart,mainPart))[mainPart]
+local jbeamdata = jsonReadFile(jbeamfile)[mainPart]
+
 local newfmt = jbeamdata["slots2"]
 local slotdata = {}
 if newfmt then

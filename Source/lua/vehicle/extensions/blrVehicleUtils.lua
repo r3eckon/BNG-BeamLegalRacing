@@ -1439,7 +1439,7 @@ end
 end
 
 
-ratingData["model"] = v.vehicleDirectory:gsub("/vehicles/", ""):gsub("/", "")
+ratingData["model"] = v.config.mainPartName
 ratingData["total"] = final
 return ratingData
 end
@@ -1450,7 +1450,7 @@ end
 -- opens hood for showoff during car meet, works even for rear/mid engine cars
 local function openCarMeetLatches()
 local controllers = controller.getAllControllers()
-local model = v.vehicleDirectory:gsub("/vehicles/", ""):gsub("/", "")
+local model = v.config.mainPartName
 local parts = v.data.slotPartMap -- 1.18.2 fix for 0.38 slot tree
 
 -- build table of potential latches and catches for all vehicle types

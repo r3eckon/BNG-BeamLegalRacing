@@ -259,6 +259,8 @@ angular.module('beamng.apps')
 		  scope.inputData['atcount'] = data['atcount']
 		  scope.inputData['tsrate'] = data['tsrate']
 		  scope.inputData['tsbias'] = data['tsbias']
+		  scope.inputData['odbufsize'] = data['odbufsize']
+		  scope.inputData['odtoggle'] = data['odtoggle']
       })
 	  
 	  scope.setDefaultValue = function(param)
@@ -1345,6 +1347,25 @@ angular.module('beamng.apps')
 		  var mainPartID = scope.nameFromPath(scope.beamlrData['mainpart'])
 		  var usedPartID = scope.beamlrData['advinvData'][scope.beamlrData['advinvUsed'][slot]][0]
 		  return mainPartID == usedPartID
+	  }
+	  
+	  scope.odtoggle = function(t)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("odtoggle", ${t})`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("toggleOilLeakDecals", "odtoggle")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);  
+	  }
+	  
+	  scope.setOilLeakDecalBuffer = function(t)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("odbufsize", ${t})`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setOilLeakDecalBuffer", "odbufsize")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);  
+	  }
+	  
+	  scope.clearDecals = function(t)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("clearDecals")`);  
 	  }
 	  
     }

@@ -2,10 +2,11 @@
 
 
 
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.18.7/beamLegalRacing1.18.7.zip
+
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.18.8/beamLegalRacing1.18.8.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.18.7
+# Beam Legal Racing 1.18.8
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -139,6 +140,8 @@ Version 1.18.2 adds a UI option to show/hide incompatible slots in part shop, va
 Version 1.18.4 adds a part shop tree view, a brand new part shop catalogue UI (overall a more user friendly interface to browse parts, uses a shopping cart system to buy multiple parts all at once and a slot tree browser) and now allows part shops to be used on foot.
 
 Version 1.18.6 adds coolant persistence and leak mechanic, works like the oil leak mechanic. Coolant bottles can also be purchased by getting out of your car at a gas station.
+
+Version 1.18.8 adds an oil leak decal system that spawns oil drops and puddles underneath leaky engines. This system can be configured through the options menu under the "Environment" tab. Lower end computers may need to use lower maximum decal amounts to maintain performance.
 
 ## Getting started
 BeamLR is loaded as a freeroam mission. Use the following spawn point depending on map choice:
@@ -362,6 +365,9 @@ Thank you for playing BeamLR!
 * Zbignev Ulevic
 * Nuno Medeiros
 * Preston Knapp
+* Marcos Da Silva
+* Abdullah Alsnani
+
 
 ## Known Issues 
 
@@ -1035,3 +1041,12 @@ Cause: Engine jbeam is missing torque data. Data is moved to other subparts. Thi
 * Fixed coolant not reloading after repair
 * Fixed combustionEngineThermal.lua issue causing radiator integrity loss because of low coolant volume
 * Slot favorites are now saved/restored in career backup
+
+### 1.18.8
+* Added oil leak decals system
+* Fixed vehicle directory fetching not working for cars that use directory name different from model
+* Fixed vehicle main jbeam file fetching not working when file is in a subfolder of vehicle directory
+* Fixed dealership util app calling missing blrdelay function
+* Fixed factory paint generation in dealership not working for certain vehicles
+* Fixed oil & coolant values not restored after exiting part edit safe mode
+* Increased post edit action delay (potential fix for odometer value not restored for some players)
