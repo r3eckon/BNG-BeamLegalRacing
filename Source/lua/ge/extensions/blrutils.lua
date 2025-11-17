@@ -849,6 +849,7 @@ copyFile("beamLR/init/usedPartDayData",  "beamLR/usedPartDayData") -- 1.16 part 
 copyFile("beamLR/init/carMeetDayData",  "beamLR/carMeetDayData") -- 1.17 car meet day data
 copyFile("beamLR/init/ownedProperties",  "beamLR/ownedProperties") -- 1.17 properties
 copyFile("beamLR/init/trackEventResults",  "beamLR/trackEventResults") -- 1.17.5 track event results
+copyFile("beamLR/init/barnFindData",  "beamLR/barnFindData") -- 1.19 barn finds
 -- Uses seed based random starter car ID out of available setups, not based on difficulty
 copyFile("beamLR/init/garage/car" .. carid , "beamLR/garage/car0")
 copyFile("beamLR/init/garage/config/car" .. carid , "beamLR/garage/config/car0")
@@ -887,6 +888,7 @@ copyFile("beamLR/carMeetDayData", "beamLR/backup/carMeetDayData") -- 1.17 car me
 copyFile("beamLR/ownedProperties", "beamLR/backup/ownedProperties") -- 1.17 properties
 copyFile("beamLR/trackEventResults", "beamLR/backup/trackEventResults") -- 1.17.5 track event results
 copyFile("beamLR/slotFavorites", "beamLR/backup/slotFavorites") -- 1.18.7 slot favorites
+copyFile("beamLR/barnFindData", "beamLR/backup/barnFindData") -- 1.19 barn find
 
 
 -- Garage data
@@ -947,6 +949,7 @@ copyFile("beamLR/backup/carMeetDayData", "beamLR/carMeetDayData") -- 1.17 car me
 copyFile("beamLR/backup/ownedProperties", "beamLR/ownedProperties") -- 1.17 properties
 copyFile("beamLR/backup/trackEventResults", "beamLR/trackEventResults") -- 1.17.5 track event results
 copyFile("beamLR/backup/slotFavorites", "beamLR/slotFavorites") -- 1.18.7 slot favorites
+copyFile("beamLR/backup/barnFindData", "beamLR/barnFindData") -- 1.18.7 slot favorites
 
 extensions.blrItemInventory.loadInventory() -- need to load inventory right now otherwise empty inventory table will overwrite restored backup
 extensions.blrPartInventory.load() -- probably should do the same for new part inventory system
@@ -2411,14 +2414,23 @@ difficulty = difficulty + (weightscale - 1.0) -- which means since 1.0 is remove
 toRet["reward"] = basereward + (basereward * difficulty)
 toRet["itemname"] = idata["name"]
 toRet["failg"] = tonumber(idata["failg"])
-toRet["desc"] = mdata["desc"]:gsub("$item", idata["name"]) .. "\n"
-toRet["desc"] = toRet["desc"] .. "Reward: $" .. toRet["reward"] .. "\n"
-toRet["desc"] = toRet["desc"] .. "Max Force: " .. toRet["failg"] .. " Gs\n"
+
+-- 1.19 translation system
+local tdesc = extensions.blrlocales.translate(mdata["desc"])
+local titem = extensions.blrlocales.translate(idata["name"])
+local treward = extensions.blrlocales.translate("beamlr.generic.term.reward")
+local tmaxforce = extensions.blrlocales.translate("beamlr.imgui.delivery.maxforce")
+local ttaska = extensions.blrlocales.translate("beamlr.imgui.delivery.taska")
+local ttaskb = extensions.blrlocales.translate("beamlr.imgui.delivery.taskb")
+
+toRet["desc"] = tdesc:gsub("$item", titem) .. "\n"
+toRet["desc"] = toRet["desc"] .. treward .. ": $" .. toRet["reward"] .. "\n"
+toRet["desc"] = toRet["desc"] .. tmaxforce .. ": " .. toRet["failg"] .. " Gs\n"
 
 if mtype == "trailer" or mtype == "gooseneck" then
-toRet["desc"] = toRet["desc"] .. "Task: Unhook trailer inside markers\nNote: Damaging the trailer will fail the mission!"
+toRet["desc"] = toRet["desc"] .. ttaska
 else
-toRet["desc"] = toRet["desc"] .. "Task: Drive to marked location"
+toRet["desc"] = toRet["desc"] .. ttaskb
 end
 
 toRet["tconfig"] = idata["trailer"]
@@ -2518,38 +2530,61 @@ local paints = getVehicleInfoFile(model)["libraryPaints"] -- changed from "paint
 local pkeys = {}
 local pid = 1
 
-for k,v in pairs(paints) do
-if type(v) ~= "table" then -- avoid table entries in libraryPaints table
-pkeys[pid] = v
-pid = pid+1
-end
+-- First trying the new paint format, should work for all vanilla cars
+if paints then
+	for k,v in pairs(paints) do
+		if type(v) ~= "table" then -- avoid table entries in libraryPaints table
+			pkeys[pid] = v
+			pid = pid+1
+		end
+	end
 end
 
 -- 1.18.8 fix for cars that don't have factory paints
 -- first try to fetch factory paint colors from multi paint setups
 -- Could eventually properly implement multipaint setups for dealerships but this will do for now
 if #pkeys == 0 then
-for _,pdata in pairs(getVehicleInfoFile(model)["multiPaintSetups"]) do
-if pdata.class == "factory" then
+	if getVehicleInfoFile(model)["multiPaintSetups"] then
+		for _,pdata in pairs(getVehicleInfoFile(model)["multiPaintSetups"]) do
+			if pdata.class == "factory" then
+				if pdata["paint1"] then
+				pkeys[pid] = pdata["paint1"]
+				pid = pid+1
+				end
 
-if pdata["paint1"] then
-pkeys[pid] = pdata["paint1"]
-pid = pid+1
+				if pdata["paint2"] then
+				pkeys[pid] = pdata["paint2"]
+				pid = pid+1
+				end
+
+				if pdata["paint3"] then
+				pkeys[pid] = pdata["paint3"]
+				pid = pid+1
+				end
+			end
+		end
+	end
 end
 
-if pdata["paint2"] then
-pkeys[pid] = pdata["paint2"]
-pid = pid+1
+-- 1.19 fix: fallback to legacy paint system, probably here because of a mod
+if #pkeys == 0 then
+paints = getVehicleInfoFile(model)["paints"]
+	if paints then
+		for k,v in pairs(paints) do
+			pkeys[pid] = k
+			pid=pid+1
+		end
+		
+		local pick = pkeys[math.random(1, #pkeys)]
+		print("Picked random LEGACY factory paint key: " .. pick)
+		local paint = getVehicleInfoFile(model)["paints"][pick]
+		return createVehiclePaint({x=paint.baseColor[1], y=paint.baseColor[2], z=paint.baseColor[3], w=paint.baseColor[4]}, paint.metallic, paint.roughness, paint.clearcoat, paint.clearcoatRoughness)
+	end
 end
 
-if pdata["paint3"] then
-pkeys[pid] = pdata["paint3"]
-pid = pid+1
-end
 
-end
-end
-end
+
+
 
 -- if all else fails just generate a random paint
 if #pkeys == 0 then
@@ -2575,7 +2610,7 @@ local enemyConfigs = raceData["enemyConfig"] -- Now receiving perfclass loader t
 local enemyRisk = ssplit(raceData["enemyRisk"], ",")
 local laps = ssplit(raceData["laps"], ",")
 local slipsChance = tonumber(raceData["slips"])
-local pmodel = extensions.blrpartmgmt.getMainPartName()
+local pmodel = extensions.blrpartmgmt.getVehicleModel()  -- 1.19 fix for mods that don't use main part name as model
 local slipsBlacklist = loadDataFile("beamLR/pinkslipsBlacklist", true)-- Loaded as keys for fast lookup
 local wagertmp = 0
 local lstrig = tonumber(raceData["lstrig"] or "0")
@@ -2878,7 +2913,7 @@ return (parts["gps"] and parts["gps"][1]) or (parts["gps_alt"] and parts["gps_al
 end
 
 local function gpsToggleStateUpdate()
-local playerWalking = extensions.blrpartmgmt.getMainPartName() == "unicycle" -- force off when walking
+local playerWalking = extensions.blrpartmgmt.getVehicleModel() == "unicycle" -- force off when walking | 1.19 fix for mods that don't use main part name as model
 local forcedOff = extensions.blrglobals.blrFlagGet("gpsForceOff") -- Used in missions, races, shops, etc
 local mode = blrvarGet("gpsmode")
 if not (forcedOff or playerWalking) then
@@ -3482,6 +3517,90 @@ FS:remove(path)
 end
 end
 
+
+locals["createRandomCarHistory"] = function(seed)
+math.randomseed(seed)
+local toRet = {}
+local positive = math.random() >= 0.75
+
+local risk = {"very_safe", "safe", "average", "unsafe", "very_unsafe"}
+local style = {"very_calm", "calm", "average", "fast", "very_fast"}
+local maintenance = {"professional", "good", "average", "subpar", "none"}
+
+if positive then
+
+toRet["accidents"] = 0
+toRet["powner_count"] = 1
+toRet["powner_driverisk"] = 1
+toRet["powner_drivestyle"] = 1
+toRet["oldracecar"] = false
+toRet["maintenance"] = math.random(1, 3)
+
+else
+
+toRet["accidents"] = math.random(0,3)
+toRet["powner_count"] = math.random(1,5)
+toRet["powner_driverisk"] = math.random(2, #risk)
+toRet["powner_drivestyle"] = math.random(2, #style)
+toRet["oldracecar"] = toRet["powner_driverisk"] > 3 and toRet["powner_drivestyle"] > 3 and math.random() > 0.5
+
+if toRet["oldracecar"] then -- with racecar modifier give pro level maintenance
+toRet["maintenance"] = 1
+else
+toRet["maintenance"] = math.random(1, #maintenance)
+end
+
+end
+
+
+toRet["odogain"] = toRet["accidents"] * 10000 										-- 50,000 
+toRet["odogain"] = toRet["odogain"] + (toRet["powner_count"] - 1) * 2000			-- 10,000 (60,000)
+toRet["odogain"] = toRet["odogain"] + (toRet["powner_driverisk"]) * 10000 - 30000	-- 20,000 (80,000)
+toRet["odogain"] = toRet["odogain"] + (toRet["powner_drivestyle"]) * 15000 - 45000	-- 30,000 (110,000)
+toRet["odogain"] = toRet["odogain"] + (toRet["maintenance"]) * 20000 - 60000		-- 40,000 (150,000)
+
+toRet["powner_driverisk"] = risk[toRet["powner_driverisk"]]
+toRet["powner_drivestyle"] = style[toRet["powner_drivestyle"]]
+toRet["maintenance"] = maintenance[toRet["maintenance"]]
+
+
+return toRet
+end
+
+locals["getDataTableKeys"] = function(path)
+local toRet = {}
+local filedata = readFile(path)
+
+for k,v in string.gmatch(filedata, "([^%c]+)=([^%c]+)") do
+table.insert(toRet, k)
+end
+
+return toRet
+end
+
+-- replaces fg nodes that loaded offense data tables on scenario start
+-- proper offense names now stored in translation file
+locals["offenseCosts"] = nil
+locals["getTrafficOffenseCosts"] = function()
+if not locals["offenseCosts"] then
+local cdata = loadDataTable("beamLR/offenseCostData")
+locals["offenseCosts"] = {}
+for k,v in pairs(cdata) do
+locals["offenseCosts"][k] = tonumber(v)
+end
+end
+return locals["offenseCosts"]
+end
+
+
+
+
+
+M.getStartSeed = function() return startSeed end
+
+M.getTrafficOffenseCosts = locals["getTrafficOffenseCosts"]
+M.getDataTableKeys = locals["getDataTableKeys"]
+M.createRandomCarHistory = locals["createRandomCarHistory"]
 M.getVehicleDirectory = locals["getVehicleDirectory"]
 M.deleteFolder = locals["deleteFolder"]
 M.isAppOnLayout = locals["isAppOnLayout"]

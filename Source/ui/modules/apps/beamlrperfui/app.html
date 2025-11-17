@@ -4,73 +4,73 @@
 
 <div ng-if="page==0" style="height:100%;">
 
-<h3 style="text-align:center; margin:0;">Performance Info</h3>
+<h3 style="text-align:center; margin:0;">{{"beamlr.perfui.title" | translate}}</h3>
 
 <table style="width:100%; table-layout:fixed; text-align:center; margin-top:0px;">
 
 <tr ng-if="perfmode['power'] == 0">
-<td style="width:60%; font-weight:bold;" ng-click="modeChange('power')">Power (PS)</td>
+<td style="width:60%; font-weight:bold;" ng-click="modeChange('power')">{{"beamlr.perfui.prefix.power" | translate}} (PS)</td>
 <td style="width:50%;">{{formatNumber(perfdata['power'])}}</td>
 </tr>
 
 <tr ng-if="perfmode['power'] == 1">
-<td style="width:60%; font-weight:bold;" ng-click="modeChange('power')">Power (hp)</td>
+<td style="width:60%; font-weight:bold;" ng-click="modeChange('power')">{{"beamlr.perfui.prefix.power" | translate}} (hp)</td>
 <td style="width:50%;">{{formatNumber(perfdata['power'] / 1.014)}}</td>
 </tr>
 
 <tr ng-if="perfmode['power'] == 2">
-<td style="width:60%; font-weight:bold;" ng-click="modeChange('power')">Power (kW)</td>
+<td style="width:60%; font-weight:bold;" ng-click="modeChange('power')">{{"beamlr.perfui.prefix.power" | translate}} (kW)</td>
 <td style="width:50%;">{{formatNumber(perfdata['power'] / 1.36)}}</td>
 </tr>
 
 <tr ng-if="perfmode['torque'] == 0">
-<td style="width:60%; font-weight:bold;" ng-click="modeChange('torque')">Torque (Nm)</td>
+<td style="width:60%; font-weight:bold;" ng-click="modeChange('torque')">{{"beamlr.perfui.prefix.torque" | translate}} (Nm)</td>
 <td style="width:50%;">{{formatNumber(perfdata['torque'])}}</td>
 </tr>
 
 <tr ng-if="perfmode['torque'] == 1">
-<td style="width:60%; font-weight:bold;" ng-click="modeChange('torque')">Torque (lb-ft)</td>
+<td style="width:60%; font-weight:bold;" ng-click="modeChange('torque')">{{"beamlr.perfui.prefix.torque" | translate}} (lb-ft)</td>
 <td style="width:50%;">{{formatNumber(perfdata['torque'] / 1.356)}}</td>
 </tr>
 
 <tr ng-if="perfmode['weight'] == 0">
-<td style="width:60%; font-weight:bold;" ng-click="modeChange('weight')">Weight (kg)</td>
+<td style="width:60%; font-weight:bold;" ng-click="modeChange('weight')">{{"beamlr.perfui.prefix.weight" | translate}} (kg)</td>
 <td style="width:50%;">{{formatNumber(perfdata['weight'])}}</td>
 </tr>
 
 <tr ng-if="perfmode['weight'] == 1">
-<td style="width:60%; font-weight:bold;" ng-click="modeChange('weight')">Weight (lbs)</td>
+<td style="width:60%; font-weight:bold;" ng-click="modeChange('weight')">{{"beamlr.perfui.prefix.weight" | translate}} (lbs)</td>
 <td style="width:50%;">{{formatNumber(perfdata['weight'] * 2.205)}}</td>
 </tr>
 
 <tr>
-<td style="width:60%; font-weight:bold;">Class (Value)</td>
+<td style="width:60%; font-weight:bold;">{{"beamlr.perfui.prefix.class" | translate}}</td>
 <td style="width:50%;">{{perfdata['class']}} ({{formatNumber(perfdata['value'])}})</td>
 </tr>
 
 </table>
 
-<p style="text-align:center; margin:0; font-size:14px;">Tip: you can change units by clicking on value name</p>
+<p style="text-align:center; margin:0; font-size:14px;">{{"beamlr.perfui.tip1" | translate}}</p>
 
-<p style="width:90%; text-align:center; margin:auto; margin-bottom:5px; margin-top:5px; font-size:14px;">Tip: to increase performance class, add power and torque or reduce weight.</p>
+<p style="width:90%; text-align:center; margin:auto; margin-bottom:5px; margin-top:5px; font-size:14px;">{{"beamlr.perfui.tip2" | translate}}</p>
 
-<p style="width:100%; text-align:center; margin-top:5px;"><button ng-click="switchPage(1)">View Classes</button></p>
+<p style="width:100%; text-align:center; margin-top:5px;"><button ng-click="switchPage(1)">{{"beamlr.perfui.viewclasses" | translate}}</button></p>
 
 </div>
 
 <div ng-if="page==1" style="height:100%;">
 <table style="width:100%; table-layout:fixed; text-align:center; margin-top:0px;">
-<tr><td style="width:30%; font-weight:bold;">Class</td><td style="width:50%; font-weight:bold;">Value</td></tr>
-<tr><td style="width:30%; font-weight:bold;">E</td><td style="width:50%;">Below 0.3</td></tr>
-<tr><td style="width:30%; font-weight:bold;">D</td><td style="width:50%;">0.3 to 0.34</td></tr>
-<tr><td style="width:30%; font-weight:bold;">C</td><td style="width:50%;">0.35 to 0.49</td></tr>
-<tr><td style="width:30%; font-weight:bold;">B</td><td style="width:50%;">0.5 to 0.69</td></tr>
-<tr><td style="width:30%; font-weight:bold;">A</td><td style="width:50%;">0.7 to 0.84</td></tr>
-<tr><td style="width:30%; font-weight:bold;">S</td><td style="width:50%;">0.85 to 1.7</td></tr>
-<tr><td style="width:30%; font-weight:bold;">X</td><td style="width:50%;">Above 1.7</td></tr>
+<tr><td style="width:30%; font-weight:bold;">{{"beamlr.generic.term.class" | translate}}</td><td style="width:50%; font-weight:bold;">{{"beamlr.generic.term.value" | translate}}</td></tr>
+<tr><td style="width:30%; font-weight:bold;">E</td><td style="width:50%;">{{"beamlr.generic.term.below" | translate}} 0.3</td></tr>
+<tr><td style="width:30%; font-weight:bold;">D</td><td style="width:50%;">0.3 {{"beamlr.generic.term.to" | translate}} 0.34</td></tr>
+<tr><td style="width:30%; font-weight:bold;">C</td><td style="width:50%;">0.35 {{"beamlr.generic.term.to" | translate}} 0.49</td></tr>
+<tr><td style="width:30%; font-weight:bold;">B</td><td style="width:50%;">0.5 {{"beamlr.generic.term.to" | translate}} 0.69</td></tr>
+<tr><td style="width:30%; font-weight:bold;">A</td><td style="width:50%;">0.7 {{"beamlr.generic.term.to" | translate}} 0.84</td></tr>
+<tr><td style="width:30%; font-weight:bold;">S</td><td style="width:50%;">0.85 {{"beamlr.generic.term.to" | translate}} 1.7</td></tr>
+<tr><td style="width:30%; font-weight:bold;">X</td><td style="width:50%;">{{"beamlr.generic.term.above" | translate}} 1.7</td></tr>
 </table>
 
-<p style="width:100%; text-align:center;"><button ng-click="switchPage(0)">Back</button></p>
+<p style="width:100%; text-align:center;"><button ng-click="switchPage(0)">{{"beamlr.generic.button.back" | translate}}</button></p>
 
 </div>
 

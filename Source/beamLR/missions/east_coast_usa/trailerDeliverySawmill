@@ -1,6 +1,6 @@
 destpos=287.87887573242,-747.23974609375,46.37228012085
 destrot=-0.0020957198308636,-0.0031921508491768,0.93672613893874,-0.35004222425341
-desc=Deliver $item to the sawmill
+desc=beamlr.delivery.eastcoast.trailerDeliverySawmill
 reward=400
 items=list_all
 gmwp=blrwp_sawmill

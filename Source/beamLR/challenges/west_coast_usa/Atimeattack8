@@ -1,5 +1,5 @@
 wager=2000,6000
-desc=Looping highway time attack
+desc=beamlr.challenges.west_coast_usa.atimeattack8
 gmwp=blrwp_raceA100
 type=time
 targettime=101000,120000

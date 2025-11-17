@@ -1,0 +1,8 @@
+name=Gavril Grand Marshal V8 Roadsport (Automatic, Barn Find)
+type=fullsize
+config=vehicles/fullsize/blr_barnfind.pc
+baseprice=8000,30000
+odometer=75000000,250000000
+scrapval=500
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

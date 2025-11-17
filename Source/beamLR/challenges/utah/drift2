@@ -1,5 +1,5 @@
 driftpts=8000,20000
-desc=Looping drift challenge
+desc=beamlr.challenges.utah.drift2
 gmwp=cliffJuncWp2
 triggers=BeamLRTrigger_RepairZoneST,BeamLRTrigger_NearShopCP1,BeamLRTrigger_CurvyRoadCP2,BeamLRTrigger_CurvyRoadCP1,BeamLRTrigger_BusStopST,BeamLRTrigger_ExitBridgeST,BeamNGTrigger_HighwayExit,BeamLRTrigger_PureDragFinish,BeamLRTrigger_HighwayJunction,BeamLRTrigger_RepairZoneST
 targettime=250000,300000

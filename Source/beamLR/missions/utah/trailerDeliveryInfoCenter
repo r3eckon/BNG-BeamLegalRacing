@@ -1,6 +1,6 @@
 destpos=-556.59967041016,248.67254638672,298.68661499023
 destrot=0.0034489453180886,-0.00067550698319936,0.11476754311051,0.99338615830647
-desc=Deliver $item to the information center
+desc=beamlr.delivery.utah.trailerDeliveryInfoCenter
 reward=500
 items=list_all
 gmwp=ut_wp_124

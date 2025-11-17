@@ -59,7 +59,7 @@ end
 ftable["onswitch"] = function(p)
 local oldid = p
 local shopmode = extensions.blrglobals.blrFlagGet("shopmode")
-local walking = extensions.blrpartmgmt.getMainPartName() == "unicycle"
+local walking = extensions.blrpartmgmt.getVehicleModel() == "unicycle"  -- 1.19 fix for mods that don't use main part name as model
 if (not shopmode) and walking then
 extensions.blrglobals.blrFlagSet("shopWalkingMode", true)
 extensions.blrutils.blrvarSet("playervehid", oldid)

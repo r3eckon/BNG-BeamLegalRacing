@@ -1,5 +1,5 @@
 triggers=BeamLRTrigger_FarJump
-desc=Jump from one dirt road to another
+desc=beamlr.challenges.utah.jump3
 gmwp=blrwp_cgm_farjump
 wager=1500,3250
 traffic=1

@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_Police
-desc=Deliver $item to the police department
+desc=beamlr.delivery.westcoast.smallDeliveryPolice
 reward=400
 items=list_all
 gmwp=blrwp_police

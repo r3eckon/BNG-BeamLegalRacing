@@ -1,5 +1,5 @@
 wager=2400,9000
-desc=Time attack to the castle town
+desc=beamlr.challenges.italy.btimeattack5
 gmwp=Roundabout1_wp1
 type=time
 targettime=225000,300000

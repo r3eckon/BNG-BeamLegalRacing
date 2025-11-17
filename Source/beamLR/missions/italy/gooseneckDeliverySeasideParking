@@ -1,6 +1,6 @@
 destpos=-1799.3974609375,-1163.0865478516,144.56243896484
 destrot=-0.0027495053331774,-0.0019114048216434,0.01587645317805,0.9998683538279
-desc=Deliver $item to a seaside parking lot
+desc=beamlr.delivery.italy.gooseneckDeliverySeasideParking
 reward=600
 items=list_all
 gmwp=blrwp_seasideparking

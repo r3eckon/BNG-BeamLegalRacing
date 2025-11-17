@@ -232,7 +232,7 @@ local function buildSlotTree(model, vid)
 if not vid then vid = be:getPlayerVehicle(0):getId() end
 if not model then 
 io.write("NOTE TO SELF: if errors appears below after CTRL+L you also need to hit CTRL+R")
-model = extensions.blrpartmgmt.getMainPartName(vid) 
+model = extensions.blrpartmgmt.getMainPartName(vid) -- 1.19 fix, here still using main part because "model" here actually means main part
 end
 
 cmodel = model
@@ -287,7 +287,7 @@ if not vid then vid = be:getPlayerVehicle(0):getId() end
 
 if not model then 
 io.write("NOTE TO SELF: if errors appears below after CTRL+L you also need to hit CTRL+R")
-model = extensions.blrpartmgmt.getMainPartName(true,vid) 
+model = extensions.blrpartmgmt.getMainPartName(true,vid) -- 1.19 fix, here still using main part because "model" here actually means main part
 end
 
 if model == shopTreeCachedModel then

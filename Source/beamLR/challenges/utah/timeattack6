@@ -1,6 +1,6 @@
 targettime=170000,210000
 gmwp=blrwp_dirtasphaltfourwaycp1
-desc=Short length rally time attack to the end of the highway
+desc=beamlr.challenges.utah.timeattack6
 triggers=BeamLRTrigger_DirtAsphaltFourWayCP1,BeamLRTrigger_CurvyDirtRoadCP1,BeamLRTrigger_OffroadClubEnd,BeamLRTRigger_Offroad2CP1,BeamLRTrigger_Offroad2CP2,BeamLRTrigger_Offroad2ACP3,BeamLRTrigger_Offroad2ACP4,BeamLRTrigger_Offroad2CP5,BeamLRTrigger_Offroad2CP6,BeamLRTrigger_OffroadHighwayFarEnd
 wager=450,4000
 traffic=0

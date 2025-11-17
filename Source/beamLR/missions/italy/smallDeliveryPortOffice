@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_PortOffice
-desc=Deliver $item to the city port office
+desc=beamlr.delivery.italy.smallDeliveryPortOffice
 reward=500
 items=list_all
 gmwp=wp_port_9

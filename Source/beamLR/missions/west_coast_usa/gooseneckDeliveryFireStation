@@ -1,6 +1,6 @@
 destpos=-881.50793457031,415.89730834961,151.59323120117
 items=list_all
-desc=Deliver $item to the Fog Hill fire station
+desc=beamlr.delivery.westcoast.gooseneckDeliveryFireStation
 type=gooseneck
 destrot=0.003092365249868,0.002959444041691,-0.69971802923735,0.71440629793439
 gmwp=blrwp_firestation

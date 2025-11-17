@@ -33,3 +33,6 @@ PropE=BeamLRTrigger_PropertyDockyardWarehouse,crate
 PropF=BeamLRTrigger_PropertyRentalA,crate
 PropG=BeamLRTrigger_PropertyRentalB,crate
 PropH=BeamLRTrigger_PropertyRaceGarage,crate
+SealbrikBarnfind=BeamLRTrigger_BarnfindA
+IslandBarnfind=BeamLRTrigger_BarnfindB
+TrackBarnfind=BeamLRTrigger_BarnfindC

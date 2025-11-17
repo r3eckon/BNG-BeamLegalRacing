@@ -8,13 +8,13 @@
 
 <h1 style="text-align:center; line-height:50px; margin:auto; width:800px;">{{eventdata['title']}}</h1>
 
-<h2 style="text-align:center">Leaderboard (Round {{eventdata['cround']}}/{{eventdata['rounds']}})</h2>
+<h2 style="text-align:center">{{"beamlr.generic.term.leaderboard" | translate}} ({{"beamlr.generic.term.round" | translate}} {{eventdata['cround']}}/{{eventdata['rounds']}})</h2>
 
 <div style="text-align:center">
-<span style="transform:translate(-80px, 0px); display:inline-block; font-size:20px; width:100px;">Position</span>
-<span style="display:inline-block; font-size:20px; width:300px;">Name</span>
-<span ng-if="eventdata['bossmode'] != true" style="transform:translate(50px, 0px); display:inline-block; font-size:20px; width:100px;">Time</span>
-<span ng-if="eventdata['bossmode'] == true" style="transform:translate(50px, 0px); display:inline-block; font-size:20px; width:100px;">Score</span>
+<span style="transform:translate(-80px, 0px); display:inline-block; font-size:20px; width:100px;">{{"beamlr.generic.term.position" | translate}}</span>
+<span style="display:inline-block; font-size:20px; width:300px;">{{"beamlr.generic.term.name" | translate}}</span>
+<span ng-if="eventdata['bossmode'] != true" style="transform:translate(50px, 0px); display:inline-block; font-size:20px; width:100px;">{{"beamlr.generic.term.time" | translate}}</span>
+<span ng-if="eventdata['bossmode'] == true" style="transform:translate(50px, 0px); display:inline-block; font-size:20px; width:100px;">{{"beamlr.generic.term.score" | translate}}</span>
 
 </div>
 
@@ -34,23 +34,23 @@
 
 <div ng-if="eventdata['status']!='finished' && eventdata['status']!='over'">
 
-<h1 style="text-align:center; margin:5px;">Event Rewards</h1>
+<h1 style="text-align:center; margin:5px;">{{"beamlr.eventui.rewardstitle" | translate}}</h1>
 
 <table style="text-align:center; margin:auto; width:90%;">
 <tr>
-<td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">Money (1st, 2nd, 3rd)</td>
+<td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">{{"beamlr.eventui.moneyrewards" | translate}}</td>
 <td style="text-align:right; font-size:20px; font-weight:bold; width:50%;">{{eventdata['moneyreward']}}</td>
 </tr>
 <tr>
-<td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">Reputation (1st, 2nd, 3rd)</td>
+<td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">{{"beamlr.eventui.reprewards" | translate}}</td>
 <td style="text-align:right; font-size:20px; font-weight:bold; width:50%;">{{eventdata['repreward']}}</td>
 </tr>
 <tr>
-<td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">Parts (1st)</td>
+<td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">{{"beamlr.eventui.partsreward" | translate}}</td>
 <td style="text-align:right; font-size:20px; font-weight:bold; width:50%;">{{eventdata['partreward']}}</td>
 </tr>
 <tr>
-<td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">Vehicle (1st)</td>
+<td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">{{"beamlr.eventui.vehreward" | translate}}</td>
 <td style="text-align:right; font-size:20px; font-weight:bold; width:50%;">{{eventdata['carreward']}}</td>
 </tr>
 </table>
@@ -59,23 +59,23 @@
 
 <div ng-if="eventdata['status']=='finished' || eventdata['status']=='over'">
 
-<h1 style="text-align:center; margin:5px;">Your Rewards</h1>
+<h1 style="text-align:center; margin:5px;">{{"beamlr.eventui.yourrewards" | translate}}</h1>
 
 <table style="text-align:center; margin:auto; width:90%;">
 <tr>
-<td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">Money</td>
+<td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">{{"beamlr.generic.term.money" | translate}}</td>
 <td style="text-align:right; font-size:20px; font-weight:bold; width:50%;">{{rewards['moneyreward']}}</td>
 </tr>
 <tr>
-<td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">Reputation</td>
+<td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">{{"beamlr.generic.term.reputation" | translate}}</td>
 <td style="text-align:right; font-size:20px; font-weight:bold; width:50%;">{{rewards['repreward']}}</td>
 </tr>
 <tr>
-<td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">Parts</td>
+<td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">{{"beamlr.generic.term.parts" | translate}}</td>
 <td style="text-align:right; font-size:20px; font-weight:bold; width:50%;">{{rewards['partreward']}}</td>
 </tr>
 <tr>
-<td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">Vehicle</td>
+<td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">{{"beamlr.generic.term.vehicle" | translate}}</td>
 <td style="text-align:right; font-size:20px; font-weight:bold; width:50%;">{{rewards['carreward']}}</td>
 </tr>
 </table>

@@ -1,6 +1,6 @@
 destpos=-785.61590576172,-77.350463867188,296.83209228516
 destrot=-0.00088233368261632,-0.0038026061017462,0.99062503313809,-0.13655330605394
-desc=Deliver $item to the Canyon Fuel gas station
+desc=beamlr.delivery.utah.trailerDeliveryCanyonFuel
 reward=400
 items=list_all
 gmwp=blrwp_topshops

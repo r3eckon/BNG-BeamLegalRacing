@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_SuburbCellTower
-desc=Deliver $item to the suburb cell tower
+desc=beamlr.delivery.westcoast.smallDeliverySuburbCellTower
 reward=400
 items=list_all
 gmwp=blrwp_suburbcelltower

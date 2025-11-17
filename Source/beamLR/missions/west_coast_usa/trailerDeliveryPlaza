@@ -1,6 +1,6 @@
 destpos=-389.65914916992,379.03164672852,102.0046005249
 items=list_all
-desc=Deliver $item to Riverway Plaza
+desc=beamlr.delivery.westcoast.trailerDeliveryPlaza
 type=trailer
 destrot=0.0031329606321446,0.00043152879021863,-0.37916197832603,0.92532491187284
 gmwp=blrwp_plaza

@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_TrilobiteDelivery
-desc=Deliver $item to the Trilobite gas station
+desc=beamlr.delivery.westcoast.smallDeliveryTrilobite
 reward=400
 items=list_all
 gmwp=blrgps_gasC

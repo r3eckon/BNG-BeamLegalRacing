@@ -1,0 +1,8 @@
+name=Ibishu Miramar Custom Pickup (Manual, Barn Find)
+type=miramar
+config=vehicles/miramar/blr_barnfind.pc
+baseprice=5000,25000
+odometer=75000000,250000000
+scrapval=400
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

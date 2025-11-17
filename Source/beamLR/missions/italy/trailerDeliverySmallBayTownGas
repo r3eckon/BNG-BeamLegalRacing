@@ -1,6 +1,6 @@
 destpos=-712.21917724609,-1316.0657958984,143.45700073242
 destrot=0.0017461790105827,0.0028842323574538,-0.83096485102448,0.55631470268584
-desc=Deliver $item behind Portino Auto Service in the small bay town 
+desc=beamlr.delivery.italy.trailerDeliverySmallBayTownGas
 reward=600
 items=list_all
 gmwp=blrwp_smallbaygas

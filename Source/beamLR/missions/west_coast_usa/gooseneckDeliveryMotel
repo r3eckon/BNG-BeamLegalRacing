@@ -1,6 +1,6 @@
 destpos=-529.25207519531,136.24353027344,100.60354614258
 items=list_all
-desc=Deliver $item to the Mountainview Motel
+desc=beamlr.delivery.westcoast.gooseneckDeliveryMotel
 type=gooseneck
 destrot=0.0038691882987478,-0.0020554921296679,0.92610904572435,0.37723048625681
 gmwp=blrwp_motel

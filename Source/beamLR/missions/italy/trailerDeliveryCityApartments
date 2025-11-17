@@ -1,6 +1,6 @@
 destpos=569.14611816406,1389.2188720703,148.21401977539
 destrot=0.0039693694505445,-0.00032580335829765,-0.024487709814344,0.99969219764205
-desc=Deliver $item to an apartment building in the city
+desc=beamlr.delivery.italy.trailerDeliveryCityApartments
 reward=700
 items=list_all
 gmwp=blrwp_cityapartmenttrailer

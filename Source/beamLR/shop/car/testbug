@@ -1,0 +1,8 @@
+name=test
+type=satsuma_100
+config=vehicles/satsuma_100/100a_old.pc
+baseprice=1
+odometer=1000
+scrapval=1
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

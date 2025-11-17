@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_CityPark
-desc=Deliver $item to the city park
+desc=beamlr.delivery.italy.smallDeliveryCityPark
 reward=400
 items=list_all
 gmwp=wp_busStop_14_b_3

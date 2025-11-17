@@ -1,0 +1,8 @@
+name=Ibishu Pessima 2.7 LX V6 Sport GTz (Manual, Barn Find)
+type=midsize
+config=vehicles/midsize/blr_barnfind.pc
+baseprice=8000,30000
+odometer=75000000,250000000
+scrapval=500
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

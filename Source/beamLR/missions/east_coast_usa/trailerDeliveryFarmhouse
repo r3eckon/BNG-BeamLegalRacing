@@ -1,6 +1,6 @@
 destpos=-609.63134765625,-359.03146362305,34.717849731445
 destrot=0.029704621796321,0.011900741397168,0.15493298476729,0.98740659205275
-desc=Deliver $item to the farm house
+desc=beamlr.delivery.eastcoast.trailerDeliveryFarmhouse
 reward=350
 items=list_all
 gmwp=blrwp_farmhouse

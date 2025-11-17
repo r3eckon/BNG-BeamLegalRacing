@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_CurvyRoadLot
-desc=Deliver $item to the observation area parking lot
+desc=beamlr.delivery.utah.parkingLotDelivery
 reward=200
 items=list_all
 gmwp=blrwp_curvyroadlot

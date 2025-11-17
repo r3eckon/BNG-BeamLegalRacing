@@ -1,5 +1,5 @@
 triggers=BeamLRTrigger_FarmJump
-desc=Jump over the river!
+desc=beamlr.challenges.east_coast_usa.bjump1
 gmwp=blrwp_cgm_farmjump
 wager=2500,4000
 traffic=1

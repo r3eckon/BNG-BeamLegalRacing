@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_TurboBurger
-desc=Deliver $item to the Turbo Burger restaurant
+desc=beamlr.delivery.westcoast.smallDeliveryTurboBurger
 reward=400
 items=list_all
 gmwp=blrwp_turboburger

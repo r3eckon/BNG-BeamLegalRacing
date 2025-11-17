@@ -1,6 +1,6 @@
 destpos=1212.4114990234,-811.54888916016,145.38864135742
 destrot=-0.010446898728019,-0.016004220715089,0.87939998520996,0.47569989829618
-desc=Deliver $item to the bay town gas station
+desc=beamlr.delivery.italy.gooseneckDeliveryBayTownGas
 reward=700
 items=list_all
 gmwp=blrwp_baytowngas

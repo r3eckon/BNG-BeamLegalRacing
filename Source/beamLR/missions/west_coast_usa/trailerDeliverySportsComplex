@@ -1,6 +1,6 @@
 destpos=-41.307071685791,221.14212036133,123.8924407959
 items=list_all
-desc=Deliver $item to the sports complex
+desc=beamlr.delivery.westcoast.trailerDeliverySportsComplex
 type=trailer
 destrot=0.003370556409438,0.0013662152264081,-0.38589793123678,0.92253431343914
 gmwp=blrwp_trailersports

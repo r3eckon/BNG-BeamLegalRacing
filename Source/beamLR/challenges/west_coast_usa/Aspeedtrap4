@@ -1,6 +1,6 @@
 triggers=BeamLRTrigger_DragCFinish
 gmwp=blrwp_raceA13
-desc=Difficult bridge speed trap challenge
+desc=beamlr.challenges.west_coast_usa.aspeedtrap4
 rep=30,200
 wager=3000,12000
 traffic=1

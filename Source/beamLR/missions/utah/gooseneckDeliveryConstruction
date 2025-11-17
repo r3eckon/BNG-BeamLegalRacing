@@ -1,6 +1,6 @@
 destpos=-903.98291015625,616.05548095703,264.74865722656
 destrot=-0.01811329219996,-0.028122598544063,0.27661296826674,0.96039902846862
-desc=Deliver $item to the building under construction
+desc=beamlr.delivery.utah.gooseneckDeliveryConstruction
 reward=1300
 items=list_all
 gmwp=blrwp_mgm_construction

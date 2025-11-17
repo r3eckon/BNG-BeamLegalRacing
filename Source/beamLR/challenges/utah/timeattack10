@@ -1,6 +1,6 @@
 targettime=105000,135000
 gmwp=riverJuncWp1
-desc=Short length rally time attack to the highway bridge
+desc=beamlr.challenges.utah.timeattack10
 triggers=BeamNGTrigger_BridgeCarZoneIntersect,BeamNGTrigger_BridgeCarZoneDirtRoad,BeamLRTrigger_Offroad2CP7,BeamLRTrigger_Offroad2BCP3,BeamLRTrigger_Offroad2ACP3,BeamLRTrigger_Offroad2A2CP4,BeamLRTrigger_Offroad2CP4,BeamLRTrigger_OffroadHighwayFinishCP,BeamLRTrigger_OffroadHighwayFinish
 wager=300,6000
 traffic=0

@@ -1,6 +1,6 @@
 destpos=-398.40924072266,732.15014648438,74.951721191406
 items=list_all
-desc=Deliver $item to a pier near the opera house
+desc=beamlr.delivery.westcoast.trailerDeliveryPier
 type=trailer
 destrot=0.0033133391261782,-0.0026235950744298,0.3744706554222,0.92722913390401
 gmwp=blrwp_trailerpier

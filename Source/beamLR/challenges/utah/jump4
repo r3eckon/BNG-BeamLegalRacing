@@ -1,5 +1,5 @@
 triggers=BeamLRTrigger_CrazyJump
-desc=Crazy jump from wooden structure!
+desc=beamlr.challenges.utah.jump4
 gmwp=blrwp_cgm_crazyjump
 wager=3000,5000
 traffic=1

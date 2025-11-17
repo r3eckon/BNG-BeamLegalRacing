@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_IsolatedBeach
-desc=Deliver $item to an isolated beach
+desc=beamlr.delivery.italy.smallDeliveryIsolatedBeach
 reward=400
 items=list_all
 gmwp=blrwp_isolatedbeach

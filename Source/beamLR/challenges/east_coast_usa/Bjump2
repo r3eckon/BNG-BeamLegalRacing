@@ -1,5 +1,5 @@
 triggers=BeamLRTrigger_CrazyJump
-desc=Crazy jump over the road!
+desc=beamlr.challenges.east_coast_usa.bjump2
 gmwp=blrwp_cgm_crazyjump
 wager=1500,3000
 traffic=1

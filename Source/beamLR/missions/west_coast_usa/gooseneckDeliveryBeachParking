@@ -1,6 +1,6 @@
 destpos=-669.40191650391,838.59069824219,75.065452575684
 items=list_all
-desc=Deliver $item to the beach parking lot
+desc=beamlr.delivery.westcoast.gooseneckDeliveryBeachParking
 type=gooseneck
 destrot=0.0011720485136353,-0.0035575935556093,0.92019433811978,0.39144392947479
 gmwp=blrwp_beachparking

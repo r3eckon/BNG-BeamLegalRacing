@@ -1,6 +1,6 @@
 destpos=-556.12976074219,-824.76770019531,49.70431137085
 destrot=0.0039646381053748,-0.00097452688157582,0.16760151993476,0.98584636858773
-desc=Deliver $item to the red manor
+desc=beamlr.delivery.eastcoast.trailerDeliveryRedManor
 reward=400
 items=list_all
 gmwp=blrwp_manor

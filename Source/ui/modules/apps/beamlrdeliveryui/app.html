@@ -5,7 +5,7 @@
 <div ng-if="damage==true" style="height:40px; margin-top:18px;">
 <table style="width:95%; table-layout:fixed; font-weight:bold; color:black; height:30px; margin:auto; text-align:center; font-size:17px; transform:translate(0px,37px); z-index:10;">
 <tr style="width:100%">
-<td style="width:50%;">Damage:</td>
+<td style="width:50%;">{{"beamlr.deliveryui.damage" | translate}}:</td>
 <td style="width:50%">{{formatValue(cdmg) | number:1}}%</td>
 </tr>
 </table>
@@ -20,7 +20,7 @@
 <div>
 <table style="width:95%; table-layout:fixed; font-weight:bold; color:black; height:30px; margin:auto; text-align:center; font-size:16px; transform:translate(0px,34px); z-index:10;">
 <tr style="width:100%">
-<td style="width:40%">Acceleration:</td>
+<td style="width:40%">{{"beamlr.deliveryui.acceleration" | translate}}:</td>
 <td style="width:20%">{{formatValue(cforce) | number:1}}Gs</td>
 <td style="width:7%">/</td>
 <td style="width:20%">{{mforce}}Gs</td>

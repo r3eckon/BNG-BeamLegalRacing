@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_Church
-desc=Deliver $item to a church in the city
+desc=beamlr.delivery.westcoast.smallDeliveryChurch
 reward=400
 items=list_all
 gmwp=blrwp_church

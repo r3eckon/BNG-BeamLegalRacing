@@ -1,4 +1,4 @@
-desc=Long race through curvy roads
+desc=beamlr.races.utahHighwayRaceClub.bronze.race4
 wager=1000,2000
 slips=0.04
 enemyConfig=class:club/street_silver

@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_CityApartments
-desc=Deliver $item to an apartment building in the city
+desc=beamlr.delivery.italy.smallDeliveryCityApartments
 reward=400
 items=list_all
 gmwp=blrwp_apartments

@@ -1,5 +1,5 @@
 wager=900,6000
-desc=Alternate path time attack to a cliffside parking area
+desc=beamlr.challenges.italy.atimeattack10
 gmwp=blrwp_topdirtparking
 type=time
 targettime=181000,235000

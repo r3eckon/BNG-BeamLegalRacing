@@ -157,7 +157,7 @@ foundTank = v.energyType == toCheck
 if foundTank then break end
 end
 if not foundTank then 
-obj:queueGameEngineLua("guihooks.trigger('Message', {ttl = 10, msg = 'Wrong fuel used! Drain the tank to fix the engine.', icon = 'directions_car'})")
+obj:queueGameEngineLua("guihooks.trigger('Message', {ttl = 10, msg = extensions.blrlocales.translate('beamlr.msgapp.wrongfuel'), icon = 'directions_car'})")
 engine:disable()
 return
 end
@@ -169,7 +169,7 @@ end
 elseif toCheck ~= engineFuelType and not engine.isDisabled then
 engine:disable()
 wrongFuel = true
-obj:queueGameEngineLua("guihooks.trigger('Message', {ttl = 10, msg = 'Wrong fuel used! Drain the tank to fix the engine.', icon = 'directions_car'})")
+obj:queueGameEngineLua("guihooks.trigger('Message', {ttl = 10, msg = extensions.blrlocales.translate('beamlr.msgapp.wrongfuel'), icon = 'directions_car'})")
 end
 if drained then
 wrongFuel = false
@@ -1439,7 +1439,7 @@ end
 end
 
 
-ratingData["model"] = v.config.mainPartName
+ratingData["model"] = v.data.model -- 1.19 fix for mods that don't use main part name as model
 ratingData["total"] = final
 return ratingData
 end
@@ -1450,7 +1450,7 @@ end
 -- opens hood for showoff during car meet, works even for rear/mid engine cars
 local function openCarMeetLatches()
 local controllers = controller.getAllControllers()
-local model = v.config.mainPartName
+local model = v.data.model -- 1.19 fix for mods that don't use main part name as model
 local parts = v.data.slotPartMap -- 1.18.2 fix for 0.38 slot tree
 
 -- build table of potential latches and catches for all vehicle types

@@ -98,7 +98,7 @@ extensions.customGuiStream.sendDataToUI("advinvFilter", list)
 -- 1.16 part buy result confirmation to avoid double buy button press related issues
 extensions.customGuiStream.sendPartBuyResult(true)
 else
-guihooks.trigger('Message', {ttl = 10, msg = 'You don\'t have enough money to buy this part!', icon = 'directions_car'})
+guihooks.trigger('Message', {ttl = 10, msg = extensions.blrlocales.translate("beamlr.msgapp.partnomoney"), icon = 'directions_car'})
 extensions.customGuiStream.sendPartBuyResult(false)
 end
 
@@ -716,7 +716,7 @@ extensions.blrpartmgmt.loadConfig(fullpath)
 extensions.blrpartmgmt.templateLoadedUpdateIlinks("beamLR/garage/config/car" .. cvgid, fullpath, extensions.blrglobals.gmGetVal("codo"))
 
 else
-guihooks.trigger('Message', {ttl = 10, msg = 'You don\'t have the parts needed to load this config!', icon = 'directions_car'})
+guihooks.trigger('Message', {ttl = 10, msg = extensions.blrlocales.translate("beamlr.msgapp.templatemissingparts"), icon = 'directions_car'})
 end
 end
 
@@ -1384,7 +1384,7 @@ ftable["exportConfig"] = function(p)
 extensions.core_vehicle_partmgmt.saveLocal(p .. ".pc")
 extensions.load('util_screenshotCreator')
 util_screenshotCreator.startWork({selection=p})
-guihooks.trigger('Message', {ttl = 10, category="configsaving", msg = "Config has been exported for use in freeroam!", icon = "save"})
+guihooks.trigger('Message', {ttl = 10, category="configsaving", msg = extensions.blrlocales.translate("beamlr.msgapp.configexported"), icon = "save"})
 end
 
 ftable["slotFavoriteToggle"] = function(p)

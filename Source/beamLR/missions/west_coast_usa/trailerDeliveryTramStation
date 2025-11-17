@@ -1,6 +1,6 @@
 destpos=-840.02758789063,145.15704345703,140.46589660645
 items=list_all
-desc=Deliver $item to the tram station
+desc=beamlr.delivery.westcoast.trailerDeliveryTramStation
 type=trailer
 destrot=-0.0017518034941762,-0.0037185828303902,0.92799153020833,-0.37257861343327
 gmwp=blrwp_tram

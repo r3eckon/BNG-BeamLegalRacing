@@ -1,6 +1,6 @@
 targettime=150000,180000
 gmwp=blrwp_raceend
-desc=Time attack challenge through the tunnel
+desc=beamlr.challenges.utah.timeattack1
 triggers=BeamNGTrigger_RaceEnd,BeamNGTrigger_HighwayDragFinish,BeamLRTrigger_TunnelSTA,BeamNGTrigger_RaceEnd
 wager=300,4000
 traffic=1

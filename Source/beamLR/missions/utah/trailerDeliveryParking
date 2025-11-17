@@ -1,6 +1,6 @@
 destpos=908.4306640625,752.54174804688,236.25552368164
 destrot=0.0019698124924027,-0.0031711601666792,0.85105459202656,0.52506394369871
-desc=Deliver $item to the observation area parking lot
+desc=beamlr.delivery.utah.trailerDeliveryParking
 reward=400
 items=list_all
 gmwp=blrwp_curvyroadlot

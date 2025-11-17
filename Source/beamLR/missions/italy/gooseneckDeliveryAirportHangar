@@ -1,6 +1,6 @@
 destpos=-801.85650634766,1692.1242675781,152.62707519531
 destrot=0.0026293856137033,0.0025108889887983,-0.76877507435869,0.63950892629624
-desc=Deliver $item to the airport hangars
+desc=beamlr.delivery.italy.gooseneckDeliveryAirportHangar
 reward=800
 items=list_all
 gmwp=blrwp_airporthangar

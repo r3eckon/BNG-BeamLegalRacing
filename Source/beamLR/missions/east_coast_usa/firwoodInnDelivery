@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_FirwoodInn
-desc=Deliver $item to the Firwood Inn
+desc=beamlr.delivery.eastcoast.firwoodInnDelivery
 reward=200
 gmwp=blrwp_firwoodinn
 items=list_all

@@ -1,6 +1,6 @@
 destpos=-917.80078125,628.87432861328,262.13882446289
 destrot=-0.0015487248301908,-0.0048106072046553,0.96865542728656,-0.2483568454825
-desc=Deliver $item inside the building under construction
+desc=beamlr.delivery.utah.trailerDeliveryConstructionBasement
 reward=600
 items=list_lowheight
 gmwp=blrwp_mgm_construction

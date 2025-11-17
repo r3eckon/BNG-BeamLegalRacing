@@ -1,6 +1,6 @@
 destpos=-7.4195938110352,513.73706054688,74.784896850586
 items=list_all
-desc=Deliver $item to the city dockyard apartment buildings
+desc=beamlr.delivery.westcoast.gooseneckDeliveryDockApartment
 type=gooseneck
 destrot=0.0036880354940802,-0.0026421335239552,0.45483400990294,0.89056467533821
 gmwp=blrwp_gooseneckdockapart

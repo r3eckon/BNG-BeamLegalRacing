@@ -1,6 +1,6 @@
 destpos=351.40173339844,1456.9086914063,158.14131164551
 destrot=0.01045376875417,-0.0013275255316496,0.028614808251663,0.99953496644365
-desc=Deliver $item to the city port factory
+desc=beamlr.delivery.italy.gooseneckDeliveryPortFactory
 reward=700
 items=list_all
 gmwp=blrwp_portfactory

@@ -1,6 +1,6 @@
 triggers=BeamLRTrigger_RaceDCP61
 gmwp=Bridge30_3
-desc=Highway speed trap challenge #1
+desc=beamlr.challenges.west_coast_usa.aspeedtrap1
 rep=30,200
 wager=1500,6000
 traffic=1

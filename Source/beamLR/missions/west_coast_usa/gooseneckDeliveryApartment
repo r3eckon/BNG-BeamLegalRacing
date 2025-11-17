@@ -1,6 +1,6 @@
 destpos=-229.9836730957,371.99035644531,102.35231781006
 items=list_all
-desc=Deliver $item to an apartment building behind the hospital
+desc=beamlr.delivery.westcoast.gooseneckDeliveryApartment
 type=gooseneck
 destrot=0.0034249256619532,-0.003129868762658,0.63030722265371,0.7763319385909
 gmwp=blrwp_trailerapartment

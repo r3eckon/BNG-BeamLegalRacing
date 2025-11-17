@@ -1,6 +1,6 @@
 destpos=-198.84454345703,-255.33525085449,118.91102600098
 items=list_all
-desc=Deliver $item to the drag strip parking lot
+desc=beamlr.delivery.westcoast.gooseneckDeliveryDragParking
 type=gooseneck
 destrot=-0.0062951378358733,-0.011399576473755,0.88925707594744,-0.45722234610006
 gmwp=blrwp_dragparking

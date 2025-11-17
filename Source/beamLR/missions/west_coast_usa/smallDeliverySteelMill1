@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_SteelMill1
-desc=Deliver $item to the Hot Rolled Inc. steel mill entrance
+desc=beamlr.delivery.westcoast.smallDeliverySteelMill1
 reward=400
 items=list_all
 gmwp=blrwp_steelmill1

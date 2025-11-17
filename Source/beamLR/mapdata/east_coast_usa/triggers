@@ -19,3 +19,5 @@ BeamLRTrigger_CarMeet=meet,gasStationMeet
 BeamLRTrigger_PropertySeaside=property,propertySeaside
 BeamLRTrigger_PropertyTown=property,propertyTown
 BeamLRTrigger_PropertyIndustrial=property,propertyIndustrial
+BeamLRTrigger_BarnfindA=barnfind,barnfindA
+BeamLRTrigger_BarnfindB=barnfind,barnfindB

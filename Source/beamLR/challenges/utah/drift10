@@ -1,5 +1,5 @@
 driftpts=10000,25000
-desc=Downhill drift challenge
+desc=beamlr.challenges.utah.drift10
 gmwp=ut_wp_125
 triggers=BeamLRTrigger_TouristAreaDelivery,BeamLRTrigger_TopShopIntersect,BeamNGTrigger_BusStopIntersect,BeamLRTrigger_BusStopST,BeamLRTrigger_CurvyRoadCP1,BeamLRTrigger_CurvyRoadCP2,BeamLRTrigger_NearShopCP1,BeamLRTrigger_RepairZoneST
 targettime=330000,390000

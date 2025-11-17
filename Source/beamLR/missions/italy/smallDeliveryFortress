@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_Fortress
-desc=Deliver $item to the city fort
+desc=beamlr.delivery.italy.smallDeliveryFortress
 reward=520
 items=list_all
 gmwp=blrwp_fortress

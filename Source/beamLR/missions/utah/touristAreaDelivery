@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_TouristAreaDelivery
-desc=Deliver $item to the information center
+desc=beamlr.delivery.utah.touristAreaDelivery
 reward=220
 items=list_all
 gmwp=ut_wp_124

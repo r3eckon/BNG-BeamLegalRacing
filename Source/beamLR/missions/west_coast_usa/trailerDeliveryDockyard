@@ -1,5 +1,5 @@
 items=list_all
-desc=Deliver $item to the city dockyard warehouse
+desc=beamlr.delivery.westcoast.trailerDeliveryDockyard
 type=trailer
 destpos=-17.061513900757,717.47888183594,74.882568359375
 destrot=0.005570733994621,0.00085691021486616,-0.68042713248172,-0.73279407067084

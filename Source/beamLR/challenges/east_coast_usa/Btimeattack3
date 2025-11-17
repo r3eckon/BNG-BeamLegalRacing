@@ -1,5 +1,5 @@
 type=time
-desc=Short time attack challenge to the red manor
+desc=beamlr.challenges.east_coast_usa.btimeattack3
 triggers=BeamLRTrigger_FarmJuncCP2,BeamLRTrigger_FarmTurnCP1,BeamLRTrigger_RedmanorEntranceCP1
 wager=2000,7500
 targettime=35000,37000

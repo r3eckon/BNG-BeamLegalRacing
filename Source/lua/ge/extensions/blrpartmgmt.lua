@@ -42,8 +42,10 @@ end
 return toRet
 end
 
-
-
+-- 1.19 fix should hopefully stop modded cars with inconsistent naming causing issues
+local function getVehicleModel(vehid)
+return getVehicleData(vehid).vdata.model
+end
 
 local function ioCtx(vehid)
 return getVehicleData(vehid).ioCtx
@@ -285,7 +287,7 @@ extensions.core_vehicle_partmgmt.save(file)
 local ctable = jsonReadFile(file)
 ctable["paints"] = nil
 ctable["mainPartName"] = getMainPartName(false, vehid)
-ctable["model"] = getMainPartName(false, vehid)
+ctable["model"] = getVehicleModel(vehid)
 -- need this for advanced vehicle building, adds missing slots relying on defaults
 -- with actual part used so bought cars aren't missing parts after being avbready
 ctable["parts"] = getVehicleParts(vehid)
@@ -559,7 +561,7 @@ end
 
 local function getPartPreviewImageTable()
 local toRet = {}
-local model = getMainPartName()
+local model = getVehicleModel() -- 1.19 fix for mods that don't use main part name as model
 
 --detect format
 local fmt = "png"
@@ -703,7 +705,7 @@ end
 
 
 local function getSlotAllowTypes(vehid)
-local model = getMainPartName(vehid)
+local model = getVehicleModel(vehid)  -- 1.19 fix for mods that don't use main part name as model
 local parts = getVehicleParts(vehid)
 local cslots = {}
 local toRetPaths = {}
@@ -711,7 +713,7 @@ local toRetIDs = {}
 local cpath = ""
 
 local mainPath = "/"
-local mainPart = model
+local mainPart = getMainPartName(vehid)
 
 -- starting with main part for vehicle for allowTypes at root of slot tree.
 -- doing it this way because previous method was adding main part to parts table
@@ -1277,7 +1279,7 @@ end
 
 -- Removes vehicle model name from slots for easier finding of universal parts
 local function getPartsCommonSlots(vehid)
-local model = getMainPartName(vehid)
+local model = getMainPartName(vehid) -- 1.19 fix, here still using main part name because that's what the broken mod does... idk if this is gonna work for all of them
 local parts = getVehicleParts(vehid)
 local toRet = {}
 local ckey = ""
@@ -1323,7 +1325,7 @@ end
 
 
 local function getPartPricesCommonSlots(vehid)
-local model = getMainPartName(vehid)
+local model = getMainPartName(vehid) -- 1.19 fix, here still using main part name because that's what the broken mod does... idk if this is gonna work for all of them
 local parts = getVehicleParts(vehid)
 local toRet = {}
 local ckey = ""
@@ -2994,7 +2996,7 @@ sendPartUI2Cart()
 extensions.customGuiStream.sendPartBuyResult(true)
 
 else -- player didn't have enough money
-guihooks.trigger('Message', {ttl = 10, msg = 'You don\'t have enough money to pay for parts in your cart!', icon = 'money_off'})
+guihooks.trigger('Message', {ttl = 10, msg = extensions.blrlocales.translate("beamlr.msgapp.cartnomoney"), icon = 'money_off'})
 extensions.customGuiStream.sendPartBuyResult(false)
 end
 
@@ -3028,6 +3030,7 @@ end
 sendPartUI2Cart()
 end
 
+M.getVehicleModel = getVehicleModel
 M.pui2_checkUsedParts = pui2_checkUsedParts
 M.sendPartUI2Cart = sendPartUI2Cart
 M.pui2_clearCart = pui2_clearCart

@@ -3,10 +3,11 @@
 
 
 
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.18.8/beamLegalRacing1.18.8.zip
+
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.19/beamLegalRacing1.19.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.18.8
+# Beam Legal Racing 1.19
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -142,6 +143,8 @@ Version 1.18.4 adds a part shop tree view, a brand new part shop catalogue UI (o
 Version 1.18.6 adds coolant persistence and leak mechanic, works like the oil leak mechanic. Coolant bottles can also be purchased by getting out of your car at a gas station.
 
 Version 1.18.8 adds an oil leak decal system that spawns oil drops and puddles underneath leaky engines. This system can be configured through the options menu under the "Environment" tab. Lower end computers may need to use lower maximum decal amounts to maintain performance.
+
+Version 1.19 adds [dealership vehicle history system with associated purchasable reports](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#vehicle-history-system) and [barn find vehicles](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#barn-finds). This version also adds translation file loading ability for those interested in creating translations for the mod.
 
 ## Getting started
 BeamLR is loaded as a freeroam mission. Use the following spawn point depending on map choice:
@@ -313,7 +316,9 @@ Keep in mind this feature is still early days and may be prone to bugs due to th
 As of version 1.16.1 high odometer parts now have decreased integrity values when attached to your car. The decrease is linear, begins at 100,000km (5% decrease) and maxes out at 300,000km (15% decrease). This results in lower performance for certain parts such as the engine which will have more idle play and friction.
 
 ## Car Meets
-Added in 1.17, car meets are a new type of interactive area where the player vehicle is compared to a randomly picked selection of vehicles and rated for "coolness". An above average coolness score will increase your rep while a below average score will decrease it. Having the best/worst score of the meet will double the rep change. Coolness score is calculated using raw performance value but also parts such as underglow, spoilers, carbon fiber parts, paint designs and more. Basically, having a riced out car will increase coolness rating.
+Added in 1.17, car meets are a new type of interactive area where the player vehicle is compared to a randomly picked selection of vehicles and rated for "coolness". An above average coolness score will increase your rep while a below average score will decrease it. Having the best/worst score of the meet will double the rep change. Coolness score is calculated using raw performance value but also parts such as underglow, spoilers, carbon fiber parts, paint designs and more. Basically, having a riced out car will increase coolness rating.'
+
+As of version 1.19 if you bring a damaged car (more than $10 in repair cost) to a car meet your score will be set to 0, ensuring that you will lose rep. 
 
 ## Garage Slots and Properties
 Since 1.17 the amount of free slots for vehicles in your garage is now limited. The starting amount of slots is determined by the difficulty setting. Having no free slot in your garage will prevent you from buying cars, participating in pink slips races or joining track events that have a vehicle reward. Joining such an event will also reserve a free slot in your garage for the duration of the event, essentially filling that slot temporarily. Note that while this feature can be turned off in options, limited garage slots are the intended way to play.
@@ -326,6 +331,16 @@ Added in 1.17, this new menu will show all unused parts in your inventory, inclu
 This menu requires the game to cache jbeam file data upon first start. This process takes about a minute for a vanilla install and could take longer depending on how many vehicle and part mods you have installed. This process will be started automatically when you start the scenario if the game detects new mods. If you are a mod developer making your own jbeam parts you can start this process manually from the options menu to cache any new jbeam file that isn't stored in a mod zip. 
 
 Version 1.17.1 will now skip broken jbeam files during the caching process. The process has also been optimized to use less RAM as it caused crashes on some systems.
+
+## Vehicle History System
+Added in version 1.19, the vehicle history system generate a random positive or negative history elements (such as past owners count, their driving skill and style, quality of maintenance and amount of involved accident) that change the effective odometer value (odometer change used to simulate increased/decreased wear).
+
+By buying the detailed report for a vehicle you can see this history and thus uncover the true odometer value of the vehicle. If you choose not to buy this report the real odometer value of the vehicle may be different than the one shown in the dealership UI.
+
+## Barn Finds
+Added in version 1.19, barn finds are new hidden interactive areas that spawn older but higher tier vehicles that aren't usually found in dealerships in such configurations and prices. For instance one possible vehicle is a used Bolide 390 GT, or some of the high performance V8 Moonhawk and Barstow. 
+
+Barn find areas are unique in the sense that they will only spawn one vehicle per career per map. If you see an interesting car that you can't afford yet that car will not change from day to day and will remain until you purchase it, after which the area no longer spawns any car. Only one these areas per map will spawn a car and the area that contains a car as well as the car it will contain is randomized based on career seed.
 
 ## WIP Notice
 This mod is a work in progress. At this stage it is a decent vertical slice of the gameplay the project is trying to achieve with some bugs and quirks remaining that should get better as BeamNG and the mod are updated. That being said a lot of content is missing and reward values may be unbalanced relative to part prices.
@@ -1050,3 +1065,23 @@ Cause: Engine jbeam is missing torque data. Data is moved to other subparts. Thi
 * Fixed factory paint generation in dealership not working for certain vehicles
 * Fixed oil & coolant values not restored after exiting part edit safe mode
 * Increased post edit action delay (potential fix for odometer value not restored for some players)
+
+### 1.19
+* Added dealership vehicle history system (used cars have a history which affect the effective odometer)
+* Added "VehFax" reports in dealership (buy report to see vehicle history and how it affects odometer)
+* Added "Barn Find" Vehicles (one spot out of a few per map has an old but higher tier car to buy)
+* Added translation file loader script
+* Fixed multiple oil leak decals issues when focused on dealership cars
+* Fixed dealership util issue with cars that don't use main part name as model name
+* Fixed part shop tree mode issue with cars that don't use main part name as model name
+* Changed all code using main part name as model name to fetch actual model name
+* Fixed dealership factory paint generation not working for cars using legacy paint system
+* Part shop UI now shows favorite button when searching
+* Fixed oil leak decals error after car is despawned
+* Moved odometer fetch node before stats UI nodes to unify stats display into a single node
+* Police chase UI now shows proper infraction names & current fine during pursuit
+* Modified vanilla imgui text and button flowgraph nodes to work with translation keys
+* Converted all text strings in project to translation keys
+* Fixed old sunburst configs used in car meet config list & updated file with new sunburst configs
+* Missing configs in car meets will now be avoided (a cone spawns to indicate the config was missing)
+* Damaged cars now have a score of 0 at car meets (guaranteed rep loss if you bring a damaged car)

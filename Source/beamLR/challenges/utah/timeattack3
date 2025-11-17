@@ -1,6 +1,6 @@
 targettime=150000,170000
 gmwp=cliffJuncWp2
-desc=Short hotlap around utah
+desc=beamlr.challenges.utah.timeattack3
 triggers=BeamLRTrigger_RepairZoneST,BeamLRTrigger_NearShopCP1,BeamLRTrigger_CurvyRoadCP2,BeamLRTrigger_CurvyRoadCP1,BeamLRTrigger_BusStopST,BeamLRTrigger_ExitBridgeST,BeamNGTrigger_HighwayExit,BeamLRTrigger_PureDragFinish,BeamLRTrigger_HighwayJunction,BeamLRTrigger_RepairZoneST
 wager=225,4000
 traffic=1

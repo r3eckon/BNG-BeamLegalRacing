@@ -1,6 +1,6 @@
 destpos=700.05749511719,-21.799825668335,52.10767364502
 destrot=0.0050115722402458,0.0018725087751798,0.11969976447993,0.99279572130324
-desc=Deliver $item to the town convenience store
+desc=beamlr.delivery.eastcoast.gooseneckDeliveryTownStore
 reward=1500
 items=list_all
 gmwp=blrwp_storeA

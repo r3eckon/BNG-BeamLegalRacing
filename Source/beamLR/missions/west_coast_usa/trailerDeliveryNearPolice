@@ -1,6 +1,6 @@
 destpos=-697.79583740234,783.69860839844,79.435752868652
 items=list_all
-desc=Deliver $item to an apartment building near the police station
+desc=beamlr.delivery.westcoast.trailerDeliveryNearPolice
 type=trailer
 destrot=0.011502447460562,-0.01055761090557,-0.0010831807847762,0.99987752113635
 gmwp=blrwp_trailernearpolice

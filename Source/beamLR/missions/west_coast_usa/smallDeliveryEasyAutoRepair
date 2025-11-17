@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_EasyAutoRepair
-desc=Deliver $item to the Easy Auto Repair garage
+desc=beamlr.delivery.westcoast.smallDeliveryEasyAutoRepair
 reward=400
 items=list_all
 gmwp=blrgps_repairD

@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_Condos
-desc=Deliver $item to a condominium building
+desc=beamlr.delivery.westcoast.smallDeliveryCondos
 reward=400
 items=list_all
 gmwp=blrwp_condos

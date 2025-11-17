@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_BayTownCenter
-desc=Deliver $item to the bay town
+desc=beamlr.delivery.italy.smallDeliveryBayTownCenter
 reward=400
 items=list_all
 gmwp=city_east_bridge2_a

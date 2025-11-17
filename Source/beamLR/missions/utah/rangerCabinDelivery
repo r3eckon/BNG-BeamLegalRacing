@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_RangerCabin
-desc=Deliver $item to the ranger cabin
+desc=beamlr.delivery.utah.rangerCabinDelivery
 reward=150
 items=list_all
 gmwp=blrwp_rangercabin

@@ -1,5 +1,5 @@
 driftpts=7500,17000
-desc=Another short drift challenge
+desc=beamlr.challenges.utah.drift3
 gmwp=riverJuncWp1
 triggers=BeamNGTrigger_BridgeCarZoneIntersect,BeamNGTrigger_CaravanAreaEntrance,BeamNGTrigger_RoadToAirfield,BeamNGTrigger_AirfieldRoadIntersect,BeamLRTrigger_CurvyRoadCP1,BeamLRTrigger_CurvyRoadCP2,BeamLRTrigger_NearShopCP1,BeamNGTrigger_BridgeCarZoneIntersect
 targettime=250000,280000

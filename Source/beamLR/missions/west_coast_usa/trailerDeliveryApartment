@@ -1,6 +1,6 @@
 destpos=-207.3295135498,373.29260253906,102.26232910156
 items=list_all
-desc=Deliver $item to an apartment building behind the hospital
+desc=beamlr.delivery.westcoast.trailerDeliveryApartment
 type=trailer
 destrot=0.0098673188922111,-0.0088214319601017,0.65359098172119,0.75673221615628
 gmwp=blrwp_trailerapartment

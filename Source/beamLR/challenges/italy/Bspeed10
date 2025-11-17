@@ -1,6 +1,6 @@
 type=speed
 targetspd=50,70
-desc=Cliff side speed trap challenge
+desc=beamlr.challenges.italy.bspeed10
 gmwp=blrwp_vineyardracecp14
 wager=1000,4500
 traffic=1

@@ -1,6 +1,6 @@
 type=speed
 targetspd=50,90
-desc=Highway speed trap challenge #7
+desc=beamlr.challenges.italy.bspeed7
 gmwp=highway_bridge1_a
 wager=1000,6000
 traffic=1

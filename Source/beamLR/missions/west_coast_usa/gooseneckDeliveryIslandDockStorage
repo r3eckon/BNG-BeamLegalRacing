@@ -1,6 +1,6 @@
 destpos=381.78375244141,1742.1284179688,75.086608886719
 items=list_all
-desc=Deliver $item to the island dockyard storage area
+desc=beamlr.delivery.westcoast.gooseneckDeliveryIslandDockStorage
 type=gooseneck
 destrot=0.0050771798063388,-0.00022835812674648,-0.04205347051419,0.99910243504632
 gmwp=blrwp_trailerdockstorage

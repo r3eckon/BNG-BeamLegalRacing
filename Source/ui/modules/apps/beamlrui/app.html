@@ -172,8 +172,8 @@
 <div style="display:block; height:35px; background-color:rgba(0.0,0.0,0.0,0.6); margin:0; transform:translate(0px,-2px);">
 <button ng-click="showMenuClick()" ng-if="showMenu" style="position:absolute; left:3px; top:3px;" >▲</button>
 <button ng-click="showMenuClick()" ng-if="showMenu==false" style="position:absolute; left:3px; top:3px;" >▼</button>
-<p ng-if="beamlrData['waitmsg'] != true" style="font-size: 25px; font-weight:bold; margin:0 auto; text-align:center; width:80%; ">BeamLR Main Menu</p>
-<p ng-if="beamlrData['waitmsg'] == true" style="font-size: 25px; font-weight:bold; margin:0 auto; text-align:center; width:80%; ">Loading. Please Wait.</p>
+<p ng-if="beamlrData['waitmsg'] != true" style="font-size: 25px; font-weight:bold; margin:0 auto; text-align:center; width:80%; ">{{"beamlr.mainui.title" | translate}}</p>
+<p ng-if="beamlrData['waitmsg'] == true" style="font-size: 25px; font-weight:bold; margin:0 auto; text-align:center; width:80%; ">{{"beamlr.mainui.loading" | translate}}</p>
 </div>
 
 
@@ -186,33 +186,33 @@
 </td>
 </tr>
 <tr style="height:10px; transform:translate(0px,-5px);">
-<td style="margin-top:0px; width:75px; text-align: center; vertical-align:top; line-height:18px;" ng-repeat="button in menuButtons">{{button.name}}</td>
+<td style="margin-top:0px; width:75px; text-align: center; vertical-align:top; line-height:18px;" ng-repeat="button in menuButtons">{{"beamlr.mainui.topbar." + button.type | translate}}</td>
 </tr>
 </table>
 
 <div ng-if="menuPage==0">
-<h3 style="text-align:center; line-height:0px;"> Main Menu </h3>
+<h3 style="text-align:center; line-height:0px;"> {{"beamlr.mainui.page.home.title" | translate}} </h3>
 
 <div style="margin-left: 5px; margin-right: 5px; overflow:scroll; overflow-y:scroll; max-height:250px; max-width:500px; background-color:rgba(0,0,0,0.5);" >
 
 <h2 style="text-align:center;">
-Welcome to BeamLR<br>
+{{"beamlr.mainui.page.home.textline1" | translate}}<br>
 </h2>
 
 <h3 style="text-align:center;">
-Check the github readme for up to date information on mod features and<br>POI maps for each level.
+<span style="white-space: pre-wrap;">{{"beamlr.mainui.page.home.textline2" | translate}}</span>
 </h3>
 
 <p style="margin-left:10px; margin-right:10px; text-align:center;">
-This is a work in progress mod. Remember to back up the BeamLR folder to safekeep your progress.
+{{"beamlr.mainui.page.home.textline3" | translate}}
 </p>
 
 <h3 style="text-align:center;">
-Thanks for playing!
+{{"beamlr.mainui.page.home.textline4" | translate}}
 </h3>
 
 <h2 style="margin-left:10px; margin-right:10px; text-align:center;">
-Special thanks to donors!
+{{"beamlr.mainui.page.home.textline5" | translate}}
 </h2>
 
 <p style="margin-left:10px; margin-right:10px; text-align:center; font-size:17px; font-weight:bold;">
@@ -245,15 +245,11 @@ Abdullah Alsnani<br>
 </p>
 
 <h2 style="text-align:center;">
-Any questions, feedback, suggestions or problems?
+{{"beamlr.mainui.page.home.textline6" | translate}}
 </h2>
 
 <p style="margin-left:10px; margin-right:10px; text-align:center;">
-If you have questions, feedback or suggestions, post them on the BeamNG forum thread.
-<br><br>
-If you want to report potential bugs, make sure you follow the troubleshooting guide on github before posting them on the BeamNG forum thread.
-<br><br>
-If you have <span style="font-weight:bold;">confirmed</span> bugs that haven't been fixed with the troubleshooting guide, open an issue (preferably with reproduction steps) on github.
+<span style="white-space:pre-wrap;">{{"beamlr.mainui.page.home.textline7" | translate}}</span>
 </p>
 
 </div>
@@ -261,242 +257,244 @@ If you have <span style="font-weight:bold;">confirmed</span> bugs that haven't b
 </div>
 
 <div ng-if="menuPage==1" style="">
-<h3 style="text-align:center; line-height:0px;"> Options </h3>
+<h3 style="text-align:center; line-height:0px;">{{"beamlr.mainui.page.options.title" | translate}}</h3>
 
 <div style="margin-left: 5px; margin-right: 5px; overflow:scroll; overflow-y:scroll; max-height:250px; max-width:500px; background-color:rgba(0,0,0,0.5)">
 
 <div ng-click="toggleOptionShow('general')" style="width:95%; font-size:20px; font-weight:bold; text-align:center; margin:auto; margin-top:10px;">
 <span ng-if="optshow['general'] == false || optshow['general'] == null" style="float:left;">&nbsp+</span>
 <span ng-if="optshow['general'] == true" style="float:left;">&nbsp-</span>
-<span>General</span>
+<span>{{"beamlr.mainui.page.options.category.general" | translate}}</span>
 <span ng-if="optshow['general'] == false || optshow['general'] == null" style="float:right;">+&nbsp</span>
 <span ng-if="optshow['general'] == true" style="float:right;">-&nbsp</span>
 </div>
 
 <div ng-if="optshow['general'] == true">
 <p style="text-align:center;"> 
-Player Name 
+{{"beamlr.mainui.page.options.setting.playername" | translate}}
 <input type="text" ng-model="inputData.name" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
-<button ng-click="setNameClick()">Set</button>
+<button ng-click="setNameClick()">{{"beamlr.generic.button.set" | translate}}</button>
 </p>
 
 <p style="text-align:center;"> 
-Vehicle Name 
+{{"beamlr.mainui.page.options.setting.vehiclename" | translate}}
 <input type="text" ng-model="inputData.vehname" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
-<button ng-click="setVehNameClick()">Set</button>
+<button ng-click="setVehNameClick()">{{"beamlr.generic.button.set" | translate}}</button>
 </p>
 
 <p style="text-align:center;"> 
-Sleep Duration (Hours)  
+{{"beamlr.mainui.page.options.setting.sleepduration" | translate}}
 <input type="number" max=24.0 min=0.5 step=0.5 size=5 maxlength=5 ng-model="inputData.sleepTime" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
-<button ng-click="setSleepDuration(inputData.sleepTime)">Set</button>
+<button ng-click="setSleepDuration(inputData.sleepTime)">{{"beamlr.generic.button.set" | translate}}</button>
 </p>
 
 
-<span style="float:left; transform:translate(40px, 0px)">Target Wager &nbsp </span>
+<span style="float:left; transform:translate(40px, 0px)">
+{{"beamlr.mainui.page.options.setting.targetwager" | translate}}
+</span>
 <span>
 <md-slider flex style="width:150px; transform: translate(150px, -10px); " min="100" max="10000" step="5" ng-model="inputData.targetWager" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()">
 </md-slider>
 </span>
 <span style="float:right; transform:translate(-100px, -45px); width:50px">${{inputData.targetWager}}</span>
 <span style="float:right; transform:translate(0px, -45px)">
-<button ng-click="setTargetWager(inputData.targetWager)">Set</button>
+<button ng-click="setTargetWager(inputData.targetWager)">{{"beamlr.generic.button.set" | translate}}</button>
 </span>
 
 <p style="width: 85%; margin:auto; text-align:center; transform:translate(30px,10px);">
-Mirror adjustments are saved to vehicle config
+{{"beamlr.mainui.page.options.setting.mirrordetails" | translate}}
 </p>
 
 <p style="width: 100%; text-align:center; transform:translate(0px,0px); margin-bottom:50px;">
-<span>Mirrors Adjustments</span>
-<button ng-click="adjustMirrors()"> Edit </button>
+<span>{{"beamlr.mainui.page.options.setting.mirror" | translate}}</span>
+<button ng-click="adjustMirrors()">{{"beamlr.generic.button.edit" | translate}}</button>
 </p>
 
 <p style="text-align:center; transform:translate(50px,-20px); width:350px;"> 
-Race Opponent Random Paint
-<button ng-class="inputData.raceRandPaint == 1 ? 'toggleon' : 'toggleoff'" ng-click="setOpponentRandomPaint(1)">On</button>
-<button ng-class="inputData.raceRandPaint == 0 ? 'toggleon' : 'toggleoff'" ng-click="setOpponentRandomPaint(0)">Off</button>
+{{"beamlr.mainui.page.options.setting.raceoprandpaints" | translate}}
+<button ng-class="inputData.raceRandPaint == 1 ? 'toggleon' : 'toggleoff'" ng-click="setOpponentRandomPaint(1)">{{"beamlr.generic.button.on" | translate}}</button>
+<button ng-class="inputData.raceRandPaint == 0 ? 'toggleon' : 'toggleoff'" ng-click="setOpponentRandomPaint(0)">{{"beamlr.generic.button.off" | translate}}</button>
 </p>
 
-<p style="text-align:center; margin-top:5px; margin-bottom:5px;">Time scale requires scenario restart to take effect</p>
+<p style="text-align:center; margin-top:5px; margin-bottom:5px;">{{"beamlr.mainui.page.options.setting.timescaledetails" | translate}}</p>
 
 <p style="text-align:center; margin-top:5px; margin-bottom:5px;"> 
-Time Scale 
+{{"beamlr.mainui.page.options.setting.timescale" | translate}}
 <input type="number" max=100.0 min=1.0 step=0.1 size=5 maxlength=5 ng-model="inputData.timeScale" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
-<button ng-click="setTimeScale(inputData.timeScale)">Set</button>
+<button ng-click="setTimeScale(inputData.timeScale)">{{"beamlr.generic.button.set" | translate}}</button>
 </p>
 
 <p style="text-align:center; margin-top:15px; margin-bottom:15px; margin-left:20px; margin-right:20px;">
-Default GPS mode shows GPS UI if vehicle has a GPS installed. Always On ignores part check. Regardless of setting GPS UI will be hidden in certain situations.
+{{"beamlr.mainui.page.options.setting.gpsmodedetails" | translate}}
 </p>
 
 
 <p style="text-align:center; transform:translate(60px,0px); width:350px;"> 
-GPS Mode
-<button ng-class="inputData.gpsmode == 0 ? 'toggleon' : 'toggleoff'" ng-click="setGPSMode(0)">Default</button>
-<button ng-class="inputData.gpsmode == 1 ? 'toggleon' : 'toggleoff'" ng-click="setGPSMode(1)">Always On</button>
-<button ng-class="inputData.gpsmode == 2 ? 'toggleon' : 'toggleoff'" ng-click="setGPSMode(2)">Always Off</button>
+{{"beamlr.mainui.page.options.setting.gpsmode" | translate}}
+<button ng-class="inputData.gpsmode == 0 ? 'toggleon' : 'toggleoff'" ng-click="setGPSMode(0)">{{"beamlr.generic.button.default" | translate}}</button>
+<button ng-class="inputData.gpsmode == 1 ? 'toggleon' : 'toggleoff'" ng-click="setGPSMode(1)">{{"beamlr.generic.button.alwayson" | translate}}</button>
+<button ng-class="inputData.gpsmode == 2 ? 'toggleon' : 'toggleoff'" ng-click="setGPSMode(2)">{{"beamlr.generic.button.alwaysoff" | translate}}</button>
 </p>
 
 <p style="text-align:center; transform:translate(60px,0px); width:350px;"> 
-Dragstrip Cinematic Finish
-<button ng-class="inputData.dragslowmo == 1 ? 'toggleon' : 'toggleoff'" ng-click="toggleDragSlowmo(1)">On</button>
-<button ng-class="inputData.dragslowmo == 0 ? 'toggleon' : 'toggleoff'" ng-click="toggleDragSlowmo(0)">Off</button>
+{{"beamlr.mainui.page.options.setting.dragfinish" | translate}}
+<button ng-class="inputData.dragslowmo == 1 ? 'toggleon' : 'toggleoff'" ng-click="toggleDragSlowmo(1)">{{"beamlr.generic.button.on" | translate}}</button>
+<button ng-class="inputData.dragslowmo == 0 ? 'toggleon' : 'toggleoff'" ng-click="toggleDragSlowmo(0)">{{"beamlr.generic.button.off" | translate}}</button>
 </p>
 
 <p style="text-align:center; transform:translate(60px,0px); width:350px;"> 
-Show Groundmarkers
-<button ng-class="inputData.gmtoggle == 1 ? 'toggleon' : 'toggleoff'" ng-click="toggleGroundmarkers(1)">On</button>
-<button ng-class="inputData.gmtoggle == 0 ? 'toggleon' : 'toggleoff'" ng-click="toggleGroundmarkers(0)">Off</button>
+{{"beamlr.mainui.page.options.setting.groundmarkers" | translate}}
+<button ng-class="inputData.gmtoggle == 1 ? 'toggleon' : 'toggleoff'" ng-click="toggleGroundmarkers(1)">{{"beamlr.generic.button.on" | translate}}</button>
+<button ng-class="inputData.gmtoggle == 0 ? 'toggleon' : 'toggleoff'" ng-click="toggleGroundmarkers(0)">{{"beamlr.generic.button.off" | translate}}</button>
 </p>
 
 <p style="text-align:center; transform:translate(60px,0px); width:350px;"> 
-Show Floating Markers
-<button ng-class="inputData.fmtoggle == 1 ? 'toggleon' : 'toggleoff'" ng-click="toggleMarkers(1)">On</button>
-<button ng-class="inputData.fmtoggle == 0 ? 'toggleon' : 'toggleoff'" ng-click="toggleMarkers(0)">Off</button>
+{{"beamlr.mainui.page.options.setting.floatingmarkers" | translate}}
+<button ng-class="inputData.fmtoggle == 1 ? 'toggleon' : 'toggleoff'" ng-click="toggleMarkers(1)">{{"beamlr.generic.button.on" | translate}}</button>
+<button ng-class="inputData.fmtoggle == 0 ? 'toggleon' : 'toggleoff'" ng-click="toggleMarkers(0)">{{"beamlr.generic.button.off" | translate}}</button>
 </p>
 
 <p style="text-align:center; margin-top:15px; margin-bottom:15px; margin-left:20px; margin-right:20px;">
-<strong>Use health system at your own risk!</strong> G force sensors are prone to glitches and may result in unfair deaths.
+<strong>{{"beamlr.mainui.page.options.setting.healthwarnbold" | translate}}</strong>{{"beamlr.mainui.page.options.setting.healthwarn" | translate}}
 </p>
 
 <p style="text-align:center; transform:translate(60px,0px); width:350px;"> 
-Toggle Health System
-<button ng-class="inputData.allowinjury == 1 ? 'toggleon' : 'toggleoff'" ng-click="toggleHealth(1)">On</button>
-<button ng-class="inputData.allowinjury == 0 ? 'toggleon' : 'toggleoff'" ng-click="toggleHealth(0)">Off</button>
+{{"beamlr.mainui.page.options.setting.healthtoggle" | translate}}
+<button ng-class="inputData.allowinjury == 1 ? 'toggleon' : 'toggleoff'" ng-click="toggleHealth(1)">{{"beamlr.generic.button.on" | translate}}</button>
+<button ng-class="inputData.allowinjury == 0 ? 'toggleon' : 'toggleoff'" ng-click="toggleHealth(0)">{{"beamlr.generic.button.off" | translate}}</button>
 </p>
 
 
 <p style="text-align:center; margin-top:15px; margin-bottom:15px; margin-left:20px; margin-right:20px;">
-Light manager optimizes night lights on maps that have them. Only used on maps that have light data defined.
+{{"beamlr.mainui.page.options.setting.lightmanagerdetails" | translate}}
 </p>
 
 <p style="text-align:center; transform:translate(60px,0px); width:350px;"> 
-Toggle Light Manager
-<button ng-class="inputData.lmtoggle == 1 ? 'toggleon' : 'toggleoff'" ng-click="toggleLightManager(1)">On</button>
-<button ng-class="inputData.lmtoggle == 0 ? 'toggleon' : 'toggleoff'" ng-click="toggleLightManager(0)">Off</button>
+{{"beamlr.mainui.page.options.setting.lightmanagertoggle" | translate}}
+<button ng-class="inputData.lmtoggle == 1 ? 'toggleon' : 'toggleoff'" ng-click="toggleLightManager(1)">{{"beamlr.generic.button.on" | translate}}</button>
+<button ng-class="inputData.lmtoggle == 0 ? 'toggleon' : 'toggleoff'" ng-click="toggleLightManager(0)">{{"beamlr.generic.button.off" | translate}}</button>
 </p>
 </div>
 
 <div ng-click="toggleOptionShow('career')" style="width:95%; font-size:20px; font-weight:bold; text-align:center; margin:auto; margin-top:10px;">
 <span ng-if="optshow['career'] == false || optshow['career'] == null" style="float:left;">&nbsp+</span>
 <span ng-if="optshow['career'] == true" style="float:left;">&nbsp-</span>
-<span>Career</span>
+<span>{{"beamlr.mainui.page.options.category.career" | translate}}</span>
 <span ng-if="optshow['career'] == false || optshow['career'] == null" style="float:right;">+&nbsp</span>
 <span ng-if="optshow['career'] == true" style="float:right;">-&nbsp</span>
 </div>
 
 <div ng-if="optshow['career'] == true">
 <p style="text-align:center;"> 
-Current Career Seed: {{beamlrData['seed']}}
+{{"beamlr.mainui.page.options.setting.currentseed" | translate}}{{beamlrData['seed']}}
 </p>
 
-<p style="text-align:center;">  Next seed takes effect after career reset </p>
+<p style="text-align:center;">{{"beamlr.mainui.page.options.setting.nextseeddetails" | translate}}</p>
 
 <p style="text-align:center;"> 
-Next Seed
+{{"beamlr.mainui.page.options.setting.nextseed" | translate}}
 <input type="text" maxlength=10 size=11 ng-model="inputData.seed" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
-<button ng-click="setSeed()">Set</button>
-<button ng-click="setRandomSeed()">Random</button>
+<button ng-click="setSeed()">{{"beamlr.generic.button.set" | translate}}</button>
+<button ng-click="setRandomSeed()">{{"beamlr.generic.button.random" | translate}}</button>
 </p>
 
 <p style="text-align:center; margin-top:15px; margin-bottom:15px; margin-left:20px; margin-right:20px;">
-Auto Increment Seed adds 1 to current seed for next seed used after career reset.
+{{"beamlr.mainui.page.options.setting.autoseeddetails" | translate}}
 </p>
 
 <p style="text-align:center;"> 
-Auto Increment Seed 
-<button ng-class="inputData.autoseed == 1 ? 'toggleon' : 'toggleoff'" ng-click="setAutoSeed(1)">On</button>
-<button ng-class="inputData.autoseed == 0 ? 'toggleon' : 'toggleoff'" ng-click="setAutoSeed(0)">Off</button>
-</p>
-
-<br>
-
-<p style="text-align:center;">Difficulty affects amount of starting money and garage slots. Takes effect after career reset.</p>
-
-<p style="text-align:center;"> 
-Difficulty Level
-<button ng-class="inputData.difficulty == 'easy' ? 'toggleon' : 'toggleoff'" ng-click="setDifficulty('easy')">Easy</button>
-<button ng-class="inputData.difficulty == 'medium' ? 'toggleon' : 'toggleoff'" ng-click="setDifficulty('medium')">Medium</button>
-<button ng-class="inputData.difficulty == 'hard' ? 'toggleon' : 'toggleoff'" ng-click="setDifficulty('hard')">Hard</button>
+{{"beamlr.mainui.page.options.setting.autoseed" | translate}}
+<button ng-class="inputData.autoseed == 1 ? 'toggleon' : 'toggleoff'" ng-click="setAutoSeed(1)">{{"beamlr.generic.button.on" | translate}}</button>
+<button ng-class="inputData.autoseed == 0 ? 'toggleon' : 'toggleoff'" ng-click="setAutoSeed(0)">{{"beamlr.generic.button.off" | translate}}</button>
 </p>
 
 <br>
 
-<p style="text-align:center;">Using a custom wager and rep scale will affect<br>career difficulty and progress rate</p>
+<p style="text-align:center;">{{"beamlr.mainui.page.options.setting.difficultydetails" | translate}}</p>
 
 <p style="text-align:center;"> 
-Race wager scale
+{{"beamlr.mainui.page.options.setting.difficulty" | translate}}
+<button ng-class="inputData.difficulty == 'easy' ? 'toggleon' : 'toggleoff'" ng-click="setDifficulty('easy')">{{"beamlr.mainui.page.options.setting.difficultyEasy" | translate}}</button>
+<button ng-class="inputData.difficulty == 'medium' ? 'toggleon' : 'toggleoff'" ng-click="setDifficulty('medium')">{{"beamlr.mainui.page.options.setting.difficultyMedium" | translate}}</button>
+<button ng-class="inputData.difficulty == 'hard' ? 'toggleon' : 'toggleoff'" ng-click="setDifficulty('hard')">{{"beamlr.mainui.page.options.setting.difficultyHard" | translate}}</button>
+</p>
+
+<br>
+
+<p style="text-align:center;">{{"beamlr.mainui.page.options.setting.wagerrepdetails" | translate}}</p>
+
+<p style="text-align:center;"> 
+{{"beamlr.mainui.page.options.setting.wagerscale" | translate}}
 <input type="number" max=5.0 min=0.5 step=0.1 size=5 maxlength=4 ng-model="inputData.wagerscl" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
-<button ng-click="setWagerScale(inputData.wagerscl)">Set</button>
+<button ng-click="setWagerScale(inputData.wagerscl)">{{"beamlr.generic.button.set" | translate}}</button>
 </p>
 
 <p style="text-align:center;"> 
-Race reputation scale
+{{"beamlr.mainui.page.options.setting.repscale" | translate}}
 <input type="number" max=5.0 min=0.5 step=0.1 size=5 maxlength=4 ng-model="inputData.repscl" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
-<button ng-click="setRepScale(inputData.repscl)">Set</button>
+<button ng-click="setRepScale(inputData.repscl)">{{"beamlr.generic.button.set" | translate}}</button>
 </p>
 
 <p style="text-align:center; margin-top:15px; margin-bottom:15px; margin-left:20px; margin-right:20px;">
-Restricted race leagues don't allow vehicles above a certain performance class. You will be allowed to skip leagues if your car is too powerful (up to gold league).
+{{"beamlr.mainui.page.options.setting.restrictleaguesdetails" | translate}}
 </p>
 
 <p style="text-align:center;"> 
-Restricted race leagues
-<button ng-class="inputData.lrestrict == 1 ? 'toggleon' : 'toggleoff'" ng-click="setLeagueRestriction(1)">On</button>
-<button ng-class="inputData.lrestrict == 0 ? 'toggleon' : 'toggleoff'" ng-click="setLeagueRestriction(0)">Off</button>
+{{"beamlr.mainui.page.options.setting.restrictleagues" | translate}}
+<button ng-class="inputData.lrestrict == 1 ? 'toggleon' : 'toggleoff'" ng-click="setLeagueRestriction(1)">{{"beamlr.generic.button.on" | translate}}</button>
+<button ng-class="inputData.lrestrict == 0 ? 'toggleon' : 'toggleoff'" ng-click="setLeagueRestriction(0)">{{"beamlr.generic.button.off" | translate}}</button>
 </p>
 
 <p style="text-align:center; margin-top:15px; margin-bottom:15px; margin-left:20px; margin-right:20px;">
-Randomly seeded race clubs allows re-rolling races. <strong>Off</strong> is the intended way to play. When turned off races can only be re-rolled by sleeping to next day.
+{{"beamlr.mainui.page.options.setting.racerandseeddetails" | translate}}
 </p>
 
 <p style="text-align:center;"> 
-Randomly seeded race clubs
-<button ng-class="inputData.rsraces == 1 ? 'toggleon' : 'toggleoff'" ng-click="setRandomRaceSeedMode(1)">On</button>
-<button ng-class="inputData.rsraces == 0 ? 'toggleon' : 'toggleoff'" ng-click="setRandomRaceSeedMode(0)">Off</button>
+{{"beamlr.mainui.page.options.setting.racerandseed" | translate}}
+<button ng-class="inputData.rsraces == 1 ? 'toggleon' : 'toggleoff'" ng-click="setRandomRaceSeedMode(1)">{{"beamlr.generic.button.on" | translate}}</button>
+<button ng-class="inputData.rsraces == 0 ? 'toggleon' : 'toggleoff'" ng-click="setRandomRaceSeedMode(0)">{{"beamlr.generic.button.off" | translate}}</button>
 </p>
 
 <p style="text-align:center; margin-top:15px; margin-bottom:15px; margin-left:20px; margin-right:20px;">
-Limited garage slots requires you to buy properties to increase space in your garage. <strong>On</strong> is the intended way to play.
+{{"beamlr.mainui.page.options.setting.gslotdetails" | translate}}
 </p>
 
 <p style="text-align:center;"> 
-Limited garage slots
-<button ng-class="inputData.lgslots == 1 ? 'toggleon' : 'toggleoff'" ng-click="limitedGarageToggle(1)">On</button>
-<button ng-class="inputData.lgslots == 0 ? 'toggleon' : 'toggleoff'" ng-click="limitedGarageToggle(0)">Off</button>
+{{"beamlr.mainui.page.options.setting.gslots" | translate}}
+<button ng-class="inputData.lgslots == 1 ? 'toggleon' : 'toggleoff'" ng-click="limitedGarageToggle(1)">{{"beamlr.generic.button.on" | translate}}</button>
+<button ng-class="inputData.lgslots == 0 ? 'toggleon' : 'toggleoff'" ng-click="limitedGarageToggle(0)">{{"beamlr.generic.button.off" | translate}}</button>
 </p>
 
 <p style="text-align:center; margin-top:15px; margin-bottom:15px; margin-left:20px; margin-right:20px;">
-Track event slicks mode makes all track event opponent tires behave like slicks to improve their handling. <strong>On</strong> is the intended way to play.
+{{"beamlr.mainui.page.options.setting.trackslicksdetails" | translate}}
 </p>
 
 <p style="text-align:center;"> 
-Track event slicks mode
-<button ng-class="inputData.allowtesmode == 1 ? 'toggleon' : 'toggleoff'" ng-click="trackEventSlicksToggle(1)">On</button>
-<button ng-class="inputData.allowtesmode == 0 ? 'toggleon' : 'toggleoff'" ng-click="trackEventSlicksToggle(0)">Off</button>
+{{"beamlr.mainui.page.options.setting.trackslicks" | translate}}
+<button ng-class="inputData.allowtesmode == 1 ? 'toggleon' : 'toggleoff'" ng-click="trackEventSlicksToggle(1)">{{"beamlr.generic.button.on" | translate}}</button>
+<button ng-class="inputData.allowtesmode == 0 ? 'toggleon' : 'toggleoff'" ng-click="trackEventSlicksToggle(0)">{{"beamlr.generic.button.off" | translate}}</button>
+</p>
+
+<br>
+
+<p style="text-align:center; white-space:pre-wrap;">
+{{"beamlr.mainui.page.options.setting.backupdetails" | translate}}
+</p>
+<p style="text-align:center;">
+{{"beamlr.mainui.page.options.setting.loadbackup" | translate}}
+<button ng-click="restoreBackup()">{{"beamlr.generic.button.load" | translate}}</button>
 </p>
 
 <br>
 
 <p style="text-align:center;">
-Career backup is automatically saved in <br><span style="font-weight:bold;">userfolder/beamLR/backup</span><br> when you stop the mission
-</p>
-<p style="text-align:center;">
-Load Career Backup
-<button ng-click="restoreBackup()">Load</button>
-</p>
-
-<br>
-
-<p style="text-align:center;">
-Please be patient during career reset. The scenario will be stopped and started again automatically.
+{{"beamlr.mainui.page.options.setting.resetdetails" | translate}}
 </p>
 
 <p style="text-align:center; color:yellow;"> 
-Reset Career (WARNING: PERMANENT)
-<button ng-if="resetConfirm == false" ng-click="resetCareer()">Reset Career</button>
-<button ng-if="resetConfirm == true" ng-click="resetCareer()">Confirm Reset?</button>
+{{"beamlr.mainui.page.options.setting.resetcareer" | translate}}
+<button ng-if="resetConfirm == false" ng-click="resetCareer()">{{"beamlr.mainui.page.options.setting.resetbutton" | translate}}</button>
+<button ng-if="resetConfirm == true" ng-click="resetCareer()">{{"beamlr.mainui.page.options.setting.resetconfirm" | translate}}</button>
 </p>
 
 <br>
@@ -506,74 +504,72 @@ Reset Career (WARNING: PERMANENT)
 <div ng-click="toggleOptionShow('ui')" style="width:95%; font-size:20px; font-weight:bold; text-align:center; margin:auto; margin-top:10px;">
 <span ng-if="optshow['ui'] == false || optshow['ui'] == null" style="float:left;">&nbsp+</span>
 <span ng-if="optshow['ui'] == true" style="float:left;">&nbsp-</span>
-<span>User Interface</span>
+<span>{{"beamlr.mainui.page.options.category.ui" | translate}}</span>
 <span ng-if="optshow['ui'] == false || optshow['ui'] == null" style="float:right;">+&nbsp</span>
 <span ng-if="optshow['ui'] == true" style="float:right;">-&nbsp</span>
 </div>
 
 <div ng-if="optshow['ui'] == true">
-<p style="text-align:center; margin-top:15px; margin-bottom:15px; margin-left:20px; margin-right:20px;">
-IMGUI scale parameter can be used to increase interactive menu sizes when playing at high resolution.
-UI app scaling can be changed from the BeamNG options menu.
+<p style="white-space:pre-wrap; text-align:center; margin-top:15px; margin-bottom:15px; margin-left:20px; margin-right:20px;">
+{{"beamlr.mainui.page.options.setting.imscaledetails" | translate}}
 </p>
 
 <p style="text-align:center; margin-top:5px; margin-bottom:5px;"> 
-IMGUI Scale
+{{"beamlr.mainui.page.options.setting.imscale" | translate}}
 <input type="number" max=10.0 min=0.01 step=0.01 size=5 maxlength=5 ng-model="inputData.imguiScale" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
-<button ng-click="setIMGUIScale(inputData.imguiScale)">Set</button>
+<button ng-click="setIMGUIScale(inputData.imguiScale)">{{"beamlr.generic.button.set" | translate}}</button>
 </p>
 
 <p style="text-align:center; margin-top:15px; margin-bottom:15px; margin-left:20px; margin-right:20px;">
-IMGUI layout will store menu positions, sizes and docking states. Remember to save the layout immediately after making changes.
-This feature is especially useful when using a custom IMGUI scale.
+{{"beamlr.mainui.page.options.setting.imlayoutdetails" | translate}}
 </p>
 
 <p style="text-align:center; margin-top:5px; margin-bottom:5px;"> 
-IMGUI Layout
-<button ng-click="saveIMGUI()">Save</button>
-<button ng-click="loadIMGUI()">Load</button>
+{{"beamlr.mainui.page.options.setting.imlayout" | translate}}
+<button ng-click="saveIMGUI()">{{"beamlr.generic.button.save" | translate}}</button>
+<button ng-click="loadIMGUI()">{{"beamlr.generic.button.load" | translate}}</button>
 </p>
 
 <p style="text-align:center; margin-top:15px; margin-bottom:15px; margin-left:20px; margin-right:20px;">
-IMGUI Layout Autosave will save your menu layout when quitting.
+{{"beamlr.mainui.page.options.setting.imautosavedetails" | translate}}
 </p>
 
 <p style="text-align:center; margin-top:5px; margin-bottom:5px;"> 
-IMGUI Layout Autosave
-<button ng-class="inputData.imautosave == 1 ? 'toggleon' : 'toggleoff'" ng-click="autosaveIMGUI(1)">On</button>
-<button ng-class="inputData.imautosave == 0 ? 'toggleon' : 'toggleoff'" ng-click="autosaveIMGUI(0)">Off</button>
+{{"beamlr.mainui.page.options.setting.imautosave" | translate}}
+<button ng-class="inputData.imautosave == 1 ? 'toggleon' : 'toggleoff'" ng-click="autosaveIMGUI(1)">{{"beamlr.generic.button.on" | translate}}</button>
+<button ng-class="inputData.imautosave == 0 ? 'toggleon' : 'toggleoff'" ng-click="autosaveIMGUI(0)">{{"beamlr.generic.button.off" | translate}}</button>
 </p>
 
 
 <p style="text-align:center; margin-top:15px; margin-bottom:10px; margin-left:20px; margin-right:20px;">
-Part Preview Scaling Mode
+{{"beamlr.mainui.page.options.setting.partimgscale" | translate}}
 </p>
 
 <p style="text-align:center; margin-top:5px; margin-bottom:5px;"> 
-<button ng-class="inputData.imgmode == 0 ? 'toggleon' : 'toggleoff'" ng-click="setImageUIMode(0)">Original Size</button>
-<button ng-class="inputData.imgmode == 1 ? 'toggleon' : 'toggleoff'" ng-click="setImageUIMode(1)">Scale To Fit</button>
-</p>
-
-<p style="text-align:center; margin-top:15px; margin-bottom:15px; margin-left:20px; margin-right:20px;">
-Part Edit List Mode changes the list view in part edit. Sorted View is the original BeamLR view. Tree View has slots nested inside their parent slot, similar to vanilla BeamNG.
-</p>
-<p style="text-align:center; margin-top:15px; margin-bottom:10px; margin-left:20px; margin-right:20px;">
-Part Edit List Mode
-</p>
-<p style="text-align:center; margin-top:5px; margin-bottom:5px;"> 
-<button ng-class="inputData.edittreemode == 0 ? 'toggleon' : 'toggleoff'" ng-click="setEditTreeMode(0)">Sorted View</button>
-<button ng-class="inputData.edittreemode == 1 ? 'toggleon' : 'toggleoff'" ng-click="setEditTreeMode(1)">Tree View</button>
+<button ng-class="inputData.imgmode == 0 ? 'toggleon' : 'toggleoff'" ng-click="setImageUIMode(0)">{{"beamlr.mainui.page.options.setting.partimgscaleorigin" | translate}}</button>
+<button ng-class="inputData.imgmode == 1 ? 'toggleon' : 'toggleoff'" ng-click="setImageUIMode(1)">{{"beamlr.mainui.page.options.setting.partimgscalefit" | translate}}</button>
 </p>
 
 <p style="text-align:center; margin-top:15px; margin-bottom:15px; margin-left:20px; margin-right:20px;">
-Part Shop Show Incompatible turned on will show currently incompatible slots in yellow with a warning label. Off will ignore such slots.
+{{"beamlr.mainui.page.options.setting.parteditmodedetails" | translate}}
 </p>
 <p style="text-align:center; margin-top:15px; margin-bottom:10px; margin-left:20px; margin-right:20px;">
-Part Shop Show Incompatible
+{{"beamlr.mainui.page.options.setting.parteditmode" | translate}}
 </p>
 <p style="text-align:center; margin-top:5px; margin-bottom:5px;"> 
-<button ng-class="inputData.pshopshowinc == 1 ? 'toggleon' : 'toggleoff'" ng-click="togglePartShopShowIncompatible(1)">On</button>
-<button ng-class="inputData.pshopshowinc == 0 ? 'toggleon' : 'toggleoff'" ng-click="togglePartShopShowIncompatible(0)">Off</button>
+<button ng-class="inputData.edittreemode == 0 ? 'toggleon' : 'toggleoff'" ng-click="setEditTreeMode(0)">{{"beamlr.mainui.page.options.setting.parteditsorted" | translate}}</button>
+<button ng-class="inputData.edittreemode == 1 ? 'toggleon' : 'toggleoff'" ng-click="setEditTreeMode(1)">{{"beamlr.mainui.page.options.setting.partedittree" | translate}}</button>
+</p>
+
+<p style="text-align:center; margin-top:15px; margin-bottom:15px; margin-left:20px; margin-right:20px;">
+{{"beamlr.mainui.page.options.setting.shopincompatibledetails" | translate}}
+</p>
+<p style="text-align:center; margin-top:15px; margin-bottom:10px; margin-left:20px; margin-right:20px;">
+{{"beamlr.mainui.page.options.setting.shopincompatible" | translate}}
+</p>
+<p style="text-align:center; margin-top:5px; margin-bottom:5px;"> 
+<button ng-class="inputData.pshopshowinc == 1 ? 'toggleon' : 'toggleoff'" ng-click="togglePartShopShowIncompatible(1)">{{"beamlr.generic.button.on" | translate}}</button>
+<button ng-class="inputData.pshopshowinc == 0 ? 'toggleon' : 'toggleoff'" ng-click="togglePartShopShowIncompatible(0)">{{"beamlr.generic.button.off" | translate}}</button>
 </p>
 
 
@@ -583,159 +579,159 @@ Part Shop Show Incompatible
 <div ng-click="toggleOptionShow('traffic')" style="width:95%; font-size:20px; font-weight:bold; text-align:center; margin:auto; margin-top:10px;">
 <span ng-if="optshow['traffic'] == false || optshow['traffic'] == null" style="float:left;">&nbsp+</span>
 <span ng-if="optshow['traffic'] == true" style="float:left;">&nbsp-</span>
-<span>Traffic</span>
+<span>{{"beamlr.mainui.page.options.category.traffic" | translate}}</span>
 <span ng-if="optshow['traffic'] == false || optshow['traffic'] == null" style="float:right;">+&nbsp</span>
 <span ng-if="optshow['traffic'] == true" style="float:right;">-&nbsp</span>
 </div>
 
 <div ng-if="optshow['traffic'] == true">
 
-<p style="text-align:center;">Changing traffic amounts & parameters requires scenario restart to take effect</p>
+<p style="text-align:center;">{{"beamlr.mainui.page.options.setting.trafficcountdetails" | translate}}</p>
 
 <p style="text-align:center;"> 
-Civilian Count
+{{"beamlr.mainui.page.options.setting.trafficcountcivilian" | translate}}
 <input type="number" style="text-align:center;" ng-model="inputData.traffic" min=0 max=20 ng-change="setTrafficDensity()"></input>
-<button ng-click="setDefaultValue('traffic')">Reset</button>
+<button ng-click="setDefaultValue('traffic')">{{"beamlr.generic.button.reset" | translate}}</button>
 </p>
 
 <p style="text-align:center;"> 
-Police Count
+{{"beamlr.mainui.page.options.setting.trafficcountpolice" | translate}}
 <input type="number" style="text-align:center;"  ng-model="inputData.police" min=0 max=5 ng-change="setPoliceDensity()"></input>
-<button ng-click="setDefaultValue('police')">Reset</button>
+<button ng-click="setDefaultValue('police')">{{"beamlr.generic.button.reset" | translate}}</button>
 </p>
 
 
 <p style="text-align:center;"> 
-Truck Count
+{{"beamlr.mainui.page.options.setting.trafficcounttruck" | translate}}
 <input type="number" style="text-align:center;"  ng-model="inputData.trucks" min=0 max=5 ng-change="setTruckDensity()"></input>
-<button ng-click="setDefaultValue('trucks')">Reset</button>
+<button ng-click="setDefaultValue('trucks')">{{"beamlr.generic.button.reset" | translate}}</button>
 </p>
 
-<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >Max Active Traffic is the max amount of active vehicles on the map. The rest is used to increase traffic diversity.</p>
+<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >{{"beamlr.mainui.page.options.setting.maxtrafficdetails" | translate}}</p>
 
 <p style="text-align:center;"> 
-Max Active Traffic
+{{"beamlr.mainui.page.options.setting.maxtraffic" | translate}}
 <input type="number" style="text-align:center;"  ng-model="inputData.atcount" min=0 max="{{(inputData.traffic + inputData.police + inputData.trucks) || 0}}" ng-change="setActiveTrafficCount()"></input>
-<button ng-click="setDefaultValue('atcount')">Reset</button>
+<button ng-click="setDefaultValue('atcount')">{{"beamlr.generic.button.reset" | translate}}</button>
 </p>
 
-<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >Respawn Rate affects how fast the game teleports traffic to a new location. High values will increase perceived traffic but will cause visible traffic pop in. Lower values will prioritize spawning traffic hidden from camera.</p>
+<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >{{"beamlr.mainui.page.options.setting.trafficspawnratedetails" | translate}}</p>
 
 <p style="text-align:center;"> 
-Respawn Rate
+{{"beamlr.mainui.page.options.setting.trafficspawnrate" | translate}}
 <input type="number" style="text-align:center;"  ng-model="inputData.tsrate" min=0.01 max=1 step=0.01 ng-change="setTrafficSpawnRate()"></input>
-<button ng-click="setDefaultValue('tsrate')">Reset</button>
+<button ng-click="setDefaultValue('tsrate')">{{"beamlr.generic.button.reset" | translate}}</button>
 </p>
 
-<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >Direction Bias affects traffic direction when spawning. Values closer to 1 means more oncoming traffic, closer -1 means more traffic on your side of the road. Note that this parameter is often ignored by the game.</p>
+<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >{{"beamlr.mainui.page.options.setting.trafficdirbiasdetails" | translate}}</p>
 
 <p style="text-align:center;"> 
-Direction Bias
+{{"beamlr.mainui.page.options.setting.trafficdirbias" | translate}}
 <input type="number" style="text-align:center;"  ng-model="inputData.tsbias" min=-1 max=1 step=0.01 ng-change="setTrafficDirectionBias()"></input>
-<button ng-click="setDefaultValue('tsbias')">Reset</button>
+<button ng-click="setDefaultValue('tsbias')">{{"beamlr.generic.button.reset" | translate}}</button>
 </p>
 
 
 
 <p style="text-align:center;"> 
-Traffic Risk 
+{{"beamlr.mainui.page.options.setting.trafficrisk" | translate}}
 <input type="number" ng-change="setTrafficRisk()" min=0.01 max=1 step=0.01 maxlength=10 size=5 ng-model="inputData.trisk" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
-<button ng-click="setDefaultValue('trisk')">Reset</button>
+<button ng-click="setDefaultValue('trisk')">{{"beamlr.generic.button.reset" | translate}}</button>
 </p>
 
 <p style="text-align:center;"> 
-Police Strictness
+{{"beamlr.mainui.page.options.setting.trafficcopstrict" | translate}}
 <input type="number" ng-change="setPoliceStrictness()" min=0 max=1 step=0.01 size=5 ng-model="inputData.copstrict" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
-<button ng-click="setDefaultValue('copstrict')">Reset</button>
+<button ng-click="setDefaultValue('copstrict')">{{"beamlr.generic.button.reset" | translate}}</button>
 </p>
 
 <p style="text-align:center;"> 
-Load default traffic values
-<button ng-click="setAllDefaultValues()">Load Defaults</button>
+{{"beamlr.mainui.page.options.setting.trafficreset" | translate}}
+<button ng-click="setAllDefaultValues()">{{"beamlr.generic.button.reset" | translate}}</button>
 </p>
 
-<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >Race traffic default mode uses race file parameter. Using traffic for all races may negatively impact opponent skill.</p>
+<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >{{"beamlr.mainui.page.options.setting.racetrafficdetails" | translate}}</p>
 
 <p style="text-align:center; transform:translate(40px,0px); width:400px;"> 
-Race Traffic
-<button ng-class="inputData.rtmode == 0 ? 'toggleon' : 'toggleoff'" ng-click="setRaceTraffic(0)">Default</button>
-<button ng-class="inputData.rtmode == 2 ? 'toggleon' : 'toggleoff'" ng-click="setRaceTraffic(2)">Always On</button>
-<button ng-class="inputData.rtmode == 1 ? 'toggleon' : 'toggleoff'" ng-click="setRaceTraffic(1)">Always Off</button>
+{{"beamlr.mainui.page.options.setting.racetraffic" | translate}}
+<button ng-class="inputData.rtmode == 0 ? 'toggleon' : 'toggleoff'" ng-click="setRaceTraffic(0)">{{"beamlr.generic.button.default" | translate}}</button>
+<button ng-class="inputData.rtmode == 2 ? 'toggleon' : 'toggleoff'" ng-click="setRaceTraffic(2)">{{"beamlr.generic.button.alwayson" | translate}}</button>
+<button ng-class="inputData.rtmode == 1 ? 'toggleon' : 'toggleoff'" ng-click="setRaceTraffic(1)">{{"beamlr.generic.button.alwaysoff" | translate}}</button>
 </p>
 
-<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >Instant toggle traffic removes lag when spawning traffic after races & challenges. Prevents the game from freeing up RAM when traffic is disabled. Also reduces traffic diversity due to same vehicles always being used.</p>
+<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >{{"beamlr.mainui.page.options.setting.instanttrafficdetails" | translate}}</p>
 
 <p style="text-align:center; transform:translate(40px,0px); width:400px;"> 
-Instant Toggle Traffic 
-<button ng-class="inputData.tfasttoggle == 1 ? 'toggleon' : 'toggleoff'" ng-click="setTrafficFastToggle(1)">On</button>
-<button ng-class="inputData.tfasttoggle == 0 ? 'toggleon' : 'toggleoff'" ng-click="setTrafficFastToggle(0)">Off</button>
+{{"beamlr.mainui.page.options.setting.instanttraffic" | translate}}
+<button ng-class="inputData.tfasttoggle == 1 ? 'toggleon' : 'toggleoff'" ng-click="setTrafficFastToggle(1)">{{"beamlr.generic.button.on" | translate}}</button>
+<button ng-class="inputData.tfasttoggle == 0 ? 'toggleon' : 'toggleoff'" ng-click="setTrafficFastToggle(0)">{{"beamlr.generic.button.off" | translate}}</button>
 </p>
 
-<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >Use this setting to manually toggle traffic for debug or testing purposes. Can be used to spawn new variants if Instant Toggle Traffic is off.</p>
+<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >{{"beamlr.mainui.page.options.setting.manualtrafficdetails" | translate}}</p>
 
 <p style="text-align:center; transform:translate(40px,0px); width:400px;"> 
-Manual Traffic Toggle
-<button class="toggleoff" ng-click="trafficToggle(1)">On</button>
-<button class="toggleoff" ng-click="trafficToggle(0)">Off</button>
+{{"beamlr.mainui.page.options.setting.manualtraffic" | translate}}
+<button class="toggleoff" ng-click="trafficToggle(1)">{{"beamlr.generic.button.on" | translate}}</button>
+<button class="toggleoff" ng-click="trafficToggle(0)">{{"beamlr.generic.button.off" | translate}}</button>
 </p>
 </div>
 
 <div ng-click="toggleOptionShow('weather')" style="width:95%; font-size:20px; font-weight:bold; text-align:center; margin:auto; margin-top:10px;">
 <span ng-if="optshow['weather'] == false || optshow['weather'] == null" style="float:left;">&nbsp+</span>
 <span ng-if="optshow['weather'] == true" style="float:left;">&nbsp-</span>
-<span>Environment</span>
+<span>{{"beamlr.mainui.page.options.category.environment" | translate}}</span>
 <span ng-if="optshow['weather'] == false || optshow['weather'] == null" style="float:right;">+&nbsp</span>
 <span ng-if="optshow['weather'] == true" style="float:right;">-&nbsp</span>
 </div>
 
 <div ng-if="optshow['weather'] == true">
-<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >Dynamic weather will smoothly change weather condition throughout the day. Weather changes from day to day using career seed. Time scale affects weather change rate.</p>
+<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >{{"beamlr.mainui.page.options.setting.dynamicweatherdetails" | translate}}</p>
 
 <p style="text-align:center; margin-top:5px; margin-bottom:5px;"> 
-Dynamic Weather Toggle
-<button ng-class="inputData.dwtoggle == 1 ? 'toggleon' : 'toggleoff'" ng-click="dwtoggle(1)">On</button>
-<button ng-class="inputData.dwtoggle == 0 ? 'toggleon' : 'toggleoff'" ng-click="dwtoggle(0)">Off</button>
+{{"beamlr.mainui.page.options.setting.dynamicweather" | translate}}
+<button ng-class="inputData.dwtoggle == 1 ? 'toggleon' : 'toggleoff'" ng-click="dwtoggle(1)">{{"beamlr.generic.button.on" | translate}}</button>
+<button ng-class="inputData.dwtoggle == 0 ? 'toggleon' : 'toggleoff'" ng-click="dwtoggle(0)">{{"beamlr.generic.button.off" | translate}}</button>
 </p>
 
-<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >Variability values control chance of bad weather. Lower values will make clear sky, low wind and low fog more likely. Set value to 0 to disable dynamic weather for a specific weather element (will use values set in freeroam).</p>
+<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >{{"beamlr.mainui.page.options.setting.weathervardetails" | translate}}</p>
 
 
 <p style="text-align:center;"> 
-Cloud Cover Variability
+{{"beamlr.mainui.page.options.setting.weathervarcc" | translate}}
 <input type="number" min=0 max=1 step=0.01 maxlength=10 size=5 ng-model="inputData.ccvar" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
-<button ng-click="setCloudCoverVar(inputData.ccvar)">Set</button>
+<button ng-click="setCloudCoverVar(inputData.ccvar)">{{"beamlr.generic.button.set" | translate}}</button>
 </p>
 
 <p style="text-align:center;"> 
-Wind Speed Variability
+{{"beamlr.mainui.page.options.setting.weathervarws" | translate}}
 <input type="number" min=0 max=1 step=0.01 maxlength=10 size=5 ng-model="inputData.wsvar" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
-<button ng-click="setWindSpeedVar(inputData.wsvar)">Set</button>
+<button ng-click="setWindSpeedVar(inputData.wsvar)">{{"beamlr.generic.button.set" | translate}}</button>
 </p>
 
 <p style="text-align:center;"> 
-Fog Density Variability
+{{"beamlr.mainui.page.options.setting.weathervarf" | translate}}
 <input type="number" min=0 max=1 step=0.01 maxlength=10 size=5 ng-model="inputData.fdvar" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
-<button ng-click="setFogDensityVar(inputData.fdvar)">Set</button>
+<button ng-click="setFogDensityVar(inputData.fdvar)">{{"beamlr.generic.button.set" | translate}}</button>
 </p>
 
 
-<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >Oil leak decal system will spawn oil drops & growing puddles underneath leaking engines. Low end PCs should use less than 200 decals. Mid tier PCs can handle 500 decals. Higher end PCs may handle up to 1000 decals.</p>
+<p style="text-align:center; width:450px; margin-left:auto; margin-right:auto;" >{{"beamlr.mainui.page.options.setting.oildecalsdetails" | translate}}</p>
 
 <p style="text-align:center; margin-top:5px; margin-bottom:5px;"> 
-Oil Leak Decals Toggle
-<button ng-class="inputData.odtoggle == 1 ? 'toggleon' : 'toggleoff'" ng-click="odtoggle(1)">On</button>
-<button ng-class="inputData.odtoggle == 0 ? 'toggleon' : 'toggleoff'" ng-click="odtoggle(0)">Off</button>
+{{"beamlr.mainui.page.options.setting.oildecalstoggle" | translate}}
+<button ng-class="inputData.odtoggle == 1 ? 'toggleon' : 'toggleoff'" ng-click="odtoggle(1)">{{"beamlr.generic.button.on" | translate}}</button>
+<button ng-class="inputData.odtoggle == 0 ? 'toggleon' : 'toggleoff'" ng-click="odtoggle(0)">{{"beamlr.generic.button.off" | translate}}</button>
 </p>
 
 <p style="text-align:center;"> 
-Maximum Active Decals
+{{"beamlr.mainui.page.options.setting.oildecalsmax" | translate}}
 <input type="number" min=50 max=1000 step=50 maxlength=4 size=5 ng-model="inputData.odbufsize" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
-<button ng-click="setOilLeakDecalBuffer(inputData.odbufsize)">Set</button>
+<button ng-click="setOilLeakDecalBuffer(inputData.odbufsize)">{{"beamlr.generic.button.set" | translate}}</button>
 </p>
 
 <p style="text-align:center;"> 
-Clear Active Decals
-<button ng-click="clearDecals()">Clear</button>
+{{"beamlr.mainui.page.options.setting.oildecalsclear" | translate}}
+<button ng-click="clearDecals()">{{"beamlr.generic.button.clear" | translate}}</button>
 </p>
 
 
@@ -744,44 +740,44 @@ Clear Active Decals
 <div ng-click="toggleOptionShow('advanced')" style="width:95%; font-size:20px; font-weight:bold; text-align:center; margin:auto; margin-top:10px;">
 <span ng-if="optshow['advanced'] == false || optshow['advanced'] == null" style="float:left;">&nbsp+</span>
 <span ng-if="optshow['advanced'] == true" style="float:left;">&nbsp-</span>
-<span>Advanced</span>
+<span>{{"beamlr.mainui.page.options.category.advanced" | translate}}</span>
 <span ng-if="optshow['advanced'] == false || optshow['advanced'] == null" style="float:right;">+&nbsp</span>
 <span ng-if="optshow['advanced'] == true" style="float:right;">-&nbsp</span>
 </div>
 
 <div ng-if="optshow['advanced'] == true">
-<p style="text-align:center;">  Use the "Fix Cops" button only if police chases player without pursuit UI showing. Do not use when pursuit UI is showing to avoid further bugs with police system.</p>
+<p style="text-align:center;">{{"beamlr.mainui.page.options.setting.coprolefixdetails" | translate}}</p>
 
 <p style="text-align:center;"> 
-Manual Police Role Fix
-<button ng-click="forcedCopfix()">Fix Cops</button>
+{{"beamlr.mainui.page.options.setting.coprolefix" | translate}}
+<button ng-click="forcedCopfix()">{{"beamlr.mainui.page.options.setting.coprolefixbutton" | translate}}</button>
 </p>
 
-<p style="text-align:center;">  Automatic fixing may impact performance with large amounts of police vehicles.</p>
+<p style="text-align:center;">{{"beamlr.mainui.page.options.setting.autocoprolefixdetails" | translate}}</p>
 
 
 <p style="text-align:center;"> 
-Automatic Police Role Fix
-<button ng-class="inputData.autoCopfix == 1 ? 'toggleon' : 'toggleoff'" ng-click="autoCopfix(1)">On</button>
-<button ng-class="inputData.autoCopfix == 0 ? 'toggleon' : 'toggleoff'" ng-click="autoCopfix(0)">Off</button>
-</p>
-
-
-<p style="text-align:center;">  Use beamstate toggle to workaround issues with advanced couplers.</p>
-
-
-<p style="text-align:center;"> 
-Beamstate Toggle 
-<button ng-class="inputData.bstoggle == 1 ? 'toggleon' : 'toggleoff'" ng-click="beamstateToggle(1)">On</button>
-<button ng-class="inputData.bstoggle == 0 ? 'toggleon' : 'toggleoff'" ng-click="beamstateToggle(0)">Off</button>
+{{"beamlr.mainui.page.options.setting.autocoprolefix" | translate}}
+<button ng-class="inputData.autoCopfix == 1 ? 'toggleon' : 'toggleoff'" ng-click="autoCopfix(1)">{{"beamlr.generic.button.on" | translate}}</button>
+<button ng-class="inputData.autoCopfix == 0 ? 'toggleon' : 'toggleoff'" ng-click="autoCopfix(0)">{{"beamlr.generic.button.off" | translate}}</button>
 </p>
 
 
-<p style="text-align:center;">  Use below button to attempt coupler reset after beamstate loading breaks them (game may crash).</p>
+<p style="text-align:center;">{{"beamlr.mainui.page.options.setting.beamstatetoggledetails" | translate}}</p>
+
 
 <p style="text-align:center;"> 
-Reset Advanced Couplers
-<button ng-click="resetCouplers()">Reset</button>
+{{"beamlr.mainui.page.options.setting.beamstatetoggle" | translate}}
+<button ng-class="inputData.bstoggle == 1 ? 'toggleon' : 'toggleoff'" ng-click="beamstateToggle(1)">{{"beamlr.generic.button.on" | translate}}</button>
+<button ng-class="inputData.bstoggle == 0 ? 'toggleon' : 'toggleoff'" ng-click="beamstateToggle(0)">{{"beamlr.generic.button.off" | translate}}</button>
+</p>
+
+
+<p style="text-align:center;">{{"beamlr.mainui.page.options.setting.couplersresetdetails" | translate}}</p>
+
+<p style="text-align:center;"> 
+{{"beamlr.mainui.page.options.setting.couplersreset" | translate}}
+<button ng-click="resetCouplers()">{{"beamlr.generic.button.reset" | translate}}</button>
 </p>
 
 <!-- ADVANCED REPAIR IS FORCED ENABLED AS OF 1.17.5 DUE TO OLD REPAIR CAUSING ISSUES
@@ -807,32 +803,32 @@ Advanced Repair UI
 -->
 
 <p style="text-align:center;">  
-Part edit safe mode helps to prevent taking damage during part edits by temporarily increasing beam strength. Useful when removing wheels but can be kept off for most edits.
+{{"beamlr.mainui.page.options.setting.safemodedetails" | translate}}
 </p>
 
 <p style="text-align:center;"> 
-Part Edit Safe Mode
-<button ng-class="inputData.gsafemode == 1 ? 'toggleon' : 'toggleoff'" ng-click="safeModeToggle(1)">On</button>
-<button ng-class="inputData.gsafemode == 0 ? 'toggleon' : 'toggleoff'" ng-click="safeModeToggle(0)">Off</button>
+{{"beamlr.mainui.page.options.setting.safemode" | translate}}
+<button ng-class="inputData.gsafemode == 1 ? 'toggleon' : 'toggleoff'" ng-click="safeModeToggle(1)">{{"beamlr.generic.button.on" | translate}}</button>
+<button ng-class="inputData.gsafemode == 0 ? 'toggleon' : 'toggleoff'" ng-click="safeModeToggle(0)">{{"beamlr.generic.button.off" | translate}}</button>
 </p>
 
 <p style="text-align:center; width:95%; margin-left:auto; margin-right:auto;">  
-Damage Bypass Mode allows part edits even if your vehicle is damaged. This is a cheat as it allows free repairs. Use as a last resort if part edit safe mode doesn't work.
+{{"beamlr.mainui.page.options.setting.dbypassdetails" | translate}}
 </p>
 
 <p style="text-align:center;"> 
-Damage Bypass Mode
-<button ng-class="inputData.dbypass == 1 ? 'toggleon' : 'toggleoff'" ng-click="damageBypassToggle(1)">On</button>
-<button ng-class="inputData.dbypass == 0 ? 'toggleon' : 'toggleoff'" ng-click="damageBypassToggle(0)">Off</button>
+{{"beamlr.mainui.page.options.setting.dbypass" | translate}}
+<button ng-class="inputData.dbypass == 1 ? 'toggleon' : 'toggleoff'" ng-click="damageBypassToggle(1)">{{"beamlr.generic.button.on" | translate}}</button>
+<button ng-class="inputData.dbypass == 0 ? 'toggleon' : 'toggleoff'" ng-click="damageBypassToggle(0)">{{"beamlr.generic.button.off" | translate}}</button>
 </p>
 
 <p style="text-align:center; width:95%; margin-left:auto; margin-right:auto;">  
-Manual Cache Update will force update the jbeam file caches. Use this to update jbeam cache when you add jbeam files that aren't stored in a mod zip.
+{{"beamlr.mainui.page.options.setting.manualcachedetails" | translate}}
 </p>
 
 <p style="text-align:center;"> 
-Manual Cache Update
-<button ng-click="startManualCache()">Execute</button>
+{{"beamlr.mainui.page.options.setting.manualcache" | translate}}
+<button ng-click="startManualCache()">{{"beamlr.mainui.page.options.setting.manualcacheexec" | translate}}</button>
 </p>
 
 </div>
@@ -850,17 +846,17 @@ Manual Cache Update
 
 <div ng-if="menuPage==2">
 
-<h3 style="text-align:center; line-height:0px;"> Buy Parts ({{beamlrData['shopPriceScale'] * 100.0 | number:0}}% Cost)</h3>
+<h3 style="text-align:center; line-height:0px;">{{"beamlr.mainui.page.partbuy.title" | translate}}({{beamlrData['shopPriceScale'] * 100.0 | number:0}}% {{"beamlr.mainui.page.partbuy.costtitle" | translate}})</h3>
 
 <div ng-if="(beamlrData['triggerState'] == 1 || beamlrData['triggerState'] == 2)">
 
 <div style="text-align:center; transform:translate(0, -5px);" >
 	<button ng-click="showPartShopV2()" style="border-radius:10px; width:40px;">&#x1F4D6</button> 
-	<button ng-click="filter(0,'all')" style="width:47px;">{{inputData.edittreemode == 0 && "All" || "Tree"}}</button> 
-	<button ng-click="filter(0,'body')">Body</button> 
-	<button ng-click="filter(0,'engine')">Engine</button> 
-	<button ng-click="filter(0,'suspension')">Susp</button> 
-	<button ng-click="filter(0,'favorites')">Favs</button> 
+	<button ng-click="filter(0,'all')" style="width:47px;">{{inputData.edittreemode == 0 && ("beamlr.mainui.page.partbuy.category.all" | translate) || ("beamlr.mainui.page.partbuy.category.tree" | translate)}}</button> 
+	<button ng-click="filter(0,'body')">{{"beamlr.mainui.page.partbuy.category.body" | translate}}</button> 
+	<button ng-click="filter(0,'engine')">{{"beamlr.mainui.page.partbuy.category.engine" | translate}}</button> 
+	<button ng-click="filter(0,'suspension')">{{"beamlr.mainui.page.partbuy.category.susp" | translate}}</button> 
+	<button ng-click="filter(0,'favorites')">{{"beamlr.mainui.page.partbuy.category.favs" | translate}}</button> 
 	<input style="width:75px" type="text" ng-model="inputData.searchFilter" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
 	<button ng-click="search(0)" style="border-radius:10px;">&#x1F50D</button>
 </div>
@@ -900,8 +896,8 @@ Manual Cache Update
 
 <div ng-if="slotNameMode!=1">
 <span ng-if="beamlrData['vehInstParts'][part] == null && (beamlrData['advinvOwned'][part] == null || beamlrData['advinvOwned'][part] == 0)" style="transform:translate(20px, 0px); display:inline-block; text-align:center; line-height:20px; width: 200px; margin-left:20px; vertical-align:middle; overflow-wrap:break-word;">{{beamlrData['partNames'][part]}}</span>
-<span ng-if="beamlrData['vehInstParts'][part] == null && beamlrData['advinvOwned'][part] > 0" style="transform:translate(20px, 0px); display:inline-block; text-align:center; line-height:20px; width: 200px; margin-left:20px; vertical-align:middle; overflow-wrap:break-word;">{{beamlrData['partNames'][part]}}<br>(OWN {{beamlrData['advinvOwned'][part]}})</span>
-<span ng-if="beamlrData['vehInstParts'][part] != null" style="transform:translate(20px, 0px); display:inline-block; text-align:center; line-height:20px; width: 200px; margin-left:20px; vertical-align:middle; overflow-wrap:break-word;">{{beamlrData['partNames'][part]}}<br>(INSTALLED)</span>
+<span ng-if="beamlrData['vehInstParts'][part] == null && beamlrData['advinvOwned'][part] > 0" style="transform:translate(20px, 0px); display:inline-block; text-align:center; line-height:20px; width: 200px; margin-left:20px; vertical-align:middle; overflow-wrap:break-word;">{{beamlrData['partNames'][part]}}<br>({{"beamlr.mainui.page.partbuy.tags.own" | translate}} {{beamlrData['advinvOwned'][part]}})</span>
+<span ng-if="beamlrData['vehInstParts'][part] != null" style="transform:translate(20px, 0px); display:inline-block; text-align:center; line-height:20px; width: 200px; margin-left:20px; vertical-align:middle; overflow-wrap:break-word;">{{beamlrData['partNames'][part]}}<br>({{"beamlr.mainui.page.partbuy.tags.installed" | translate}})</span>
 
 <span style="float:right; margin-right:5px; vertical-align:middle;">
 
@@ -914,7 +910,7 @@ Manual Cache Update
 	</tr>
 	<tr style="height:25%;">
 		<td>
-		<button style="width:100px;" ng-click="shopPartClick(part)">Buy New</button>
+		<button style="width:100px;" ng-click="shopPartClick(part)">{{"beamlr.mainui.page.partbuy.button.buynew" | translate}}</button>
 		</td>
 	</tr>
 	<tr style="height:25%;">
@@ -925,7 +921,7 @@ Manual Cache Update
 	</tr>
 	<tr style="height:25%;">
 		<td>
-		<button ng-disabled="usedPartDayDataCheck(part)" style="width:100px;" ng-click="shopUsedPartBuy(part)">Buy Used</button>
+		<button ng-disabled="usedPartDayDataCheck(part)" style="width:100px;" ng-click="shopUsedPartBuy(part)">{{"beamlr.mainui.page.partbuy.button.buyused" | translate}}</button>
 		</td>
 	</tr>
 </table>
@@ -935,8 +931,8 @@ Manual Cache Update
 
 <div ng-if="slotNameMode==1">
 <span ng-if="beamlrData['vehInstParts'][part] == null && (beamlrData['advinvOwned'][part] == null || beamlrData['advinvOwned'][part] == 0)" style="transform:translate(20px, 0px); display:inline-block; text-align:center; line-height:20px; width: 200px; margin-left:20px; vertical-align:middle; overflow-wrap:break-word;">{{part}}</span>
-<span ng-if="beamlrData['vehInstParts'][part] == null && beamlrData['advinvOwned'][part] > 0" style="transform:translate(20px, 0px); display:inline-block; text-align:center; line-height:20px; width: 200px; margin-left:20px; vertical-align:middle; overflow-wrap:break-word;">{{part}} (OWN {{beamlrData['advinvOwned'][part]}})</span>
-<span ng-if="beamlrData['vehInstParts'][part] != null" style="transform:translate(20px, 0px); display:inline-block; text-align:center; line-height:20px; width: 200px; margin-left:20px; vertical-align:middle; overflow-wrap:break-word;">{{part}} (INSTALLED)</span>
+<span ng-if="beamlrData['vehInstParts'][part] == null && beamlrData['advinvOwned'][part] > 0" style="transform:translate(20px, 0px); display:inline-block; text-align:center; line-height:20px; width: 200px; margin-left:20px; vertical-align:middle; overflow-wrap:break-word;">{{part}} ({{"beamlr.mainui.page.partbuy.tags.own" | translate}} {{beamlrData['advinvOwned'][part]}})</span>
+<span ng-if="beamlrData['vehInstParts'][part] != null" style="transform:translate(20px, 0px); display:inline-block; text-align:center; line-height:20px; width: 200px; margin-left:20px; vertical-align:middle; overflow-wrap:break-word;">{{part}} ({{"beamlr.mainui.page.partbuy.tags.installed" | translate}})</span>
 <span style="float:right; margin-right:5px; vertical-align:middle;">
 
 <table style="height:100px; line-height:20px;">
@@ -948,7 +944,7 @@ Manual Cache Update
 	</tr>
 	<tr style="height:25%;">
 		<td>
-		<button style="width:100px;" ng-click="shopPartClick(part)">Buy New</button>
+		<button style="width:100px;" ng-click="shopPartClick(part)">{{"beamlr.mainui.page.partbuy.button.buynew" | translate}}</button>
 		</td>
 	</tr>
 	<tr style="height:25%;">
@@ -959,7 +955,7 @@ Manual Cache Update
 	</tr>
 	<tr style="height:25%;">
 		<td>
-		<button ng-disabled="usedPartDayDataCheck(part)" style="width:100px;" ng-click="shopUsedPartBuy(part)">Buy Used</button>
+		<button ng-disabled="usedPartDayDataCheck(part)" style="width:100px;" ng-click="shopUsedPartBuy(part)">{{"beamlr.mainui.page.partbuy.button.buyused" | translate}}</button>
 		</td>
 	</tr>
 </table>
@@ -987,7 +983,7 @@ Manual Cache Update
 
 <div style="margin-left: 5px; margin-right: 5px; overflow-y:scroll; max-height:220px; min-height:220px; max-width:500px; background-color:rgba(0,0,0,0.5);" >
 
-<div style="word-wrap:break-word; text-align:center; font-weight: bold; font-size:20px;" ng-repeat="item in beamlrData['partShopTree'][beamlrData['vehmodel']].children">
+<div style="word-wrap:break-word; text-align:center; font-weight: bold; font-size:20px;" ng-repeat="item in beamlrData['partShopTree'][beamlrData['mainPartName']].children">
 
 <div ng-style="(shopExpanded[item] && beamlrData['partShopTree'][item].children.length > 0) && {'border-top':'solid 1px white','border-bottom':'solid 1px white', 'margin-bottom':'2px'}">
 	
@@ -1001,7 +997,7 @@ Manual Cache Update
 <div ng-if="shopExpanded[item]">
 
 <div style="width:90%; margin-left:10px; text-align:left; font-size:16px; font-weight:normal;">
-<input type="checkbox" ng-model="shopPartsHidden[item]">Hide parts</input>
+<input type="checkbox" ng-model="shopPartsHidden[item]">{{"beamlr.mainui.page.partbuy.button.hideparts" | translate}}</input>
 </div>
 
 <!-- Parts -->
@@ -1072,9 +1068,9 @@ Manual Cache Update
 <!-- PART BUYING END -->
 
 <div ng-if="menuPage==3" style="">
-<h3 ng-if="editMode == 0" style="text-align:center; line-height:0px;"> Edit Car Parts </h3>
-<h3 ng-if="editMode == 1" style="text-align:center; line-height:0px;"> Save/Load Config </h3>
-<h3 ng-if="editMode == 2" style="text-align:center; line-height:0px;"> Edit Car Paint </h3>
+<h3 ng-if="editMode == 0" style="text-align:center; line-height:0px;"> {{"beamlr.mainui.page.caredit.titleparts" | translate}} </h3>
+<h3 ng-if="editMode == 1" style="text-align:center; line-height:0px;"> {{"beamlr.mainui.page.caredit.titletemplates" | translate}} </h3>
+<h3 ng-if="editMode == 2" style="text-align:center; line-height:0px;"> {{"beamlr.mainui.page.caredit.titlepaint" | translate}} </h3>
 <div ng-if="beamlrData['triggerState'] == 2 && beamlrData['playerDamage'] <= 1.0 && beamlrData['playerWalking'] == 0 && beamlrData['vehicleRestricted'] != true" >
 
 <div style="text-align:center; transform:translate(0, -5px);" >
@@ -1084,11 +1080,11 @@ Manual Cache Update
 <button ng-if="editMode == 0" ng-click="setEditMode(1)" style="width:40px; border-radius:10px; ">&#128190;</button>
 <button ng-if="editMode == 1" ng-click="setEditMode(2)" style="width:40px; border-radius:10px; ">&#127912;</button> 
 <button ng-if="editMode == 2" ng-click="setEditMode(0)" style="width:40px; border-radius:10px; ">&#128736;</button> 
-<button ng-click="filter(1,'all')" style="width:47px;">{{inputData.edittreemode == 0 && "All" || "Tree"}}</button> 
-<button ng-click="filter(1,'body')">Body</button> 
-<button ng-click="filter(1,'engine')">Engine</button> 
-<button ng-click="filter(1,'suspension')">Susp</button>
-<button ng-click="filter(1,'favorites')">Favs</button> 
+<button ng-click="filter(1,'all')" style="width:47px;">{{inputData.edittreemode == 0 && ("beamlr.mainui.page.partbuy.category.all" | translate) || ("beamlr.mainui.page.partbuy.category.tree" | translate)}}</button> 
+<button ng-click="filter(1,'body')">{{"beamlr.mainui.page.partbuy.category.body" | translate}}</button> 
+<button ng-click="filter(1,'engine')">{{"beamlr.mainui.page.partbuy.category.engine" | translate}}</button> 
+<button ng-click="filter(1,'suspension')">{{"beamlr.mainui.page.partbuy.category.susp" | translate}}</button>
+<button ng-click="filter(1,'favorites')">{{"beamlr.mainui.page.partbuy.category.favs" | translate}}</button> 
 <input style="width:75px" type="text" ng-model="inputData.searchFilter" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" />
 <button style="border-radius:10px;" ng-click="search(1)">&#x1F50D</button>
 </div>
@@ -1122,11 +1118,11 @@ Manual Cache Update
 	<img style="display:block;" ng-click="imageClicked(beamlrData['partpreview'][beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]])" ng-if="beamlrData['partpreview'][beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]] != null" ng-attr-src="{{beamlrData['partpreview'][beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]]}}" width=90px height=90px />
 	<img style="display:block;" ng-if="beamlrData['partpreview'][beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]] == null" src="/ui/modules/apps/beamlrui/partimg/none.png" width=90px height=90px />
 	</td>
-	<td style="width:240px;" ng-if="slotNameMode == 0 && beamlrData['partNames'][beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]] != null"><strong>{{beamlrData['partNames'][beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]]}}</strong><br>Odometer {{unitConvertedOdometer(getUsedPartOdometer(beamlrData['advinvUsed'][key])) / 1000.0 | number:1}} {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}}<br>Sell Value ${{getUsedPartSellPrice(beamlrData['advinvUsed'][key]) | number:2}}</td>
-	<td style="width:240px;" ng-if="slotNameMode == 1 || beamlrData['partNames'][beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]] == null">{{beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]}}<br>Odometer {{unitConvertedOdometer(getUsedPartOdometer(beamlrData['advinvUsed'][key])) / 1000.0 | number:1}} {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}}<br>Sell Value ${{getUsedPartSellPrice(beamlrData['advinvUsed'][key]) | number:2}}</td>
+	<td style="width:240px;" ng-if="slotNameMode == 0 && beamlrData['partNames'][beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]] != null"><strong>{{beamlrData['partNames'][beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]]}}</strong><br>{{"beamlr.mainui.page.caredit.odometerprefix" | translate}} {{unitConvertedOdometer(getUsedPartOdometer(beamlrData['advinvUsed'][key])) / 1000.0 | number:1}} {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}}<br>{{"beamlr.mainui.page.caredit.sellvalprefix" | translate}} ${{getUsedPartSellPrice(beamlrData['advinvUsed'][key]) | number:2}}</td>
+	<td style="width:240px;" ng-if="slotNameMode == 1 || beamlrData['partNames'][beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]] == null">{{beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]}}<br>{{"beamlr.mainui.page.caredit.odometerprefix" | translate}} {{unitConvertedOdometer(getUsedPartOdometer(beamlrData['advinvUsed'][key])) / 1000.0 | number:1}} {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}}<br>{{"beamlr.mainui.page.caredit.sellvalprefix" | translate}} ${{getUsedPartSellPrice(beamlrData['advinvUsed'][key]) | number:2}}</td>
 	<td style="text-align:right;">
-	<button ng-disabled="mainPartCheck(key)" style="width:90px;" ng-click="advancedPartSet(key, beamlrData['advinvUsed'][key], '')">Remove</button><br><br>
-	<button disabled style="width:90px;">Sell</button>
+	<button ng-disabled="mainPartCheck(key)" style="width:90px;" ng-click="advancedPartSet(key, beamlrData['advinvUsed'][key], '')">{{"beamlr.mainui.page.caredit.removebutton" | translate}}</button><br><br>
+	<button disabled style="width:90px;">{{"beamlr.mainui.page.caredit.sellbutton" | translate}}</button>
 	</td>
 </tr>
 
@@ -1135,12 +1131,12 @@ Manual Cache Update
 	<img style="display:block;" ng-click="imageClicked(beamlrData['partpreview'][beamlrData['advinvData'][pid][0]])" ng-if="beamlrData['partpreview'][beamlrData['advinvData'][pid][0]] != null" ng-attr-src="{{beamlrData['partpreview'][beamlrData['advinvData'][pid][0]]}}" width=90px height=90px />
 	<img style="display:block;" ng-if="beamlrData['partpreview'][beamlrData['advinvData'][pid][0]] == null" src="/ui/modules/apps/beamlrui/partimg/none.png" width=90px height=90px />
 	</td>
-	<td style="width:240px;" ng-if="slotNameMode == 0 && beamlrData['partNames'][beamlrData['advinvData'][pid][0]] != null"><strong>{{beamlrData['partNames'][beamlrData['advinvData'][pid][0]]}}</strong><br>Odometer {{unitConvertedOdometer(beamlrData['advinvData'][pid][1]) / 1000.0 | number:1}} {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}}<br>Sell Value ${{getPartSellPrice(pid) | number:2}}</td>
-	<td style="width:240px;" ng-if="slotNameMode == 1 || beamlrData['partNames'][beamlrData['advinvData'][pid][0]] == null">{{beamlrData['advinvData'][pid][0]}}<br>Odometer {{unitConvertedOdometer(beamlrData['advinvData'][pid][1]) / 1000.0 | number:1}} {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}}<br>Sell Value ${{getPartSellPrice(pid) | number:2}}</td>
+	<td style="width:240px;" ng-if="slotNameMode == 0 && beamlrData['partNames'][beamlrData['advinvData'][pid][0]] != null"><strong>{{beamlrData['partNames'][beamlrData['advinvData'][pid][0]]}}</strong><br>{{"beamlr.mainui.page.caredit.odometerprefix" | translate}} {{unitConvertedOdometer(beamlrData['advinvData'][pid][1]) / 1000.0 | number:1}} {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}}<br>{{"beamlr.mainui.page.caredit.sellvalprefix" | translate}} ${{getPartSellPrice(pid) | number:2}}</td>
+	<td style="width:240px;" ng-if="slotNameMode == 1 || beamlrData['partNames'][beamlrData['advinvData'][pid][0]] == null">{{beamlrData['advinvData'][pid][0]}}<br>{{"beamlr.mainui.page.caredit.odometerprefix" | translate}} {{unitConvertedOdometer(beamlrData['advinvData'][pid][1]) / 1000.0 | number:1}} {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}}<br>{{"beamlr.mainui.page.caredit.sellvalprefix" | translate}} ${{getPartSellPrice(pid) | number:2}}</td>
 	<td style="text-align:right;">
-	<button style="width:90px;" ng-click="advancedPartSet(key, pid, beamlrData['advinvData'][pid][0])">Use</button><br><br>
-	<button ng-if="partSellConfirm[pid] == false || partSellConfirm[pid] == null" ng-click="advancedPartSell(pid)" style="width:90px;">Sell</button>
-	<button ng-if="partSellConfirm[pid] == true" ng-click="advancedPartSell(pid)" style="width:90px;">Confirm?</button>
+	<button style="width:90px;" ng-click="advancedPartSet(key, pid, beamlrData['advinvData'][pid][0])">{{"beamlr.generic.button.use" | translate}}</button><br><br>
+	<button ng-if="partSellConfirm[pid] == false || partSellConfirm[pid] == null" ng-click="advancedPartSell(pid)" style="width:90px;">{{"beamlr.mainui.page.caredit.sellbutton" | translate}}</button>
+	<button ng-if="partSellConfirm[pid] == true" ng-click="advancedPartSell(pid)" style="width:90px;">{{"beamlr.generic.button.confirm" | translate}}</button>
 	</td>
 </tr>
 </table>
@@ -1176,11 +1172,11 @@ Manual Cache Update
 					<img style="display:block;" ng-click="imageClicked(beamlrData['partpreview'][beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]])" ng-if="beamlrData['partpreview'][beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]] != null" ng-attr-src="{{beamlrData['partpreview'][beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]]}}" width=90px height=90px />
 					<img style="display:block;" ng-if="beamlrData['partpreview'][beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]] == null" src="/ui/modules/apps/beamlrui/partimg/none.png" width=90px height=90px />
 					</td>
-					<td style="width:240px;" ng-if="slotNameMode == 0 && beamlrData['partNames'][beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]] != null"><strong>{{beamlrData['partNames'][beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]]}}</strong><br>Odometer {{unitConvertedOdometer(getUsedPartOdometer(beamlrData['advinvUsed'][key])) / 1000.0 | number:1}} {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}}<br>Sell Value ${{getUsedPartSellPrice(beamlrData['advinvUsed'][key]) | number:2}}</td>
-					<td style="width:240px;" ng-if="slotNameMode == 1 || beamlrData['partNames'][beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]] == null">{{beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]}}<br>Odometer {{unitConvertedOdometer(getUsedPartOdometer(beamlrData['advinvUsed'][key])) / 1000.0 | number:1}} {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}}<br>Sell Value ${{getUsedPartSellPrice(beamlrData['advinvUsed'][key]) | number:2}}</td>
+					<td style="width:240px;" ng-if="slotNameMode == 0 && beamlrData['partNames'][beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]] != null"><strong>{{beamlrData['partNames'][beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]]}}</strong><br>{{"beamlr.mainui.page.caredit.odometerprefix"  | translate }} {{unitConvertedOdometer(getUsedPartOdometer(beamlrData['advinvUsed'][key])) / 1000.0 | number:1}} {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}}<br>{{"beamlr.mainui.page.caredit.sellvalprefix"  | translate }} ${{getUsedPartSellPrice(beamlrData['advinvUsed'][key]) | number:2}}</td>
+					<td style="width:240px;" ng-if="slotNameMode == 1 || beamlrData['partNames'][beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]] == null">{{beamlrData['advinvData'][beamlrData['advinvUsed'][key]][0]}}<br>{{"beamlr.mainui.page.caredit.odometerprefix"  | translate }} {{unitConvertedOdometer(getUsedPartOdometer(beamlrData['advinvUsed'][key])) / 1000.0 | number:1}} {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}}<br>{{"beamlr.mainui.page.caredit.sellvalprefix"  | translate }} ${{getUsedPartSellPrice(beamlrData['advinvUsed'][key]) | number:2}}</td>
 					<td style="text-align:right;">
-					<button ng-disabled="mainPartCheck(key)" style="width:90px;" ng-click="advancedPartSet(key, beamlrData['advinvUsed'][key], '')">Remove</button><br><br>
-					<button disabled style="width:90px;">Sell</button>
+					<button ng-disabled="mainPartCheck(key)" style="width:90px;" ng-click="advancedPartSet(key, beamlrData['advinvUsed'][key], '')">{{"beamlr.mainui.page.caredit.removebutton" | translate}}</button><br><br>
+					<button disabled style="width:90px;">{{"beamlr.mainui.page.caredit.sellbutton" | translate}}</button>
 					</td>
 				</tr>
 
@@ -1189,12 +1185,12 @@ Manual Cache Update
 					<img style="display:block;" ng-click="imageClicked(beamlrData['partpreview'][beamlrData['advinvData'][pid][0]])" ng-if="beamlrData['partpreview'][beamlrData['advinvData'][pid][0]] != null" ng-attr-src="{{beamlrData['partpreview'][beamlrData['advinvData'][pid][0]]}}" width=90px height=90px />
 					<img style="display:block;" ng-if="beamlrData['partpreview'][beamlrData['advinvData'][pid][0]] == null" src="/ui/modules/apps/beamlrui/partimg/none.png" width=90px height=90px />
 					</td>
-					<td style="width:240px;" ng-if="slotNameMode == 0 && beamlrData['partNames'][beamlrData['advinvData'][pid][0]] != null"><strong>{{beamlrData['partNames'][beamlrData['advinvData'][pid][0]]}}</strong><br>Odometer {{unitConvertedOdometer(beamlrData['advinvData'][pid][1]) / 1000.0 | number:1}} {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}}<br>Sell Value ${{getPartSellPrice(pid) | number:2}}</td>
-					<td style="width:240px;" ng-if="slotNameMode == 1 || beamlrData['partNames'][beamlrData['advinvData'][pid][0]] == null">{{beamlrData['advinvData'][pid][0]}}<br>Odometer {{unitConvertedOdometer(beamlrData['advinvData'][pid][1]) / 1000.0 | number:1}} {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}}<br>Sell Value ${{getPartSellPrice(pid) | number:2}}</td>
+					<td style="width:240px;" ng-if="slotNameMode == 0 && beamlrData['partNames'][beamlrData['advinvData'][pid][0]] != null"><strong>{{beamlrData['partNames'][beamlrData['advinvData'][pid][0]]}}</strong><br>{{"beamlr.mainui.page.caredit.odometerprefix" | translate}} {{unitConvertedOdometer(beamlrData['advinvData'][pid][1]) / 1000.0 | number:1}} {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}}<br>{{"beamlr.mainui.page.caredit.sellvalprefix" | translate}} ${{getPartSellPrice(pid) | number:2}}</td>
+					<td style="width:240px;" ng-if="slotNameMode == 1 || beamlrData['partNames'][beamlrData['advinvData'][pid][0]] == null">{{beamlrData['advinvData'][pid][0]}}<br>{{"beamlr.mainui.page.caredit.odometerprefix" | translate}} {{unitConvertedOdometer(beamlrData['advinvData'][pid][1]) / 1000.0 | number:1}} {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}}<br>{{"beamlr.mainui.page.caredit.sellvalprefix" | translate}} ${{getPartSellPrice(pid) | number:2}}</td>
 					<td style="text-align:right;">
-					<button style="width:90px;" ng-click="advancedPartSet(key, pid, beamlrData['advinvData'][pid][0])">Use</button><br><br>
-					<button ng-if="partSellConfirm[pid] == false || partSellConfirm[pid] == null" ng-click="advancedPartSell(pid)" style="width:90px;">Sell</button>
-					<button ng-if="partSellConfirm[pid] == true" ng-click="advancedPartSell(pid)" style="width:90px;">Confirm?</button>
+					<button style="width:90px;" ng-click="advancedPartSet(key, pid, beamlrData['advinvData'][pid][0])">{{"beamlr.generic.button.use" | translate}}</button><br><br>
+					<button ng-if="partSellConfirm[pid] == false || partSellConfirm[pid] == null" ng-click="advancedPartSell(pid)" style="width:90px;">{{"beamlr.mainui.page.caredit.sellbutton" | translate}}</button>
+					<button ng-if="partSellConfirm[pid] == true" ng-click="advancedPartSell(pid)" style="width:90px;">{{"beamlr.generic.button.confirm" | translate}}</button>
 					</td>
 				</tr>
 			</table>
@@ -1215,18 +1211,18 @@ Manual Cache Update
 <table style="width:95%; margin-left:20px; table-layout:fixed; text-align:center;">
 <tr ng-repeat="(id, template) in beamlrData['vehicleTemplateList']" style="width:100%; height:50px;">
 <td style="text-align:center; width:50%; font-size:20px;">{{template}}</td>
-<td style="width:50%;"><button ng-click="loadTemplate(template)">Load</button>&nbsp <button ng-click="saveTemplate(template)">Save As</button>&nbsp <button ng-click="fixTemplateClicked(template)">Fix</button> &nbsp <span style="font-weight:bold; font-size:20px; border-radius:10px; color:red;" ng-click="deleteTemplate(template)">X</span></td>
+<td style="width:50%;"><button ng-click="loadTemplate(template)">{{"beamlr.generic.button.load" | translate}}</button>&nbsp <button ng-click="saveTemplate(template)">{{"beamlr.generic.button.saveas" | translate}}</button>&nbsp <button ng-click="fixTemplateClicked(template)">{{"beamlr.mainui.page.caredit.templatefixbutton" | translate}}</button> &nbsp <span style="font-weight:bold; font-size:20px; border-radius:10px; color:red;" ng-click="deleteTemplate(template)">X</span></td>
 </tr>
 <tr style="width:100%; height:50px;">
 <td style="text-align:center; width:50%; font-size:20px;"><input style="width:100%;" type="text" ng-model="inputData.templateName" ng-focus="textboxClick()" ng-mouseup="textboxHover()" ng-mouseenter="textboxHover()" /></td>
-<td style="width:50%; text-align:center;"><button ng-click="saveTemplate(inputData.templateName)">Save</button>&nbsp&nbsp&nbsp<button ng-click="exportConfig(inputData.templateName)">Export</button></td>
+<td style="width:50%; text-align:center;"><button ng-click="saveTemplate(inputData.templateName)">{{"beamlr.generic.button.save" | translate}}</button>&nbsp&nbsp&nbsp<button ng-click="exportConfig(inputData.templateName)">{{"beamlr.generic.button.export" | translate}}</button></td>
 </tr>
 </table>
 </div>
 
 <div ng-if="templateFixMode==true">
-<p style="text-align:center; width:100%; font-size:20px; font-weight:bold; margin-top:5px;">Fix Missing Config Parts</p>
-<p style="text-align:center; width:100%; font-size:17px;">Parts missing to load this config will be listed below.<br>Select available replacements to fix the config.</p>
+<p style="text-align:center; width:100%; font-size:20px; font-weight:bold; margin-top:5px;">{{"beamlr.mainui.page.caredit.templatefixtitle" | translate}}</p>
+<p style="text-align:center; width:100%; font-size:17px;">{{"beamlr.mainui.page.caredit.templatefixdetails" | translate}}</p>
 
 <table style="width:95%; margin:auto; table-layout:fixed; text-align:center;">
 <tr ng-repeat="(index, part) in templateFixData['missing']" style="width:100%;">
@@ -1234,7 +1230,7 @@ Manual Cache Update
 <span style="font-size:24px;">{{beamlrData['partNames'][nameFromPath(part)]}}</span>
 
 <md-checkbox ng-disabled="(templateFixUsedIDs[id] && !templateFixSelected[part][id]) || (!templateFixSelected[part][id] && templateFixSelected[part] != null)" ng-model="templateFixSelected[part][id]" ng-change="onReplacementSelected(part,id)" style="width:90%; text-align:left; margin-left:45px;" ng-repeat="(i, id) in templateFixData['replacements'][part]">
-Part #{{id}}
+{{"beamlr.mainui.page.caredit.templatefixpartprefix" | translate}} #{{id}}
 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 {{unitConvertedOdometer(beamlrData['advinvData'][id][1]) / 1000.0 | number:1}} {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}}
 </md-checkbox>
@@ -1246,19 +1242,19 @@ Part #{{id}}
 </table>
 
 <p ng-if="templateFixNeeded == true" style="width:90%; margin:auto; margin-bottom:10px; margin-top:30px; text-align:center;">
-<button style="width:100px;" ng-click="cancelTemplateFix()">Cancel</button>
+<button style="width:100px;" ng-click="cancelTemplateFix()">{{"beamlr.generic.button.cancel" | translate}}</button>
 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-<button style="width:100px;" ng-click="applyTemplateFix(template)">Apply</button>
+<button style="width:100px;" ng-click="applyTemplateFix(template)">{{"beamlr.generic.button.apply" | translate}}</button>
 <br>
 </p>
 
 <p ng-if="templateFixNeeded == false" style="font-weight:bold; width:90%; margin:auto; text-align:center;">
-No missing parts found!
+{{"beamlr.mainui.page.caredit.templatefixnomissingmsg" | translate}}
 </p>
 
 <p ng-if="templateFixNeeded == false" style="width:90%; margin:auto; margin-bottom:10px; margin-top:10px; text-align:center;">
-<button style="width:100px;" ng-click="cancelTemplateFix()">Back</button>
+<button style="width:100px;" ng-click="cancelTemplateFix()">{{"beamlr.generic.button.back" | translate}}</button>
 </p>
 
 </div>
@@ -1270,8 +1266,8 @@ No missing parts found!
 <div ng-if="editMode ==2" style="margin-left: 5px; margin-right: 5px; overflow:scroll; overflow-y:scroll; max-height:210px; min-height:210px; max-width:500px; background-color:rgba(0,0,0,0.5);">
 <div style="text-align:center; margin:auto; width: 50%; height:50%; ">
 <br>
-<button ng-click="applyPaint()">Apply Paint</button>
-<button ng-click="reloadPaint()">Reload Paint</button>
+<button ng-click="applyPaint()">{{"beamlr.mainui.page.caredit.paintapply" | translate}}</button>
+<button ng-click="reloadPaint()">{{"beamlr.mainui.page.caredit.paintreload" | translate}}</button>
 <br>
 </div>
 <br>
@@ -1290,20 +1286,20 @@ No missing parts found!
 </div>
 
 <div ng-if="beamlrData['playerWalking'] != 0">
-<h2 style="text-align:center;" > Cannot use while walking. </h2>
+<h2 style="text-align:center;" > {{"beamlr.mainui.page.unavailable.walking" | translate}} </h2>
 </div>
 
 <div ng-if="beamlrData['playerWalking'] == 0">
 <div ng-if="beamlrData['triggerState'] != 2">
-<h2 style="text-align:center;" > Get to a Garage! </h2>
+<h2 style="text-align:center;" > {{"beamlr.mainui.page.unavailable.notatgarage" | translate}} </h2>
 </div>
 
 <div ng-if="beamlrData['playerDamage'] > 1.0">
-<h2 style="text-align:center;" > Vehicle must be fully repaired. </h2>
+<h2 style="text-align:center;" > {{"beamlr.mainui.page.unavailable.damaged" | translate}} </h2>
 </div>
 
 <div ng-if="beamlrData['vehicleRestricted'] == true">
-<h2 style="text-align:center;" > Cannot edit event restricted vehicle. </h2>
+<h2 style="text-align:center;" > {{"beamlr.mainui.page.unavailable.restricted" | translate}} </h2>
 </div>
 
 </div>
@@ -1312,7 +1308,7 @@ No missing parts found!
 
 <div ng-if="menuPage==4" style="">
 
-<h3 style="text-align:center; line-height:0px;"> Tuning </h3>
+<h3 style="text-align:center; line-height:0px;"> {{"beamlr.mainui.page.tuning.title" | translate}} </h3>
 
 <div ng-if="beamlrData['triggerState'] == 2 && beamlrData['playerDamage'] == 0 && beamlrData['playerWalking'] == 0">
 <div style="overflow:scroll; overflow-y:scroll; max-height:220px; max-width:500px; margin-left:5px; margin-right:5px; background-color:rgba(0,0,0,0.5);" >
@@ -1355,8 +1351,8 @@ No missing parts found!
 <div>
 
 <p style="width:100%; text-align:center; margin-bottom:20px;">
-<button style="margin-right:100px;" ng-click="resetTune()"> Reset </button>
-<button style="margin-left:100px;" ng-click="applyTune()"> Apply </button>
+<button style="margin-right:100px;" ng-click="resetTune()"> {{"beamlr.generic.button.reset" | translate}} </button>
+<button style="margin-left:100px;" ng-click="applyTune()"> {{"beamlr.generic.button.apply" | translate}} </button>
 </p>
 
 
@@ -1366,16 +1362,16 @@ No missing parts found!
 </div>
 
 <div ng-if="beamlrData['playerWalking'] != 0">
-<h2 style="text-align:center;" > Cannot use while walking. </h2>
+<h2 style="text-align:center;" > {{"beamlr.mainui.page.unavailable.walking" | translate}} </h2>
 </div>
 
 <div ng-if="beamlrData['playerWalking'] == 0">
 <div ng-if="beamlrData['triggerState'] != 2">
-<h2 style="text-align:center;" > Get to a Garage! </h2>
+<h2 style="text-align:center;" > {{"beamlr.mainui.page.unavailable.notatgarage" | translate}} </h2>
 </div>
 
 <div ng-if="beamlrData['playerDamage'] != 0">
-<h2 style="text-align:center;" > Vehicle must be fully repaired. </h2>
+<h2 style="text-align:center;" > {{"beamlr.mainui.page.unavailable.damaged | translate}} </h2>
 </div>
 </div>
 
@@ -1384,36 +1380,36 @@ No missing parts found!
 
 <div ng-if="menuPage == 5" style="">
 
-<h3 style="text-align:center; line-height:0px;">Track Events</h3>
+<h3 style="text-align:center; line-height:0px;">{{"beamlr.mainui.page.trackevents.title" | translate}}</h3>
 
 <div ng-if="beamlrData['currentTrackEvent']['status'] != null && beamlrData['currentTrackEvent']['status'] != 'over'">
 
-<h2 style="text-align:center; margin-top:0px; margin-bottom:0px;">Current Event Info</h2>
+<h2 style="text-align:center; margin-top:0px; margin-bottom:0px;">{{"beamlr.mainui.page.trackevents.cevent.infotitle" | translate}}</h2>
 
 <div style="overflow:scroll; overflow-y:scroll; height: 190px; max-height:190px; max-width:500px; margin-left:5px; margin-right:5px; background-color:rgba(0,0,0,0.5);" >
 <table style="width:100%; table-layout:fixed; vertical-align:top;">
-<tr style="height:35px;"><td style="width: 150px; font-size:18px; font-weight:bold; text-align:center;">Title </td><td style="text-align:center;">{{beamlrData['currentTrackEvent']['title']}}</td></tr>
-<tr style="height:35px;"><td style="width: 150px;font-size:18px; font-weight:bold; text-align:center;">Map </td><td style="text-align:center;">{{beamlrData['currentTrackEvent']['map']}}</td></tr>
-<tr style="height:35px;"><td style="width: 150px;font-size:18px; font-weight:bold; text-align:center;">Status</td><td style="text-align:center;">{{beamlrData['currentTrackEvent']['status']}}</td></tr>
-<tr style="height:35px;"><td style="width: 150px;font-size:18px; font-weight:bold; text-align:center;">Round</td><td style="text-align:center;">{{beamlrData['currentTrackEvent']['cround']}} / {{beamlrData['currentTrackEvent']['tround']}}</td></tr>
-<tr style="height:35px;"><td style="width: 150px;font-size:18px; font-weight:bold; text-align:center;">Car Used</td><td style="text-align:center;">{{beamlrData['currentTrackEvent']['carname']}}</td></tr>
+<tr style="height:35px;"><td style="width: 150px; font-size:18px; font-weight:bold; text-align:center;">{{"beamlr.mainui.page.trackevents.cevent.title" | translate}} </td><td style="text-align:center;">{{beamlrData['currentTrackEvent']['title']}}</td></tr>
+<tr style="height:35px;"><td style="width: 150px;font-size:18px; font-weight:bold; text-align:center;">{{"beamlr.mainui.page.trackevents.cevent.map" | translate}} </td><td style="text-align:center;">{{beamlrData['currentTrackEvent']['map']}}</td></tr>
+<tr style="height:35px;"><td style="width: 150px;font-size:18px; font-weight:bold; text-align:center;">{{"beamlr.mainui.page.trackevents.cevent.status" | translate}}</td><td style="text-align:center;">{{beamlrData['currentTrackEvent']['status']}}</td></tr>
+<tr style="height:35px;"><td style="width: 150px;font-size:18px; font-weight:bold; text-align:center;">{{"beamlr.mainui.page.trackevents.cevent.round" | translate}}</td><td style="text-align:center;">{{beamlrData['currentTrackEvent']['cround']}} / {{beamlrData['currentTrackEvent']['tround']}}</td></tr>
+<tr style="height:35px;"><td style="width: 150px;font-size:18px; font-weight:bold; text-align:center;">{{"beamlr.mainui.page.trackevents.cevent.carused" | translate}}</td><td style="text-align:center;">{{beamlrData['currentTrackEvent']['carname']}}</td></tr>
 </table>
 </div>
 
 <p style="margin-left:5px; margin-right:5px; text-align:center; transform:translate(0px, -12px);">
-<span style="float:left;"><button ng-click="showEventBrowser()">Browse Events</button></span>
-<button ng-click="showPastEvents()">Event History</button>
-<span style="float:right;"><button ng-click="abandonEvent()" ng-if="beamlrData['currentTrackEvent']['status'] != 'over'">Abandon Event</button></span></p>
+<span style="float:left;"><button ng-click="showEventBrowser()">{{"beamlr.mainui.page.trackevents.button.browse" | translate}}</button></span>
+<button ng-click="showPastEvents()">{{"beamlr.mainui.page.trackevents.button.history" | translate}}</button>
+<span style="float:right;"><button ng-click="abandonEvent()" ng-if="beamlrData['currentTrackEvent']['status'] != 'over'">{{"beamlr.mainui.page.trackevents.button.abandon" | translate}}</button></span></p>
 
 </div>
 
 <div ng-if="beamlrData['currentTrackEvent']['status'] == 'over' || beamlrData['currentTrackEvent']['status'] == null">
 
-<h2 style="text-align:center;">No event in progress</h2>
+<h2 style="text-align:center;">{{"beamlr.mainui.page.trackevents.noevent" | translate}}</h2>
 
 <p style="text-align:center; transform:translate(0px, -10px);">
-<button ng-click="showEventBrowser()">Browse Events</button>
-<button ng-click="showPastEvents()">Event History</button>
+<button ng-click="showEventBrowser()">{{"beamlr.mainui.page.trackevents.button.browse" | translate}}</button>
+<button ng-click="showPastEvents()">{{"beamlr.mainui.page.trackevents.button.history" | translate}}</button>
 </p>
 
 </div>
@@ -1423,17 +1419,17 @@ No missing parts found!
 <div ng-if="menuPage == 6" style="">
 
 <h3 style="text-align:center; line-height:0px;">
-<span ng-click="setInventoryMode(0)" ng-if="invmode == 0" style="color:#FF6600;">Item Inventory</span>
-<span ng-click="setInventoryMode(0)" ng-if="invmode == 1" style="color:white;">Item Inventory</span>
+<span ng-click="setInventoryMode(0)" ng-if="invmode == 0" style="color:#FF6600;">{{"beamlr.mainui.page.inventory.itemtitle" | translate}}</span>
+<span ng-click="setInventoryMode(0)" ng-if="invmode == 1" style="color:white;">{{"beamlr.mainui.page.inventory.itemtitle" | translate}}</span>
 &nbsp&nbsp&nbsp&nbsp&nbsp
-<span ng-click="setInventoryMode(1)" ng-if="invmode == 1" style="color:#FF6600;">Part Inventory</span>
-<span ng-click="setInventoryMode(1)" ng-if="invmode == 0" style="color:white;">Part Inventory</span>
+<span ng-click="setInventoryMode(1)" ng-if="invmode == 1" style="color:#FF6600;">{{"beamlr.mainui.page.inventory.parttitle" | translate}}</span>
+<span ng-click="setInventoryMode(1)" ng-if="invmode == 0" style="color:white;">{{"beamlr.mainui.page.inventory.parttitle" | translate}}</span>
 </h3>
 
 <div style="overflow:scroll; height:250px; max-height:250px; width:95%; margin:auto; background-color:rgba(0,0,0,0.5);">
 
 <div ng-if="invmode == 0">
-<h3 ng-if="sortedItemInventoryKeys.length <= 0" style="text-align:center; width: 90%; margin:auto; margin-top:10px; font-size:14px;">Tip: You can buy items like oil bottles & fuel cans by getting out of your car at a gas station!</h3>
+<h3 ng-if="sortedItemInventoryKeys.length <= 0" style="text-align:center; width: 90%; margin:auto; margin-top:10px; font-size:14px;">{{"beamlr.mainui.page.inventory.tip" | translate}}</h3>
 <table style="width:100%; table-layout:fixed; text-align:center; border-spacing:3px;">
 <tr style="width:100%; height:10px;">
 <td style="width:25%; font-weight:bold; font-size:20px;"></td>
@@ -1445,8 +1441,8 @@ No missing parts found!
 <td style="width:20%; font-size:17px;">
 <img ng-attr-src="{{beamlrData['itemInventory'][v].image}}" width=70 height=70></img>
 </td>
-<td style="width:70%; font-size:17px;"><span style="font-weight:bold;">{{beamlrData['itemInventory'][v].iname}}</span><br>{{beamlrData['itemInventory'][v].idata}}</td>
-<td style="width:10%; font-size:17px;"><button ng-click="inventoryUse(v)">Use</button></td>
+<td style="width:70%; font-size:17px;"><span style="font-weight:bold;">{{beamlrData['itemInventory'][v].iname | translate}}</span><br>{{beamlrData['itemInventory'][v].idata}}</td>
+<td style="width:10%; font-size:17px;"><button ng-click="inventoryUse(v)">{{"beamlr.generic.button.use" | translate}}</button></td>
 <td style="width:10%; font-size:17px;"><button ng-click="inventoryDiscard(v)">X</button></td>
 </tr>
 </table>
@@ -1454,7 +1450,7 @@ No missing parts found!
 
 <div ng-if="invmode == 1">
 <h3 style="text-align:center; width: 90%; font-size:14px; margin:auto; margin-top:10px;">
-This menu shows all unused parts in your inventory so you can sell them.
+{{"beamlr.mainui.page.inventory.tip2" | translate}}
 </h3>
 
 <div ng-repeat="(index,slot) in beamlrData['fidSortedSlots']">
@@ -1477,11 +1473,11 @@ This menu shows all unused parts in your inventory so you can sell them.
 	<img style="display:block;" ng-click="imageClicked(beamlrData['partpreview'][beamlrData['advinvData'][pid][0]])" ng-if="beamlrData['partpreview'][beamlrData['advinvData'][pid][0]] != null" ng-attr-src="{{beamlrData['partpreview'][beamlrData['advinvData'][pid][0]]}}" width=90px height=90px />
 	<img style="display:block;" ng-if="beamlrData['partpreview'][beamlrData['advinvData'][pid][0]] == null" src="/ui/modules/apps/beamlrui/partimg/none.png" width=90px height=90px />
 	</td>
-	<td style="width:240px;" ng-if="slotNameMode == 0 && beamlrData['fidPartNames'][beamlrData['advinvData'][pid][0]] != null"><strong>{{beamlrData['fidPartNames'][beamlrData['advinvData'][pid][0]]}}</strong><br>Odometer {{unitConvertedOdometer(beamlrData['advinvData'][pid][1]) / 1000.0 | number:1}} {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}}<br>Sell Value ${{getPartSellPrice(pid) | number:2}}</td>
-	<td style="width:240px;" ng-if="slotNameMode == 1 || beamlrData['fidPartNames'][beamlrData['advinvData'][pid][0]] == null">{{beamlrData['advinvData'][pid][0]}}<br>Odometer {{unitConvertedOdometer(beamlrData['advinvData'][pid][1]) / 1000.0 | number:1}} {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}}<br>Sell Value ${{getPartSellPrice(pid) | number:2}}</td>
+	<td style="width:240px;" ng-if="slotNameMode == 0 && beamlrData['fidPartNames'][beamlrData['advinvData'][pid][0]] != null"><strong>{{beamlrData['fidPartNames'][beamlrData['advinvData'][pid][0]]}}</strong><br>{{"beamlr.mainui.page.caredit.odometerprefix" | translate}} {{unitConvertedOdometer(beamlrData['advinvData'][pid][1]) / 1000.0 | number:1}} {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}}<br>{{"beamlr.mainui.page.caredit.sellvalprefix" | translate}} ${{getPartSellPrice(pid) | number:2}}</td>
+	<td style="width:240px;" ng-if="slotNameMode == 1 || beamlrData['fidPartNames'][beamlrData['advinvData'][pid][0]] == null">{{beamlrData['advinvData'][pid][0]}}<br>{{"beamlr.mainui.page.caredit.odometerprefix" | translate}} {{unitConvertedOdometer(beamlrData['advinvData'][pid][1]) / 1000.0 | number:1}} {{beamlrData['advinvUnits'] == 'imperial' ? 'mi': 'km'}}<br>{{"beamlr.mainui.page.caredit.sellvalprefix" | translate}} ${{getPartSellPrice(pid) | number:2}}</td>
 	<td style="text-align:right;">
-	<button ng-if="partSellConfirm[pid] == false || partSellConfirm[pid] == null" ng-click="advancedPartSell(pid)" style="width:90px;">Sell</button>
-	<button ng-if="partSellConfirm[pid] == true" ng-click="advancedPartSell(pid)" style="width:90px;">Confirm?</button>
+	<button ng-if="partSellConfirm[pid] == false || partSellConfirm[pid] == null" ng-click="advancedPartSell(pid)" style="width:90px;">{{"beamlr.mainui.page.caredit.sellbutton" | translate}}</button>
+	<button ng-if="partSellConfirm[pid] == true" ng-click="advancedPartSell(pid)" style="width:90px;">{{"beamlr.generic.button.confirm" | translate}}</button>
 	</td>
 </tr>
 </table>

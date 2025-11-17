@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_DockyardIndustry
-desc=Deliver $item to the dockyard industrial buildings
+desc=beamlr.delivery.westcoast.smallDeliveryDockyardIndustry
 reward=400
 items=list_all
 gmwp=blrwp_dockyardindustry

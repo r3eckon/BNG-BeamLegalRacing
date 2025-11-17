@@ -1,0 +1,8 @@
+name=Gavril Bluebuck V8 Custom (Manual, Barn Find)
+type=bluebuck
+config=vehicles/bluebuck/blr_barnfind.pc
+baseprice=10000,30000
+odometer=75000000,250000000
+scrapval=500
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

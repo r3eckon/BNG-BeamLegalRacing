@@ -1,5 +1,5 @@
 dest=BeamNGTrigger_TopShopFinish
-desc=Deliver $item to the shops at the top of the canyon
+desc=beamlr.delivery.utah.topshopDelivery
 reward=200
 items=list_all
 gmwp=blrwp_topshops

@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_HiddenParking
-desc=Deliver $item to a hidden parking lot
+desc=beamlr.delivery.westcoast.smallDeliveryHiddenParking
 reward=400
 items=list_all
 gmwp=blrwp_hiddenparking

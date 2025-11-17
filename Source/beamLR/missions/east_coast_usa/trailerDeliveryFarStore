@@ -1,6 +1,6 @@
 destpos=-767.92095947266,474.75573730469,23.898416519165
 destrot=0.0077511852342431,0.0054148582438654,0.344295775316,0.93881362236454
-desc=Deliver $item to the out of town convenience store
+desc=beamlr.delivery.eastcoast.trailerDeliveryFarStore
 reward=600
 items=list_all
 gmwp=wp136

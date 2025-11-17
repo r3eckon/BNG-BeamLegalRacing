@@ -1,5 +1,5 @@
 wager=1200,3000
-desc=Short time attack to the city fort
+desc=beamlr.challenges.italy.btimeattack3
 gmwp=blrwp_vineyardracecp75
 type=time
 targettime=67000,120000

@@ -1,6 +1,6 @@
 destpos=-1114.0269775391,938.86138916016,383.97109985352
 destrot=0.004725790878923,-9.8927632296296e-05,0.0088958025363177,0.99994925961827
-desc=Deliver $item to the Claudio Motors shop in the mountain top town
+desc=beamlr.delivery.italy.gooseneckDeliveryCastleTownShop
 reward=930
 items=list_all
 gmwp=blrwp_castletownshops

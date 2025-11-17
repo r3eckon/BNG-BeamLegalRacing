@@ -1,4 +1,4 @@
-desc=Short looping race through the refinery
+desc=beamlr.races.westCoastIslandRaceClub.bronze.race0
 wager=250,1000
 slips=0.05
 enemyConfig=class:club/street_bronze

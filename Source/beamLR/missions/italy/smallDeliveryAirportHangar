@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_AirportHangar
-desc=Deliver $item to the airport hangars
+desc=beamlr.delivery.italy.smallDeliveryAirportHangar
 reward=420
 items=list_all
 gmwp=blrwp_airporthangar

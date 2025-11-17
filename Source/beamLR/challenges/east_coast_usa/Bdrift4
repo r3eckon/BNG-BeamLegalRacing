@@ -1,7 +1,7 @@
 gmwp=blrwp_farmdirtroadcp6
 triggers=BeamLRTrigger_FarmDirtRoadCP6,BeamLRTrigger_FarmDirtRoadCP7,BeamLRTrigger_SawmillDirtRoadCP7,BeamLRTrigger_SawmillCP1,BeamLRTrigger_SawmillCP3,BeamLRTrigger_SawmillCP4,BeamLRTrigger_SawmillCP5,BeamLRTrigger_SawmillCP9
 driftpts=5000,10000
-desc=Short drift challenge to the sawmill
+desc=beamlr.challenges.east_coast_usa.bdrift4
 wager=1750,8937.5
 targettime=120000,180000
 traffic=0

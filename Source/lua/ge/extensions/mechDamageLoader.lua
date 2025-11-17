@@ -256,28 +256,28 @@ end
 -- what mileage prevents leak, leak rate, etc.
 local function oilLeakMessage(engine, oilpan)
 if oilpan >= 1000.0 then 
-guihooks.trigger('Message', {ttl = 10, category="oilleak", msg = 'No oilpan installed! Vehicle can\'t hold oil!', icon = 'format_color_reset'})
+guihooks.trigger('Message', {ttl = 10, category="oilleak", msg = extensions.blrlocales.translate("beamlr.msgapp.nooilpan"), icon = 'format_color_reset'})
 return
 end
 
 
 if engine > 0 and oilpan > 0 then
-guihooks.trigger('Message', {ttl = 10, category="oilleak", msg = 'Vehicle leaks oil! Use lower mileage engine and oil pan to fix it.', icon = 'format_color_reset'})
+guihooks.trigger('Message', {ttl = 10, category="oilleak", msg = extensions.blrlocales.translate("beamlr.msgapp.oilleakboth"), icon = 'format_color_reset'})
 elseif engine > 0 then
-guihooks.trigger('Message', {ttl = 10, category="oilleak", msg = 'Vehicle leaks oil! Use lower mileage engine to fix it.', icon = 'format_color_reset'})
+guihooks.trigger('Message', {ttl = 10, category="oilleak", msg = extensions.blrlocales.translate("beamlr.msgapp.oilleakengine"), icon = 'format_color_reset'})
 elseif oilpan > 0 then
-guihooks.trigger('Message', {ttl = 10, category="oilleak", msg = 'Vehicle leaks oil! Use lower mileage oil pan to fix it.', icon = 'format_color_reset'})
+guihooks.trigger('Message', {ttl = 10, category="oilleak", msg = extensions.blrlocales.translate("beamlr.msgapp.oilleakpan"), icon = 'format_color_reset'})
 end
 end
 
 
 local function coolantLeakMessage(radiator)
 if radiator >= 1000.0 then 
-guihooks.trigger('Message', {ttl = 10, category="oilleak", msg = 'No radiator installed! Vehicle can\'t hold coolant!', icon = 'format_color_reset'})
+guihooks.trigger('Message', {ttl = 10, category="oilleak", msg = extensions.blrlocales.translate("beamlr.msgapp.norad"), icon = 'format_color_reset'})
 return
 end
 if radiator > 0 then
-guihooks.trigger('Message', {ttl = 10, category="coolantleak", msg = 'Vehicle leaks coolant! Use lower mileage radiator to fix it.', icon = 'format_color_reset'})
+guihooks.trigger('Message', {ttl = 10, category="coolantleak", msg = extensions.blrlocales.translate("beamlr.msgapp.radleak"), icon = 'format_color_reset'})
 end
 end
 

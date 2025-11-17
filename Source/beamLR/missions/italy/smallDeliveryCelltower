@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_CellTower
-desc=Deliver $item to the cell tower
+desc=beamlr.delivery.italy.smallDeliveryCelltower
 reward=1000
 items=list_all
 gmwp=blrwp_celltower

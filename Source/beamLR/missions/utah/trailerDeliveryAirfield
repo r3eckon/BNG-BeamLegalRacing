@@ -1,6 +1,6 @@
 destpos=-323.82495117188,-530.97778320313,130.58866882324
 destrot=0.0036661982740301,-0.00081008918114563,0.090662025199204,0.99587464067146
-desc=Deliver $item to the airfield
+desc=beamlr.delivery.utah.trailerDeliveryAirfield
 reward=300
 items=list_all
 gmwp=blrwp_airfield

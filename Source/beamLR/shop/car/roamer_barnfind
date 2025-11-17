@@ -1,0 +1,8 @@
+name=Gavril Roamer V8 Roadsport (Manual, Barn Find)
+type=roamer
+config=vehicles/roamer/blr_barnfind.pc
+baseprice=5000,30000
+odometer=75000000,250000000
+scrapval=500
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

@@ -1,7 +1,7 @@
 destpos=-11.595653533936,769.70520019531,74.92919921875
 destrot=0.0047161457131174,-8.5844221889455e-05,-0.99986022356001,-0.016040073032866
 items=list_all
-desc=Deliver $item to the city dockyard warehouse
+desc=beamlr.delivery.westcoast.gooseneckDeliveryDockWarehouse
 type=gooseneck
 gmwp=blrwp_trailerdockyard
 reward=1062.5

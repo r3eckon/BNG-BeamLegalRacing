@@ -1,7 +1,7 @@
 gmwp=wp121
 triggers=BeamLRTrigger_TownCP1,BeamLRTrigger_TownCP2,BeamLRTrigger_TownCP3,BeamLRTrigger_TownCP5,BeamLRTrigger_TownEntranceBridgeCP1,BeamLRTrigger_TownEntranceBridgeCP3,BeamLRTrigger_TownEntranceYJuncCP2,BeamLRTrigger_FirwoodInnJuncCP1,BeamLRTrigger_FirwoodInnEntranceCP
 driftpts=5000,10000
-desc=Short drift challenge to the Firwood inn
+desc=beamlr.challenges.east_coast_usa.adrift5
 wager=2000,6500
 targettime=90000,150000
 traffic=0

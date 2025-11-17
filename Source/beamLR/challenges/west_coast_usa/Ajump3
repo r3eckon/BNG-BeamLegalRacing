@@ -1,4 +1,4 @@
-desc=Jump on the roof of the Belasco Auto shop
+desc=beamlr.challenges.west_coast_usa.ajump3
 wager=500,2000
 triggers=BeamLRTrigger_Jump3
 type=jump

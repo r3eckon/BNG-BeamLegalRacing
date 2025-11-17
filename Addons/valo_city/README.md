@@ -46,3 +46,6 @@ This addon is currently built for map version **0.79**.
 * Updated mission file
 ### BeamLR 1.18.8
 * Updated mission file
+### BeamLR 1.19
+* Updated mission file
+* Updated races, deliveries and challenges to use translation keys

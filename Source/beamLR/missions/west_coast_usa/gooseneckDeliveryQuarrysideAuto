@@ -1,6 +1,6 @@
 destpos=828.08374023438,-512.66760253906,165.3737487793
 items=list_all
-desc=Deliver $item to the Quarryside car shop
+desc=beamlr.delivery.westcoast.gooseneckDeliveryQuarrysideAuto
 type=gooseneck
 destrot=0.0037273723166679,0.0033524396235996,-0.69802315341267,0.71605764093682
 gmwp=blrgps_usedcarsA

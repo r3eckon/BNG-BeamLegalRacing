@@ -1,6 +1,6 @@
 destpos=-369.02438354492,-586.49560546875,127.252784729
 items=list_all
-desc=Deliver $item to a house in the suburb
+desc=beamlr.delivery.westcoast.trailerDeliverySuburb
 type=trailer
 destrot=0.0048108751928406,0.0020661698813159,-0.39544160884103,0.91847619480263
 gmwp=blrwp_trailersuburb

@@ -1,5 +1,5 @@
 triggers=BeamLRTrigger_CanyonJump
-desc=Jump over a canyon
+desc=beamlr.challenges.utah.jump7
 gmwp=blrwp_cgm_canyonjump
 wager=1000,3000
 traffic=1

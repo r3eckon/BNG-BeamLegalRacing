@@ -2,6 +2,7 @@
 -- If a copy of the bCDDL was not distributed with this
 -- file, You can obtain one at http://beamng.com/bCDDL-1.1.txt
 -- BEAMLR EDITED VERSION FOR IMGUI LAYOUT LOADING
+-- BEAMLR 1.19 FURTHER EDITED FOR TITLE TRANSLATION
 
 local im  = ui_imgui
 
@@ -79,7 +80,7 @@ function C:work()
   if not self.pinIn.title.value then
     flags = im.WindowFlags_NoTitleBar
   end
-  im.Begin((self.pinIn.title.value or "Title") ..'##'.. tostring(self.id), bPtr, flags)
+  im.Begin((extensions.blrlocales.translate(self.pinIn.title.value) or "Title") ..'##'.. tostring(self.id), bPtr, flags)
   self.pinOut.wasClosed.value = not bPtr[0]
   extensions.blrutils.IMGUILayoutInit(self.pinIn.title.value or "Title")
 end

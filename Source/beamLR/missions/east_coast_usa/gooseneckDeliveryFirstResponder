@@ -1,6 +1,6 @@
 destpos=406.65173339844,102.71002960205,54.050170898438
 destrot=-0.0015012816350886,-0.017096510021905,0.90969470907676,0.41492287449148
-desc=Deliver $item to the fire and police station
+desc=beamlr.delivery.eastcoast.gooseneckDeliveryFirstResponder
 reward=1500
 items=list_all
 gmwp=blrwp_firstresponderstation

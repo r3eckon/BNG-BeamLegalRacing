@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_RoadsideBeach
-desc=Deliver $item to a beach
+desc=beamlr.delivery.italy.smallDeliveryRoadsideBeach
 reward=400
 items=list_all
 gmwp=blrwp_roadsidebeach

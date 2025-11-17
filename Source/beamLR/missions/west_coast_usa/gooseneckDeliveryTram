@@ -1,6 +1,6 @@
 destpos=-849.353515625,136.25807189941,140.46112060547
 items=list_all
-desc=Deliver $item to the tram station
+desc=beamlr.delivery.westcoast.gooseneckDeliveryTram
 type=gooseneck
 destrot=-0.0016084494474649,-0.0033082806584734,0.92640020897245,-0.37652240436031
 gmwp=blrwp_tram

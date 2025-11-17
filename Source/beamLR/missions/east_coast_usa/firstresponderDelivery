@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_FirstResponderStation
-desc=Deliver $item to the fire and police station
+desc=beamlr.delivery.eastcoast.firstresponderDelivery
 reward=400
 gmwp=blrwp_firstresponderstation
 items=list_all

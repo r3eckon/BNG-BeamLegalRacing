@@ -1,7 +1,7 @@
 gmwp=wp121
 triggers=BeamLRTrigger_TownCP1,BeamLRTrigger_TownCP6,BeamLRTrigger_TownCP7,BeamLRTrigger_FirstResponderStationST,BeamLRTrigger_DirtPathBCP11,BeamLRTrigger_CurveIntersectCP2,BeamLRTrigger_CurveIntersectBCP1,BeamLRTrigger_TownGasStationST
 driftpts=10000,15000
-desc=Short length looping drift challenge
+desc=beamlr.challenges.east_coast_usa.adrift4
 wager=2500,6500
 targettime=180000,240000
 traffic=0

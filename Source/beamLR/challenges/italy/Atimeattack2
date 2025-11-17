@@ -1,5 +1,5 @@
 wager=900,3000
-desc=Short time attack to the cell tower through bumpy dirt road
+desc=beamlr.challenges.italy.atimeattack2
 gmwp=blrwp_topdirtparking
 type=time
 targettime=70000,85000

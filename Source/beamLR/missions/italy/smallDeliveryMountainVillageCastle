@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_MountainVillageCastle
-desc=Deliver $item to the mountain village castle
+desc=beamlr.delivery.italy.smallDeliveryMountainVillageCastle
 reward=600
 items=list_all
 gmwp=blrwp_mountainvillagecastle

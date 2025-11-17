@@ -1,6 +1,6 @@
 type=speed
 targetspd=65,83
-desc=High risk speed trap challenge
+desc=beamlr.challenges.east_coast_usa.abspeedtrap1
 gmwp=blrwp_midroadcp1
 wager=2000,7500
 traffic=1

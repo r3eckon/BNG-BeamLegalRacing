@@ -1,6 +1,6 @@
 type=speed
 targetspd=43,56
-desc=River side speed trap challenge
+desc=beamlr.challenges.east_coast_usa.bspeedtrap6
 gmwp=blrwp_yjuncBcp1
 wager=1600,4500
 traffic=1

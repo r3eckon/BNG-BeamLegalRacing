@@ -1,6 +1,6 @@
 destpos=-1083.4758300781,1942.9140625,93.157859802246
 items=list_all
-desc=Deliver $item to the island lighthouse parking lot
+desc=beamlr.delivery.westcoast.gooseneckDeliveryIslandLighthouse
 type=gooseneck
 destrot=0.011659287908667,-0.019871142329789,-0.59314975025677,0.80476243232292
 gmwp=blrwp_goosenecklighthouse

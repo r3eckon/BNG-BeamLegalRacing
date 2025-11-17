@@ -1,6 +1,6 @@
 destpos=1356.2484130859,1466.9466552734,140.21351623535
 destrot=0.0028468773232496,0.0022949048695985,-0.70020727740468,0.71393024685236
-desc=Deliver $item to the city marina office
+desc=beamlr.delivery.italy.trailerDeliveryCityBoatyard
 reward=650
 items=list_all
 gmwp=blrwp_citymarina

@@ -1,0 +1,8 @@
+name=Ibishu BX-Series V-Special GTz Turbo (Manual, Barn Find)
+type=bx
+config=vehicles/bx/blr_barnfind.pc
+baseprice=9000,35000
+odometer=75000000,250000000
+scrapval=600
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

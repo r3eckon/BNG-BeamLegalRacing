@@ -1,4 +1,4 @@
-desc=Dirt race to the end of the highway
+desc=beamlr.races.utahOffroadRaceClub.hero.race1
 wager=1500,3000
 slips=0.01
 enemyConfig=class:club/dirt_hero

@@ -1,0 +1,8 @@
+name=Burnside Special 313 V8 (Manual, Barn Find)
+type=burnside
+config=vehicles/burnside/ratrod.pc
+baseprice=8000,30000
+odometer=75000000,250000000
+scrapval=500
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

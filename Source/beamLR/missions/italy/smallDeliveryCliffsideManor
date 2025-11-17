@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_CliffsideManor
-desc=Deliver $item to the cliffside manor
+desc=beamlr.delivery.italy.smallDeliveryCliffsideManor
 reward=600
 items=list_all
 gmwp=blrwp_cliffsidemanor

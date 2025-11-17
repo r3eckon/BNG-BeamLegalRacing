@@ -1,7 +1,7 @@
 gmwp=blrwp_farmjunccp2
 triggers=BeamLRTrigger_FarmJuncCP2,BeamLRTrigger_FarmTurnCP1,BeamLRTrigger_RedmanorEntranceCP1
 driftpts=5000,7500
-desc=Short drift challenge to the red manor
+desc=beamlr.challenges.east_coast_usa.bdrift3
 wager=1500,8450
 targettime=120000,180000
 traffic=0

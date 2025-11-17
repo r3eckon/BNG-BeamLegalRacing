@@ -24,7 +24,7 @@ end
 
 -- GENERAL ITEM DEFINITIONS
 
-local uinames = {fuelcan = "Fuel Canister", oilbottle = "Oil Bottle", coolantbottle="Coolant Bottle"}
+local uinames = {fuelcan = "beamlr.items.fuelcan", oilbottle = "beamlr.items.oilbottle", coolantbottle="beamlr.items.coolantbottle"}
 local uiimages = {fuelcan = "jerrycan.png", oilbottle = "oilbottles.png", coolantbottle="coolant.png"}
 
 -- FUEL CAN
@@ -272,7 +272,7 @@ local function getUIData(v, ctype, units)
 local cdata = {}
 
 if(ctype == "fuelcan") then
-cdata = "" .. firstToUpper(v.ftype) .. ", " .. firstToUpper(v.ftier) .. ", "
+cdata = "" .. firstToUpper(extensions.blrlocales.translate(v.ftype)) .. ", " .. firstToUpper(extensions.blrlocales.translate(v.ftier)) .. ", "
 if units == "imperial" then
 cdata = cdata .. (string.format("%.2f", tonumber(v.quantity) / 3.785)) .. " gal"
 else
@@ -314,13 +314,13 @@ local cost = 0
 local money = pmoney
 
 
-local gstr = (units == "imperial") and "Fuel Can (~2.6 gal)" or "Fuel Can (10L)"
-local gbtn = "Gasoline ($" .. string.format("%.2f", gprice * 10.0) .. ")"
-local dbtn = "Diesel ($" .. string.format("%.2f", dprice * 10.0) .. ")"
-local ostr = (units == "imperial") and "Oil Bottle (~1.3 gal)" or "Oil Bottle (5L)"
-local obtn = "OILEX 5W-30 ($" .. string.format("%.2f", oprice * 5.0) .. ")"
-local cstr = (units == "imperial") and "Coolant Bottle (1 gal)" or "Coolant Bottle (~3.8L)"
-local cbtn = "APEX 50/50 ($".. string.format("%.2f", cprice * 3.785) ..")"
+local gstr = (units == "imperial") and (extensions.blrlocales.translate("beamlr.imgui.cstore.fuelcan") .. " (~2.6 gal)") or (extensions.blrlocales.translate("beamlr.imgui.cstore.fuelcan") .. " (10L)")
+local gbtn = (extensions.blrlocales.translate("beamlr.imgui.cstore.gasoline") .. " ($") .. string.format("%.2f", gprice * 10.0) .. ")"
+local dbtn = (extensions.blrlocales.translate("beamlr.imgui.cstore.diesel") .. " ($") .. string.format("%.2f", dprice * 10.0) .. ")"
+local ostr = (units == "imperial") and (extensions.blrlocales.translate("beamlr.imgui.cstore.oilbottle") .. " (~1.3 gal)") or (extensions.blrlocales.translate("beamlr.imgui.cstore.oilbottle") .. " (5L)")
+local obtn = ("OILEX 5W-30 ($") .. string.format("%.2f", oprice * 5.0) .. ")"
+local cstr = (units == "imperial") and (extensions.blrlocales.translate("beamlr.imgui.cstore.coolantbottle") .. " (1 gal)") or (extensions.blrlocales.translate("beamlr.imgui.cstore.coolantbottle") .. " (~3.8L)")
+local cbtn = ("APEX 50/50 ($") .. string.format("%.2f", cprice * 3.785) ..")"
 
 -- fuel can
 blrimgui.imText(gstr)

@@ -78,9 +78,22 @@ position = (#carMeetIDTable + 1) - position
 return position
 end
 
+-- index 1 is player vehicle
 
 local onCarMeetScoreReceived = function(index, data)
 carMeetScoreData[index] = jsonDecode(data)
+
+-- 1.19 addition, damage above $10 negates all positive aspects, taking a damaged car to a meet is bad for rep
+-- $10 threshold to avoid damage that happens when vehicle spawns
+if index == 1 and (extensions.blrutils.blrvarGet("currentRepairCost") or 0) > 10.0 then
+carMeetScoreData[index].damage = -carMeetScoreData[index].total
+carMeetScoreData[index].total = 0
+else
+carMeetScoreData[index].damage = 0
+end
+
+
+
 local cscore = carMeetScoreData[index].total
 scores[carMeetIDTable[index]] = cscore
 averageScores()
@@ -98,6 +111,7 @@ local function toggleDetailedMode(mode)
 detailedMode = not detailedMode
 end
 
+-- no longer used as of 1.19, names are stored in translation files
 local dnames = {spoiler = "Spoilers", underglow = "Underglow", lip="Splitters & Lips", race_seat = "Race Seats", strut_bar="Strut Bars", rollcage="Rollcage", paint = "Paint Design", carbon="Carbon Fiber", performance="Raw Performance", turbocharger="Turbocharger", supercharger="Supercharger", nitrous="N2O"}
 local function getDetailItemNames()
 return dnames
@@ -111,25 +125,25 @@ local toRetText = "unknown"
 local toRetRep = 0
 
 if cscore < averageScore - 100 then
-toRetText = "Below Average" 
+toRetText = extensions.blrlocales.translate("beamlr.meets.rating.belowaverage") 
 toRetRep = -100
 
 if cscore == minScore then -- car has worst rating of meet, 2x rep loss
-toRetText = "Worst"
+toRetText = extensions.blrlocales.translate("beamlr.meets.rating.worst")
 toRetRep = -200
 end
 
 elseif cscore > averageScore + 100 then
-toRetText = "Above Average"
+toRetText = extensions.blrlocales.translate("beamlr.meets.rating.aboveaverage")
 toRetRep = 100
 
 if cscore == maxScore then -- car has best rating of meet, 2x rep reward
-toRetText = "Best"
+toRetText = extensions.blrlocales.translate("beamlr.meets.rating.best")
 toRetRep = 200
 end
 
 else -- if rating is within 100 points of average, no rep is gained or lost
-toRetText = "Average"
+toRetText = extensions.blrlocales.translate("beamlr.meets.rating.average")
 toRetRep = 0
 end
 

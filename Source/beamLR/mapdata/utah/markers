@@ -14,3 +14,5 @@ NightRace=Marker_HighStakesDrag
 InfoMeet=BeamLRTrigger_CarMeet
 TouristMeet=BeamLRTrigger_CarMeetB
 TopGasProp=BeamLRTrigger_TopGasProperty,crate
+RangerBarnFind=BeamLRTrigger_BarnfindA
+TopGasBarnFind=BeamLRTrigger_BarnfindB

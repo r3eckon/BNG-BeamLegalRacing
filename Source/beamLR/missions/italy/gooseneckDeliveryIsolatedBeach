@@ -1,6 +1,6 @@
 destpos=1012.8828125,-1761.7806396484,141.5216217041
 destrot=0.0049122587131776,0.001848973853784,-0.61763775950684,0.78644519773561
-desc=Deliver $item to an isolated beach
+desc=beamlr.delivery.italy.gooseneckDeliveryIsolatedBeach
 reward=650
 items=list_all
 gmwp=blrwp_isolatedbeach

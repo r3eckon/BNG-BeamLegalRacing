@@ -1,5 +1,5 @@
 type=time
-desc=Time attack challenge to the watchtower
+desc=beamlr.challenges.east_coast_usa.atimeattack3
 triggers=BeamLRTrigger_TownCP1,BeamLRTrigger_TownCP2,BeamLRTrigger_TownCP3,BeamLRTrigger_TownCP5,BeamLRTrigger_TownEntranceBridgeCP1,BeamLRTrigger_TownEntranceBridgeCP2,BeamLRTrigger_WatchtowerroadYjuncCP1,BeamLRTrigger_WatchtowerCP1,BeamLRTrigger_Watchtower
 wager=1200,3750
 targettime=50000,67000

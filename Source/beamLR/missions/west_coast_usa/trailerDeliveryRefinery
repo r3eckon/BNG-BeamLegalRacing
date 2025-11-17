@@ -1,6 +1,6 @@
 destpos=-618.53125,1976.4250488281,80.627113342285
 items=list_all
-desc=Deliver $item to Spearleaf Refinery
+desc=beamlr.delivery.westcoast.trailerDeliveryRefinery
 type=trailer
 destrot=0.0041009152444939,-8.782491372553e-05,-0.62449644170013,0.78101688143395
 gmwp=blrwp_refinery

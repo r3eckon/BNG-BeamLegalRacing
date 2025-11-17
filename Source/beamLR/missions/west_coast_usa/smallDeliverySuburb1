@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_Suburb1
-desc=Deliver $item to a house in the suburb
+desc=beamlr.delivery.westcoast.smallDeliverySuburb1
 reward=400
 items=list_all
 gmwp=blrwp_suburb1

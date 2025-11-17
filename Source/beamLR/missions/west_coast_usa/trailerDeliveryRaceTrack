@@ -1,6 +1,6 @@
 destpos=313.93041992188,-160.14506530762,144.09159851074
 items=list_all
-desc=Deliver $item to the race track
+desc=beamlr.delivery.westcoast.trailerDeliveryRaceTrack
 type=trailer
 destrot=-0.0018505456949021,-0.0030946841135788,0.99997008402896,-0.0068432052425659
 gmwp=blrwp_racetrack

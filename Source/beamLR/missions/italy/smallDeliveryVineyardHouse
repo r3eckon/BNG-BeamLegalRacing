@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_VineyardHouse
-desc=Deliver $item to the vineyard
+desc=beamlr.delivery.italy.smallDeliveryVineyardHouse
 reward=400
 items=list_all
 gmwp=blrwp_vineyard

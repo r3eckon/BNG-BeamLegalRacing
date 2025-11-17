@@ -1,6 +1,6 @@
 destpos=-1420.2554931641,-941.72839355469,104.56539916992
 items=list_all
-desc=Deliver $item to the Hot Rolled Inc. steel mill
+desc=beamlr.delivery.westcoast.gooseneckDeliverySteelMill
 type=gooseneck
 destrot=0.0039188159044041,0.0012418845604322,-0.37259520871807,0.92798486574135
 gmwp=blrwp_steelmill2

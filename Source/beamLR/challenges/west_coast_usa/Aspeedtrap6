@@ -1,6 +1,6 @@
 triggers=BeamLRTrigger_RaceDCP27
 gmwp=blrwp_raceD47
-desc=Island highway speed trap challenge
+desc=beamlr.challenges.west_coast_usa.aspeedtrap6
 rep=30,200
 wager=750,3000
 traffic=1

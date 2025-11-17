@@ -1,4 +1,4 @@
-desc=Looping race through dirt and asphalt around utah
+desc=beamlr.races.utahOffroadRaceClub.bronze.race3
 wager=250,1000
 slips=0.04
 enemyConfig=class:club/dirt_bronze

@@ -33,3 +33,6 @@ PropA=BeamLRTrigger_PropertyVineyard,crate
 PropB=BeamLRTrigger_PropertySeaside,crate
 PropC=BeamLRTrigger_PropertyPort,crate
 PropD=BeamLRTrigger_PropertyBeach,crate
+VineyardBarnfind=BeamLRTrigger_BarnfindA
+MountainBarnfind=BeamLRTrigger_BarnfindB
+SeasideVillageBarnfind=BeamLRTrigger_BarnfindC

@@ -1,6 +1,6 @@
 destpos=575.27270507813,-698.78936767578,200.8829498291
 items=list_all
-desc=Deliver $item to the quarry cell tower parking lot
+desc=beamlr.delivery.westcoast.gooseneckDeliveryQuarryParking
 type=gooseneck
 destrot=0.0038003196525167,-0.002536582956708,0.51396618253541,0.85779827845911
 gmwp=blrwp_quarrycelltower

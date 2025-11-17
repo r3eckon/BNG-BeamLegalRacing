@@ -1,6 +1,6 @@
 type=speed
 targetspd=38,50
-desc=Speed trap challenge near a river crossing bridge
+desc=beamlr.challenges.east_coast_usa.abspeedtrap2
 gmwp=blrwp_overpassAyjuncBcp3
 wager=800,3000
 traffic=1

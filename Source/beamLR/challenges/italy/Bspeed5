@@ -1,6 +1,6 @@
 type=speed
 targetspd=50,90
-desc=Highway speed trap challenge #5
+desc=beamlr.challenges.italy.bspeed5
 gmwp=blrwp_highwayraceaiwp5
 wager=1000,6000
 traffic=1

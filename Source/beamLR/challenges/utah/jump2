@@ -1,5 +1,5 @@
 triggers=BeamLRTrigger_CaveJump
-desc=Sketchy jump through a cave
+desc=beamlr.challenges.utah.jump2
 gmwp=blrwp_cgm_cave
 wager=1000,3000
 traffic=1

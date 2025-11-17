@@ -1,6 +1,6 @@
 destpos=-382.93139648438,372.8376159668,102.00382995605
 items=list_all
-desc=Deliver $item to Riverway Plaza
+desc=beamlr.delivery.westcoast.gooseneckDeliveryPlaza
 type=gooseneck
 destrot=0.0036454245047726,0.00077388710126725,-0.3697219020553,0.92913498864242
 gmwp=blrwp_plaza

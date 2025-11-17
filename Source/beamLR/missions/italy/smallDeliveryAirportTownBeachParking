@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_AirportTownBeachParking
-desc=Deliver $item to the airport town beach parking lot
+desc=beamlr.delivery.italy.smallDeliveryAirportTownBeachParking
 reward=400
 items=list_all
 gmwp=blrwp_airporttownbeachpark

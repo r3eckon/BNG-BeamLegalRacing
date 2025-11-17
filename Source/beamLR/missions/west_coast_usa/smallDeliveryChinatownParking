@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_ChinatownParking
-desc=Deliver $item to a parking lot in chinatown
+desc=beamlr.delivery.westcoast.smallDeliveryChinatownParking
 reward=400
 items=list_all
 gmwp=blrwp_chinatownparking

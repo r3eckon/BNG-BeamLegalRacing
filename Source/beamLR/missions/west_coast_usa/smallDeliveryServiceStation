@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_ServiceStation
-desc=Deliver $item to the service station
+desc=beamlr.delivery.westcoast.smallDeliveryServiceStation
 reward=400
 items=list_all
 gmwp=blrgps_repairA

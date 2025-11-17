@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_Tram
-desc=Deliver $item to the tram station
+desc=beamlr.delivery.westcoast.smallDeliveryTram
 reward=400
 items=list_all
 gmwp=blrwp_tram

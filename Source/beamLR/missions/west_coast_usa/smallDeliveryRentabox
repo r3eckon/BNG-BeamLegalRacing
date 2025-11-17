@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_Rentabox
-desc=Deliver $item to Rent-A-Box Secure Storage
+desc=beamlr.delivery.westcoast.smallDeliveryRentabox
 reward=400
 items=list_all
 gmwp=blrwp_rentabox

@@ -1,6 +1,6 @@
 destpos=-570.47283935547,150.56721496582,100.72818756104
 items=list_all
-desc=Deliver $item to the Exhaust store
+desc=beamlr.delivery.westcoast.trailerDeliveryExhaust
 type=trailer
 destrot=0.0060150684600752,-0.0070906126465232,-0.37714586052323,0.92610719792792
 gmwp=blrwp_motel

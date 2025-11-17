@@ -1,6 +1,6 @@
 type=speed
 targetspd=38,56
-desc=Speed trap challenge near the gas station
+desc=beamlr.challenges.east_coast_usa.aspeedtrap3
 gmwp=wp103
 wager=800,3000
 traffic=1

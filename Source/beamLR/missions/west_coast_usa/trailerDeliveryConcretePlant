@@ -1,6 +1,6 @@
 destpos=-540.44494628906,19.316011428833,99.704246520996
 items=list_all
-desc=Deliver $item to the concrete plant
+desc=beamlr.delivery.westcoast.trailerDeliveryConcretePlant
 type=trailer
 destrot=-0.0028064919453978,-0.0046813564412113,0.91895124798615,-0.39433337714367
 gmwp=blrwp_concreteparking

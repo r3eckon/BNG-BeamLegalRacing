@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_PortFactory
-desc=Deliver $item to the city port factory
+desc=beamlr.delivery.italy.smallDeliveryPortFactory
 reward=500
 items=list_all
 gmwp=blrwp_portfactory

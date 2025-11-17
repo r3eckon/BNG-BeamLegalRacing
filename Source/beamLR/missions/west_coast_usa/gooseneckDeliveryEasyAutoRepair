@@ -1,6 +1,6 @@
 destpos=151.6199798584,771.00390625,102.23818969727
 items=list_all
-desc=Deliver $item to the Easy Auto Repair garage
+desc=beamlr.delivery.westcoast.gooseneckDeliveryEasyAutoRepair
 type=gooseneck
 destrot=0.0093848804682636,0.010009838540873,-0.70033857237378,0.71367892724701
 gmwp=blrgps_repairD

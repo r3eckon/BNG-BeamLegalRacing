@@ -1,6 +1,6 @@
 type=speed
 targetspd=45,60
-desc=City speed trap challenge
+desc=beamlr.challenges.italy.bspeed9
 gmwp=blrwp_vineyardracecp77
 wager=1000,3000
 traffic=1

@@ -19,3 +19,5 @@ CarMeet=BeamLRTrigger_CarMeet
 PropA=BeamLRTrigger_PropertySeaside,crate
 PropB=BeamLRTrigger_PropertyTown,crate
 PropC=BeamLRTrigger_PropertyIndustrial,crate
+FishingBarnfind=BeamLRTrigger_BarnfindA
+TownBarnfind=BeamLRTrigger_BarnfindB

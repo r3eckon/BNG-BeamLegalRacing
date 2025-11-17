@@ -1,4 +1,4 @@
-desc=Race through a dangerous hillside path
+desc=beamlr.races.eastCoastDirtRaceClub.bronze.race2
 wager=1500,3000
 slips=0.01
 enemyConfig=class:club/dirt_hero

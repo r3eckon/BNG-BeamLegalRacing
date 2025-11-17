@@ -1,6 +1,6 @@
 destpos=387.5368347168,1707.7155761719,75.077499389648
 items=list_all
-desc=Deliver $item to the island dock storage area
+desc=beamlr.delivery.westcoast.trailerDeliveryIslandDockStorage
 type=trailer
 destrot=-9.4100008603678e-05,-0.0032569192508406,0.9998481928186,0.017116510730031
 gmwp=blrwp_trailerdockstorage

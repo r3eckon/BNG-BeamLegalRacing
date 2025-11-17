@@ -1,5 +1,5 @@
 wager=2100,7500
-desc=Time attack through a dangerous cliffside dirt road
+desc=beamlr.challenges.italy.atimeattack3
 gmwp=blrwp_topdirtparking
 type=time
 targettime=162000,196000

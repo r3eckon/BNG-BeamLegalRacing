@@ -1,4 +1,4 @@
-desc=Crazy jump from the opera house to the overpass
+desc=beamlr.challenges.west_coast_usa.ajump1
 wager=2500,7000
 triggers=BeamLRTrigger_Jump1CP
 type=jump

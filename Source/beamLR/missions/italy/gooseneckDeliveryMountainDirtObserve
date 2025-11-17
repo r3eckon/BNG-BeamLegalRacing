@@ -1,6 +1,6 @@
 destpos=-202.84510803223,-622.41528320313,476.89196777344
 destrot=0.0041482844565408,0.0029580716859936,-0.58154624125135,0.81349739448532
-desc=Deliver $item to a mountain top dirt observation area
+desc=beamlr.delivery.italy.gooseneckDeliveryMountainDirtObserve
 reward=1200
 items=list_all
 gmwp=blrwp_topdirtparking

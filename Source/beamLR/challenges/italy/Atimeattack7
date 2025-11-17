@@ -1,5 +1,5 @@
 wager=900,3000
-desc=Short time attack to a Y junction
+desc=beamlr.challenges.italy.atimeattack7
 gmwp=blrwp_topdirtparking
 type=time
 targettime=100000,136000

@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_SeasideHouse
-desc=Deliver $item to a seaside house
+desc=beamlr.delivery.italy.smallDeliverySeasideHouse
 reward=400
 items=list_all
 gmwp=blrwp_seasidehouse

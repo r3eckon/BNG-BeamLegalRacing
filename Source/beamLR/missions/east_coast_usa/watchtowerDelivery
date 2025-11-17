@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_Watchtower
-desc=Deliver $item to the watch tower
+desc=beamlr.delivery.eastcoast.watchtowerDelivery
 reward=200
 gmwp=blrwp_watchtower
 items=list_all

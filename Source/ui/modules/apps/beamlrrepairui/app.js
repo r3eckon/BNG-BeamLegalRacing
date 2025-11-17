@@ -1,10 +1,16 @@
 angular.module('beamng.apps')
-.directive('beamlrrepairui', [function () {
+.directive('beamlrrepairui', ['$filter',function ($filter) {
   return {
     templateUrl: '/ui/modules/apps/beamlrrepairui/app.html',
     replace: true,
     restrict: 'EA',
     link: function (scope, element, attrs) {
+	  
+	  translate = function(key)
+	  {
+		  return $filter('translate')(key)
+	  }
+	  scope.translate = translate
 	  
 	  scope.enabled = false
 	  scope.picks = {}

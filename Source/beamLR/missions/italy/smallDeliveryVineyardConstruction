@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_VineyardConstruction
-desc=Deliver $item to the vineyard construction site
+desc=beamlr.delivery.italy.smallDeliveryVineyardConstruction
 reward=400
 items=list_all
 gmwp=wp_busStop_05_3

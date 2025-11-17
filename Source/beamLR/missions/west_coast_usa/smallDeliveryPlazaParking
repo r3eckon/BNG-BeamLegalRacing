@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_PlazaParking
-desc=Deliver $item to the Riverway Plaza parking garage
+desc=beamlr.delivery.westcoast.smallDeliveryPlazaParking
 reward=400
 items=list_all
 gmwp=blrwp_plazaparking

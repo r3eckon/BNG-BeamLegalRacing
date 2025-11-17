@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_CrossroadsTownHouseC
-desc=Deliver $item to the crossroads town
+desc=beamlr.delivery.italy.smallDeliveryCrossroadsTownHouseC
 reward=370
 items=list_all
 gmwp=blrwp_crossroadstownhouseC

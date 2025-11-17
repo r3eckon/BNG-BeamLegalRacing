@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_DeliFoodMart
-desc=Deliver $item to the Canal Street deli & food mart
+desc=beamlr.delivery.westcoast.smallDeliveryDeliFoodMart
 reward=400
 items=list_all
 gmwp=blrwp_delifoodmart

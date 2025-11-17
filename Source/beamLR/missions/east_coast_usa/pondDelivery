@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_FarPond
-desc=Deliver $item to the pond
+desc=beamlr.delivery.eastcoast.pondDelivery
 reward=100
 gmwp=blrwp_farpond
 items=list_all

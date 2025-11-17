@@ -1,6 +1,6 @@
 type=speed
 targetspd=33,39
-desc=Dirt road intersection speed trap challenge
+desc=beamlr.challenges.east_coast_usa.bspeedtrap3
 gmwp=blrwp_farmdirtroadcp6
 wager=800,3750
 traffic=1

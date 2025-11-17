@@ -1,6 +1,6 @@
 destpos=-686.072265625,619.91058349609,111.97342681885
 items=list_all
-desc=Deliver $item to a parking lot in chinatown
+desc=beamlr.delivery.westcoast.trailerDeliveryChinatown
 type=trailer
 destrot=-0.0014473917270364,-0.0035502403330341,0.92492268758503,-0.38013592679625
 gmwp=blrwp_chinatownparking

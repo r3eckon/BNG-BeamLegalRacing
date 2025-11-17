@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_WoodHouse
-desc=Deliver $item to a house in the woods
+desc=beamlr.delivery.westcoast.smallDeliveryWoodHouse
 reward=400
 items=list_all
 gmwp=blrwp_woodhouse

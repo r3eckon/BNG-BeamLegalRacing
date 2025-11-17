@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_ApexDelivery
-desc=Deliver $item to the Apex gas station
+desc=beamlr.delivery.westcoast.smallDeliveryApex
 reward=400
 items=list_all
 gmwp=blrwp_apexdelivery

@@ -100,22 +100,6 @@ local cdid = 0
 local buffer = 500
 local range = 1000
 
--- TESTING COMMENT, REMOVE BEFORE RELEASING
--- some range/buffer values and performance impact for my hardware: 
--- high quantity (10-20 fps drop):  1000/500
--- medium quantity (5-10 fps drop): 500/250
--- low quantity (1-5 fps drop):		200/100
-
--- the fps drop is calculated as a full buffer. in theory the fps can drop a bit more while decals are
--- being faded out but this shouldn't have a big impact as its unlikely that a lot of leak decals spawn
--- all at the same time, it basically only happens when doing it on purpose aka refilling oil without oilpan
--- with the car moving forward so avoid creating a big puddle and just scaling up the same chunked decal
-
--- so for the beamlr options menu I guess the limit can be like 1000 for higher end PCs than mine
--- with a recommended value of perhaps 500 for most computers and 250 or 100 for low end computers
-
--- also, the range really doesn't have to be twice as large as the buffer, maybe like just a hard 100 to 200 extra IDs 
--- to allow some time to fade out old decals will be plenty of actual in game oil leak situations
 
 local function nextID()
 cdid = cdid + 1
@@ -210,6 +194,10 @@ local puddles = nil
 
 
 local function addChunkedOilLeakDecal(vehid)
+
+if not scenetree.findObjectById(vehid) then return end
+
+
 local npos = getLeakNodePosition(vehid)
 
 if not npos then return end
@@ -220,6 +208,8 @@ local centerx, centery = getChunkCenterPos(chunkx,chunky)
 local raycastStart = vec3(centerx,centery,npos.z)
 local raycastEnd = vec3(centerx,centery,npos.z-100)
 local raycastResult = Engine.castRay(raycastStart, raycastEnd, true, false)
+
+if not raycastResult then return end
 
 local seed = chunkx * 1000 + chunky
 math.randomseed(seed)

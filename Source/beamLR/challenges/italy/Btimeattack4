@@ -1,5 +1,5 @@
 wager=1200,3000
-desc=Time attack to the airport
+desc=beamlr.challenges.italy.btimeattack4
 gmwp=Roundabout1_wp1
 type=time
 targettime=65000,100000

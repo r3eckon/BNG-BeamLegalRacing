@@ -1,6 +1,6 @@
 destpos=126.95481872559,12.123488426208,171.61198425293
 destrot=0.0023356479901183,-0.0051466678950236,0.99023892932203,-0.13926564333388
-desc=Deliver $item to the ranger cabin
+desc=beamlr.delivery.utah.trailerDeliveryRanger
 reward=350
 items=list_all
 gmwp=blrwp_rangercabin

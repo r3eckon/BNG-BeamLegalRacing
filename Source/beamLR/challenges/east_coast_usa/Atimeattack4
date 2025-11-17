@@ -1,5 +1,5 @@
 type=time
-desc=Short length looping time attack
+desc=beamlr.challenges.east_coast_usa.atimeattack4
 triggers=BeamLRTrigger_TownCP1,BeamLRTrigger_TownCP6,BeamLRTrigger_TownCP7,BeamLRTrigger_FirstResponderStationST,BeamLRTrigger_DirtPathBCP11,BeamLRTrigger_CurveIntersectCP2,BeamLRTrigger_CurveIntersectBCP1,BeamLRTrigger_TownGasStationST
 wager=1400,3875
 targettime=65000,100000

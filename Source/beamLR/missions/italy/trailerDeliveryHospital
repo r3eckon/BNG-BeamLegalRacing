@@ -1,6 +1,6 @@
 destpos=186.7147064209,1407.0460205078,187.32981872559
 destrot=-0.0017745383982867,0.00070880817603667,0.91882736820569,0.3946550595655
-desc=Deliver $item to the city hospital
+desc=beamlr.delivery.italy.trailerDeliveryHospital
 reward=800
 items=list_all
 gmwp=blrwp_hospital

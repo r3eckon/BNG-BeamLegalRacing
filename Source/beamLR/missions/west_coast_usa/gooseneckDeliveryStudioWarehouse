@@ -1,6 +1,6 @@
 destpos=-782.4296875,-592.1494140625,101.94451141357
 items=list_all
-desc=Deliver $item to a warehouse near the Lens Flare studio
+desc=beamlr.delivery.westcoast.gooseneckDeliveryStudioWarehouse
 type=gooseneck
 destrot=0.0087179869299509,-0.00031881301450022,0.90801308477582,0.41885096745507
 gmwp=blrwp_studiowarehouse

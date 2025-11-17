@@ -1,10 +1,17 @@
 angular.module('beamng.apps')
-.directive('beamlrui', [function () {
+.directive('beamlrui', ['$filter',function($filter) {
   return {
     templateUrl: '/ui/modules/apps/beamlrui/app.html',
     replace: true,
     restrict: 'EA',
     link: function (scope, element, attrs) {
+	  
+	  translate = function(key)
+	  {
+		  return $filter('translate')(key)
+	  }
+	  scope.translate = translate
+	  
 	  
 	  scope.testdata = 'Not Loaded';
 	  scope.beamlrData = {};
@@ -63,6 +70,8 @@ angular.module('beamng.apps')
 	  scope.defaultFunctions["atcount"] = "setActiveTrafficCount"
 	  scope.defaultFunctions["copstrict"] = "setPoliceStrictness"
 	  scope.defaultFunctions["tsbias"] = "setTrafficDirectionBias"
+	  
+	  
 	  
 	  
 	  //helper function to trigger message in vanilla message app
@@ -1202,11 +1211,11 @@ angular.module('beamng.apps')
 		  
 		  if(scope.beamlrData['vehInstParts'][part])
 		  {
-			  suffix = "\n(INSTALLED)"
+			  suffix = "\n(" + translate("beamlr.mainui.page.partbuy.tags.installed") + ")"
 		  }
 		  else if(scope.beamlrData['advinvOwned'][part] > 0)
 		  {
-			  suffix = "\n(OWN " + scope.beamlrData['advinvOwned'][part] + ")"
+			  suffix = "\n(" + translate("beamlr.mainui.page.partbuy.tags.own") + " " + scope.beamlrData['advinvOwned'][part] + ")"
 		  }
 		  
 		  
@@ -1259,7 +1268,7 @@ angular.module('beamng.apps')
 		  }
 		  else
 		  {
-			  scope.guiMessage("Could not export config due to invalid name!", 10, "warning", "configsaving")
+			  scope.guiMessage("beamlr.msgapp.cantexportname", 10, "warning", "configsaving")
 		  } 
 	  }
 	  
@@ -1273,7 +1282,7 @@ angular.module('beamng.apps')
 		  }
 		  else
 		  {
-			scope.guiMessage("Could not save template due to invalid name!", 10, "warning", "configsaving")
+			scope.guiMessage("beamlr.msgapp.cantsavename", 10, "warning", "configsaving")
 		  }
 	  }
 	  

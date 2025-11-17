@@ -1,5 +1,5 @@
 triggers=BeamLRTrigger_ImpossibleJump
-desc=Near impossible jump between two caves
+desc=beamlr.challenges.utah.jump6
 gmwp=blrwp_cgm_impossiblejump
 wager=10000,20000
 traffic=1

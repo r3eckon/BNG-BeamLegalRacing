@@ -203,7 +203,7 @@ pentimes[racer] = (pentimes[racer] or 0) + 10000 -- Adds penalty time for racer
 pentracker[racer][trig] = true -- Set tracked penalty state
 if idtable[racer] == 1 then -- Player was racer, trigger penalty message
 extensions.blrglobals.blrFlagSet("showPenaltyMessage", true)
-extensions.blrutils.blrvarSet("penaltyMessage", "+10s shortcut penalty!")
+extensions.blrutils.blrvarSet("penaltyMessage", extensions.blrlocales.translate("beamlr.imgui.track.penalty_shortcut"))
 end
 end
 end
@@ -215,7 +215,7 @@ pentimes[racer] = (pentimes[racer] or 0) + 10000 -- Adds penalty time for racer
 pitpenalty = true
 if idtable[racer] == 1 then -- Player was racer, trigger penalty message
 extensions.blrglobals.blrFlagSet("showPenaltyMessage", true)
-extensions.blrutils.blrvarSet("penaltyMessage", "+10s overspeed penalty!<br><span style=\"color:yellow;\">Stay below 50Mph/80Kmh in pit!</span>")
+extensions.blrutils.blrvarSet("penaltyMessage", extensions.blrlocales.translate("beamlr.imgui.track.penalty_pitspeed"))
 end
 end
 end

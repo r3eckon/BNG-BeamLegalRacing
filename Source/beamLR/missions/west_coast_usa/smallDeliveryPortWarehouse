@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_PortWarehouse
-desc=Deliver $item to the port warehouse
+desc=beamlr.delivery.westcoast.smallDeliveryPortWarehouse
 reward=400
 items=list_all
 gmwp=blrwp_portwarehouse

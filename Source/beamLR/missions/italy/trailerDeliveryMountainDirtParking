@@ -1,6 +1,6 @@
 destpos=-1214.0269775391,-308.24755859375,387.44430541992
 destrot=0.0024329451992137,-0.0048319559247313,0.97486166088841,0.22274531445016
-desc=Deliver $item to the dam parking area
+desc=beamlr.delivery.italy.trailerDeliveryMountainDirtParking
 reward=800
 items=list_all
 gmwp=blrwp_damdirtparking

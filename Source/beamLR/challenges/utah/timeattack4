@@ -1,6 +1,6 @@
 targettime=120000,150000
 gmwp=riverJuncWp1
-desc=Another short hotlap
+desc=beamlr.challenges.utah.timeattack4
 triggers=BeamNGTrigger_BridgeCarZoneIntersect,BeamNGTrigger_CaravanAreaEntrance,BeamNGTrigger_RoadToAirfield,BeamNGTrigger_AirfieldRoadIntersect,BeamLRTrigger_CurvyRoadCP1,BeamLRTrigger_CurvyRoadCP2,BeamLRTrigger_NearShopCP1,BeamNGTrigger_BridgeCarZoneIntersect
 wager=300,4000
 traffic=1

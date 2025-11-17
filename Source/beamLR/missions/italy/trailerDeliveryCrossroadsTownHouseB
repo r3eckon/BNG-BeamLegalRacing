@@ -1,6 +1,6 @@
 destpos=946.21643066406,551.19659423828,187.4289855957
 destrot=-0.0017304402344643,-0.0029042846118632,0.1042576051911,0.99454458043232
-desc=Deliver $item to the crossroads town
+desc=beamlr.delivery.italy.trailerDeliveryCrossroadsTownHouseB
 reward=750
 items=list_all
 gmwp=blrwp_crossroadstrailerB

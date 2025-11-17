@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_Farmhouse
-desc=Deliver $item to the farm house
+desc=beamlr.delivery.eastcoast.farmhouseDelivery
 reward=350
 gmwp=blrwp_farmhouse
 items=list_all

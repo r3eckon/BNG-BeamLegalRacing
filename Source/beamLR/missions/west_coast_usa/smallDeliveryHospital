@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_Emergency
-desc=Deliver $item to the hospital
+desc=beamlr.delivery.westcoast.smallDeliveryHospital
 reward=400
 items=list_all
 gmwp=Bridge_hospital5

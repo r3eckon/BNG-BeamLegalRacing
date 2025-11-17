@@ -33,3 +33,6 @@ BeamLRTrigger_PropertyVineyard=property,propertyVineyard
 BeamLRTrigger_PropertySeaside=property,propertySeaside
 BeamLRTrigger_PropertyPort=property,propertyPort
 BeamLRTrigger_PropertyBeach=property,propertyBeach
+BeamLRTrigger_BarnfindA=barnfind,barnfindA
+BeamLRTrigger_BarnfindB=barnfind,barnfindB
+BeamLRTrigger_BarnfindC=barnfind,barnfindC

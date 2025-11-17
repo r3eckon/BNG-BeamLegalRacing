@@ -1,6 +1,6 @@
 destpos=755.98413085938,-823.61608886719,158.64738464355
 items=list_all
-desc=Deliver $item to the quarry
+desc=beamlr.delivery.westcoast.trailerDeliveryQuarry
 type=trailer
 destrot=-0.010566012722953,0.012073516989083,0.53588173775179,0.84414060008199
 gmwp=blrwp_quarrytrailer

@@ -1,5 +1,5 @@
 triggers=BeamLRTrigger_JumpTarget
-desc=Jump over the road!
+desc=beamlr.challenges.utah.jump1
 gmwp=blrwp_cgm_jump
 wager=1000,3000
 traffic=1

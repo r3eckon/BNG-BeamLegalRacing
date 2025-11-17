@@ -1,6 +1,6 @@
 triggers=BeamLRTrigger_RaceACP14
 gmwp=blrwp_raceA18
-desc=Island refinery speed trap challenge
+desc=beamlr.challenges.west_coast_usa.aspeedtrap5
 rep=30,200
 wager=750,3000
 traffic=1

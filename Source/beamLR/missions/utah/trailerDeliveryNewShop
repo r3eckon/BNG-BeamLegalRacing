@@ -1,6 +1,6 @@
 destpos=-816.66662597656,-104.35800933838,296.82940673828
 destrot=0.0017453151283683,-0.0031414454117902,0.79601520961258,0.6052659508524
-desc=Deliver $item to the new car shop
+desc=beamlr.delivery.utah.trailerDeliveryNewShop
 reward=400
 items=list_all
 gmwp=blrwp_topshops

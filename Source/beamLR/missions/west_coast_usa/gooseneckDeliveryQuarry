@@ -1,6 +1,6 @@
 destpos=750.99609375,-823.66796875,158.46858215332
 items=list_all
-desc=Deliver $item to the quarry
+desc=beamlr.delivery.westcoast.gooseneckDeliveryQuarry
 type=gooseneck
 destrot=-0.0080651440468367,0.014355108689753,0.53104030507039,0.84718656664088
 gmwp=blrwp_quarrytrailer

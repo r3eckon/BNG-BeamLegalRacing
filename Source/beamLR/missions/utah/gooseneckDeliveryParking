@@ -1,6 +1,6 @@
 destpos=924.70001220703,771.23516845703,236.26181030273
 destrot=-9.4559726533675e-05,-0.0057757500789147,0.9995843392464,0.02824500845862
-desc=Deliver $item to the observation area parking lot
+desc=beamlr.delivery.utah.gooseneckDeliveryParking
 reward=1400
 items=list_all
 gmwp=blrwp_curvyroadlot

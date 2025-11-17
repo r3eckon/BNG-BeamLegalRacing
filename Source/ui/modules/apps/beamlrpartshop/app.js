@@ -1,10 +1,16 @@
 angular.module('beamng.apps')
-.directive('beamlrpartshop', [function () {
+.directive('beamlrpartshop', ['$filter',function ($filter) {
   return {
     templateUrl: '/ui/modules/apps/beamlrpartshop/app.html',
     replace: true,
     restrict: 'EA',
     link: function (scope, element, attrs) {
+	  
+	  translate = function(key)
+	  {
+		  return $filter('translate')(key)
+	  }
+	  scope.translate = translate
 	  
 	  scope.enabled = false
 	  
@@ -167,6 +173,9 @@ angular.module('beamng.apps')
 			  scope.beamlrData["partShopTree"] = data.val
 			  scope.$apply()
 		  }
+		  
+		  if(data.key == "mainpart")
+			  console.log("MAIN PART: " + data.val)
       })
 	  
 	  scope.$on('beamlrPartBuyResult', function (event, data) {
@@ -344,13 +353,13 @@ angular.module('beamng.apps')
 		  
 		  if(installed)
 		  {
-			  toRet.text = "(INSTALLED)"
+			  toRet.text = "(" + translate("beamlr.mainui.page.partbuy.tags.installed") + ")"
 			  toRet.color = "lime"
 			  return toRet
 		  }
 		  if(owned > 0)
 		  {
-			  toRet.text = "(OWN " + owned + ")"
+			  toRet.text = "(" + translate("beamlr.mainui.page.partbuy.tags.own") + " " + owned + ")"
 			  toRet.color = "orange"
 			  return toRet
 		  }

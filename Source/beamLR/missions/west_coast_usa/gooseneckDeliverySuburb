@@ -1,6 +1,6 @@
 destpos=-368.62069702148,-586.9111328125,127.25389099121
 items=list_all
-desc=Deliver $item to a house in the suburb
+desc=beamlr.delivery.westcoast.gooseneckDeliverySuburb
 type=gooseneck
 destrot=0.0050660561433273,0.00072323476487673,-0.41661987326825,0.90906638547719
 gmwp=blrwp_trailersuburb

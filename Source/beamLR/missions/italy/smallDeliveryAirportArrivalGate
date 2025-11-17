@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_AirportArrival
-desc=Deliver $item to the airport arrivals gate
+desc=beamlr.delivery.italy.smallDeliveryAirportArrivalGate
 reward=400
 items=list_all
 gmwp=blrwp_airportarrival

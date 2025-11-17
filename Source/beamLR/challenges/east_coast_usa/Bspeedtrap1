@@ -1,6 +1,6 @@
 type=speed
 targetspd=39,53
-desc=Speed trap challenge at the nearby intersection
+desc=beamlr.challenges.east_coast_usa.bspeedtrap1
 gmwp=blrwp_farmjunccp1
 wager=1000,3750
 traffic=1

@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_ConstructionZone
-desc=Deliver $item to the construction zone
+desc=beamlr.delivery.utah.constructionDelivery
 reward=400
 items=list_all
 gmwp=blrwp_mgm_construction

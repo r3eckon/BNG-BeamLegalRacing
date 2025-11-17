@@ -1,6 +1,6 @@
 destpos=-519.86907958984,741.59197998047,75.020111083984
 items=list_all
-desc=Deliver $item to a condominium building
+desc=beamlr.delivery.westcoast.trailerDeliveryCondos
 type=trailer
 destrot=-0.0018315588847002,-0.0037546918122385,0.92862864645352,0.37098704110434
 gmwp=blrwp_condos

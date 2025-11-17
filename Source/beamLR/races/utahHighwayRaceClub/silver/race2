@@ -1,4 +1,4 @@
-desc=Race to the shops at the top of the canyon
+desc=beamlr.races.utahHighwayRaceClub.bronze.race2
 wager=1000,2000
 slips=0.04
 enemyConfig=class:club/street_silver

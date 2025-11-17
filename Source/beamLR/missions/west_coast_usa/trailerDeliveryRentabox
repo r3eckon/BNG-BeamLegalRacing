@@ -1,6 +1,6 @@
 destpos=-80.453254699707,77.941291809082,122.8034286499
 items=list_all
-desc=Deliver $item to Rent-A-Box Secure Storage
+desc=beamlr.delivery.westcoast.trailerDeliveryRentabox
 type=trailer
 destrot=-0.023561634302807,-0.014210797436314,0.92734658031619,0.37319059822169
 gmwp=blrwp_trailerrentabox

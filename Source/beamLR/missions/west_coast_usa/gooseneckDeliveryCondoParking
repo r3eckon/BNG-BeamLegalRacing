@@ -1,6 +1,6 @@
 destpos=-234.60487365723,551.89782714844,75.055107116699
 items=list_all
-desc=Deliver $item to a condominium building parking lot
+desc=beamlr.delivery.westcoast.gooseneckDeliveryCondoParking
 type=gooseneck
 destrot=-0.0010295919476551,-0.0046464242686312,0.99981658328399,-0.018551293007817
 gmwp=blrwp_gooseneckcondo

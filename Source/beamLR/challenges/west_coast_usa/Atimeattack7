@@ -1,5 +1,5 @@
 wager=1000,2000
-desc=Quick time attack to the tram station
+desc=beamlr.challenges.west_coast_usa.atimeattack7
 gmwp=Bridge32_1
 type=time
 targettime=25000,45000

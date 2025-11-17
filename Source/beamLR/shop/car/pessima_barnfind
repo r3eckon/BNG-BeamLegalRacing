@@ -1,0 +1,8 @@
+name=Ibishu Pessima 2.0 GTz (Manual, Barn Find)
+type=pessima
+config=vehicles/pessima/blr_barnfind.pc
+baseprice=7000,30000
+odometer=75000000,250000000
+scrapval=500
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

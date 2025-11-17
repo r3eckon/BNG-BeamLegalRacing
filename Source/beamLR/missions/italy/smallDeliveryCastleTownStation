@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_CastleTownGasStation
-desc=Deliver $item to the mountain top castle town gas station
+desc=beamlr.delivery.italy.smallDeliveryCastleTownStation
 reward=600
 items=list_all
 gmwp=blrwp_castletownstation

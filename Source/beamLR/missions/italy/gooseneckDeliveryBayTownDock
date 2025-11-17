@@ -1,6 +1,6 @@
 destpos=1137.3959960938,-433.44277954102,141.06066894531
 destrot=0.0016428851464496,0.00037975117248288,0.98468573116755,-0.17433062712118
-desc=Deliver $item to the bay town dock parking lot
+desc=beamlr.delivery.italy.gooseneckDeliveryBayTownDock
 reward=700
 items=list_all
 gmwp=blrwp_baytowndockparking

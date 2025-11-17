@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_ConcreteParking
-desc=Deliver $item to a parking lot near the concrete plant
+desc=beamlr.delivery.westcoast.smallDeliveryConcretePlant
 reward=400
 items=list_all
 gmwp=blrwp_concreteparking

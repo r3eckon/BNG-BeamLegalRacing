@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_QuarryCellTower
-desc=Deliver $item to the cell tower near the quarry
+desc=beamlr.delivery.westcoast.smallDeliveryQuarryCellTower
 reward=400
 items=list_all
 gmwp=blrwp_quarrycelltower

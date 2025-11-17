@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_IslandDockWarehouse
-desc=Deliver $item to Spearleaf Marine Logistics
+desc=beamlr.delivery.westcoast.smallDeliveryIslandDockWarehouse
 reward=500
 items=list_all
 gmwp=blrwp_islanddockwarehouse

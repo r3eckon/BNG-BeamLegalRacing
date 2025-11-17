@@ -1,5 +1,5 @@
 wager=1400,4000
-desc=Time attack around the service station cell tower
+desc=beamlr.challenges.west_coast_usa.atimeattack10
 gmwp=blrwp_raceA1
 type=time
 targettime=87000,100000

@@ -1,6 +1,6 @@
 destpos=46.401672363281,669.97424316406,74.923599243164
 items=list_all
-desc=Deliver $item to industrial buildings near the city dockyard
+desc=beamlr.delivery.westcoast.trailerDeliveryDockyardIndustry
 type=trailer
 destrot=0.0024148005332843,-0.0022534729557265,0.50109831583135,0.86538405836311
 gmwp=blrwp_dockyardindustry

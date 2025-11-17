@@ -1,6 +1,6 @@
 destpos=866.38781738281,-952.87420654297,170.73582458496
 items=list_all
-desc=Deliver $item to a house in the woods
+desc=beamlr.delivery.westcoast.trailerDeliveryWoodHouse
 type=trailer
 destrot=-0.022898378723972,-0.0047016084212383,-0.67403984970898,0.73832502337004
 gmwp=blrwp_woodhouse

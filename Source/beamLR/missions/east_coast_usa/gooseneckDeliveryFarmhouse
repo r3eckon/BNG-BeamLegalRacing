@@ -1,6 +1,6 @@
 destpos=-605.24456787109,-352.07748413086,34.418472290039
 destrot=0.0083058543783821,-0.003779586940896,0.30898288453342,0.95102381913967
-desc=Deliver $item to the farm house
+desc=beamlr.delivery.eastcoast.gooseneckDeliveryFarmhouse
 reward=700
 items=list_all
 gmwp=blrwp_farmhouse

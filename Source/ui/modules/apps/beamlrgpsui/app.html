@@ -3,17 +3,17 @@
 <div ng-if="enabled==true" style="background-color:rgba(0.0,0.0,0.0,0.0); height:100%; margin:0; z-index:9999; position:relative;">
 
 <div ng-if="page==0" style="background-color:rgba(0.0,0.0,0.0,0.5); height:60px; margin-top:150px;">
-<p style="text-align:center; font-weight:bold; font-size:20px; margin-bottom:0px;">GPS Main Menu</p>
+<p style="text-align:center; font-weight:bold; font-size:20px; margin-bottom:0px;">{{"beamlr.gpsui.title" | translate}}</p>
 
 <div style="width:100%; text-align:center;">
-<button ng-click="setPage(1)" style="width:148px;">Select Destination</button>
-<button ng-click="setPage(2)" style="width:148px;">Find Nearest</button>
+<button ng-click="setPage(1)" style="width:148px;">{{"beamlr.gpsui.select" | translate}}</button>
+<button ng-click="setPage(2)" style="width:148px;">{{"beamlr.gpsui.findnear" | translate}}</button>
 </div>
 
 </div>
 
 <div ng-if="page==1" style="background-color:rgba(0.0,0.0,0.0,0.5); height:100%;">
-<p style="text-align:center; font-weight:bold; font-size:20px; margin-bottom:0px;">Select Destination</p>
+<p style="text-align:center; font-weight:bold; font-size:20px; margin-bottom:0px;">{{"beamlr.gpsui.select" | translate}}</p>
 
 <div style="background-color:rgba(0, 0, 0, 0.2); overflow-y:scroll; max-height:120px; width:95%; margin:auto;">
 <div ng-repeat="(k,v) in destinations['names'] track by k">
@@ -22,47 +22,47 @@
 </div>
 
 <div style="width:100%; text-align:center; margin-top:7px;">
-<button ng-click="setPage(0)" style="width:147px;">Back</button>
+<button ng-click="setPage(0)" style="width:147px;">{{"beamlr.generic.button.back" | translate}}</button>
 </div>
 
 </div>
 
 <div ng-if="page==2" style="background-color:rgba(0.0,0.0,0.0,0.5); height:100%;">
-<p style="text-align:center; font-weight:bold; font-size:20px; margin-bottom:0px;">Find Nearest</p>
+<p style="text-align:center; font-weight:bold; font-size:20px; margin-bottom:0px;">{{"beamlr.gpsui.findnear" | translate}}</p>
 <table style="table-layout:fixed; margin-top:10px; text-align:center; width:100%;">
 <tr>
-<td><button style="width:125px;" ng-click="findNearest('gas')">Gas Station</button></td>
-<td><button style="width:125px;" ng-click="findNearest('repair')">Garage</button></td>
+<td><button style="width:125px;" ng-click="findNearest('gas')">{{"beamlr.gpsui.nearest.gas" | translate}}</button></td>
+<td><button style="width:125px;" ng-click="findNearest('repair')">{{"beamlr.gpsui.nearest.garage" | translate}}</button></td>
 </tr>
 <tr>
-<td><button style="width:125px;" ng-click="findNearest('partshop')">Part Shop</button></td>
-<td><button style="width:125px;" ng-click="findNearest('usedcarshop')">Used Car Shop</button></td>
+<td><button style="width:125px;" ng-click="findNearest('partshop')">{{"beamlr.gpsui.nearest.parts" | translate}}</button></td>
+<td><button style="width:125px;" ng-click="findNearest('usedcarshop')">{{"beamlr.gpsui.nearest.usedcars" | translate}}</button></td>
 </tr>
 <tr>
-<td><button style="width:125px;" ng-click="findNearest('newcarshop')">New Car Shop</button></td>
-<td><button style="width:125px;" ng-click="findNearest('scrapyard')">Scrapyard</button></td>
+<td><button style="width:125px;" ng-click="findNearest('newcarshop')">{{"beamlr.gpsui.nearest.newcars" | translate}}</button></td>
+<td><button style="width:125px;" ng-click="findNearest('scrapyard')">{{"beamlr.gpsui.nearest.scrapyard" | translate}}</button></td>
 </tr>
 </table>
 
 <div style="width:100%; text-align:center; margin-top:20px;">
-<button ng-click="setPage(0)" style="width:147px;">Back</button>
+<button ng-click="setPage(0)" style="width:147px;">{{"beamlr.generic.button.back" | translate}}</button>
 </div>
 
 </div>
 
 <div ng-if="page==3" style="background-color:rgba(0.0,0.0,0.0,0.5); height:100%;">
 
-<p style="text-align:center; font-weight:bold; font-size:20px; margin-bottom:0px;">Route Information</p>
+<p style="text-align:center; font-weight:bold; font-size:20px; margin-bottom:0px;">{{"beamlr.gpsui.routeinfo" | translate}}</p>
 
 <div style="width:100%; overflow-y:scroll; max-height:120px;">
 <table style="table-layout:fixed; font-weight:bold; min-height:120px; margin-top:0px; text-align:center; width:100%;">
-<tr><td style="font-size:20px;">Destination:</td><td style="font-size:16px;">{{currentDestination}}</td></tr>
-<tr><td style="font-size:20px;">Distance:</td><td style="font-size:20px;">{{currentDistance | number:2}} {{distanceUnit}}</td></tr>
+<tr><td style="font-size:20px;">{{"beamlr.gpsui.routeinfo.destination" | translate}}:</td><td style="font-size:16px;">{{currentDestination}}</td></tr>
+<tr><td style="font-size:20px;">{{"beamlr.gpsui.routeinfo.distance" | translate}}:</td><td style="font-size:20px;">{{currentDistance | number:2}} {{distanceUnit}}</td></tr>
 </table>
 </div>
 
 <div style="width:100%; text-align:center; margin-top:5px;">
-<button ng-click="cancelRoute()" style="width:147px;">Cancel Route</button>
+<button ng-click="cancelRoute()" style="width:147px;">{{"beamlr.gpsui.cancelroute" | translate}}</button>
 </div>
 
 </div>

@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_IslandParkingArea
-desc=Deliver $item to the island parking area
+desc=beamlr.delivery.westcoast.smallDeliveryIslandParkingArea
 reward=500
 items=list_all
 gmwp=blrwp_islandparkingarea

@@ -21,7 +21,7 @@
 </td>
 
 <td style="text-align:center; line-height:13px; font-size:14px; width:10%;">
-Force Select Parents
+{{"beamlr.repairui.selectparents" | translate}}
 </td>
 
 <td style="text-align:right; font-size:17px; width:8%;">
@@ -29,7 +29,7 @@ Force Select Parents
 </td>
 
 <td style="text-align:center; vertical-align:top; font-size:27px; font-weight:bold; width:60%;">
-Repair Menu
+{{"beamlr.repairui.title" | translate}}
 </td>
 
 <td style="text-align:center; vertical-align:top; font-size:17px; width:10%;">
@@ -51,8 +51,8 @@ Repair Menu
 <table style="width:100%; table-layout:fixed; font-weight:bold;">
 <tr>
 <td style="width:5%; text-align:center; padding-left:10px;"><md-checkbox ng-model="toggle['selectAll']" ng-change="selectAll()" ></md-checkbox></td>
-<td style="width:70%; text-align:center; transform:translate(15px,0px);">Item</td>
-<td style="width:25%; text-align:center; transform:translate(-10px,0px);">Cost</td>
+<td style="width:70%; text-align:center; transform:translate(15px,0px);">{{"beamlr.generic.term.item" | translate}}</td>
+<td style="width:25%; text-align:center; transform:translate(-10px,0px);">{{"beamlr.generic.term.cost" | translate}}</td>
 </tr>
 </table>
 </div>
@@ -71,7 +71,7 @@ Repair Menu
 <table style="width:100%; table-layout:fixed; padding:10px;">
 <tr>
 <td style="width:5%; text-align:center;"><md-checkbox ng-model="engineSelected" ng-change="selectEngine()" ></md-checkbox></td>
-<td style="width:70%; text-align:center; transform:translate(15px,0px);">Engine Internal Damage</td>
+<td style="width:70%; text-align:center; transform:translate(15px,0px);">{{"beamlr.repairui.enginedamage" | translate}}</td>
 <td style="width:25%; text-align:center;" ng-style="engineSelected && {'color':'#FF6600','font-weight':'bold'}">${{formatNumber(engine)| number:2}}</td>
 </tr>
 </table>
@@ -91,7 +91,7 @@ Repair Menu
 <table style="width:100%; table-layout:fixed; padding:10px;">
 <tr>
 <td style="width:5%; text-align:center;"></td>
-<td style="width:70%; text-align:center; transform:translate(15px,0px);">Mechanical Damage</td>
+<td style="width:70%; text-align:center; transform:translate(15px,0px);">{{"beamlr.repairui.mechdamage" | translate}}</td>
 <td style="width:25%; text-align:center; color:#FF6600; font-weight:bold;">${{formatNumber(mechanical)| number:2}}</td>
 </tr>
 </table>
@@ -101,7 +101,7 @@ Repair Menu
 <table style="width:100%; table-layout:fixed; padding:10px;">
 <tr>
 <td style="width:5%; text-align:center;"></td>
-<td style="width:70%; text-align:center; transform:translate(15px,0px);">Saved Damage Fee</td>
+<td style="width:70%; text-align:center; transform:translate(15px,0px);">{{"beamlr.repairui.savedfee" | translate}}</td>
 <td style="width:25%; text-align:center; color:#FF6600; font-weight:bold;">${{formatNumber(minimum - totalBeforeMin)| number:2}}</td>
 </tr>
 </table>
@@ -110,7 +110,7 @@ Repair Menu
 <table ng-if="mult > 1" style="width:100%; table-layout:fixed; padding:10px; font-size:20px;">
 <tr>
 <td style="width:5%; text-align:center;"></td>
-<td style="width:70%; text-align:center; transform:translate(15px,0px);">Onsite Mechanic Fee</td>
+<td style="width:70%; text-align:center; transform:translate(15px,0px);">{{"beamlr.repairui.mechfee" | translate}}</td>
 <td style="width:25%; text-align:center; color:#FF6600; font-weight:bold;">${{formatNumber((total * mult) - total)| number:2}}</td>
 </tr>
 </table>
@@ -118,7 +118,7 @@ Repair Menu
 <table style="width:100%; table-layout:fixed; padding:10px; font-size:20px;">
 <tr>
 <td style="width:5%; text-align:center;"></td>
-<td style="width:70%; text-align:center; transform:translate(15px,0px);">Total Repair Cost</td>
+<td style="width:70%; text-align:center; transform:translate(15px,0px);">{{"beamlr.repairui.total" | translate}}</td>
 <td style="width:25%; text-align:center; font-weight:bold;">${{formatNumber(total * mult)| number:2}}</td>
 </tr>
 </table>
@@ -127,24 +127,24 @@ Repair Menu
 </div>
 
 <div ng-if="warnack==false" style="vertical-align: top; height:120px; width:95%; margin:auto; margin-top:0px; text-align:center;">
-<p style="text-align:center; height:60px; font-size:17px; margin:0 auto; vertical-align:top;"><strong>Warning: </strong>when using selective repair, unselected damaged parts <strong>will be deleted!</strong> Pristine parts attached<br>to deleted parts will be sent to your part inventory.</p>
-<p ng-click="warnclick()" style="text-align:center; font-size:24px; font-weight:bold; height:40px; margin:0 auto; margin-top:15px; vertical-align:top;">Click here to acknowledge.</p>
+<p style="text-align:center; height:60px; font-size:17px; margin:0 auto; vertical-align:top; white-space:pre-wrap;" ng-bind-html='translate("beamlr.repairui.warning")'></p>
+<p ng-click="warnclick()" style="text-align:center; font-size:24px; font-weight:bold; height:40px; margin:0 auto; margin-top:15px; vertical-align:top;">{{"beamlr.repairui.ackbtn" | translate}}</p>
 </div>
 
 
 <div ng-if="ready==true && warnack==true" style="width:95%; margin:auto; margin-top:5px; text-align:center;">
-<button ng-if="totalConfirm == true" ng-click="repairSelected()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(total * mult)">Confirm repair?<br>${{formatNumber(total * mult)| number:2}}</button>
-<button ng-if="totalConfirm == false" ng-click="repairSelected()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(total * mult)">Repair Selected<br>${{formatNumber(total * mult)| number:2}}</button>
+<button ng-if="totalConfirm == true" ng-click="repairSelected()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(total * mult)">{{"beamlr.repairui.confirmbtn" | translate}}<br>${{formatNumber(total * mult)| number:2}}</button>
+<button ng-if="totalConfirm == false" ng-click="repairSelected()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(total * mult)">{{"beamlr.repairui.repairselected" | translate}}<br>${{formatNumber(total * mult)| number:2}}</button>
 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp	
-<button ng-if="fullConfirm == true" ng-click="repairAll()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(full * mult)">Confirm repair?<br>${{formatNumber(full * mult)| number:2}}</button>
-<button ng-if="fullConfirm == false" ng-click="repairAll()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(full * mult)">Repair All<br>${{formatNumber(full * mult)| number:2}}</button>
+<button ng-if="fullConfirm == true" ng-click="repairAll()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(full * mult)">{{"beamlr.repairui.confirmbtn" | translate}}<br>${{formatNumber(full * mult)| number:2}}</button>
+<button ng-if="fullConfirm == false" ng-click="repairAll()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(full * mult)">{{"beamlr.repairui.repairsall" | translate}}<br>${{formatNumber(full * mult)| number:2}}</button>
 </div>
 
 
 
 <div ng-if="ready==false" style="width:95%; margin:auto; margin-top:5px; text-align:center; font-size:20px;">
-Loading damage data...
+{{"beamlr.repairui.loadingmsg" | translate}}
 </div>
 
 </div>

@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_Sawmill
-desc=Deliver $item to the sawmill
+desc=beamlr.delivery.eastcoast.sawmillDelivery
 reward=250
 gmwp=blrwp_sawmill
 items=list_all

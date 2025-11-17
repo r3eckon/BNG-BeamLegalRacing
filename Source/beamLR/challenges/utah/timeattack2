@@ -1,6 +1,6 @@
 targettime=90000,120000
 gmwp=blrwp_cgm_cave
-desc=Offroad time attack to the airfield
+desc=beamlr.challenges.utah.timeattack2
 triggers=BeamLRTrigger_OffroadChallenge1CP1,BeamLRTrigger_OffroadChallenge1CP2,BeamLRTrigger_OffroadChallenge1CP3,BeamNGTrigger_AirfieldFinish
 wager=300,4000
 traffic=1

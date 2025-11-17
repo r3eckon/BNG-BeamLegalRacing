@@ -1,0 +1,9 @@
+name=Autobello Piccolina 150 Corse (Manual, Barn Find)
+type=autobello
+config=vehicles/autobello/blr_barnfind.pc
+baseprice=6000,25000
+odometer=70000000,240000000
+scrapval=500
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1
+randslots=autobello_bumper_R

@@ -1,6 +1,6 @@
 destpos=72.339897155762,-261.34927368164,193.45416259766
 destrot=0.0013205322446518,-0.0025324383794855,0.7088143220735,0.70538932496454
-desc=Deliver $item to a house in the vineyard village 
+desc=beamlr.delivery.italy.trailerDeliveryVineyardHouse
 reward=750
 items=list_all
 gmwp=blrwp_vineyardtrailerhouse

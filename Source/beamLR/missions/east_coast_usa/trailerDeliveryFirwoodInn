@@ -1,6 +1,6 @@
 destpos=549.15588378906,-761.30737304688,60.706001281738
 destrot=0.0032944896709529,0.0030251685982903,-0.71919841217227,0.69479035587841
-desc=Deliver $item to the Firwood Inn
+desc=beamlr.delivery.eastcoast.trailerDeliveryFirwoodInn
 reward=350
 items=list_all
 gmwp=blrwp_firwoodinn

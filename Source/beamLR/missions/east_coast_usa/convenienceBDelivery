@@ -1,5 +1,5 @@
 dest=BeamLRTrigger_ConvenienceStoreB
-desc=Deliver $item to the out of town convenience store
+desc=beamlr.delivery.eastcoast.convenienceBDelivery
 reward=550
 gmwp=wp136
 items=list_all

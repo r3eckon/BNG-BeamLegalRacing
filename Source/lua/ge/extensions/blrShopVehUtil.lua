@@ -42,7 +42,7 @@ guihooks.trigger("beamlrShopVehCacheValid", true)
 
 local toSend = {}
 
-local model = extensions.blrutils.getVehicleMainPartName()
+local model = extensions.blrpartmgmt.getVehicleModel()  -- 1.19 fix for mods that don't use main part name as model
 if model == "unicycle" then 
 guihooks.trigger("beamlrShopVehUtilWalking", true)
 return 
@@ -254,8 +254,11 @@ end
 
 extensions.blrutils.saveDataTable("beamLR/shop/car/" .. uiparams["filename"], saveData, fmt)
 
-
 showMessage("Vehicle file " .. uiparams["filename"] .. " has been saved", "save")
+
+-- update ui
+sendUIData(true)
+
 end
 
 
@@ -462,7 +465,7 @@ fun["spawnRandomConfig"] = function()
 local selectedSlots = uiparams["randslots"] or {}
 local seed = os.clock() * 1000
 local vid = be:getPlayerVehicle(0):getId()
-local model = extensions.blrutils.getVehicleMainPartName()
+local model = extensions.blrpartmgmt.getVehicleModel()  -- 1.19 fix for mods that don't use main part name as model
 local config = extensions.blrpartmgmt.getVehicleData().config.partConfigFilename or originalConfig[vid]
 local ioctx = extensions.blrpartmgmt.getCustomIOCTX(model)
 local slotMap = extensions.blrpartmgmt.getSlotMap(ioctx)
@@ -478,7 +481,7 @@ sendUIData()
 end
 
 fun["spawnOriginalConfig"] = function()
-local model = extensions.blrutils.getVehicleMainPartName()
+local model = extensions.blrpartmgmt.getVehicleModel()  -- 1.19 fix for mods that don't use main part name as model
 local vid = be:getPlayerVehicle(0):getId()
 local config = originalConfig[vid]
 replaceNoClearCache = true -- avoids clearing cache when vehicleReplaced hook is called

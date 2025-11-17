@@ -1,5 +1,5 @@
 driftpts=5000,10000
-desc=Highway freestyle drift challenge
+desc=beamlr.challenges.utah.drift1
 gmwp=blrwp_raceend
 triggers=BeamNGTrigger_RaceEnd,BeamNGTrigger_HighwayDragFinish
 targettime=150000,180000

@@ -1,4 +1,4 @@
-desc=Medium length hill climb dirt race
+desc=beamlr.races.italyCrossroadsRaceClub.bronze.race2
 wager=2000,5000
 slips=0.03
 enemyConfig=class:club/dirt_gold

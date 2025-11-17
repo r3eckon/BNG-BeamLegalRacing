@@ -1,4 +1,4 @@
-desc=Race to the airfield
+desc=beamlr.races.utahHighwayRaceClub.bronze.race1
 wager=2000,5000
 slips=0.03
 enemyConfig=class:club/street_gold
@@ -16,4 +16,3 @@ traffic=1
 parts=none
 rep=50,100
 wpspd=blrwp_highwayexitaiwp1:21
-

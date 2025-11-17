@@ -1,5 +1,5 @@
 dest=BeamNGTrigger_AirfieldFinish
-desc=Deliver $item to the airfield
+desc=beamlr.delivery.utah.airfieldDelivery
 reward=100
 items=list_all
 gmwp=blrwp_airfield

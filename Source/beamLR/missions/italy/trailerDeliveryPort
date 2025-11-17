@@ -1,6 +1,6 @@
 destpos=467.50793457031,1728.9222412109,139.23295593262
 destrot=0.0039158138543074,-0.00060106352951864,0.021679923907256,0.99975711351501
-desc=Deliver $item to the city port
+desc=beamlr.delivery.italy.trailerDeliveryPort
 reward=700
 items=list_all
 gmwp=wp_port_9

@@ -1,6 +1,6 @@
 triggers=BeamLRTrigger_RaceACP87
 gmwp=blrwp_raceD115
-desc=Risky speed trap challenge in the city
+desc=beamlr.challenges.west_coast_usa.aspeedtrap3
 rep=30,200
 wager=1500,7500
 traffic=1

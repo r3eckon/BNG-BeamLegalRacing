@@ -1,6 +1,6 @@
 type=speed
 targetspd=55,75
-desc=Risky speed trap challenge at the gas station intersection
+desc=beamlr.challenges.east_coast_usa.bspeedtrap4
 gmwp=wp150
 wager=3200,7500
 traffic=1
