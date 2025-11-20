@@ -4,6 +4,12 @@ Files listed here are available translations for BeamLR. These files translate b
 1. Download a translation file
 2. Add the file into the folder beamLR/locales
 
+Tip: to download a translation file you have two options
+1. Right click > Save link as... (or equivalent for your browser)
+2. Left click > Click the "Download raw file" button (shown below)
+
+![](https://i.imgur.com/VN4yqEt.png)
+
 Once the scenario is started, a script will automatically merge vanilla translations with BeamLR translations before reloading the UI. Once the scenario is running you can switch between languages as needed. If you select languages that don't have installed translation files the mod will be displayed in English.
 
 ## Disclaimer
