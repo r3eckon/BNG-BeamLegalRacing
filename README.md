@@ -19,7 +19,7 @@ Perform missions, races and challenges to earn money to buy vehicles and parts. 
 
 ### Track Event Maps | [Hirochi Raceway](hirochimap.md) | [Automation Test Track](automationmap.md) | [Johnson Valley](map_johnson.md) | [Nordschleife](map_ks_nord.md)
 
-### Download Extra Content | [Addons](Addons) | [Translations](Addons/community-translations)
+### Download Extra Content | [Addons](Addons) | [Translations](Addons/Community%20Translations)
 
 ### Important Information | [Incompatible Mods](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#incompatible-mods) | [Known Issues](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#known-issues) | [Read Before Playing](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#read-before-playing)
 
