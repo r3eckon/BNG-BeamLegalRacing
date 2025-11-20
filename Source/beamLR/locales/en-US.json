@@ -25,6 +25,7 @@
 
 		
 		//BeamLR translation keys
+	"beamlr.test" : "Hello!",
 	
 		//Generic buttons
 	"beamlr.generic.button.set" : "Set",

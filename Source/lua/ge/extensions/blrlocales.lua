@@ -13,18 +13,21 @@ local addons = FS:findFiles("beamLR/locales", "*.json", -1)
 
 localeCache = {}
 
+local aname = "" -- 1.19.1 fix for multiple translation files
 local original = {}
 local addon = {}
 
 local opath = ""
 
 for _,file in pairs(addons) do
+aname = string.gsub(file,"/beamLR/locales/", ""):gsub(".json", "")
 addon = jsonReadFile(file)
-opath = "/locales/" .. string.gsub(file,"/beamLR/locales/", "")
+opath = "/locales/" .. aname .. ".json"
 original = jsonReadFile(opath)
 
 for k,v in pairs(addon) do
-localeCache[k] = v
+if not localeCache[aname] then localeCache[aname] = {} end
+localeCache[aname][k] = v -- 1.19.1 fix, store each language in its own cache table
 original[k] = v
 end
 
@@ -50,8 +53,9 @@ localeCache = {}
 reloadUI()
 end
 
-local function translate(key)
-return localeCache[key] or key
+local function translate(key, language)
+if not localeCache[language or getCurrentLanguage()] then language = "en-US" end -- 1.19.1 default to english for non translated languages
+return localeCache[language or getCurrentLanguage()][key] or key
 end
 
 -- ttype and tmap are used to build translation keys: beamlr.ttype.tmap.ABCDEFG

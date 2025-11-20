@@ -1,8 +1,8 @@
 day=0
 health=100
-money=1000
-rep=0
+time=0.0
+gslots=3
 carCount=1
 carUsed=0
-gslots=3
-time=0.0
+rep=0
+money=1000

@@ -4,10 +4,10 @@
 
 
 
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.19/beamLegalRacing1.19.zip
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.19.1/beamLegalRacing1.19.1.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.19
+# Beam Legal Racing 1.19.1
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -19,7 +19,7 @@ Perform missions, races and challenges to earn money to buy vehicles and parts. 
 
 ### Track Event Maps | [Hirochi Raceway](hirochimap.md) | [Automation Test Track](automationmap.md) | [Johnson Valley](map_johnson.md) | [Nordschleife](map_ks_nord.md)
 
-### Download Extra Content | [Addons](Addons) 
+### Download Extra Content | [Addons](Addons) | [Translations](Addons/community-translations)
 
 ### Important Information | [Incompatible Mods](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#incompatible-mods) | [Known Issues](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#known-issues) | [Read Before Playing](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#read-before-playing)
 
@@ -1085,3 +1085,7 @@ Cause: Engine jbeam is missing torque data. Data is moved to other subparts. Thi
 * Fixed old sunburst configs used in car meet config list & updated file with new sunburst configs
 * Missing configs in car meets will now be avoided (a cone spawns to indicate the config was missing)
 * Damaged cars now have a score of 0 at car meets (guaranteed rep loss if you bring a damaged car)
+
+### 1.19.1
+* Fixed multiple languages not stored independently in locales cache table
+* Starter vehicles now use old paint skins if available for model
