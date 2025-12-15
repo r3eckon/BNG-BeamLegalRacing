@@ -57,7 +57,7 @@
 </table>
 </div>
 
-<div ng-repeat="(part,cost) in damage" ng-if="part != mainpart" style="width:100%; font-size:20px;">
+<div ng-repeat="(part,cost) in damage track by part" ng-if="part != mainpart" style="width:100%; font-size:20px;">
 <table class="listitem">
 <tr>
 <td style="width:5%; text-align:center;"><md-checkbox ng-model="picks[part]" ng-change="linkedPartsUpdate(part)" ></md-checkbox></td>
@@ -70,9 +70,9 @@
 <div ng-if="engine > 0" style="width:100%; font-size:20px;">
 <table style="width:100%; table-layout:fixed; padding:10px;">
 <tr>
-<td style="width:5%; text-align:center;"><md-checkbox ng-model="engineSelected" ng-change="selectEngine()" ></md-checkbox></td>
+<td style="width:5%; text-align:center;"><md-checkbox ng-model="extras.engineSelected" ng-change="engineToggleChanged()" ></md-checkbox></td>
 <td style="width:70%; text-align:center; transform:translate(15px,0px);">{{"beamlr.repairui.enginedamage" | translate}}</td>
-<td style="width:25%; text-align:center;" ng-style="engineSelected && {'color':'#FF6600','font-weight':'bold'}">${{formatNumber(engine)| number:2}}</td>
+<td style="width:25%; text-align:center;" ng-style="extras.engineSelected && {'color':'#FF6600','font-weight':'bold'}">${{formatNumber(engine)| number:2}}</td>
 </tr>
 </table>
 </div>

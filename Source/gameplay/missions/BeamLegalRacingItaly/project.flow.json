@@ -1,8 +1,8 @@
 {
-  "activeGraphId":3,
+  "activeGraphId":1,
   "authors":"BeamLR",
-  "currentGraphID":3,
-  "date":1763623621,
+  "currentGraphID":1,
+  "date":1765707411,
   "debugEnabled":false,
   "description":"Beam Legal Racing Career",
   "difficulty":100,
@@ -103,6 +103,13 @@
           1463,
           "True",
           13,
+          "flow",
+          false
+        ],
+        [
+          1618,
+          "flow",
+          14,
           "flow",
           false
         ],
@@ -282,14 +289,14 @@
           false
         ],
         [
-          979,
-          "completed",
+          494,
+          "flow",
           30,
           "flow",
           false
         ],
         [
-          494,
+          1778,
           "flow",
           30,
           "flow",
@@ -345,14 +352,14 @@
           true
         ],
         [
-          1522,
+          1521,
           "flow",
           34,
           "flow",
           false
         ],
         [
-          1521,
+          1522,
           "flow",
           34,
           "flow",
@@ -373,6 +380,13 @@
           false
         ],
         [
+          899,
+          "down",
+          37,
+          "flow",
+          false
+        ],
+        [
           27,
           "down",
           37,
@@ -381,13 +395,6 @@
         ],
         [
           1389,
-          "down",
-          37,
-          "flow",
-          false
-        ],
-        [
-          899,
           "down",
           37,
           "flow",
@@ -555,14 +562,14 @@
           false
         ],
         [
-          880,
+          1389,
           "flow",
           50,
           "flow",
           false
         ],
         [
-          1389,
+          880,
           "flow",
           50,
           "flow",
@@ -751,14 +758,14 @@
           false
         ],
         [
-          1766,
+          1510,
           "flow",
           69,
           "flow",
           false
         ],
         [
-          1510,
+          1766,
           "flow",
           69,
           "flow",
@@ -829,14 +836,14 @@
         ],
         [
           99,
-          "match_3",
+          "match_2",
           76,
           "flow_1",
           false
         ],
         [
           99,
-          "match_2",
+          "match_3",
           76,
           "flow_1",
           false
@@ -849,15 +856,15 @@
           false
         ],
         [
-          613,
-          "flow",
+          585,
+          "false",
           77,
           "flow",
           false
         ],
         [
-          585,
-          "false",
+          613,
+          "flow",
           77,
           "flow",
           false
@@ -1108,21 +1115,14 @@
           false
         ],
         [
-          943,
-          "true",
+          1251,
+          "flow",
           95,
           "flow",
           false
         ],
         [
           109,
-          "flow",
-          95,
-          "flow",
-          false
-        ],
-        [
-          1543,
           "flow",
           95,
           "flow",
@@ -1136,8 +1136,15 @@
           false
         ],
         [
-          1251,
+          1543,
           "flow",
+          95,
+          "flow",
+          false
+        ],
+        [
+          943,
+          "true",
           95,
           "flow",
           false
@@ -1682,14 +1689,14 @@
           true
         ],
         [
-          183,
+          9884,
           "flow",
           123,
           "flow",
           false
         ],
         [
-          9884,
+          9885,
           "flow",
           123,
           "flow",
@@ -1703,7 +1710,7 @@
           false
         ],
         [
-          9885,
+          183,
           "flow",
           123,
           "flow",
@@ -1934,8 +1941,8 @@
           false
         ],
         [
-          150,
-          "completed",
+          752,
+          "flow",
           140,
           "flow",
           false
@@ -2305,14 +2312,14 @@
           false
         ],
         [
-          146,
+          1175,
           "flow",
           175,
           "flow",
           false
         ],
         [
-          1175,
+          1320,
           "flow",
           175,
           "flow",
@@ -2326,15 +2333,15 @@
           false
         ],
         [
-          949,
-          "false",
+          146,
+          "flow",
           175,
           "flow",
           false
         ],
         [
-          1320,
-          "flow",
+          949,
+          "false",
           175,
           "flow",
           false
@@ -2522,6 +2529,13 @@
           false
         ],
         [
+          1096,
+          "False",
+          194,
+          "flow",
+          false
+        ],
+        [
           1095,
           "flow",
           194,
@@ -2530,13 +2544,6 @@
         ],
         [
           1094,
-          "False",
-          194,
-          "flow",
-          false
-        ],
-        [
-          1096,
           "False",
           194,
           "flow",
@@ -2788,13 +2795,6 @@
           false
         ],
         [
-          124,
-          "flow",
-          212,
-          "flow",
-          false
-        ],
-        [
           1180,
           "down",
           212,
@@ -2804,6 +2804,13 @@
         [
           1175,
           "down",
+          212,
+          "flow",
+          false
+        ],
+        [
+          124,
+          "flow",
           212,
           "flow",
           false
@@ -3684,14 +3691,14 @@
           false
         ],
         [
-          509,
+          10217,
           "false",
           276,
           "flow",
           false
         ],
         [
-          10217,
+          509,
           "false",
           276,
           "flow",
@@ -3706,14 +3713,14 @@
         ],
         [
           689,
-          "carshop",
+          "partshop",
           278,
           "flow",
           false
         ],
         [
           689,
-          "partshop",
+          "carshop",
           278,
           "flow",
           false
@@ -4321,15 +4328,15 @@
           false
         ],
         [
-          1115,
-          "True",
+          1670,
+          "out",
           328,
           "clear",
           false
         ],
         [
-          1670,
-          "out",
+          1115,
+          "True",
           328,
           "clear",
           false
@@ -4888,15 +4895,15 @@
           false
         ],
         [
-          1507,
-          "true",
+          158,
+          "flow",
           365,
           "flow",
           false
         ],
         [
-          158,
-          "flow",
+          1507,
+          "true",
           365,
           "flow",
           false
@@ -5042,6 +5049,20 @@
           false
         ],
         [
+          966,
+          "flow",
+          378,
+          "flow",
+          false
+        ],
+        [
+          10011,
+          "flow",
+          378,
+          "flow",
+          false
+        ],
+        [
           394,
           "flow",
           378,
@@ -5056,14 +5077,7 @@
           false
         ],
         [
-          961,
-          "flow",
-          378,
-          "flow",
-          false
-        ],
-        [
-          10011,
+          1182,
           "flow",
           378,
           "flow",
@@ -5077,7 +5091,7 @@
           false
         ],
         [
-          1182,
+          10017,
           "flow",
           378,
           "flow",
@@ -5091,14 +5105,7 @@
           false
         ],
         [
-          10017,
-          "flow",
-          378,
-          "flow",
-          false
-        ],
-        [
-          966,
+          961,
           "flow",
           378,
           "flow",
@@ -5497,15 +5504,15 @@
           false
         ],
         [
-          1482,
-          "out",
+          24,
+          "true",
           402,
           "flow",
           false
         ],
         [
-          24,
-          "true",
+          1482,
+          "out",
           402,
           "flow",
           false
@@ -6694,8 +6701,8 @@
           false
         ],
         [
-          1337,
-          "completed",
+          140,
+          "flow",
           502,
           "flow",
           false
@@ -7261,15 +7268,15 @@
           true
         ],
         [
-          1298,
-          "flow",
+          167,
+          "true",
           540,
           "flow",
           false
         ],
         [
-          167,
-          "true",
+          1298,
+          "flow",
           540,
           "flow",
           false
@@ -8122,15 +8129,15 @@
           false
         ],
         [
-          153,
-          "activated",
+          48,
+          "false",
           607,
           "on",
           false
         ],
         [
-          48,
-          "false",
+          153,
+          "activated",
           607,
           "on",
           false
@@ -8290,13 +8297,6 @@
           true
         ],
         [
-          1551,
-          "false",
-          613,
-          "flow",
-          false
-        ],
-        [
           553,
           "flow",
           613,
@@ -8306,6 +8306,13 @@
         [
           594,
           "False",
+          613,
+          "flow",
+          false
+        ],
+        [
+          1551,
+          "false",
           613,
           "flow",
           false
@@ -8654,15 +8661,15 @@
           false
         ],
         [
-          1582,
-          "False",
+          1583,
+          "flow",
           643,
           "flow",
           false
         ],
         [
-          1583,
-          "flow",
+          1582,
+          "False",
           643,
           "flow",
           false
@@ -9039,15 +9046,15 @@
           false
         ],
         [
-          735,
-          "True",
+          672,
+          "true",
           671,
           "flow",
           false
         ],
         [
-          672,
-          "true",
+          735,
+          "True",
           671,
           "flow",
           false
@@ -9690,15 +9697,15 @@
           false
         ],
         [
-          24,
-          "true",
+          1482,
+          "out",
           713,
           "reset",
           false
         ],
         [
-          1482,
-          "out",
+          24,
+          "true",
           713,
           "reset",
           false
@@ -9767,18 +9774,18 @@
           true
         ],
         [
-          591,
-          "false",
-          717,
-          "off",
-          true
-        ],
-        [
           1514,
           "False",
           717,
           "off",
           false
+        ],
+        [
+          591,
+          "false",
+          717,
+          "off",
+          true
         ],
         [
           591,
@@ -10299,13 +10306,6 @@
           false
         ],
         [
-          1259,
-          "flow",
-          761,
-          "flow",
-          false
-        ],
-        [
           1388,
           "flow",
           761,
@@ -10314,6 +10314,13 @@
         ],
         [
           1258,
+          "flow",
+          761,
+          "flow",
+          false
+        ],
+        [
+          1259,
           "flow",
           761,
           "flow",
@@ -10390,15 +10397,15 @@
           false
         ],
         [
-          758,
-          "flow",
+          728,
+          "false",
           766,
           "flow",
           false
         ],
         [
-          728,
-          "false",
+          758,
+          "flow",
           766,
           "flow",
           false
@@ -10663,15 +10670,15 @@
           false
         ],
         [
-          167,
-          "true",
+          1298,
+          "flow",
           787,
           "on",
           false
         ],
         [
-          1298,
-          "flow",
+          167,
+          "true",
           787,
           "on",
           false
@@ -10796,15 +10803,15 @@
           false
         ],
         [
-          1005,
-          "False",
+          1007,
+          "flow",
           801,
           "flow",
           false
         ],
         [
-          1007,
-          "flow",
+          1005,
+          "False",
           801,
           "flow",
           false
@@ -10978,14 +10985,14 @@
           false
         ],
         [
-          843,
+          10245,
           "down",
           812,
           "reset",
           false
         ],
         [
-          10245,
+          843,
           "down",
           812,
           "reset",
@@ -11139,20 +11146,6 @@
           false
         ],
         [
-          843,
-          "flow",
-          823,
-          "flow",
-          false
-        ],
-        [
-          10245,
-          "flow",
-          823,
-          "flow",
-          false
-        ],
-        [
           1149,
           "flow",
           823,
@@ -11160,7 +11153,21 @@
           false
         ],
         [
+          843,
+          "flow",
+          823,
+          "flow",
+          false
+        ],
+        [
           828,
+          "flow",
+          823,
+          "flow",
+          false
+        ],
+        [
+          10245,
           "flow",
           823,
           "flow",
@@ -11496,15 +11503,15 @@
           false
         ],
         [
-          24,
-          "true",
+          1482,
+          "out",
           847,
           "flow",
           false
         ],
         [
-          1482,
-          "out",
+          24,
+          "true",
           847,
           "flow",
           false
@@ -11755,6 +11762,13 @@
           false
         ],
         [
+          878,
+          "down",
+          873,
+          "flow",
+          false
+        ],
+        [
           206,
           "down",
           873,
@@ -11769,13 +11783,6 @@
           false
         ],
         [
-          878,
-          "down",
-          873,
-          "flow",
-          false
-        ],
-        [
           104,
           "flow",
           874,
@@ -11783,7 +11790,7 @@
           false
         ],
         [
-          148,
+          171,
           "down",
           874,
           "reset",
@@ -11804,7 +11811,7 @@
           false
         ],
         [
-          171,
+          148,
           "down",
           874,
           "reset",
@@ -11832,15 +11839,15 @@
           false
         ],
         [
-          833,
-          "false",
+          10116,
+          "activated",
           876,
           "on",
           false
         ],
         [
-          10116,
-          "activated",
+          833,
+          "false",
           876,
           "on",
           false
@@ -11881,6 +11888,13 @@
           false
         ],
         [
+          1382,
+          "none",
+          879,
+          "flow",
+          false
+        ],
+        [
           1385,
           "True",
           879,
@@ -11895,21 +11909,14 @@
           false
         ],
         [
-          1382,
-          "none",
           879,
-          "flow",
-          false
-        ],
-        [
-          1387,
           "flow",
           880,
           "flow",
           false
         ],
         [
-          879,
+          1387,
           "flow",
           880,
           "flow",
@@ -12112,14 +12119,14 @@
           false
         ],
         [
-          1438,
+          1307,
           "true",
           897,
           "flow",
           false
         ],
         [
-          1307,
+          1438,
           "true",
           897,
           "flow",
@@ -12427,6 +12434,13 @@
           false
         ],
         [
+          1634,
+          "flow",
+          925,
+          "flow",
+          false
+        ],
+        [
           185,
           "flow",
           925,
@@ -12435,13 +12449,6 @@
         ],
         [
           1478,
-          "flow",
-          925,
-          "flow",
-          false
-        ],
-        [
-          1634,
           "flow",
           925,
           "flow",
@@ -12623,6 +12630,13 @@
           false
         ],
         [
+          10292,
+          "flow",
+          938,
+          "flow",
+          false
+        ],
+        [
           912,
           "True",
           938,
@@ -12637,13 +12651,6 @@
           false
         ],
         [
-          10292,
-          "flow",
-          938,
-          "flow",
-          false
-        ],
-        [
           937,
           "flow",
           939,
@@ -12651,15 +12658,15 @@
           false
         ],
         [
-          918,
-          "flow",
+          193,
+          "down",
           940,
           "flow",
           false
         ],
         [
-          193,
-          "down",
+          918,
+          "flow",
           940,
           "flow",
           false
@@ -13022,13 +13029,6 @@
           false
         ],
         [
-          974,
-          "flow",
-          979,
-          "flow",
-          false
-        ],
-        [
           971,
           "flow",
           980,
@@ -13036,8 +13036,8 @@
           false
         ],
         [
-          979,
-          "completed",
+          1778,
+          "flow",
           980,
           "on",
           false
@@ -13582,14 +13582,14 @@
           false
         ],
         [
-          1134,
+          1175,
           "down",
           1026,
           "flow",
           false
         ],
         [
-          1175,
+          1134,
           "down",
           1026,
           "flow",
@@ -13631,14 +13631,14 @@
           false
         ],
         [
-          843,
+          10245,
           "down",
           1029,
           "reset",
           false
         ],
         [
-          10245,
+          843,
           "down",
           1029,
           "reset",
@@ -13652,14 +13652,14 @@
           false
         ],
         [
-          843,
+          10245,
           "down",
           1030,
           "reset",
           false
         ],
         [
-          10245,
+          843,
           "down",
           1030,
           "reset",
@@ -13967,14 +13967,14 @@
           false
         ],
         [
-          450,
+          10022,
           "flow",
           1058,
           "flow",
           false
         ],
         [
-          10022,
+          450,
           "flow",
           1058,
           "flow",
@@ -14132,13 +14132,6 @@
           "down",
           1072,
           "on",
-          false
-        ],
-        [
-          7,
-          "enterState",
-          1073,
-          "flow",
           false
         ],
         [
@@ -14373,15 +14366,15 @@
           false
         ],
         [
-          561,
-          "flow",
+          641,
+          "True",
           1092,
           "flow",
           false
         ],
         [
-          641,
-          "True",
+          561,
+          "flow",
           1092,
           "flow",
           false
@@ -14394,7 +14387,7 @@
           false
         ],
         [
-          193,
+          271,
           "flow",
           1094,
           "flow",
@@ -14408,7 +14401,7 @@
           false
         ],
         [
-          271,
+          193,
           "flow",
           1094,
           "flow",
@@ -14597,13 +14590,6 @@
           false
         ],
         [
-          1105,
-          "flow",
-          1106,
-          "flow",
-          false
-        ],
-        [
           1559,
           "True",
           1106,
@@ -14611,9 +14597,9 @@
           false
         ],
         [
-          10271,
+          1105,
           "flow",
-          1107,
+          1106,
           "flow",
           false
         ],
@@ -14627,6 +14613,13 @@
         [
           605,
           "True",
+          1107,
+          "flow",
+          false
+        ],
+        [
+          10271,
+          "flow",
           1107,
           "flow",
           false
@@ -14709,15 +14702,15 @@
           false
         ],
         [
-          526,
-          "flow",
+          10017,
+          "down",
           1119,
           "flow",
           false
         ],
         [
-          10017,
-          "down",
+          526,
+          "flow",
           1119,
           "flow",
           false
@@ -14744,7 +14737,7 @@
           true
         ],
         [
-          1714,
+          1131,
           "flow",
           1122,
           "flow",
@@ -14758,7 +14751,7 @@
           false
         ],
         [
-          1131,
+          1677,
           "flow",
           1122,
           "flow",
@@ -14772,7 +14765,7 @@
           false
         ],
         [
-          1677,
+          1714,
           "flow",
           1122,
           "flow",
@@ -14954,14 +14947,14 @@
           false
         ],
         [
-          1153,
+          1166,
           "False",
           1135,
           "reset",
           false
         ],
         [
-          1166,
+          1153,
           "False",
           1135,
           "reset",
@@ -15318,14 +15311,14 @@
           false
         ],
         [
-          843,
+          10245,
           "down",
           1168,
           "flow",
           false
         ],
         [
-          10245,
+          843,
           "down",
           1168,
           "flow",
@@ -15346,14 +15339,14 @@
           false
         ],
         [
-          1164,
+          1170,
           "flow",
           1171,
           "flow",
           false
         ],
         [
-          1170,
+          1164,
           "flow",
           1171,
           "flow",
@@ -15403,14 +15396,14 @@
         ],
         [
           4986,
-          "match_1",
+          "match_2",
           1177,
           "flow",
           false
         ],
         [
           4986,
-          "match_2",
+          "match_1",
           1177,
           "flow",
           false
@@ -15486,14 +15479,14 @@
           false
         ],
         [
-          368,
+          10128,
           "flow",
           1185,
           "reset",
           false
         ],
         [
-          10128,
+          368,
           "flow",
           1185,
           "reset",
@@ -15563,14 +15556,14 @@
           false
         ],
         [
-          210,
+          9876,
           "down",
           1191,
           "flow",
           false
         ],
         [
-          9876,
+          210,
           "down",
           1191,
           "flow",
@@ -15742,6 +15735,13 @@
           "vehId",
           1209,
           "veid",
+          false
+        ],
+        [
+          14,
+          "flow",
+          1210,
+          "flow",
           false
         ],
         [
@@ -16467,7 +16467,7 @@
         ],
         [
           99,
-          "match_5",
+          "match_2",
           1285,
           "flow",
           false
@@ -16481,14 +16481,14 @@
         ],
         [
           99,
-          "match_2",
+          "match_4",
           1285,
           "flow",
           false
         ],
         [
           99,
-          "match_4",
+          "match_5",
           1285,
           "flow",
           false
@@ -16614,14 +16614,14 @@
         ],
         [
           861,
-          "match_2",
+          "match_1",
           1294,
           "flow",
           false
         ],
         [
           861,
-          "match_1",
+          "match_2",
           1294,
           "flow",
           false
@@ -16719,14 +16719,14 @@
         ],
         [
           1172,
-          "match_2",
+          "match_1",
           1304,
           "flow",
           false
         ],
         [
           1172,
-          "match_1",
+          "match_2",
           1304,
           "flow",
           false
@@ -16809,14 +16809,14 @@
           false
         ],
         [
-          1447,
+          1445,
           "flow",
           1312,
           "flow",
           false
         ],
         [
-          1445,
+          1447,
           "flow",
           1312,
           "flow",
@@ -17068,7 +17068,7 @@
           false
         ],
         [
-          752,
+          150,
           "flow",
           1337,
           "flow",
@@ -17390,14 +17390,14 @@
           false
         ],
         [
-          1097,
+          24,
           "true",
           1372,
           "flow",
           false
         ],
         [
-          24,
+          1097,
           "true",
           1372,
           "flow",
@@ -17831,7 +17831,7 @@
           false
         ],
         [
-          124,
+          1575,
           "flow",
           1422,
           "flow",
@@ -17845,22 +17845,22 @@
           false
         ],
         [
-          1575,
+          124,
           "flow",
           1422,
           "flow",
           false
         ],
         [
-          639,
-          "flow",
+          637,
+          "false",
           1423,
           "flow",
           false
         ],
         [
-          637,
-          "false",
+          639,
+          "flow",
           1423,
           "flow",
           false
@@ -17901,6 +17901,13 @@
           false
         ],
         [
+          234,
+          "flow",
+          1428,
+          "flow",
+          false
+        ],
+        [
           1179,
           "flow",
           1428,
@@ -17909,13 +17916,6 @@
         ],
         [
           1723,
-          "flow",
-          1428,
-          "flow",
-          false
-        ],
-        [
-          234,
           "flow",
           1428,
           "flow",
@@ -18175,14 +18175,14 @@
         ],
         [
           1383,
-          "match_2",
+          "match_1",
           1446,
           "flow",
           false
         ],
         [
           1383,
-          "match_1",
+          "match_2",
           1446,
           "flow",
           false
@@ -18518,14 +18518,14 @@
         ],
         [
           4986,
-          "match_4",
+          "match_2",
           1481,
           "flow",
           false
         ],
         [
           4986,
-          "match_2",
+          "match_4",
           1481,
           "flow",
           false
@@ -18993,13 +18993,6 @@
           false
         ],
         [
-          1525,
-          "flow",
-          1521,
-          "flow",
-          false
-        ],
-        [
           1523,
           "flow",
           1521,
@@ -19014,7 +19007,7 @@
           false
         ],
         [
-          1523,
+          1525,
           "flow",
           1521,
           "flow",
@@ -19022,6 +19015,13 @@
         ],
         [
           1525,
+          "flow",
+          1521,
+          "flow",
+          false
+        ],
+        [
+          1523,
           "flow",
           1521,
           "flow",
@@ -19870,6 +19870,13 @@
         [
           150,
           "complete",
+          1593,
+          "flow",
+          false
+        ],
+        [
+          1337,
+          "skip",
           1593,
           "flow",
           false
@@ -20904,15 +20911,15 @@
           false
         ],
         [
-          1679,
-          "down",
+          1688,
+          "flow",
           1681,
           "clear",
           false
         ],
         [
-          1688,
-          "flow",
+          1679,
+          "down",
           1681,
           "clear",
           false
@@ -21590,14 +21597,14 @@
           false
         ],
         [
-          1740,
+          1736,
           "flow",
           1735,
           "flow",
           false
         ],
         [
-          1736,
+          1740,
           "flow",
           1735,
           "flow",
@@ -21730,15 +21737,15 @@
           false
         ],
         [
-          7,
-          "enterState",
+          1746,
+          "out",
           1748,
           "flow",
           false
         ],
         [
-          1746,
-          "out",
+          7,
+          "enterState",
           1748,
           "flow",
           false
@@ -21870,15 +21877,15 @@
           false
         ],
         [
-          1758,
-          "flow",
+          1756,
+          "True",
           1759,
           "flow",
           false
         ],
         [
-          1756,
-          "True",
+          1758,
+          "flow",
           1759,
           "flow",
           false
@@ -21982,15 +21989,15 @@
           false
         ],
         [
-          947,
-          "flow",
+          877,
+          "activated",
           1770,
           "flow",
           false
         ],
         [
-          877,
-          "activated",
+          947,
+          "flow",
           1770,
           "flow",
           false
@@ -22069,6 +22076,13 @@
           1773,
           "flow",
           1775,
+          "flow",
+          false
+        ],
+        [
+          974,
+          "flow",
+          1778,
           "flow",
           false
         ],
@@ -22262,6 +22276,13 @@
           false
         ],
         [
+          1210,
+          "flow",
+          1794,
+          "flow",
+          false
+        ],
+        [
           1587,
           "flow",
           1795,
@@ -22297,15 +22318,15 @@
           false
         ],
         [
-          1784,
-          "flow",
+          1782,
+          "none",
           1798,
           "flow",
           false
         ],
         [
-          1782,
-          "none",
+          1784,
+          "flow",
           1798,
           "flow",
           false
@@ -22332,15 +22353,15 @@
           false
         ],
         [
-          1827,
-          "flow",
+          1784,
+          "down",
           1802,
           "flow",
           false
         ],
         [
-          1784,
-          "down",
+          1827,
+          "flow",
           1802,
           "flow",
           false
@@ -22829,15 +22850,15 @@
           false
         ],
         [
-          440,
-          "true",
+          44,
+          "flow",
           10136,
           "flow",
           false
         ],
         [
-          44,
-          "flow",
+          440,
+          "true",
           10136,
           "flow",
           false
@@ -23179,15 +23200,15 @@
           false
         ],
         [
-          186,
-          "True",
+          10031,
+          "flow",
           10014,
           "flow",
           false
         ],
         [
-          10031,
-          "flow",
+          186,
+          "True",
           10014,
           "flow",
           false
@@ -23277,15 +23298,15 @@
           true
         ],
         [
-          1698,
-          "flow",
+          1693,
+          "False",
           10299,
           "flow",
           false
         ],
         [
-          1693,
-          "False",
+          1698,
+          "flow",
           10299,
           "flow",
           false
@@ -23473,13 +23494,6 @@
           false
         ],
         [
-          766,
-          "flow",
-          10088,
-          "flow",
-          false
-        ],
-        [
           639,
           "flow",
           10088,
@@ -23488,6 +23502,13 @@
         ],
         [
           520,
+          "flow",
+          10088,
+          "flow",
+          false
+        ],
+        [
+          766,
           "flow",
           10088,
           "flow",
@@ -23690,14 +23711,14 @@
           false
         ],
         [
-          579,
+          623,
           "flow",
           10125,
           "flow",
           false
         ],
         [
-          623,
+          579,
           "flow",
           10125,
           "flow",
@@ -24383,15 +24404,15 @@
           false
         ],
         [
-          1181,
-          "flow",
+          247,
+          "False",
           10011,
           "flow",
           false
         ],
         [
-          247,
-          "False",
+          1181,
+          "flow",
           10011,
           "flow",
           false
@@ -24537,15 +24558,15 @@
           false
         ],
         [
-          1488,
-          "false",
+          699,
+          "flow",
           10176,
           "flow",
           false
         ],
         [
-          699,
-          "flow",
+          1488,
+          "false",
           10176,
           "flow",
           false
@@ -24649,15 +24670,15 @@
           false
         ],
         [
-          1329,
-          "flow",
+          1335,
+          "false",
           10211,
           "flow",
           false
         ],
         [
-          1335,
-          "false",
+          1329,
+          "flow",
           10211,
           "flow",
           false
@@ -24761,14 +24782,14 @@
           false
         ],
         [
-          1575,
+          258,
           "flow",
           10271,
           "flow",
           false
         ],
         [
-          258,
+          1575,
           "flow",
           10271,
           "flow",
@@ -25006,15 +25027,15 @@
           false
         ],
         [
-          24,
-          "true",
+          1482,
+          "out",
           10188,
           "flow",
           false
         ],
         [
-          1482,
-          "out",
+          24,
+          "true",
           10188,
           "flow",
           false
@@ -25687,6 +25708,48 @@
           ],
           "type":"util/customLua"
         },
+        "14":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"core_recoveryPrompt.deactivateAllButtons()"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Disable Recovery Buttons",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ]
+          ],
+          "pos":[
+            94,
+            1141
+          ],
+          "type":"util/customLua"
+        },
         "15":{
           "code":{
             "_executionStarted":"",
@@ -25754,7 +25817,7 @@
           "type":"util/customLua"
         },
         "16":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -25830,7 +25893,7 @@
           "type":"logic/compare"
         },
         "19":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -26245,8 +26308,8 @@
             ]
           ],
           "pos":[
-            -1712,
-            2360
+            -1740,
+            2710
           ],
           "type":"util/customLua"
         },
@@ -27384,7 +27447,7 @@
           "type":"types/genericValue"
         },
         "62":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -27420,7 +27483,7 @@
           "type":"debug/comment"
         },
         "63":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -27728,7 +27791,7 @@
           "type":"ui/imgui/elemental/imEnd"
         },
         "70":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -27764,7 +27827,7 @@
           "type":"debug/comment"
         },
         "71":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -27908,7 +27971,7 @@
           "type":"util/customLua"
         },
         "73":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -28312,7 +28375,7 @@
           "type":"logic/switchcase"
         },
         "86":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -28367,7 +28430,7 @@
           "type":"types/number"
         },
         "88":{
-          "alpha":0.75000000000000033307,
+          "alpha":0.75000000000000288658,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -28375,9 +28438,9 @@
             0.50000000000000000000
           ],
           "borderColor":[
-            0.80000001192092862201,
-            0.80000001192092862201,
-            0.80000001192092862201,
+            0.80000001192092851099,
+            0.80000001192092851099,
+            0.80000001192092851099,
             1
           ],
           "commentSize":[
@@ -28997,7 +29060,7 @@
           "type":"ui/imgui/elemental/imEnd"
         },
         "101":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -30198,7 +30261,7 @@
           "type":"util/customLua"
         },
         "120":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -30694,6 +30757,10 @@
           "data":{},
           "dynamicMode":"once",
           "hardcodedPins":{
+            "gameStateName":{
+              "type":"string",
+              "value":"scenario"
+            },
             "layout":{
               "type":"string",
               "value":"beamlr"
@@ -30718,8 +30785,8 @@
             }
           },
           "pos":[
-            -480,
-            -34
+            -444,
+            -38
           ],
           "type":"ui/setUILayout"
         },
@@ -30861,7 +30928,7 @@
           "type":"util/customLua"
         },
         "134":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000199840,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -30869,9 +30936,9 @@
             0.50000000000000000000
           ],
           "borderColor":[
-            0.80000001190000002982,
-            0.80000001190000002982,
-            0.80000001190000002982,
+            0.80000001192092851099,
+            0.80000001192092851099,
+            0.80000001192092851099,
             1
           ],
           "commentSize":[
@@ -31154,36 +31221,23 @@
         "140":{
           "data":{},
           "dynamicMode":"repeat",
-          "hardcodedPins":{
-            "duration":{
-              "type":"number",
-              "value":3
-            },
-            "message":{
-              "type":"string",
-              "value":"beamlr.msgapp.beamlrtitle"
-            }
-          },
           "hiddenPins":{
             "p_in":{
-              "biggerText":true,
-              "duration":false,
               "flow":false,
-              "instant":true,
-              "message":false
+              "reset":false
             },
             "p_out":{
               "flow":false
             }
           },
           "pos":[
-            -46,
-            -48
+            -1530,
+            2303
           ],
-          "type":"ui/flashMessageBLR"
+          "type":"logic/once"
         },
         "141":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -31319,7 +31373,7 @@
           "type":"util/customLua"
         },
         "144":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -31476,7 +31530,7 @@
           "type":"util/customLua"
         },
         "147":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -31694,7 +31748,7 @@
           "hardcodedPins":{
             "duration":{
               "type":"number",
-              "value":0.75000000000000466294
+              "value":0.75000000000000721645
             }
           },
           "hiddenPins":{
@@ -31711,8 +31765,8 @@
             }
           },
           "pos":[
-            -368,
-            1072
+            -424,
+            1068
           ],
           "type":"ui/fadeFromBlack"
         },
@@ -31784,7 +31838,7 @@
           "type":"gameplay/traffic/trafficActivate"
         },
         "154":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -32119,7 +32173,7 @@
           "type":"util/customLua"
         },
         "162":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -32347,7 +32401,7 @@
           "type":"types/genericValue"
         },
         "170":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -32689,7 +32743,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nlocal missionID = extensions.gameplay_missions_missionManager.getForegroundMissionId()\nif missionID then\nlocal missionData = gameplay_missions_missions.getMissionById(missionID)\nextensions.gameplay_missions_missionManager.startFromWithinMission(missionData, {})\nelse\nself.graph.mgr:queueForRestart()\nend"
+            "work":"local extensions = require(\"extensions\")\nlocal missionID = extensions.gameplay_missions_missionManager.getForegroundMissionId()\nif missionID then\nlocal missionData = gameplay_missions_missions.getMissionById(missionID)\nextensions.gameplay_missions_missionManager.startFromWithinMission(missionData, {})\nelse\nself.graph.mgr:queueForRestart()\nend\n\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -32721,8 +32775,8 @@
             ]
           ],
           "pos":[
-            -1376,
-            2990
+            -1494,
+            3395
           ],
           "type":"util/customLua"
         },
@@ -32744,7 +32798,7 @@
           "type":"ui/imgui/elemental/imEnd"
         },
         "179":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -32862,7 +32916,7 @@
           "type":"util/customLua"
         },
         "181":{
-          "alpha":0.75000000000000233147,
+          "alpha":0.75000000000000488498,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -33771,7 +33825,7 @@
           "type":"util/customLua"
         },
         "202":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -34825,7 +34879,7 @@
           "type":"types/genericValue"
         },
         "225":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -35121,7 +35175,7 @@
           "type":"types/genericValue"
         },
         "231":{
-          "alpha":0.75000000000000011102,
+          "alpha":0.75000000000000266454,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -35129,9 +35183,9 @@
             0.50000000000000000000
           ],
           "borderColor":[
-            0.80000001192092884406,
-            0.80000001192092884406,
-            0.80000001192092884406,
+            0.80000001192092851099,
+            0.80000001192092851099,
+            0.80000001192092851099,
             1
           ],
           "commentSize":[
@@ -35405,7 +35459,7 @@
           "type":"util/customLua"
         },
         "239":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -37189,7 +37243,7 @@
           "type":"logic/once"
         },
         "277":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -37843,7 +37897,7 @@
           "type":"util/customLua"
         },
         "287":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -38986,8 +39040,8 @@
             ]
           ],
           "pos":[
-            -318,
-            2878
+            -290,
+            2486
           ],
           "type":"util/customLua"
         },
@@ -39519,8 +39573,8 @@
             ]
           ],
           "pos":[
-            -298,
-            2402
+            -1894,
+            2178
           ],
           "type":"util/customLua"
         },
@@ -39582,7 +39636,7 @@
           "type":"logic/compare"
         },
         "326":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -40075,7 +40129,7 @@
           "type":"util/customLua"
         },
         "338":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -40128,7 +40182,7 @@
           "type":"logic/bundle"
         },
         "340":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -41227,7 +41281,7 @@
           "type":"types/genericValue"
         },
         "359":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -41686,7 +41740,7 @@
           "type":"logic/bundle"
         },
         "370":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000077716,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -41694,9 +41748,9 @@
             0.50000000000000000000
           ],
           "borderColor":[
-            0.80000001190000002982,
-            0.80000001190000002982,
-            0.80000001190000002982,
+            0.80000001192092851099,
+            0.80000001192092851099,
+            0.80000001192092851099,
             1
           ],
           "commentSize":[
@@ -43505,7 +43559,7 @@
           "type":"util/customLua"
         },
         "408":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -44983,7 +45037,7 @@
           "type":"util/customLua"
         },
         "439":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -45701,7 +45755,7 @@
           "type":"util/customLua"
         },
         "449":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -46598,7 +46652,7 @@
           "type":"util/customLua"
         },
         "468":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -46634,7 +46688,7 @@
           "type":"debug/comment"
         },
         "469":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000044409,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -46642,9 +46696,9 @@
             0.50000000000000000000
           ],
           "borderColor":[
-            0.80000001190000002982,
-            0.80000001190000002982,
-            0.80000001190000002982,
+            0.80000001192092851099,
+            0.80000001192092851099,
+            0.80000001192092851099,
             1
           ],
           "commentSize":[
@@ -46657,8 +46711,8 @@
           "dynamicMode":"repeat",
           "moveMode":"withNodes",
           "pos":[
-            -1988,
-            2170
+            -2016,
+            2520
           ],
           "simple":false,
           "textColor":[
@@ -46722,8 +46776,8 @@
             }
           },
           "pos":[
-            -116,
-            2402
+            -1712,
+            2178
           ],
           "type":"logic/branch"
         },
@@ -46764,8 +46818,8 @@
             ]
           ],
           "pos":[
-            -1348,
-            2234
+            -1376,
+            2584
           ],
           "type":"util/customLua"
         },
@@ -46789,13 +46843,13 @@
             }
           },
           "pos":[
-            -1628,
-            2878
+            -1726,
+            3270
           ],
           "type":"logic/frameDelay"
         },
         "475":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -46841,8 +46895,8 @@
             }
           },
           "pos":[
-            -1894,
-            2486
+            -1922,
+            2836
           ],
           "type":"scene/getPlayerVehicle"
         },
@@ -47420,7 +47474,7 @@
           "type":"logic/frameDelay"
         },
         "489":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000011102,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -47428,9 +47482,9 @@
             0.50000000000000000000
           ],
           "borderColor":[
-            0.80000001190000002982,
-            0.80000001190000002982,
-            0.80000001190000002982,
+            0.80000001192092884406,
+            0.80000001192092884406,
+            0.80000001192092884406,
             1
           ],
           "commentSize":[
@@ -47517,8 +47571,8 @@
             }
           },
           "pos":[
-            -1950,
-            2318
+            -1978,
+            2668
           ],
           "type":"logic/frameDelay"
         },
@@ -47606,8 +47660,8 @@
             }
           },
           "pos":[
-            -1530,
-            2234
+            -1558,
+            2584
           ],
           "type":"logic/once"
         },
@@ -47741,7 +47795,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nlocal model = self.pinIn.model.value\nlocal config = self.pinIn.config.value\nlocal pos = vec3(self.pinIn.pos.value)\nlocal rot = quat(self.pinIn.rot.value)\nlocal paintdata = self.pinIn.paintdata.value\nlocal avbrdy = self.pinIn.avbrdy.value\nlocal paintA = extensions.blrutils.createPaint(extensions.blrutils.ssplit(paintdata[\"paintA\"], \",\"))\nif paintdata[\"paintB\"] then\nlocal paintB = extensions.blrutils.createPaint(extensions.blrutils.ssplit(paintdata[\"paintB\"], \",\"))\nend\nif paintdata[\"paintC\"] then\nlocal paintC = extensions.blrutils.createPaint(extensions.blrutils.ssplit(paintdata[\"paintC\"], \",\"))\nend\nlocal spawnOptions = {config=config,pos = pos, rot = rot, paint=paintA, paint2=paintB,paint3=paintC}\n\n--1.13 advanced vehicle building \nif avbrdy then\nextensions.blrglobals.blrFlagSet(\"advancedVehicleBuilding\",true)\nend\n\n-- 1.16.6 now requesting ilinks init before spawn, so it happens during hook\nextensions.blrglobals.blrFlagSet(\"ilinksInitRequest\", true)\n\nlocal veh = extensions.blrutils.blrSpawn(model, spawnOptions)\nself.pinOut.veid.value = veh:getId()\n\n-- 1.15.1 fix\nextensions.blrutils.blrvarSet(\"playervehid\", veh:getId())"
+            "work":"local extensions = require(\"extensions\")\nlocal model = self.pinIn.model.value\nlocal config = self.pinIn.config.value\nlocal pos = vec3(self.pinIn.pos.value)\nlocal rot = quat(self.pinIn.rot.value)\nlocal paintdata = self.pinIn.paintdata.value\nlocal avbrdy = self.pinIn.avbrdy.value\nlocal paintA = extensions.blrutils.createPaint(extensions.blrutils.ssplit(paintdata[\"paintA\"], \",\"))\nif paintdata[\"paintB\"] then\nlocal paintB = extensions.blrutils.createPaint(extensions.blrutils.ssplit(paintdata[\"paintB\"], \",\"))\nend\nif paintdata[\"paintC\"] then\nlocal paintC = extensions.blrutils.createPaint(extensions.blrutils.ssplit(paintdata[\"paintC\"], \",\"))\nend\nlocal spawnOptions = {config=config,pos = pos, rot = rot, paint=paintA, paint2=paintB,paint3=paintC}\n\n--1.13 advanced vehicle building \nif avbrdy then\nextensions.blrpartmgmt.toggleAdvancedVehicleBuilding(true)\nend\n\n-- 1.16.6 now requesting ilinks init before spawn, so it happens during hook\nextensions.blrglobals.blrFlagSet(\"ilinksInitRequest\", true)\n\nlocal veh = extensions.blrutils.blrSpawn(model, spawnOptions)\nself.pinOut.veid.value = veh:getId()\n\n-- 1.15.1 fix\nextensions.blrutils.blrvarSet(\"playervehid\", veh:getId())"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -47905,8 +47959,8 @@
             }
           },
           "pos":[
-            -1740,
-            2234
+            -1768,
+            2584
           ],
           "type":"logic/flowSwitch"
         },
@@ -47941,8 +47995,8 @@
             }
           },
           "pos":[
-            -1936,
-            2265
+            -1964,
+            2615
           ],
           "type":"logic/bundle"
         },
@@ -48053,8 +48107,8 @@
             }
           },
           "pos":[
-            -1516,
-            2332
+            -1544,
+            2682
           ],
           "type":"vehicle/moveTo"
         },
@@ -48095,8 +48149,8 @@
             ]
           ],
           "pos":[
-            -116,
-            1253
+            -402,
+            1323
           ],
           "type":"util/customLua"
         },
@@ -48254,13 +48308,13 @@
             }
           },
           "pos":[
-            -1404,
-            2486
+            -1494,
+            2820
           ],
           "type":"scene/camera/returnToVehicle"
         },
         "511":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -48339,7 +48393,7 @@
           "type":"logic/branch"
         },
         "514":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -48408,7 +48462,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nlocal model = self.pinIn.model.value\nlocal config = self.pinIn.config.value\nlocal pos = vec3(self.pinIn.pos.value)\nlocal rot = quat(self.pinIn.rot.value)\nlocal paintdata = self.pinIn.paintdata.value\nlocal avbrdy = self.pinIn.avbrdy.value\nlocal paintA = extensions.blrutils.createPaint(extensions.blrutils.ssplit(paintdata[\"paintA\"], \",\"))\nif paintdata[\"paintB\"] then\nlocal paintB = extensions.blrutils.createPaint(extensions.blrutils.ssplit(paintdata[\"paintB\"], \",\"))\nend\nif paintdata[\"paintC\"] then\nlocal paintC = extensions.blrutils.createPaint(extensions.blrutils.ssplit(paintdata[\"paintC\"], \",\"))\nend\nlocal spawnOptions = {config=config,pos = pos, rot = rot, paint=paintA, paint2=paintB,paint3=paintC}\n\n--1.13 advanced vehicle building \nif avbrdy then\nextensions.blrglobals.blrFlagSet(\"advancedVehicleBuilding\",true)\nend\n\n-- 1.16.6 now requesting ilinks init before spawn, so it happens during hook\nextensions.blrglobals.blrFlagSet(\"ilinksInitRequest\", true)\n\nlocal veh = extensions.blrutils.blrSpawn(model, spawnOptions)\nself.pinOut.veid.value = veh:getId()\n\n-- 1.15.1 fix\nextensions.blrutils.blrvarSet(\"playervehid\", veh:getId())"
+            "work":"local extensions = require(\"extensions\")\nlocal model = self.pinIn.model.value\nlocal config = self.pinIn.config.value\nlocal pos = vec3(self.pinIn.pos.value)\nlocal rot = quat(self.pinIn.rot.value)\nlocal paintdata = self.pinIn.paintdata.value\nlocal avbrdy = self.pinIn.avbrdy.value\nlocal paintA = extensions.blrutils.createPaint(extensions.blrutils.ssplit(paintdata[\"paintA\"], \",\"))\nif paintdata[\"paintB\"] then\nlocal paintB = extensions.blrutils.createPaint(extensions.blrutils.ssplit(paintdata[\"paintB\"], \",\"))\nend\nif paintdata[\"paintC\"] then\nlocal paintC = extensions.blrutils.createPaint(extensions.blrutils.ssplit(paintdata[\"paintC\"], \",\"))\nend\nlocal spawnOptions = {config=config,pos = pos, rot = rot, paint=paintA, paint2=paintB,paint3=paintC}\n\n--1.13 advanced vehicle building \nif avbrdy then\nextensions.blrpartmgmt.toggleAdvancedVehicleBuilding(true)\nend\n\n-- 1.16.6 now requesting ilinks init before spawn, so it happens during hook\nextensions.blrglobals.blrFlagSet(\"ilinksInitRequest\", true)\n\nlocal veh = extensions.blrutils.blrSpawn(model, spawnOptions)\nself.pinOut.veid.value = veh:getId()\n\n-- 1.15.1 fix\nextensions.blrutils.blrvarSet(\"playervehid\", veh:getId())"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -50276,7 +50330,7 @@
           "type":"util/customLua"
         },
         "556":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -50654,7 +50708,7 @@
           "type":"util/customLua"
         },
         "565":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -51134,8 +51188,8 @@
             }
           },
           "pos":[
-            -298,
-            2528
+            -1894,
+            2304
           ],
           "type":"logic/once"
         },
@@ -51648,7 +51702,7 @@
           "type":"logic/compare"
         },
         "592":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -51736,7 +51790,7 @@
           "type":"logic/branch"
         },
         "595":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -52972,7 +53026,7 @@
           "type":"logic/compare"
         },
         "621":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -53521,7 +53575,9 @@
           "type":"logic/flowSwitch"
         },
         "633":{
-          "data":{},
+          "data":{
+            "name":""
+          },
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
@@ -53896,7 +53952,7 @@
           "type":"logic/once"
         },
         "646":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -53953,7 +54009,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nlocal points = self.pinIn.points.value\nlocal limits = self.pinIn.limits.value\nlocal id = self.pinIn.vehId.value\nlocal laps = self.pinIn.laps.value\nlocal mode = self.pinIn.speedMode.value\nlocal lane = self.pinIn.useLanes.value\nlocal risk = self.pinIn.risk.value\nlocal avoid = self.pinIn.avoid.value == 1\nlocal speed = self.pinIn.routeSpd.value\nlocal count = #points\nlocal codrivability = self.pinIn.codrivability.value\nlocal wpspd = self.pinIn.wpspd.value\n\nlocal wtable = extensions.blrutils.ssplit(points, \",\")\nlocal spdtable = {}\nlocal spdsplit = {}\nlocal spdtfirst = false\n\nlocal cwp = \"\"\nlocal clim = 0\n\nlocal args = \"{\"\n\nif laps ~= nil then\nargs = args .. \"noOfLaps = \" .. laps .. \",\"\nend\n\nif lane ~= nil then\nargs = args .. \"driveInLane = \" .. extensions.blrutils.boolToText(lane, \"'on'\", \"'off'\") .. \",\"\nend\n\nif avoid ~= nil then\nargs = args .. \"avoidCars = \" .. extensions.blrutils.boolToText(avoid, \"'on'\", \"'off'\") .. \",\"\nend\n\nif risk ~= nil then\nargs = args .. \"aggression = \" .. risk .. \",\"\nend\n\nif speed ~= nil then\nargs = args .. \"routeSpeed = \" .. speed .. \",\"\nend\n\nif mode ~= nil then\nargs = args .. \"routeSpeedMode = '\" .. mode .. \"',\"\nend\n\nif wpspd ~= nil then\nspdtable = extensions.blrutils.ssplit(wpspd, \",\")\nspdtfirst = true\nargs = args .. \"wpSpeeds = {\"\nfor k,v in pairs(spdtable) do\nspdsplit = extensions.blrutils.ssplit(v, \":\")\nif not spdtfirst then \nargs = args .. \",\"\nelse\nspdtfirst = false\nend\nargs = args .. spdsplit[1] .. \"=\" .. tonumber(spdsplit[2])\nend\nargs = args .. \"},\"\nend\n\nargs = args .. \"wpTargetList = {\"\nfor k,v in ipairs(wtable) do\nargs = args .. \"'\" .. wtable[k] .. \"'\"\nif k ~= count then\nargs = args .. \",\"\nend\nend\nargs = args .. \"}\"\n\nif limits ~= nil then\nargs = args .. \",wpSpeeds = {\"\nfor k,v in ipairs(wtable) do\nargs = args .. wtable[k] .. \"=\" .. ltable[k] \nif k ~= count then\nargs = args .. \",\"\nend\nend\nargs = args .. \"}\"\nend\n\nargs = args .. \"}\"\n\nlocal veh = scenetree.findObjectById(self.pinIn.vehId.value)\n\nprint(args)\n\nif veh ~= nil then\nveh:queueLuaCommand(\"ai.setCutOffDrivability(\" .. codrivability .. \")\")\nveh:queueLuaCommand(\"ai.driveUsingPath(\" .. args .. \")\")\nend\n\n"
+            "work":"local extensions = require(\"extensions\")\nlocal points = self.pinIn.points.value\nlocal limits = self.pinIn.limits.value\nlocal id = self.pinIn.vehId.value\nlocal laps = self.pinIn.laps.value\nlocal mode = self.pinIn.speedMode.value\nlocal lane = self.pinIn.useLanes.value\nlocal risk = self.pinIn.risk.value\nlocal avoid = self.pinIn.avoid.value == 1\nlocal speed = self.pinIn.routeSpd.value\nlocal count = #points\nlocal codrivability = self.pinIn.codrivability.value\nlocal wpspd = self.pinIn.wpspd.value\n\nlocal wtable = extensions.blrutils.ssplit(points, \",\")\nlocal spdtable = {}\nlocal spdsplit = {}\nlocal spdtfirst = false\n\nlocal cwp = \"\"\nlocal clim = 0\n\nlocal args = \"{\"\n\nif laps ~= nil then\nargs = args .. \"noOfLaps = \" .. laps .. \",\"\nend\n\nif lane ~= nil then\nargs = args .. \"driveInLane = \" .. extensions.blrutils.boolToText(lane, \"'on'\", \"'off'\") .. \",\"\nend\n\nif avoid ~= nil then\nargs = args .. \"avoidCars = \" .. extensions.blrutils.boolToText(avoid, \"'on'\", \"'off'\") .. \",\"\nend\n\nif risk ~= nil then\nargs = args .. \"aggression = \" .. risk .. \",\"\nend\n\nif speed ~= nil then\nargs = args .. \"routeSpeed = \" .. speed .. \",\"\nend\n\nif mode ~= nil then\nargs = args .. \"routeSpeedMode = '\" .. mode .. \"',\"\nend\n\nif wpspd ~= nil then\nspdtable = extensions.blrutils.ssplit(wpspd, \",\")\nspdtfirst = true\nargs = args .. \"wpSpeeds = {\"\nfor k,v in pairs(spdtable) do\nspdsplit = extensions.blrutils.ssplit(v, \":\")\nif not spdtfirst then \nargs = args .. \",\"\nelse\nspdtfirst = false\nend\nargs = args .. spdsplit[1] .. \"=\" .. tonumber(spdsplit[2])\nend\nargs = args .. \"},\"\nend\n\nargs = args .. \"wpTargetList = {\"\nfor k,v in ipairs(wtable) do\nargs = args .. \"'\" .. wtable[k] .. \"'\"\nif k ~= count then\nargs = args .. \",\"\nend\nend\nargs = args .. \"}\"\n\nif limits ~= nil then\nargs = args .. \",wpSpeeds = {\"\nfor k,v in ipairs(wtable) do\nargs = args .. wtable[k] .. \"=\" .. ltable[k] \nif k ~= count then\nargs = args .. \",\"\nend\nend\nargs = args .. \"}\"\nend\n\nargs = args .. \"}\"\n\nlocal veh = scenetree.findObjectById(self.pinIn.vehId.value)\n\n--print(args)\n\nif veh ~= nil then\nveh:queueLuaCommand(\"ai.setCutOffDrivability(\" .. codrivability .. \")\")\n-- 1.19.2 fix, looping paths with extra laps no longer turn on race mode\n-- so gotta turn it on manually\nveh:queueLuaCommand(\"ai.setRacing(true)\") \nveh:queueLuaCommand(\"ai.driveUsingPath(\" .. args .. \")\")\nend\n\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -54785,7 +54841,7 @@
           "type":"util/customLua"
         },
         "667":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -55052,7 +55108,7 @@
           "type":"types/genericValue"
         },
         "674":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000077716,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -55060,9 +55116,9 @@
             0.50000000000000000000
           ],
           "borderColor":[
-            0.80000001190000002982,
-            0.80000001190000002982,
-            0.80000001190000002982,
+            0.80000001192092851099,
+            0.80000001192092851099,
+            0.80000001192092851099,
             1
           ],
           "commentSize":[
@@ -55217,8 +55273,8 @@
             }
           },
           "pos":[
-            -319,
-            3032
+            -291,
+            2640
           ],
           "type":"scene/getPlayerVehicle"
         },
@@ -56461,7 +56517,7 @@
           "type":"types/genericValue"
         },
         "705":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -58610,13 +58666,13 @@
             ]
           ],
           "pos":[
-            -130,
-            2528
+            -1726,
+            2304
           ],
           "type":"util/customLua"
         },
         "751":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -58631,7 +58687,7 @@
           ],
           "commentSize":[
             628,
-            422
+            340
           ],
           "commentText":"",
           "commentTitle":"UI Career Reset Request",
@@ -58639,8 +58695,8 @@
           "dynamicMode":"repeat",
           "moveMode":"withNodes",
           "pos":[
-            -336,
-            2338
+            -1932,
+            2114
           ],
           "simple":false,
           "textColor":[
@@ -58665,8 +58721,8 @@
             }
           },
           "pos":[
-            94,
-            2402
+            -1502,
+            2178
           ],
           "type":"logic/flowSwitch"
         },
@@ -59347,8 +59403,8 @@
             ]
           ],
           "pos":[
-            -256,
-            8
+            -220,
+            21
           ],
           "type":"util/customLua"
         },
@@ -59504,7 +59560,7 @@
           "type":"util/customLua"
         },
         "771":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -59776,9 +59832,9 @@
         "779":{
           "alpha":1,
           "backgroundColor":[
-            0.50196081399917824584,
-            0.50196081399917824584,
-            0.50196081399917824584,
+            0.50196081399918113242,
+            0.50196081399918113242,
+            0.50196081399918113242,
             1.00392162799835205078
           ],
           "borderColor":[
@@ -60318,7 +60374,7 @@
           "type":"util/customLua"
         },
         "792":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -60662,7 +60718,7 @@
               "value":[
                 1,
                 0,
-                0.00006008148190000085,
+                0.00006008148190000137,
                 1
               ]
             },
@@ -63166,8 +63222,8 @@
             ]
           ],
           "pos":[
-            1502,
-            1520
+            1466,
+            1505
           ],
           "type":"util/customLua"
         },
@@ -63518,7 +63574,7 @@
           "type":"vehicle/freeze"
         },
         "864":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -64610,8 +64666,8 @@
             ]
           ],
           "pos":[
-            -1838,
-            3088
+            -1936,
+            3480
           ],
           "type":"util/customLua"
         },
@@ -64690,8 +64746,8 @@
             }
           },
           "pos":[
-            -1642,
-            3004
+            -1740,
+            3396
           ],
           "type":"vehicle/moveTo"
         },
@@ -64708,8 +64764,8 @@
             }
           },
           "pos":[
-            -1446,
-            3074
+            -1586,
+            3506
           ],
           "type":"scene/camera/returnToVehicle"
         },
@@ -64726,8 +64782,8 @@
             }
           },
           "pos":[
-            -1838,
-            2990
+            -1936,
+            3382
           ],
           "type":"logic/once"
         },
@@ -64736,7 +64792,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nlocal missionID = extensions.gameplay_missions_missionManager.getForegroundMissionId()\nif missionID then\nlocal missionData = gameplay_missions_missions.getMissionById(missionID)\nextensions.gameplay_missions_missionManager.startFromWithinMission(missionData, {})\nelse\nself.graph.mgr:queueForRestart()\nend"
+            "work":"local extensions = require(\"extensions\")\nlocal missionID = extensions.gameplay_missions_missionManager.getForegroundMissionId()\nif missionID then\nlocal missionData = gameplay_missions_missions.getMissionById(missionID)\nextensions.gameplay_missions_missionManager.startFromWithinMission(missionData, {})\nelse\nself.graph.mgr:queueForRestart()\nend\n\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -64768,8 +64824,8 @@
             ]
           ],
           "pos":[
-            -1614,
-            2514
+            -1642,
+            2878
           ],
           "type":"util/customLua"
         },
@@ -64786,8 +64842,8 @@
             }
           },
           "pos":[
-            -1908,
-            2430
+            -1936,
+            2780
           ],
           "type":"logic/once"
         },
@@ -64804,8 +64860,8 @@
             }
           },
           "pos":[
-            -1376,
-            2892
+            -1474,
+            3284
           ],
           "type":"logic/once"
         },
@@ -65220,7 +65276,7 @@
           "type":"ui/imgui/elemental/imButtonBLR"
         },
         "900":{
-          "alpha":0.75000000000000255351,
+          "alpha":0.75000000000000510703,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -65582,7 +65638,7 @@
           "type":"util/customLua"
         },
         "907":{
-          "alpha":0.75000000000000333067,
+          "alpha":0.75000000000000588418,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -66841,7 +66897,7 @@
           "type":"util/customLua"
         },
         "929":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -68320,7 +68376,7 @@
           "type":"scene/getPlayerVehicle"
         },
         "970":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000022204,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -68328,9 +68384,9 @@
             0.50000000000000000000
           ],
           "borderColor":[
-            0.80000001190000002982,
-            0.80000001190000002982,
-            0.80000001190000002982,
+            0.80000001192092873303,
+            0.80000001192092873303,
+            0.80000001192092873303,
             1
           ],
           "commentSize":[
@@ -68343,8 +68399,8 @@
           "dynamicMode":"repeat",
           "moveMode":"withNodes",
           "pos":[
-            -1876,
-            2618
+            -1974,
+            3010
           ],
           "simple":false,
           "textColor":[
@@ -68367,8 +68423,8 @@
             }
           },
           "pos":[
-            -1838,
-            2671
+            -1936,
+            3063
           ],
           "type":"logic/bundle"
         },
@@ -68431,8 +68487,8 @@
             ]
           ],
           "pos":[
-            -1642,
-            2668
+            -1740,
+            3060
           ],
           "type":"util/customLua"
         },
@@ -68451,8 +68507,8 @@
             }
           },
           "pos":[
-            -1460,
-            2668
+            -1558,
+            3060
           ],
           "type":"logic/branch"
         },
@@ -68470,8 +68526,8 @@
             }
           },
           "pos":[
-            -1838,
-            2724
+            -1936,
+            3116
           ],
           "type":"logic/flowSwitch"
         },
@@ -68584,8 +68640,8 @@
             ]
           ],
           "pos":[
-            -1362,
-            2794
+            -1474,
+            3130
           ],
           "type":"util/customLua"
         },
@@ -68602,38 +68658,10 @@
             }
           },
           "pos":[
-            -1530,
-            2794
+            -1628,
+            3186
           ],
           "type":"logic/once"
-        },
-        "979":{
-          "data":{},
-          "dynamicMode":"once",
-          "hardcodedPins":{
-            "duration":{
-              "type":"number",
-              "value":1
-            }
-          },
-          "hiddenPins":{
-            "p_in":{
-              "duration":true,
-              "flow":false,
-              "reset":true
-            },
-            "p_out":{
-              "complete":true,
-              "completed":false,
-              "flow":true,
-              "incomplete":true
-            }
-          },
-          "pos":[
-            -1754,
-            2794
-          ],
-          "type":"ui/fadeToBlack"
         },
         "980":{
           "data":{},
@@ -68649,8 +68677,8 @@
             }
           },
           "pos":[
-            -1838,
-            2864
+            -1936,
+            3256
           ],
           "type":"logic/flowSwitch"
         },
@@ -71457,7 +71485,7 @@
           "type":"util/customLua"
         },
         "1043":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -72484,7 +72512,7 @@
           "type":"util/customLua"
         },
         "1069":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -72580,48 +72608,6 @@
             -678
           ],
           "type":"logic/flowSwitch"
-        },
-        "1073":{
-          "code":{
-            "_executionStarted":"",
-            "_executionStopped":"local extensions = require(\"extensions\")\nextensions.blrlocales.unloadLocales()",
-            "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nextensions.blrlocales.loadLocales()"
-          },
-          "data":{},
-          "dynamicMode":"repeat",
-          "hiddenPins":{
-            "p_in":{
-              "flow":false
-            },
-            "p_out":{
-              "flow":false
-            }
-          },
-          "name":"Load Translations",
-          "pins":[
-            [
-              "in",
-              "flow",
-              "flow",
-              null,
-              "Inflow for this node.",
-              true
-            ],
-            [
-              "out",
-              "flow",
-              "flow",
-              null,
-              "Outflow for this node.",
-              true
-            ]
-          ],
-          "pos":[
-            -38,
-            -161
-          ],
-          "type":"util/customLua"
         },
         "1074":{
           "code":{
@@ -74514,7 +74500,7 @@
           "type":"ui/imgui/elemental/imTextBLR"
         },
         "1113":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.00000099999999750000,
             0.00000099998999300000,
@@ -75592,7 +75578,7 @@
           "type":"logic/once"
         },
         "1136":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -76258,7 +76244,7 @@
           "type":"util/customLua"
         },
         "1151":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -79367,7 +79353,7 @@
           "type":"util/customLua"
         },
         "1205":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -79575,6 +79561,48 @@
           "pos":[
             -3252,
             1548
+          ],
+          "type":"util/customLua"
+        },
+        "1210":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"local extensions = require(\"extensions\")\n--extensions.blrlocales.unloadLocales()",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrlocales.loadLocales()\nextensions.blrutils.setPause(false)"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Load Translations",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ]
+          ],
+          "pos":[
+            102,
+            1197
           ],
           "type":"util/customLua"
         },
@@ -79947,7 +79975,7 @@
           "type":"scene/getPlayerVehicle"
         },
         "1220":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -80661,7 +80689,7 @@
           "type":"util/customLua"
         },
         "1233":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -81045,7 +81073,7 @@
           "type":"util/customLua"
         },
         "1242":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -82211,7 +82239,7 @@
           "type":"types/genericValue"
         },
         "1272":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -84952,7 +84980,7 @@
           "type":"logic/compare"
         },
         "1336":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -84988,32 +85016,54 @@
           "type":"debug/comment"
         },
         "1337":{
-          "data":{},
-          "dynamicMode":"once",
-          "hardcodedPins":{
-            "duration":{
-              "type":"number",
-              "value":1
-            }
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal missionID = extensions.gameplay_missions_missionManager.getForegroundMissionId()\nif not missionID then\nself.pinOut.skip.value = self.pinIn.flow.value\nend\n\n"
           },
+          "data":{},
+          "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
-              "duration":false,
-              "flow":false,
-              "reset":false
+              "flow":false
             },
             "p_out":{
-              "complete":false,
-              "completed":false,
-              "flow":false,
-              "incomplete":false
+              "flow":true,
+              "skip":false
             }
           },
-          "pos":[
-            52,
-            2542
+          "name":"FG Start Fade Skip",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "skip",
+              null,
+              ""
+            ]
           ],
-          "type":"ui/fadeToBlack"
+          "pos":[
+            -150,
+            1029
+          ],
+          "type":"util/customLua"
         },
         "1338":{
           "code":{
@@ -85944,7 +85994,7 @@
           "type":"logic/compare"
         },
         "1361":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -87246,7 +87296,7 @@
           "type":"ui/imgui/elemental/imButtonBLR"
         },
         "1390":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -87269,8 +87319,8 @@
           "dynamicMode":"repeat",
           "moveMode":"withNodes",
           "pos":[
-            -1162,
-            3164
+            -336,
+            2884
           ],
           "simple":false,
           "textColor":[
@@ -87340,8 +87390,8 @@
             ]
           ],
           "pos":[
-            -1138,
-            3200
+            -312,
+            2920
           ],
           "type":"util/customLua"
         },
@@ -87365,8 +87415,8 @@
             }
           },
           "pos":[
-            -920,
-            3200
+            -94,
+            2920
           ],
           "type":"logic/frameDelay"
         },
@@ -87375,7 +87425,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(\"advancedVehicleBuilding\", false)\nextensions.blrglobals.blrFlagSet(\"avbResetDelayed\", false)"
+            "work":"local extensions = require(\"extensions\")\nextensions.blrpartmgmt.toggleAdvancedVehicleBuilding(false)\nextensions.blrglobals.blrFlagSet(\"avbResetDelayed\", false)"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -87407,8 +87457,8 @@
             ]
           ],
           "pos":[
-            -914,
-            3354
+            -88,
+            3074
           ],
           "type":"util/customLua"
         },
@@ -87427,8 +87477,8 @@
             }
           },
           "pos":[
-            -1138,
-            3298
+            -312,
+            3018
           ],
           "type":"logic/branch"
         },
@@ -87445,8 +87495,8 @@
             }
           },
           "pos":[
-            -850,
-            3270
+            -24,
+            2990
           ],
           "type":"logic/once"
         },
@@ -87695,7 +87745,7 @@
           "type":"util/customLua"
         },
         "1401":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -89011,8 +89061,8 @@
             ]
           ],
           "pos":[
-            1712,
-            1520
+            1690,
+            1462
           ],
           "type":"util/customLua"
         },
@@ -89179,7 +89229,7 @@
           "type":"util/customLua"
         },
         "1434":{
-          "alpha":0.75000000000000133227,
+          "alpha":0.75000000000000388578,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -90665,7 +90715,7 @@
           "type":"util/customLua"
         },
         "1465":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -92689,7 +92739,7 @@
           "hardcodedPins":{
             "B":{
               "type":"number",
-              "value":0.00999999977600019366
+              "value":0.00999999977600028733
             }
           },
           "hiddenPins":{
@@ -93775,7 +93825,7 @@
           "type":"util/customLua"
         },
         "1527":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -93798,8 +93848,8 @@
           "dynamicMode":"repeat",
           "moveMode":"withNodes",
           "pos":[
-            -350,
-            2828
+            -322,
+            2436
           ],
           "simple":false,
           "textColor":[
@@ -93896,8 +93946,8 @@
             ]
           ],
           "pos":[
-            -122,
-            3088
+            -94,
+            2696
           ],
           "type":"util/customLua"
         },
@@ -94137,8 +94187,8 @@
             ]
           ],
           "pos":[
-            -108,
-            2892
+            -80,
+            2500
           ],
           "type":"util/customLua"
         },
@@ -94201,8 +94251,8 @@
             ]
           ],
           "pos":[
-            122,
-            2878
+            150,
+            2486
           ],
           "type":"util/customLua"
         },
@@ -94265,8 +94315,8 @@
             ]
           ],
           "pos":[
-            122,
-            3060
+            150,
+            2668
           ],
           "type":"util/customLua"
         },
@@ -96369,7 +96419,7 @@
           "type":"util/customLua"
         },
         "1585":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -96758,8 +96808,8 @@
             }
           },
           "pos":[
-            -122,
-            1072
+            -130,
+            1112
           ],
           "type":"logic/frameDelay"
         },
@@ -98188,8 +98238,8 @@
             ]
           ],
           "pos":[
-            94,
-            1057
+            158,
+            1112
           ],
           "type":"util/customLua"
         },
@@ -98207,7 +98257,7 @@
           },
           "pos":[
             108,
-            1002
+            1042
           ],
           "type":"logic/once"
         },
@@ -99141,8 +99191,8 @@
             ]
           ],
           "pos":[
-            94,
-            1141
+            -116,
+            1295
           ],
           "type":"util/customLua"
         },
@@ -100088,7 +100138,7 @@
           "type":"logic/once"
         },
         "1663":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -100124,7 +100174,7 @@
           "type":"debug/comment"
         },
         "1664":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -100160,7 +100210,7 @@
           "type":"debug/comment"
         },
         "1665":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -100238,7 +100288,7 @@
           "type":"util/customLua"
         },
         "1667":{
-          "alpha":0.75000000000000255351,
+          "alpha":0.75000000000000510703,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -101702,7 +101752,7 @@
           "type":"vehicle/freeze"
         },
         "1700":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -102355,7 +102405,7 @@
           "type":"util/customLua"
         },
         "1716":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000421885,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -102818,8 +102868,8 @@
             ]
           ],
           "pos":[
-            150,
-            1253
+            94,
+            1309
           ],
           "type":"util/customLua"
         },
@@ -103139,7 +103189,7 @@
           ],
           "pos":[
             -556,
-            3506
+            3394
           ],
           "type":"util/customLua"
         },
@@ -103172,7 +103222,7 @@
           "type":"types/genericValue"
         },
         "1731":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -103196,7 +103246,7 @@
           "moveMode":"withNodes",
           "pos":[
             -588,
-            3318
+            3206
           ],
           "simple":false,
           "textColor":[
@@ -103309,7 +103359,7 @@
           ],
           "pos":[
             158,
-            3577
+            3465
           ],
           "type":"util/customLua"
         },
@@ -103691,7 +103741,7 @@
           "type":"util/customLua"
         },
         "1742":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -103922,8 +103972,8 @@
             ]
           ],
           "pos":[
-            -1768,
-            3325
+            -1166,
+            3283
           ],
           "type":"util/customLua"
         },
@@ -103997,8 +104047,8 @@
             ]
           ],
           "pos":[
-            -1768,
-            3424
+            -1166,
+            3382
           ],
           "type":"util/customLua"
         },
@@ -104015,7 +104065,7 @@
           },
           "pos":[
             -556,
-            3357
+            3245
           ],
           "type":"logic/bundle"
         },
@@ -104129,7 +104179,7 @@
           },
           "pos":[
             -284,
-            3642
+            3530
           ],
           "type":"ui/imgui/elemental/imBegin"
         },
@@ -104229,7 +104279,7 @@
           ],
           "pos":[
             -536,
-            3657
+            3545
           ],
           "type":"util/customLua"
         },
@@ -104253,7 +104303,7 @@
           },
           "pos":[
             -38,
-            3646
+            3534
           ],
           "type":"ui/imgui/elemental/imTextBLR"
         },
@@ -104270,7 +104320,7 @@
           },
           "pos":[
             -38,
-            3759
+            3647
           ],
           "type":"ui/imgui/elemental/imEnd"
         },
@@ -104290,7 +104340,7 @@
           },
           "pos":[
             -360,
-            3367
+            3255
           ],
           "type":"logic/branch"
         },
@@ -104339,8 +104389,8 @@
             ]
           ],
           "pos":[
-            -1530,
-            3550
+            -928,
+            3508
           ],
           "type":"util/customLua"
         },
@@ -104365,7 +104415,7 @@
           },
           "pos":[
             -80,
-            3493
+            3381
           ],
           "type":"logic/frameDelay"
         },
@@ -104383,7 +104433,7 @@
           },
           "pos":[
             -60,
-            3380
+            3268
           ],
           "type":"logic/once"
         },
@@ -104499,7 +104549,7 @@
           ],
           "pos":[
             -550,
-            3409
+            3297
           ],
           "type":"util/customLua"
         },
@@ -104567,7 +104617,7 @@
           ],
           "pos":[
             158,
-            3479
+            3367
           ],
           "type":"util/customLua"
         },
@@ -104655,7 +104705,7 @@
           ],
           "pos":[
             -304,
-            3521
+            3409
           ],
           "type":"util/customLua"
         },
@@ -104674,8 +104724,8 @@
             }
           },
           "pos":[
-            -1768,
-            3535
+            -1166,
+            3493
           ],
           "type":"logic/branch"
         },
@@ -104732,8 +104782,8 @@
             ]
           ],
           "pos":[
-            -1530,
-            3424
+            -928,
+            3382
           ],
           "type":"util/customLua"
         },
@@ -104862,13 +104912,13 @@
             }
           },
           "pos":[
-            -1545,
-            3313
+            -943,
+            3271
           ],
           "type":"scene/getPlayerVehicle"
         },
         "1768":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000022204,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -104876,9 +104926,9 @@
             0.50000000000000000000
           ],
           "borderColor":[
-            0.80000001190000002982,
-            0.80000001190000002982,
-            0.80000001190000002982,
+            0.80000001192092873303,
+            0.80000001192092873303,
+            0.80000001192092873303,
             1
           ],
           "commentSize":[
@@ -104889,10 +104939,10 @@
           "commentTitle":"Light Manager",
           "data":{},
           "dynamicMode":"repeat",
-          "moveMode":"withoutNodes",
+          "moveMode":"withNodes",
           "pos":[
-            -1806,
-            3248
+            -1204,
+            3206
           ],
           "simple":false,
           "textColor":[
@@ -104967,7 +105017,7 @@
           ],
           "pos":[
             158,
-            3675
+            3563
           ],
           "type":"util/customLua"
         },
@@ -105396,7 +105446,7 @@
           "type":"util/customLua"
         },
         "1776":{
-          "alpha":0.75000000000000033307,
+          "alpha":0.75000000000000288658,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -105404,9 +105454,9 @@
             0.50000000000000000000
           ],
           "borderColor":[
-            0.80000001192092862201,
-            0.80000001192092862201,
-            0.80000001192092862201,
+            0.80000001192092851099,
+            0.80000001192092851099,
+            0.80000001192092851099,
             1
           ],
           "commentSize":[
@@ -105432,7 +105482,7 @@
           "type":"debug/comment"
         },
         "1777":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -105466,6 +105516,24 @@
             1
           ],
           "type":"debug/comment"
+        },
+        "1778":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "reset":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -1802,
+            3156
+          ],
+          "type":"logic/once"
         },
         "1779":{
           "code":{
@@ -106494,6 +106562,48 @@
           "pos":[
             4574,
             -4263
+          ],
+          "type":"util/customLua"
+        },
+        "1794":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"guihooks.trigger('ChangeState', 'play')"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Enter Play Mode",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ]
+          ],
+          "pos":[
+            116,
+            1253
           ],
           "type":"util/customLua"
         },
@@ -107686,7 +107796,7 @@
           "type":"types/genericValue"
         },
         "9886":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -109447,7 +109557,7 @@
           "type":"input/blacklistAction"
         },
         "10051":{
-          "alpha":0.75000000000000466294,
+          "alpha":0.75000000000000721645,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -111630,7 +111740,9 @@
           "type":"types/genericValue"
         },
         "10149":{
-          "data":{},
+          "data":{
+            "name":""
+          },
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
@@ -112114,7 +112226,9 @@
           "type":"scene/singleMarker"
         },
         "10165":{
-          "data":{},
+          "data":{
+            "name":""
+          },
           "dynamicMode":"repeat",
           "hiddenPins":{
             "p_in":{
@@ -115777,10 +115891,10 @@
         "list":{}
       },
       "viewPos":[
-        -491.65765380859375000000,
-        -702.28430175781250000000
+        -320.71569824218750000000,
+        756.19061279296875000000
       ],
-      "viewZoom":0.14302465319633483887
+      "viewZoom":0.75000000000000000000
     },
     "3":{
       "description":"This is the description for graph States",
@@ -115796,14 +115910,14 @@
         ],
         [
           4,
-          "fail",
+          "success",
           6,
           "flow",
           false
         ],
         [
           4,
-          "success",
+          "fail",
           6,
           "flow",
           false
@@ -115901,10 +116015,10 @@
         "list":{}
       },
       "viewPos":[
-        33.84233474731445312500,
-        -702.28424072265625000000
+        -870.60394287109375000000,
+        868.97814941406250000000
       ],
-      "viewZoom":0.14302463829517364502
+      "viewZoom":0.32820484042167674676
     }
   },
   "isScenario":true,
@@ -116137,6 +116251,13 @@
         "value":""
       },
       {
+        "index":101,
+        "mergeStrat":"last",
+        "name":"raceClubHours",
+        "type":"string",
+        "value":""
+      },
+      {
         "index":21,
         "mergeStrat":"max",
         "name":"raceWinner",
@@ -116163,13 +116284,6 @@
         "name":"raceEnemyCPID",
         "type":"number",
         "value":0
-      },
-      {
-        "index":101,
-        "mergeStrat":"last",
-        "name":"raceClubHours",
-        "type":"string",
-        "value":""
       },
       {
         "index":35,
@@ -116344,18 +116458,18 @@
         "value":0
       },
       {
-        "index":104,
-        "mergeStrat":"max",
-        "name":"barnFindMenuPage",
-        "type":"number",
-        "value":0
-      },
-      {
         "index":73,
         "mergeStrat":"last",
         "name":"racePartReward",
         "type":"string",
         "value":""
+      },
+      {
+        "index":104,
+        "mergeStrat":"max",
+        "name":"barnFindMenuPage",
+        "type":"number",
+        "value":0
       },
       {
         "index":22,

@@ -1530,14 +1530,12 @@ end
 local function initThermals(jbeamData)
   thermalsEnabled = false
   tEnv = obj:getEnvTemperature() + conversion.kelvinToCelsius
-  startPreHeated = settings.getValue("startThermalsPreHeated")
-  --default temperatures, can be adjusted to fit whatever our goal is (starting up with cold vs warm car)
-  local startingTemperature = startPreHeated and constants.preHeatTemperature or tEnv
-  M.engineBlockTemperature = startingTemperature
-  M.cylinderWallTemperature = startingTemperature
-  M.oilTemperature = startingTemperature
-  M.coolantTemperature = startingTemperature
-  M.exhaustTemperature = startingTemperature
+   --default temperatures, can be adjusted to fit whatever our goal is
+  M.engineBlockTemperature = tEnv
+  M.cylinderWallTemperature = tEnv
+  M.oilTemperature = tEnv
+  M.coolantTemperature = tEnv
+  M.exhaustTemperature = tEnv
   if not jbeamData.thermalsEnabled then
     --disable the whole thing unless stated otherwise
     --log("D", "engine.initThermals", "Engine thermals are disabled since they are missing in JBeam")
@@ -1665,6 +1663,15 @@ local function initThermals(jbeamData)
     log("W", "engine.initThermals", string.format("Increased desired radiator fan temperature from '%dC' to '%dC' to prevent fan trigger issues with thermostat at '%dC'.", radiatorFanTemperatureDesired, radiatorFanTemperature, thermostatTemperature))
   end
 
+  startPreHeated = settings.getValue("startThermalsPreHeated")
+  --default temperatures, can be adjusted to fit whatever our goal is (starting up with cold vs warm car)
+  constants.preHeatTemperature = max(thermostatTemperature - 10, tEnv)
+  local startingTemperature = startPreHeated and constants.preHeatTemperature or tEnv
+  M.engineBlockTemperature = startingTemperature
+  M.cylinderWallTemperature = startingTemperature
+  M.oilTemperature = startingTemperature
+  M.coolantTemperature = startingTemperature
+  M.exhaustTemperature = startingTemperature
   airRegulatorClosedCoef = jbeamData.airRegulatorClosedCoef or 0.1
   oilThermostatTemperature = jbeamData.oilThermostatTemperature or 110
   local oilRadiatorArea = jbeamData.oilRadiatorArea or 0

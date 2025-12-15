@@ -2,7 +2,7 @@
   "activeGraphId":1,
   "authors":"BeamLR",
   "currentGraphID":1,
-  "date":1762921206,
+  "date":1765722883,
   "debugEnabled":false,
   "description":"Beam Legal Racing Track Event",
   "difficulty":100,
@@ -33,14 +33,14 @@
         ],
         [
           78,
-          "match_2",
+          "match_1",
           9,
           "flow",
           false
         ],
         [
           78,
-          "match_1",
+          "match_2",
           9,
           "flow",
           false
@@ -186,13 +186,6 @@
           false
         ],
         [
-          54,
-          "flow",
-          16,
-          "flow",
-          false
-        ],
-        [
           37,
           "flow",
           16,
@@ -200,7 +193,14 @@
           false
         ],
         [
-          126,
+          54,
+          "flow",
+          16,
+          "flow",
+          false
+        ],
+        [
+          100,
           "False",
           16,
           "flow",
@@ -214,7 +214,7 @@
           false
         ],
         [
-          100,
+          126,
           "False",
           16,
           "flow",
@@ -691,14 +691,14 @@
         ],
         [
           33,
-          "match_3",
+          "match_1",
           52,
           "flow",
           false
         ],
         [
           33,
-          "match_1",
+          "match_3",
           52,
           "flow",
           false
@@ -949,15 +949,15 @@
           false
         ],
         [
-          75,
-          "False",
+          33,
+          "match_1",
           69,
           "reset",
           false
         ],
         [
-          33,
-          "match_1",
+          75,
+          "False",
           69,
           "reset",
           false
@@ -1524,14 +1524,14 @@
         ],
         [
           78,
-          "match_1",
+          "match_2",
           108,
           "reset",
           false
         ],
         [
           78,
-          "match_2",
+          "match_1",
           108,
           "reset",
           false
@@ -1964,15 +1964,15 @@
           false
         ],
         [
-          88,
-          "flow",
+          76,
+          "False",
           136,
           "flow",
           false
         ],
         [
-          76,
-          "False",
+          88,
+          "flow",
           136,
           "flow",
           false
@@ -2293,14 +2293,14 @@
           false
         ],
         [
-          110,
+          138,
           "flow",
           161,
           "flow",
           false
         ],
         [
-          138,
+          110,
           "flow",
           161,
           "flow",
@@ -3028,6 +3028,13 @@
           false
         ],
         [
+          255,
+          "skip",
+          234,
+          "flow",
+          false
+        ],
+        [
           159,
           "complete",
           234,
@@ -3133,9 +3140,30 @@
           false
         ],
         [
-          25,
+          253,
+          "flow",
+          250,
+          "flow",
+          false
+        ],
+        [
+          233,
           "flow",
           253,
+          "flow",
+          false
+        ],
+        [
+          2,
+          "flow",
+          255,
+          "flow",
+          false
+        ],
+        [
+          250,
+          "flow",
+          259,
           "flow",
           false
         ]
@@ -3243,7 +3271,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nlocal limits = self.pinIn.limits.value\nlocal idtable = self.pinIn.idtable.value\nlocal laps = self.pinIn.laps.value\nlocal mode = self.pinIn.speedMode.value\nlocal lane = self.pinIn.useLanes.value\nlocal risk = self.pinIn.risk.value\nlocal avoid = self.pinIn.avoid.value == 1\nlocal speed = self.pinIn.routeSpd.value\nlocal codrivability = self.pinIn.codrivability.value\nlocal wpspd = self.pinIn.wpspd.value\nlocal wtable = self.pinIn.waypoints.value\nlocal count = #wtable\nlocal spdtable = {}\nlocal spdsplit = {}\nlocal spdtfirst = false\n\nlocal cwp = \"\"\nlocal clim = 0\n\nlocal args = \"{\"\n\nif laps ~= nil then\nargs = args .. \"noOfLaps = \" .. laps .. \",\"\nend\n\nif lane ~= nil then\nargs = args .. \"driveInLane = \" .. extensions.blrutils.boolToText(lane, \"'on'\", \"'off'\") .. \",\"\nend\n\nif avoid ~= nil then\nargs = args .. \"avoidCars = \" .. extensions.blrutils.boolToText(avoid, \"'on'\", \"'off'\") .. \",\"\nend\n\nif risk ~= nil then\nargs = args .. \"aggression = \" .. risk .. \",\"\nend\n\nif speed ~= nil then\nargs = args .. \"routeSpeed = \" .. speed .. \",\"\nend\n\nif mode ~= nil then\nargs = args .. \"routeSpeedMode = '\" .. mode .. \"',\"\nend\n\nif wpspd ~= nil then\nspdtable = extensions.blrutils.ssplit(wpspd, \",\")\nspdtfirst = true\nargs = args .. \"wpSpeeds = {\"\nfor k,v in pairs(spdtable) do\nspdsplit = extensions.blrutils.ssplit(v, \":\")\nif not spdtfirst then \nargs = args .. \",\"\nelse\nspdtfirst = false\nend\nargs = args .. spdsplit[1] .. \"=\" .. tonumber(spdsplit[2])\nend\nargs = args .. \"},\"\nend\n\nargs = args .. \"wpTargetList = {\"\nfor k,v in ipairs(wtable) do\nargs = args .. \"'\" .. wtable[k] .. \"'\"\nif k ~= count then\nargs = args .. \",\"\nend\nend\nargs = args .. \"}\"\n\nif limits ~= nil then\nargs = args .. \",wpSpeeds = {\"\nfor k,v in ipairs(wtable) do\nargs = args .. wtable[k] .. \"=\" .. ltable[k] \nif k ~= count then\nargs = args .. \",\"\nend\nend\nargs = args .. \"}\"\nend\n\nargs = args .. \"}\"\n\nlocal veh = {}\nfor i=1,#idtable do\nveh = scenetree.findObjectById(idtable[i])\nif veh ~= nil then\nveh:queueLuaCommand(\"ai.setCutOffDrivability(\" .. codrivability .. \")\")\nveh:queueLuaCommand(\"ai.driveUsingPath(\" .. args .. \")\")\nend\nend\n\n\n\n"
+            "work":"local extensions = require(\"extensions\")\nlocal limits = self.pinIn.limits.value\nlocal idtable = self.pinIn.idtable.value\nlocal laps = self.pinIn.laps.value\nlocal mode = self.pinIn.speedMode.value\nlocal lane = self.pinIn.useLanes.value\nlocal risk = self.pinIn.risk.value\nlocal avoid = self.pinIn.avoid.value == 1\nlocal speed = self.pinIn.routeSpd.value\nlocal codrivability = self.pinIn.codrivability.value\nlocal wpspd = self.pinIn.wpspd.value\nlocal wtable = self.pinIn.waypoints.value\nlocal count = #wtable\nlocal spdtable = {}\nlocal spdsplit = {}\nlocal spdtfirst = false\n\nlocal cwp = \"\"\nlocal clim = 0\n\nlocal args = \"{\"\n\nif laps ~= nil then\nargs = args .. \"noOfLaps = \" .. laps .. \",\"\nend\n\nif lane ~= nil then\nargs = args .. \"driveInLane = \" .. extensions.blrutils.boolToText(lane, \"'on'\", \"'off'\") .. \",\"\nend\n\nif avoid ~= nil then\nargs = args .. \"avoidCars = \" .. extensions.blrutils.boolToText(avoid, \"'on'\", \"'off'\") .. \",\"\nend\n\nif risk ~= nil then\nargs = args .. \"aggression = \" .. risk .. \",\"\nend\n\nif speed ~= nil then\nargs = args .. \"routeSpeed = \" .. speed .. \",\"\nend\n\nif mode ~= nil then\nargs = args .. \"routeSpeedMode = '\" .. mode .. \"',\"\nend\n\nif wpspd ~= nil then\nspdtable = extensions.blrutils.ssplit(wpspd, \",\")\nspdtfirst = true\nargs = args .. \"wpSpeeds = {\"\nfor k,v in pairs(spdtable) do\nspdsplit = extensions.blrutils.ssplit(v, \":\")\nif not spdtfirst then \nargs = args .. \",\"\nelse\nspdtfirst = false\nend\nargs = args .. spdsplit[1] .. \"=\" .. tonumber(spdsplit[2])\nend\nargs = args .. \"},\"\nend\n\nargs = args .. \"wpTargetList = {\"\nfor k,v in ipairs(wtable) do\nargs = args .. \"'\" .. wtable[k] .. \"'\"\nif k ~= count then\nargs = args .. \",\"\nend\nend\nargs = args .. \"}\"\n\nif limits ~= nil then\nargs = args .. \",wpSpeeds = {\"\nfor k,v in ipairs(wtable) do\nargs = args .. wtable[k] .. \"=\" .. ltable[k] \nif k ~= count then\nargs = args .. \",\"\nend\nend\nargs = args .. \"}\"\nend\n\nargs = args .. \"}\"\n\nlocal veh = {}\nfor i=1,#idtable do\nveh = scenetree.findObjectById(idtable[i])\nif veh ~= nil then\nveh:queueLuaCommand(\"ai.setCutOffDrivability(\" .. codrivability .. \")\")\n-- 1.19.2 fix, looping paths with extra laps no longer turn on race mode\n-- so gotta turn it on manually\nveh:queueLuaCommand(\"ai.setRacing(true)\") \nveh:queueLuaCommand(\"ai.driveUsingPath(\" .. args .. \")\")\nend\nend\n\n\n\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -4971,7 +4999,7 @@
             "color_in":{
               "type":"color",
               "value":[
-                0.44597768800000725520,
+                0.44597768800000742173,
                 1,
                 0,
                 1
@@ -10462,7 +10490,7 @@
           "hardcodedPins":{
             "duration":{
               "type":"number",
-              "value":0.75000000000000843769
+              "value":0.75000000000000865974
             }
           },
           "hiddenPins":{
@@ -10479,8 +10507,8 @@
             }
           },
           "pos":[
-            -976,
-            -426
+            -1040,
+            -441
           ],
           "type":"ui/fadeFromBlack"
         },
@@ -10671,8 +10699,8 @@
             ]
           ],
           "pos":[
-            -1376,
-            -552
+            -1362,
+            -553
           ],
           "type":"util/customLua"
         },
@@ -10782,7 +10810,7 @@
           "type":"util/customLua"
         },
         "166":{
-          "alpha":0.75000000000000033307,
+          "alpha":0.75000000000000055511,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -10790,9 +10818,9 @@
             0.50000000000000000000
           ],
           "borderColor":[
-            0.80000001192092862201,
-            0.80000001192092862201,
-            0.80000001192092862201,
+            0.80000001192092851099,
+            0.80000001192092851099,
+            0.80000001192092851099,
             1
           ],
           "commentSize":[
@@ -11464,7 +11492,7 @@
           "hardcodedPins":{
             "dx":{
               "type":"number",
-              "value":0.05000000074505894787
+              "value":0.05000000074505898950
             },
             "mn":{
               "type":"number",
@@ -11552,7 +11580,7 @@
           "hardcodedPins":{
             "dx":{
               "type":"number",
-              "value":0.05000000074505894787
+              "value":0.05000000074505898950
             },
             "mn":{
               "type":"number",
@@ -13215,7 +13243,7 @@
           "type":"ui/cornerTimerBLR"
         },
         "238":{
-          "alpha":0.75000000000000033307,
+          "alpha":0.75000000000000055511,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -13223,9 +13251,9 @@
             0.50000000000000000000
           ],
           "borderColor":[
-            0.80000001192092862201,
-            0.80000001192092862201,
-            0.80000001192092862201,
+            0.80000001192092851099,
+            0.80000001192092851099,
+            0.80000001192092851099,
             1
           ],
           "commentSize":[
@@ -13468,7 +13496,7 @@
           "type":"ui/cornerTimerBLR"
         },
         "246":{
-          "alpha":0.75000000000000033307,
+          "alpha":0.75000000000000055511,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -13476,9 +13504,9 @@
             0.50000000000000000000
           ],
           "borderColor":[
-            0.80000001192092862201,
-            0.80000001192092862201,
-            0.80000001192092862201,
+            0.80000001192092851099,
+            0.80000001192092851099,
+            0.80000001192092851099,
             1
           ],
           "commentSize":[
@@ -13671,10 +13699,52 @@
           ],
           "type":"util/customLua"
         },
+        "250":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"guihooks.trigger('ChangeState', 'play')"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Enter Play Mode",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ]
+          ],
+          "pos":[
+            -388,
+            -105
+          ],
+          "type":"util/customLua"
+        },
         "253":{
           "code":{
             "_executionStarted":"",
-            "_executionStopped":"local extensions = require(\"extensions\")\nextensions.blrlocales.unloadLocales()",
+            "_executionStopped":"local extensions = require(\"extensions\")\n--extensions.blrlocales.unloadLocales()",
             "onPreRender":"",
             "work":"local extensions = require(\"extensions\")\nextensions.blrlocales.loadLocales()"
           },
@@ -13708,7 +13778,99 @@
             ]
           ],
           "pos":[
-            -914,
+            -410,
+            -175
+          ],
+          "type":"util/customLua"
+        },
+        "255":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal missionID = extensions.gameplay_missions_missionManager.getForegroundMissionId()\nif not missionID then\nself.pinOut.skip.value = self.pinIn.flow.value\nend\n\n"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false
+            },
+            "p_out":{
+              "flow":true,
+              "skip":false
+            }
+          },
+          "name":"FG Start Fade Skip",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "skip",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -906,
+            -539
+          ],
+          "type":"util/customLua"
+        },
+        "259":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"core_recoveryPrompt.deactivateAllButtons()"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Disable Recovery Buttons",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ]
+          ],
+          "pos":[
+            -402,
             -21
           ],
           "type":"util/customLua"
@@ -13721,8 +13883,8 @@
         "list":{}
       },
       "viewPos":[
-        148.50000000000000000000,
-        -1353
+        -778.08758544921875000000,
+        -341.35369873046875000000
       ],
       "viewZoom":1
     },

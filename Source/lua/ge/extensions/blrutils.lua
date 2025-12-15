@@ -137,6 +137,7 @@ if wid then
 print("BeamLR Log ID " .. blrlogid)
 end
 local toprint = txt
+if not toprint then toprint = "nil" end
 local prefix = "[" .. string.format("%.3f",os.clock()) .. "] "
 if type(txt) == "table" then
 toprint = dumps(txt)
@@ -3592,9 +3593,50 @@ end
 return locals["offenseCosts"]
 end
 
+-- Forces freeroam marker missions to delete cached FG file and reload changes for faster debugging
+locals["reloadMissions"] = function()
+require("gameplay/missions/missions").clearCache()
+end
+
+locals["autoReloadToggle"] = false
+locals["toggleAutoMissionReload"] = function(toggle)
+locals["autoReloadToggle"] = toggle
+end
 
 
+locals["missionReloadIDs"] = {}
+locals["missionReloadIDs"]["BeamLegalRacingUtah"] = true
+locals["missionReloadIDs"]["BeamLegalRacingItaly"] = true
+locals["missionReloadIDs"]["BeamLegalRacingEastCoast"] = true
+locals["missionReloadIDs"]["BeamLegalRacingWestCoast"] = true
+locals["missionReloadIDs"]["BeamLegalRacingValoCity"] = true
+locals["missionReloadIDs"]["BLRTrackEventAutomationTestTrack"] = true
+locals["missionReloadIDs"]["BLRTrackEventHirochiRaceway"] = true
+locals["missionReloadIDs"]["BLRTrackEventJohnsonValley"] = true
+locals["missionReloadIDs"]["BLRTrackEventMotorsportsPlayground"] = true
+locals["missionReloadIDs"]["BLRTrackEventNordschleife"] = true
+locals["missionReloadIDs"]["BLRTrackEventWestCoast"] = true
 
+locals["onFilesChanged"] = function(files)
+if locals["autoReloadToggle"] then
+local cpath = ""
+for _,file in pairs(files) do
+for k,v in pairs(locals["missionReloadIDs"]) do
+cpath = "/gameplay/missions/" .. k .. "/project.flow.json"
+if file.filename == cpath then
+print("Force cleared mission data cache after project " .. k .. " changed!")
+locals["reloadMissions"]()
+return
+end
+end
+end
+end
+end
+
+
+M.toggleAutoMissionReload = locals["toggleAutoMissionReload"]
+M.onFilesChanged = locals["onFilesChanged"]
+M.reloadMissions = locals["reloadMissions"]
 
 M.getStartSeed = function() return startSeed end
 

@@ -17,4 +17,5 @@
 {"name":"Dealerships","class":"SimGroup","persistentId":"99ba62e3-0a67-4e51-b2f7-cfb038d8efd8","__parent":"MissionGroup"}
 {"name":"driftSpots","class":"SimGroup","__parent":"MissionGroup"}
 {"name":"decalroads","class":"SimGroup","persistentId":"c1894e06-8a21-4c40-91d6-1e33c8246aee","__parent":"MissionGroup"}
+{"name":"quarry","class":"SimGroup","__parent":"MissionGroup","hidden":true}
 {"name":"BeamLR","class":"SimGroup","persistentId":"6bce5157-7a75-47df-916a-abf286201c91","__parent":"MissionGroup"}

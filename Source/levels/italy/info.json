@@ -9,6 +9,7 @@
   "roads": "levels.italy.info.roads",
   "title": "levels.italy.info.title",
   "country": "levels.common.country.italy",
+  "region": "europe",
   "biome": "levels.italy.info.biome",
   "features": "levels.italy.info.features",
   "previews":[
@@ -65,6 +66,11 @@
       "objectname":"spawn_town_east",
       "preview":"spawn_town_east_preview.jpg"
     },
+    {
+      "translationId":"levels.italy.spawnpoints.quarry_parking",
+      "objectname":"spawn_quarry_parking",
+      "preview":"spawn_quarry_parking.jpg"
+	},
     {
       "translationId":"BeamLR Spawn",
       "objectname":"spawn_beamlr",

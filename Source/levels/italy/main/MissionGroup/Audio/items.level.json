@@ -1,6 +1,6 @@
 {"name":"Amb_2D","class":"SimGroup","persistentId":"a51486dd-bcb0-4dfa-a4d8-109d1f371ce5","__parent":"Audio","locked":true}
 {"name":"Amb_3D","class":"SimGroup","persistentId":"019ce587-b133-4bb7-a3f7-1bd5d5bc7069","__parent":"Audio","locked":true}
-{"name":"Snapshots","class":"SimGroup","persistentId":"c6cc5b83-b327-49eb-b8ea-f32ea69e400e","__parent":"Audio","locked":true}
+{"name":"Snapshots","class":"SimGroup","persistentId":"c6cc5b83-b327-49eb-b8ea-f32ea69e400e","__parent":"Audio"}
 {"name":"Whooshes","class":"SimGroup","persistentId":"527d9889-717e-4759-b0d2-c291f92a2bf5","__parent":"Audio","locked":true}
 {"name":"Wind","class":"SimGroup","persistentId":"af0862d0-ac4b-4e9e-ab70-fa7bd44056f0","__parent":"Audio","locked":true}
 {"name":"Airplanes","class":"SFXEmitter","persistentId":"25cdd55c-5ef6-425d-a903-2283e8d60947","__parent":"Audio","position":[-24.1689758,15.4717712,179.649231],"fadeInTime":0,"fadeOutTime":0,"isLooping":false,"locked":true,"maxDistance":5000,"referenceDistance":2000,"scale":[5000,5000,5000],"track":"event:>Ambient>3D Shared>Airplanes","useTrackDescriptionOnly":true}

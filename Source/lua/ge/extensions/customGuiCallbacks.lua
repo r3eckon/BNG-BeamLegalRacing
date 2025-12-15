@@ -43,7 +43,7 @@ end
 
 --1.13 advanced vehicle building edits																				
 if extensions.blrglobals.blrFlagGet("avbToggle") then
-extensions.blrglobals.blrFlagSet("advancedVehicleBuilding", true)
+extensions.blrpartmgmt.toggleAdvancedVehicleBuilding(true)
 -- BELOW FUNCTION CALL FIXED ISSUE WITH FIRST EDIT NOT USING AVB
 require("jbeam/io").finishLoading() -- clearing jbeam cache before edit
 extensions.blrpartmgmt.setSlotWithChildren(p["slot"], p["item"])
@@ -355,7 +355,7 @@ extensions.blrglobals.gmSetVal("pmirrors", extensions.core_vehicle_mirror.getAng
 extensions.blrhooks.linkHook("vehReset", "postedit")							-- Link to post edit action hook, reuse the code for tune
 
 -- 1.16.9 fix, apparently setting tune is like vehicle reload so need AVB flag turned on
-extensions.blrglobals.blrFlagSet("advancedVehicleBuilding", true)
+extensions.blrpartmgmt.toggleAdvancedVehicleBuilding(true)
 require("jbeam/io").finishLoading() -- clearing jbeam cache before edit
 
 extensions.blrpartmgmt.applyTuningData(dtable)
@@ -376,7 +376,7 @@ extensions.blrglobals.gmSetVal("pmirrors", extensions.core_vehicle_mirror.getAng
 extensions.blrhooks.linkHook("vehReset", "postedit")							-- Link to post edit action hook, reuse the code for tune
 
 -- 1.16.9 fix, apparently setting tune is like vehicle reload so need AVB flag turned on
-extensions.blrglobals.blrFlagSet("advancedVehicleBuilding", true)
+extensions.blrpartmgmt.toggleAdvancedVehicleBuilding(true)
 require("jbeam/io").finishLoading() -- clearing jbeam cache before edit
 
 extensions.blrpartmgmt.resetTuningData()
@@ -1227,7 +1227,7 @@ extensions.blrglobals.blrFlagSet("imToggle", false) -- 1.16.9 fix, toggle off IM
 extensions.customGuiStream.towingUIToggle(false) -- 1.16.9 fix, close towing UI to prevent towing in safe mode
 end
 
-extensions.blrglobals.blrFlagSet("advancedVehicleBuilding", true)
+extensions.blrpartmgmt.toggleAdvancedVehicleBuilding(true)
 -- BELOW FUNCTION CALL FIXED ISSUE WITH FIRST EDIT NOT USING AVB
 require("jbeam/io").finishLoading() -- clearing jbeam cache before edit
 

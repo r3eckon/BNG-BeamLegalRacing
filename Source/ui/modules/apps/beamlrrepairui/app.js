@@ -31,10 +31,12 @@ angular.module('beamng.apps')
 	  scope.totalBeforeMin = 0
 	  scope.warnack = false
 	  scope.engine = 0
-	  scope.engineSelected = false
 	  scope.buttonlock = false
 	  scope.pathNameCache = {}
 	  scope.toggle = {}
+	  
+	  scope.extras = {}
+	  scope.extras.engineSelected = false
 	  
 	  
 	  
@@ -51,7 +53,7 @@ angular.module('beamng.apps')
 		  }
 		  scope.total += scope.mechanical
 		  
-		  if(scope.engineSelected)
+		  if(scope.extras.engineSelected)
 			  scope.total += scope.engine
 		  
 		  scope.totalBeforeMin = scope.total
@@ -225,7 +227,7 @@ angular.module('beamng.apps')
 			}
 			
 			bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("advrepairdata", "engineCost", ${scope.engine})`)
-			bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("advrepairdata", "engineSelected", ${scope.engineSelected})`)
+			bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue("advrepairdata", "engineSelected", ${scope.extras.engineSelected})`)
 			
 			bngApi.engineLua(`extensions.customGuiCallbacks.exec("advancedRepairSelected", "advrepairdata")`)
 			scope.totalConfirm = false			
@@ -269,9 +271,8 @@ angular.module('beamng.apps')
 	  }
 	  
 	  
-	  scope.selectEngine = function()
+	  scope.engineToggleChanged = function()
 	  {
-		  scope.engineSelected = !scope.engineSelected
 		  scope.calculateTotal()
 		  scope.calculateFull()
 	  }
@@ -328,6 +329,9 @@ angular.module('beamng.apps')
 			  if(part != scope.mainpart)
 				scope.picks[part] = scope.toggle["selectAll"]		  
 		  }
+		  
+		  scope.extras.engineSelected = scope.toggle["selectAll"]
+		  scope.engineToggleChanged()
 	  }
 	  
 	  

@@ -4,10 +4,11 @@
 
 
 
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.19.1/beamLegalRacing1.19.1.zip
+
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.19.2/beamLegalRacing1.19.2.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.19.1
+# Beam Legal Racing 1.19.2
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -145,6 +146,8 @@ Version 1.18.6 adds coolant persistence and leak mechanic, works like the oil le
 Version 1.18.8 adds an oil leak decal system that spawns oil drops and puddles underneath leaky engines. This system can be configured through the options menu under the "Environment" tab. Lower end computers may need to use lower maximum decal amounts to maintain performance.
 
 Version 1.19 adds [dealership vehicle history system with associated purchasable reports](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#vehicle-history-system) and [barn find vehicles](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#barn-finds). This version also adds translation file loading ability for those interested in creating translations for the mod.
+
+Version 1.19.2 brings compatibility for BeamNG version 0.38 to the mod and implements the updated Italy level. This new game version comes with changes to AI racing abilities that may improve their performance in street races and track events.
 
 ## Getting started
 BeamLR is loaded as a freeroam mission. Use the following spawn point depending on map choice:
@@ -1089,3 +1092,17 @@ Cause: Engine jbeam is missing torque data. Data is moved to other subparts. Thi
 ### 1.19.1
 * Fixed multiple languages not stored independently in locales cache table
 * Starter vehicles now use old paint skins if available for model
+
+### 1.19.2
+* (0.38) Updated modified vanilla scripts that changed since last version
+* (0.38) Removed modified vanilla scripts that are no longer needed
+* (0.38) Updated jbeamIO caching for advanced vehicle building to work with updated vanilla script
+* (0.38) Updated italy level files & fixed broken race paths in new tunnel
+* (0.38) Fixed AI no longer entering race mode automatically (now using ai.setRacing vlua command)
+* (0.38) Fixed scenario restart no longer working properly during career reset
+* (0.38) Fixed various mission start/stop issues
+* Fixed repair UI ng-repeat bug when multiple parts have same damage value
+* Fixed repair UI select all toggle not selecting engine internal damage
+* Fixed towing UI reappearing during UI init process if closed using cancel button
+* Fixed game over UI using incorrect translation keys on cancel buttons
+* Fixed blrlocales.lua bug caused when UI appears before translations have been loaded

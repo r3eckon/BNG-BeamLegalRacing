@@ -129,7 +129,6 @@ print("Should have automatically sent UI data to dealership util after generatin
 extensions.blrShopVehUtil.sendUIData()
 end
 
-
 local function setParamTableValue(p,ti,v)
 if ptable[p] == nil then ptable[p] = {} end
 ptable[p][ti] = v

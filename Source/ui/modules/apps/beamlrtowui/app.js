@@ -15,7 +15,10 @@ angular.module('beamng.apps')
       })
 	  
 	  scope.cancel = function(){
-		scope.enabled = false;
+		//1.19.2 fix for UI init restoring incorrect state after cancelling
+		//go through customGuiStream lua script to toggle off UI to save correct state
+		scope.enabled = false;//Keeping this one in to have faster button response
+		bngApi.engineLua(`extensions.customGuiStream.towingUIToggle(false)`)
 	  }
 	  
 	  scope.select = function(d){

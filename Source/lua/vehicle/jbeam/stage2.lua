@@ -2,6 +2,8 @@
 -- If a copy of the bCDDL was not distributed with this
 -- file, You can obtain one at http://beamng.com/bCDDL-1.1.txt
 
+-- BEAMLR EDITED FOR GARAGE SAFE MODE AND TRACK EVENT SLICKS MODE
+
 local M = {}
 
 --BEAMLR EDIT START
@@ -152,7 +154,12 @@ local function addBeamByData(vehicle, beam)
     beam.maxPressure = beam.maxPressure or (beam.maxPressurePSI * 6894.757 + 101325)
     beam.maxPressurePSI = (beam.maxPressure - 101325) / 6894.757
     if beam.maxPressure < 0 then beam.maxPressure = math.huge end
-    obj:setBeamPressured(bid, beam.pressure, beam.surface, beam.volumeCoef, beam.maxPressure)
+
+    if beam.pressureLimit == nil and beam.pressureLimitPSI == nil then beam.pressureLimit = math.huge end
+    beam.pressureLimit = beam.pressureLimit or (beam.pressureLimitPSI * 6894.757 + 101325)
+    beam.pressureLimitPSI = (beam.pressureLimit - 101325) / 6894.757
+    if beam.pressureLimit < 0 then beam.pressureLimit = math.huge end
+    obj:setBeamPressured(bid, beam.pressure, beam.surface, beam.volumeCoef, beam.maxPressure, beam.pressureLimit)
   elseif(beam.beamType == BEAM_LBEAM) then
     obj:setBeamLbeam(bid, beam.id3,
       type(beam.springExpansion) == 'number' and beam.springExpansion or beam.beamSpring,
@@ -309,7 +316,7 @@ local function processWheels(vehicle)
       local wid = obj:setWheel(wheel.cid, wheel.node1, wheel.node2, wheel.nodeArm or -1,
         torqueArm or -1, torqueCouple or -1, checkNum(wheel.torqueArm2, -1),
         checkNum(wheel.torqueJointNode1, -1), checkNum(wheel.torqueJointNode2, -1),
-        math.max(checkNum(wheel.brakeTorque), checkNum(wheel.parkingTorque), 1) * checkNum(wheel.brakeSpring, 10))
+        math.max(checkNum(wheel.brakeTorque), checkNum(wheel.parkingTorque), 1) * checkNum(wheel.brakeSpring, 10), checkNum(wheel.brakeDamp, 0))
 
       for _, v in ipairs(wheel.nodes) do
         obj:addWheelNode(wid, v)

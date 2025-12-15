@@ -2,11 +2,12 @@ local M = {}
 local extensions = require("extensions")
 
 local localeCache = {}
+local loaded = false
+local reloadRequest = false
 
 local function getCurrentLanguage()
 return Lua:getSelectedLanguage()
 end
-
 
 local function loadLocales()
 local addons = FS:findFiles("beamLR/locales", "*.json", -1)
@@ -32,14 +33,16 @@ original[k] = v
 end
 
 jsonWriteFile(opath, original, true)
+
+loaded = true
 end
 
 
 
 
 
-
-reloadUI()
+reloadRequest = true
+-- reloadUI()
 end
 
 
@@ -49,11 +52,12 @@ for k,v in pairs(files) do
 extensions.blrutils.deleteFile(v)
 end
 localeCache = {}
-
+loaded = false
 reloadUI()
 end
 
 local function translate(key, language)
+if not loaded then return key end
 if not localeCache[language or getCurrentLanguage()] then language = "en-US" end -- 1.19.1 default to english for non translated languages
 return localeCache[language or getCurrentLanguage()][key] or key
 end
@@ -151,10 +155,19 @@ writeFile("mtgen_output", tdata)
 
 end
 
+local function onUiChangedState(to,from)
+print("UI CHANGED STATE FROM " .. from .. " TO " .. to)
+if not reloadRequest then return end
+if to == "play" then
+reloadRequest = false
+reloadUI()
+print("SHOULD HAVE RELOADED UI AFTER TRANSLATIONS LOADED")
+end
+end
+
+M.onUiChangedState = onUiChangedState
 
 M.generateTranslations = generateTranslations
-
-
 M.translate = translate
 M.getCurrentLanguage = getCurrentLanguage
 M.loadLocales = loadLocales

@@ -179,10 +179,10 @@ function C:handleNodeCategories()
       -- check if simple
       if ui_flowgraph_editor.isSimpleNode(self.category) then
         if self:hasFlowPins() then
-          log("E", "", "Node " .. self.name .. " is simple, but has flow pins!")
+                    log("E", logTag, "Node " .. self.name .. " is simple, but has flow pins!")
         end
         if self.category == 'provider' and self:hasInputPins() then
-          log("E", "", "Node " .. self.name .. " is provider, but has input pins!")
+          log("E", logTag, "Node " .. self.name .. " is provider, but has input pins!")
         end
         self:addBehaviour('simple')
       else
@@ -539,7 +539,7 @@ end
 
 function C:shiftPin(idInList, direction)
   local newIndex = ((idInList + direction-1)% #self.pinList) +1
-  log("D","","Shifting Pin: "..idInList .. " -> " .. newIndex)
+  log("D",logTag,"Shifting Pin: "..idInList .. " -> " .. newIndex)
   local a = self.pinList[idInList]
   local b = self.pinList[newIndex]
   self.pinList[idInList] = b
@@ -1000,7 +1000,7 @@ function C:draw(builder, style, dType)
   --self:drawMiddle(builder, style)
   local status, err, res = xpcall(self._drawMiddle, debug.traceback, self, builder, style, drawType)
   if not status then
-    log('E', 'node.'..tostring('_drawMiddle'), tostring(err))
+    log('E', logTag ..'_drawMiddle', tostring(err))
     self:__setNodeError('work', 'Error while executing node:_drawMiddle(): ' .. tostring(err))
   end
 
@@ -1424,7 +1424,7 @@ function C:__onDeserialized(nodeData)
         if not self.data then self.data = {} end
         self.data[k] = v
       else
-        log('D',self.mgr.logTag,string.format("Property %s in Node %s does not exist.", k, self.name))
+        log('D',logTag,string.format("Property %s in Node %s does not exist.", k, self.name))
       end
     end
   end

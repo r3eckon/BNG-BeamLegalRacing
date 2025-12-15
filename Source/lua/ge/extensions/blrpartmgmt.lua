@@ -42,6 +42,12 @@ end
 return toRet
 end
 
+local function toggleAdvancedVehicleBuilding(toggle)
+extensions.blrglobals.blrFlagSet("advancedVehicleBuilding", toggle)
+jbeamIO.setCacheMode((toggle and "avb") or "vanilla")
+end
+
+
 -- 1.19 fix should hopefully stop modded cars with inconsistent naming causing issues
 local function getVehicleModel(vehid)
 return getVehicleData(vehid).vdata.model
@@ -610,6 +616,16 @@ local cpart = {}
 local ctype = ""
 for k,v in pairs(allParts) do
 cpart = getPartJbeam(k, vehid)
+
+if not cpart then
+blrlog("cpart WAS NIL for:")
+blrlog(k)
+blrlog("USING VEHID:")
+blrlog(vehid)
+blrlog("IOCTX:")
+blrlog(dumps(ioCtx(vehid)))
+end
+
 ctype = cpart["slotType"]
 
 -- 0.32.2 fix for table format in slotType (found in BX series bx_bashbar_R.jbeam)
@@ -3030,6 +3046,9 @@ end
 sendPartUI2Cart()
 end
 
+
+
+M.toggleAdvancedVehicleBuilding = toggleAdvancedVehicleBuilding
 M.getVehicleModel = getVehicleModel
 M.pui2_checkUsedParts = pui2_checkUsedParts
 M.sendPartUI2Cart = sendPartUI2Cart
