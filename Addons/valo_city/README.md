@@ -50,4 +50,5 @@ This addon is currently built for map version **0.79**.
 * Updated mission file
 * Updated races, deliveries and challenges to use translation keys
 ### BeamLR 1.19.2
+* Fixed incorrect object names for markers causing lua error
 * Updated mission file
