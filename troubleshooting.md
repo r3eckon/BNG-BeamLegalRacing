@@ -63,4 +63,16 @@ This will create a text file called tree.txt in your userfolder which contains t
 Attach this to your bug report or post it on the forum as requested.
 
 
+## Viewing Jbeam Caching Progress
+
+When caching jbeam files with a lot of mods the game may appear to be frozen. This process will usually take a few minutes depending on hardware and installed mods. 
+
+To make sure the process isn't frozen you can tail the beamlr.log file (command works on Windows, Linux also has equivalents):
+
+1. Open windows powershell 
+2. Type the following line (replace path to log file with correct path for your userfolder) and hit enter
+
+`Get-Content C:\Users\r3eck\AppData\Local\BeamNG.drive\current\beamlr.log  -Wait -Tail 1`
+
+The powershell window will now display jbeam caching progress in percent as well as remaining steps and files left to process. You can use this to ensure the process isn't frozen and also to estimate how long it will take to complete.
 
