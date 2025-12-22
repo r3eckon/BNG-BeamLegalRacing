@@ -382,7 +382,7 @@ Thank you for playing BeamLR!
 * Joe Franco
 * Zbignev Ulevic
 * Nuno Medeiros
-* Preston Knapp
+* PrestonLK
 * Marcos Da Silva
 * Abdullah Alsnani
 
