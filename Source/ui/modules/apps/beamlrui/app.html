@@ -239,7 +239,7 @@ Andrew Barbot<br>
 Joe Franco<br>
 Zbignev Ulevic<br>
 Nuno Medeiros<br>
-Preston Knapp<br>
+PrestonLK<br>
 Marcos Da Silva<br>
 Abdullah Alsnani<br>
 </p>
@@ -477,6 +477,8 @@ Abdullah Alsnani<br>
 
 <br>
 
+<!-- 
+
 <p style="text-align:center; white-space:pre-wrap;">
 {{"beamlr.mainui.page.options.setting.backupdetails" | translate}}
 </p>
@@ -487,14 +489,65 @@ Abdullah Alsnani<br>
 
 <br>
 
-<p style="text-align:center;">
-{{"beamlr.mainui.page.options.setting.resetdetails" | translate}}
+-->
+
+<p style="text-align:center; font-weight:bold;">{{"beamlr.mainui.page.options.setting.savestitle" | translate}}</p>
+<p style="text-align:center; font-weight:bold;">{{"beamlr.mainui.page.options.setting.savescurrent" | translate}} {{beamlrData['currentSaveFile']}}</p>
+
+<div style="width:90%; height:150px; background-color:rgba(0,0,0,0.5); text-align:center; margin:auto; overflow-y:scroll;">
+<table style="width:100%; height:100%; margin-top:10px; margin-bottom:10px; table-layout:fixed;">
+
+<tr ng-repeat="(index,name) in beamlrData['saveFiles'] track by index" style="height:30px; width:100%; text-align:center; vertical-align:top;">
+<td>{{name}}</td>
+
+<td>
+<div style="display:inline-block;" ng-if="inputData.saveLoadConfirm[name] != true">
+<button ng-click="loadSaveFile(name)">{{"beamlr.generic.button.load" | translate}}</button>
+</div>
+<div style="display:inline-block;" ng-if="inputData.saveLoadConfirm[name] == true">
+<button ng-click="loadSaveFile(name)">&#10004</button>
+<button ng-click="loadSaveFileCancel(name)">&#10006</button>
+</div>
+
+&nbsp
+
+<div style="display:inline-block;" ng-if="inputData.saveDeleteConfirm[name] != true">
+<button ng-disabled="beamlrData['currentSaveFile'] == name" ng-click="deleteSaveFile(name)">{{"beamlr.generic.button.delete" | translate}}</button>
+</div>
+<div style="display:inline-block;" ng-if="inputData.saveDeleteConfirm[name] == true">
+<button ng-disabled="beamlrData['currentSaveFile'] == name" ng-click="deleteSaveFile(name)">&#10004</button>
+<button ng-disabled="beamlrData['currentSaveFile'] == name" ng-click="deleteSaveFileCancel(name)">&#10006</button>
+</div>
+</td>
+</tr>
+
+
+
+<tr ng-if="beamlrData['saveFiles'][0] != null" style="height:30px; width:100%; text-align:center; vertical-align:top;">
+<td><input ng-model="inputData.saveFileName" type="text" style="width:90%; text-align:center;"></input></td>
+<td><button ng-click="createSaveFile(inputData.saveFileName)">{{"beamlr.generic.button.create" | translate}}</button></td>
+</tr>
+
+<tr ng-if="beamlrData['saveFiles'][0] == null" style="height:30px; width:100%; text-align:center; vertical-align:top;">
+<td style="width:90%; text-align:center;">{{"beamlr.mainui.page.options.setting.nosavestip" | translate}}</td>
+</tr>
+
+</table>
+</div>
+
+<p style="text-align:center; margin:5px;">
+{{"beamlr.mainui.page.options.setting.savesdetails" | translate}}
 </p>
+
 
 <p style="text-align:center; color:yellow;"> 
 {{"beamlr.mainui.page.options.setting.resetcareer" | translate}}
 <button ng-if="resetConfirm == false" ng-click="resetCareer()">{{"beamlr.mainui.page.options.setting.resetbutton" | translate}}</button>
 <button ng-if="resetConfirm == true" ng-click="resetCareer()">{{"beamlr.mainui.page.options.setting.resetconfirm" | translate}}</button>
+</p>
+
+<p style="text-align:center;">
+{{"beamlr.mainui.page.options.setting.resetdetails" | translate}}
 </p>
 
 <br>

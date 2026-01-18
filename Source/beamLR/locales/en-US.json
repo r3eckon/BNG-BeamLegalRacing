@@ -63,6 +63,8 @@
 	"beamlr.generic.button.buy" : "Buy",
 	"beamlr.generic.button.sell" : "Sell",
 	"beamlr.generic.button.leave" : "Leave",
+	"beamlr.generic.button.create" : "Create",
+	"beamlr.generic.button.delete" : "Delete",
 	
 		//Generic Terms
 	"beamlr.generic.term.value" : "Value",
@@ -291,6 +293,11 @@
 	"beamlr.mainui.page.options.setting.instanttraffic" : "Instant Toggle Traffic",
 	"beamlr.mainui.page.options.setting.manualtrafficdetails" : "Use this setting to manually toggle traffic for debug or testing purposes. Can be used to spawn new variants if Instant Toggle Traffic is off.",
 	"beamlr.mainui.page.options.setting.manualtraffic" : "Manual Traffic Toggle",
+	"beamlr.mainui.page.options.setting.savestitle" : "Load & Manage Saves (Backups)",
+	"beamlr.mainui.page.options.setting.savescurrent" : "Current Save:",
+	"beamlr.mainui.page.options.setting.savesdetails" : "Note: creating a new save will clone the last saved state of your current save (when you last stopped the scenario). ",
+	"beamlr.mainui.page.options.setting.nosavestip" : "No existing save file found. The first save file will be created when you stop the scenario, which will then allow you to create extra saves.",
+	
 	
 		//Environment options
 	"beamlr.mainui.page.options.setting.dynamicweatherdetails" : "Dynamic weather will smoothly change weather condition throughout the day. Weather changes from day to day using career seed. Time scale affects weather change rate.",

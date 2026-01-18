@@ -307,46 +307,53 @@ shoptree = tnode:new(nil,"root")
 tnode:new("root", model)
 
 for _,folder in pairs(folders) do
-for _,file in pairs(FS:findFiles(folder, "*.jbeam", -1)) do
-cjdata = jsonReadFile(file)
-for part,cjbeam in pairs(cjdata) do
-stdata = cjbeam["slotType"]
-cslots = cjbeam["slots"] or cjbeam["slots2"]
+	for _,file in pairs(FS:findFiles(folder, "*.jbeam", -1)) do
+		
+		cjdata = jsonReadFile(file)
+		
+		if cjdata then
+		
+			for part,cjbeam in pairs(cjdata) do
+			stdata = cjbeam["slotType"]
+			cslots = cjbeam["slots"] or cjbeam["slots2"]
 
 
-if cslots then
+				if cslots then
 
-cslots = extensions.blrpartmgmt.parseJbeamSlotsTable(cslots)
-cslots = extensions.blrpartmgmt.getSortedJbeamSlotsTable(cslots)
+					cslots = extensions.blrpartmgmt.parseJbeamSlotsTable(cslots)
+					cslots = extensions.blrpartmgmt.getSortedJbeamSlotsTable(cslots)
 
+					for _,cslot in pairs(cslots) do	
+						
+						if cslot ~= (model .. "_mod") then -- avoids adding the "Additional Modification" slot 
+						
+							if type(stdata) == "table" then
+								for _,ptype in pairs(stdata) do
+									if ptype == "main" then
+										ptype = model 
+									end
+									tnode:new(ptype, cslot)
+								end
+							else
+								if stdata == "main" then 
+									stdata = model 
+								end
+								tnode:new(stdata, cslot)
+							end
+						
+						end
+						
+					end
 
-for _,cslot in pairs(cslots) do	
-	
-	if cslot ~= (model .. "_mod") then -- avoids adding the "Additional Modification" slot 
-	
-		if type(stdata) == "table" then
-			for _,ptype in pairs(stdata) do
-				if ptype == "main" then
-					ptype = model 
 				end
-				tnode:new(ptype, cslot)
+
+
 			end
+		
 		else
-			if stdata == "main" then 
-				stdata = model 
-			end
-			tnode:new(stdata, cslot)
+			print("buildPartShopTreeFromJbeam ERROR, NO VALID JBEAM DATA FOUND IN FILE: " .. tostring(file))
 		end
-	
 	end
-	
-end
-
-end
-
-
-end
-end
 end
 
 sortPartShopTree()

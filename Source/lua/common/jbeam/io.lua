@@ -511,6 +511,11 @@ local function onFileChanged(filename, type)
   --local dir = string.match(filename, "(/vehicles/[^/]*/).*$") -- yeah it's weird to have no leading slash :/
   local _, _, ext = path.split(filename)
   if ext ~= 'jbeam' then return end
+  
+  -- BEAMLR EDIT, AVOID ERROR IF HOOK IS CALLED BEFORE CACHES ARE INITIALIZED
+  if not fileCache[cmode] then
+	fileCache[cmode] = {}
+  end
 
   -- invalidate everthing from that file in all the caches.
   -- important: the other caches will be stale until we reload. This is by design.

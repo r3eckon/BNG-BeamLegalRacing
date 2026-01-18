@@ -18,6 +18,16 @@ print("TEST! Param : " .. p)
 end
 
 ftable["setPart"] = function(p)
+
+-- 1.19.3 hard lock edits to prevent issues with double clicks on the lua side since
+-- apparently still possible even if handled on the UI side
+if extensions.blrglobals.blrFlagGet("partEditLocked") then
+return
+end
+extensions.blrglobals.blrFlagSet("partEditLocked", true)
+
+
+
 -- 1.17 fix for players using pause while editing parts
 simTimeAuthority.pause(false)
 
@@ -340,6 +350,14 @@ print("UI Init Request Received")
 end
 
 ftable["setTune"] = function(p)
+
+-- 1.19.3 hard lock edits to prevent issues with double clicks on the lua side since
+-- apparently still possible even if handled on the UI side
+if extensions.blrglobals.blrFlagGet("partEditLocked") then
+return
+end
+extensions.blrglobals.blrFlagSet("partEditLocked", true)
+
 -- 1.17 fix for players using pause while editing parts
 simTimeAuthority.pause(false)
 
@@ -362,6 +380,15 @@ extensions.blrpartmgmt.applyTuningData(dtable)
 end
 
 ftable["resetTune"] = function(p)
+
+-- 1.19.3 hard lock edits to prevent issues with double clicks on the lua side since
+-- apparently still possible even if handled on the UI side
+if extensions.blrglobals.blrFlagGet("partEditLocked") then
+return
+end
+extensions.blrglobals.blrFlagSet("partEditLocked", true)
+
+
 -- 1.17 fix for players using pause while editing parts
 simTimeAuthority.pause(false)
 
@@ -677,6 +704,14 @@ extensions.blrutils.uiRefreshTemplates()
 end
 
 ftable["loadTemplate"] = function(p)
+
+-- 1.19.3 hard lock edits to prevent issues with double clicks on the lua side since
+-- apparently still possible even if handled on the UI side
+if extensions.blrglobals.blrFlagGet("partEditLocked") then
+return
+end
+extensions.blrglobals.blrFlagSet("partEditLocked", true)
+
 -- 1.17 fix for players using pause while editing parts
 simTimeAuthority.pause(false)
 
@@ -858,6 +893,15 @@ extensions.blrglobals.blrFlagSet("advancedRepairUI", false)
 end
 
 ftable["advancedRepairSelected"] = function(p)
+
+-- 1.19.3 hard lock edits to prevent issues with double clicks on the lua side since
+-- apparently still possible even if handled on the UI side
+if extensions.blrglobals.blrFlagGet("partEditLocked") then
+return
+end
+extensions.blrglobals.blrFlagSet("partEditLocked", true)
+
+
 -- 1.17 fix for players using pause while editing parts
 simTimeAuthority.pause(false)
 
@@ -999,6 +1043,15 @@ extensions.blrglobals.blrFlagSet("uiInitRequest", true)
 end
 
 ftable["advancedRepairAll"] = function(p)
+
+-- 1.19.3 hard lock edits to prevent issues with double clicks on the lua side since
+-- apparently still possible even if handled on the UI side
+if extensions.blrglobals.blrFlagGet("partEditLocked") then
+return
+end
+extensions.blrglobals.blrFlagSet("partEditLocked", true)
+
+
 -- 1.17 fix for players using pause while editing parts
 simTimeAuthority.pause(false)
 
@@ -1204,6 +1257,14 @@ end
 
 -- 1.16 advanced inventory part set, borrows a bunch of code from old part set function
 ftable["advPartSet"] = function(p)
+
+-- 1.19.3 hard lock edits to prevent issues with double clicks on the lua side since
+-- apparently still possible even if handled on the UI side
+if extensions.blrglobals.blrFlagGet("partEditLocked") then
+return
+end
+extensions.blrglobals.blrFlagSet("partEditLocked", true)
+
 -- 1.17 fix for players using pause while editing parts
 simTimeAuthority.pause(false)
 
@@ -1457,6 +1518,26 @@ ftable["clearDecals"] = function(p)
 extensions.blrdecals.clearDecals()
 end
 
+ftable["loadSaveFile"] = function(p)
+extensions.blrutils.setCurrentSaveFile(p)
+extensions.blrutils.restoreBackup()
+end
+
+ftable["deleteSaveFile"] = function(p)
+extensions.blrutils.deleteSaveFile(p)
+local csave = extensions.blrutils.getCurrentSaveFile()
+local saves = extensions.blrutils.getSaveFiles(true)
+extensions.customGuiStream.sendDataToUI("currentSaveFile", csave)
+extensions.customGuiStream.sendDataToUI("saveFiles", saves)
+end
+
+ftable["createSaveFile"] = function(p)
+extensions.blrutils.createSaveFile(p)
+local csave = extensions.blrutils.getCurrentSaveFile()
+local saves = extensions.blrutils.getSaveFiles(true)
+extensions.customGuiStream.sendDataToUI("currentSaveFile", csave)
+extensions.customGuiStream.sendDataToUI("saveFiles", saves)
+end
 
 
 

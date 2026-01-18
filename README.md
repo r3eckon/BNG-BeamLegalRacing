@@ -5,10 +5,11 @@
 
 
 
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.19.2/beamLegalRacing1.19.2.zip
+
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.19.3/beamLegalRacing1.19.3.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.19.2
+# Beam Legal Racing 1.19.3
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -148,6 +149,8 @@ Version 1.18.8 adds an oil leak decal system that spawns oil drops and puddles u
 Version 1.19 adds [dealership vehicle history system with associated purchasable reports](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#vehicle-history-system) and [barn find vehicles](https://github.com/r3eckon/BNG-BeamLegalRacing/tree/main#barn-finds). This version also adds translation file loading ability for those interested in creating translations for the mod.
 
 Version 1.19.2 brings compatibility for BeamNG version 0.38 to the mod and implements the updated Italy level. This new game version comes with changes to AI racing abilities that may improve their performance in street races and track events.
+
+Version 1.19.3 upgrades the backup system into a save system that allows multiple save files. Creating a new save file will use the last backup state of the currently loaded save file, meaning it will not include progress made since the last time you abandoned the scenario. Save files can be managed through the options menu. Note that old backups should automatically be migrated to this new system but you should still backup your career files somewhere before updating to ensure you don't lose progress. For brand new players a save file will only be created after you first stop the scenario.
 
 ## Getting started
 BeamLR is loaded as a freeroam mission. Use the following spawn point depending on map choice:
@@ -1106,3 +1109,12 @@ Cause: Engine jbeam is missing torque data. Data is moved to other subparts. Thi
 * Fixed towing UI reappearing during UI init process if closed using cancel button
 * Fixed game over UI using incorrect translation keys on cancel buttons
 * Fixed blrlocales.lua bug caused when UI appears before translations have been loaded
+
+### 1.19.3
+* Added ability to use multiple saves (backups)
+* Various code additions to help avoid broken mods and jbeam files
+* Fixed jbeamIO cache issue in onFileChanged hook
+* Updated en-US translation file with new lines for added UI buttons
+* Updated blrhooks.lua AVB reset to work with new jbeamIO caching system
+* Fixed safe mode exit process not turning on AVB causing default parts to spawn
+* Improved part edit locking to prevent double clicks on use/remove buttons causing issues

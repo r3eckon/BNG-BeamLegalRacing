@@ -71,7 +71,8 @@ angular.module('beamng.apps')
 	  scope.defaultFunctions["copstrict"] = "setPoliceStrictness"
 	  scope.defaultFunctions["tsbias"] = "setTrafficDirectionBias"
 	  
-	  
+	  scope.inputData.saveDeleteConfirm = {}
+	  scope.inputData.saveLoadConfirm = {}
 	  
 	  
 	  //helper function to trigger message in vanilla message app
@@ -1376,6 +1377,81 @@ angular.module('beamng.apps')
 	  {
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("clearDecals")`);  
 	  }
+	  
+	  scope.loadSaveFile = function(name)
+	  {
+		  if(scope.inputData.saveLoadConfirm[name] == true)
+		  {
+		       bngApi.engineLua(`extensions.customGuiCallbacks.setParam("savefilename", "${name}")`)
+		       bngApi.engineLua(`extensions.customGuiCallbacks.exec("loadSaveFile", "savefilename")`)
+			   scope.inputData.saveLoadConfirm[name] = false
+		  }
+		  else
+		  {
+			  scope.inputData.saveLoadConfirm[name] = true
+		  }
+	  }
+	  
+	  scope.loadSaveFileCancel = function(name)
+	  {
+		  scope.inputData.saveLoadConfirm[name] = false
+	  }
+	  
+	  scope.deleteSaveFile = function(name)
+	  {
+		  if(scope.inputData.saveDeleteConfirm[name] == true)
+		  {
+			  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("savefilename", "${name}")`)
+			  bngApi.engineLua(`extensions.customGuiCallbacks.exec("deleteSaveFile", "savefilename")`)
+			  scope.inputData.saveDeleteConfirm[name] = false
+		  }
+		  else
+		  {
+			   scope.inputData.saveDeleteConfirm[name] = true
+		  }
+		  
+	  }
+	  
+	  scope.deleteSaveFileCancel = function(name)
+	  {
+		  scope.inputData.saveDeleteConfirm[name] = false
+	  }
+	  
+	  
+	  isNullOrEmpty = function(str)
+	  {
+		  return (str == null || str.toString() == "")
+	  }
+	  
+	  validFilename = function(str)
+	  {
+		var rg1=/^[^\\/:\*\?\."<>\|\s]+$/; // forbidden characters \ / . : * ? " < > | WHITESPACE
+		var rg2=/^\./; // cannot start with dot (.)
+		var rg3=/^(nul|prn|con|lpt[0-9]|com[0-9])(\.|$)/i; // forbidden file names
+
+		return rg1.test(str)&&!rg2.test(str)&&!rg3.test(str);
+	  }
+	  
+	  scope.createSaveFile = function(name)
+	  {
+		  if(isNullOrEmpty(name))
+		  {
+			  scope.guiMessage("Save couldn't be created, name cannot be empty!", 10, "warning", "savesystem")
+			  return
+		  }
+		  
+		  if(!validFilename(name))
+		  {
+			  scope.guiMessage("Save couldn't be created, name contains invalid terms or characters!", 10, "warning", "savesystem")
+			  return
+		  }
+		  
+		  
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("savefilename", "${name}")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("createSaveFile", "savefilename")`)
+	  }
+	  
+	  
 	  
     }
   }

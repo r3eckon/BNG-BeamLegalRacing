@@ -792,7 +792,115 @@ local function getOptionsTable()
 return loadDataTable("beamLR/options")
 end
 
+locals["guimsg"] = function(msg, ttl, icon, category, dbg)
+guihooks.trigger('Message', {ttl = ttl or 10, category=category or ("" .. os.time()), msg = msg or "", icon = icon or 'directions_car'})
+if dbg then print(msg) end
+end
+
+
+locals["getSaveFiles"] = function(snonly) -- true to get sorted names only
+local saves = FS:directoryList("beamLR/backup")
+local toRet = {}
+local cname = ""
+
+if snonly then
+for k,v in valueSortedPairs(saves) do
+cname = string.gsub(v, "/beamLR/backup/", "")
+table.insert(toRet, cname)
+end
+else
+for k,v in pairs(saves) do
+cname = string.gsub(v, "/beamLR/backup/", "")
+toRet[cname] = v
+end
+end
+
+return toRet
+end
+
+locals["getCurrentSaveFile"] = function()
+local mdata = loadDataTable("beamLR/mainData")
+local csave = mdata["save"]
+return csave
+end
+
+locals["setCurrentSaveFile"] = function(save)
+local mdata = loadDataTable("beamLR/mainData")
+mdata["save"] = save
+saveDataTable("beamLR/mainData", mdata)
+end
+
+locals["migrateOldBackup"] = function()
+local files = FS:findFiles("beamLR/backup", "*", -1, true, true)
+local target = ""
+for k,v in pairs(files) do
+target = string.gsub(v, "/beamLR/backup/", "/beamLR/backup/default/")
+copyFile(v, target)
+deleteFile(v)
+end
+
+local folders = FS:directoryList("beamLR/backup")
+for k,v in pairs(folders) do
+if v ~= "/beamLR/backup/default" then
+FS:directoryRemove(v)
+end
+end
+
+-- moving files complete, setting current save file to newly created default
+locals.setCurrentSaveFile("default")
+
+print("Old backup format was detected and has been migrated to 'default' subfolder for new multi save system")
+end
+
+locals["detectOldBackup"] = function()
+if FS:fileExists("beamLR/backup/mainData") then
+return true
+end
+end
+
+
+locals["deleteSaveFile"] = function(name)
+local saves = locals.getSaveFiles()
+if FS:directoryExists(saves[name]) then
+FS:directoryRemove(saves[name])
+locals.guimsg("Save file '" .. name .. "' has been deleted", 10, "delete", "savesystem", true)
+else
+locals.guimsg("Couldn't delete save file '" .. name .. "' because path doesn't point to existing folder!", 10, "warning", "savesystem", true)
+end
+end
+
+locals["createSaveFile"] = function(name)
+local current = locals.getCurrentSaveFile()
+local cpath = "beamLR/backup/" .. current .. "/"
+local tpath = "beamLR/backup/" .. name .. "/"
+
+if FS:directoryExists(tpath) then
+locals.guimsg("Couldn't create new save file, directory already exists!", 10, "warning", "savesystem", true)
+return
+end
+
+if not FS:directoryExists(cpath) then
+locals.guimsg("Couldn't create new save file, current save file points to non existing directory!", 10, "warning", "savesystem", true)
+return
+end
+
+for k,v in pairs(FS:findFiles("beamLR/backup", "*", -1, true, true)) do
+copyFile(v, string.gsub(v, cpath, tpath))
+end
+
+locals.guimsg("New save file '" .. name .. "' has been created", 10, "save", "savesystem", true)
+end
+
+
 local function resetCareer() 
+local saveName = locals.getCurrentSaveFile()
+if not saveName or saveName == "" then -- this shouldn't happen, old backup should be migrated on first scenario start
+if locals.detectOldBackup() then
+locals.migrateOldBackup()
+end
+saveName = "default"
+end
+
 
 cycleCareerSeed()
 
@@ -866,46 +974,55 @@ event["carid"] = 0
 event["eventid"] = 0
 updateDataTable("beamLR/currentTrackEvent", event)
 
-
+locals.setCurrentSaveFile(saveName)
 end
 
 local function backupCareer()
+local saveName = locals.getCurrentSaveFile()
+if not saveName or saveName == "" then -- this shouldn't happen, old backup should be migrated on first scenario start
+if locals.detectOldBackup() then
+locals.migrateOldBackup()
+end
+saveName = "default"
+end
+
+
 -- Delete existing backup
-deleteDir("beamLR/backup")
+deleteDir("beamLR/backup/" .. saveName)
 
 -- Root folder data
-copyFile("beamLR/mainData", "beamLR/backup/mainData")
--- copyFile("beamLR/partInv", "beamLR/backup/partInv") -- no longer needed as of 1.16
+copyFile("beamLR/mainData", "beamLR/backup/" .. saveName .. "/mainData")
+-- copyFile("beamLR/partInv", "beamLR/backup/" .. saveName .. "/partInv") -- no longer needed as of 1.16
 extensions.blrPartInventory.save() -- need to save before copying file otherwise last changes arent in file
-copyFile("beamLR/partInventory", "beamLR/backup/partInventory") -- 1.16 advanced part inventory
-copyFile("beamLR/options", "beamLR/backup/options")
-copyFile("beamLR/currentTrackEvent", "beamLR/backup/currentTrackEvent")
+copyFile("beamLR/partInventory", "beamLR/backup/" .. saveName .. "/partInventory") -- 1.16 advanced part inventory
+copyFile("beamLR/options", "beamLR/backup/" .. saveName .. "/options")
+copyFile("beamLR/currentTrackEvent", "beamLR/backup/" .. saveName .. "/currentTrackEvent")
 extensions.blrItemInventory.saveInventory()
-copyFile("beamLR/itemInventory", "beamLR/backup/itemInventory")
+copyFile("beamLR/itemInventory", "beamLR/backup/" .. saveName .. "/itemInventory")
 extensions.blrPartInventory.saveUsedPartShopDayData()
-copyFile("beamLR/usedPartDayData", "beamLR/backup/usedPartDayData") -- 1.16 used part day data
+copyFile("beamLR/usedPartDayData", "beamLR/backup/" .. saveName .. "/usedPartDayData") -- 1.16 used part day data
 extensions.blrCarMeet.updateDayData()
-copyFile("beamLR/carMeetDayData", "beamLR/backup/carMeetDayData") -- 1.17 car meet
-copyFile("beamLR/ownedProperties", "beamLR/backup/ownedProperties") -- 1.17 properties
-copyFile("beamLR/trackEventResults", "beamLR/backup/trackEventResults") -- 1.17.5 track event results
-copyFile("beamLR/slotFavorites", "beamLR/backup/slotFavorites") -- 1.18.7 slot favorites
-copyFile("beamLR/barnFindData", "beamLR/backup/barnFindData") -- 1.19 barn find
+copyFile("beamLR/carMeetDayData", "beamLR/backup/" .. saveName .. "/carMeetDayData") -- 1.17 car meet
+copyFile("beamLR/ownedProperties", "beamLR/backup/" .. saveName .. "/ownedProperties") -- 1.17 properties
+copyFile("beamLR/trackEventResults", "beamLR/backup/" .. saveName .. "/trackEventResults") -- 1.17.5 track event results
+copyFile("beamLR/slotFavorites", "beamLR/backup/" .. saveName .. "/slotFavorites") -- 1.18.7 slot favorites
+copyFile("beamLR/barnFindData", "beamLR/backup/" .. saveName .. "/barnFindData") -- 1.19 barn find
 
 
 -- Garage data
 local count = #FS:findFiles("beamLR/garage/", "*", 0)
 local ctemplates = {}
 for i=0,count-1 do 
-copyFile("beamLR/garage/car" .. i, "beamLR/backup/garage/car" .. i)
-copyFile("beamLR/garage/config/car" .. i,"beamLR/backup/garage/config/car" .. i)
-copyFile("beamLR/beamstate/car" .. i .. ".save.json","beamLR/backup/beamstate/car" .. i .. ".save.json")
-copyFile("beamLR/beamstate/mech/car" .. i,"beamLR/backup/beamstate/mech/car" .. i)
-copyFile("beamLR/beamstate/integrity/car" .. i,"beamLR/backup/beamstate/integrity/car" .. i)
+copyFile("beamLR/garage/car" .. i, "beamLR/backup/" .. saveName .. "/garage/car" .. i)
+copyFile("beamLR/garage/config/car" .. i,"beamLR/backup/" .. saveName .. "/garage/config/car" .. i)
+copyFile("beamLR/beamstate/car" .. i .. ".save.json","beamLR/backup/" .. saveName .. "/beamstate/car" .. i .. ".save.json")
+copyFile("beamLR/beamstate/mech/car" .. i,"beamLR/backup/" .. saveName .. "/beamstate/mech/car" .. i)
+copyFile("beamLR/beamstate/integrity/car" .. i,"beamLR/backup/" .. saveName .. "/beamstate/integrity/car" .. i)
 
 -- Backup templates
 ctemplates = FS:findFiles("beamLR/garage/config/template/car" .. i, "*", 0)
 for _,file in pairs(ctemplates) do
-copyFile(file, file:gsub("beamLR/garage/", "beamLR/backup/garage/"))
+copyFile(file, file:gsub("beamLR/garage/", "beamLR/backup/" .. saveName .. "/garage/"))
 end
 
 
@@ -915,7 +1032,7 @@ end
 local dest = ""
 for _,v in pairs(FS:directoryList("beamLR/races")) do
 if v ~= "/beamLR/races/integrity" then
-dest = v:gsub("beamLR", "beamLR/backup")
+dest = v:gsub("beamLR", "beamLR/backup/" .. saveName .. "/")
 if FS:fileExists(v .. "/progress") then -- 1.17.4 shared progress, some club folders have no progress file
 copyFile(v .. "/progress", dest .. "/progress")
 end
@@ -926,31 +1043,41 @@ end
 local dayfiles = FS:findFiles("beamLR/shop/daydata", "*", 0)
 local dest = ""
 for _,v in pairs(dayfiles) do
-dest = v:gsub("beamLR", "beamLR/backup")	
+dest = v:gsub("beamLR", "beamLR/backup/" .. saveName .. "/")
 copyFile(v,dest)
 end
 
 end
 
+
 local function restoreBackup()
-if #FS:findFiles("beamLR/backup", "*", 0) > 0 then -- Check if a backup exists before loading
+local saveName = locals.getCurrentSaveFile()
+if not saveName or saveName == "" then -- this shouldn't happen, old backup should be migrated on first scenario start
+if locals.detectOldBackup() then
+locals.migrateOldBackup()
+end
+saveName = "default"
+end
+
+
+if #FS:findFiles("beamLR/backup/" .. saveName, "*", 0) > 0 then -- Check if a backup exists before loading
 
 -- Clear out existing data with career reset
 resetCareer()
 
 -- Root folder data
-copyFile("beamLR/backup/mainData","beamLR/mainData")
---copyFile("beamLR/backup/partInv","beamLR/partInv") -- no longer needed as of 1.16
-copyFile("beamLR/backup/partInventory", "beamLR/partInventory") -- 1.16 advanced part inventory
-copyFile("beamLR/backup/options","beamLR/options")
-copyFile("beamLR/backup/currentTrackEvent","beamLR/currentTrackEvent")
-copyFile("beamLR/backup/itemInventory", "beamLR/itemInventory")
-copyFile("beamLR/backup/usedPartDayData", "beamLR/usedPartDayData") -- 1.16 used part day data
-copyFile("beamLR/backup/carMeetDayData", "beamLR/carMeetDayData") -- 1.17 car meet
-copyFile("beamLR/backup/ownedProperties", "beamLR/ownedProperties") -- 1.17 properties
-copyFile("beamLR/backup/trackEventResults", "beamLR/trackEventResults") -- 1.17.5 track event results
-copyFile("beamLR/backup/slotFavorites", "beamLR/slotFavorites") -- 1.18.7 slot favorites
-copyFile("beamLR/backup/barnFindData", "beamLR/barnFindData") -- 1.18.7 slot favorites
+copyFile("beamLR/backup/" .. saveName .. "/mainData","beamLR/mainData")
+--copyFile("beamLR/backup/" .. saveName .. "/partInv","beamLR/partInv") -- no longer needed as of 1.16
+copyFile("beamLR/backup/" .. saveName .. "/partInventory", "beamLR/partInventory") -- 1.16 advanced part inventory
+copyFile("beamLR/backup/" .. saveName .. "/options","beamLR/options")
+copyFile("beamLR/backup/" .. saveName .. "/currentTrackEvent","beamLR/currentTrackEvent")
+copyFile("beamLR/backup/" .. saveName .. "/itemInventory", "beamLR/itemInventory")
+copyFile("beamLR/backup/" .. saveName .. "/usedPartDayData", "beamLR/usedPartDayData") -- 1.16 used part day data
+copyFile("beamLR/backup/" .. saveName .. "/carMeetDayData", "beamLR/carMeetDayData") -- 1.17 car meet
+copyFile("beamLR/backup/" .. saveName .. "/ownedProperties", "beamLR/ownedProperties") -- 1.17 properties
+copyFile("beamLR/backup/" .. saveName .. "/trackEventResults", "beamLR/trackEventResults") -- 1.17.5 track event results
+copyFile("beamLR/backup/" .. saveName .. "/slotFavorites", "beamLR/slotFavorites") -- 1.18.7 slot favorites
+copyFile("beamLR/backup/" .. saveName .. "/barnFindData", "beamLR/barnFindData") -- 1.18.7 slot favorites
 
 extensions.blrItemInventory.loadInventory() -- need to load inventory right now otherwise empty inventory table will overwrite restored backup
 extensions.blrPartInventory.load() -- probably should do the same for new part inventory system
@@ -958,28 +1085,28 @@ extensions.blrPartInventory.loadUsedPartShopDayData() -- and used part day data
 extensions.blrCarMeet.loadDayData()
 
 -- Garage data
-local count = #FS:findFiles("beamLR/backup/garage/", "*", 0)
+local count = #FS:findFiles("beamLR/backup/" .. saveName .. "/garage/", "*", 0)
 local ctemplates = {}
 for i=0,count-1 do 
-copyFile("beamLR/backup/garage/car" .. i,"beamLR/garage/car" .. i)
-copyFile("beamLR/backup/garage/config/car" .. i,"beamLR/garage/config/car" .. i)
-copyFile("beamLR/backup/beamstate/car" .. i .. ".save.json", "beamLR/beamstate/car" .. i .. ".save.json")
-copyFile("beamLR/backup/beamstate/mech/car" .. i,"beamLR/beamstate/mech/car" .. i)
-copyFile("beamLR/backup/beamstate/integrity/car" .. i,"beamLR/beamstate/integrity/car" .. i)
+copyFile("beamLR/backup/" .. saveName .. "/garage/car" .. i,"beamLR/garage/car" .. i)
+copyFile("beamLR/backup/" .. saveName .. "/garage/config/car" .. i,"beamLR/garage/config/car" .. i)
+copyFile("beamLR/backup/" .. saveName .. "/beamstate/car" .. i .. ".save.json", "beamLR/beamstate/car" .. i .. ".save.json")
+copyFile("beamLR/backup/" .. saveName .. "/beamstate/mech/car" .. i,"beamLR/beamstate/mech/car" .. i)
+copyFile("beamLR/backup/" .. saveName .. "/beamstate/integrity/car" .. i,"beamLR/beamstate/integrity/car" .. i)
 
 -- Restore template files
-ctemplates = FS:findFiles("beamLR/backup/garage/config/template/car" .. i, "*", 0)
+ctemplates = FS:findFiles("beamLR/backup/" .. saveName .. "/garage/config/template/car" .. i, "*", 0)
 for _,file in pairs(ctemplates) do
-copyFile(file, file:gsub("beamLR/backup/garage/","beamLR/garage/"))
+copyFile(file, file:gsub("beamLR/backup/" .. saveName .. "/garage/","beamLR/garage/"))
 end
 
 end
 
 -- Race progress data
 local dest = ""
-for _,v in pairs(FS:directoryList("beamLR/backup/races")) do	
-if v ~= "/beamLR/backup/races/integrity" then
-dest = v:gsub("beamLR/backup", "beamLR")		
+for _,v in pairs(FS:directoryList("beamLR/backup/" .. saveName .. "/races")) do	
+if v ~= "/beamLR/backup/" .. saveName .. "/races/integrity" then
+dest = v:gsub("beamLR/backup/" .. saveName, "beamLR")		
 if FS:fileExists(v .. "/progress") then -- 1.17.4 shared progress, some club folders have no progress file
 copyFile(v .. "/progress", dest .. "/progress")
 end
@@ -987,16 +1114,21 @@ end
 end
 
 -- Daily data
-local dayfiles = FS:findFiles("beamLR/backup/shop/daydata", "*", 0)
+local dayfiles = FS:findFiles("beamLR/backup/" .. saveName .. "/shop/daydata", "*", 0)
 local dest = ""
 for _,v in pairs(dayfiles) do
-dest = v:gsub("beamLR/backup", "beamLR")	
+dest = v:gsub("beamLR/backup/" .. saveName, "beamLR")	
 copyFile(v,dest)
 end
+
+
+locals.setCurrentSaveFile(saveName) -- needed to update actual mainData file to correct name for current save
 
 extensions.blrglobals.blrFlagSet("restartQueued", true) -- Queue restart for flowgraph
 
 end
+
+
 end
 
 
@@ -3633,6 +3765,13 @@ end
 end
 end
 
+M.deleteSaveFile = locals["deleteSaveFile"]
+M.createSaveFile = locals["createSaveFile"]
+M.detectOldBackup = locals["detectOldBackup"]
+M.migrateOldBackup = locals["migrateOldBackup"]
+M.setCurrentSaveFile = locals["setCurrentSaveFile"]
+M.getCurrentSaveFile = locals["getCurrentSaveFile"]
+M.getSaveFiles = locals["getSaveFiles"]
 
 M.toggleAutoMissionReload = locals["toggleAutoMissionReload"]
 M.onFilesChanged = locals["onFilesChanged"]

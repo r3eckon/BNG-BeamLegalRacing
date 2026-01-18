@@ -65,9 +65,15 @@ end
 if vehicleID == be:getPlayerVehicle(0):getId() then -- 1.15 fix for track event player not frozen, should also prevent other issues with reset hook from other vehicles
 --1.13 advanced vehicle building, reset avb flag to false after spawn
 --to avoid shop cars, race opponents & traffic from missing parts
-if extensions.blrglobals.blrFlagGet("advancedVehicleBuilding") then
-extensions.blrglobals.blrFlagSet("avbResetDelayed", true) -- Need to delay reset a bit
-end
+
+--if extensions.blrglobals.blrFlagGet("advancedVehicleBuilding") then
+--extensions.blrglobals.blrFlagSet("avbResetDelayed", true) -- Need to delay reset a bit
+--end
+
+-- 1.19.3 updating for new jbeamio avb caching system, also trying without delay to avoid
+-- potential race condition during part edits, might be to blame for AVB failing to work
+extensions.blrpartmgmt.toggleAdvancedVehicleBuilding(false)
+
 
 --1.14.2 part edit safe mode
 if extensions.blrflags.get("garageSafeMode") then

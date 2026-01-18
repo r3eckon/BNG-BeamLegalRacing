@@ -2,7 +2,7 @@
   "activeGraphId":1,
   "authors":"BeamLR",
   "currentGraphID":1,
-  "date":1765707434,
+  "date":1768735129,
   "debugEnabled":false,
   "description":"Beam Legal Racing Career",
   "difficulty":100,
@@ -30,6 +30,7 @@
     "node_1268":1725759991,
     "node_1317":1699351847,
     "node_1333":1733950313,
+    "node_1393":1768726974,
     "node_140":1762893556,
     "node_1407":1698480615,
     "node_1423":1705470015,
@@ -142,15 +143,15 @@
           false
         ],
         [
-          57,
-          "false",
+          60,
+          "flow",
           18,
           "flow",
           false
         ],
         [
-          60,
-          "flow",
+          57,
+          "false",
           18,
           "flow",
           false
@@ -241,7 +242,7 @@
         ],
         [
           4986,
-          "match_4",
+          "match_3",
           25,
           "flow",
           false
@@ -255,7 +256,7 @@
         ],
         [
           4986,
-          "match_3",
+          "match_4",
           25,
           "flow",
           false
@@ -387,14 +388,14 @@
           false
         ],
         [
-          27,
+          1389,
           "down",
           37,
           "flow",
           false
         ],
         [
-          1389,
+          27,
           "down",
           37,
           "flow",
@@ -562,14 +563,14 @@
           false
         ],
         [
-          1389,
+          880,
           "flow",
           50,
           "flow",
           false
         ],
         [
-          880,
+          1389,
           "flow",
           50,
           "flow",
@@ -758,14 +759,14 @@
           false
         ],
         [
-          1510,
+          1766,
           "flow",
           69,
           "flow",
           false
         ],
         [
-          1766,
+          1510,
           "flow",
           69,
           "flow",
@@ -836,14 +837,14 @@
         ],
         [
           99,
-          "match_2",
+          "match_3",
           76,
           "flow_1",
           false
         ],
         [
           99,
-          "match_3",
+          "match_2",
           76,
           "flow_1",
           false
@@ -856,15 +857,15 @@
           false
         ],
         [
-          585,
-          "false",
+          613,
+          "flow",
           77,
           "flow",
           false
         ],
         [
-          613,
-          "flow",
+          585,
+          "false",
           77,
           "flow",
           false
@@ -1115,21 +1116,21 @@
           false
         ],
         [
-          1251,
-          "flow",
-          95,
-          "flow",
-          false
-        ],
-        [
-          109,
-          "flow",
-          95,
-          "flow",
-          false
-        ],
-        [
           1178,
+          "flow",
+          95,
+          "flow",
+          false
+        ],
+        [
+          943,
+          "true",
+          95,
+          "flow",
+          false
+        ],
+        [
+          1251,
           "flow",
           95,
           "flow",
@@ -1143,8 +1144,8 @@
           false
         ],
         [
-          943,
-          "true",
+          109,
+          "flow",
           95,
           "flow",
           false
@@ -1360,6 +1361,13 @@
           false
         ],
         [
+          10130,
+          "flow",
+          109,
+          "flow",
+          false
+        ],
+        [
           18,
           "false",
           109,
@@ -1368,13 +1376,6 @@
         ],
         [
           107,
-          "flow",
-          109,
-          "flow",
-          false
-        ],
-        [
-          10130,
           "flow",
           109,
           "flow",
@@ -1423,15 +1424,15 @@
           false
         ],
         [
-          515,
-          "true",
+          418,
+          "flow",
           114,
           "flow",
           false
         ],
         [
-          418,
-          "flow",
+          515,
+          "true",
           114,
           "flow",
           false
@@ -1689,20 +1690,6 @@
           true
         ],
         [
-          9884,
-          "flow",
-          123,
-          "flow",
-          false
-        ],
-        [
-          9885,
-          "flow",
-          123,
-          "flow",
-          false
-        ],
-        [
           9879,
           "flow",
           123,
@@ -1711,6 +1698,20 @@
         ],
         [
           183,
+          "flow",
+          123,
+          "flow",
+          false
+        ],
+        [
+          9884,
+          "flow",
+          123,
+          "flow",
+          false
+        ],
+        [
+          9885,
           "flow",
           123,
           "flow",
@@ -2529,13 +2530,6 @@
           false
         ],
         [
-          1096,
-          "False",
-          194,
-          "flow",
-          false
-        ],
-        [
           1095,
           "flow",
           194,
@@ -2543,7 +2537,14 @@
           false
         ],
         [
-          1094,
+          749,
+          "flow",
+          194,
+          "flow",
+          false
+        ],
+        [
+          1096,
           "False",
           194,
           "flow",
@@ -2557,8 +2558,8 @@
           false
         ],
         [
-          749,
-          "flow",
+          1094,
+          "False",
           194,
           "flow",
           false
@@ -2795,15 +2796,15 @@
           false
         ],
         [
-          1180,
+          1175,
           "down",
           212,
           "flow",
           false
         ],
         [
-          1175,
-          "down",
+          1575,
+          "flow",
           212,
           "flow",
           false
@@ -2816,8 +2817,8 @@
           false
         ],
         [
-          1575,
-          "flow",
+          1180,
+          "down",
           212,
           "flow",
           false
@@ -2928,15 +2929,15 @@
           false
         ],
         [
-          1621,
-          "True",
+          200,
+          "flow",
           222,
           "flow",
           false
         ],
         [
-          200,
-          "flow",
+          1621,
+          "True",
           222,
           "flow",
           false
@@ -3677,20 +3678,6 @@
           false
         ],
         [
-          762,
-          "flow",
-          276,
-          "flow",
-          false
-        ],
-        [
-          763,
-          "false",
-          276,
-          "flow",
-          false
-        ],
-        [
           10217,
           "false",
           276,
@@ -3699,6 +3686,20 @@
         ],
         [
           509,
+          "false",
+          276,
+          "flow",
+          false
+        ],
+        [
+          762,
+          "flow",
+          276,
+          "flow",
+          false
+        ],
+        [
+          763,
           "false",
           276,
           "flow",
@@ -4328,15 +4329,15 @@
           false
         ],
         [
-          1670,
-          "out",
+          1115,
+          "True",
           328,
           "clear",
           false
         ],
         [
-          1115,
-          "True",
+          1670,
+          "out",
           328,
           "clear",
           false
@@ -4895,15 +4896,15 @@
           false
         ],
         [
-          158,
-          "flow",
+          1507,
+          "true",
           365,
           "flow",
           false
         ],
         [
-          1507,
-          "true",
+          158,
+          "flow",
           365,
           "flow",
           false
@@ -5049,7 +5050,21 @@
           false
         ],
         [
+          1674,
+          "flow",
+          378,
+          "flow",
+          false
+        ],
+        [
           966,
+          "flow",
+          378,
+          "flow",
+          false
+        ],
+        [
+          961,
           "flow",
           378,
           "flow",
@@ -5063,22 +5078,8 @@
           false
         ],
         [
-          394,
-          "flow",
-          378,
-          "flow",
-          false
-        ],
-        [
-          1674,
-          "flow",
-          378,
-          "flow",
-          false
-        ],
-        [
-          1182,
-          "flow",
+          377,
+          "none",
           378,
           "flow",
           false
@@ -5091,6 +5092,13 @@
           false
         ],
         [
+          394,
+          "flow",
+          378,
+          "flow",
+          false
+        ],
+        [
           10017,
           "flow",
           378,
@@ -5098,14 +5106,7 @@
           false
         ],
         [
-          377,
-          "none",
-          378,
-          "flow",
-          false
-        ],
-        [
-          961,
+          1182,
           "flow",
           378,
           "flow",
@@ -6659,15 +6660,15 @@
           false
         ],
         [
-          923,
-          "False",
+          924,
+          "flow",
           499,
           "flow",
           false
         ],
         [
-          924,
-          "flow",
+          923,
+          "False",
           499,
           "flow",
           false
@@ -7268,15 +7269,15 @@
           true
         ],
         [
-          167,
-          "true",
+          1298,
+          "flow",
           540,
           "flow",
           false
         ],
         [
-          1298,
-          "flow",
+          167,
+          "true",
           540,
           "flow",
           false
@@ -7499,15 +7500,15 @@
           false
         ],
         [
-          641,
-          "True",
+          561,
+          "flow",
           559,
           "flow",
           false
         ],
         [
-          561,
-          "flow",
+          641,
+          "True",
           559,
           "flow",
           false
@@ -7871,14 +7872,14 @@
         ],
         [
           608,
-          "evade",
+          "arrest",
           587,
           "reset",
           false
         ],
         [
           608,
-          "arrest",
+          "evade",
           587,
           "reset",
           false
@@ -8304,15 +8305,15 @@
           false
         ],
         [
-          594,
-          "False",
+          1551,
+          "false",
           613,
           "flow",
           false
         ],
         [
-          1551,
-          "false",
+          594,
+          "False",
           613,
           "flow",
           false
@@ -8661,15 +8662,15 @@
           false
         ],
         [
-          1583,
-          "flow",
+          1582,
+          "False",
           643,
           "flow",
           false
         ],
         [
-          1582,
-          "False",
+          1583,
+          "flow",
           643,
           "flow",
           false
@@ -9046,15 +9047,15 @@
           false
         ],
         [
-          672,
-          "true",
+          735,
+          "True",
           671,
           "flow",
           false
         ],
         [
-          735,
-          "True",
+          672,
+          "true",
           671,
           "flow",
           false
@@ -9697,15 +9698,15 @@
           false
         ],
         [
-          1482,
-          "out",
+          24,
+          "true",
           713,
           "reset",
           false
         ],
         [
-          24,
-          "true",
+          1482,
+          "out",
           713,
           "reset",
           false
@@ -9774,18 +9775,18 @@
           true
         ],
         [
-          1514,
-          "False",
-          717,
-          "off",
-          false
-        ],
-        [
           591,
           "false",
           717,
           "off",
           true
+        ],
+        [
+          1514,
+          "False",
+          717,
+          "off",
+          false
         ],
         [
           591,
@@ -10397,15 +10398,15 @@
           false
         ],
         [
-          728,
-          "false",
+          758,
+          "flow",
           766,
           "flow",
           false
         ],
         [
-          758,
-          "flow",
+          728,
+          "false",
           766,
           "flow",
           false
@@ -10425,15 +10426,15 @@
           false
         ],
         [
-          760,
-          "flow",
+          656,
+          "false",
           768,
           "flow",
           false
         ],
         [
-          656,
-          "false",
+          760,
+          "flow",
           768,
           "flow",
           false
@@ -10670,15 +10671,15 @@
           false
         ],
         [
-          1298,
-          "flow",
+          167,
+          "true",
           787,
           "on",
           false
         ],
         [
-          167,
-          "true",
+          1298,
+          "flow",
           787,
           "on",
           false
@@ -10845,13 +10846,6 @@
           false
         ],
         [
-          800,
-          "True",
-          803,
-          "reset",
-          false
-        ],
-        [
           843,
           "down",
           803,
@@ -10861,6 +10855,13 @@
         [
           10245,
           "down",
+          803,
+          "reset",
+          false
+        ],
+        [
+          800,
+          "True",
           803,
           "reset",
           false
@@ -10922,15 +10923,15 @@
           false
         ],
         [
-          995,
-          "False",
+          10273,
+          "flow",
           808,
           "flow",
           false
         ],
         [
-          10273,
-          "flow",
+          995,
+          "False",
           808,
           "flow",
           false
@@ -10985,14 +10986,14 @@
           false
         ],
         [
-          10245,
+          843,
           "down",
           812,
           "reset",
           false
         ],
         [
-          843,
+          10245,
           "down",
           812,
           "reset",
@@ -11146,6 +11147,20 @@
           false
         ],
         [
+          956,
+          "flow",
+          823,
+          "flow",
+          false
+        ],
+        [
+          828,
+          "flow",
+          823,
+          "flow",
+          false
+        ],
+        [
           1149,
           "flow",
           823,
@@ -11160,21 +11175,7 @@
           false
         ],
         [
-          828,
-          "flow",
-          823,
-          "flow",
-          false
-        ],
-        [
           10245,
-          "flow",
-          823,
-          "flow",
-          false
-        ],
-        [
-          956,
           "flow",
           823,
           "flow",
@@ -11426,15 +11427,15 @@
           false
         ],
         [
-          1010,
-          "flow",
+          808,
+          "False",
           843,
           "flow",
           false
         ],
         [
-          808,
-          "False",
+          1010,
+          "flow",
           843,
           "flow",
           false
@@ -11489,15 +11490,15 @@
           false
         ],
         [
-          7,
-          "enterState",
+          996,
+          "flow",
           846,
           "flow",
           false
         ],
         [
-          996,
-          "flow",
+          7,
+          "enterState",
           846,
           "flow",
           false
@@ -11762,7 +11763,7 @@
           false
         ],
         [
-          878,
+          9876,
           "down",
           873,
           "flow",
@@ -11776,7 +11777,7 @@
           false
         ],
         [
-          9876,
+          878,
           "down",
           873,
           "flow",
@@ -11790,14 +11791,14 @@
           false
         ],
         [
-          171,
+          148,
           "down",
           874,
           "reset",
           false
         ],
         [
-          126,
+          171,
           "down",
           874,
           "reset",
@@ -11811,7 +11812,7 @@
           false
         ],
         [
-          148,
+          126,
           "down",
           874,
           "reset",
@@ -11839,15 +11840,15 @@
           false
         ],
         [
-          10116,
-          "activated",
+          833,
+          "false",
           876,
           "on",
           false
         ],
         [
-          833,
-          "false",
+          10116,
+          "activated",
           876,
           "on",
           false
@@ -11895,13 +11896,6 @@
           false
         ],
         [
-          1385,
-          "True",
-          879,
-          "flow",
-          false
-        ],
-        [
           1226,
           "True",
           879,
@@ -11909,9 +11903,9 @@
           false
         ],
         [
+          1385,
+          "True",
           879,
-          "flow",
-          880,
           "flow",
           false
         ],
@@ -11924,6 +11918,13 @@
         ],
         [
           1257,
+          "flow",
+          880,
+          "flow",
+          false
+        ],
+        [
+          879,
           "flow",
           880,
           "flow",
@@ -12434,13 +12435,6 @@
           false
         ],
         [
-          1634,
-          "flow",
-          925,
-          "flow",
-          false
-        ],
-        [
           185,
           "flow",
           925,
@@ -12449,6 +12443,13 @@
         ],
         [
           1478,
+          "flow",
+          925,
+          "flow",
+          false
+        ],
+        [
+          1634,
           "flow",
           925,
           "flow",
@@ -12546,14 +12547,14 @@
           false
         ],
         [
-          1577,
+          934,
           "flow",
           933,
           "flow",
           false
         ],
         [
-          934,
+          1577,
           "flow",
           933,
           "flow",
@@ -12630,15 +12631,15 @@
           false
         ],
         [
-          10292,
-          "flow",
+          912,
+          "True",
           938,
           "flow",
           false
         ],
         [
-          912,
-          "True",
+          10292,
+          "flow",
           938,
           "flow",
           false
@@ -12658,15 +12659,15 @@
           false
         ],
         [
-          193,
-          "down",
+          918,
+          "flow",
           940,
           "flow",
           false
         ],
         [
-          918,
-          "flow",
+          193,
+          "down",
           940,
           "flow",
           false
@@ -13575,8 +13576,8 @@
           false
         ],
         [
-          1107,
-          "flow",
+          1134,
+          "down",
           1026,
           "flow",
           false
@@ -13589,8 +13590,8 @@
           false
         ],
         [
-          1134,
-          "down",
+          1107,
+          "flow",
           1026,
           "flow",
           false
@@ -13673,14 +13674,14 @@
           false
         ],
         [
-          10245,
+          843,
           "down",
           1031,
           "reset",
           false
         ],
         [
-          843,
+          10245,
           "down",
           1031,
           "reset",
@@ -13694,13 +13695,6 @@
           false
         ],
         [
-          1033,
-          "False",
-          1032,
-          "reset",
-          false
-        ],
-        [
           843,
           "down",
           1032,
@@ -13710,6 +13704,13 @@
         [
           10245,
           "down",
+          1032,
+          "reset",
+          false
+        ],
+        [
+          1033,
+          "False",
           1032,
           "reset",
           false
@@ -13967,14 +13968,14 @@
           false
         ],
         [
-          10022,
+          450,
           "flow",
           1058,
           "flow",
           false
         ],
         [
-          450,
+          10022,
           "flow",
           1058,
           "flow",
@@ -14132,6 +14133,13 @@
           "down",
           1072,
           "on",
+          false
+        ],
+        [
+          7,
+          "enterState",
+          1073,
+          "flow",
           false
         ],
         [
@@ -14387,14 +14395,14 @@
           false
         ],
         [
-          271,
+          1473,
           "flow",
           1094,
           "flow",
           false
         ],
         [
-          1473,
+          271,
           "flow",
           1094,
           "flow",
@@ -14590,15 +14598,15 @@
           false
         ],
         [
-          1559,
-          "True",
+          1105,
+          "flow",
           1106,
           "flow",
           false
         ],
         [
-          1105,
-          "flow",
+          1559,
+          "True",
           1106,
           "flow",
           false
@@ -14702,15 +14710,15 @@
           false
         ],
         [
-          10017,
-          "down",
+          526,
+          "flow",
           1119,
           "flow",
           false
         ],
         [
-          526,
-          "flow",
+          10017,
+          "down",
           1119,
           "flow",
           false
@@ -14737,21 +14745,7 @@
           true
         ],
         [
-          1131,
-          "flow",
-          1122,
-          "flow",
-          false
-        ],
-        [
           1679,
-          "flow",
-          1122,
-          "flow",
-          false
-        ],
-        [
-          1677,
           "flow",
           1122,
           "flow",
@@ -14765,7 +14759,21 @@
           false
         ],
         [
+          1677,
+          "flow",
+          1122,
+          "flow",
+          false
+        ],
+        [
           1714,
+          "flow",
+          1122,
+          "flow",
+          false
+        ],
+        [
+          1131,
           "flow",
           1122,
           "flow",
@@ -14947,14 +14955,14 @@
           false
         ],
         [
-          1166,
+          1153,
           "False",
           1135,
           "reset",
           false
         ],
         [
-          1153,
+          1166,
           "False",
           1135,
           "reset",
@@ -15101,15 +15109,15 @@
           false
         ],
         [
-          840,
-          "false",
+          825,
+          "flow",
           1149,
           "flow",
           false
         ],
         [
-          825,
-          "flow",
+          840,
+          "false",
           1149,
           "flow",
           false
@@ -15339,14 +15347,14 @@
           false
         ],
         [
-          1170,
+          1164,
           "flow",
           1171,
           "flow",
           false
         ],
         [
-          1164,
+          1170,
           "flow",
           1171,
           "flow",
@@ -15396,14 +15404,14 @@
         ],
         [
           4986,
-          "match_2",
+          "match_1",
           1177,
           "flow",
           false
         ],
         [
           4986,
-          "match_1",
+          "match_2",
           1177,
           "flow",
           false
@@ -15479,14 +15487,14 @@
           false
         ],
         [
-          10128,
+          368,
           "flow",
           1185,
           "reset",
           false
         ],
         [
-          368,
+          10128,
           "flow",
           1185,
           "reset",
@@ -15500,14 +15508,14 @@
           false
         ],
         [
-          368,
+          10128,
           "flow",
           1186,
           "reset",
           false
         ],
         [
-          10128,
+          368,
           "flow",
           1186,
           "reset",
@@ -15570,14 +15578,14 @@
           false
         ],
         [
-          867,
+          1375,
           "flow",
           1192,
           "flow",
           false
         ],
         [
-          1375,
+          867,
           "flow",
           1192,
           "flow",
@@ -16278,14 +16286,14 @@
         ],
         [
           1383,
-          "match_2",
+          "match_1",
           1269,
           "flow",
           false
         ],
         [
           1383,
-          "match_1",
+          "match_2",
           1269,
           "flow",
           false
@@ -16474,13 +16482,6 @@
         ],
         [
           99,
-          "match_3",
-          1285,
-          "flow",
-          false
-        ],
-        [
-          99,
           "match_4",
           1285,
           "flow",
@@ -16489,6 +16490,13 @@
         [
           99,
           "match_5",
+          1285,
+          "flow",
+          false
+        ],
+        [
+          99,
+          "match_3",
           1285,
           "flow",
           false
@@ -16614,14 +16622,14 @@
         ],
         [
           861,
-          "match_1",
+          "match_2",
           1294,
           "flow",
           false
         ],
         [
           861,
-          "match_2",
+          "match_1",
           1294,
           "flow",
           false
@@ -16719,14 +16727,14 @@
         ],
         [
           1172,
-          "match_1",
+          "match_2",
           1304,
           "flow",
           false
         ],
         [
           1172,
-          "match_2",
+          "match_1",
           1304,
           "flow",
           false
@@ -16809,14 +16817,14 @@
           false
         ],
         [
-          1445,
+          1447,
           "flow",
           1312,
           "flow",
           false
         ],
         [
-          1447,
+          1445,
           "flow",
           1312,
           "flow",
@@ -16879,14 +16887,14 @@
           false
         ],
         [
-          210,
+          9876,
           "down",
           1317,
           "flow",
           false
         ],
         [
-          9876,
+          210,
           "down",
           1317,
           "flow",
@@ -17390,14 +17398,14 @@
           false
         ],
         [
-          24,
+          1097,
           "true",
           1372,
           "flow",
           false
         ],
         [
-          1097,
+          24,
           "true",
           1372,
           "flow",
@@ -17908,14 +17916,14 @@
           false
         ],
         [
-          1179,
+          1723,
           "flow",
           1428,
           "flow",
           false
         ],
         [
-          1723,
+          1179,
           "flow",
           1428,
           "flow",
@@ -18230,14 +18238,14 @@
           false
         ],
         [
-          1454,
+          1453,
           "flow",
           1450,
           "reset",
           false
         ],
         [
-          1453,
+          1454,
           "flow",
           1450,
           "reset",
@@ -18518,14 +18526,14 @@
         ],
         [
           4986,
-          "match_2",
+          "match_4",
           1481,
           "flow",
           false
         ],
         [
           4986,
-          "match_4",
+          "match_2",
           1481,
           "flow",
           false
@@ -18931,14 +18939,14 @@
         ],
         [
           1514,
-          "False",
+          "True",
           1517,
           "flow",
           false
         ],
         [
           1514,
-          "True",
+          "False",
           1517,
           "flow",
           false
@@ -20379,15 +20387,15 @@
           false
         ],
         [
-          1379,
-          "flow",
+          605,
+          "True",
           1630,
           "flow",
           false
         ],
         [
-          605,
-          "True",
+          1379,
+          "flow",
           1630,
           "flow",
           false
@@ -20911,15 +20919,15 @@
           false
         ],
         [
-          1688,
-          "flow",
+          1679,
+          "down",
           1681,
           "clear",
           false
         ],
         [
-          1679,
-          "down",
+          1688,
+          "flow",
           1681,
           "clear",
           false
@@ -21240,15 +21248,15 @@
           false
         ],
         [
-          10300,
-          "flow",
+          10299,
+          "False",
           1703,
           "flow",
           false
         ],
         [
-          10299,
-          "False",
+          10300,
+          "flow",
           1703,
           "flow",
           false
@@ -21989,15 +21997,15 @@
           false
         ],
         [
-          877,
-          "activated",
+          947,
+          "flow",
           1770,
           "flow",
           false
         ],
         [
-          947,
-          "flow",
+          877,
+          "activated",
           1770,
           "flow",
           false
@@ -22171,14 +22179,14 @@
           false
         ],
         [
-          1799,
+          1805,
           "flow",
           1784,
           "flow",
           false
         ],
         [
-          1805,
+          1799,
           "flow",
           1784,
           "flow",
@@ -22311,13 +22319,6 @@
           false
         ],
         [
-          513,
-          "False",
-          1798,
-          "flow",
-          false
-        ],
-        [
           1782,
           "none",
           1798,
@@ -22325,14 +22326,21 @@
           false
         ],
         [
-          1784,
-          "flow",
+          513,
+          "False",
           1798,
           "flow",
           false
         ],
         [
           1561,
+          "flow",
+          1798,
+          "flow",
+          false
+        ],
+        [
+          1784,
           "flow",
           1798,
           "flow",
@@ -22977,14 +22985,14 @@
         ],
         [
           204,
-          "False",
+          "True",
           10107,
           "flow",
           false
         ],
         [
           204,
-          "True",
+          "False",
           10107,
           "flow",
           false
@@ -23200,15 +23208,15 @@
           false
         ],
         [
-          10031,
-          "flow",
+          186,
+          "True",
           10014,
           "flow",
           false
         ],
         [
-          186,
-          "True",
+          10031,
+          "flow",
           10014,
           "flow",
           false
@@ -23298,15 +23306,15 @@
           true
         ],
         [
-          1693,
-          "False",
+          1698,
+          "flow",
           10299,
           "flow",
           false
         ],
         [
-          1698,
-          "flow",
+          1693,
+          "False",
           10299,
           "flow",
           false
@@ -23431,9 +23439,9 @@
           false
         ],
         [
-          269,
-          "true",
-          10022,
+          1790,
+          "flow",
+          10303,
           "flow",
           false
         ],
@@ -23494,7 +23502,7 @@
           false
         ],
         [
-          639,
+          766,
           "flow",
           10088,
           "flow",
@@ -23508,7 +23516,7 @@
           false
         ],
         [
-          766,
+          639,
           "flow",
           10088,
           "flow",
@@ -23529,9 +23537,9 @@
           false
         ],
         [
-          10015,
+          10238,
           "flow",
-          10024,
+          10241,
           "flow",
           false
         ],
@@ -24054,15 +24062,15 @@
           false
         ],
         [
-          661,
-          "False",
+          10017,
+          "down",
           10164,
           "reset",
           false
         ],
         [
-          10017,
-          "down",
+          661,
+          "False",
           10164,
           "reset",
           false
@@ -24271,16 +24279,16 @@
           false
         ],
         [
-          10039,
+          872,
           "flow",
-          10040,
+          10257,
           "flow",
           false
         ],
         [
-          275,
-          "opRisk",
-          10040,
+          157,
+          "gmwp",
+          10257,
           "val",
           false
         ],
@@ -24404,15 +24412,15 @@
           false
         ],
         [
-          247,
-          "False",
+          1181,
+          "flow",
           10011,
           "flow",
           false
         ],
         [
-          1181,
-          "flow",
+          247,
+          "False",
           10011,
           "flow",
           false
@@ -24502,14 +24510,14 @@
           false
         ],
         [
-          843,
+          10245,
           "down",
           10238,
           "flow",
           false
         ],
         [
-          10245,
+          843,
           "down",
           10238,
           "flow",
@@ -24558,15 +24566,15 @@
           false
         ],
         [
-          699,
-          "flow",
+          1488,
+          "false",
           10176,
           "flow",
           false
         ],
         [
-          1488,
-          "false",
+          699,
+          "flow",
           10176,
           "flow",
           false
@@ -24670,15 +24678,15 @@
           false
         ],
         [
-          1335,
-          "false",
+          1329,
+          "flow",
           10211,
           "flow",
           false
         ],
         [
-          1329,
-          "flow",
+          1335,
+          "false",
           10211,
           "flow",
           false
@@ -24761,10 +24769,17 @@
           false
         ],
         [
-          10016,
+          1697,
           "flow",
-          10021,
+          10302,
           "flow",
+          false
+        ],
+        [
+          1687,
+          "allvehs",
+          10302,
+          "idtable",
           false
         ],
         [
@@ -25027,15 +25042,15 @@
           false
         ],
         [
-          1482,
-          "out",
+          24,
+          "true",
           10188,
           "flow",
           false
         ],
         [
-          24,
-          "true",
+          1482,
+          "out",
           10188,
           "flow",
           false
@@ -25118,17 +25133,10 @@
           false
         ],
         [
-          872,
+          10016,
           "flow",
-          10257,
+          10021,
           "flow",
-          false
-        ],
-        [
-          157,
-          "gmwp",
-          10257,
-          "val",
           false
         ],
         [
@@ -25143,27 +25151,6 @@
           "destid",
           10157,
           "val",
-          false
-        ],
-        [
-          1790,
-          "flow",
-          10303,
-          "flow",
-          false
-        ],
-        [
-          1686,
-          "flow",
-          10297,
-          "flow",
-          false
-        ],
-        [
-          10241,
-          "flow",
-          10246,
-          "flow",
           false
         ],
         [
@@ -25184,6 +25171,34 @@
           275,
           "desc",
           10025,
+          "val",
+          false
+        ],
+        [
+          296,
+          "flow",
+          10029,
+          "flow",
+          false
+        ],
+        [
+          10041,
+          "flow",
+          10042,
+          "flow",
+          false
+        ],
+        [
+          10026,
+          "flow",
+          10038,
+          "flow",
+          false
+        ],
+        [
+          275,
+          "opModel",
+          10038,
           "val",
           false
         ],
@@ -25230,24 +25245,17 @@
           false
         ],
         [
-          296,
+          10241,
           "flow",
-          10029,
-          "flow",
-          false
-        ],
-        [
-          10026,
-          "flow",
-          10038,
+          10246,
           "flow",
           false
         ],
         [
-          275,
-          "opModel",
-          10038,
-          "val",
+          1017,
+          "match_1",
+          10279,
+          "flow",
           false
         ],
         [
@@ -25258,9 +25266,23 @@
           false
         ],
         [
-          1017,
-          "match_1",
-          10279,
+          1686,
+          "flow",
+          10297,
+          "flow",
+          false
+        ],
+        [
+          627,
+          "True",
+          10223,
+          "flow",
+          false
+        ],
+        [
+          269,
+          "true",
+          10022,
           "flow",
           false
         ],
@@ -25276,27 +25298,6 @@
           "True",
           10243,
           "reset",
-          false
-        ],
-        [
-          627,
-          "True",
-          10223,
-          "flow",
-          false
-        ],
-        [
-          799,
-          "flow",
-          10244,
-          "flow",
-          false
-        ],
-        [
-          10238,
-          "flow",
-          10241,
-          "flow",
           false
         ],
         [
@@ -25342,9 +25343,9 @@
           false
         ],
         [
-          10041,
+          799,
           "flow",
-          10042,
+          10244,
           "flow",
           false
         ],
@@ -25398,9 +25399,30 @@
           false
         ],
         [
+          10015,
+          "flow",
+          10024,
+          "flow",
+          false
+        ],
+        [
           806,
           "flow",
           10023,
+          "flow",
+          false
+        ],
+        [
+          10245,
+          "down",
+          10281,
+          "flow",
+          false
+        ],
+        [
+          843,
+          "down",
+          10281,
           "flow",
           false
         ],
@@ -25419,20 +25441,6 @@
           false
         ],
         [
-          843,
-          "down",
-          10281,
-          "flow",
-          false
-        ],
-        [
-          10245,
-          "down",
-          10281,
-          "flow",
-          false
-        ],
-        [
           837,
           "flow",
           10253,
@@ -25444,20 +25452,6 @@
           "Y",
           10253,
           "val",
-          false
-        ],
-        [
-          1697,
-          "flow",
-          10302,
-          "flow",
-          false
-        ],
-        [
-          1687,
-          "allvehs",
-          10302,
-          "idtable",
           false
         ],
         [
@@ -25486,6 +25480,20 @@
           "flow",
           10161,
           "reset",
+          false
+        ],
+        [
+          10039,
+          "flow",
+          10040,
+          "flow",
+          false
+        ],
+        [
+          275,
+          "opRisk",
+          10040,
+          "val",
           false
         ],
         [
@@ -25817,7 +25825,7 @@
           "type":"util/customLua"
         },
         "16":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -25893,7 +25901,7 @@
           "type":"logic/compare"
         },
         "19":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -27447,7 +27455,7 @@
           "type":"types/genericValue"
         },
         "62":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -27483,7 +27491,7 @@
           "type":"debug/comment"
         },
         "63":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -27791,7 +27799,7 @@
           "type":"ui/imgui/elemental/imEnd"
         },
         "70":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -27827,7 +27835,7 @@
           "type":"debug/comment"
         },
         "71":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -27971,7 +27979,7 @@
           "type":"util/customLua"
         },
         "73":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -28375,7 +28383,7 @@
           "type":"logic/switchcase"
         },
         "86":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -28430,7 +28438,7 @@
           "type":"types/number"
         },
         "88":{
-          "alpha":0.75000000000000288658,
+          "alpha":0.75000000000000344169,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -29060,7 +29068,7 @@
           "type":"ui/imgui/elemental/imEnd"
         },
         "101":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -30261,7 +30269,7 @@
           "type":"util/customLua"
         },
         "120":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -30928,7 +30936,7 @@
           "type":"util/customLua"
         },
         "134":{
-          "alpha":0.75000000000000199840,
+          "alpha":0.75000000000000255351,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -31237,7 +31245,7 @@
           "type":"logic/once"
         },
         "141":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -31373,7 +31381,7 @@
           "type":"util/customLua"
         },
         "144":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -31530,7 +31538,7 @@
           "type":"util/customLua"
         },
         "147":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -31748,7 +31756,7 @@
           "hardcodedPins":{
             "duration":{
               "type":"number",
-              "value":0.75000000000000721645
+              "value":0.75000000000000777156
             }
           },
           "hiddenPins":{
@@ -31838,7 +31846,7 @@
           "type":"gameplay/traffic/trafficActivate"
         },
         "154":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -32173,7 +32181,7 @@
           "type":"util/customLua"
         },
         "162":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -32401,7 +32409,7 @@
           "type":"types/genericValue"
         },
         "170":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -32798,7 +32806,7 @@
           "type":"ui/imgui/elemental/imEnd"
         },
         "179":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -32916,7 +32924,7 @@
           "type":"util/customLua"
         },
         "181":{
-          "alpha":0.75000000000000488498,
+          "alpha":0.75000000000000544009,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -33825,7 +33833,7 @@
           "type":"util/customLua"
         },
         "202":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -34879,7 +34887,7 @@
           "type":"types/genericValue"
         },
         "225":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -35175,7 +35183,7 @@
           "type":"types/genericValue"
         },
         "231":{
-          "alpha":0.75000000000000266454,
+          "alpha":0.75000000000000321965,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -35459,7 +35467,7 @@
           "type":"util/customLua"
         },
         "239":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -37243,7 +37251,7 @@
           "type":"logic/once"
         },
         "277":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -37897,7 +37905,7 @@
           "type":"util/customLua"
         },
         "287":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -39636,7 +39644,7 @@
           "type":"logic/compare"
         },
         "326":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -40129,7 +40137,7 @@
           "type":"util/customLua"
         },
         "338":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -40182,7 +40190,7 @@
           "type":"logic/bundle"
         },
         "340":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -41281,7 +41289,7 @@
           "type":"types/genericValue"
         },
         "359":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -41740,7 +41748,7 @@
           "type":"logic/bundle"
         },
         "370":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000133227,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -43559,7 +43567,7 @@
           "type":"util/customLua"
         },
         "408":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -45037,7 +45045,7 @@
           "type":"util/customLua"
         },
         "439":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -45755,7 +45763,7 @@
           "type":"util/customLua"
         },
         "449":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -46652,7 +46660,7 @@
           "type":"util/customLua"
         },
         "468":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -46688,7 +46696,7 @@
           "type":"debug/comment"
         },
         "469":{
-          "alpha":0.75000000000000044409,
+          "alpha":0.75000000000000099920,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -46849,7 +46857,7 @@
           "type":"logic/frameDelay"
         },
         "475":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -47474,7 +47482,7 @@
           "type":"logic/frameDelay"
         },
         "489":{
-          "alpha":0.75000000000000011102,
+          "alpha":0.75000000000000066613,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -47482,9 +47490,9 @@
             0.50000000000000000000
           ],
           "borderColor":[
-            0.80000001192092884406,
-            0.80000001192092884406,
-            0.80000001192092884406,
+            0.80000001192092851099,
+            0.80000001192092851099,
+            0.80000001192092851099,
             1
           ],
           "commentSize":[
@@ -48314,7 +48322,7 @@
           "type":"scene/camera/returnToVehicle"
         },
         "511":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -48393,7 +48401,7 @@
           "type":"logic/branch"
         },
         "514":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -50330,7 +50338,7 @@
           "type":"util/customLua"
         },
         "556":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -50708,7 +50716,7 @@
           "type":"util/customLua"
         },
         "565":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -51702,7 +51710,7 @@
           "type":"logic/compare"
         },
         "592":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -51790,7 +51798,7 @@
           "type":"logic/branch"
         },
         "595":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -53026,7 +53034,7 @@
           "type":"logic/compare"
         },
         "621":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -53952,7 +53960,7 @@
           "type":"logic/once"
         },
         "646":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -54841,7 +54849,7 @@
           "type":"util/customLua"
         },
         "667":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -55108,7 +55116,7 @@
           "type":"types/genericValue"
         },
         "674":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000133227,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -56517,7 +56525,7 @@
           "type":"types/genericValue"
         },
         "705":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -57811,7 +57819,7 @@
           "code":{
             "_executionStarted":"",
             "_executionStopped":"",
-            "work":"local extensions = require(\"extensions\")\nextensions.blrpartmgmt.setFilter(\"all\")\n\n-- 1.18.1 return early if jbeam cache isn't ready yet to avoid error\nif not extensions.blrpartmgmt.isJbeamCacheValid() then return end\n\nlocal shopID = 0 -- moved out of if not walking clause so later code can access it\nlocal walking = self.pinIn.walking.value == 1\nlocal vehid = extensions.blrutils.blrvarGet(\"playervehid\")\n\nprint(\"UI INIT VEHID: \" .. vehid)\n\n\n-- 1.18.1, invalidate shop part cache used to optimize category/searching\nextensions.blrpartmgmt.invalidatePKSMapCache()\nextensions.blrpartmgmt.invalidateMergedSlotsMapsCache() \nlocal list = extensions.blrpartmgmt.getPartShopList(vehid)\nlist = extensions.blrpartmgmt.categoryFilter(list, true)\nextensions.customGuiStream.sendDataToUI(\"availParts\", list)\n\nlist = extensions.blrpartmgmt.getGarageUIData(vehid)\nlist = extensions.blrpartmgmt.categoryFilter(list, true)\nextensions.customGuiStream.sendDataToUI(\"garageData\", list)\n\nlist = extensions.blrpartmgmt.getFullPartPrices()\nextensions.customGuiStream.sendDataToUI(\"partPrices\", list)\n\nlist = extensions.blrpartmgmt.getPartNameLibrary()\nextensions.customGuiStream.sendDataToUI(\"partNames\", list)\nextensions.customGuiStream.sendRepairData(nil, list, nil)\n\nlist = extensions.blrpartmgmt.getSlotNameLibrary()\nextensions.customGuiStream.sendDataToUI(\"slotNames\", list)\n\nlist = extensions.blrpartmgmt.getVehicleParts(vehid)\nextensions.customGuiStream.sendDataToUI(\"usedParts\", list)\n\nlist = extensions.blrpartmgmt.getTuningUIData(false, vehid)\nextensions.customGuiStream.sendDataToUI(\"tuningData\", list)\n\nlist = extensions.blrpartmgmt.getTuningUIValues(vehid)\nextensions.customGuiStream.sendDataToUI(\"tuningValues\", list)\nextensions.customGuiStream.sendDataToUI(\"tuningValuesSlider\", list)\nextensions.customGuiStream.sendDataToUI(\"tuningValuesNumfield\", list)\n\nlist = extensions.blrpartmgmt.getSortedTuningCategories(false, vehid)\nextensions.customGuiStream.sendDataToUI(\"tuningSortedCategories\", list)\nlist = extensions.blrpartmgmt.getSortedTuningFields(false, vehid)\nextensions.customGuiStream.sendDataToUI(\"tuningSortedFields\", list)\n\nextensions.customGuiCallbacks.exec(\"reloadPaint\")\n\nlist = extensions.blrpartmgmt.getPartPreviewImageTable()\nextensions.customGuiStream.sendDataToUI(\"partpreview\", list )\n\nlocal seed = extensions.blrutils.getCareerSeed()\nextensions.customGuiStream.sendDataToUI(\"seed\", seed)\n\nlocal inventory = extensions.blrpartmgmt.getPartInventory()\nextensions.customGuiStream.sendDataToUI(\"ownedParts\", inventory)\n\nlocal extras = self.pinIn.extras.value\nlocal triggerExtras = {}\nlocal scalevals = {}\n\nlocal priceScale = 1.5\nif extras and extras ~= \"\" then\nif FS:fileExists(extras) then\ntriggerExtras = extensions.blrutils.loadDataTable(self.pinIn.extras.value)\nif triggerExtras[\"shopID\"] and triggerExtras[\"scale\"] then\nshopID = tonumber(triggerExtras[\"shopID\"] or \"0\")\nscalevals = extensions.blrutils.ssplitnum(triggerExtras[\"scale\"], \",\")\npriceScale = extensions.blrutils.getPartShopPriceScale(shopID, scalevals[1], scalevals[2])\nend\nend\nend\n\nextensions.customGuiStream.sendDataToUI(\"shopPriceScale\", priceScale or 1.5)\n\nlocal selected = extensions.blrutils.blrvarGet(\"uiinitSelectedEventFile\")\nlocal uid = extensions.blrutils.blrvarGet(\"uiinitSelectedEventUID\")\nextensions.customGuiStream.sendEventBrowserList(extensions.blrutils.eventBrowserGetList())\nif selected then\nlocal eseed = extensions.blrutils.getEventSeed(uid)\nextensions.customGuiStream.sendEventBrowserData(extensions.blrutils.eventBrowserGetData(selected, eseed))\nextensions.customGuiStream.sendEventBrowserSelectedUID(uid)\nend\nextensions.blrglobals.blrFlagSet(\"eventBrowserReloadCar\", true)\nlocal inspection = extensions.blrutils.getEventInspectionStatus()\nextensions.customGuiStream.sendEventBrowserInspectionStatus(inspection)\n\nextensions.blrglobals.blrFlagSet(\"eventRestrictUpdate\", true) -- Request update for vehicle restriction state\n\nlist = extensions.blrpartmgmt.getSortedShopSlots(vehid)\nextensions.customGuiStream.sendDataToUI(\"sortedShopSlots\", list)\nlist = extensions.blrpartmgmt.getSortedShopParts(nil, vehid)\nextensions.customGuiStream.sendDataToUI(\"sortedShopParts\", list)\nlist = extensions.blrpartmgmt.getSortedGarageSlots(vehid)\nextensions.customGuiStream.sendDataToUI(\"sortedGarageSlots\", list)\nlist = extensions.blrpartmgmt.getSortedGarageParts(vehid)\nextensions.customGuiStream.sendDataToUI(\"sortedGarageParts\", list)\n\n\n-- 1.16 advanced part inventory data\nlocal aidata = extensions.blrPartInventory.getInventory(true)\nextensions.customGuiStream.sendDataToUI(\"advinvData\", aidata)\nlocal sortedPartData = extensions.blrpartmgmt.getAdvancedInventoryUIParts(vehid)\nextensions.customGuiStream.sendDataToUI(\"advinvParts\", sortedPartData)\nlocal advinvUsed = extensions.blrpartmgmt.getUsedPartInventoryIDs(vehid)\nextensions.customGuiStream.sendDataToUI(\"advinvUsed\", advinvUsed)\nlocal ilinkodo = extensions.blrpartmgmt.getInventoryLinkOdometers(true)\nextensions.customGuiStream.sendDataToUI(\"ilinkodo\", ilinkodo)\nlocal advinvOwned = extensions.blrPartInventory.getPartCounts()\nextensions.customGuiStream.sendDataToUI(\"advinvOwned\", advinvOwned)\n\n-- 1.16 current vehicle odometer\nlocal codo = extensions.blrglobals.gmGetVal(\"codo\")\nextensions.customGuiStream.sendDataToUI(\"vehicleOdometer\", codo)\n\n-- 1.16 initial \"all\" category filtering\nlocal filter = extensions.blrpartmgmt.advancedInventoryCategory(sortedPartData)\nextensions.customGuiStream.sendDataToUI(\"advinvFilter\", filter)\n\n\nextensions.blrutils.uiRefreshTemplates()\n\n-- 1.11 fix for score keeping UIs not reloading during init\nextensions.customGuiStream.driftUIinitreload()\nextensions.customGuiStream.deliveryUIinitreload()\nextensions.customGuiStream.gameOverUIinitreload()\n\n\n-- 1.13 advanced vehicle building toggle\nlocal avbtoggle = extensions.blrglobals.blrFlagGet(\"avbToggle\")\nextensions.customGuiStream.sendDataToUI(\"avbToggle\", avbtoggle)\n\n\n--1.13 gps\nextensions.customGuiStream.gpsUIInitReload()\n\n--game options\nextensions.customGuiStream.sendCurrentOptionValues()\n\n--1.14 selective repair maps\nlocal cmap = extensions.blrpartmgmt.getChildMap(vehid)\nlocal pmap = extensions.blrpartmgmt.getParentMap(vehid)\nextensions.customGuiStream.sendRepairUIMaps(pmap, cmap)\n\nlocal mainpart = extensions.blrpartmgmt.getMainPartChild(vehid)\nextensions.customGuiStream.sendRepairUIMainPart(mainpart)\n-- 1.14 fix to prevent removing main part (bugs the game)\nextensions.customGuiStream.sendDataToUI(\"mainpart\", mainpart)\n\n-- 1.15 item inventory\nextensions.customGuiStream.sendItemInventory()\n\n--1.15.3 custom timer app\nextensions.customGuiStream.sendTimerData()\n\n-- MOVED 1.16 INVENTORY STUFF TO if not walking CLAUSE\n\n-- 1.16 units\nlocal units = extensions.blrutils.getSettingValue(\"uiUnits\")\nextensions.customGuiStream.sendDataToUI(\"advinvUnits\", units)\n\n-- 1.16 shop seed for used parts \nlocal shopseed = extensions.blrutils.getDailySeed() + (shopID)\nextensions.customGuiStream.sendDataToUI(\"shopseed\",shopseed)\n\n-- 1.16 shop ID for used part day data\nextensions.customGuiStream.sendDataToUI(\"shopID\",shopID)\n\n-- 1.16 shop used part day data\nlocal upsdaydata = extensions.blrPartInventory.getUsedPartShopDayData(shopID)\nextensions.customGuiStream.sendDataToUI(\"advinvUPSDayData\",upsdaydata)\n\n-- 1.17 full inventory display data\nif extensions.blrpartmgmt.jbeamCacheReady() then -- 1.17.1 fix for UI init request error if cache isn't ready\nlocal fidlist = extensions.blrpartmgmt.getSlotKeyedFullInventory()\nlocal fidsortedslots = extensions.blrpartmgmt.getSortedFullInventorySlots()\nlocal fidslotnames = extensions.blrpartmgmt.getFullSlotNameLibrary()\nlocal fidpartnames = extensions.blrpartmgmt.getFullPartNameLibrary()\nextensions.customGuiStream.sendDataToUI(\"fidInventory\",fidlist)\nextensions.customGuiStream.sendDataToUI(\"fidSortedSlots\",fidsortedslots)\nextensions.customGuiStream.sendDataToUI(\"fidSlotNames\",fidslotnames)\nextensions.customGuiStream.sendDataToUI(\"fidPartNames\",fidpartnames)\nend\n\n-- 1.17.5 slot tree\nextensions.blrSlotTree.buildSlotTree(nil,vehid)\nlocal slotTree = extensions.blrSlotTree.getTree()\nextensions.customGuiStream.sendDataToUI(\"slotTree\",slotTree)\n\n-- 1.17.5 slot favorites\nlocal favorites = extensions.blrutils.loadDataTable(\"beamLR/slotFavorites\")\nextensions.customGuiStream.sendDataToUI(\"slotFavorites\", favorites)\n\n-- 1.18 slot paths to slot id map\nlocal slotPathIDMap = extensions.blrpartmgmt.getPathKeyedSlots(vehid)\nextensions.customGuiStream.sendDataToUI(\"slotPathIDMap\", slotPathIDMap)\n\n-- 1.18 vehicle slot IDs list, for part buying compatibility indicator\nlocal vehSlotIDsList = extensions.blrpartmgmt.getVehicleSlotIDsList(vehid)\nextensions.customGuiStream.sendDataToUI(\"vehSlotIDs\", vehSlotIDsList)\n\n-- 1.18 vehicle installed parts list, for part buying \"installed\" indicator\nlocal installedPartsList = extensions.blrpartmgmt.getVehicleInstalledPartsList(vehid)\nextensions.customGuiStream.sendDataToUI(\"vehInstParts\", installedPartsList)\n\n-- 1.18 repair UI force select parent button state\nlocal repairParentSelect = extensions.blrutils.loadDataTable(\"beamLR/options\")[\"armparentselect\"] == \"1\"\nextensions.customGuiStream.sendRepairUIParentSelect(repairParentSelect)\n\n-- 1.18.4 part shop tree\nextensions.blrSlotTree.buildPartShopTreeFromJbeam(vehid)\nlocal partShopTree = extensions.blrSlotTree.getTNdict()\nextensions.customGuiStream.sendDataToUI(\"partShopTree\", partShopTree)\nlocal vehmodel = extensions.blrpartmgmt.getVehicleModel(vehid)\nextensions.customGuiStream.sendDataToUI(\"vehmodel\", vehmodel)\n\n-- 1.18.4 part UI v2\nextensions.blrpartmgmt.sendPartUI2Cart()\n\n-- 1.19 main part name, needed to loop on trees for vehicles that don't use model as main part name\nlocal mpn = extensions.blrpartmgmt.getMainPartName(vehid)\nextensions.customGuiStream.sendDataToUI(\"mainPartName\", mpn)\n\n\n-- 1.16.4 fix, clear cache after calling getPart to ensure no AVB cache problems happen\n-- this is in UI related code because getFullPartPrices calls jbeamio.getPart\n-- MAKE SURE THIS STAYS AT THE BOTTOM\nrequire('jbeam/io').finishLoading()"
+            "work":"local extensions = require(\"extensions\")\nextensions.blrpartmgmt.setFilter(\"all\")\n\n-- 1.18.1 return early if jbeam cache isn't ready yet to avoid error\nif not extensions.blrpartmgmt.isJbeamCacheValid() then return end\n\nlocal shopID = 0 -- moved out of if not walking clause so later code can access it\nlocal walking = self.pinIn.walking.value == 1\nlocal vehid = extensions.blrutils.blrvarGet(\"playervehid\")\n\nprint(\"UI INIT VEHID: \" .. vehid)\n\n\n-- 1.18.1, invalidate shop part cache used to optimize category/searching\nextensions.blrpartmgmt.invalidatePKSMapCache()\nextensions.blrpartmgmt.invalidateMergedSlotsMapsCache() \nlocal list = extensions.blrpartmgmt.getPartShopList(vehid)\nlist = extensions.blrpartmgmt.categoryFilter(list, true)\nextensions.customGuiStream.sendDataToUI(\"availParts\", list)\n\nlist = extensions.blrpartmgmt.getGarageUIData(vehid)\nlist = extensions.blrpartmgmt.categoryFilter(list, true)\nextensions.customGuiStream.sendDataToUI(\"garageData\", list)\n\nlist = extensions.blrpartmgmt.getFullPartPrices()\nextensions.customGuiStream.sendDataToUI(\"partPrices\", list)\n\nlist = extensions.blrpartmgmt.getPartNameLibrary()\nextensions.customGuiStream.sendDataToUI(\"partNames\", list)\nextensions.customGuiStream.sendRepairData(nil, list, nil)\n\nlist = extensions.blrpartmgmt.getSlotNameLibrary()\nextensions.customGuiStream.sendDataToUI(\"slotNames\", list)\n\nlist = extensions.blrpartmgmt.getVehicleParts(vehid)\nextensions.customGuiStream.sendDataToUI(\"usedParts\", list)\n\nlist = extensions.blrpartmgmt.getTuningUIData(false, vehid)\nextensions.customGuiStream.sendDataToUI(\"tuningData\", list)\n\nlist = extensions.blrpartmgmt.getTuningUIValues(vehid)\nextensions.customGuiStream.sendDataToUI(\"tuningValues\", list)\nextensions.customGuiStream.sendDataToUI(\"tuningValuesSlider\", list)\nextensions.customGuiStream.sendDataToUI(\"tuningValuesNumfield\", list)\n\nlist = extensions.blrpartmgmt.getSortedTuningCategories(false, vehid)\nextensions.customGuiStream.sendDataToUI(\"tuningSortedCategories\", list)\nlist = extensions.blrpartmgmt.getSortedTuningFields(false, vehid)\nextensions.customGuiStream.sendDataToUI(\"tuningSortedFields\", list)\n\nextensions.customGuiCallbacks.exec(\"reloadPaint\")\n\nlist = extensions.blrpartmgmt.getPartPreviewImageTable()\nextensions.customGuiStream.sendDataToUI(\"partpreview\", list )\n\nlocal seed = extensions.blrutils.getCareerSeed()\nextensions.customGuiStream.sendDataToUI(\"seed\", seed)\n\nlocal inventory = extensions.blrpartmgmt.getPartInventory()\nextensions.customGuiStream.sendDataToUI(\"ownedParts\", inventory)\n\nlocal extras = self.pinIn.extras.value\nlocal triggerExtras = {}\nlocal scalevals = {}\n\nlocal priceScale = 1.5\nif extras and extras ~= \"\" then\nif FS:fileExists(extras) then\ntriggerExtras = extensions.blrutils.loadDataTable(self.pinIn.extras.value)\nif triggerExtras[\"shopID\"] and triggerExtras[\"scale\"] then\nshopID = tonumber(triggerExtras[\"shopID\"] or \"0\")\nscalevals = extensions.blrutils.ssplitnum(triggerExtras[\"scale\"], \",\")\npriceScale = extensions.blrutils.getPartShopPriceScale(shopID, scalevals[1], scalevals[2])\nend\nend\nend\n\nextensions.customGuiStream.sendDataToUI(\"shopPriceScale\", priceScale or 1.5)\n\nlocal selected = extensions.blrutils.blrvarGet(\"uiinitSelectedEventFile\")\nlocal uid = extensions.blrutils.blrvarGet(\"uiinitSelectedEventUID\")\nextensions.customGuiStream.sendEventBrowserList(extensions.blrutils.eventBrowserGetList())\nif selected then\nlocal eseed = extensions.blrutils.getEventSeed(uid)\nextensions.customGuiStream.sendEventBrowserData(extensions.blrutils.eventBrowserGetData(selected, eseed))\nextensions.customGuiStream.sendEventBrowserSelectedUID(uid)\nend\nextensions.blrglobals.blrFlagSet(\"eventBrowserReloadCar\", true)\nlocal inspection = extensions.blrutils.getEventInspectionStatus()\nextensions.customGuiStream.sendEventBrowserInspectionStatus(inspection)\n\nextensions.blrglobals.blrFlagSet(\"eventRestrictUpdate\", true) -- Request update for vehicle restriction state\n\nlist = extensions.blrpartmgmt.getSortedShopSlots(vehid)\nextensions.customGuiStream.sendDataToUI(\"sortedShopSlots\", list)\nlist = extensions.blrpartmgmt.getSortedShopParts(nil, vehid)\nextensions.customGuiStream.sendDataToUI(\"sortedShopParts\", list)\nlist = extensions.blrpartmgmt.getSortedGarageSlots(vehid)\nextensions.customGuiStream.sendDataToUI(\"sortedGarageSlots\", list)\nlist = extensions.blrpartmgmt.getSortedGarageParts(vehid)\nextensions.customGuiStream.sendDataToUI(\"sortedGarageParts\", list)\n\n\n-- 1.16 advanced part inventory data\nlocal aidata = extensions.blrPartInventory.getInventory(true)\nextensions.customGuiStream.sendDataToUI(\"advinvData\", aidata)\nlocal sortedPartData = extensions.blrpartmgmt.getAdvancedInventoryUIParts(vehid)\nextensions.customGuiStream.sendDataToUI(\"advinvParts\", sortedPartData)\nlocal advinvUsed = extensions.blrpartmgmt.getUsedPartInventoryIDs(vehid)\nextensions.customGuiStream.sendDataToUI(\"advinvUsed\", advinvUsed)\nlocal ilinkodo = extensions.blrpartmgmt.getInventoryLinkOdometers(true)\nextensions.customGuiStream.sendDataToUI(\"ilinkodo\", ilinkodo)\nlocal advinvOwned = extensions.blrPartInventory.getPartCounts()\nextensions.customGuiStream.sendDataToUI(\"advinvOwned\", advinvOwned)\n\n-- 1.16 current vehicle odometer\nlocal codo = extensions.blrglobals.gmGetVal(\"codo\")\nextensions.customGuiStream.sendDataToUI(\"vehicleOdometer\", codo)\n\n-- 1.16 initial \"all\" category filtering\nlocal filter = extensions.blrpartmgmt.advancedInventoryCategory(sortedPartData)\nextensions.customGuiStream.sendDataToUI(\"advinvFilter\", filter)\n\n\nextensions.blrutils.uiRefreshTemplates()\n\n-- 1.11 fix for score keeping UIs not reloading during init\nextensions.customGuiStream.driftUIinitreload()\nextensions.customGuiStream.deliveryUIinitreload()\nextensions.customGuiStream.gameOverUIinitreload()\n\n\n-- 1.13 advanced vehicle building toggle\nlocal avbtoggle = extensions.blrglobals.blrFlagGet(\"avbToggle\")\nextensions.customGuiStream.sendDataToUI(\"avbToggle\", avbtoggle)\n\n\n--1.13 gps\nextensions.customGuiStream.gpsUIInitReload()\n\n--game options\nextensions.customGuiStream.sendCurrentOptionValues()\n\n--1.14 selective repair maps\nlocal cmap = extensions.blrpartmgmt.getChildMap(vehid)\nlocal pmap = extensions.blrpartmgmt.getParentMap(vehid)\nextensions.customGuiStream.sendRepairUIMaps(pmap, cmap)\n\nlocal mainpart = extensions.blrpartmgmt.getMainPartChild(vehid)\nextensions.customGuiStream.sendRepairUIMainPart(mainpart)\n-- 1.14 fix to prevent removing main part (bugs the game)\nextensions.customGuiStream.sendDataToUI(\"mainpart\", mainpart)\n\n-- 1.15 item inventory\nextensions.customGuiStream.sendItemInventory()\n\n--1.15.3 custom timer app\nextensions.customGuiStream.sendTimerData()\n\n-- MOVED 1.16 INVENTORY STUFF TO if not walking CLAUSE\n\n-- 1.16 units\nlocal units = extensions.blrutils.getSettingValue(\"uiUnits\")\nextensions.customGuiStream.sendDataToUI(\"advinvUnits\", units)\n\n-- 1.16 shop seed for used parts \nlocal shopseed = extensions.blrutils.getDailySeed() + (shopID)\nextensions.customGuiStream.sendDataToUI(\"shopseed\",shopseed)\n\n-- 1.16 shop ID for used part day data\nextensions.customGuiStream.sendDataToUI(\"shopID\",shopID)\n\n-- 1.16 shop used part day data\nlocal upsdaydata = extensions.blrPartInventory.getUsedPartShopDayData(shopID)\nextensions.customGuiStream.sendDataToUI(\"advinvUPSDayData\",upsdaydata)\n\n-- 1.17 full inventory display data\nif extensions.blrpartmgmt.jbeamCacheReady() then -- 1.17.1 fix for UI init request error if cache isn't ready\nlocal fidlist = extensions.blrpartmgmt.getSlotKeyedFullInventory()\nlocal fidsortedslots = extensions.blrpartmgmt.getSortedFullInventorySlots()\nlocal fidslotnames = extensions.blrpartmgmt.getFullSlotNameLibrary()\nlocal fidpartnames = extensions.blrpartmgmt.getFullPartNameLibrary()\nextensions.customGuiStream.sendDataToUI(\"fidInventory\",fidlist)\nextensions.customGuiStream.sendDataToUI(\"fidSortedSlots\",fidsortedslots)\nextensions.customGuiStream.sendDataToUI(\"fidSlotNames\",fidslotnames)\nextensions.customGuiStream.sendDataToUI(\"fidPartNames\",fidpartnames)\nend\n\n-- 1.17.5 slot tree\nextensions.blrSlotTree.buildSlotTree(nil,vehid)\nlocal slotTree = extensions.blrSlotTree.getTree()\nextensions.customGuiStream.sendDataToUI(\"slotTree\",slotTree)\n\n-- 1.17.5 slot favorites\nlocal favorites = extensions.blrutils.loadDataTable(\"beamLR/slotFavorites\")\nextensions.customGuiStream.sendDataToUI(\"slotFavorites\", favorites)\n\n-- 1.18 slot paths to slot id map\nlocal slotPathIDMap = extensions.blrpartmgmt.getPathKeyedSlots(vehid)\nextensions.customGuiStream.sendDataToUI(\"slotPathIDMap\", slotPathIDMap)\n\n-- 1.18 vehicle slot IDs list, for part buying compatibility indicator\nlocal vehSlotIDsList = extensions.blrpartmgmt.getVehicleSlotIDsList(vehid)\nextensions.customGuiStream.sendDataToUI(\"vehSlotIDs\", vehSlotIDsList)\n\n-- 1.18 vehicle installed parts list, for part buying \"installed\" indicator\nlocal installedPartsList = extensions.blrpartmgmt.getVehicleInstalledPartsList(vehid)\nextensions.customGuiStream.sendDataToUI(\"vehInstParts\", installedPartsList)\n\n-- 1.18 repair UI force select parent button state\nlocal repairParentSelect = extensions.blrutils.loadDataTable(\"beamLR/options\")[\"armparentselect\"] == \"1\"\nextensions.customGuiStream.sendRepairUIParentSelect(repairParentSelect)\n\n-- 1.18.4 part shop tree\nextensions.blrSlotTree.buildPartShopTreeFromJbeam(vehid)\nlocal partShopTree = extensions.blrSlotTree.getTNdict()\nextensions.customGuiStream.sendDataToUI(\"partShopTree\", partShopTree)\nlocal vehmodel = extensions.blrpartmgmt.getVehicleModel(vehid)\nextensions.customGuiStream.sendDataToUI(\"vehmodel\", vehmodel)\n\n-- 1.18.4 part UI v2\nextensions.blrpartmgmt.sendPartUI2Cart()\n\n-- 1.19 main part name, needed to loop on trees for vehicles that don't use model as main part name\nlocal mpn = extensions.blrpartmgmt.getMainPartName(vehid)\nextensions.customGuiStream.sendDataToUI(\"mainPartName\", mpn)\n\n-- 1.19.3 saves manager data\nlocal csave = extensions.blrutils.getCurrentSaveFile()\nlocal saves = extensions.blrutils.getSaveFiles(true)\nextensions.customGuiStream.sendDataToUI(\"currentSaveFile\", csave)\nextensions.customGuiStream.sendDataToUI(\"saveFiles\", saves)\n\n-- 1.16.4 fix, clear cache after calling getPart to ensure no AVB cache problems happen\n-- this is in UI related code because getFullPartPrices calls jbeamio.getPart\n-- MAKE SURE THIS STAYS AT THE BOTTOM\nrequire('jbeam/io').finishLoading()"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -58672,7 +58680,7 @@
           "type":"util/customLua"
         },
         "751":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -59560,7 +59568,7 @@
           "type":"util/customLua"
         },
         "771":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -59832,9 +59840,9 @@
         "779":{
           "alpha":1,
           "backgroundColor":[
-            0.50196081399918113242,
-            0.50196081399918113242,
-            0.50196081399918113242,
+            0.50196081399918179855,
+            0.50196081399918179855,
+            0.50196081399918179855,
             1.00392162799835205078
           ],
           "borderColor":[
@@ -60374,7 +60382,7 @@
           "type":"util/customLua"
         },
         "792":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -60718,7 +60726,7 @@
               "value":[
                 1,
                 0,
-                0.00006008148190000137,
+                0.00006008148190000147,
                 1
               ]
             },
@@ -63574,7 +63582,7 @@
           "type":"vehicle/freeze"
         },
         "864":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -65276,7 +65284,7 @@
           "type":"ui/imgui/elemental/imButtonBLR"
         },
         "900":{
-          "alpha":0.75000000000000510703,
+          "alpha":0.75000000000000566214,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -65638,7 +65646,7 @@
           "type":"util/customLua"
         },
         "907":{
-          "alpha":0.75000000000000588418,
+          "alpha":0.75000000000000643929,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -66897,7 +66905,7 @@
           "type":"util/customLua"
         },
         "929":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -68376,7 +68384,7 @@
           "type":"scene/getPlayerVehicle"
         },
         "970":{
-          "alpha":0.75000000000000022204,
+          "alpha":0.75000000000000077716,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -68384,9 +68392,9 @@
             0.50000000000000000000
           ],
           "borderColor":[
-            0.80000001192092873303,
-            0.80000001192092873303,
-            0.80000001192092873303,
+            0.80000001192092851099,
+            0.80000001192092851099,
+            0.80000001192092851099,
             1
           ],
           "commentSize":[
@@ -71485,7 +71493,7 @@
           "type":"util/customLua"
         },
         "1043":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -72512,7 +72520,7 @@
           "type":"util/customLua"
         },
         "1069":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -72608,6 +72616,48 @@
             -678
           ],
           "type":"logic/flowSwitch"
+        },
+        "1073":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nif extensions.blrutils.detectOldBackup() then\nextensions.blrutils.migrateOldBackup()\nend"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Migrate Old Backup",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ]
+          ],
+          "pos":[
+            360,
+            -133
+          ],
+          "type":"util/customLua"
         },
         "1074":{
           "code":{
@@ -74500,7 +74550,7 @@
           "type":"ui/imgui/elemental/imTextBLR"
         },
         "1113":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.00000099999999750000,
             0.00000099998999300000,
@@ -75578,7 +75628,7 @@
           "type":"logic/once"
         },
         "1136":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -76244,7 +76294,7 @@
           "type":"util/customLua"
         },
         "1151":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -79353,7 +79403,7 @@
           "type":"util/customLua"
         },
         "1205":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -79975,7 +80025,7 @@
           "type":"scene/getPlayerVehicle"
         },
         "1220":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -80689,7 +80739,7 @@
           "type":"util/customLua"
         },
         "1233":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -81073,7 +81123,7 @@
           "type":"util/customLua"
         },
         "1242":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -82239,7 +82289,7 @@
           "type":"types/genericValue"
         },
         "1272":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -84980,7 +85030,7 @@
           "type":"logic/compare"
         },
         "1336":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -85994,7 +86044,7 @@
           "type":"logic/compare"
         },
         "1361":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -87296,7 +87346,7 @@
           "type":"ui/imgui/elemental/imButtonBLR"
         },
         "1390":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000011102,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -87304,9 +87354,9 @@
             0.50000000000000000000
           ],
           "borderColor":[
-            0.80000001190000002982,
-            0.80000001190000002982,
-            0.80000001190000002982,
+            0.80000001192092884406,
+            0.80000001192092884406,
+            0.80000001192092884406,
             1
           ],
           "commentSize":[
@@ -87745,7 +87795,7 @@
           "type":"util/customLua"
         },
         "1401":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -88897,7 +88947,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"jbeamio = require(\"jbeam/io\")\njbeamio.finishLoading()"
+            "work":"local extensions = require(\"extensions\")\nextensions.blrpartmgmt.toggleAdvancedVehicleBuilding(false)\njbeamio = require(\"jbeam/io\")\njbeamio.finishLoading()"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -88909,7 +88959,7 @@
               "flow":false
             }
           },
-          "name":"Jbeam Clear Cache",
+          "name":"AVB Reset",
           "pins":[
             [
               "in",
@@ -89229,7 +89279,7 @@
           "type":"util/customLua"
         },
         "1434":{
-          "alpha":0.75000000000000388578,
+          "alpha":0.75000000000000444089,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -90715,7 +90765,7 @@
           "type":"util/customLua"
         },
         "1465":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -92739,7 +92789,7 @@
           "hardcodedPins":{
             "B":{
               "type":"number",
-              "value":0.00999999977600028733
+              "value":0.00999999977600030641
             }
           },
           "hiddenPins":{
@@ -93825,7 +93875,7 @@
           "type":"util/customLua"
         },
         "1527":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -94874,7 +94924,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\n-- 1.17 fix for players using pause while editing parts\nextensions.blrutils.setPause(false)\n\nextensions.blrglobals.blrFlagSet(\"garageSafeMode\", false)\nextensions.blrflags.set(\"garageSafeMode\", false)\nextensions.blrglobals.gmSetVal(\"pgas\", extensions.blrglobals.gmGetVal(\"cgas\")) -- Gets current gas value and stores it for after part edit\nextensions.blrglobals.gmSetVal(\"podo\", extensions.blrglobals.gmGetVal(\"codo\"))-- do same thing with odometer\nextensions.blrglobals.gmSetVal(\"pnos\", extensions.blrglobals.gmGetVal(\"cnos\"))-- do same thing with NOS\nextensions.blrglobals.gmSetVal(\"pftypes\", extensions.blrutils.blrvarGet(\"fuelTypeString\")) -- 1.14.2 addition, fuel types\nextensions.blrglobals.gmSetVal(\"pfratio\", extensions.blrutils.blrvarGet(\"fuelRatioString\")) -- 1.14.2 addition, fuel ratio\n-- 1.18.8 fix for oil and coolant not restored after exiting safe mode\nextensions.blrglobals.gmSetVal(\"poil\", extensions.blrglobals.gmGetVal(\"coil\"))-- 1.15 addition, oil \nextensions.blrglobals.gmSetVal(\"pcool\", extensions.blrglobals.gmGetVal(\"ccool\"))-- 1.18.6 addition, coolant \nextensions.blrglobals.gmSetVal(\"pmirrors\", extensions.core_vehicle_mirror.getAnglesOffset()) -- 1.16 dynamic mirrors\n\nextensions.blrglobals.blrFlagSet(\"hasNos\", false) -- Setting hasNos to false to avoid vlua fetching bug before flag is set by N2O Check node\nextensions.blrhooks.linkHook(\"vehReset\", \"postedit\")\n-- 1.16.2 fix for part edit safe mode spawning vehicles without AVB\nextensions.blrglobals.blrFlagSet(\"advancedVehicleBuilding\", true)\n\nextensions.blrglobals.blrFlagSet(\"imToggle\", true) -- 1.16.9 fix for towing in safe mode\n\ncore_vehicle_manager.reloadVehicle(0)"
+            "work":"local extensions = require(\"extensions\")\n-- 1.17 fix for players using pause while editing parts\nextensions.blrutils.setPause(false)\n\nextensions.blrglobals.blrFlagSet(\"garageSafeMode\", false)\nextensions.blrflags.set(\"garageSafeMode\", false)\nextensions.blrglobals.gmSetVal(\"pgas\", extensions.blrglobals.gmGetVal(\"cgas\")) -- Gets current gas value and stores it for after part edit\nextensions.blrglobals.gmSetVal(\"podo\", extensions.blrglobals.gmGetVal(\"codo\"))-- do same thing with odometer\nextensions.blrglobals.gmSetVal(\"pnos\", extensions.blrglobals.gmGetVal(\"cnos\"))-- do same thing with NOS\nextensions.blrglobals.gmSetVal(\"pftypes\", extensions.blrutils.blrvarGet(\"fuelTypeString\")) -- 1.14.2 addition, fuel types\nextensions.blrglobals.gmSetVal(\"pfratio\", extensions.blrutils.blrvarGet(\"fuelRatioString\")) -- 1.14.2 addition, fuel ratio\n-- 1.18.8 fix for oil and coolant not restored after exiting safe mode\nextensions.blrglobals.gmSetVal(\"poil\", extensions.blrglobals.gmGetVal(\"coil\"))-- 1.15 addition, oil \nextensions.blrglobals.gmSetVal(\"pcool\", extensions.blrglobals.gmGetVal(\"ccool\"))-- 1.18.6 addition, coolant \nextensions.blrglobals.gmSetVal(\"pmirrors\", extensions.core_vehicle_mirror.getAnglesOffset()) -- 1.16 dynamic mirrors\n\nextensions.blrglobals.blrFlagSet(\"hasNos\", false) -- Setting hasNos to false to avoid vlua fetching bug before flag is set by N2O Check node\nextensions.blrhooks.linkHook(\"vehReset\", \"postedit\")\n-- 1.16.2 fix for part edit safe mode spawning vehicles without AVB\n--extensions.blrglobals.blrFlagSet(\"advancedVehicleBuilding\", true)\n\n-- 1.19.3 fix, using new jbeamIO AVB cache system\nextensions.blrpartmgmt.toggleAdvancedVehicleBuilding(true)\n\nextensions.blrglobals.blrFlagSet(\"imToggle\", true) -- 1.16.9 fix for towing in safe mode\n\ncore_vehicle_manager.reloadVehicle(0)"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -94907,7 +94957,7 @@
           ],
           "pos":[
             3874,
-            -566
+            -553
           ],
           "type":"util/customLua"
         },
@@ -96419,7 +96469,7 @@
           "type":"util/customLua"
         },
         "1585":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -100138,7 +100188,7 @@
           "type":"logic/once"
         },
         "1663":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -100174,7 +100224,7 @@
           "type":"debug/comment"
         },
         "1664":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -100210,7 +100260,7 @@
           "type":"debug/comment"
         },
         "1665":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -100288,7 +100338,7 @@
           "type":"util/customLua"
         },
         "1667":{
-          "alpha":0.75000000000000510703,
+          "alpha":0.75000000000000566214,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -101752,7 +101802,7 @@
           "type":"vehicle/freeze"
         },
         "1700":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -102405,7 +102455,7 @@
           "type":"util/customLua"
         },
         "1716":{
-          "alpha":0.75000000000000421885,
+          "alpha":0.75000000000000477396,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -103222,7 +103272,7 @@
           "type":"types/genericValue"
         },
         "1731":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -103603,7 +103653,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nextensions.customGuiStream.sendDataToUI(\"partEditLock\", false)\nextensions.customGuiStream.customHook(\"beamlrRepairButtonLock\", false)"
+            "work":"local extensions = require(\"extensions\")\nextensions.customGuiStream.sendDataToUI(\"partEditLock\", false)\nextensions.customGuiStream.customHook(\"beamlrRepairButtonLock\", false)\nextensions.blrglobals.blrFlagSet(\"partEditLocked\", false)"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -103635,7 +103685,7 @@
             ]
           ],
           "pos":[
-            -550,
+            -578,
             2723
           ],
           "type":"util/customLua"
@@ -103741,7 +103791,7 @@
           "type":"util/customLua"
         },
         "1742":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -104918,7 +104968,7 @@
           "type":"scene/getPlayerVehicle"
         },
         "1768":{
-          "alpha":0.75000000000000022204,
+          "alpha":0.75000000000000077716,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -104926,9 +104976,9 @@
             0.50000000000000000000
           ],
           "borderColor":[
-            0.80000001192092873303,
-            0.80000001192092873303,
-            0.80000001192092873303,
+            0.80000001192092851099,
+            0.80000001192092851099,
+            0.80000001192092851099,
             1
           ],
           "commentSize":[
@@ -105446,7 +105496,7 @@
           "type":"util/customLua"
         },
         "1776":{
-          "alpha":0.75000000000000288658,
+          "alpha":0.75000000000000344169,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -105482,7 +105532,7 @@
           "type":"debug/comment"
         },
         "1777":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -107796,7 +107846,7 @@
           "type":"types/genericValue"
         },
         "9886":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -109557,7 +109607,7 @@
           "type":"input/blacklistAction"
         },
         "10051":{
-          "alpha":0.75000000000000721645,
+          "alpha":0.75000000000000777156,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -115891,10 +115941,10 @@
         "list":{}
       },
       "viewPos":[
-        -320.71569824218750000000,
-        756.19061279296875000000
+        -505.94894409179687500000,
+        2087.99023437500000000000
       ],
-      "viewZoom":0.75000000000000000000
+      "viewZoom":0.74999988079071044922
     },
     "3":{
       "description":"This is the description for graph States",
@@ -115910,14 +115960,14 @@
         ],
         [
           4,
-          "success",
+          "fail",
           6,
           "flow",
           false
         ],
         [
           4,
-          "fail",
+          "success",
           6,
           "flow",
           false
@@ -116015,10 +116065,10 @@
         "list":{}
       },
       "viewPos":[
-        -870.60394287109375000000,
-        868.97814941406250000000
+        -865.55859375000000000000,
+        -1803.89160156250000000000
       ],
-      "viewZoom":0.32820484042167674676
+      "viewZoom":0.46153840422630310059
     }
   },
   "isScenario":true,
@@ -116251,13 +116301,6 @@
         "value":""
       },
       {
-        "index":101,
-        "mergeStrat":"last",
-        "name":"raceClubHours",
-        "type":"string",
-        "value":""
-      },
-      {
         "index":21,
         "mergeStrat":"max",
         "name":"raceWinner",
@@ -116284,6 +116327,13 @@
         "name":"raceEnemyCPID",
         "type":"number",
         "value":0
+      },
+      {
+        "index":101,
+        "mergeStrat":"last",
+        "name":"raceClubHours",
+        "type":"string",
+        "value":""
       },
       {
         "index":35,
@@ -116458,18 +116508,18 @@
         "value":0
       },
       {
-        "index":73,
-        "mergeStrat":"last",
-        "name":"racePartReward",
-        "type":"string",
-        "value":""
-      },
-      {
         "index":104,
         "mergeStrat":"max",
         "name":"barnFindMenuPage",
         "type":"number",
         "value":0
+      },
+      {
+        "index":73,
+        "mergeStrat":"last",
+        "name":"racePartReward",
+        "type":"string",
+        "value":""
       },
       {
         "index":22,

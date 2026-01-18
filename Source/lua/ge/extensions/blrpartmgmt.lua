@@ -857,27 +857,31 @@ end
 -- this is the part added in 1.18, take all parts including common parts and add them to slot map
 -- if the slot they fit in exists on the vehicle
 for part,pdata in pairs(allParts) do
-cjbeam = getPartJbeam(part, vehid)
-ctype = cjbeam["slotType"]
-if type(ctype) == "table" then
-for k,v in pairs(cjbeam["slotType"]) do
-if vehSlots[v] then
-if not toRet[v] then toRet[v]={} end
-if not pairings[v .. ">" .. part] then
-table.insert(toRet[v], part) 
-pairings[v .. ">" .. part] = true -- to avoid adding same part twice to same slots
-end
-end
-end
-else
-if vehSlots[ctype] then
-if not toRet[ctype] then toRet[ctype]={} end
-if not pairings[ctype .. ">" .. part] then
-table.insert(toRet[ctype], part)
-pairings[ctype .. ">" .. part] = true -- to avoid adding same part twice to same slots
-end
-end
-end
+	cjbeam = getPartJbeam(part, vehid)
+	if cjbeam then
+		ctype = cjbeam["slotType"]
+		if type(ctype) == "table" then
+			for k,v in pairs(cjbeam["slotType"]) do
+				if vehSlots[v] then
+					if not toRet[v] then toRet[v]={} end
+					if not pairings[v .. ">" .. part] then
+						table.insert(toRet[v], part) 
+						pairings[v .. ">" .. part] = true -- to avoid adding same part twice to same slots
+					end
+				end
+			end
+		else
+			if vehSlots[ctype] then
+				if not toRet[ctype] then toRet[ctype]={} end
+				if not pairings[ctype .. ">" .. part] then
+					table.insert(toRet[ctype], part)
+					pairings[ctype .. ">" .. part] = true -- to avoid adding same part twice to same slots
+				end
+			end
+		end
+	else
+		print("getMergedSlotMaps error, Couldn't load jbeam file for part: " .. tostring(part))
+	end
 end
 
 -- 1.18.1 fixes, adding parts that fit in an allowType of an installed slot 
