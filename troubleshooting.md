@@ -69,8 +69,11 @@ When caching jbeam files with a lot of mods the game may appear to be frozen. Th
 
 To make sure the process isn't frozen you can tail the beamlr.log file (command works on Windows, Linux also has equivalents):
 
-1. Open windows powershell 
-2. Type the following line (replace path to log file with correct path for your userfolder) and hit enter
+1. Download [this powershell script](https://github.com/r3eckon/BNG-BeamLegalRacing/blob/main/Tutorials/Helper%20Scripts/ViewJbeamCacheProgress.ps1) (click the "download raw" button on the right)
+2. Put the script in the root of the userfolder (same folder as the **beamlr.log** file)
+3. Right click script > Run with PowerShell
+
+You can also run the command manually from a powershell window by using this command (replace path to userfolder with your path):
 
 `Get-Content C:\Users\r3eck\AppData\Local\BeamNG.drive\current\beamlr.log  -Wait -Tail 1`
 
