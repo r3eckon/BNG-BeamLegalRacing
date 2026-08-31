@@ -9,7 +9,7 @@ local locals = {}
 
 local json = require("json")
 local extensions = require("extensions")
-local uiapps = require("ui/apps")
+local applayouts = require("ui/appLayouts")
 local level = require("core/levels")
 
 local dailySeedOffset = 1000	-- Seed offset for daily seed should be bigger value than total amount of needed rolls in flowgraph.
@@ -23,6 +23,23 @@ local markers = {}
 local markersOriginPos = {}      -- To fix markers moving downwards, likely due to floating point error when using pos = pos + sin(os.clock())
 
 local blrtime = 0				-- Not time of day, used for race timers
+
+-- default sfx volumes for old option files 
+-- KEEP THIS UPDATED IF NEW VALUE ARE ADDED OTHERWISE THEY WON'T SHOW UP IN UI
+-- also gotta add translations for each ex: "beamlr.mainui.page.options.setting.sfxvol.KEY"
+-- fuel_pump is also bugged as of 0.39.4, volume param has no effect on sfx
+M.defaultsfxvol = {fuel_pump=1, fuel_bell=1.5}
+
+
+-- global flag to indicate if mod is running or not
+beamlr_running = false 
+-- for some reason fg can't see globals so add a getter/setter for fg
+M.setBLRRunning = function(running)
+beamlr_running = running
+end
+M.getBLRRunning = function() 
+return beamlr_running
+end
 
 -- Iterator for sorted linked tables
 function linkedpairs(keys, values)
@@ -126,35 +143,6 @@ return function()
     return keys[ckey], t[keys[ckey]]
     end
 end
-
-
-blrlogid = 0
-
--- tail this file with powershell for instant logs during main thread locking loops
--- EX: Get-Content C:\Users\r3eck\AppData\Local\BeamNG.drive\current\beamlr.log  -Wait -Tail 1
-function blrlog(txt, wid)
-if wid then
-print("BeamLR Log ID " .. blrlogid)
-end
-local toprint = txt
-if not toprint then toprint = "nil" end
-local prefix = "[" .. string.format("%.3f",os.clock()) .. "] "
-if type(txt) == "table" then
-toprint = dumps(txt)
-end
-
-if wid then
-prefix = "[" .. blrlogid .. "]" .. prefix
-blrlogid = blrlogid+1
-end
-
-local f = io.open("beamlr.log", "a")
-f:write(prefix .. toprint .. "\n")
-f:flush()
-f:close()
-end
-
-
 
 
 local function deleteFile(filename)
@@ -761,10 +749,10 @@ return math.random(0,count-1)
 end
 
 -- test function, returns a list of starter car models and seeds that spawn them
-locals["getStarterCarSeedList"] = function(dbg)
+locals["getStarterCarSeedList"] = function(from)
 local count = #FS:findFiles("beamLR/init/garage/", "*", 0)
 local found = 0
-local cseed = 1
+local cseed = from or 1
 local cid = 0
 local ccarfile = {}
 local cmodel = ""
@@ -778,7 +766,6 @@ cmodel = ccarfile["type"]
 if not toRet[cmodel] then
 toRet[cmodel] = cseed
 found = found + 1
-if dbg then print(cseed .. "=" .. cmodel) end
 end
 
 cseed = cseed + 1
@@ -1198,7 +1185,7 @@ end
 
 local function testRandConfig(model, baseFile, randSlots, seed)
 local ioctx = extensions.blrpartmgmt.getCustomIOCTX(model)
-local slotMap = extensions.blrpartmgmt.getSlotMap(ioctx)
+local slotMap = extensions.blrpartmgmt.getSlotMapV2(ioctx)
 local filteredMap = extensions.blrpartmgmt.getFilteredSlotMap(slotMap, randSlots)
 local randomConfig = extensions.blrpartmgmt.generateConfigVariant(baseFile, filteredMap, seed)
 blrSpawn(model, { config = randomConfig } )
@@ -1912,7 +1899,7 @@ toRet[i]["title"] = cdata["title"]
 toRet[i]["joincost"] = cdata["joincost"]
 toRet[i]["map"] = getLevelUITitle(cdata["map"]) -- Using UI level name
 toRet[i]["joined"] = (v:sub(21) == currentEvent["efile"] and currentEvent["status"] ~= "over")
-toRet[i]["unlocked"] = extensions.blrglobals.gmGetVal("playerRep") >= tonumber(cdata["reputation"])
+toRet[i]["unlocked"] = extensions.blrglobals.getProjectVariable("playerRep") >= tonumber(cdata["reputation"])
 toRet[i]["bossevent"] = cdata["bossevent"]
 toRet[i]["bossunlocked"] = locals["clubCompletionStatus"]()
 if(cdata["bossevent"] == "true") then
@@ -1965,8 +1952,8 @@ local function eventBrowserGetPlayerData() -- Returns player data for browser UI
 local toRet = {}
 local lgslots = extensions.blrglobals.blrFlagGet("limitedGarageSlots")
 local pdata = loadDataTable("beamLR/mainData")
-toRet["money"] = extensions.blrglobals.gmGetVal("playerMoney")
-toRet["rep"] = extensions.blrglobals.gmGetVal("playerRep")
+toRet["money"] = extensions.blrglobals.getProjectVariable("playerMoney")
+toRet["rep"] = extensions.blrglobals.getProjectVariable("playerRep")
 toRet["bossunlock"] = locals["clubCompletionStatus"]()
 if lgslots then
 toRet["availslots"] = extensions.blrglobals.getProjectVariable("playerGarageSlots") - extensions.blrglobals.getProjectVariable("playerCarCount")
@@ -2245,12 +2232,12 @@ local cdata = loadDataTable("beamLR/garage/car" .. carid)
 toRet["garagename"] = cdata["name"]
 toRet["impounded"] = tonumber(cdata["impoundval"]) > 0
 toRet["model"] = cdata["type"]
-toRet["uiname"] = info["Name"]
+toRet["uiname"] = extensions.blrlocales.translate(info["Name"], true)
 --toRet["damage"] = cdata["damage"] -- Damage sent through FG at regular interval to get current damage
-toRet["brand"] = info["Brand"]
-toRet["powertrain"] = vudata["powertrain"]
-toRet["induction"] = vudata["induction"]
-toRet["perfclass"] = vudata["perfclass"]
+toRet["brand"] = extensions.blrlocales.translate(info["Brand"], true) -- force en-US translation for string compare
+toRet["powertrain"] = extensions.blrlocales.translate(vudata["powertrain"], true) -- force en-US translation for string compare
+toRet["induction"] = extensions.blrlocales.translate(vudata["induction"], true) -- force en-US translation for string compare
+toRet["perfclass"] = extensions.blrlocales.translate(vudata["perfclass"], true)-- force en-US translation for string compare
 end
 
 -- Set inspection data
@@ -2308,7 +2295,7 @@ cpass = false
 csplit = ssplit(inspectionDataEvent["brand"], ",")
 ccarval = inspectionDataCar["brand"]
 for k,v in pairs(csplit) do
-cpass = ccarval == v 
+cpass = ccarval:upper() == v:upper()
 if cpass then break end
 end
 failed = failed or not cpass
@@ -2319,7 +2306,7 @@ cpass = false
 csplit = ssplit(inspectionDataEvent["model"], ",")
 ccarval = inspectionDataCar["model"]
 for k,v in pairs(csplit) do
-cpass = ccarval == v 
+cpass = ccarval:upper() == v:upper() 
 if cpass then break end
 end
 failed = failed or not cpass
@@ -2330,7 +2317,7 @@ cpass = false
 csplit = ssplit(inspectionDataEvent["powertrain"], ",")
 ccarval = inspectionDataCar["powertrain"]
 for k,v in pairs(csplit) do
-cpass = ccarval == v 
+cpass = ccarval:upper() == v:upper() 
 if cpass then break end
 end
 failed = failed or not cpass
@@ -2341,7 +2328,7 @@ cpass = false
 csplit = ssplit(inspectionDataEvent["perfclass"], ",")
 ccarval = inspectionDataCar["perfclass"]
 for k,v in pairs(csplit) do
-cpass = ccarval == v 
+cpass = ccarval:upper() == v:upper() 
 if cpass then break end
 end
 failed = failed or not cpass
@@ -2395,12 +2382,15 @@ local elist = extensions.blrutils.eventBrowserGetList()
 extensions.customGuiStream.sendEventBrowserList(elist)
 
 -- Charge player for event joining
-local cmoney = extensions.blrglobals.gmGetVal("playerMoney")
+local cmoney = extensions.blrglobals.getProjectVariable("playerMoney")
 local nmoney = cmoney - tonumber(edata["joincost"])
-extensions.blrglobals.gmSetVal("playerMoney", nmoney)
+extensions.blrglobals.setProjectVariable("playerMoney", nmoney)
 local dtable = {}
 dtable["money"] = nmoney
 updateDataTable("beamLR/mainData", dtable)
+
+-- 1.20 sfx addition, gotta call from M because function is declared below
+M.playSFX("event:>UI>Career>Buy_01")
 
 extensions.blrglobals.blrFlagSet("eventRestrictUpdate", true) -- Request update for vehicle restriction state
 end
@@ -2623,10 +2613,44 @@ extensions.customGuiStream.sendGameOverUITextOpacity(locals["dsTextOpacity"] )
 return locals["dsTextOpacity"] 
 end
 
-local function playSFX(effect)
-blrvarSet("SFXFile", effect)
+
+M.fillMissingVolumeOptions = function(current)
+local toRet = {}
+local defaults = M.defaultsfxvol
+
+if not current then
+return defaults
+end
+
+for k,v in pairs(current) do
+toRet[k] = v
+end
+
+for k,v in pairs(defaults) do
+if not toRet[k] then toRet[k] = v end
+end
+
+return toRet
+end
+
+
+M.loadSFXOptions = function()
+local options = loadDataTable("beamLR/options")
+local volumes = M.fillMissingVolumeOptions(jsonDecode(options["sfxvol"]))
+for k,v in pairs(volumes) do
+blrvarSet("sfxvol/" .. k, v)
+print("Loaded SFX volume option for key " .. k .. ": " .. v)
+end
+end
+
+
+local function playSFX(file, volume, optkey)
+blrvarSet("SFXFile", file)
+blrvarSet("SFXVolume", vol)
+blrvarSet("SFXKey", optkey)
 extensions.blrglobals.blrFlagSet("SFXQueued", true)
 end
+
 
 -- Race path helper function: finds editor selection and dumps to file
 -- To create or edit race paths without having to input each trigger individually
@@ -2648,22 +2672,49 @@ data = data:sub(1,-2)
 writeFile("beamLR/racePathHelper", data)
 end
 
-locals["paints"] = nil
+locals["paintLibraryData"] = nil
 
 
 local function createRandomFactoryPaint(seed, model)
+local vehinfo = getVehicleInfoFile(model)
+
 -- 1.18.4 / BeamNG 0.37 paint library system, veh info file only refers to paint key
 -- so gotta fetch it from the library file
-if not locals["paints"] then
-locals["paints"] = jsonReadFile("vehicles/common/paintLibraries/common.paintLibrary.json").paints
+-- BeamNG 0.39 update for paint collections system
+if not locals["paintLibraryData"] then
+locals["paintLibraryData"] = jsonReadFile("vehicles/common/paintLibraries/common.paintLibrary.json")
 end
 
+local paintLibrary = locals["paintLibraryData"].paints
+local paintCollections = locals["paintLibraryData"].paintCollections
+
 math.randomseed(seed)
-local paints = getVehicleInfoFile(model)["libraryPaints"] -- changed from "paints" in 1.18.4
 local pkeys = {}
 local pid = 1
 
--- First trying the new paint format, should work for all vanilla cars
+-- BeamNG 0.39 update, trying to fetch from "factory" class paint collections if any exist
+-- Look for such collections, find paint names (skip tables as some might exist in data) and
+-- add them to list of potential paint keys to later fetch from paints table of library file
+local collections = vehinfo["paintCollections"]
+if collections then
+local factoryCollections = {}
+for _,cname in pairs(collections) do
+if paintCollections[cname] and paintCollections[cname].paints and paintCollections[cname].class == "factory" then
+--print("Found factory class paint collection in vehicle info file: " .. cname)
+for _,pname in pairs(paintCollections[cname].paints) do
+if type(pname) == "string" then
+--print("Adding paint " .. pname .. " to list of factory paints to pick from")
+pkeys[pid] = pname
+pid = pid+1
+end
+end
+end
+end
+end
+
+-- First fallback: paint keys directly in veh info file under libraryPaints table
+if #pkeys == 0 then
+local paints = vehinfo["libraryPaints"] -- changed from "paints" in 1.18.4
 if paints then
 	for k,v in pairs(paints) do
 		if type(v) ~= "table" then -- avoid table entries in libraryPaints table
@@ -2672,13 +2723,15 @@ if paints then
 		end
 	end
 end
+end
 
+-- Second fallback
 -- 1.18.8 fix for cars that don't have factory paints
 -- first try to fetch factory paint colors from multi paint setups
 -- Could eventually properly implement multipaint setups for dealerships but this will do for now
 if #pkeys == 0 then
-	if getVehicleInfoFile(model)["multiPaintSetups"] then
-		for _,pdata in pairs(getVehicleInfoFile(model)["multiPaintSetups"]) do
+	if vehinfo["multiPaintSetups"] then
+		for _,pdata in pairs(vehinfo["multiPaintSetups"]) do
 			if pdata.class == "factory" then
 				if pdata["paint1"] then
 				pkeys[pid] = pdata["paint1"]
@@ -2699,27 +2752,29 @@ if #pkeys == 0 then
 	end
 end
 
+-- Third fallback
 -- 1.19 fix: fallback to legacy paint system, probably here because of a mod
+-- but some vanilla cars still use this system (like the bolide)
 if #pkeys == 0 then
-paints = getVehicleInfoFile(model)["paints"]
+local paints = vehinfo["paints"]
 	if paints then
 		for k,v in pairs(paints) do
-			pkeys[pid] = k
-			pid=pid+1
+			-- 1.20 update, avoid paints labeled as "custom" (aka not factory colors)
+			if (v.class and v.class ~= "custom") or not v.class then
+				pkeys[pid] = k
+				pid=pid+1
+			end
 		end
 		
 		local pick = pkeys[math.random(1, #pkeys)]
 		print("Picked random LEGACY factory paint key: " .. pick)
-		local paint = getVehicleInfoFile(model)["paints"][pick]
+		local paint = vehinfo["paints"][pick]
 		return createVehiclePaint({x=paint.baseColor[1], y=paint.baseColor[2], z=paint.baseColor[3], w=paint.baseColor[4]}, paint.metallic, paint.roughness, paint.clearcoat, paint.clearcoatRoughness)
 	end
 end
 
 
-
-
-
--- if all else fails just generate a random paint
+-- Final fallback: if all else fails just generate a random paint
 if #pkeys == 0 then
 return createRandomPaint(seed)
 end
@@ -2727,7 +2782,7 @@ end
 
 local pick = pkeys[math.random(1, #pkeys)]
 print("Picked random factory paint key: " .. pick)
-local paint = locals["paints"][pick]
+local paint = paintLibrary[pick]
 return createVehiclePaint({x=paint.baseColor[1], y=paint.baseColor[2], z=paint.baseColor[3], w=paint.baseColor[4]}, paint.metallic, paint.roughness, paint.clearcoat, paint.clearcoatRoughness)
 end
 
@@ -3146,6 +3201,7 @@ end
 locals["lastGasUnit"] = ""
 local function blrStationDisplays()
 local level = getLevelName()
+if not level then return end -- fix for extension getting loaded through modScript for blrlog update (called by onSettingsChanged before level is loaded) 
 local unit = getSettingValue("uiUnits")
 locals["lastGasUnit"] = unit
 if not FS:directoryExists("beamLR/mapdata/" .. level) then
@@ -3505,23 +3561,37 @@ end
 
 
 -- generates a new config specific drag race file by copying existing file for a club & league
-locals["generateDragRaceFile"] = function(clublistpath, league, config)
-local clist = loadDataFile(clublistpath)
+-- if config is not specified, will try to fetch config file for current veh
+locals["generateDragRaceFile"] = function(league, config)
+local clist = loadDataFile("beamLR/dragclubsHelper")
 local cfolder = ""
 local cfiles = {}
 local cid = 0
 local cdata = {}
+local cconfig = config
+local ccount = 0
+
+
+if not cconfig then
+cconfig = extensions.blrpartmgmt.getVehicleData().config.partConfigFilename
+end 
+
+if not cconfig then 
+print("Could not generate new drag race, config parameter missing and couldn't get current car config file!")
+return
+end
 
 for k,v in pairs(clist) do
 cfolder = v .. "/" .. league .. "/"
 cfiles = FS:findFiles(cfolder, "*", 1)
 cid = #cfiles
 cdata = loadDataTable(cfiles[1])
-cdata["enemyConfig"] = config
+cdata["enemyConfig"] = cconfig
 saveDataTable(cfolder .. "race" .. cid, cdata)
+ccount = ccount + 1
 end
 
-
+print("Generated " .. ccount .. "/" .. #clist .. " new drag race files for config: " .. cconfig)
 end
 
 -- forces buffered data to get flushed to log file by printing a ton of characters
@@ -3633,7 +3703,7 @@ saveDataTable("beamLR/slotFavorites", dtable)
 end
 
 locals["isAppOnLayout"] = function(app, layout)
-local layouts = uiapps.getAvailableLayouts()
+local layouts = applayouts.getAvailableLayouts()
 for _,layoutData in pairs(layouts) do
 if layoutData.type == layout then
 for _,appData in pairs(layoutData.apps) do
@@ -3764,6 +3834,106 @@ end
 end
 end
 end
+
+
+local function onVehicleSpawned(vehid)
+local veh = be:getObjectByID(vehid)
+if veh then
+print("blrutils should have loaded blrlogs extension for vehid: " .. vehid)
+veh:queueLuaCommand("extensions.load('blrlogs')")
+end
+end
+
+-- Receives vue route data to modify it and send it back to UI
+-- used to disable game and level exit buttons while scenario is running
+-- because the buttons don't allow saving everything before quitting
+M.routerDataHandler = function(data)
+if not beamlr_running then return end -- don't do anything if mod isn't running
+
+local rdata = jsonDecode(require("mime").unb64(data))
+
+if rdata.blrmodified then return end -- don't run this function again on already modified data
+
+local modified = false
+
+-- Buttons to disable for each tab of pause menu
+local toDisable = {}
+
+toDisable["pause.system"] = 
+						{ -- This is the leftmost "System" tab of pause menu
+						  ["system.exitToMainMenu"] = true, 
+						  ["system.exitGame"] = true
+						}
+toDisable["pause"] = 
+						{ -- This is the default "Challenge" tab of pause menu
+						  ["home.changeLevel"] = true, 
+					      ["home.exitToMainMenu"] = true,
+					      ["home.mission.restartMission"] = true,
+						  ["home.missionRestart"] = true,
+						  ["home.missionFlip"] = true,
+						  ["home.missionRecover"] = true,
+						  ["home.missionRecover"] = true,
+						  ["home.missionTowToRoad"] = true
+						}
+
+local rname = rdata.route.name
+if not toDisable[rname] then return end -- early return, not on a screen we're interested in
+local rails = rdata.data.layoutMenu.content.rail
+if #rails == 0 then return end -- early return, probably on a transition screen with no buttons defined
+
+local actions = {}
+for i=1,#rails do
+actions = rails[i].actions
+for j=1,#actions do
+if toDisable[rname][actions[j].id] then
+--print("Found button to disable with id " ..actions[j].id)
+rdata.data.layoutMenu.content.rail[i].actions[j].enabled = false
+modified = true
+end
+end
+end
+
+-- if we modified route data send it back to UI
+if modified then
+rdata.blrmodified = true
+guihooks.trigger("ui_router_routeData", rdata)
+end
+
+end
+
+locals["tdatacache_path"] = ""
+locals["tdatacache_data"] = {}
+
+M.getTriggerData = function()
+local tpath = extensions.blrglobals.getProjectVariable("triggerDataPath")
+if not tpath or tpath == "" or tpath == "none" then return nil end
+if locals["tdatacache_path"] == tpath then return locals["tdatacache_data"] end
+local tdata = loadDataTable(tpath)
+if tdata then 
+locals["tdatacache_path"] = tpath
+locals["tdatacache_data"] = tdata
+end
+return tdata
+end
+
+
+-- mostly to optimize disk usage when fetching data tables that don't change while scenario is running
+-- like triggerData files and such
+locals["dtcache"] = {}
+M.loadDataTableCached = function(path)
+if locals.dtcache[path] then return locals.dtcache[path] end
+local data = loadDataTable(path)
+locals.dtcache[path] = deepcopy(data)
+return locals.dtcache[path]
+end
+
+M.clearDataTableCache = function()
+locals["dtcache"] = {}
+end
+
+
+
+M.onVehicleSpawned = onVehicleSpawned
 
 M.deleteSaveFile = locals["deleteSaveFile"]
 M.createSaveFile = locals["createSaveFile"]

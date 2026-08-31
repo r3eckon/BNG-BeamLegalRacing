@@ -8,7 +8,7 @@
 }
 </style>
 
-<div style="background-color:rgba(0.0,0.0,0.0,0.5); height:100%; width:100%; margin:0; z-index:9999;">
+<div style="background-color:rgba(0.0,0.0,0.0,0.5); height:100%; width:100%; margin:0;">
 
 <h3 style="margin: 0px; font-size:17px; font-weight:bold; text-align:center;">BeamLR Dealership Cars Editor</h3>
 
@@ -81,8 +81,8 @@
 <div style="margin:auto; width:95%; height:calc(100% - 470px); max-height:calc(100% - 470px); overflow-y:scroll; background-color:rgba(0.0,0.0,0.0,0.5);">
 <table style="table-layout:fixed; width:100%; ">
 <tr style="height:20px;" ng-repeat="(index,slotPath) in data['slots']" ng-if="slotPath != data['mainPartChild'] && idFromPath(slotPath) != data['model'] + '_mod'">
-<td style="width:10%; height:20px;"><md-checkbox ng-change="cache()" style="height:20px;" ng-model="saveParams.selectedSlots[slotPath]" ng-change=""></md-checkbox></td>
-<td style="width:90%; height:20px;" ng-if="data['slotName'][idFromPath(slotPath)] != null">{{data['slotName'][idFromPath(slotPath)]}}</td>
+<td style="width:10%; height:20px;"><md-checkbox ng-change="cache(); rslotdebug(slotPath);" style="height:20px;" ng-model="saveParams.selectedSlots[slotPath]"></md-checkbox></td>
+<td style="width:90%; height:20px;" ng-if="data['slotName'][idFromPath(slotPath)] != null">{{data['slotName'][idFromPath(slotPath)] | blrtranslate}}</td>
 <td style="width:90%; height:20px;" ng-if="data['slotName'][idFromPath(slotPath)] == null">{{idFromPath(slotPath)}}</td>
 </tr>
 </table>

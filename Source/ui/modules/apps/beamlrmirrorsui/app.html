@@ -1,11 +1,11 @@
 <div class="bngApp beamlrmirrorsui" style="background-color:transparent; height:100%;" >
 
-<div ng-if="enabled==true"  style="height:100%; transform:translate(0px,-2px); z-index:99999;">
+<div ng-if="enabled==true"  style="height:100%; transform:translate(0px,-2px);">
 
 <div ng-if="selected=='none'" style="min-width:100%; min-height:100%;">
 
 <p style="margin-top:0px; margin-bottom:0px;background-color:rgba(0.0,0.0,0.0,0.5); width:100%; font-size:24px; font-weight:bold; text-align:center;">
-&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp {{"beamlr.mirrorsui.title" | translate}} &nbsp&nbsp&nbsp&nbsp&nbsp
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp {{"beamlr.mirrorsui.title" | blrtranslate}} &nbsp&nbsp&nbsp&nbsp&nbsp
 <span ng-click="close()" style="margin-right:15px; transform:translate(0px,10px);">X</span>
 </p>
 
@@ -26,11 +26,11 @@
 
 <div ng-if="selected!='none'" style="min-width:100%; background-color:rgba(0.0,0.0,0.0,0.5);">
 <p style="width:100%; text-align:center; font-size:24px; font-weight:bold; margin-top:0px; margin-bottom:5px;">{{mdata[selected]['name']}}</p>
-<p style="width:100%; text-align:center; font-size:20px; font-weight:bold; margin:0;">{{"beamlr.mirrorsui.vertical" | translate}} ({{cox}})</p>
+<p style="width:100%; text-align:center; font-size:20px; font-weight:bold; margin:0;">{{"beamlr.mirrorsui.vertical" | blrtranslate}} ({{cox}})</p>
 <p style="width:100%; "><md-slider ng-change="updateMirror(selected, cox, coy)" ng-model="cox" min=-20 max=20 step=0.1 style="width:90%; margin:auto;"></md-slider>
-<p style="width:100%; text-align:center; font-size:20px; font-weight:bold; margin:0;">{{"beamlr.mirrorsui.horizontal" | translate}} ({{coy}})</p>
+<p style="width:100%; text-align:center; font-size:20px; font-weight:bold; margin:0;">{{"beamlr.mirrorsui.horizontal" | blrtranslate}} ({{coy}})</p>
 <p style="width:100%; "><md-slider ng-change="updateMirror(selected, cox, coy)" ng-model="coy" min=-20 max=20 step=0.1 style="width:90%; margin:auto;"></md-slider>
-<p style="text-align:center;"><button ng-click="deselect()" style="margin:auto; margin-bottom:20px;">{{"beamlr.generic.button.back" | translate}}</button></p>
+<p style="text-align:center;"><button ng-click="deselect()" style="margin:auto; margin-bottom:20px;">{{"beamlr.generic.button.back" | blrtranslate}}</button></p>
 </div>
 
 

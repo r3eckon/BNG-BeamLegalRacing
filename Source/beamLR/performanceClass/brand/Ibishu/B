@@ -1,10 +1,12 @@
 /vehicles/hopper/rock_racer.pc
 /vehicles/hopper/crawler.pc
-/vehicles/bx/police_alt_A.pc
-/vehicles/bx/street_drift_M.pc
+/vehicles/miramar/custom.pc
+/vehicles/miramar/race.pc
 /vehicles/pessima/race.pc
 /vehicles/pessima/drift.pc
 /vehicles/pessima/rally.pc
+/vehicles/bx/street_drift_M.pc
+/vehicles/bx/police_alt_A.pc
 /vehicles/midsize/rally.pc
 /vehicles/covet/turbo_evolution.pc
 /vehicles/covet/rally_asphalt.pc

@@ -58,34 +58,39 @@ end
 extensions.blrutils.blrvarSet("dragLightSync", -1)
 end
 
+-- 0.39 fix, object names changed
 local function loadObjects()
 -- load time and speed digits
 for i=1, 5 do
-local leftTimeDigit = scenetree.findObject("display_time_" .. i .. "_l")
+local leftTimeDigit = scenetree.findObject("alderStrip_main_displayTime" .. i .. "_2")
 table.insert(leftTimeDigits, leftTimeDigit)
-local rightTimeDigit = scenetree.findObject("display_time_" .. i .. "_r")
+local rightTimeDigit = scenetree.findObject("alderStrip_main_displayTime" .. i .. "_1")
 table.insert(rightTimeDigits, rightTimeDigit)
-local rightSpeedDigit = scenetree.findObject("display_speed_" .. i .. "_r")
+local rightSpeedDigit = scenetree.findObject("alderStrip_main_displaySpeed" .. i .. "_1")
 table.insert(rightSpeedDigits, rightSpeedDigit)
-local leftSpeedDigit = scenetree.findObject("display_speed_" .. i .. "_l")
+local leftSpeedDigit = scenetree.findObject("alderStrip_main_displaySpeed" .. i .. "_2")
 table.insert(leftSpeedDigits, leftSpeedDigit)
 end
 -- load christmas tree
 lights = {
-prestageLightR  = scenetree.findObject("Prestagelight_1"),
-prestageLightL  = scenetree.findObject("Prestagelight_2"),
-stageLightR     = scenetree.findObject("Stagelight_1"),
-stageLightL     = scenetree.findObject("Stagelight_2"),
-amberLight1R    = scenetree.findObject("Amberlight1_1"),
-amberLight2R    = scenetree.findObject("Amberlight2_1"),
-amberLight3R    = scenetree.findObject("Amberlight3_1"),
-amberLight1L    = scenetree.findObject("Amberlight1_2"),
-amberLight2L    = scenetree.findObject("Amberlight2_2"),
-amberLight3L    = scenetree.findObject("Amberlight3_2"),
-greenLightR     = scenetree.findObject("Greenlight_1"),
-greenLightL     = scenetree.findObject("Greenlight_2"),
-redLightR       = scenetree.findObject("Redlight_1"),
-redLightL       = scenetree.findObject("Redlight_2")
+prestageLightR  = scenetree.findObject("alderStrip_main_prestage_1"),
+prestageLightL  = scenetree.findObject("alderStrip_main_prestage_2"),
+stageLightR     = scenetree.findObject("alderStrip_main_stage_1"),
+stageLightL     = scenetree.findObject("alderStrip_main_stage_2"),
+amberLight1R    = scenetree.findObject("alderStrip_main_amber1_1"),
+amberLight2R    = scenetree.findObject("alderStrip_main_amber2_1"),
+amberLight3R    = scenetree.findObject("alderStrip_main_amber3_1"),
+amberLight1L    = scenetree.findObject("alderStrip_main_amber1_2"),
+amberLight2L    = scenetree.findObject("alderStrip_main_amber2_2"),
+amberLight3L    = scenetree.findObject("alderStrip_main_amber3_2"),
+greenLightR     = scenetree.findObject("alderStrip_main_green_1"),
+greenLightL     = scenetree.findObject("alderStrip_main_green_2"),
+redLightR       = scenetree.findObject("alderStrip_main_red_1"),
+redLightL       = scenetree.findObject("alderStrip_main_red_1"),
+winLightDriverR = scenetree.findObject("alderStrip_main_winDriver_1"),
+winLightDriverL = scenetree.findObject("alderStrip_main_winDriver_2"),
+winLightBoardR  = scenetree.findObject("alderStrip_main_winTimeboard_1"),
+winLightBoardL  = scenetree.findObject("alderStrip_main_winTimeboard_2")
 }
 -- reset for good measure
 resetLights()
@@ -164,7 +169,7 @@ end
 local currentCam = {}
 local currentFOV = 0
 local camTransforms = {
-  west_coast_usa = "[63.310,31.239,122.675,0.003809,-0.001937,0.453381,0.891306]"
+  west_coast_usa = "[63.310,31.239,124.675,0.003809,-0.001937,0.453381,0.891306]"
 }
 local function finishCamera(rstDelay)
 if extensions.blrglobals.blrFlagGet("dragslowmo") then
@@ -191,6 +196,17 @@ local function resetFinishedStates()
 finishState = {}
 end
 
+local function toggleWinnerLights(side, toggle)
+if side == "left" then
+toggleLight("winLightDriverL", toggle)
+toggleLight("winLightBoardL", toggle)
+elseif side == "right" then
+toggleLight("winLightDriverR", toggle)
+toggleLight("winLightBoardR", toggle)
+end
+end
+
+M.toggleWinnerLights = toggleWinnerLights
 M.resetFinishedStates = resetFinishedStates
 M.getFinished = getFinished
 M.setFinished = setFinished

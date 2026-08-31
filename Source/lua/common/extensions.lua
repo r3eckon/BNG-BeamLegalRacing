@@ -4,8 +4,7 @@
 
 -- BEAMLR FIXED FOR getSerializationData FORCING EXTENSIONS TO RELOAD
 -- WHICH RESETS VLUA SCRIPTS WHEN CALLING beamstate.save() BECAUSE IT
--- SAVES SERIALIZED VLUA DATA IN THE BEAMSTATE FILE
-
+-- SAVES SERIALIZED VLUA DATA IN THE BEAMSTATE FILE																	 
 local M = {}
 local MT = {} -- metatable
 local logTag = 'extensions'
@@ -33,6 +32,7 @@ local luaMods = {} -- local var that tracks the loaded modules state
 local doNotSerializeModules = {} -- local var for the modules TO NOT serialize when reloading LUA VM (CTRL + L)
 
 local luaExtensionFuncs = {}
+local luaExtensionNames
 local packagePathTemp = nil
 local resolvedModules = {}
 local resolvedNameToModule = {}
@@ -42,6 +42,7 @@ local trackOnRefresh = {}
 local loadedFreshModules = {}
 local deserializedData = nil
 
+local dtLimit = 0.05
 local childExtensions = {} -- for force unloading virtual extensions
 
 local _uniqueVirtualExtensionCounter = 0 -- always upcounting
@@ -52,6 +53,7 @@ end
 
 -- fwd decl of functions
 local extensionLoadInternal
+local hookFast
 
 local function luaPathToExtName(filepath)
   -- log('I', logTag, 'luaPathToExtName called '..tostring(filepath))
@@ -200,11 +202,7 @@ local function unloadInternal(extNames, forceUnloadVirtual)
   -- nop the function cache so that existing hook iterations do not get invalidated as they are used
   for fName, fList in pairs(luaExtensionFuncs) do
     for i, _ in ipairs(fList) do
-      if useProfiledHooks then
-        fList[i].func = nop
-      else
-        fList[i] = nop
-      end
+      fList[i] = nop
     end
   end
   table.clear(luaExtensionFuncs)  -- clear the hook function cache
@@ -350,7 +348,7 @@ local function unloadExcept(...)
       end
     end
   else
-    exceptionList = ... or {}
+    exceptionList = deepcopy(... or {})
   end
 
   -- IMPORTANT: Expand the exception list to include their dependencies.
@@ -482,6 +480,9 @@ local function wrapFunctionWithProfiler(func, name)
 end
 
 local function wrapAllExtensionsForProfiler()
+  if profileAllExtensionFunctions then return end
+  profileAllExtensionFunctions = true
+  M.hook = hookFast
   for j, m in ipairs(resolvedModules) do
     for name, value in pairs(m) do
       if type(value) == "function" and name ~= "wrapAllExtensions" then
@@ -524,6 +525,7 @@ extensionLoadInternal = function(extName, extPath, extRequested)
   --print("Loading "..vmType.." extension: "..dumps(extName, extPath).."\n"..debug.tracesimple())
   --print("Loading "..vmType.." extension: "..dumps(extName, extPath))
   --dump{vmType, "LOADING EXT: ", extPath}
+  local t0 = os.clockhp()
   m = require(extPath)
   if type(m) ~= 'table' then
     log('E', 'logtag', 'Module does not return the module exports M. is "return M" missing at the end of the file? Extension unavailable: ' .. dumps(extName)..' at location: '..dumps(extPath))
@@ -531,6 +533,7 @@ extensionLoadInternal = function(extName, extPath, extRequested)
   end
 
   if profileAllExtensionFunctions then
+    M.hook = hookFast
     for memberName, member in pairs(m) do
       if type(member) == "function" then
         m[memberName] = wrapFunctionWithProfiler(member, extName .. "." .. memberName)
@@ -545,7 +548,10 @@ extensionLoadInternal = function(extName, extPath, extRequested)
 
   extRequested = extRequested or {}
   extRequested[extName] = true
-  return refreshInternal(m, extName, extPath, true, extRequested)
+  local refreshed = refreshInternal(m, extName, extPath, true, extRequested)
+  local dt = os.clockhp() - t0
+  if dt > dtLimit then log("W", "", string.format("[This extension is quite slow and should be optimized] extensionLoadInternal %s: %.2f ms", extName, dt * 1000)) end
+  return refreshed
 end
 
 local function loadInternal(manualLoad, ...)
@@ -598,6 +604,7 @@ local function processLoadedFreshList()
       loadedFreshModules[i] = false
       local m = rawget(_G, moduleName)
       if m then
+        local t0 = os.clockhp()
         local res = true
         if m.onExtensionLoaded then
           -- log('I','','  '..m.__extensionName__..'.onExtensionLoaded('..dumps(deserializedData[m.__extensionName__])..')')
@@ -609,6 +616,8 @@ local function processLoadedFreshList()
         if res ~= false then
           table.insert(modulesToInit, m.__extensionName__)
         end
+        local dt = os.clockhp() - t0
+        if dt > dtLimit then log("W", "", string.format("[This extension is quite slow and should be optimized] onExtensionLoaded %s: %.2f ms", m.__extensionName__, dt * 1000)) end
       end
     end
   end
@@ -629,7 +638,10 @@ local function processLoadedFreshList()
         local m = rawget(_G, moduleName)
         if m and type(m.onInit) == 'function' then
           -- log('I','','  '..m.__extensionName__..'.onInit('..dumps(deserializedData[m.__extensionName__])..')')
+          local t0 = os.clockhp()
           m.onInit(deserializedData[m.__extensionName__])
+          local dt = os.clockhp() - t0
+          if dt > dtLimit then log("W", "", string.format("[This extension is quite slow and should be optimized] onInit %s: %.2f ms", m.__extensionName__, dt * 1000)) end
         end
       end
     end
@@ -775,23 +787,31 @@ local function hookProfiled(funcName, ...)
   local funcList = luaExtensionFuncs[funcName]
   if funcList == nil then
     -- rebuild the cache for the function from all loaded modules
+    luaExtensionNames = luaExtensionNames or {}
     local hookFuncs = {}
+    local hookNames = {}
     luaExtensionFuncs[funcName] = hookFuncs
+    luaExtensionNames[funcName] = hookNames
     for _, m in ipairs(resolvedModules) do
       local func = m[funcName]
       if func ~= nop and type(func) == 'function' then
-        local funcInfo = {func = func, extCallName = m.__extensionName__..'.'..funcName}
-        table.insert(hookFuncs, funcInfo)
-        if not profileAllExtensionFunctions then profilerPushEvent(funcInfo.extCallName) end
+        local extCallName = m.__extensionName__..'.'..funcName
+        table.insert(hookFuncs, func)
+        table.insert(hookNames, extCallName)
+        profilerPushEvent(extCallName)
         func(...)
-        if not profileAllExtensionFunctions then profilerPopEvent(funcInfo.extCallName) end
+        profilerPopEvent(extCallName)
       end
     end
   else
-    for _, funcInfo in ipairs(funcList) do
-      if not profileAllExtensionFunctions then profilerPushEvent(funcInfo.extCallName) end
-      funcInfo.func(...)
-      if not profileAllExtensionFunctions then profilerPopEvent(funcInfo.extCallName) end
+    local hookNames = luaExtensionNames[funcName]
+    local i = 1
+    for _, func in ipairs(funcList) do
+      local extCalName = hookNames[i]
+      profilerPushEvent(extCalName)
+      func(...)
+      profilerPopEvent(extCalName)
+      i = i + 1
     end
   end
 end
@@ -809,7 +829,7 @@ local function hookDebug(funcName, ... )
   end
 end
 
-local function hookFast(funcName, ...)
+hookFast = function(funcName, ...)
   -- This is performance sensitive, please disable transient debug code
   -- dump("Extension Hook: " .. funcName .. " : " .. dumps(... or {}))
   local funcList = luaExtensionFuncs[funcName]
@@ -1017,10 +1037,18 @@ local function deserialize(data, filter)
           -- grab specified root
           root = string.sub(extName, 1, string.find(extName, "_") - 1)
         end
-        loadAtRoot(extPath, root)
+        local _, m = loadAtRoot(extPath, root)
+        if not m then
+          log('E', logTag, 'could not reload extension after Lua reload: ' .. tostring(extName) .. ' (path: ' .. tostring(extPath) .. ')')
+        end
       end
     end
     loadExt(extbatch)
+    for _, extName in ipairs(extbatch) do
+      if not isExtensionLoaded(extName) then
+        log('E', logTag, 'could not reload extension after Lua reload: ' .. tostring(extName))
+      end
+    end
   end
 
   -- We need to make a copy of these 2 tables as modules processing onDeserialize can alter them when they call extensions.load as
@@ -1032,6 +1060,7 @@ local function deserialize(data, filter)
     local k = v.__extensionName__
     --print("k="..tostring(k) .. " = " .. tostring(v))
     if (filter == nil or k == filter) and type(v) == 'table' and (v['onDeserialized'] ~= nil or v['onDeserialize'] ~= nil) and data[k] ~= nil then
+      local t0 = os.clockhp()
       if type(v['onDeserialize']) == 'function' then
         -- having a deserilization function? then use that!
         v['onDeserialize'](data[k])
@@ -1045,6 +1074,8 @@ local function deserialize(data, filter)
       if type(v['onDeserialized']) == 'function' then
         v['onDeserialized'](data[k])
       end
+      local dt = os.clockhp() - t0
+      if dt > dtLimit then log("W", "", string.format("[This extension is quite slow and should be optimized] deserialize %s: %.2f ms", k, dt * 1000)) end
     end
     data[k] = nil
   end

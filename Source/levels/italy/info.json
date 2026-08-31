@@ -14,9 +14,6 @@
   "features": "levels.italy.info.features",
   "previews":[
     "italy_preview0.jpg",
-    "italy_preview4.jpg",
-    "italy_preview3.jpg",
-    "italy_preview2.jpg",
     "italy_preview1.jpg"
   ],
   "defaultSpawnPointName":"spawn_crossroads",

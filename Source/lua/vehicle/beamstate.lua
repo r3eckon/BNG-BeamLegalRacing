@@ -11,6 +11,7 @@ local max, min, floor = math.max, math.min, math.floor
 M.damage = 0
 M.damageExt = 0
 M.lowpressure = false
+M.brokenBreakGroups = {}
 M.deformGroupDamage = {}
 M.deformGroupsTriggerBeam = {}
 
@@ -37,7 +38,6 @@ local beamDamageTracker = {}
 local beamDamageTrackerDirty = false
 
 local breakGroupCache = {}
-local brokenBreakGroups = {}
 local triangleBreakGroupCache = {}
 local couplerBreakGroupCache = {}
 local couplerBreakGroupCacheOrig = {}
@@ -83,10 +83,10 @@ local function setPartCondition(partId, partTypeData, odometer, integrity, visua
   -- end
 
   -- local breakGroupCount = #partBreakGroups
-  -- local numberOfBrokenBreakGroups = breakGroupCount * (1 - integrityValue)
-  -- local wholeNumberOfBrokenBreakGroups = floor(numberOfBrokenBreakGroups)
+  -- local numberOfbrokenBreakGroups = breakGroupCount * (1 - integrityValue)
+  -- local wholeNumberOfM.brokenBreakGroups = floor(numberOfM.brokenBreakGroups)
   -- local shuffledBreakGroups = arrayShuffle(partBreakGroups)
-  -- for i = 1, wholeNumberOfBrokenBreakGroups do
+  -- for i = 1, wholeNumberOfM.brokenBreakGroups do
   --   table.insert(integrity.jbeam.brokenBreakGroups, shuffledBreakGroups[i])
   -- end
   end
@@ -118,7 +118,7 @@ local function getPartCondition(partId, partTypeData)
         if split[2] == "breakGroup" then
           local breakGroupName = split[3]
           breakGroupCount = breakGroupCount + 1
-          if brokenBreakGroups[breakGroupName] then
+          if M.brokenBreakGroups[breakGroupName] then
             brokenBreakGroupCount = brokenBreakGroupCount + 1
           end
         end
@@ -170,7 +170,7 @@ local function breakBreakGroup(g)
     return
   end
 
-  brokenBreakGroups[g] = true
+  M.brokenBreakGroups[g] = true
 
   -- hide props if they use
   props.hidePropsInBreakGroup(g)
@@ -433,7 +433,7 @@ local function onCouplerAttached(nodeId, obj2id, obj2nodeId, attachSpeed, attach
   end
 end
 
-local function onCouplerDetached(nodeId, obj2id, obj2nodeId)
+local function onCouplerDetached(nodeId, obj2id, obj2nodeId, breakForce)
   --print(string.format("coupler detached %s.%s->%s.%s", obj:getId(),nodeId,obj2id, obj2nodeId))
   attachedCouplers[nodeId] = nil
   transmitCouplers[nodeId] = nil
@@ -451,7 +451,7 @@ local function onCouplerDetached(nodeId, obj2id, obj2nodeId)
   end
 
   if objectId < obj2id then
-    obj:queueGameEngineLua(string.format("onCouplerDetached(%s,%s,%s,%s)", objectId, obj2id, nodeId, obj2nodeId))
+    obj:queueGameEngineLua(string.format("onCouplerDetached(%s,%s,%s,%s,%s)", objectId, obj2id, nodeId, obj2nodeId, breakForce))
   end
 end
 
@@ -1052,7 +1052,7 @@ local function init()
   end
 
   breakGroupCache = {}
-  brokenBreakGroups = {}
+  M.brokenBreakGroups = {}
   M.deformGroupDamage = {}
   table.clear(M.deformGroupsTriggerBeam)
   initTimer = 0

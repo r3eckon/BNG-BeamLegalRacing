@@ -1,0 +1,6 @@
+{"name":"block_yard_props","class":"SimGroup","__parent":"quarry_block_yard"}
+{"name":"block_yard_decalroads","class":"SimGroup","__parent":"quarry_block_yard"}
+{"name":"block_yard_guardrail","class":"SimGroup","__parent":"quarry_block_yard"}
+{"name":"gantry_area","class":"SimGroup","__parent":"quarry_block_yard"}
+{"name":"block_yard_fence","class":"SimGroup","__parent":"quarry_block_yard"}
+{"name":"block_yard_blocks","class":"SimGroup","__parent":"quarry_block_yard"}

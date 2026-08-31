@@ -8,9 +8,10 @@
 {"name":"Audio","class":"SimGroup","persistentId":"7fb72f73-d488-4e7e-9727-6a68f0232f46","__parent":"MissionGroup"}
 {"name":"pumpjacks","class":"SimGroup","persistentId":"25593862-4a26-4ed5-b8c9-96c151eaea7e","__parent":"MissionGroup"}
 {"name":"busstops","class":"SimGroup","persistentId":"99516639-67eb-45cc-a2fd-e5edc0cd1418","__parent":"MissionGroup"}
-{"name":"theForest","class":"Forest","persistentId":"7784d36c-43ec-4a68-a2e1-d11181eff095","__parent":"MissionGroup","position":[0,0,1.50421321]}
+{"name":"theForest","class":"Forest","persistentId":"7784d36c-43ec-4a68-a2e1-d11181eff095","__parent":"MissionGroup","position":[0,0,1.50421321],"rotationMatrix":[0.99999994,0,0,0,0.99999994,0,0,0,0.999999881]}
 {"name":"Buildings","class":"SimGroup","persistentId":"ab3675d6-11f3-4618-8454-c68384b22706","__parent":"MissionGroup"}
 {"name":"StaticObjects","class":"SimGroup","persistentId":"7f2fbc41-890e-4a03-ad30-52fcec25403b","__parent":"MissionGroup"}
+{"name":"sidewalks","class":"SimGroup","__parent":"MissionGroup"}
 {"name":"DecalRoads","class":"SimGroup","persistentId":"e7495bdc-8bd4-4e8a-82c7-cff539485467","__parent":"MissionGroup"}
 {"name":"Track_meshes","class":"SimGroup","persistentId":"edef3060-1db0-4b56-b6bb-3a1d7268c202","__parent":"MissionGroup"}
 {"name":"AIWaypointsGroup","class":"SimGroup","persistentId":"f1a112a6-ae10-45fd-8018-0a8ff4a172d6","__parent":"MissionGroup"}
@@ -24,7 +25,6 @@
 {"name":"movie_studio","class":"SimGroup","persistentId":"9958b1ea-f6cf-42e9-b47d-32f61cbf7bbd","__parent":"MissionGroup"}
 {"name":"port","class":"SimGroup","persistentId":"71defa49-7edf-4b14-a3ad-18d1a3467cb8","__parent":"MissionGroup"}
 {"name":"gas_stations_decalroads","class":"SimGroup","persistentId":"37dd14ef-43e0-408e-9154-7b94d8c17833","__parent":"MissionGroup"}
-{"name":"PoliceStation","class":"SimGroup","persistentId":"55c2ffd1-1619-49ca-86d3-634a32d03af6","__parent":"MissionGroup"}
 {"name":"steel_factory","class":"SimGroup","persistentId":"a93d2eab-e901-4338-84c9-2c38fbb89727","__parent":"MissionGroup"}
 {"name":"island","class":"SimGroup","persistentId":"ce877d57-80e6-4196-8de0-661b89ab558c","__parent":"MissionGroup"}
 {"name":"fuel_stations","class":"SimGroup","persistentId":"2176011d-fb09-4f2f-af52-976c31164e81","__parent":"MissionGroup"}
@@ -47,4 +47,6 @@
 {"name":"skidpadWP2","class":"BeamNGWaypoint","__parent":"MissionGroup","position":[381.004944,-101.403893,144.770889],"rotationMatrix":[0.447065532,0.89450103,-2.98023188e-08,-0.894424021,0.447026998,-0.0131171001,-0.0117331902,0.0058643003,0.999913752]}
 {"name":"skidpadWP3","class":"BeamNGWaypoint","__parent":"MissionGroup","position":[413.540039,-122.672554,145.095764],"rotationMatrix":[-0.44736141,0.894353032,-2.98023188e-08,-0.894276083,-0.447322905,-0.0131188286,-0.0117329219,-0.00586883025,0.999913752]}
 {"name":"skidpadWP4","class":"BeamNGWaypoint","__parent":"MissionGroup","position":[441.489929,-90.0654068,145.4832],"rotationMatrix":[5.96046377e-08,0.999999821,0,-0.99984479,-5.21080312e-15,-0.0176059846,-0.017605925,5.96046341e-08,0.99984479]}
+{"name":"nightlights","class":"SimGroup","__parent":"MissionGroup"}
+{"name":"west_coast_map_limits","class":"SimGroup","__parent":"MissionGroup"}
 {"name":"BeamLR","class":"SimGroup","persistentId":"2d4de71e-7c9b-4033-a09b-abc131dbb8ef","__parent":"MissionGroup"}

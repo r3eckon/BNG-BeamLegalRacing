@@ -1,65 +1,78 @@
-local M = {}
-local extensions = require("extensions")
+-- SCRIPT DEPRECATED IN 0.39, NO LONGER NEED TO SCRIPT LOAD TRANSLATION FILES
+-- AS FOLDER STRUCTURE FOR TRANSLATIONS + CUSTOM FILES ALLOWED MAKE IT POSSIBLE
+-- TO JUST DROP TRANSLATIONS IN USERFOLDER DURING INSTALL PROCESS
 
-local localeCache = {}
-local loaded = false
-local reloadRequest = false
+-- COMMENTED OUT ALL FUNCTIONS EXCEPT ONE USED TO GENERATE TRANSLATIONS AS MIGHT BE USED
+-- IN THE FUTURE, EVERYTHING ELSE NO LONGER NEEDED
+
+
+local M = {}
+local locales = require("core/locales")
+
+--local extensions = require("extensions")
+
+--local localeCache = {}
+--local loaded = false
+--local reloadRequest = false
 
 local function getCurrentLanguage()
-return Lua:getSelectedLanguage()
+--return Lua:getSelectedLanguage()
 end
 
 local function loadLocales()
-local addons = FS:findFiles("beamLR/locales", "*.json", -1)
-
-localeCache = {}
-
-local aname = "" -- 1.19.1 fix for multiple translation files
-local original = {}
-local addon = {}
-
-local opath = ""
-
-for _,file in pairs(addons) do
-aname = string.gsub(file,"/beamLR/locales/", ""):gsub(".json", "")
-addon = jsonReadFile(file)
-opath = "/locales/" .. aname .. ".json"
-original = jsonReadFile(opath)
-
-for k,v in pairs(addon) do
-if not localeCache[aname] then localeCache[aname] = {} end
-localeCache[aname][k] = v -- 1.19.1 fix, store each language in its own cache table
-original[k] = v
-end
-
-jsonWriteFile(opath, original, true)
-
-loaded = true
-end
-
-
+--	local addons = FS:findFiles("beamLR/locales", "*.json", -1)
+--
+--	localeCache = {}
+--
+--	local aname = "" -- 1.19.1 fix for multiple translation files
+--	local original = {}
+--	local addon = {}
+--
+--	local opath = ""
+--
+--	for _,file in pairs(addons) do
+--	aname = string.gsub(file,"/beamLR/locales/", ""):gsub(".json", "")
+--	addon = jsonReadFile(file)
+--	opath = "/locales/" .. aname .. ".json"
+--	original = jsonReadFile(opath)
+--
+--	for k,v in pairs(addon) do
+--	if not localeCache[aname] then localeCache[aname] = {} end
+--	localeCache[aname][k] = v -- 1.19.1 fix, store each language in its own cache table
+--	original[k] = v
+--	end
+--
+--	jsonWriteFile(opath, original, true)
+--
+--	loaded = true
+--  end
 
 
-
-reloadRequest = true
+--reloadRequest = true
 -- reloadUI()
 end
 
 
 local function unloadLocales()
-local files = FS:findFiles("/locales/", "*.json", 1)
-for k,v in pairs(files) do
-extensions.blrutils.deleteFile(v)
-end
-localeCache = {}
-loaded = false
-reloadUI()
+--	local files = FS:findFiles("/locales/", "*.json", 1)
+--	for k,v in pairs(files) do
+--	extensions.blrutils.deleteFile(v)
+--	end
+--	localeCache = {}
+--	loaded = false
+--	reloadUI()
 end
 
-local function translate(key, language)
-if not loaded then return key end
-if not localeCache[language or getCurrentLanguage()] then language = "en-US" end -- 1.19.1 default to english for non translated languages
-return localeCache[language or getCurrentLanguage()][key] or key
+-- actually keeping this one in to parse json from cached part names before translating
+-- set forceEnglish to true to return an en-US translation 
+local function translate(key, forceEnglish)
+if key:sub(1,1) == "{" and key:sub(-1,-1) == "}" then
+local tdata = jsonDecode(key)
+return locales.contextTranslate(tdata.txt, tdata.ctx, forceEnglish)
+else
+return locales.translate(key, nil, nil, forceEnglish)
+end
+
 end
 
 -- ttype and tmap are used to build translation keys: beamlr.ttype.tmap.ABCDEFG
@@ -156,13 +169,13 @@ writeFile("mtgen_output", tdata)
 end
 
 local function onUiChangedState(to,from)
-print("UI CHANGED STATE FROM " .. from .. " TO " .. to)
-if not reloadRequest then return end
-if to == "play" then
-reloadRequest = false
-reloadUI()
-print("SHOULD HAVE RELOADED UI AFTER TRANSLATIONS LOADED")
-end
+--print("UI CHANGED STATE FROM " .. from .. " TO " .. to)
+--if not reloadRequest then return end
+--if to == "play" then
+--reloadRequest = false
+--reloadUI()
+--print("SHOULD HAVE RELOADED UI AFTER TRANSLATIONS LOADED")
+--end
 end
 
 M.onUiChangedState = onUiChangedState

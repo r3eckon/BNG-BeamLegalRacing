@@ -1,4 +1,5 @@
-name=Scrapyard
+name=Trusted Auto Sales Scrapyard
+hours=7,16
 slots=4
 chance=0.8
 dchance=0

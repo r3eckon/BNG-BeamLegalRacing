@@ -1,0 +1,7 @@
+{"name":"fuelStations","class":"SimGroup","__parent":"extra_lights_james"}
+{"name":"tower_coloured_lights","class":"SimGroup","__parent":"extra_lights_james"}
+{"name":"main_bridge_lights_deck","class":"SimGroup","__parent":"extra_lights_james"}
+{"name":"main_bridge_detailLights","class":"SimGroup","__parent":"extra_lights_james"}
+{"name":"general_lights","class":"SimGroup","__parent":"extra_lights_james"}
+{"name":"red_marker_lights","class":"SimGroup","__parent":"extra_lights_james"}
+{"name":"bridge_light_poles","class":"SimGroup","__parent":"extra_lights_james"}

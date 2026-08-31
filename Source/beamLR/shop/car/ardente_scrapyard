@@ -1,0 +1,8 @@
+name=Cherrier Ardente
+type=vivace
+config=vehicles/vivace/blr_scrapyard_ardante.pc
+baseprice=400,600
+odometer=0
+scrapval=50
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

@@ -55,11 +55,11 @@ if bought then
 	if imButton((showReport and extensions.blrlocales.translate("beamlr.vehfax.report.hide")) or extensions.blrlocales.translate("beamlr.vehfax.report.show")) then showReport = not showReport end
 	if showReport then imText(desc) end
 else
-	local money = extensions.blrglobals.gmGetVal("playerMoney")
+	local money = extensions.blrglobals.getProjectVariable("playerMoney")
 	if money > 100.0 then
 		if imButton(extensions.blrlocales.translate("beamlr.vehfax.report.buy")) then
 			if money > 100.0 then 
-				extensions.blrglobals.gmSetVal("playerMoney", money - 100.0)
+				extensions.blrglobals.setProjectVariable("playerMoney", money - 100.0)
 				extensions.blrutils.playSFX("event:>UI>Career>Buy_01")
 				if daydata["vehfax"] == "none" then daydata["vehfax"] = "" end
 				daydata["vehfax"] = daydata["vehfax"] .. slot .. ","

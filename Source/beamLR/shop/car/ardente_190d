@@ -1,0 +1,9 @@
+name=Cherrier Ardente (Pure 190d, Manual)
+type=vivace
+config=vehicles/vivace/ardente_190d_M.pc
+baseprice=5000,20000
+odometer=30000000,350000000
+scrapval=500
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1
+randslots=ardente_hood,ardente_chmsl_center_bulb,ardente_bumper_R,vivace_antenna,ardente_strut_bar,ardente_fender_FL,ardente_sideskirt_L,ardente_quarterglass_L,ardente_mirror_R,ardente_doorpanel_R,ardente_doorglass_R,ardente_seats_R,ardente_sideskirt_R,paint_design,ardente_door_R,ardente_doorpanel_L,ardente_badge,ardente_seat_FR,ardente_taillight_L,ardente_quarterglass_R,vivace_undertray,ardente_lettering,ardente_tailgate,ardente_towhitch,ardente_tailgate_panel,ardente_door_L,ardente_headlight_R,ardente_steer,ardente_screen_branding,ardente_taillight_R,ardente_spoiler,ardente_headlight_cover_L,ardente_headlight_L,ardente_fender_FR,skin_interior_ardente,ardente_bumper_F,ardente_mirror_L,ardente_roof_accessory,ardente_rallylights,ardente_doorglass_L,ardente_tailgateglass

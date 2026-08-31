@@ -1,0 +1,3 @@
+{"name":"pole_light_single_new","class":"SimGroup","__parent":"extra_lights_sam"}
+{"name":"pole_light_double_new","class":"SimGroup","__parent":"extra_lights_sam"}
+{"name":"floodlight_portable_new","class":"SimGroup","__parent":"extra_lights_sam"}

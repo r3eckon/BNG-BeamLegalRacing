@@ -1,0 +1,13 @@
+{"name":"lightemitters_pl_double","class":"SimGroup","__parent":"lightemitters"}
+{"name":"lightemitters_vintage","class":"SimGroup","__parent":"lightemitters"}
+{"name":"lightemitters_pl_bridge","class":"SimGroup","__parent":"lightemitters"}
+{"name":"lightemitters_lightcity","class":"SimGroup","__parent":"lightemitters"}
+{"name":"lightemitters_single","class":"SimGroup","__parent":"lightemitters"}
+{"name":"lightemitters_pl_lighting","class":"SimGroup","__parent":"lightemitters"}
+{"name":"lightemitters_port","class":"SimGroup","__parent":"lightemitters"}
+{"name":"lightemitters_pl_lighting2","class":"SimGroup","__parent":"lightemitters"}
+{"name":"lightemitters_fl_portable","class":"SimGroup","__parent":"lightemitters"}
+{"name":"lightemitters_gasstation","class":"SimGroup","__parent":"lightemitters"}
+{"name":"lightemitters_misc","class":"SimGroup","__parent":"lightemitters"}
+{"name":"ligtemitters_tunnels","class":"SimGroup","__parent":"lightemitters"}
+{"name":"lightemitters_bridgetop","class":"SimGroup","__parent":"lightemitters"}

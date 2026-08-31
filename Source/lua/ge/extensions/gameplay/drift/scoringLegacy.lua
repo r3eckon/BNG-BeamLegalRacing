@@ -8,7 +8,13 @@ local stallingOptions = {
   maxOneSideDriftIncrement = 3 -- how many times can the combo be increased is a single drift
 }
 
+
+-- BEAMLR NOTE:
+-- Commented out lines in scoreOptions table are disabled vanilla updated values to prevent 
+-- them from overwriting legacy values
+
 local scoreOptions = {
+ -- BEAMLR NOTE: Legacy values for BeamLR drift challenges
   minDriftAngleMulti = 1,
   maxDriftAngleMulti = 3,
   minWallMulti = 1,
@@ -21,10 +27,89 @@ local scoreOptions = {
   wallTapScore = 200,
   continuousDriftPoints = 10,
   comboOptions = {
+	-- BEAMLR NOTE: Legacy values for BeamLR drift challenges
     increment = 0.2,
     maxCombo = 5,
-    driftTimeToCombo = 1.50 -- has to drift x seconds to increase combo.
+    driftTimeToCombo = 1.50, -- has to drift x seconds to increase combo.
+	
+	-- BEAMLR NOTE: Updated values, not used by scoring system, needed for compatibility
+	stuntZone = {
+      creepUp = 140,
+      creepLow = 20
+    },
+    oneSideDrift = {
+      minAngle = 25,
+      creepUp = 10,
+      creepLow = 5,
+      timeToCreepup = 0.1, -- has to drift x seconds to increase creep up.
+      maxIncrements = 100  -- how many times can the creepup be increased in a single drift
+      --maxIncrements = math.huge -- how many times can the creepup be increased is a single drift
+    },
+    driftTransition = {
+      minTransitionSpeed = 25, -- Below this speed, not earning any combo for transition between drifts
+      cooldownTime = 2, -- this is to avoid quick transitions and earn combo too fast
+      comboSpeeds = {
+        {
+          minSpeed = 30,
+          maxSpeed = 60,
+          creepUp = 100
+        },
+        {
+          minSpeed = 60,
+          maxSpeed = 90,
+          creepUp = 200
+        },
+        {
+          minSpeed = 90,
+          maxSpeed = 120,
+          creepUp = 300
+        },
+        {
+          minSpeed = 120,
+          maxSpeed = 150,
+          creepUp = 400
+        },
+        {
+          minSpeed = 150,
+          creepUp = 500
+        }
+      }
+    },
+    closeWall = {
+      creepUp = 50,
+      creepLow = 5
+    },
+    --increment = 0.1,
+    incrementLow = 0.01,
+    comboSoftCap = 10,
+    comboHardCap = 25
+  },
+  
+  -- BEAMLR NOTE: Updated values, not used by scoring system, needed for compatibility
+  stuntZones = {
+    driftThrough = {basePoints = 300},
+    donut = {basePoints = 100},
+    hitPole = {basePoints = 300},
+    nearPole = {basePoints = 300}
+  },
+  careerRewards = {
+    minScore = 300,
+    scoreMulForXp = 0.0017
+  },
+  defaultPoints = {
+    driftThrough = 1500,
+    donut = 500,
+    hitPole = 1000,
+    nearPole = 1000
   }
+  
+  --minDriftAngleMulti = 1,
+  --maxDriftAngleMulti = 10,
+  --maxWallMulti = 3,
+  --maxSpeedMulti = 4,
+  --wallTapScore = 200,
+  --continuousDriftPoints = 0.6,
+  
 }
 local driftScore = {}
 local driftActiveData = {}

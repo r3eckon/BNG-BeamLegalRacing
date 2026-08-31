@@ -1,16 +1,76 @@
 angular.module('beamng.apps')
-.directive('beamlrui', ['$filter',function($filter) {
+.filter("blrtranslate", ["translateService", function(translateService){
+	return function(input)
+	{
+	  var first = input.substring(0,1)
+	  var last = input.substring(input.length-1,input.length)
+	  var translated = ""
+	  
+	  if(first == "{" && last == "}")
+	  {
+		//Changing context tables name, in lua called "ctx" but has to be "context" in js
+		//for contextTranslate to find it (at least as of BeamNG 0.39.0)
+		var tdata = JSON.parse(input.replaceAll('\"ctx\":', '\"context\":'))
+		translated = translateService.contextTranslate(tdata, true)
+	  }
+	  else
+	  {
+		translated = translateService.contextTranslate(input)
+	  }
+
+	  return translated
+	}
+}])
+.directive('beamlrui', ['$filter', function($filter) {
   return {
     templateUrl: '/ui/modules/apps/beamlrui/app.html',
     replace: true,
     restrict: 'EA',
     link: function (scope, element, attrs) {
 	  
+	  scope.showMenu = false
+	  
+	  //Universal app code start
+	  //Layering code
+	  var appcontainer = element[0].parentElement.parentElement.parentElement.parentElement
+	  var appname = element[0].className.replace("bngApp ", "")
+	  scope.setContainerZindex = function(index)
+	  {
+		  appcontainer.style["z-index"] = index.toString();
+	  }
+	  scope.moveToFront = function()
+	  {
+		  scope.setContainerZindex(100);
+	  }
+	  scope.moveToBack = function()
+	  {
+		  scope.setContainerZindex(1);//Display above hidden background apps to keep menu arrow clickable
+	  }
+	  scope.moveToCustom = function(layer)
+	  {
+		  scope.setContainerZindex(layer)
+	  }
+	  scope.$on('beamlrAppLayerChange', function (event, data) {
+		  if(data.target == appname)
+		  {
+			  //scope.setContainerZindex(data.layer)
+		  }
+	  })
+	  //Default layering behavior depending on initial UI enable state
+	  if(scope.showMenu)
+		  scope.moveToFront()
+	  else
+		  scope.moveToBack()
+	  
+	  //Translation code
 	  translate = function(key)
 	  {
-		  return $filter('translate')(key)
+		  return $filter('blrtranslate')(key)
 	  }
 	  scope.translate = translate
+	  //Universal app code end
+	  
+	  
 	  
 	  
 	  scope.testdata = 'Not Loaded';
@@ -18,7 +78,6 @@ angular.module('beamng.apps')
 	  scope.inputData = {};
 	  scope.textBoxFocus = false;
 	  scope.menuPage = 0;
-	  scope.showMenu = false;
 	  scope.partPrice = 0;
 	  scope.initDone = false
 	  scope.editMode = 0;
@@ -73,8 +132,8 @@ angular.module('beamng.apps')
 	  
 	  scope.inputData.saveDeleteConfirm = {}
 	  scope.inputData.saveLoadConfirm = {}
-	  
-	  
+
+
 	  //helper function to trigger message in vanilla message app
 	  scope.guiMessage = function(msg, ttl, icon, category)
 	  {
@@ -271,6 +330,12 @@ angular.module('beamng.apps')
 		  scope.inputData['tsbias'] = data['tsbias']
 		  scope.inputData['odbufsize'] = data['odbufsize']
 		  scope.inputData['odtoggle'] = data['odtoggle']
+		  
+		  scope.inputData['sfxvol'] = JSON.parse(data['sfxvol'])
+		  for(let key in scope.inputData['sfxvol'])
+		  {
+			  scope.inputData['sfxvol'][key] = (scope.inputData['sfxvol'][key] / 5.0) * 100.0
+		  }
       })
 	  
 	  scope.setDefaultValue = function(param)
@@ -304,6 +369,12 @@ angular.module('beamng.apps')
 			bngApi.engineLua(`extensions.customGuiCallbacks.setParam("perfuitoggle", "0")`)
 			bngApi.engineLua(`extensions.customGuiCallbacks.exec("togglePerfUI", "perfuitoggle")`)
 		  }
+		  
+		  //Default layering behavior depending on initial UI enable state
+		  if(scope.showMenu)
+		    scope.moveToFront()
+	      else
+		    scope.moveToBack()
 	  }
 	  
 	  scope.textboxHover = function(){
@@ -595,12 +666,14 @@ angular.module('beamng.apps')
 	  {
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("showEventBrowser")`)
 		  scope.showMenu=false
+		  scope.moveToBack()
 	  }	  
 	  
 	  scope.showPastEvents = function(d)
 	  {
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("showPastEvents")`)
 		  scope.showMenu=false
+		  scope.moveToBack()
 	  }
 	  
 	  scope.abandonEvent = function(d)
@@ -1201,7 +1274,7 @@ angular.module('beamng.apps')
 				name = slot
 		  }
 		  
-		  return name			  
+		  return scope.translate(name)
 	  } 
 	  
 	  scope.getPartDescription = function(part)
@@ -1209,6 +1282,9 @@ angular.module('beamng.apps')
 		  //beamlrData['vehInstParts'][part] == null && beamlrData['advinvOwned'][part] > 0
 		  var name = (scope.slotNameMode == 0 && scope.beamlrData['partNames'][part]) || part
 		  var suffix = ""
+		  
+		  //1.20 update some parts use translation keys now
+		  name = scope.translate(name)
 		  
 		  if(scope.beamlrData['vehInstParts'][part])
 		  {
@@ -1344,6 +1420,7 @@ angular.module('beamng.apps')
 	  scope.showPartShopV2 = function()
 	  {
 		  scope.showMenu = false
+		  scope.moveToBack()
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("showPartShopV2")`);
 	  }
 	  
@@ -1372,7 +1449,7 @@ angular.module('beamng.apps')
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setOilLeakDecalBuffer", "odbufsize")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);  
 	  }
-	  
+
 	  scope.clearDecals = function(t)
 	  {
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("clearDecals")`);  
@@ -1451,7 +1528,13 @@ angular.module('beamng.apps')
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("createSaveFile", "savefilename")`)
 	  }
 	  
-	  
+	  scope.onSFXVolumeChanged = function()
+	  {
+		  var enc = JSON.stringify(scope.inputData.sfxvol)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("sfxvol", '${enc}')`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setSFXVolumes", "sfxvol")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);  
+	  }
 	  
     }
   }

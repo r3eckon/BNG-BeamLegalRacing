@@ -25,6 +25,10 @@
       "model":"simple_traffic"
     },
     {
+      "config":"ardente_ev",
+      "model":"simple_traffic"
+    },
+    {
       "config":"covet_base",
       "model":"simple_traffic"
     },
@@ -38,6 +42,10 @@
     },
     {
       "config":"midsize_lx",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"midsize_v6",
       "model":"simple_traffic"
     },
     {
@@ -62,6 +70,18 @@
     },
     {
       "config":"roamer_ext",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"etkc_eu_kc4",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"etkc_eu_kc6",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"etki_eu_pre",
       "model":"simple_traffic"
     },
     {
@@ -97,6 +117,14 @@
       "model":"simple_traffic"
     },
     {
+      "config":"bastion_taxi",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"etk800_eu_xc",
+      "model":"simple_traffic"
+    },
+    {
       "config":"pessima_aero",
       "model":"simple_traffic"
     },
@@ -110,6 +138,10 @@
     },
     {
       "config":"vivace_sport",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"ardente_sport",
       "model":"simple_traffic"
     },
     {
@@ -137,19 +169,15 @@
       "model":"simple_traffic"
     },
     {
+      "config":"midsize_sport",
+      "model":"simple_traffic"
+    },
+    {
       "config":"pessima_sport",
       "model":"simple_traffic"
     },
     {
       "config":"pessima_tuner",
-      "model":"simple_traffic"
-    },
-    {
-      "config":"sunburst_base",
-      "model":"simple_traffic"
-    },
-    {
-      "config":"sunburst_wide",
       "model":"simple_traffic"
     },
     {
@@ -173,7 +201,31 @@
       "model":"simple_traffic"
     },
     {
-      "config":"sunburst_sport",
+      "config":"pickup_d15_alt",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"pickup_d25_alt",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"robotvan_stock",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"pickup_d15_farm",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"roamer_ext_high",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"roamer_standard",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"robotvan_bamboo",
       "model":"simple_traffic"
     },
     {
@@ -182,6 +234,14 @@
     },
     {
       "config":"vivace_standard",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"ardente_standard",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"etki_eu_facelift",
       "model":"simple_traffic"
     },
     {
@@ -194,6 +254,14 @@
     },
     {
       "config":"pessima_standard",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"pickup_d15_fleet",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"pickup_d25_fleet",
       "model":"simple_traffic"
     },
     {
@@ -245,6 +313,14 @@
       "model":"simple_traffic"
     },
     {
+      "config":"lansdale_eu_pre_mid",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"lansdale_eu_pre_van",
+      "model":"simple_traffic"
+    },
+    {
       "config":"midsize_turboburger",
       "model":"simple_traffic"
     },
@@ -253,7 +329,59 @@
       "model":"simple_traffic"
     },
     {
+      "config":"robotvan_carefulbot",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"etk800_eu_base_sedan",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"etk800_eu_base_wagon",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"etk800_eu_high_sedan",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"etk800_eu_high_wagon",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"lansdale_eu_pre_base",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"lansdale_eu_pre_high",
+      "model":"simple_traffic"
+    },
+    {
       "config":"roamer_base_facelift",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"sunburst2_sedan_aero",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"sunburst2_sedan_base",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"sunburst2_sedan_wide",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"sunburst2_wagon_aero",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"sunburst2_wagon_base",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"sunburst2_wagon_wide",
       "model":"simple_traffic"
     },
     {
@@ -270,6 +398,14 @@
     },
     {
       "config":"legran_wagon_pre_luxe",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"sunburst2_sedan_sport",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"sunburst2_wagon_sport",
       "model":"simple_traffic"
     },
     {
@@ -305,7 +441,55 @@
       "model":"simple_traffic"
     },
     {
+      "config":"sunburst2_eu_sedan_aero",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"sunburst2_eu_sedan_base",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"sunburst2_eu_sedan_wide",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"sunburst2_eu_wagon_aero",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"sunburst2_eu_wagon_base",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"sunburst2_eu_wagon_wide",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"lansdale_eu_facelift_mid",
+      "model":"simple_traffic"
+    },
+    {
       "config":"legran_wagon_facelift_se",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"roamer_standard_facelift",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"sunburst2_eu_sedan_sport",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"sunburst2_eu_wagon_sport",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"lansdale_eu_facelift_base",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"lansdale_eu_facelift_high",
       "model":"simple_traffic"
     },
     {
@@ -314,6 +498,10 @@
     },
     {
       "config":"legran_wagon_pre_regulier",
+      "model":"simple_traffic"
+    },
+    {
+      "config":"lansdale_facelift_security",
       "model":"simple_traffic"
     },
     {

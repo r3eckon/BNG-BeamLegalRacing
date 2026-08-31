@@ -1,4 +1,4 @@
-{"name":"blrgps_home","class":"BeamNGWaypoint","persistentId":"ee7cfae9-e590-47e1-a1fd-41d938091ae8","__parent":"BLRGPS","position":[-220.441605,-825.317444,136.549896]}
+{"name":"blrgps_home","class":"BeamNGWaypoint","persistentId":"ee7cfae9-e590-47e1-a1fd-41d938091ae8","__parent":"BLRGPS","position":[-146.197754,-866.169189,131.42659],"scale":[1.49302459,1.49302459,1.49302459]}
 {"name":"blrgps_gasA","class":"BeamNGWaypoint","persistentId":"b7a52b62-e218-479e-879f-08535d72f6aa","__parent":"BLRGPS","position":[923.856995,-471.231995,161.549011]}
 {"name":"blrgps_repairA","class":"BeamNGWaypoint","persistentId":"199f2d32-8857-4949-8e74-c397bf57c132","__parent":"BLRGPS","position":[916.777283,-522.857544,163.439713]}
 {"name":"blrgps_usedcarsA","class":"BeamNGWaypoint","persistentId":"7241b379-4094-48a7-a2f8-f2c510bd1eb3","__parent":"BLRGPS","position":[850.765564,-518.417358,164.940323]}

@@ -814,7 +814,7 @@ function C:overDraw()
     local fgClr = self.customIconColor or self.iconColor
     fgClr = im.ImVec4(fgClr.x, fgClr.y, fgClr.z, fgClr.w * 0.25)
     local bgClr = self.customColor or self.color
-    im.Text("ASDF")
+    im.Text("overDraw")
     bgClr = im.ImVec4(bgClr.x*0.4, bgClr.y*0.4, bgClr.z*0.4, 1)
     im.ImDrawList_AddRectFilled(im.GetWindowDrawList(), self.overDrawSize.top_left(), self.overDrawSize.bottom_right(), im.GetColorU322(bgClr),8)
     editor.uiIconImage(editor.icons[icon], size, fgClr)
@@ -972,7 +972,7 @@ function C:draw(builder, style, dType)
           show = pin:isUsed()
         end
         if show then
-          im.SetCursorPosY(im.GetCursorPosY()+1)
+          --im.SetCursorPosY(im.GetCursorPosY()+1)
           pin:draw(builder, style, nil, self:getPinInConstValue(pin.name), inPinWidth)
           --im.NewLine()
           inCount = inCount +1
@@ -990,7 +990,7 @@ function C:draw(builder, style, dType)
   end
   if inCount == 0 then
     builder:expectOutPinWidth(5)
-    im.SetCursorPosY(im.GetCursorPosY()+1)
+    --im.SetCursorPosY(im.GetCursorPosY()+1)
     --builder:SetStage('input')
     builder:makeAlignmentPin(self.alignmentPin)
     --im.Dummy(im.ImVec2(5,5))
@@ -1019,7 +1019,7 @@ function C:draw(builder, style, dType)
           show = pin:isUsed()
         end
         if show then
-          im.SetCursorPosY(im.GetCursorPosY()+1)
+          --im.SetCursorPosY(im.GetCursorPosY()+1)
           pin:draw(builder, style, nil, pin._hardcodedDummyPin, outPinWidth)
         end
       end
@@ -1135,7 +1135,7 @@ function C:showContextMenu(menuPos)
       end
     end
     if im.BeginMenu('Create Subgraph...') then
-      im.SetWindowFontScale(1/editor.getPreference("ui.general.scale"))
+      --im.SetWindowFontScale(1/editor.getPreference("ui.general.scale"))
       im.PushItemWidth(150 * editor.getPreference("ui.general.scale"))
       local accept = false
       accept = im.InputText('',self.graphName,128, im.InputTextFlags_EnterReturnsTrue)
@@ -1148,7 +1148,7 @@ function C:showContextMenu(menuPos)
         self.graphName = im.ArrayChar(256,"New Subgraph")
       end
       im.PopItemWidth()
-      im.SetWindowFontScale(1)
+      --im.SetWindowFontScale(1)
       im.EndMenu()
     end
     if self:representsGraph() and self.mgr.selectedNodeCount == 1 and self.graph.isStateGraph == self:representsGraph().isStateGraph then
@@ -1157,7 +1157,7 @@ function C:showContextMenu(menuPos)
       end
     end
     if im.BeginMenu('Comment...') then
-      im.SetWindowFontScale(1/editor.getPreference("ui.general.scale"))
+      --im.SetWindowFontScale(1/editor.getPreference("ui.general.scale"))
       im.PushItemWidth(150 * editor.getPreference("ui.general.scale"))
       local accept = false
       if self._commentInput == nil then self._commentInput = im.ArrayChar(256, "") end
@@ -1211,7 +1211,7 @@ function C:showContextMenu(menuPos)
         self._commentInput = nil
       end
       im.PopItemWidth()
-      im.SetWindowFontScale(1)
+      --im.SetWindowFontScale(1)
       im.EndMenu()
     end
 
@@ -1219,7 +1219,7 @@ function C:showContextMenu(menuPos)
   if editor.getPreference("flowgraph.debug.editorDebug") then
     --im.Separator()
     if im.BeginMenu('Dev tools') then
-      im.SetWindowFontScale(1/editor.getPreference("ui.general.scale"))
+     -- im.SetWindowFontScale(1/editor.getPreference("ui.general.scale"))
       if im.MenuItem1("Open Source File") then
         Engine.Platform.openFile(self.sourcePath)
       end
@@ -1230,16 +1230,16 @@ function C:showContextMenu(menuPos)
         editor_flowgraphEditor.showNodeReferences(self)
       end
       if im.BeginMenu('Dumpz Node') then
-        im.SetWindowFontScale(editor.getPreference("ui.general.scale"))
+     --   im.SetWindowFontScale(editor.getPreference("ui.general.scale"))
         for i = 1, 5 do
           if im.MenuItem1("Depth " .. i) then
             dumpz(self, i)
           end
         end
-        im.SetWindowFontScale(1)
+ --       im.SetWindowFontScale(1)
         im.EndMenu()
       end
-      im.SetWindowFontScale(1)
+ --     im.SetWindowFontScale(1)
       im.EndMenu()
     end
     if not self.mgr.allowEditing then
@@ -1259,7 +1259,6 @@ function C:showContextMenu(menuPos)
     end
     local nSize = ui_flowgraph_editor.GetNodeSize(self.id)
     im.Text(string.format("Size: %d / %d", nSize.x, nSize.y))
-
   end
   im.SetWindowFontScale(1)
 end

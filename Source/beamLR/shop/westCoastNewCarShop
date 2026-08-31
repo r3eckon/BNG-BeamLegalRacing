@@ -1,4 +1,5 @@
-name=New Car Shop
+name=Rich's Motor Company
+hours=9,18
 slots=6
 chance=0.8
 dchance=0

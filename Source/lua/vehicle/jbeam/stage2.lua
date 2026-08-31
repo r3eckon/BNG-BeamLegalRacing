@@ -40,11 +40,13 @@ local function addBeamByData(vehicle, beam)
     end
     beam.beamStrength = tonumber(beam.beamStrength)
   end
+  
   -- BEAMLR EDIT START
   if(extensions.blrflags.get("garageSafeMode")) then
   beam.beamStrength = math.huge
   end
   -- BEAMLR EDIT END
+  
   beam.beamSpring = beam.beamSpring or vehicle.options.beamSpring
   beam.beamDamp = beam.beamDamp or vehicle.options.beamDamp
   if type(beam.beamDamp) == 'string' then
@@ -64,11 +66,13 @@ local function addBeamByData(vehicle, beam)
     end
     beam.beamDeform = tonumber(beam.beamDeform)
   end
+  
   -- BEAMLR EDIT START
   if(extensions.blrflags.get("garageSafeMode")) then
   beam.beamDeform = math.huge
   end
   -- BEAMLR EDIT END
+  
   beam.beamType = beam.beamType or NORMALTYPE
   beam.breakGroupType = beam.breakGroupType or 0
 
@@ -119,9 +123,7 @@ local function addBeamByData(vehicle, beam)
     beam.springExpansion = beam.springExpansion or beam.beamSpring
     beam.dampExpansion = beam.dampExpansion or beam.beamDamp
     local longBound = type(beam.beamLongExtent) == 'number' and -max(0, beam.beamLongExtent) or max(0, beam.beamLongBound or math.huge)
-    obj:setBeamAnisotropic(bid, beam.springExpansion, beam.dampExpansion,
-      type(beam.transitionZone) == 'number' and beam.transitionZone or 0, longBound
-    )
+    obj:setBeamAnisotropic(bid, beam.springExpansion, beam.dampExpansion, type(beam.transitionZone) == 'number' and beam.transitionZone or 0, longBound)
   elseif(beam.beamType == BEAM_BOUNDED) then
     local longBound = type(beam.longBoundRange) == 'number' and -max(0, beam.longBoundRange) or max(0, beam.beamLongBound or 1)
     local shortBound = type(beam.shortBoundRange) == 'number' and -max(0, beam.shortBoundRange) or max(0, beam.beamShortBound or 1)
@@ -172,7 +174,6 @@ local function addBeamByData(vehicle, beam)
   end
 end
 
-
 local function processNodes(vehicle)
   if vehicle.nodes == nil then return end
   
@@ -211,7 +212,7 @@ local function processNodes(vehicle)
       staticCollision = collision
     end
 
-	-- BEAMLR EDIT BEGIN
+    -- BEAMLR EDIT BEGIN
     local frictionCoef = type(node.frictionCoef) == 'number' and node.frictionCoef or 1
     local slidingFrictionCoef = type(node.slidingFrictionCoef) == 'number' and node.slidingFrictionCoef or frictionCoef
     local noLoadCoef = type(node.noLoadCoef) == 'number' and node.noLoadCoef or 1
@@ -232,7 +233,7 @@ local function processNodes(vehicle)
 	stribeckVelMult = math.max(stribeckVelMult, 1.0)
 	end
 	-- BEAMLR EDIT END
-
+	
     local nodeWeight
     if type(node.nodeWeight) == 'number' then
       nodeWeight = node.nodeWeight
@@ -459,6 +460,12 @@ local function processTorsionbars(vehicle)
       id4, spring, spring2, damp, damp2 = 0, 0, 0, 0, 0
     end
 
+    if id1 == id2 or id1 == id3 or id1 == id4 or id2 == id3 or id2 == id4 or id3 == id4 then
+      local n = vehicle.nodes
+      log('E', "jbeam.pushToPhysics", "Found degenerate torsionbar with nodes: "..n[id1].name..', '..n[id2].name..', '..n[id3].name..', '..n[id4].name)
+      spring, spring2, damp, damp2 = 0, 0, 0, 0
+    end
+
     tb.precompressionAngle = checkNum(tb.precompressionAngle)
     local precompressionAngle = tb.precompressionAngle
     if type(tb.precompressionTime) == 'number' and tb.precompressionTime > 0 then
@@ -515,9 +522,14 @@ local function processTriangles(vehicle)
     local externalCollision = 1 -- full collisions
     if triangle.externalCollisionBias == 'out' then externalCollision = 2 end
     if triangle.externalCollisionBias == 'in' then externalCollision = 3 end
+    if triangle.externalCollisionBias == 'oneWayOut' then externalCollision = 4 end
+    if triangle.externalCollisionBias == 'oneWayIn' then
+      externalCollision = 4
+      triangle.id2, triangle.id3 = triangle.id3, triangle.id2
+    end
+
     if triangle.id1 == triangle.id2 or triangle.id1 == triangle.id3 or triangle.id2 == triangle.id3 then
-      local t1, t2, t3 = n[triangle.id1].name, n[triangle.id2].name, n[triangle.id3].name
-      log('E', "jbeam.pushToPhysics", "Found degenerate collision triangle with nodes: "..t1..', '..t2..', '..t3)
+      log('E', "jbeam.pushToPhysics", "Found degenerate collision triangle with nodes: "..n[triangle.id1].name..', '..n[triangle.id2].name..', '..n[triangle.id3].name)
     end
 
     triangle.cid = obj:setTriangle(-1, triangle.id1, triangle.id2, triangle.id3, dragCoef * 0.01, liftCoef * 0.01,

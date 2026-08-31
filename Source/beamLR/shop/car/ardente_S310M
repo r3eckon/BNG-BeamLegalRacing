@@ -1,0 +1,8 @@
+name=Cherrier Ardente (S 310, Manual)
+type=vivace
+config=vehicles/vivace/ardente_S_310_M.pc
+baseprice=35000,45000
+odometer=0
+scrapval=500
+partprice=0
+paint=0,0,0,0,0.1,0.1,0.1,0.1

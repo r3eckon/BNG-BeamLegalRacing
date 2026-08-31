@@ -1,4 +1,4 @@
-{"name":"blrspawn","class":"SpawnSphere","persistentId":"3d284518-5e16-439d-8e41-afc65a719246","__parent":"BeamLR","position":[-215.969528,-819.671265,136.400711],"dataBlock":"SpawnSphereMarker","radius":1,"rotationMatrix":[0.598203003,-0.801342726,-0.00169255398,0.800337553,0.597555757,-0.0488543101,0.0401604474,0.0278701745,0.99880451],"spawnClass":"Player","sphereWeight0":"1"}
+{"name":"blrspawn","class":"SpawnSphere","persistentId":"3d284518-5e16-439d-8e41-afc65a719246","__parent":"BeamLR","position":[-135.64859,-886.600159,131.095703],"dataBlock":"SpawnSphereMarker","radius":1,"rotationMatrix":[-0.142101645,0.989609778,-0.0218999125,-0.989514172,-0.141440272,0.0292649996,0.0258634016,0.0258288737,0.999331772],"spawnClass":"Player","sphereWeight0":"1"}
 {"name":"Triggers","class":"SimGroup","persistentId":"be2b0a05-9025-4314-9687-fc51db174a4f","__parent":"BeamLR"}
 {"name":"Markers","class":"SimGroup","persistentId":"0d6913fc-7ec0-4d1d-8f9e-e60a0d4e59f1","__parent":"BeamLR"}
 {"name":"BLRGPS","class":"SimGroup","persistentId":"ff354fb0-809e-4601-8b7e-0da987731c5c","__parent":"BeamLR"}

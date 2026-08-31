@@ -1,0 +1,11 @@
+{"name":"polelighting2","class":"SimGroup","__parent":"nightlights"}
+{"name":"polelighting1","class":"SimGroup","__parent":"nightlights"}
+{"name":"polelightbridge","class":"SimGroup","__parent":"nightlights"}
+{"name":"polelightdouble","class":"SimGroup","__parent":"nightlights"}
+{"name":"lightcity","class":"SimGroup","__parent":"nightlights"}
+{"name":"lamp11","class":"SimGroup","__parent":"nightlights"}
+{"name":"polelightsingle","class":"SimGroup","__parent":"nightlights"}
+{"name":"lightemitters","class":"SimGroup","__parent":"nightlights"}
+{"name":"extra_lights_luca","class":"SimGroup","__parent":"nightlights"}
+{"name":"extra_lights_sam","class":"SimGroup","__parent":"nightlights"}
+{"name":"extra_lights_james","class":"SimGroup","__parent":"nightlights"}

@@ -15,13 +15,15 @@ local tableInsert, tableClear = table.insert, table.clear
 
 local jbeamUtils = require("jbeam/utils")
 local jbeamTableSchema = require('jbeam/tableSchema')
-local json = require("json")
-local stringBuffer = require('string.buffer')
+local stringBufferEncode, stringBufferDecode = jbeamUtils.stringBufferEncode, jbeamUtils.stringBufferDecode
 
 -- part caches
 local fileCache = {} -- BEAMLR EDITED STRUCTURE, SEE BELOW CACHE MODE EDIT
 
--- below are rebuild from fresh using fileCache[cmode], on any change
+-- what directories are cached: map directory path to number of jbeam files they contain
+local jbeamFilenameDirCache = {} -- BEAMLR EDITED STRUCTURE, SEE BELOW CACHE MODE EDIT
+
+-- below are rebuild from fresh using fileCache[cmode][cmode], on any change
 local partFileMap = {} -- BEAMLR EDITED STRUCTURE, SEE BELOW CACHE MODE EDIT
 local partSlotMap = {} -- BEAMLR EDITED STRUCTURE, SEE BELOW CACHE MODE EDIT
 local partNameMap = {} -- BEAMLR EDITED STRUCTURE, SEE BELOW CACHE MODE EDIT
@@ -37,10 +39,10 @@ if not fileCache[cmode] then fileCache[cmode] = {} end
 if not partFileMap[cmode] then partFileMap[cmode] = {} end
 if not partSlotMap[cmode] then partSlotMap[cmode] = {} end
 if not partNameMap[cmode] then partNameMap[cmode] = {} end
+if not jbeamFilenameDirCache[cmode] then jbeamFilenameDirCache[cmode] = {} end
 end
 M.setCacheMode = setCacheMode
 -- BEAMLR EDIT END
-
 
 local function _processSlotsV1DestructiveBackwardCompatibility(slots, newSlots)
   local addedSlots = 0
@@ -121,101 +123,97 @@ local function processSlotsDestructive(part, sourceFilename)
 end
 
 -- this filters the data we send to the UI as there is a lot of additonal data in there that we do not want
-  local function getSlotInfoDataForUi(slots)
-    local res = table.new(0, #slots)
-    for _, slot in ipairs(slots) do
-      local s = {}
-      s.name = slot.name or slot.type -- slots2 - new feature for uniquely identifying slots
-      s.type = slot.type -- slots1, replaced by allowTypes and denyTypes
-      --s.default = slot.default,
-      s.allowTypes = slot.allowTypes -- slots2
-      s.denyTypes = slot.denyTypes  -- slots2
-      s.description = slot.description
-      s.coreSlot = slot.coreSlot
-      res[slot.name or slot.type] = s
-    end
-    return res
+local function getSlotInfoDataForUi(slots)
+  local res = table.new(0, #slots)
+  for _, slot in ipairs(slots) do
+    local s = {}
+    s.name = slot.name or slot.type -- slots2 - new feature for uniquely identifying slots
+    s.type = slot.type -- slots1, replaced by allowTypes and denyTypes
+    --s.default = slot.default,
+    s.allowTypes = slot.allowTypes -- slots2
+    s.denyTypes = slot.denyTypes  -- slots2
+    s.description = slot.description
+    s.coreSlot = slot.coreSlot
+    res[slot.name or slot.type] = s
   end
+  return res
+end
 
 -- json decode the file
 local function _parseFileIntoCache(filename)
-  local plainFileContent = readFile(filename)
-  if plainFileContent then
-    local ok, data = pcall(json.decode, plainFileContent)
-    if ok == false then
-      log('E', "jbeam.parseFile","unable to decode JSON: "..tostring(filename))
-      log('E', "jbeam.parseFile","JSON decoding error: "..tostring(data))
-      return nil
-    end
-    -- fix the slots sections
-    local res = {}
-    local parts = {}
-    local partCounter = 0
-    for partName, part in pairs(data) do
-      parts[partName] = {}
-      -- this processes the slot and slot2 section
-      processSlotsDestructive(part, filename)
-
-		-- BeamLR 1.13 Advanced Vehicle Building Code Start
-		-- Updated in 1.16 due to change in jbeam table format preventing
-		-- old AVB code from working properly, processSlotsDestructive converts
-		-- old jbeam table format to new format which itself is a bit different
-		-- from "slot2" format in previous versions of the game
-		if extensions.blrglobals.blrFlagGet("avbToggle") then
-		if extensions.blrglobals.blrFlagGet("advancedVehicleBuilding") then
-		if part["slots2"] then -- Now all slots are updated to newer "slot2" format
-			for k,v in pairs(part["slots2"]) do
-				v["default"] = ""
-				if v["coreSlot"] then v["coreSlot"] = nil end
-			end
-		end
-		end
-		end
-		-- BeamLR 1.13 Advanced Vehicle Building Code end	
-
-
-
-      if type(part.slotType) ~= 'string' and type(part.slotType) ~= 'table' then
-        log('E', "jbeam.loadJBeamFile", "part does not have a slot type. Ignoring: "..tostring(filename) .. ' - ' .. dumpsz(part, 2))
-        parts[partName].slotTypes = {}
-        goto continue2
-      end
-      -- support for a part that fits in the correct slottype
-      if type(part.slotType) == 'string' then
-        parts[partName].slotTypes = {part.slotType}
-      elseif type(part.slotType) == 'table' then
-        parts[partName].slotTypes = part.slotType
-      end
-      local partDesc = {
-        description = part.information.name or "",
-        authors = part.information.authors or "",
-        isAuxiliary = part.information.isAuxiliary,
-        slotInfoUi = getSlotInfoDataForUi(part.slots2 or {})
-      }
-      if modManager then -- only available on the game engine side
-        -- enrich the part with modName and ID
-        local modName, modInfo = modManager.getModForFilename(filename)
-        if modName then
-          partDesc.modName = modName
-          --partDesc.modID   = modInfo.modID
-          --partDesc.modInfo = modInfo -- too much data
-        end
-      end
-
-      part.partName = partName -- this is for backward compatibility of the surrounding code
-
-      parts[partName].partDesc = partDesc
-      parts[partName].partEncoded = stringBuffer.encode(part)
-      partCounter = partCounter + 1
-      ::continue2::
-    end
-    res.partCount = partCounter
-    res.parts = parts
-    res.namespace = string.match(filename, "(/vehicles/[^/]*/).*$") -- yeah it's weird to have no leading slash :/
-    return res
-  else
+  local ok, data = pcall(jsonReadFile, filename)
+  if ok == false then
+    log('E', "jbeam.parseFile","unable to decode JSON: "..tostring(filename))
+    log('E', "jbeam.parseFile","JSON decoding error: "..tostring(data))
+    return nil
+  elseif data == nil then
     log('E', "jbeam.parseFile","unable to read file: "..tostring(filename))
+    return nil
   end
+  -- fix the slots sections
+  local res = {}
+  local parts = {}
+  local partCounter = 0
+  for partName, part in pairs(data) do
+    parts[partName] = {}
+    -- this processes the slot and slot2 section
+    processSlotsDestructive(part, filename)
+	
+	-- BeamLR 1.13 Advanced Vehicle Building Code Start
+	-- Updated in 1.16 due to change in jbeam table format preventing
+	-- old AVB code from working properly, processSlotsDestructive converts
+	-- old jbeam table format to new format which itself is a bit different
+	-- from "slot2" format in previous versions of the game
+	if extensions.blrglobals.blrFlagGet("avbToggle") then
+	if extensions.blrglobals.blrFlagGet("advancedVehicleBuilding") then
+	if part["slots2"] then -- Now all slots are updated to newer "slot2" format
+		for k,v in pairs(part["slots2"]) do
+			v["default"] = ""
+			if v["coreSlot"] then v["coreSlot"] = nil end
+		end
+	end
+	end
+	end
+	-- BeamLR 1.13 Advanced Vehicle Building Code end	
+
+    if type(part.slotType) ~= 'string' and type(part.slotType) ~= 'table' then
+      log('E', "jbeam.loadJBeamFile", "part does not have a slot type. Ignoring: "..tostring(filename) .. ' - ' .. dumpsz(part, 2))
+      parts[partName].slotTypes = {}
+      goto continue2
+    end
+    -- support for a part that fits in the correct slottype
+    if type(part.slotType) == 'string' then
+      parts[partName].slotTypes = {part.slotType}
+    elseif type(part.slotType) == 'table' then
+      parts[partName].slotTypes = part.slotType
+    end
+    local partDesc = {
+      description = part.information.name or "",
+      authors = part.information.authors or "",
+      isAuxiliary = part.information.isAuxiliary,
+      slotInfoUi = getSlotInfoDataForUi(part.slots2 or {})
+    }
+    if modManager then -- only available on the game engine side
+      -- enrich the part with modName and ID
+      local modName, modInfo = modManager.getModForFilename(filename)
+      if modName then
+        partDesc.modName = modName
+        --partDesc.modID   = modInfo.modID
+        --partDesc.modInfo = modInfo -- too much data
+      end
+    end
+
+    part.partName = partName -- this is for backward compatibility of the surrounding code
+
+    parts[partName].partDesc = partDesc
+    parts[partName].partEncoded = stringBufferEncode(part)
+    partCounter = partCounter + 1
+    ::continue2::
+  end
+  res.partCount = partCounter
+  res.parts = parts
+  res.namespace = string.match(filename, "(/vehicles/[^/]*/).*$") -- yeah it's weird to have no leading slash :/
+  return res
 end
 
 -- this function updates all the caches when one file changes or on rebuild
@@ -242,6 +240,10 @@ local function _updateGlobalCache()
 
       partNameMap[cmode][cacheData.namespace] = partNameMap[cmode][cacheData.namespace] or {}
       partNameMap[cmode][cacheData.namespace][partName] = partData.partDesc
+      local desc = partData.partDesc.description
+      if type(desc) == 'table' and desc.txt and _tr then
+        partData.partDesc.description = desc.ctx and extensions.core_locales.contextTranslate(desc.txt, desc.ctx) or _tr(desc.txt)
+      end
     end
   end
 
@@ -260,28 +262,38 @@ end
 
 local function startLoading(directories)
   profilerPushEvent('jbeam/io.startLoading')
-  
+
   -- BEAMLR EDIT START
   if not fileCache[cmode] then fileCache[cmode] = {} end
   if not partFileMap[cmode] then partFileMap[cmode] = {} end
   if not partSlotMap[cmode] then partSlotMap[cmode] = {} end
   if not partNameMap[cmode] then partNameMap[cmode] = {} end
+  if not jbeamFilenameDirCache[cmode] then jbeamFilenameDirCache[cmode] = {} end
   -- BEAMLR EDIT END
 
   --log('I', "jbeam.startLoading", "*** loading jbeam files: " .. dumps(directories))
 
   local cacheDirty = false
-  local wasCached
+  local jbeamWasCached
   lastStartLoadingStats = { total = 0, cachedHits = 0 }
   for _, dir in ipairs(directories) do
-    local filenames = FS:findFiles(dir, "*.jbeam", -1, false, false)
-    for _, filename in ipairs(filenames) do
-      wasCached = _ensureJBeamFileLoaded(filename)
-      cacheDirty = cacheDirty or (not wasCached)
-      lastStartLoadingStats.total = lastStartLoadingStats.total + 1
-      if wasCached then lastStartLoadingStats.cachedHits = lastStartLoadingStats.cachedHits + 1 end
+    local numFiles = jbeamFilenameDirCache[cmode][dir]
+    if numFiles == nil then
+      numFiles = 0
+      local filenames = FS:findFiles(dir, "*.jbeam", -1, false, false)
+      for _, filename in ipairs(filenames) do
+        jbeamWasCached = _ensureJBeamFileLoaded(filename)
+        cacheDirty = cacheDirty or (not jbeamWasCached)
+        if jbeamWasCached then lastStartLoadingStats.cachedHits = lastStartLoadingStats.cachedHits + 1 end
+        numFiles = numFiles + 1
+      end
+      lastStartLoadingStats.total = lastStartLoadingStats.total + numFiles
+      jbeamFilenameDirCache[cmode][dir] = numFiles
+    else
+      lastStartLoadingStats.total = lastStartLoadingStats.total + numFiles
+      lastStartLoadingStats.cachedHits = lastStartLoadingStats.cachedHits + numFiles
     end
-    log('D', 'jbeam.startLoading', "Loaded " .. tostring(partCountTotal) .. " parts from " .. tostring(tableSize(fileCache[cmode])) .. ' jbeam files in ' .. tostring(dir))
+    --log('D', 'jbeam.startLoading', "Loaded " .. tostring(partCountTotal) .. " parts from " .. tostring(tableSize(jbeamCache)) .. ' jbeam files in ' .. tostring(dir))
   end
 
   -- we finished loading all the files, now create the lookup tables
@@ -296,12 +308,6 @@ end
 local function getPart(ioCtx, partName)
   if not partName then return end
   for _, dir in ipairs(ioCtx.preloadedDirs) do
-  
-	if not (partFileMap[cmode] and partFileMap[cmode][dir]) then
-		startLoading(ioCtx.preloadedDirs)
-		--_updateGlobalCache()
-	end
-  
     local jbeamFilename = partFileMap[cmode][dir][partName]
     if jbeamFilename then
       if not fileCache[cmode][jbeamFilename] then
@@ -311,7 +317,7 @@ local function getPart(ioCtx, partName)
       end
       -- realize the object from the cache
       local partCached = fileCache[cmode][jbeamFilename].parts[partName]
-      return stringBuffer.decode(partCached.partEncoded), jbeamFilename
+      return stringBufferDecode(partCached.partEncoded), jbeamFilename
     end
   end
 end
@@ -323,23 +329,14 @@ end
 local function getMainPartName(ioCtx)
   if not isContextValid(ioCtx) then return end
   for _, dir in ipairs(ioCtx.preloadedDirs) do
-  
-    if not (partSlotMap[cmode] and partSlotMap[cmode][dir]) then
-		startLoading(ioCtx.preloadedDirs)
-		--_updateGlobalCache()
-	end
-  
     if partSlotMap[cmode][dir] and partSlotMap[cmode][dir]['main'] then
       return partSlotMap[cmode][dir]['main'][1]
     end
   end
 end
 
--- BEAMLR EDITED FUNCTION
 local function finishLoading()
-  -- tableClear(jbeamCache) -- NO LONGER NEEDED AS OF 0.38, ONLY fileCache[cmode] IS USED
-  -- fileCache[cmode]Old = {} -- NO LONGER NEEDED AS OF 0.38, ONLY fileCache[cmode] is USED
-  -- fileCache[cmode] = {} -- THIS CAUSES PROBLEMS
+  --tableClear(jbeamCache)
 end
 
 local function getAvailableParts(ioCtx)
@@ -348,12 +345,12 @@ local function getAvailableParts(ioCtx)
   local res = {}
   local loaded = false
   for _, dir in ipairs(ioCtx.preloadedDirs) do
-    if not (partSlotMap[cmode] and partSlotMap[cmode][dir]) then
+    if not partSlotMap[cmode][dir] then
       startLoading(ioCtx.preloadedDirs)
       loaded = true
     end
     -- merge manually to catch errors
-    for partName, partDesc in pairs(partNameMap[cmode][dir]) do
+    for partName, partDesc in pairs(partNameMap[cmode][dir] or {}) do
       if res[partName] then
         log('E', "jbeam.getAvailableParts", "parts names are duplicate: " .. tostring(partName) .. ' in folders: ' .. dumps(ioCtx.preloadedDirs))
       end
@@ -371,7 +368,7 @@ local function getAvailableSlotNameMap(ioCtx)
   local slotsPartMap, res = {}, {}
   local loaded = false
   for _, dir in ipairs(ioCtx.preloadedDirs) do
-    if not (partSlotMap[cmode] and partSlotMap[cmode][dir]) then
+    if not partSlotMap[cmode][dir] then
       startLoading(ioCtx.preloadedDirs)
       loaded = true
     end
@@ -476,6 +473,7 @@ local function getCompatiblePartNamesForSlot(ioCtx, slotDef, slotMap)
   return {}, {}
 end
 
+
 local function updateAllVehiclesCompatibleParts()
   local function updateSlotRec(ioCtx, slotTreeEntry, slotMap)
     local part = getPart(ioCtx, slotTreeEntry.chosenPartName)
@@ -511,7 +509,7 @@ local function onFileChanged(filename, type)
   --local dir = string.match(filename, "(/vehicles/[^/]*/).*$") -- yeah it's weird to have no leading slash :/
   local _, _, ext = path.split(filename)
   if ext ~= 'jbeam' then return end
-  
+
   -- BEAMLR EDIT, AVOID ERROR IF HOOK IS CALLED BEFORE CACHES ARE INITIALIZED
   if not fileCache[cmode] then
 	fileCache[cmode] = {}
@@ -523,6 +521,7 @@ local function onFileChanged(filename, type)
     log('I', 'jbeam.onFileChanged', 'File changed: ' .. tostring(filename) .. ' (' .. tostring(type) .. ')')
   end
   fileCache[cmode][filename] = nil
+  jbeamFilenameDirCache[cmode] = {}  -- re-scan all directories on next startLoading
 end
 
 local function getLastStartLoadingStats()

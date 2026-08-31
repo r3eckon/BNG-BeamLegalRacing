@@ -38,7 +38,10 @@ end
 
 guihooks.trigger("beamlrShopVehCacheValid", true)
 
--- extensions.blrpartmgmt.generateJbeamLibraries()
+-- checks if jbeam libraries have been loaded, if not load them
+if not next(extensions.blrpartmgmt.getSlotNameLibrary()) then
+extensions.blrpartmgmt.generateJbeamLibraries()
+end
 
 local toSend = {}
 
@@ -53,7 +56,7 @@ end
 local slots = extensions.blrpartmgmt.getSortedActualSlots()
 local names = extensions.blrpartmgmt.getSlotNameLibrary()
 local carinfo = extensions.blrutils.getVehicleInfoFile()
-local carname = carinfo["Brand"] .. " " .. carinfo["Name"]
+local carname = carinfo["Brand"] .. " " .. extensions.blrlocales.translate(carinfo["Name"])
 local config = extensions.blrpartmgmt.getVehicleData().config.partConfigFilename
 local vid = be:getPlayerVehicle(0):getId()
 
@@ -245,7 +248,9 @@ saveData["paint"] = "0,0,0,0,0.1,0.1,0.1,0.1"
 if uiparams["randslots"] then
 saveData["randslots"] = ""
 for k,v in pairs(uiparams["randslots"]) do
+if v then -- 1.20 fix for deselected slots still being randomized
 saveData["randslots"] = saveData["randslots"] .. k .. ","
+end
 end
 saveData["randslots"] = saveData["randslots"]:sub(1,-2)
 end
@@ -468,10 +473,12 @@ local vid = be:getPlayerVehicle(0):getId()
 local model = extensions.blrpartmgmt.getVehicleModel()  -- 1.19 fix for mods that don't use main part name as model
 local config = extensions.blrpartmgmt.getVehicleData().config.partConfigFilename or originalConfig[vid]
 local ioctx = extensions.blrpartmgmt.getCustomIOCTX(model)
-local slotMap = extensions.blrpartmgmt.getSlotMap(ioctx)
+local slotMap = extensions.blrpartmgmt.getSlotMapV2(ioctx)
 local randomSlots = {}
 for k,v in pairs(selectedSlots) do
+if v then -- 1.20 fix for deselected slots still being randomized
 table.insert(randomSlots, k)
+end
 end
 local filteredMap = extensions.blrpartmgmt.getFilteredSlotMap(slotMap, randomSlots, {"cargo"}) -- 1.15.3 fix, avoids cargo boxes since they cause issue with roll cages
 local randomConfig = extensions.blrpartmgmt.generateConfigVariant(config, filteredMap,seed)

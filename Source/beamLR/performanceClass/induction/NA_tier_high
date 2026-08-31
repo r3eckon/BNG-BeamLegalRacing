@@ -1,6 +1,9 @@
 /vehicles/etk800/rennspecht_8r_A.pc
 /vehicles/etkc/race_DCT.pc
 /vehicles/etkc/kc8_ttsport_DCT.pc
+/vehicles/bolide/390gt_strada.pc
+/vehicles/wigeon/drag.pc
+/vehicles/wigeon/mantis.pc
 /vehicles/bluebuck/custom.pc
 /vehicles/bluebuck/track.pc
 /vehicles/nine/nine_hotrod_60s.pc
@@ -9,8 +12,7 @@
 /vehicles/bx/pro_drift_M.pc
 /vehicles/burnside/gasser_late.pc
 /vehicles/moonhawk/race.pc
-/vehicles/fullsize/drift.pc
-/vehicles/bolide/390gt_strada.pc
+/vehicles/moonhawk/drift.pc
 /vehicles/pigeon/drag.pc
 /vehicles/scintilla/gtx_spider.pc
 /vehicles/scintilla/race.pc
@@ -24,6 +26,5 @@
 /vehicles/scintilla/gtx.pc
 /vehicles/scintilla/gt_spider.pc
 /vehicles/midsize/race.pc
-/vehicles/wigeon/drag.pc
-/vehicles/wigeon/mantis.pc
 /vehicles/covet/runner.pc
+/vehicles/fullsize/drift.pc

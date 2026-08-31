@@ -5,13 +5,14 @@ local M = {}
 
 -- BEAMLR EDIT START
 local extensions = require("extensions")
--- END													
+-- END		
+
 local im = ui_imgui
 local scoreExperiment = im.BoolPtr(false)
 local imVec4Yellow = im.ImVec4(1,1,0,1)
-
 local debugToggleSmothnessGraph = im.BoolPtr(false)
 local isBeingDebugged
+
 local profiler = LuaProfiler("drift scoring profiler")
 local gc
 local dtSim
@@ -116,6 +117,9 @@ local driftTiers = {
 local driftScore = {
   score = 0,
   combo = 1,
+  cachedScore = 0,
+  potentialScore = 0,
+  comboCreepup = 0,
 }
 
 local driftActiveData = {}
@@ -127,6 +131,9 @@ local currDriftIncrement = 0
 
 local lastDriftInitiationTimer = 0
 local firstUpdate = true
+
+-- score change tracking
+local lastScoreState = {score = 0, potentialScore = 0, combo = 1}
 
 -- debug score history
 local historicScoreTimer = 0
@@ -164,7 +171,7 @@ local performanceSmoother = newTemporalSmoothing(8, 8) -- Adjust these values to
 
 local function translateTierNames()
   for id, data in pairs(driftTiers) do
-    driftTiers[id].name = translateLanguage(tierTranslationPrefix..data.id, tierTranslationPrefix..data.id, true)
+    driftTiers[id].name = _tr(tierTranslationPrefix..data.id, tierTranslationPrefix..data.id, true)
   end
 end
 
@@ -183,6 +190,7 @@ local function reset()
   resetCachedScore()
   lastDriftInitiationTimer = 0
   historicScore = {}
+  lastScoreState = {score = 0, potentialScore = 0, combo = 1}
 end
 
 
@@ -230,10 +238,13 @@ local function addCachedScore(valueToAdd, useStallingSystem)
   end
   if gameplay_drift_general.getFrozen() then return end
 
-  if useStallingSystem and gameplay_drift_stallingSystem then
-    valueToAdd = gameplay_drift_stallingSystem.calculateScore(valueToAdd)
+  if useStallingSystem then
+    if gameplay_drift_stallingSystem then
+      valueToAdd = gameplay_drift_stallingSystem.calculateScore(valueToAdd)
+    end
+    valueToAdd = math.floor(valueToAdd)
   end
-  driftScore.cachedScore = driftScore.cachedScore +  valueToAdd
+  driftScore.cachedScore = driftScore.cachedScore + valueToAdd
 
   return valueToAdd
 end
@@ -365,6 +376,7 @@ local function imguiDebug(dtReal)
         im.PopStyleColor()
       end
     end
+    im.End()
   end
 end
 
@@ -378,6 +390,7 @@ local function calculatePerformanceFactor()
 
   if not gameplay_drift_drift.getIsDrifting() then
     steppedPerformanceFactor = 0
+    performanceFactor = 0
     smoothedSteppedPerformanceFactor = 0
     timeAtPerformance4 = 0
     timeBelowPerformance4 = 0
@@ -432,18 +445,31 @@ local function calculateTier()
   currentTier = newTier
 end
 
+local function checkIfScoreChanged()
+  -- fire hook only when score state actually changes
+  if driftScore.score ~= lastScoreState.score or
+    driftScore.potentialScore ~= lastScoreState.potentialScore or
+    driftScore.combo ~= lastScoreState.combo then
+    lastScoreState.score = driftScore.score
+    lastScoreState.potentialScore = driftScore.potentialScore
+    lastScoreState.combo = driftScore.combo
+    extensions.hook("onDriftScoreChanged", driftScore)
+  end
+end
+
 local function onUpdate(dtReal, _dtSim)
 
   -- BEAMLR EDIT START
   if extensions.blrglobals.blrFlagGet("legacyDriftScoring") then return end
   -- END
 
-
   dtSim = _dtSim
 
   if driftScore.cachedScore then
     driftScore.potentialScore = math.floor(driftScore.cachedScore * driftScore.combo)
   end
+
+  checkIfScoreChanged()
 
   if firstUpdate then
     translateTierNames()
@@ -503,7 +529,7 @@ local function onHitPoleAccomplished(data)
 end
 
 local function onNearPoleAccomplished(data)
-  local score = (data.currDegAngle * data.closeness / 90) ^ 1 * data.zoneData.points
+  local score = math.floor((data.currDegAngle * data.closeness / 90) ^ 1 * data.zoneData.points)
   score = addCachedScore(score, true)
   extensions.hook("onNearPoleScored", score)
 end
@@ -664,6 +690,10 @@ local function getSteppedDriftPerformanceFactor()
   return smoothedSteppedPerformanceFactor
 end
 
+local function onDriftFreeroamCruisingStarted()
+  driftScore.score = 0
+end
+
 M.onDriftPlVehReset = onDriftPlVehReset
 M.onUpdate = onUpdate
 M.onSerialize = onSerialize
@@ -677,6 +707,7 @@ M.onDonutDriftAccomplished = onDonutDriftAccomplished
 M.onDriftCompleted = onDriftCompleted
 M.onNearPoleAccomplished = onNearPoleAccomplished
 M.onDriftChainStarted = onDriftChainStarted
+M.onDriftFreeroamCruisingStarted = onDriftFreeroamCruisingStarted
 
 M.onDriftCrash = onDriftCrash
 M.onDriftSpinout = onDriftSpinout

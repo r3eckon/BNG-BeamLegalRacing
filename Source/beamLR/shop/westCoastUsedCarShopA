@@ -1,4 +1,5 @@
-name=Used Car Shop
+name=Quarryside Auto Sales
+hours=8,18
 slots=7
 chance=0.8
 dchance=0.4

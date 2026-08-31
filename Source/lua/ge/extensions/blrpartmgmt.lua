@@ -17,6 +17,21 @@ local fullSlotNameLibrary = {}
 local fullPartNameLibrary = {}
 
 
+-- caches to speed up some calls 
+local pksmapCacheValid = false
+local pksmapCache = {}
+local atsmapCacheValid = false
+local atsmapCache = {}
+
+-- called when data changes, discards cached data
+local function invalidateCache()
+pksmapCache = {}
+pksmapCacheValid = false
+atsmapCache = {}
+atsmapCacheValid = false
+end
+
+
 
 local function copytable(input)
 local output = {}
@@ -59,17 +74,6 @@ end
 
 local function getPartJbeam(partName, vehid)
 return jbeamIO.getPart(ioCtx(vehid), partName)
-end
-
-local function getSlotMap(customIO, vehid)
-local slotMap = {}
-if customIO then
-slotMap = jbeamIO.getAvailableSlotNameMap(customIO)
-else
-local playerVehicle = getVehicleData(vehid)
-slotMap = jbeamIO.getAvailableSlotNameMap(playerVehicle.ioCtx)
-end
-return slotMap
 end
 
 -- returns table of child slot names for specified part
@@ -175,6 +179,77 @@ end
 return toRet
 end
 
+-- deprecated as of BeamNG 0.39, use V2 version to properly get parts that fit in allowType
+local function getSlotMap(customIO, vehid)
+local slotMap = {}
+if customIO then
+slotMap = jbeamIO.getAvailableSlotNameMap(customIO)
+else
+local playerVehicle = getVehicleData(vehid)
+slotMap = jbeamIO.getAvailableSlotNameMap(playerVehicle.ioCtx)
+end
+return slotMap
+end
+
+
+-- BeamNG 0.39 replacement for getSlotMap, works with slots2 format
+local function getSlotMapV2(ioctx, vehid)
+
+if not ioctx then ioctx = ioCtx() end
+
+local avail = jbeamIO.getAvailableParts(ioctx)
+local slotMap = jbeamIO.getAvailableSlotNameMap(ioctx)
+local slots = getIDKeyedSlots(vehid)
+local toRet = {}
+
+local cpart = ""
+local cslot = ""
+local cslots = ""
+local cslotDef = ""
+
+local compatible = {}
+local incompatible = {}
+
+local toAdd = {} -- to avoid duplicates in part list, store parts as keys then loop over them to insert
+
+
+for part,pdata in pairs(avail) do
+
+	cpart = jbeamIO.getPart(ioctx, part)
+	cslots = cpart.slots2 or part.slots
+	
+	if cslots then
+	
+		for _,slotDef in pairs(cslots) do
+			compatible, incompatible = jbeamIO.getCompatiblePartNamesForSlot(ioctx, slotDef, slotMap)
+			
+			if not toRet[slotDef.name] then toRet[slotDef.name] = {} end
+			if not toAdd[slotDef.name] then toAdd[slotDef.name] = {} end
+				
+			for _,compatiblePart in pairs(compatible) do
+				toAdd[slotDef.name][compatiblePart] = true
+			end
+			
+		end
+	
+	end
+
+end
+
+for slot,addList in pairs(toAdd) do
+for add,_ in pairs(addList) do
+table.insert(toRet[slot], add)
+end
+end
+
+
+return toRet
+end
+
+
+
+
+
 
 local function getMainPartName(raw, vehid)
 local data = getVehicleData(vehid, raw)
@@ -186,7 +261,7 @@ end
 local function getAvailablePartList(vehid)
 local toRet = {}
 local playerVehicle = getVehicleData(vehid)
-local availParts = getSlotMap(nil,vehid)
+local availParts = getSlotMapV2(nil,vehid)
 local slots = getVehicleParts(vehid)
 for k,v in pairs(slots) do		-- Loops over current vehicle slots to show parts available for current build
 if k~="main" then				-- Avoid adding "main" part to list
@@ -218,7 +293,7 @@ local function getGarageUIData(vehid)
 local toRet = {}
 local current = getVehicleParts(vehid)	-- Current parts
 local slots = getPathKeyedSlots(vehid) 	-- Gets actual slots from current car
-local avail = getSlotMap(nil,vehid)	   	-- Gets all available parts for all available slots of this car
+local avail = getSlotMapV2(nil,vehid)	   	-- Gets all available parts for all available slots of this car
 
 for slotPath,slotID in pairs(slots) do -- Looping over vehicle current slots 
 
@@ -457,12 +532,16 @@ end
 return toRet
 end
 
+-- 1.19.4 fix, skip items marked hidden in UI (shouldn't be tunable due to config)
 local function getTuningUIData(trackMode, vehid)
 local dtable = getVehicleData(vehid).vdata.variables
 local toRet = {}
 local cname = ""
 local ckey = ""
 for k,v in pairs(dtable) do
+
+if not v["hideInUI"] then
+
 if (not k:match("$fuel") and not trackMode) or (not strMatchTable(k,trackModeTuningAvoid) and trackMode) and v~= nil then			
 -- Don't show slider to tune fuel since it's overriden by saved fuel value -- 1.10 TRACK EVENTS can show fuel slider
 ckey = v["name"]
@@ -477,16 +556,19 @@ toRet[ckey]["title"] = cname
 end
 
 end
+
+end
 end
 return toRet
 end
 
-
+-- 1.19.4 fixed for tuning items that don't have any tuning range causing NaN bug
 local function getTuningUIValues(vehid)
 local dtable = getVehicleData(vehid).vdata.variables
 local toRet = {}
 local ckey = ""
 local cval = 0
+local cvalRange = 0
 local relVal = 0
 local disRange = 0
 local disVal = 0
@@ -496,13 +578,23 @@ ckey = v["name"]
 ckey = string.sub(ckey, 2, #ckey)
 ckey = "ui_" .. ckey
 
+-- 1.19.4, skip items marked hidden in UI (shouldn't be tunable due to config)
+if not v["hideInUI"] then
+
 cval = v["val"]
-relVal = (cval - v["min"]) / (v["max"] - v["min"])
+cvalRange = v["max"] - v["min"]
 disRange = v["maxDis"] - v["minDis"]
+
+-- 1.19.4 fix, avoid items without tuning range
+if cvalRange > 0 and disRange > 0 then
+relVal = (cval - v["min"]) / cvalRange
 disVal = (relVal * disRange) + v["minDis"] 
-
-
 toRet[ckey] = disVal
+else
+toRet[ckey] = v["minDis"]
+end
+end
+
 end
 return toRet
 end
@@ -781,9 +873,12 @@ end
 
 
 local function getSlotMapForAllowTypes(vehid)
+
+if atsmapCacheValid then return atsmapCache end
+
 local allowTypePaths, allowTypeIDs = getSlotAllowTypes(vehid)
 local slots = getPathKeyedSlots(vehid)
-local map = getSlotMap(nil,vehid)
+local map = getSlotMapV2(nil,vehid)
 local toRet = {}
 
 for slotPath,slotId in pairs(slots) do
@@ -804,6 +899,8 @@ for slotPath,slotId in pairs(slots) do
 	
 end
 
+atsmapCacheValid = true
+atsmapCache = toRet
 
 return toRet
 end
@@ -962,13 +1059,15 @@ local function searchFilter(source, keyMode, deepSearch)	-- Directly matches fil
 local toRet = {}
 local part = ""
 local cname = ""
+local cname_tr = "" -- BeamNG 0.39 update, translated part names 
 local snameLib = getSlotNameLibrary()
 local pnameLib = getPartNameLibrary()
 
 for k,v in pairs(source) do
 if keyMode then part = k else part = v end
 cname = snameLib[part] or ""
-if string.match(part:upper(), currentFilter:upper()) or string.match(cname:upper(),currentFilter:upper()) then -- Updated to match proper slot name not just internal slot name
+cname_tr = extensions.blrlocales.translate(cname)
+if string.match(part:upper(), currentFilter:upper()) or string.match(cname_tr:upper(),currentFilter:upper()) then -- Updated to match proper slot name not just internal slot name
 for i,p in pairs(v) do
 if not toRet[k] then toRet[k] = {} end
 toRet[k][p]=true
@@ -976,7 +1075,8 @@ end
 elseif deepSearch then
 for i,p in pairs(v) do
 cname = pnameLib[p]
-if string.match(p:upper(), currentFilter:upper()) or string.match(cname:upper(),currentFilter:upper()) then
+cname_tr = extensions.blrlocales.translate(cname)
+if string.match(p:upper(), currentFilter:upper()) or string.match(cname_tr:upper(),currentFilter:upper()) then
 if not toRet[k] then toRet[k] = {} end
 toRet[k][p]=true
 end
@@ -1126,6 +1226,7 @@ end
 return toRet
 end
 
+-- BeamNG 0.39 translated names support
 local function getSortedShopSlots(vehid)
 local sdata = getMergedSlotMaps(vehid)
 local snames = getSlotNameLibrary()
@@ -1134,18 +1235,20 @@ local sortedSlots = {} -- KEY=POSITION,VAL=SLOT
 local smap = {}
 local toRet = {}
 local cname = ""
+local cname_tr = ""
 
 for k,v in pairs(sdata) do
 cname = snames[k] or k
+cname_tr = extensions.blrlocales.translate(cname) -- BeamNG 0.39 translated names support
 
 -- 1.18.1 fixing incorrect sorting due to internal name previously being added to 
 -- proper name as a way to avoid conflicts in mapping, now adding to table like garage slots do it
-if not smap[cname] then
-smap[cname] = {}
-table.insert(sortedSlots, cname) -- inside condition to avoid adding same name twice to sorted slots
+if not smap[cname_tr] then
+smap[cname_tr] = {}
+table.insert(sortedSlots, cname_tr) -- inside condition to avoid adding same name twice to sorted slots
 end
 
-table.insert(smap[cname], k)
+table.insert(smap[cname_tr], k)
 end
 
 table.sort(sortedSlots)
@@ -1161,6 +1264,7 @@ end
 return toRet
 end
 
+ -- BeamNG 0.39 translated names support
 local function getSortedShopParts(avail, vehid)
 local sdata = getMergedSlotMaps(vehid)
 local pnames = getPartNameLibrary()
@@ -1169,6 +1273,7 @@ local toRet = {} -- KEY=SLOT,VAL=TABLE:KEY=POSITION,VAL=PART
 local csort = {} 
 local cmap = {}
 local cname = ""
+local cname_tr = ""
 
 for k,v in pairs(sdata) do
 toRet[k] = {}
@@ -1176,9 +1281,10 @@ cmap = {}
 csort = {}
 for _,p in pairs(sdata[k]) do
 if (not avail) or (avail[k] and avail[k][p]) then -- 1.18.4 only include search results, for new part shop UI search function
-cname = pnames[p] or p -- 1.10.1 fix
-cmap[cname] = p
-table.insert(csort, cname)
+cname = pnames[p] or p -- 1.10.1 fix 
+cname_tr = extensions.blrlocales.translate(cname) -- BeamNG 0.39 translated names support
+cmap[cname_tr] = p
+table.insert(csort, cname_tr)
 end
 end
 table.sort(csort)
@@ -1190,6 +1296,7 @@ end
 return toRet
 end
 
+-- BeamNG 0.39 translated names support
 -- 1.18.1 fix to handle slot paths
 -- fixed in 1.17 to handle slots with the same proper name
 local function getSortedGarageSlots(vehid)
@@ -1200,6 +1307,7 @@ local sortedSlots = {} -- KEY=POSITION,VAL=SLOT NAME
 local smap = {}
 local toRet = {} -- KEY=POSITION,VAL=SLOT
 local cname = ""
+local cname_tr = ""
 local csplit = {}
 local cslot = ""
 
@@ -1208,13 +1316,14 @@ csplit = extensions.blrutils.ssplit(k,"/")
 cslot = csplit[#csplit-1] -- 1.18.1 fix, parse slot id from slot path
 
 cname = snames[cslot] or cslot -- 1.10.1 fix
+cname_tr = extensions.blrlocales.translate(cname) -- BeamNG 0.39 translated names support
 
-if not smap[cname] then 
-smap[cname] = {} -- 1.17 fix for slots using exact same name
-table.insert(sortedSlots, cname)
+if not smap[cname_tr] then 
+smap[cname_tr] = {} -- 1.17 fix for slots using exact same name
+table.insert(sortedSlots, cname_tr)
 end
 
-table.insert(smap[cname], k)
+table.insert(smap[cname_tr], k)
 end
 
 table.sort(sortedSlots)
@@ -1231,6 +1340,7 @@ end
 return toRet
 end
 
+-- BeamNG 0.39 translated names support
 local function getSortedActualSlots(vehid)
 local sdata = getPathKeyedSlots(vehid)
 local snames = getSlotNameLibrary()
@@ -1239,6 +1349,7 @@ local sortedSlots = {} -- KEY=POSITION,VAL=SLOT NAME
 local smap = {}
 local toRet = {} -- KEY=POSITION,VAL=SLOT
 local cname = ""
+local cname_tr = ""
 local csplit = {}
 local cslot = ""
 
@@ -1247,13 +1358,14 @@ csplit = extensions.blrutils.ssplit(k,"/")
 cslot = csplit[#csplit-1] -- 1.18.1 fix, parse slot id from slot path
 
 cname = snames[cslot] or cslot -- 1.10.1 fix
+cname_tr = extensions.blrlocales.translate(cname) -- BeamNG 0.39 translated names support
 
-if not smap[cname] then 
-smap[cname] = {} -- 1.17 fix for slots using exact same name
-table.insert(sortedSlots, cname)
+if not smap[cname_tr] then 
+smap[cname_tr] = {} -- 1.17 fix for slots using exact same name
+table.insert(sortedSlots, cname_tr)
 end
 
-table.insert(smap[cname], k)
+table.insert(smap[cname_tr], k)
 end
 
 table.sort(sortedSlots)
@@ -1270,6 +1382,7 @@ end
 return toRet
 end
 
+-- BeamNG 0.39 translated names support
 local function getSortedGarageParts(vehid)
 local sdata = getGarageUIData(vehid)
 local pnames = getPartNameLibrary()
@@ -1278,6 +1391,7 @@ local toRet = {} -- KEY=SLOT,VAL=TABLE:KEY=POSITION,VAL=PART
 local csort = {} 
 local cmap = {}
 local cname = ""
+local cname_tr = ""
 
 for k,v in pairs(sdata) do
 toRet[k] = {}
@@ -1285,8 +1399,9 @@ cmap = {}
 csort = {}
 for _,p in pairs(sdata[k]) do
 cname = pnames[p] or p -- 1.10.1 fix
-cmap[cname] = p
-table.insert(csort, cname)
+cname_tr = extensions.blrlocales.translate(cname) -- BeamNG 0.39 translated names support
+cmap[cname_tr] = p
+table.insert(csort, cname_tr)
 end
 table.sort(csort)
 for _,p in ipairs(csort) do
@@ -1861,30 +1976,17 @@ return toRet
 end
 
 
-local pksmapCacheValid = false
-local pksmapCache = {}
-
-local function invalidatePKSMapCache()
-pksmapCache = {}
-pksmapCacheValid = false
-end
-
-
-
-
 -- 1.16.4 fix for missing slots in part edit, handle case where part fits in multiple slots
 -- 1.18 update, since slot ids can have multiple paths, might as well only use tables in here
 -- also now inserting the slot paths, not the slot ID
+-- 1.20 (BeamNG 0.39) update, fixed issues with allowTypes and now uses updated getSlotMapV2 function
 local function getPartKeyedSlotMap(vehid)
 
-if pksmapCacheValid then
-return pksmapCache
-end
-
+if pksmapCacheValid then return pksmapCache end
 
 local slots = getIDKeyedSlots(vehid)
 local allowTypePaths, allowTypeIDs = getSlotAllowTypes(vehid)
-local map = getSlotMap(nil,vehid)
+local map = getSlotMapV2(nil,vehid)
 local callow = {}
 local cjbeam = {}
 local toRet = {}
@@ -1901,19 +2003,47 @@ for slot,avail in pairs(map) do
 			for _,slotPath in pairs(slots[slot]) do
 				table.insert(toRet[part], slotPath)
 				
+				--blrlog("PKSMAP LOOP STEP FOR FOLLOWING VALUES")
+				--blrlog("Slot path: " .. slotPath)
+				--blrlog("Slot ID: " .. slot)
+				--blrlog("Allow Types: " .. (dumps(allowTypeIDs[slotPath] or {})))
+				
+				-- 0.39 fix for slots that have a single allow type different
+				-- from actual slot id 
+				--(ex: "nine_headlight_R_highbeam_bulb" only allows "headlightBulb_6V_prefocus_30W")
+				if allowTypeIDs[slotPath] and #allowTypeIDs[slotPath] == 1 and allowTypeIDs[slotPath][1] ~= slot then
+					callow = allowTypeIDs[slotPath][1]
+					
+					if map[callow] then -- to skip allowType slots that aren't present in slot part map
+						print("Found slot with single allowType different from main slot ID: " .. slot .. " VS " .. callow)
+						for _,allowPart in pairs(map[callow]) do
+							if not toRet[allowPart] then toRet[allowPart] = {} end
+							table.insert(toRet[allowPart], slotPath)
+						end
+					else
+						print("allowType " .. callow .. " did not exist in slot part map, skipping.")
+					end
 				-- 1.18.1 fix, adding parts for slots with extra allowTypes to pksmap
-				if allowTypeIDs[slotPath] and #allowTypeIDs[slotPath] > 1 then
+				elseif allowTypeIDs[slotPath] and #allowTypeIDs[slotPath] > 1 then
 				
 					print("Found slot with extra allowTypes: " .. slotPath)
 				
 					for _,allowType in pairs(allowTypeIDs[slotPath]) do
+
+						if allowType ~= slot then -- skip allowType if same as slot or if allowType not in part map
 						
-						if allowType ~= slot then
-						
-							for _,allowPart in pairs(map[allowType]) do
-								if not toRet[allowPart] then toRet[allowPart] = {} end
+							if map[allowType] then
+								
+								for _,allowPart in pairs(map[allowType]) do
+									if not toRet[allowPart] then toRet[allowPart] = {} end
+								
+									table.insert(toRet[allowPart], slotPath)
+								end
 							
-								table.insert(toRet[allowPart], slotPath)
+							else
+							
+								print("allowType " .. allowType .. " did no exist in slot part map, skipping.")
+								
 							end
 							
 						end
@@ -2002,7 +2132,7 @@ local toRet = {}
 local unsorted = {}
 local current = getVehicleParts(vehid)	-- Current parts
 local slots = getPathKeyedSlots(vehid)		-- Gets actual slots from current car
-local avail = getSlotMap(nil,vehid)	   		-- Gets all available parts for all available slots of this car
+--local avail = getSlotMapV2(nil,vehid)	   		-- Gets all available parts for all available slots of this car
 local invmap = getAdvancedInventoryPartMap() -- Inventory map KEY=part name, VAL=table of inventory IDs
 local pksmap = getPartKeyedSlotMap(vehid) -- part keyed slot map KEY=part name, VAL=slot in which it fits
 local names = getPartNameLibrary()
@@ -2496,6 +2626,13 @@ blrlog("Jbeam caching progress | Step 2/3 | File " .. cacheProgress .. "/" .. ca
 cjbeam = getJbeamFromFullMap(k)
 if cjbeam and cjbeam["information"] and cjbeam["information"]["name"] then
 fullPartNameLibrary[k] = cjbeam["information"]["name"]
+
+-- 0.39 fix, jbeam slot names can now be multi part translation keys encoded in tables
+-- so store the data as encoded json so it can be decoded as needed in UI
+if type(fullPartNameLibrary[k]) == "table" then
+fullPartNameLibrary[k] = jsonEncode(fullPartNameLibrary[k])
+end
+
 else
 print("Jbeam part name caching error, missing jbeam file or information table or name data for part: " .. k)
 print("This is most likely caused by incorrectly formatted jbeam file")
@@ -2540,8 +2677,23 @@ if cslotdata then
 for i,slot in pairs(cslotdata) do
 if newfmt and slot["name"] then
 fullSlotNameLibrary[slot["name"]] = slot["description"] or slot["name"]
+
+-- 0.39 fix, jbeam slot names can now be multi part translation keys encoded in tables
+-- so store the data as encoded json so it can be decoded as needed in UI
+if type(fullSlotNameLibrary[slot["name"]]) == "table" then
+fullSlotNameLibrary[slot["name"]] = jsonEncode(fullSlotNameLibrary[slot["name"]])
+end
+
 elseif slot["type"] then
 fullSlotNameLibrary[slot["type"]] = slot["description"] or slot["type"]
+
+-- 0.39 fix, jbeam slot names can now be multi part translation keys encoded in tables
+-- so store the data as encoded json so it can be decoded as needed in UI
+if type(fullSlotNameLibrary[slot["type"]]) == "table" then
+fullSlotNameLibrary[slot["type"]] = jsonEncode(fullSlotNameLibrary[slot["type"]])
+end
+
+
 else
 print("Missing slot name/type data for " .. i .. ", slot data dump: " .. dumps(slot))
 end
@@ -2612,6 +2764,8 @@ cachedMods["cached_game_version"] = beamng_versiond
 
 extensions.blrutils.saveDataTableOptimized("beamLR/cache/cachedMods", cachedMods, gcintercount)
 
+print("SHOULD HAVE CACHED MODS CORRECTLY FOR GAME VERSION: " .. beamng_versiond)
+
 end
 
 cacheValidBypass = false
@@ -2662,14 +2816,14 @@ return toRet
 end
 
 
-
+-- BeamNG 0.39 translated names support
 local function getSortedFullInventorySlots()
 local inventory = getSlotKeyedFullInventory()
 local slots = {}
 local toRet = {}
 
 for k,v in pairs(inventory) do
-slots[k] = fullSlotNameLibrary[k] or k
+slots[k] = extensions.blrlocales.translate(fullSlotNameLibrary[k]) or k
 end
 
 
@@ -2856,6 +3010,7 @@ end
 return toRet
 end
 
+-- BeamNG 0.39 translated names support
 -- 1.18 update for BeamNG 0.36, converts into slot path by inserting parent path
 local function getSortedJbeamSlotsTable(slots, ppath)
 local sknv = {}
@@ -2869,7 +3024,7 @@ ctype = v.type or v.name -- 1.18.1 fix for slot2 format using "name" instead of 
 if ctype == nil then
 print("getSortedJbeamSlotsTable error, ctype was nil for slot: " .. k .. " dump data: " .. dumps(v))
 else
-sknv[ctype] = fullSlotNameLibrary[ctype]
+sknv[ctype] = extensions.blrlocales.translate(fullSlotNameLibrary[ctype]) -- BeamNG 0.39 translated names support
 end
 end
 
@@ -2949,7 +3104,7 @@ sendPartUI2Cart()
 end
 
 local function pui2_checkout(data)
-local money = extensions.blrglobals.gmGetVal("playerMoney")
+local money = extensions.blrglobals.getProjectVariable("playerMoney")
 local cartdata = jsonDecode(data)
 
 -- unpause game to prevent exploits where player money doesn't update after buying
@@ -2957,7 +3112,7 @@ extensions.blrutils.setPause(false)
 
 if money > cartdata.total then
 -- charge player & play SFX
-extensions.blrglobals.gmSetVal("playerMoney", money - cartdata.total)
+extensions.blrglobals.setProjectVariable("playerMoney", money - cartdata.total)
 extensions.blrutils.playSFX("event:>UI>Career>Buy_01")
 
 -- adding individual parts in cart to inventory
@@ -3051,7 +3206,7 @@ sendPartUI2Cart()
 end
 
 
-
+M.getSlotMapV2 = getSlotMapV2
 M.toggleAdvancedVehicleBuilding = toggleAdvancedVehicleBuilding
 M.getVehicleModel = getVehicleModel
 M.pui2_checkUsedParts = pui2_checkUsedParts
@@ -3062,7 +3217,7 @@ M.pui2_removeFromCart = pui2_removeFromCart
 M.pui2_addToCart = pui2_addToCart
 M.getSortedActualSlots = getSortedActualSlots
 M.getSlotMapForAllowTypes = getSlotMapForAllowTypes
-M.invalidatePKSMapCache = invalidatePKSMapCache
+M.invalidateCache = invalidateCache
 M.invalidateMergedSlotsMapsCache = invalidateMergedSlotsMapsCache
 M.tableValuesToKeys = tableValuesToKeys
 M.tableKeysToValues = tableKeysToValues

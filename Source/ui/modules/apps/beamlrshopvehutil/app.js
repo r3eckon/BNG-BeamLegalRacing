@@ -1,10 +1,71 @@
 angular.module('beamng.apps')
-.directive('beamlrshopvehutil', [function () {
+.filter("blrtranslate", ["translateService", function(translateService){
+	return function(input)
+	{
+	  var first = input.substring(0,1)
+	  var last = input.substring(input.length-1,input.length)
+	  var translated = ""
+	  
+	  if(first == "{" && last == "}")
+	  {
+		//Changing context tables name, in lua called "ctx" but has to be "context" in js
+		//for contextTranslate to find it (at least as of BeamNG 0.39.0)
+		var tdata = JSON.parse(input.replaceAll('\"ctx\":', '\"context\":'))
+		translated = translateService.contextTranslate(tdata, true)
+	  }
+	  else
+	  {
+		translated = translateService.contextTranslate(input)
+	  }
+
+	  return translated
+	}
+}])
+.directive('beamlrshopvehutil', ['$filter',function ($filter) {
   return {
     templateUrl: '/ui/modules/apps/beamlrshopvehutil/app.html',
     replace: true,
     restrict: 'EA',
     link: function (scope, element, attrs) {
+
+	  //Universal app code start
+	  //Layering code
+	  var appcontainer = element[0].parentElement.parentElement.parentElement.parentElement
+	  var appname = element[0].className.replace("bngApp ", "")
+	  scope.setContainerZindex = function(index)
+	  {
+		  appcontainer.style["z-index"] = index.toString();
+	  }
+	  scope.moveToFront = function()
+	  {
+		  scope.setContainerZindex(9999);
+	  }
+	  scope.moveToBack = function()
+	  {
+		  scope.setContainerZindex(-9999);
+	  }
+	  scope.moveToCustom = function(layer)
+	  {
+		  scope.setContainerZindex(layer)
+	  }
+	  scope.$on('beamlrAppLayerChange', function (event, data) {
+		  if(data.target == appname)
+		  {
+			  scope.setContainerZindex(data.layer)
+		  }
+	  })
+	  scope.moveToFront()//App always enabled in layout so move to front immediately
+	  
+	  //Translation code
+	  translate = function(key)
+	  {
+		  return $filter('blrtranslate')(key)
+	  }
+	  scope.translate = translate
+	  //Universal app code end
+	  
+	  
+
 
 	  scope.init = false
 	  
@@ -694,8 +755,12 @@ angular.module('beamng.apps')
 		  var cid = ""
 		  for(k in scope.saveParams.selectedSlots)
 		  {
-			  cid = scope.idFromPath(k)
-			  sendParamTableSanitized('randslots',cid, true)
+			  //1.20 fix, don't send previously selected slots that have been deselected
+			  if(scope.saveParams.selectedSlots[k])
+			  {	
+				cid = scope.idFromPath(k)
+				sendParamTableSanitized('randslots',cid, true)
+			  }
 		  }
 		  
 		  
@@ -809,8 +874,13 @@ angular.module('beamng.apps')
 	  {
 		  for(k in scope.saveParams.selectedSlots)
 		  {
-			  cid = scope.idFromPath(k)
-			  sendParamTableSanitized('randslots',cid, true)
+			  //1.20 fix, don't send previously selected slots that have been deselected
+			  if(scope.saveParams.selectedSlots[k])
+			  {
+				  cid = scope.idFromPath(k)
+				  sendParamTableSanitized('randslots',cid, true)
+			  }
+			  
 		  }
 		  bngApi.engineLua(`extensions.blrShopVehUtil.exec('spawnRandomConfig')`)
 	  }

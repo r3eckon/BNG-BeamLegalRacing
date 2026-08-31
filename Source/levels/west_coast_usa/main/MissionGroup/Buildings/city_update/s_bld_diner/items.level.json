@@ -1,0 +1,2 @@
+{"class":"TSStatic","persistentId":"fef7501b-5986-4f07-9f41-96bf88d33bc8","__parent":"s_bld_diner","decalType":"Visible Mesh Final","isRenderEnabled":false,"shapeName":"/levels/west_coast_usa/art/shapes/buildings/diner_building.dae","useInstanceRenderData":true}
+{"class":"TSStatic","__parent":"s_bld_diner","decalType":"Visible Mesh Final","isRenderEnabled":false,"shapeName":"/levels/west_coast_usa/art/shapes/buildings/s_bld_diner.dae","useInstanceRenderData":true}

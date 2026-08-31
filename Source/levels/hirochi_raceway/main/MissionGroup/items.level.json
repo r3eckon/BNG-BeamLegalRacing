@@ -156,4 +156,5 @@
 {"class":"TSStatic","persistentId":"998a6e67-be78-4c4a-b373-9cb38da01c65","__parent":"MissionGroup","collisionType":"Visible Mesh Final","decalType":"None","isRenderEnabled":false,"shapeName":"/levels/hirochi_raceway/art/shapes/objects/catchfence_collision.dae","useInstanceRenderData":true}
 {"name":"night_light","class":"SimGroup","persistentId":"86958e5e-f7de-49eb-8c8e-483ea020aa6a","__parent":"MissionGroup"}
 {"name":"drag_strip","class":"SimGroup","__parent":"MissionGroup"}
+{"name":"hirochi_map_limits","class":"SimGroup","__parent":"MissionGroup"}
 {"name":"BeamLR","class":"SimGroup","persistentId":"ea5e36f1-6d2c-4ff3-89ac-3bf99f715ad5","__parent":"MissionGroup"}

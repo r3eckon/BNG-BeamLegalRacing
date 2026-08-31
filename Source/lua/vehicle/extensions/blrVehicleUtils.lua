@@ -3,30 +3,6 @@ local M = {}
 local engineFuelType = "none"
 local jbeamIO = require("jbeam/io")
 
-
-blrlogid = 0
-function blrlog(txt, wid)
-if wid then
-print("BeamLR Log ID " .. blrlogid)
-end
-local toprint = txt
-local prefix = "[" .. string.format("%.3f",os.clock()) .. "] VLUA #" .. obj:getId() .. " | " 
-if type(txt) == "table" then
-toprint = dumps(txt)
-end
-
-if wid then
-prefix = "[" .. blrlogid .. "]" .. prefix
-blrlogid = blrlogid+1
-end
-
-local f = io.open("beamlr.log", "a")
-f:write(prefix .. toprint .. "\n")
-f:flush()
-f:close()
-end
-
-
 local function ioCtx()
 return {preloadedDirs = v.data.directoriesLoaded}
 end

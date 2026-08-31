@@ -17,6 +17,14 @@
       "model":"vivace"
     },
 	{
+      "config":"ardente_carabinieri",
+      "model":"vivace"
+    },
+	{
+      "config":"ardente_gendarmerie",
+      "model":"vivace"
+    },
+	{
       "config":"polizia",
       "model":"bolide"
     },

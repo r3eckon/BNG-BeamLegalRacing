@@ -70,10 +70,10 @@ extensions.blrpartmgmt.addToInventory(p["item"])
 end
 
 ftable["buyPart"] = function(p)
-local money = extensions.blrglobals.gmGetVal("playerMoney")
+local money = extensions.blrglobals.getProjectVariable("playerMoney")
 if money >= p["price"] then
 extensions.blrpartmgmt.addToInventory(p["item"])
-extensions.blrglobals.gmSetVal("playerMoney", money - p["price"])
+extensions.blrglobals.setProjectVariable("playerMoney", money - p["price"])
 extensions.blrutils.playSFX("event:>UI>Career>Buy_01")
 
 print("PART BUYING DATA")
@@ -752,6 +752,7 @@ extensions.blrpartmgmt.templateLoadedUpdateIlinks("beamLR/garage/config/car" .. 
 
 else
 guihooks.trigger('Message', {ttl = 10, msg = extensions.blrlocales.translate("beamlr.msgapp.templatemissingparts"), icon = 'directions_car'})
+extensions.blrglobals.blrFlagSet("partEditLocked", false) -- 1.20 fix for part edits not unlocking after load template failed due to missing parts
 end
 end
 
@@ -791,8 +792,8 @@ ftable["garagePartSell"] = function(p)
 local part = p["part"]
 local value = p["value"]
 extensions.blrpartmgmt.removeFromInventory(part)
-local money = extensions.blrglobals.gmGetVal("playerMoney")
-extensions.blrglobals.gmSetVal("playerMoney", money + value)
+local money = extensions.blrglobals.getProjectVariable("playerMoney")
+extensions.blrglobals.setProjectVariable("playerMoney", money + value)
 extensions.blrutils.playSFX("event:>UI>Career>Buy_01")
 local inventory = extensions.blrpartmgmt.getPartInventory()
 extensions.customGuiStream.sendDataToUI("ownedParts", inventory)
@@ -908,7 +909,7 @@ simTimeAuthority.pause(false)
 local dmgstr = extensions.vluaFetchModule.getVal("advdmgstr")
 local damage = extensions.blrutils.advancedDamageStringToTable(dmgstr)
 local partslot = extensions.blrpartmgmt.getPartKeyedSlots()
-local money = extensions.blrglobals.gmGetVal("playerMoney")
+local money = extensions.blrglobals.getProjectVariable("playerMoney")
 local childmap = extensions.blrpartmgmt.getChildMap()
 local ptclues = extensions.mechDamageLoader.getPowertrainClues()
 local cchilds = {}
@@ -927,7 +928,7 @@ extensions.blrglobals.gmSetVal("pmirrors", extensions.core_vehicle_mirror.getAng
 extensions.blrhooks.linkHook("vehReset", "postedit")							-- link to post edit action hook
 
 -- charge player for repair
-extensions.blrglobals.gmSetVal("playerMoney", money - p["cost"])
+extensions.blrglobals.setProjectVariable("playerMoney", money - p["cost"])
 extensions.blrutils.playSFX("event:>UI>Career>Buy_01")
 
 require("jbeam/io").finishLoading() -- clearing jbeam cache ADDED 1.18.2
@@ -1056,8 +1057,8 @@ extensions.blrglobals.blrFlagSet("partEditLocked", true)
 simTimeAuthority.pause(false)
 
 -- charging player here since cost multiplier comes from ui
-local money = extensions.blrglobals.gmGetVal("playerMoney")
-extensions.blrglobals.gmSetVal("playerMoney", money - p["cost"])
+local money = extensions.blrglobals.getProjectVariable("playerMoney")
+extensions.blrglobals.setProjectVariable("playerMoney", money - p["cost"])
 extensions.blrutils.playSFX("event:>UI>Career>Buy_01")
 
 -- since advanced repair is just like part edit, need to store veh values
@@ -1235,8 +1236,8 @@ end
 ftable["advPartSell"] = function(p)
 local pid = p["pid"]
 local val = p["value"]
-local money = extensions.blrglobals.gmGetVal("playerMoney")
-extensions.blrglobals.gmSetVal("playerMoney", money + val)
+local money = extensions.blrglobals.getProjectVariable("playerMoney")
+extensions.blrglobals.setProjectVariable("playerMoney", money + val)
 extensions.blrutils.playSFX("event:>UI>Career>Buy_01")
 extensions.blrPartInventory.remove(pid)
 extensions.blrPartInventory.save()
@@ -1537,6 +1538,19 @@ local csave = extensions.blrutils.getCurrentSaveFile()
 local saves = extensions.blrutils.getSaveFiles(true)
 extensions.customGuiStream.sendDataToUI("currentSaveFile", csave)
 extensions.customGuiStream.sendDataToUI("saveFiles", saves)
+end
+
+ftable["setSFXVolumes"] = function(p)
+local uidata = jsonDecode(p)
+local volumes = {}
+for k,v in pairs(uidata) do
+volumes[k] = (v / 100.0) * 5.0
+extensions.blrutils.blrvarSet("sfxvol/" .. k, volumes[k])
+--print("Setting volume from UI for " .. k .. " to " .. volumes[k])
+end
+local otable = extensions.blrutils.loadDataTable("beamLR/options")
+otable["sfxvol"] = jsonEncode(volumes)
+extensions.blrutils.saveDataTable("beamLR/options", otable)
 end
 
 

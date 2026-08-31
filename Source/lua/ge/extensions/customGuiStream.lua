@@ -260,6 +260,10 @@ end
 
 local function sendCurrentOptionValues()
 local options = extensions.blrutils.loadDataTable("beamLR/options")
+
+-- 1.20 volume options, fill missing values and send as encoded json string to UI
+options.sfxvol = jsonEncode(extensions.blrutils.fillMissingVolumeOptions(jsonDecode(options.sfxvol)))
+
 local cvgid = extensions.blrglobals.gmGetVal("cvgid")
 local vehname = ""
 if cvgid and FS:fileExists("beamLR/garage/car" .. cvgid) then

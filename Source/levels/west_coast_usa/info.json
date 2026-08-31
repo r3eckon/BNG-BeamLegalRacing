@@ -7,6 +7,7 @@
   "description":"levels.west_coast_usa.info.description",
   "defaultSpawnPointName":"spawns_industrial",
   "country":"levels.common.country.usa",
+  "region": "northAmerica",
   "biome":"levels.west_coast_usa.info.biome",
   "size":[
     2048,
@@ -18,10 +19,7 @@
   },
 
   "previews":[
-    "spawns_industrial.jpg",
-    "west_coast_usa_preview1.jpg",
-    "west_coast_usa_preview2.jpg",
-    "west_coast_usa_preview3.jpg"
+    "west_coast_usa_preview1.jpg"
   ],
   "spawnPoints":[
     {

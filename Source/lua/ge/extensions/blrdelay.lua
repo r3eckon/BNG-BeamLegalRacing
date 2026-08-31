@@ -106,8 +106,8 @@ end
 end
 
 ftable["pinkSlipsCompensate"] = function(p)
-local cmoney = extensions.blrglobals.gmGetVal("playerMoney")
-extensions.blrglobals.gmSetVal("playerMoney", cmoney + 5000)
+local cmoney = extensions.blrglobals.getProjectVariable("playerMoney")
+extensions.blrglobals.setProjectVariable("playerMoney", cmoney + 5000)
 print("$5000 has been rewarded as compensation for pink slips issue.")
 end
 

@@ -1,4 +1,5 @@
-name=Mixed Car Shop
+name=Jefferson Motors
+hours=8,19
 slots=7
 chance=0.8
 dchance=0.3

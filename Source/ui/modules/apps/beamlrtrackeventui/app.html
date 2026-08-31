@@ -1,6 +1,6 @@
 <div class="bngApp beamlrtrackeventui" style="background-color:transparent; height:100%;" >
 
-<div ng-if="enabled==true" style="background-color:rgba(0.0,0.0,0.0,0.7); height:100%; z-index:9999; position:relative;">
+<div ng-if="enabled==true" style="background-color:rgba(0.0,0.0,0.0,0.7); height:100%; position:relative;">
 
 <span ng-click="toggleui()" style="float:left; text-align:center; transform:translate(0px, 0px); width:40px; font-size:30px;">X</span>
 
@@ -8,13 +8,13 @@
 
 <h1 style="text-align:center; line-height:50px; margin:auto; width:800px;">{{eventdata['title']}}</h1>
 
-<h2 style="text-align:center">{{"beamlr.generic.term.leaderboard" | translate}} ({{"beamlr.generic.term.round" | translate}} {{eventdata['cround']}}/{{eventdata['rounds']}})</h2>
+<h2 style="text-align:center">{{"beamlr.generic.term.leaderboard" | blrtranslate}} ({{"beamlr.generic.term.round" | blrtranslate}} {{eventdata['cround']}}/{{eventdata['rounds']}})</h2>
 
 <div style="text-align:center">
-<span style="transform:translate(-80px, 0px); display:inline-block; font-size:20px; width:100px;">{{"beamlr.generic.term.position" | translate}}</span>
-<span style="display:inline-block; font-size:20px; width:300px;">{{"beamlr.generic.term.name" | translate}}</span>
-<span ng-if="eventdata['bossmode'] != true" style="transform:translate(50px, 0px); display:inline-block; font-size:20px; width:100px;">{{"beamlr.generic.term.time" | translate}}</span>
-<span ng-if="eventdata['bossmode'] == true" style="transform:translate(50px, 0px); display:inline-block; font-size:20px; width:100px;">{{"beamlr.generic.term.score" | translate}}</span>
+<span style="transform:translate(-80px, 0px); display:inline-block; font-size:20px; width:100px;">{{"beamlr.generic.term.position" | blrtranslate}}</span>
+<span style="display:inline-block; font-size:20px; width:300px;">{{"beamlr.generic.term.name" | blrtranslate}}</span>
+<span ng-if="eventdata['bossmode'] != true" style="transform:translate(50px, 0px); display:inline-block; font-size:20px; width:100px;">{{"beamlr.generic.term.time" | blrtranslate}}</span>
+<span ng-if="eventdata['bossmode'] == true" style="transform:translate(50px, 0px); display:inline-block; font-size:20px; width:100px;">{{"beamlr.generic.term.score" | blrtranslate}}</span>
 
 </div>
 
@@ -34,23 +34,23 @@
 
 <div ng-if="eventdata['status']!='finished' && eventdata['status']!='over'">
 
-<h1 style="text-align:center; margin:5px;">{{"beamlr.eventui.rewardstitle" | translate}}</h1>
+<h1 style="text-align:center; margin:5px;">{{"beamlr.eventui.rewardstitle" | blrtranslate}}</h1>
 
 <table style="text-align:center; margin:auto; width:90%;">
 <tr>
-<td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">{{"beamlr.eventui.moneyrewards" | translate}}</td>
+<td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">{{"beamlr.eventui.moneyrewards" | blrtranslate}}</td>
 <td style="text-align:right; font-size:20px; font-weight:bold; width:50%;">{{eventdata['moneyreward']}}</td>
 </tr>
 <tr>
-<td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">{{"beamlr.eventui.reprewards" | translate}}</td>
+<td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">{{"beamlr.eventui.reprewards" | blrtranslate}}</td>
 <td style="text-align:right; font-size:20px; font-weight:bold; width:50%;">{{eventdata['repreward']}}</td>
 </tr>
 <tr>
-<td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">{{"beamlr.eventui.partsreward" | translate}}</td>
+<td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">{{"beamlr.eventui.partsreward" | blrtranslate}}</td>
 <td style="text-align:right; font-size:20px; font-weight:bold; width:50%;">{{eventdata['partreward']}}</td>
 </tr>
 <tr>
-<td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">{{"beamlr.eventui.vehreward" | translate}}</td>
+<td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">{{"beamlr.eventui.vehreward" | blrtranslate}}</td>
 <td style="text-align:right; font-size:20px; font-weight:bold; width:50%;">{{eventdata['carreward']}}</td>
 </tr>
 </table>
@@ -59,23 +59,23 @@
 
 <div ng-if="eventdata['status']=='finished' || eventdata['status']=='over'">
 
-<h1 style="text-align:center; margin:5px;">{{"beamlr.eventui.yourrewards" | translate}}</h1>
+<h1 style="text-align:center; margin:5px;">{{"beamlr.eventui.yourrewards" | blrtranslate}}</h1>
 
 <table style="text-align:center; margin:auto; width:90%;">
 <tr>
-<td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">{{"beamlr.generic.term.money" | translate}}</td>
+<td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">{{"beamlr.generic.term.money" | blrtranslate}}</td>
 <td style="text-align:right; font-size:20px; font-weight:bold; width:50%;">{{rewards['moneyreward']}}</td>
 </tr>
 <tr>
-<td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">{{"beamlr.generic.term.reputation" | translate}}</td>
+<td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">{{"beamlr.generic.term.reputation" | blrtranslate}}</td>
 <td style="text-align:right; font-size:20px; font-weight:bold; width:50%;">{{rewards['repreward']}}</td>
 </tr>
 <tr>
-<td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">{{"beamlr.generic.term.parts" | translate}}</td>
+<td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">{{"beamlr.generic.term.parts" | blrtranslate}}</td>
 <td style="text-align:right; font-size:20px; font-weight:bold; width:50%;">{{rewards['partreward']}}</td>
 </tr>
 <tr>
-<td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">{{"beamlr.generic.term.vehicle" | translate}}</td>
+<td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">{{"beamlr.generic.term.vehicle" | blrtranslate}}</td>
 <td style="text-align:right; font-size:20px; font-weight:bold; width:50%;">{{rewards['carreward']}}</td>
 </tr>
 </table>
@@ -84,7 +84,7 @@
 
 
 </div>
-<div ng-if="enabled==false" style="z-index:9; position:relative;">
+<div ng-if="enabled==false" style="position:relative;">
 </div>
 
 </div>

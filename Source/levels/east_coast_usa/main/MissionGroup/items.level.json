@@ -24,4 +24,5 @@
 {"name":"roads","class":"SimGroup","persistentId":"f7cff016-d7bb-47c5-ac39-bc40b692cdc5","__parent":"MissionGroup"}
 {"name":"Audio","class":"SimGroup","persistentId":"fa861db6-4428-47f6-a3a3-a7cbbfd79924","__parent":"MissionGroup","locked":true}
 {"name":"dealerships_and_garages","class":"SimGroup","persistentId":"547e1794-5aed-4a22-9bc2-fba5da489153","__parent":"MissionGroup"}
+{"name":"east_coast_map_limits","class":"SimGroup","__parent":"MissionGroup"}
 {"name":"BeamLR","class":"SimGroup","persistentId":"5dff0900-c628-4565-8f04-d43bf8f39f8a","__parent":"MissionGroup","groupPosition":"0.000000 0.000000 0.000000"}

@@ -1,11 +1,15 @@
 -- This Source Code Form is subject to the terms of the bCDDL, v. 1.1.
 -- If a copy of the bCDDL was not distributed with this
 -- file, You can obtain one at http://beamng.com/bCDDL-1.1.txt
+
 -- BEAMLR EDITED TO ALLOW STOPPING LOOPED SOUNDS
+-- 1.20 FURTHER EDITED FOR CUSTOM SFX SPECIFIC VOLUMES
 
 local im = ui_imgui
 
 local C = {}
+
+local extensions = require("extensions")
 
 C.name = 'Play Sound'
 C.icon = "audiotrack"
@@ -23,6 +27,8 @@ C.pinSchema = {
   { dir = 'in', type = 'number', name = 'fadeInTime', hidden = true, default = -1, hardcoded = true, description = 'Fade in time for sound.' },
   { dir = 'in', type = 'number', name = 'fadeOutTime', hidden = true, default = -1, hardcoded = true, description = 'Fade out time for sound.' },
   { dir = 'in', type = 'bool', name = 'unique', hidden = true, default = false, hardcoded = true, description = 'TODO' },
+  
+  { dir = 'in', type = 'string', name = 'optkey', hidden = true, hardcoded = true, description = 'BeamLR Option Key' },
 
   { dir = 'out', type = 'number', name = 'sourceID', hidden = false, hardcoded = false, description = 'Source ID' }
   
@@ -61,12 +67,18 @@ end
 
 function C:playSound()
   local data = {}
-  data.volume = self.pinIn.volume.value or 1
+  
+  -- 1.20 addition for custom sfx specific volume options
+  -- prioritize pin volume, then option if any, then fallback to 1
+  if self.pinIn.optkey.value then 
+	data.volume = extensions.blrutils.blrvarGet("sfxvol/" .. self.pinIn.optkey.value)
+  end
+  data.volume = self.pinIn.volume.value or data.volume or 1
+  
   data.pitch = self.pinIn.pitch.value or 1
   data.fadeInTime = self.pinIn.fadeInTime.value or -1
   data.fadeOutTime = self.pinIn.fadeOutTime.value or -1
   data.unique = self.pinIn.unique.value or false
-
   data.sampleSource = self.pinIn.file.value or 'event:UI_Checkpoint'
   data.channel = self.pinIn.channel.value or 'AudioGui'
 

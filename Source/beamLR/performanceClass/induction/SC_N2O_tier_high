@@ -2,10 +2,11 @@
 /vehicles/bluebuck/drag.pc
 /vehicles/nine/nine_dragvan.pc
 /vehicles/nine/nine_tasti_hotrod.pc
-/vehicles/wendover/Street_tuned.pc
-/vehicles/wendover/super.pc
-/vehicles/lansdale/44_drag_late_M.pc
 /vehicles/burnside/drag.pc
 /vehicles/roamer/drag.pc
-/vehicles/fullsize/drag.pc
+/vehicles/wendover/Street_tuned.pc
+/vehicles/wendover/super.pc
 /vehicles/pickup/d15_longbed_drag_A.pc
+/vehicles/pickup/d25_longbed_dragDiesel_A.pc
+/vehicles/fullsize/drag.pc
+/vehicles/lansdale/44_drag_late_M.pc

@@ -12,4 +12,5 @@
 {"name":"jv_crawling_trails_internal","class":"SimGroup","persistentId":"35390654-f41b-450b-9618-e1ce9fea42nm","__parent":"MissionGroup"}
 {"name":"set_dress_trails","class":"SimGroup","persistentId":"c8a04f15-81a2-4ac6-a5a7-916814c52f78","__parent":"MissionGroup"}
 {"name":"night_light","class":"SimGroup","persistentId":"593da278-e3d6-4fd2-8c9f-9fb2bd7ce4cf","__parent":"MissionGroup"}
+{"name":"johnson_valley_map_limits","class":"SimGroup","__parent":"MissionGroup"}
 {"name":"BeamLR","class":"SimGroup","persistentId":"b1543a40-81be-4846-8103-c702999a4414","__parent":"MissionGroup"}

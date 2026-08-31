@@ -9,7 +9,7 @@
 
 </style>
 
-<div ng-if="enabled==true" style="background-color:rgba(0.0,0.0,0.0,0.5); transform:translate(0px, -2px); height:100%; z-index:888; position:relative;">
+<div ng-if="enabled==true" style="background-color:rgba(0.0,0.0,0.0,0.5); transform:translate(0px, -2px); height:100%; position:relative;">
 
 
 
@@ -21,7 +21,7 @@
 </td>
 
 <td style="text-align:center; line-height:13px; font-size:14px; width:10%;">
-{{"beamlr.repairui.selectparents" | translate}}
+{{"beamlr.repairui.selectparents" | blrtranslate}}
 </td>
 
 <td style="text-align:right; font-size:17px; width:8%;">
@@ -29,7 +29,7 @@
 </td>
 
 <td style="text-align:center; vertical-align:top; font-size:27px; font-weight:bold; width:60%;">
-{{"beamlr.repairui.title" | translate}}
+{{"beamlr.repairui.title" | blrtranslate}}
 </td>
 
 <td style="text-align:center; vertical-align:top; font-size:17px; width:10%;">
@@ -51,8 +51,8 @@
 <table style="width:100%; table-layout:fixed; font-weight:bold;">
 <tr>
 <td style="width:5%; text-align:center; padding-left:10px;"><md-checkbox ng-model="toggle['selectAll']" ng-change="selectAll()" ></md-checkbox></td>
-<td style="width:70%; text-align:center; transform:translate(15px,0px);">{{"beamlr.generic.term.item" | translate}}</td>
-<td style="width:25%; text-align:center; transform:translate(-10px,0px);">{{"beamlr.generic.term.cost" | translate}}</td>
+<td style="width:70%; text-align:center; transform:translate(15px,0px);">{{"beamlr.generic.term.item" | blrtranslate}}</td>
+<td style="width:25%; text-align:center; transform:translate(-10px,0px);">{{"beamlr.generic.term.cost" | blrtranslate}}</td>
 </tr>
 </table>
 </div>
@@ -71,7 +71,7 @@
 <table style="width:100%; table-layout:fixed; padding:10px;">
 <tr>
 <td style="width:5%; text-align:center;"><md-checkbox ng-model="extras.engineSelected" ng-change="engineToggleChanged()" ></md-checkbox></td>
-<td style="width:70%; text-align:center; transform:translate(15px,0px);">{{"beamlr.repairui.enginedamage" | translate}}</td>
+<td style="width:70%; text-align:center; transform:translate(15px,0px);">{{"beamlr.repairui.enginedamage" | blrtranslate}}</td>
 <td style="width:25%; text-align:center;" ng-style="extras.engineSelected && {'color':'#FF6600','font-weight':'bold'}">${{formatNumber(engine)| number:2}}</td>
 </tr>
 </table>
@@ -81,7 +81,7 @@
 <table style="width:100%; table-layout:fixed; padding:10px;">
 <tr>
 <td style="width:5%; text-align:center;"></td>
-<td style="width:70%; text-align:center; transform:translate(15px,0px);">{{nameFromPath(mainpart)}}</td>
+<td style="width:70%; text-align:center; transform:translate(15px,0px);">{{nameFromPath(mainpart) | blrtranslate}}</td>
 <td style="width:25%; text-align:center; color:#FF6600; font-weight:bold;">${{formatNumber(damage[mainpart]) | number:2}}</td>
 </tr>
 </table>
@@ -91,7 +91,7 @@
 <table style="width:100%; table-layout:fixed; padding:10px;">
 <tr>
 <td style="width:5%; text-align:center;"></td>
-<td style="width:70%; text-align:center; transform:translate(15px,0px);">{{"beamlr.repairui.mechdamage" | translate}}</td>
+<td style="width:70%; text-align:center; transform:translate(15px,0px);">{{"beamlr.repairui.mechdamage" | blrtranslate}}</td>
 <td style="width:25%; text-align:center; color:#FF6600; font-weight:bold;">${{formatNumber(mechanical)| number:2}}</td>
 </tr>
 </table>
@@ -101,7 +101,7 @@
 <table style="width:100%; table-layout:fixed; padding:10px;">
 <tr>
 <td style="width:5%; text-align:center;"></td>
-<td style="width:70%; text-align:center; transform:translate(15px,0px);">{{"beamlr.repairui.savedfee" | translate}}</td>
+<td style="width:70%; text-align:center; transform:translate(15px,0px);">{{"beamlr.repairui.savedfee" | blrtranslate}}</td>
 <td style="width:25%; text-align:center; color:#FF6600; font-weight:bold;">${{formatNumber(minimum - totalBeforeMin)| number:2}}</td>
 </tr>
 </table>
@@ -110,7 +110,7 @@
 <table ng-if="mult > 1" style="width:100%; table-layout:fixed; padding:10px; font-size:20px;">
 <tr>
 <td style="width:5%; text-align:center;"></td>
-<td style="width:70%; text-align:center; transform:translate(15px,0px);">{{"beamlr.repairui.mechfee" | translate}}</td>
+<td style="width:70%; text-align:center; transform:translate(15px,0px);">{{"beamlr.repairui.mechfee" | blrtranslate}}</td>
 <td style="width:25%; text-align:center; color:#FF6600; font-weight:bold;">${{formatNumber((total * mult) - total)| number:2}}</td>
 </tr>
 </table>
@@ -118,7 +118,7 @@
 <table style="width:100%; table-layout:fixed; padding:10px; font-size:20px;">
 <tr>
 <td style="width:5%; text-align:center;"></td>
-<td style="width:70%; text-align:center; transform:translate(15px,0px);">{{"beamlr.repairui.total" | translate}}</td>
+<td style="width:70%; text-align:center; transform:translate(15px,0px);">{{"beamlr.repairui.total" | blrtranslate}}</td>
 <td style="width:25%; text-align:center; font-weight:bold;">${{formatNumber(total * mult)| number:2}}</td>
 </tr>
 </table>
@@ -128,28 +128,28 @@
 
 <div ng-if="warnack==false" style="vertical-align: top; height:120px; width:95%; margin:auto; margin-top:0px; text-align:center;">
 <p style="text-align:center; height:60px; font-size:17px; margin:0 auto; vertical-align:top; white-space:pre-wrap;" ng-bind-html='translate("beamlr.repairui.warning")'></p>
-<p ng-click="warnclick()" style="text-align:center; font-size:24px; font-weight:bold; height:40px; margin:0 auto; margin-top:15px; vertical-align:top;">{{"beamlr.repairui.ackbtn" | translate}}</p>
+<p ng-click="warnclick()" style="text-align:center; font-size:24px; font-weight:bold; height:40px; margin:0 auto; margin-top:15px; vertical-align:top;">{{"beamlr.repairui.ackbtn" | blrtranslate}}</p>
 </div>
 
 
 <div ng-if="ready==true && warnack==true" style="width:95%; margin:auto; margin-top:5px; text-align:center;">
-<button ng-if="totalConfirm == true" ng-click="repairSelected()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(total * mult)">{{"beamlr.repairui.confirmbtn" | translate}}<br>${{formatNumber(total * mult)| number:2}}</button>
-<button ng-if="totalConfirm == false" ng-click="repairSelected()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(total * mult)">{{"beamlr.repairui.repairselected" | translate}}<br>${{formatNumber(total * mult)| number:2}}</button>
+<button ng-if="totalConfirm == true" ng-click="repairSelected()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(total * mult)">{{"beamlr.repairui.confirmbtn" | blrtranslate}}<br>${{formatNumber(total * mult)| number:2}}</button>
+<button ng-if="totalConfirm == false" ng-click="repairSelected()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(total * mult)">{{"beamlr.repairui.repairselected" | blrtranslate}}<br>${{formatNumber(total * mult)| number:2}}</button>
 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp	
-<button ng-if="fullConfirm == true" ng-click="repairAll()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(full * mult)">{{"beamlr.repairui.confirmbtn" | translate}}<br>${{formatNumber(full * mult)| number:2}}</button>
-<button ng-if="fullConfirm == false" ng-click="repairAll()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(full * mult)">{{"beamlr.repairui.repairsall" | translate}}<br>${{formatNumber(full * mult)| number:2}}</button>
+<button ng-if="fullConfirm == true" ng-click="repairAll()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(full * mult)">{{"beamlr.repairui.confirmbtn" | blrtranslate}}<br>${{formatNumber(full * mult)| number:2}}</button>
+<button ng-if="fullConfirm == false" ng-click="repairAll()" style="width:150px;" ng-disabled="formatNumber(money) < formatNumber(full * mult)">{{"beamlr.repairui.repairsall" | blrtranslate}}<br>${{formatNumber(full * mult)| number:2}}</button>
 </div>
 
 
 
 <div ng-if="ready==false" style="width:95%; margin:auto; margin-top:5px; text-align:center; font-size:20px;">
-{{"beamlr.repairui.loadingmsg" | translate}}
+{{"beamlr.repairui.loadingmsg" | blrtranslate}}
 </div>
 
 </div>
 
-<div ng-if="enabled==false" style="background-color:rgba(0.0,0.0,0.0,0.0); height:100%; z-index:8;">
+<div ng-if="enabled==false" style="background-color:rgba(0.0,0.0,0.0,0.0); height:100%;">
 
 
 </div>

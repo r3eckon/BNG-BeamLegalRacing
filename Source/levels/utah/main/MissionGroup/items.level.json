@@ -31,4 +31,5 @@
 {"name":"dealer_c","class":"SimGroup","persistentId":"da9091e7-47ad-403e-9d89-39a9eea48267","__parent":"MissionGroup"}
 {"name":"dealer_a","class":"SimGroup","persistentId":"ad4f7f0a-efda-4d87-a798-3609efec7f7b","__parent":"MissionGroup"}
 {"name":"night_light","class":"SimGroup","persistentId":"3200970e-913e-4653-8d00-949c9ff4f4b9","__parent":"MissionGroup"}
+{"name":"utah_map_limits","class":"SimGroup","__parent":"MissionGroup"}
 {"name":"BeamLR","class":"SimGroup","persistentId":"d6a3555c-5f41-460a-be61-6c774cbb2f61","__parent":"MissionGroup"}

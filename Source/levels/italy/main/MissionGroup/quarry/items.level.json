@@ -1,0 +1,9 @@
+{"class":"TSStatic","__parent":"quarry","isRenderEnabled":false,"shapeName":"/levels/italy/art/shapes/misc/s_quarry_road_tunnel_sec02.dae","useInstanceRenderData":true}
+{"class":"TSStatic","__parent":"quarry","isRenderEnabled":false,"shapeName":"/levels/italy/art/shapes/misc/s_quarry_road_tunnel_sec01.dae","useInstanceRenderData":true}
+{"class":"TSStatic","__parent":"quarry","isRenderEnabled":false,"shapeName":"/levels/italy/art/shapes/misc/s_quarry_road_tunnel_sec03.dae","useInstanceRenderData":true}
+{"class":"TSStatic","__parent":"quarry","isRenderEnabled":false,"shapeName":"/levels/italy/art/shapes/misc/s_quarry_road_tunnel_sec04.dae","useInstanceRenderData":true}
+{"name":"blocks_and_rocks","class":"SimGroup","__parent":"quarry"}
+{"name":"quarry_props","class":"SimGroup","__parent":"quarry"}
+{"name":"top_cave_entrance","class":"SimGroup","__parent":"quarry"}
+{"name":"quarry_decalroads","class":"SimGroup","__parent":"quarry"}
+{"name":"quarry_block_yard","class":"SimGroup","__parent":"quarry"}

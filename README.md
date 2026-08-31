@@ -1,15 +1,8 @@
 
-
-
-
-
-
-
-
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.19.3/beamLegalRacing1.19.3.zip
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.20/beamLegalRacing1.20.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.19.3
+# Beam Legal Racing 1.20
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -49,7 +42,7 @@ Modders should back up the userfolder before installing.
 ## Update Instructions ([Video](https://www.youtube.com/watch?v=iKZckDVPjR4))
 **BEFORE UPDATING**:  Back up the userfolder/beamLR folder to archive your career
 
-**IMPORTANT NOTE**: Version 1.18 and above are not compatible with previous version backups
+**IMPORTANT NOTE**: Version 1.20 and above are not compatible with previous version backups
 
 1. [Download the latest release][latest].
 2. Extract updated mod zip contents to the [BeamNG userfolder][userfolder].
@@ -151,6 +144,8 @@ Version 1.19 adds [dealership vehicle history system with associated purchasable
 Version 1.19.2 brings compatibility for BeamNG version 0.38 to the mod and implements the updated Italy level. This new game version comes with changes to AI racing abilities that may improve their performance in street races and track events.
 
 Version 1.19.3 upgrades the backup system into a save system that allows multiple save files. Creating a new save file will use the last backup state of the currently loaded save file, meaning it will not include progress made since the last time you abandoned the scenario. Save files can be managed through the options menu. Note that old backups should automatically be migrated to this new system but you should still backup your career files somewhere before updating to ensure you don't lose progress. For brand new players a save file will only be created after you first stop the scenario.
+
+Version 1.20 brings compatibility for BeamNG version 0.39 to the mod and adds new content from the game update such as the Cherrier Ardante and various map changes. This update adds two new night only drag race clubs to West Coast USA to make use of the new night lighting.
 
 ## Getting started
 BeamLR is loaded as a freeroam mission. Use the following spawn point depending on map choice:
@@ -399,6 +394,7 @@ Thank you for playing BeamLR!
 * Advanced Vehicle Building may not work with certain part mods. If you absolutely want to use part mods, cheat yourself money and test them before using in a real career.
 * Car shop may bug while on foot for some players, requiring forced exit which loses progress. A potential fix has been added in 1.16.1 but before using this feature in a real career test to see if it works properly on your computer.
 * UI apps may fail to show up after initially loading. Use CTRL+F5 to fix.
+* BeamLR Main Menu part buying UI is very slow with large lists of parts, even worse since BeamNG 0.39 released. Use the new part buying UI which can be accessed by pressing the book button to the left of categories on the part buying menu. This menu is faster and provides better UX.
 
 ## Incompatible Mods
 Below is a list of mods known to be incompatible with BeamLR. For best results, create a userfolder specifically for BeamLR and switch to it using the BeamNG launcher. Don't use too many mods and always test new mods in a test career before adding them to your real career. If you find incompatible mods, please let me know so I can add them to the list.
@@ -1118,3 +1114,37 @@ Cause: Engine jbeam is missing torque data. Data is moved to other subparts. Thi
 * Updated blrhooks.lua AVB reset to work with new jbeamIO caching system
 * Fixed safe mode exit process not turning on AVB causing default parts to spawn
 * Improved part edit locking to prevent double clicks on use/remove buttons causing issues
+
+### 1.20
+* (0.39) Added new simplified traffic vehicle to traffic spawngroups
+* (0.39) Added Cherrier Ardente configs to races, shops, meets and europe police spawngroup
+* (0.39) Added modified locales.lua script to allow forced english translations
+* (0.39) Updated modified vanilla scripts that changed since last version
+* (0.39) Fixed various blrpartmgmt.lua script issues caused by slot allowTypes
+* (0.39) Fixed instant traffic toggle flowgraph node using deprecated function
+* (0.39) Fixed legacy drift scoring script causing freeroam drift error due to missing values
+* (0.39) Fixed UI app css z-index values no longer working due to new app container nesting
+* (0.39) Updated car shop random paint selection system to work with paint collections system
+* (0.39) Deprecated most blrlocales.lua functions as vanilla translations now loads custom files
+* (0.39) Updated blrlocales.lua translation function to work with new translation "context" data
+* (0.39) Updated UI app translation filter to work with new translation "context" data
+* (0.39) Updated track event inspection code to work with translated car brands & models
+* (0.39) Updated dynamic weather values to work better with new fog and clouds
+* (0.39) Updated day change system to work with new vanilla date value
+* (0.39) Fixed new UI pause menu buttons not being disabled when they should (in track events also)
+* (0.39) Fixed West Coast USA dragstrip displays no longer working due to changed object names
+* (0.39) Implemented West Coast USA dragstrip winner lights 
+* (0.39) Replaced missing gas station bell sfx
+* Added 2 new night only drag race clubs on West Coast USA
+* Added sound options menu to control volume of various sfx (only 1 for now, will add more soon)
+* Fixed tuning items with no tunable range showing -Infinity bugged value in UI
+* Fixed tuning items marked as hidden (aka not tunable) in jbeam still showing up in UI
+* Fixed part shop UI throwing error when clicking on slots with no available parts
+* Implemented log file rotation to blrlog system (also now using single common ge & vlua blrlog script)
+* Scrapyard cars now have an odometer of 0 to better function as good shell to build on
+* Moved BeamLR spawn, home garage and mission marker on West Coast USA
+* Fixed reputation not saved when scenario stops
+* Fixed towing mechanic not working properly due to issues with blrfade.lua script
+* Implemented static data table caching to optimize disk usage
+* Fixed & tweaked dealership closed text translation
+* Car dealerships can now have different opening hours (also increased open hour ranges)
