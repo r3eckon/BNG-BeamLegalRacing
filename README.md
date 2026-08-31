@@ -145,7 +145,7 @@ Version 1.19.2 brings compatibility for BeamNG version 0.38 to the mod and imple
 
 Version 1.19.3 upgrades the backup system into a save system that allows multiple save files. Creating a new save file will use the last backup state of the currently loaded save file, meaning it will not include progress made since the last time you abandoned the scenario. Save files can be managed through the options menu. Note that old backups should automatically be migrated to this new system but you should still backup your career files somewhere before updating to ensure you don't lose progress. For brand new players a save file will only be created after you first stop the scenario.
 
-Version 1.20 brings compatibility for BeamNG version 0.39 to the mod and adds new content from the game update such as the Cherrier Ardante and various map changes. This update adds two new night only drag race clubs to West Coast USA to make use of the new night lighting.
+Version 1.20 brings compatibility for BeamNG version 0.39 to the mod and adds new content from the game update such as the Cherrier Ardente and various map changes. This update adds two new night only drag race clubs to West Coast USA to make use of the new night lighting.
 
 ## Getting started
 BeamLR is loaded as a freeroam mission. Use the following spawn point depending on map choice:
