@@ -3931,6 +3931,12 @@ M.clearDataTableCache = function()
 locals["dtcache"] = {}
 end
 
+-- util function to force back to main menu and allow reloading level 
+-- after CTRL+L breaks everything
+M.toMainMenu = function()
+endActiveGameMode()
+end
+
 
 
 M.onVehicleSpawned = onVehicleSpawned

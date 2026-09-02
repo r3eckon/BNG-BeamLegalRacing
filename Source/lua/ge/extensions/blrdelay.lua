@@ -57,15 +57,18 @@ extensions.customGuiStream.sendCurrentOptionValues()
 end
 
 ftable["onswitch"] = function(p)
-local oldid = p
-local shopmode = extensions.blrglobals.blrFlagGet("shopmode")
-local walking = extensions.blrpartmgmt.getVehicleModel() == "unicycle"  -- 1.19 fix for mods that don't use main part name as model
-if (not shopmode) and walking then
-extensions.blrglobals.blrFlagSet("shopWalkingMode", true)
-extensions.blrutils.blrvarSet("playervehid", oldid)
-elseif (not shopmode) then
-extensions.blrglobals.blrFlagSet("shopWalkingMode", false)
-end
+
+-- trying to get rid of shopWalkingMode flag
+
+--local oldid = p
+--local shopmode = extensions.blrglobals.blrFlagGet("shopmode")
+--local walking = extensions.blrpartmgmt.getVehicleModel() == "unicycle"  -- 1.19 fix for mods that don't use main part name as model
+--if (not shopmode) and walking then
+--extensions.blrglobals.blrFlagSet("shopWalkingMode", true)
+--extensions.blrutils.blrvarSet("playervehid", oldid)
+--elseif (not shopmode) then
+--extensions.blrglobals.blrFlagSet("shopWalkingMode", false)
+--end
 end
 
 -- 1.18.6 using function to update coolant leak as well
@@ -79,7 +82,9 @@ end
 
 ftable["updatevehid"] = function(p)
 if be:getPlayerVehicle(0) then
-extensions.blrutils.blrvarSet("playervehid",be:getPlayerVehicle(0):getId())
+local id = be:getPlayerVehicle(0):getId()
+extensions.blrutils.blrvarSet("playervehid",id)
+--print("blrdelay function updatevehid called, set playervehid blrvar to: " .. tostring(id))
 else -- 1.15.3 fix, be:getPlayerVehicle(0) can returns nil after scrapping so trying to re-queue 
 print("Delayed vehid update encountered nil be:getPlayerVehicle(0) result, re-queuing...")
 queue("updatevehid",nil, 10)

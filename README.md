@@ -1,8 +1,9 @@
 
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.20/beamLegalRacing1.20.zip
+
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.20.1/beamLegalRacing1.20.1.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.20
+# Beam Legal Racing 1.20.1
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -1148,3 +1149,12 @@ Cause: Engine jbeam is missing torque data. Data is moved to other subparts. Thi
 * Implemented static data table caching to optimize disk usage
 * Fixed & tweaked dealership closed text translation
 * Car dealerships can now have different opening hours (also increased open hour ranges)
+
+### 1.20.1
+* Fixed jbeamIO getMainPartName function causing error with certain newly bought cars
+* Fixed bugged button showing up in player garage UI when on foot
+* Fixed part buying menu not translating part name when part is owned
+* Fixed default beamlr imgui layout not loading properly 
+* Fixed scrap car button bug due to car being removed before walk mode is entered
+* Fixed blrlocales.lua trying to index nil key passed to translate function
+* Fixed various car shop walk mode issues (should now hopefully work properly on all systems)

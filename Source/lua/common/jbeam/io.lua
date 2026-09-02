@@ -23,7 +23,7 @@ local fileCache = {} -- BEAMLR EDITED STRUCTURE, SEE BELOW CACHE MODE EDIT
 -- what directories are cached: map directory path to number of jbeam files they contain
 local jbeamFilenameDirCache = {} -- BEAMLR EDITED STRUCTURE, SEE BELOW CACHE MODE EDIT
 
--- below are rebuild from fresh using fileCache[cmode][cmode], on any change
+-- below are rebuild from fresh using fileCache, on any change
 local partFileMap = {} -- BEAMLR EDITED STRUCTURE, SEE BELOW CACHE MODE EDIT
 local partSlotMap = {} -- BEAMLR EDITED STRUCTURE, SEE BELOW CACHE MODE EDIT
 local partNameMap = {} -- BEAMLR EDITED STRUCTURE, SEE BELOW CACHE MODE EDIT
@@ -326,8 +326,32 @@ local function isContextValid(ioCtx)
   return type(ioCtx.preloadedDirs) == 'table'
 end
 
+-- BEAMLR 1.20.1 FUNCTION TO FIX AVB MODE CACHE EMPTY WHEN TRYING TO EDIT A NEW
+-- CAR THAT SPAWNED WITHOUT AVB BEFORE CACHE HAS BEEN FILLED BY A FUNCTION THAT
+-- CHECKS IF CACHE IS READY 
+local function isCacheReady(ioCtx, autoLoad)
+for _, dir in pairs(ioCtx.preloadedDirs) do
+
+	-- without autoload flag just return ready state of cache
+	if not partSlotMap[cmode][dir] and not autoLoad then return false end 
+		
+	-- with autoload flag, fill cache with data and return state of cache after trying to load
+	if not partSlotMap[cmode][dir] and autoLoad then 
+		startLoading(ioCtx.preloadedDirs)
+		return (partSlotMap[cmode][dir] ~= nil)
+	end
+	
+end
+return true -- cache was already loaded
+end
+M.isCacheReady = isCacheReady
+
 local function getMainPartName(ioCtx)
   if not isContextValid(ioCtx) then return end
+  
+  -- BEAMLR 1.20.1 FIX, SEE ABOVE FUNCTION FOR EXPLANATION
+  if not isCacheReady(ioCtx, true) then return end
+  
   for _, dir in ipairs(ioCtx.preloadedDirs) do
     if partSlotMap[cmode][dir] and partSlotMap[cmode][dir]['main'] then
       return partSlotMap[cmode][dir]['main'][1]

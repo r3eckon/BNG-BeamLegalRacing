@@ -48,7 +48,7 @@ end
 end
 
 M.rotateLogs = rotateLogs
-
+M.blrlog = blrlog
 M.onGameStartedBLR = onGameStartedBLR
 
 return M

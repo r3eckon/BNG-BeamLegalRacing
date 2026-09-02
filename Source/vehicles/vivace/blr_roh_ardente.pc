@@ -1,5 +1,5 @@
 {
-  "Configuration":"blr_roh_ardante",
+  "Configuration":"blr_roh_ardente",
   "format":2,
   "mainPartName":"vivace",
   "mainPartPath":"/vivace",

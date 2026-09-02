@@ -1,5 +1,5 @@
 {
-  "Configuration":"blr_scrapyard_ardante",
+  "Configuration":"blr_scrapyard_ardente",
   "format":2,
   "mainPartName":"vivace",
   "mainPartPath":"/vivace",

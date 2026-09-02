@@ -57,11 +57,6 @@ end
 return toRet
 end
 
-local function toggleAdvancedVehicleBuilding(toggle)
-extensions.blrglobals.blrFlagSet("advancedVehicleBuilding", toggle)
-jbeamIO.setCacheMode((toggle and "avb") or "vanilla")
-end
-
 
 -- 1.19 fix should hopefully stop modded cars with inconsistent naming causing issues
 local function getVehicleModel(vehid)
@@ -70,6 +65,11 @@ end
 
 local function ioCtx(vehid)
 return getVehicleData(vehid).ioCtx
+end
+
+local function toggleAdvancedVehicleBuilding(toggle)
+extensions.blrglobals.blrFlagSet("advancedVehicleBuilding", toggle)
+jbeamIO.setCacheMode((toggle and "avb") or "vanilla")
 end
 
 local function getPartJbeam(partName, vehid)
@@ -2274,6 +2274,7 @@ end
 -- to calculate actual odometer value of part currently attached to vehicle
 local function getInventoryLinkOdometers(forui)
 local gid = extensions.blrutils.blrvarGet("playerCurrentCarGarageID")
+
 local ilinks = loadConfigFileData(gid)["ilinks"]
 
 -- to avoid ui init request bugging out for brand new vehicles before ilinks are created

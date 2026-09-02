@@ -2,7 +2,7 @@
   "data":[
     {
       "config":"t75_mixer",
-      "model":"semi"
+      "model":"us_semi"
     },
     {
       "config":"t82_base",

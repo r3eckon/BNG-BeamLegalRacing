@@ -66,6 +66,7 @@ end
 -- actually keeping this one in to parse json from cached part names before translating
 -- set forceEnglish to true to return an en-US translation 
 local function translate(key, forceEnglish)
+if not key then return nil end
 if key:sub(1,1) == "{" and key:sub(-1,-1) == "}" then
 local tdata = jsonDecode(key)
 return locales.contextTranslate(tdata.txt, tdata.ctx, forceEnglish)

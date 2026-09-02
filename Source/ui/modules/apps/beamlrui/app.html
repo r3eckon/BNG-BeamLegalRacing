@@ -973,7 +973,7 @@ Advanced Repair UI
 
 <div ng-if="slotNameMode!=1">
 <span ng-if="beamlrData['vehInstParts'][part] == null && (beamlrData['advinvOwned'][part] == null || beamlrData['advinvOwned'][part] == 0)" style="transform:translate(20px, 0px); display:inline-block; text-align:center; line-height:20px; width: 200px; margin-left:20px; vertical-align:middle; overflow-wrap:break-word;">{{beamlrData['partNames'][part] | blrtranslate}}</span>
-<span ng-if="beamlrData['vehInstParts'][part] == null && beamlrData['advinvOwned'][part] > 0" style="transform:translate(20px, 0px); display:inline-block; text-align:center; line-height:20px; width: 200px; margin-left:20px; vertical-align:middle; overflow-wrap:break-word;">{{beamlrData['partNames'][part]}}<br>({{"beamlr.mainui.page.partbuy.tags.own" | blrtranslate}} {{beamlrData['advinvOwned'][part]}})</span>
+<span ng-if="beamlrData['vehInstParts'][part] == null && beamlrData['advinvOwned'][part] > 0" style="transform:translate(20px, 0px); display:inline-block; text-align:center; line-height:20px; width: 200px; margin-left:20px; vertical-align:middle; overflow-wrap:break-word;">{{beamlrData['partNames'][part] | blrtranslate}}<br>({{"beamlr.mainui.page.partbuy.tags.own" | blrtranslate}} {{beamlrData['advinvOwned'][part]}})</span>
 <span ng-if="beamlrData['vehInstParts'][part] != null" style="transform:translate(20px, 0px); display:inline-block; text-align:center; line-height:20px; width: 200px; margin-left:20px; vertical-align:middle; overflow-wrap:break-word;">{{beamlrData['partNames'][part] | blrtranslate}}<br>({{"beamlr.mainui.page.partbuy.tags.installed" | blrtranslate}})</span>
 
 <span style="float:right; margin-right:5px; vertical-align:middle;">

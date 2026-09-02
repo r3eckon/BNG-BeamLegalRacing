@@ -1,5 +1,9 @@
 {
   "data":[
+	{
+      "config":"t75_mixer",
+      "model":"us_semi"
+    },
     {
       "config":"t82_base",
       "model":"us_semi"

@@ -57,3 +57,5 @@ This addon is currently built for map version **0.79**.
 ### BeamLR 1.20
 * Added SLRR lore accurate opening hours to both dealerships
 * Updated mission file
+### BeamLR 1.20.1
+* Updated mission file
