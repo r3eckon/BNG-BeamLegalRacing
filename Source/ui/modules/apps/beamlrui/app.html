@@ -908,6 +908,34 @@ Advanced Repair UI
 <button ng-click="startManualCache()">{{"beamlr.mainui.page.options.setting.manualcacheexec" | blrtranslate}}</button>
 </p>
 
+
+<p style="text-align:center; width:90%; margin:auto;"> 
+{{"beamlr.mainui.page.options.setting.loggingdetails" | blrtranslate}}
+</p>
+
+<br>
+
+<p style="text-align:center; width:90%; margin:auto;"> 
+{{"beamlr.mainui.page.options.setting.logginglevels" | blrtranslate}}
+</p>
+
+<table style="width:95%; margin:auto; text-align:center; vertical-align:center; table-layout:fixed;">
+<tr style="width:100%;">
+<td style="width:33%";><md-checkbox style="width:30%;" ng-model="logtoggles.err" ng-change="onLogLevelChanged()">Errors</md-checkbox></td>
+<td style="width:33%";><md-checkbox style="width:30%;" ng-model="logtoggles.warn" ng-change="onLogLevelChanged()">Warnings</md-checkbox></td>
+<td style="width:33%";><md-checkbox style="width:30%;" ng-model="logtoggles.info" ng-change="onLogLevelChanged()">Information</md-checkbox></td>
+</tr>
+</table>
+
+<p style="text-align:center; width:90%; margin:auto;"> 
+{{"beamlr.mainui.page.options.setting.loggingblrlog" | blrtranslate}}
+</p>
+
+
+<p style="margin:auto; width:40%;">
+<md-checkbox ng-model="logtoggles.blrlog", ng-change="onLogLevelChanged()">Use BeamLR Log</md-checkbox>
+</p>
+
 </div>
 
 <br>
@@ -1243,6 +1271,7 @@ Advanced Repair UI
 
 		<div ng-if="visibleSlots[key] == true">
 
+			<!-- CURRENTLY USED PART DISPLAY -->
 			<table style="border-collapse: collapse; width: 95%; margin: auto; table-layout: fixed; vertical-align:middle; text-align:center;">
 				<tr style="width:100px;" ng-if="beamlrData['advinvUsed'][key] != null">
 					<td style="width: 100px; height:100px; text-align:left;">
@@ -1257,6 +1286,7 @@ Advanced Repair UI
 					</td>
 				</tr>
 
+				<!-- AVAILABLE PARTS DISPLAY -->
 				<tr ng-repeat="(index,pid) in beamlrData['advinvParts'][key]" style="width:100px;">
 					<td style="width: 100px; height:100px; text-align:left;">
 					<img style="display:block;" ng-click="imageClicked(beamlrData['partpreview'][beamlrData['advinvData'][pid][0]])" ng-if="beamlrData['partpreview'][beamlrData['advinvData'][pid][0]] != null" ng-attr-src="{{beamlrData['partpreview'][beamlrData['advinvData'][pid][0]]}}" width=90px height=90px />

@@ -31,7 +31,7 @@ local function sendUIData(withCache)
 local cacheValid = extensions.blrpartmgmt.isJbeamCacheValid()
 
 if not cacheValid then
-print("BeamLR Dealership Util could not load due to invalid cache")
+blrlog("BeamLR Dealership Util could not load due to invalid cache", lvl_warn)
 guihooks.trigger("beamlrShopVehCacheValid", false)
 return
 end
@@ -222,8 +222,8 @@ end
 local fun = {}
 
 fun["saveCarFile"] = function()
-print("Saving car file with params:")
-dump(uiparams)
+blrlog("Saving car file with params:")
+blrlog(uiparams)
 
 local fmt = {"name", "type", "config", "baseprice", "odometer", "scrapval", "partprice", "paint", "randslots"}
 local saveData = {}
@@ -268,8 +268,8 @@ end
 
 
 fun["addToList"] = function()
-print("Adding to list with params:")
-dump(uiparams)
+blrlog("Adding to list with params:")
+blrlog(uiparams)
 
 local currentCars = {}
 local cldata = {}
@@ -379,7 +379,7 @@ local saveData = {}
 local csplit = {}
 local ccar = ""
 
-dump(uiparams)
+blrlog(uiparams)
 
 for _,file in valueSortedPairs(FS:findFiles("beamLR/shop/car", "*", 0, false, false)) do
 csplit = extensions.blrutils.ssplit(file, "/")
@@ -389,7 +389,7 @@ table.insert(saveData, ccar)
 end
 end
 
-dump(saveData)
+blrlog(saveData)
 
 extensions.blrutils.saveDataFile(list, saveData)
 
@@ -406,7 +406,7 @@ local cldata = {}
 for _,file in pairs(FS:findFiles("beamLR/shop/car", "list*", 0, false, false)) do
 cldata = readFile(file)
 if string.find(cldata, name) or string.find(cldata,name .. "\n") or string.find(cldata,name .. "\r\n") then
-print("Found car file " .. name .. " in list " .. file .. ", removing")
+blrlog("Found car file " .. name .. " in list " .. file .. ", removing")
 cldata = cldata:gsub(name .. "\r\n", ""):gsub(name .. "\n", ""):gsub(name, "")
 writeFile(file, cldata)
 end
@@ -419,7 +419,7 @@ if FS:directoryExists(dir) and not FS:fileExists(dir) then
 for _,file in pairs(FS:findFiles(dir, "*", 0)) do
 cadata = readFile(file)
 if string.find(cadata, name) or string.find(cadata,name .. "\n") or string.find(cadata,name .. "\r\n") then
-print("Found car file " .. name .. " in addon " .. file .. ", removing")
+blrlog("Found car file " .. name .. " in addon " .. file .. ", removing")
 cadata = cadata:gsub(name .. "\r\n", ""):gsub(name .. "\n", ""):gsub(name, "")
 writeFile(file, cadata)
 end
@@ -437,18 +437,18 @@ showMessage("Deleted car file " .. uiparams["carfile"], "delete_forever")
 end
 
 fun["createList"] = function()
-print("Creating list/addon file at path: " .. uiparams["path"])
+blrlog("Creating list/addon file at path: " .. uiparams["path"])
 writeFile(uiparams["path"], "")
 sendUIData() -- refresh list
 showMessage("Created list/addon file at path " .. uiparams["path"], "save")
 end
 
 fun["deleteList"] = function()
-print("Deleting list/addon file at path: " .. uiparams["path"])
+blrlog("Deleting list/addon file at path: " .. uiparams["path"])
 local addon = extensions.blrutils.ssplit(uiparams["path"], "/")
 addon = addon[#addon]
 addon = "beamLR/shop/car/addon_" .. addon:sub(6)
-print("Also deleting potential addon folder at path: " .. addon)
+blrlog("Also deleting potential addon folder at path: " .. addon)
 extensions.blrutils.deleteFile(uiparams["path"])
 extensions.blrutils.deleteFolder(addon)-- remove addon folder associated with list file if it exists
 sendUIData() -- refresh list
@@ -460,7 +460,7 @@ local msg = uiparams["msg"] or ""
 local icon = uiparams["icon"] or "warning"
 local ttl = uiparams["ttl"] or 10
 local cat = uiparams["cat"] or "shopVehUtil"
-dump(uiparams)
+blrlog(uiparams)
 guihooks.trigger('Message', {ttl = ttl,category=cat, msg = msg, icon = icon})
 end
 

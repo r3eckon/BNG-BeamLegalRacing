@@ -133,6 +133,7 @@ angular.module('beamng.apps')
 	  scope.inputData.saveDeleteConfirm = {}
 	  scope.inputData.saveLoadConfirm = {}
 
+	  scope.logtoggles = {}
 
 	  //helper function to trigger message in vanilla message app
 	  scope.guiMessage = function(msg, ttl, icon, category)
@@ -336,6 +337,13 @@ angular.module('beamng.apps')
 		  {
 			  scope.inputData['sfxvol'][key] = (scope.inputData['sfxvol'][key] / 5.0) * 100.0
 		  }
+		  
+		  
+		  scope.inputData['loglevel'] = data['loglevel']
+		  scope.logtoggles.err = (data['loglevel'] & 1) == 1
+		  scope.logtoggles.warn = (data['loglevel'] & 2) == 2
+		  scope.logtoggles.info = (data['loglevel'] & 4) == 4
+		  scope.logtoggles.blrlog = (data['loglevel'] & 8) == 8
       })
 	  
 	  scope.setDefaultValue = function(param)
@@ -1536,6 +1544,16 @@ angular.module('beamng.apps')
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);  
 	  }
 	  
+	  scope.onLogLevelChanged = function()
+	  {
+		  var loglevel = (scope.logtoggles.err) ? 1: 0;
+		  loglevel = (scope.logtoggles.warn) ? loglevel + 2: loglevel;
+		  loglevel = (scope.logtoggles.info) ? loglevel + 4: loglevel;
+		  loglevel = (scope.logtoggles.blrlog) ? loglevel + 8: loglevel;
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("loglevel", ${loglevel})`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setLogLevel", "loglevel")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);  
+	  }
     }
   }
 }]);

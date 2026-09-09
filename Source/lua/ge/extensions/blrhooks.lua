@@ -15,7 +15,7 @@ end
 
 
 ftable["debug"] = function(p)
-print(p)
+blrlog(p)
 end
 
 local lftable = {}
@@ -33,7 +33,7 @@ lptable[h] = nil
 end
 
 local loadBLRHooks = function()	-- Seems like the game will not call custom hooks until the extension is loaded by calling it once before
-print("BLRHooks Loaded") 		-- Just call this at start of scenario
+blrlog("BLRHooks Loaded") 		-- Just call this at start of scenario
 end
 
 local onVehicleLoaded = function(retainDebug)
@@ -42,13 +42,13 @@ if lftable[h] ~= nil then
 rtable[h] = ftable[lftable[h]](lptable[h])
 unlinkHook(h)
 end
-print("BLRHOOK: VEHICLE LOADED")
+--blrlog("BLRHOOK: VEHICLE LOADED")
 end
 
 local onVehicleResetted = function(vehicleID)
 local h = "vehReset"
 
-print("BLRHOOK: VEHICLE RESETTED")
+--blrlog("BLRHOOK: VEHICLE RESETTED")
 
 if vehicleID == vidfilter or vidfilter == -1 then
 if lftable[h] ~= nil then
@@ -58,7 +58,7 @@ end
 
 
 if not be:getPlayerVehicle(0) then
-print("onVehicleResetted hook called but player had no vehicle, skipping.\nHook vehicleID was " .. vehicleID)
+blrlog("onVehicleResetted hook called but player had no vehicle, skipping.\nHook vehicleID was " .. vehicleID, lvl_warn)
 return
 end
 
@@ -85,7 +85,7 @@ be:getPlayerVehicle(0):queueLuaCommand("extensions.blrVehicleUtils.buildAdvanced
 
 -- 1.16.6 ilinks init
 if extensions.blrglobals.blrFlagGet("ilinksInitRequest") then
-print("BLRHOOKS INVENTORY LINKS INIT REQUEST DETECTED, QUEUING...")
+blrlog("BLRHOOKS INVENTORY LINKS INIT REQUEST DETECTED, QUEUING...")
 extensions.blrdelay.queue("initInventoryLinks", nil, 10)
 extensions.blrglobals.blrFlagSet("ilinksInitRequest", false)
 end
@@ -102,7 +102,7 @@ if lftable[h] ~= nil then
 rtable[h] = ftable[lftable[h]](lptable[h])
 unlinkHook(h)
 end
-print("BLRHOOK: VEHICLE SPAWNED")
+--blrlog("BLRHOOK: VEHICLE SPAWNED")
 end
 end
 
@@ -129,7 +129,7 @@ end
 end
 
 local onMenuToggled = function(showMenu)
-print("BLRHOOK: Menu Toggled")
+blrlog("BLRHOOK: Menu Toggled")
 extensions.blrglobals.blrFlagSet("disableQuickAccess", true)
 end
 

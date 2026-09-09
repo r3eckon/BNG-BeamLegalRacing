@@ -28,7 +28,7 @@ end
 
 
 ftable["test"] = function(p)
-print(p)
+blrlog(p)
 end
 
 ftable["gpsinit"] = function(p)
@@ -37,7 +37,7 @@ extensions.customGuiStream.sendGPSDestinationList(list)
 extensions.blrutils.gpsToggleStateUpdate()
 extensions.blrutils.setGPSDestination()
 extensions.customGuiStream.sendGPSPage(0)
-print("GPS INIT DONE")
+blrlog("GPS INIT DONE")
 end
 
 ftable["guimsg"] = function(p)
@@ -84,9 +84,9 @@ ftable["updatevehid"] = function(p)
 if be:getPlayerVehicle(0) then
 local id = be:getPlayerVehicle(0):getId()
 extensions.blrutils.blrvarSet("playervehid",id)
---print("blrdelay function updatevehid called, set playervehid blrvar to: " .. tostring(id))
+--blrlog("blrdelay function updatevehid called, set playervehid blrvar to: " .. tostring(id))
 else -- 1.15.3 fix, be:getPlayerVehicle(0) can returns nil after scrapping so trying to re-queue 
-print("Delayed vehid update encountered nil be:getPlayerVehicle(0) result, re-queuing...")
+blrlog("Delayed vehid update encountered nil be:getPlayerVehicle(0) result, re-queuing...", lvl_warn)
 queue("updatevehid",nil, 10)
 end
 end
@@ -104,7 +104,7 @@ extensions.blrglobals.blrFlagSet("uiInitRequest", true)
 -- This flag is turned on from integrity loading function when ilinks are missing
 -- and waits for ilinks to be ready before retrying to load integrity data
 if extensions.blrglobals.blrFlagGet("integrityLoadingQueued") then
-print("Detected request for delayed integrity loading, queuing...")
+blrlog("Detected request for delayed integrity loading, queuing...")
 queue("loadAdvancedIntegrity", nil, 10)
 end
 
@@ -113,7 +113,7 @@ end
 ftable["pinkSlipsCompensate"] = function(p)
 local cmoney = extensions.blrglobals.getProjectVariable("playerMoney")
 extensions.blrglobals.setProjectVariable("playerMoney", cmoney + 5000)
-print("$5000 has been rewarded as compensation for pink slips issue.")
+blrlog("$5000 has been rewarded as compensation for pink slips issue.", lvl_warn)
 end
 
 
@@ -130,7 +130,7 @@ gameplay_drift_scoring.reset()
 end
 
 ftable["onShopVehJbeamCacheGenerated"] = function(p)
-print("Should have automatically sent UI data to dealership util after generating jbeam cache")
+blrlog("Should have automatically sent UI data to dealership util after generating jbeam cache")
 extensions.blrShopVehUtil.sendUIData()
 end
 

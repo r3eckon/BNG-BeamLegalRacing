@@ -20,7 +20,7 @@ if not nodeRef then generateNodeRef() end
 
 if nodeRef["oilpan"] then
 leakNodes = {nodeRef["oilpan"]}
-print("Found real oilpan node, using it as leak point")
+blrlog("Found real oilpan node, using it as leak point", lvl_info)
 return
 end
 
@@ -31,7 +31,7 @@ table.insert(leakNodes, nodeRef[v[1]])
 end
 end
 
-print("Found no real oilpan node, using engine nodes average pos as leak point")
+blrlog("Found no real oilpan node, using engine nodes average pos as leak point", lvl_info)
 
 end
 
@@ -41,7 +41,7 @@ local cpos = nil
 local count = #leakNodes
 
 if count == 0 then
-print("Leak node error: didn't find any leak nodes, can't spawn decals")
+blrlog("Leak node error: didn't find any leak nodes, can't spawn decals", lvl_warn)
 return
 end
 

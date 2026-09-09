@@ -41,6 +41,8 @@ M.getBLRRunning = function()
 return beamlr_running
 end
 
+
+
 -- Iterator for sorted linked tables
 function linkedpairs(keys, values)
 local current = 0    
@@ -92,8 +94,8 @@ end
 end
 end
 
---for k,v in ipairs(sortedKeys) do print(k .. "=" .. v) end
---for k,v in ipairs(sortedValues) do print(k .. "=" .. v) end
+--for k,v in ipairs(sortedKeys) do blrlog(k .. "=" .. v) end
+--for k,v in ipairs(sortedValues) do blrlog(k .. "=" .. v) end
 
 return sortedKeys, sortedValues
 end
@@ -296,7 +298,7 @@ cpos[3] = cpos[3] - 0.8
 cpos = vec3(cpos)
 
 if not markerType[ctype] then
-print("Invalid marker object type for " .. k .. ", using default!")
+blrlog("Invalid marker object type for " .. k .. ", using default!", lvl_warn)
 ctype = "default"
 end
 
@@ -565,6 +567,9 @@ else
 toRet["rep"] = tonumber(reputation[1])
 end
 
+-- 1.20.2 relative difficulty percentage display
+toRet["difficulty"] = rval
+
 
 return toRet
 end
@@ -781,7 +786,7 @@ end
 
 locals["guimsg"] = function(msg, ttl, icon, category, dbg)
 guihooks.trigger('Message', {ttl = ttl or 10, category=category or ("" .. os.time()), msg = msg or "", icon = icon or 'directions_car'})
-if dbg then print(msg) end
+if dbg then blrlog(msg) end
 end
 
 
@@ -836,7 +841,7 @@ end
 -- moving files complete, setting current save file to newly created default
 locals.setCurrentSaveFile("default")
 
-print("Old backup format was detected and has been migrated to 'default' subfolder for new multi save system")
+blrlog("Old backup format was detected and has been migrated to 'default' subfolder for new multi save system")
 end
 
 locals["detectOldBackup"] = function()
@@ -1689,15 +1694,15 @@ if cdata["state"] == "active" then -- Found active cop
 forceSetAIMode(k, "traffic") -- Send fix
 copfixReceived[k] = true	-- Set fix received to true for vehid 
 locals["copfixSent"] = locals["copfixSent"] + 1 -- Increment sent copfix amount
-print("Should have fixed cop: " .. k)
+blrlog("Should have fixed cop: " .. k)
 
 if locals["copfixSent"] == locals["copCount"] then -- Finished sending copfixes in init pass
 extensions.blrglobals.blrFlagSet("policeResetRequest", false) -- Turn off request flag
-print("Copfix finished in init pass, all cops were active to receive fix.")
+blrlog("Copfix finished in init pass, all cops were active to receive fix.")
 end
 
 else
-print("Inactive cop detected: " .. k)
+blrlog("Inactive cop detected: " .. k)
 end
 
 end
@@ -1711,11 +1716,11 @@ if not copfixReceived[veid] then -- Cop has not received fix yet
 forceSetAIMode(veid, "traffic") -- Send fix
 copfixReceived[veid] = true	-- Set fix received to true for vehid 
 locals["copfixSent"] = locals["copfixSent"] + 1 -- Increment sent copfix amount
-print("Should have fixed cop: " .. veid)
+blrlog("Should have fixed cop: " .. veid)
 
 if locals["copfixSent"] == locals["copCount"] then -- Finished sending copfixes in init pass
 extensions.blrglobals.blrFlagSet("policeResetRequest", false) -- Turn off request flag
-print("Copfix finished on hook for last fix.")
+blrlog("Copfix finished on hook for last fix.")
 end
 end
 end
@@ -1730,13 +1735,13 @@ cdata = lastTrafficData[v]
 if cdata["state"] == "active" then -- Found active cop to fix
 forceSetAIMode(v, "traffic") -- Set AI mode to traffic to force cop to stop chasing player
 table.insert(copfixReceived, v) -- Add cop veid to table tracking received copfix
-print("Should have fixed cop: " .. v)
+blrlog("Should have fixed cop: " .. v)
 if #copfixReceived == #copTable then -- Detects when the fix is completed
 extensions.blrglobals.blrFlagSet("policeResetRequest", false) -- Stops flowgraph from triggering iterations
-print("Cop Fix Complete!")
+blrlog("Cop Fix Complete!")
 end
 else 
-print("Inactive cop detected: " .. v)
+blrlog("Inactive cop detected: " .. v)
 end
 end
 end
@@ -1771,7 +1776,7 @@ local function checkCopModeConflict(id)
 if rolestates[id] == "none" then
 if aimodes[id] == "follow" or aimodes[id] == "chase" then --Detected conflict
 roleFixQueued[id] = true
-print("Detected police role state conflict with AI mode, queuing fix for id " .. id)
+blrlog("Detected police role state conflict with AI mode, queuing fix for id " .. id)
 end
 end
 end
@@ -1784,7 +1789,7 @@ end
 if roleFixQueued[id] and active then
 forceSetAIMode(id, "traffic") -- Send fix
 roleFixQueued[id] = false
-print("Sent role fix for id " .. id)
+blrlog("Sent role fix for id " .. id)
 end
 end
 
@@ -1960,7 +1965,7 @@ toRet["availslots"] = extensions.blrglobals.getProjectVariable("playerGarageSlot
 else
 toRet["availslots"] = 999999999
 end
---dump(toRet)
+--blrlog(toRet)
 return toRet
 end
 
@@ -2639,7 +2644,7 @@ local options = loadDataTable("beamLR/options")
 local volumes = M.fillMissingVolumeOptions(jsonDecode(options["sfxvol"]))
 for k,v in pairs(volumes) do
 blrvarSet("sfxvol/" .. k, v)
-print("Loaded SFX volume option for key " .. k .. ": " .. v)
+blrlog("Loaded SFX volume option for key " .. k .. ": " .. v)
 end
 end
 
@@ -2700,10 +2705,10 @@ if collections then
 local factoryCollections = {}
 for _,cname in pairs(collections) do
 if paintCollections[cname] and paintCollections[cname].paints and paintCollections[cname].class == "factory" then
---print("Found factory class paint collection in vehicle info file: " .. cname)
+blrlog("Found factory class paint collection in vehicle info file: " .. cname)
 for _,pname in pairs(paintCollections[cname].paints) do
 if type(pname) == "string" then
---print("Adding paint " .. pname .. " to list of factory paints to pick from")
+blrlog("Adding paint " .. pname .. " to list of factory paints to pick from")
 pkeys[pid] = pname
 pid = pid+1
 end
@@ -2767,7 +2772,7 @@ local paints = vehinfo["paints"]
 		end
 		
 		local pick = pkeys[math.random(1, #pkeys)]
-		print("Picked random LEGACY factory paint key: " .. pick)
+		blrlog("Picked random LEGACY factory paint key: " .. pick)
 		local paint = vehinfo["paints"][pick]
 		return createVehiclePaint({x=paint.baseColor[1], y=paint.baseColor[2], z=paint.baseColor[3], w=paint.baseColor[4]}, paint.metallic, paint.roughness, paint.clearcoat, paint.clearcoatRoughness)
 	end
@@ -2781,7 +2786,7 @@ end
 
 
 local pick = pkeys[math.random(1, #pkeys)]
-print("Picked random factory paint key: " .. pick)
+blrlog("Picked random factory paint key: " .. pick)
 local paint = paintLibrary[pick]
 return createVehiclePaint({x=paint.baseColor[1], y=paint.baseColor[2], z=paint.baseColor[3], w=paint.baseColor[4]}, paint.metallic, paint.roughness, paint.clearcoat, paint.clearcoatRoughness)
 end
@@ -3205,7 +3210,7 @@ if not level then return end -- fix for extension getting loaded through modScri
 local unit = getSettingValue("uiUnits")
 locals["lastGasUnit"] = unit
 if not FS:directoryExists("beamLR/mapdata/" .. level) then
-print("Missing mapdata for level, skipping gas station display init")
+blrlog("Missing mapdata for level, skipping gas station display init", lvl_warn)
 return
 end
 local triggers = loadDataTable("beamLR/mapdata/" .. level .. "/triggers")
@@ -3273,7 +3278,7 @@ local pwp = ""
 local nwp = ""
 local basepath = "/beamLR/races/" .. club .. "/" .. league .. "/"
 if not FS:directoryExists(basepath) then
-print("Waypoint validation error, invalid base path. Check club and league.")
+blrlog("Waypoint validation error, invalid base path. Check club and league.", lvl_warn)
 return
 end
 local rfiles = FS:findFiles(basepath, "*", 0)
@@ -3292,10 +3297,10 @@ cwp = waypoints[i]
 if i > 1 then pwp = waypoints[i-1] else pwp = "START" end
 if i < #waypoints then nwp = waypoints[i+1] else nwp = "FINISH" end
 if not scenetree.findObject(cwp) then -- Found waypoint missing from map entirely (removed by game update)
-print("MISSING " .. cwp .. " (BETWEEN " .. pwp .. " & " .. nwp .. ") IN FILE " .. v:gsub(basepath, ""))
+blrlog("MISSING " .. cwp .. " (BETWEEN " .. pwp .. " & " .. nwp .. ") IN FILE " .. v:gsub(basepath, ""))
 elseif pwp ~= "START" then 
 if #map.getPath(pwp, cwp) < 1 then -- Found existing waypoint with no path between itself and previous waypoint
-print("NO PATH BETWEEN " .. pwp .. " AND " .. cwp .. " IN FILE " .. v:gsub(basepath, ""))
+blrlog("NO PATH BETWEEN " .. pwp .. " AND " .. cwp .. " IN FILE " .. v:gsub(basepath, ""))
 end
 end
 end
@@ -3320,10 +3325,10 @@ cwp = waypoints[i]
 if i > 1 then pwp = waypoints[i-1] else pwp = "START" end
 if i < #waypoints then nwp = waypoints[i+1] else nwp = "FINISH" end
 if not scenetree.findObject(cwp) then -- Found waypoint missing from map entirely (removed by game update)
-print("MISSING " .. cwp .. " (BETWEEN " .. pwp .. " & " .. nwp .. ")")
+blrlog("MISSING " .. cwp .. " (BETWEEN " .. pwp .. " & " .. nwp .. ")")
 elseif pwp ~= "START" then 
 if #map.getPath(pwp, cwp) < 1 then -- Found existing waypoint with no path between itself and previous waypoint
-print("NO PATH BETWEEN " .. pwp .. " AND " .. cwp)
+blrlog("NO PATH BETWEEN " .. pwp .. " AND " .. cwp)
 end
 end
 end
@@ -3339,7 +3344,7 @@ for k,v in pairs(files) do
 if string.find(v, keyword) then
 csplit = ssplit(v, "/")
 cfile = csplit[#csplit]
-print("Checking file " .. cfile)
+blrlog("Checking file " .. cfile)
 locals["validateEventWaypoints"](cfile)
 end
 end
@@ -3432,9 +3437,9 @@ end
 
 
 locals["checkMissingConfigs"] = function()
-for k,v in pairs(extensions.blrutils.missingConfigFinder("beamLR/races", false, "enemyConfig")) do print(v) end
-for k,v in pairs(extensions.blrutils.missingConfigFinder("beamLR/performanceClass", true, "enemyConfig")) do print(v) end
-for k,v in pairs(extensions.blrutils.missingConfigFinder("beamLR/shop/car", false, "config")) do print(v) end
+for k,v in pairs(extensions.blrutils.missingConfigFinder("beamLR/races", false, "enemyConfig")) do blrlog(v) end
+for k,v in pairs(extensions.blrutils.missingConfigFinder("beamLR/performanceClass", true, "enemyConfig")) do blrlog(v) end
+for k,v in pairs(extensions.blrutils.missingConfigFinder("beamLR/shop/car", false, "config")) do blrlog(v) end
 end
 
 -- added for 0.33 to rebuild simple traffic spawngroups after cars got put under a same simple_traffic model
@@ -3535,7 +3540,7 @@ local f = io.open(path, "a")
 local iteration = 0
 
 if not f then
-print("saveDataTableOptimized could not open file at path: " .. path)
+blrlog("saveDataTableOptimized could not open file at path: " .. path, lvl_err)
 return false
 end
 
@@ -3577,7 +3582,7 @@ cconfig = extensions.blrpartmgmt.getVehicleData().config.partConfigFilename
 end 
 
 if not cconfig then 
-print("Could not generate new drag race, config parameter missing and couldn't get current car config file!")
+blrlog("Could not generate new drag race, config parameter missing and couldn't get current car config file!", lvl_warn)
 return
 end
 
@@ -3591,7 +3596,7 @@ saveDataTable(cfolder .. "race" .. cid, cdata)
 ccount = ccount + 1
 end
 
-print("Generated " .. ccount .. "/" .. #clist .. " new drag race files for config: " .. cconfig)
+blrlog("Generated " .. ccount .. "/" .. #clist .. " new drag race files for config: " .. cconfig)
 end
 
 -- forces buffered data to get flushed to log file by printing a ton of characters
@@ -3604,7 +3609,7 @@ locals["raceSelector"] = function(club, league, race)
 local pfile = "beamLR/races/" .. club .. "/progress"
 
 if not FS:fileExists(pfile) then
-print("Race selector error, invalid path to club progress. Check club and league.")
+blrlog("Race selector error, invalid path to club progress. Check club and league.", lvl_err)
 return
 end
 
@@ -3626,16 +3631,19 @@ end
 saveDataTable(pfile, pdata)
 end
 
+-- shows race path using AI Path/Plan Tests window
+-- 1.20.2 update now also selects checkpoint triggers
 locals["racePathDebugger"] = function(club, league, race)
 local tool = require("editor/aiTests")
 local rpath = "beamLR/races/" .. club .. "/" .. league .. "/" .. race
 if not FS:fileExists(rpath) then
-print("Invalid path to race file!")
+blrlog("Invalid path to race file!", lvl_err)
 return
 end
 
 local rdata = loadDataTable(rpath)
 local waypoints = ssplit(rdata["waypoints"], ",")
+local triggers = ssplit(rdata["triggers"], ",")
 
 for i,wp in ipairs(waypoints) do
 if i == 1 then
@@ -3647,11 +3655,18 @@ tool.addWaypoint(wp)
 end
 end
 
+local toselect = {}
+for i,trig in ipairs(triggers) do
+table.insert(toselect, scenetree.findObject(trig):getId())
+end
+editor.deselectObjectSelection()
+editor.selectObjects(toselect)
 
-print("Note: must be in 'AI Path/Plan Tests' tab for path to show.")
+blrlog("Note: must be in 'AI Path/Plan Tests' tab for path to show.")
 end
 
 locals["racePathDebuggerClear"] = function()
+editor.deselectObjectSelection()
 require("editor/aiTests").clear()
 end
 
@@ -3677,6 +3692,7 @@ dtable["sseed"] = "123"
 dtable["nseed"] = "123"
 dtable["odbufsize"] = "250"
 dtable["odtoggle"] = "1"
+dtable["loglevel"] = "15"
 saveDataTable("beamLR/options", dtable)
 
 -- next doing mainData
@@ -3826,7 +3842,7 @@ for _,file in pairs(files) do
 for k,v in pairs(locals["missionReloadIDs"]) do
 cpath = "/gameplay/missions/" .. k .. "/project.flow.json"
 if file.filename == cpath then
-print("Force cleared mission data cache after project " .. k .. " changed!")
+blrlog("Force cleared mission data cache after project " .. k .. " changed!")
 locals["reloadMissions"]()
 return
 end
@@ -3839,7 +3855,7 @@ end
 local function onVehicleSpawned(vehid)
 local veh = be:getObjectByID(vehid)
 if veh then
-print("blrutils should have loaded blrlogs extension for vehid: " .. vehid)
+blrlog("blrutils should have loaded blrlogs extension for vehid: " .. vehid)
 veh:queueLuaCommand("extensions.load('blrlogs')")
 end
 end
@@ -3886,7 +3902,7 @@ for i=1,#rails do
 actions = rails[i].actions
 for j=1,#actions do
 if toDisable[rname][actions[j].id] then
---print("Found button to disable with id " ..actions[j].id)
+--blrlog("Found button to disable with id " ..actions[j].id)
 rdata.data.layoutMenu.content.rail[i].actions[j].enabled = false
 modified = true
 end
@@ -3936,8 +3952,6 @@ end
 M.toMainMenu = function()
 endActiveGameMode()
 end
-
-
 
 M.onVehicleSpawned = onVehicleSpawned
 

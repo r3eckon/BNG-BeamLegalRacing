@@ -186,10 +186,11 @@ return inventory[iid .. "_" .. itype]
 end
 
 local function dumpInventory()
-print("\n")
+local toprint = "\n"
 for k,v in pairs(inventory) do
-print(k .. "=" .. v:encode()) 
+toprint = toprint .. k .. "=" .. v:encode() .. "\n"
 end
+blrlog(toprint)
 end
 
 

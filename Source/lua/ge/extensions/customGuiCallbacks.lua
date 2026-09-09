@@ -14,7 +14,7 @@ writeFile(p["filename"], p["filedata"])
 end
 
 ftable["test"] = function(p)
-print("TEST! Param : " .. p) 
+blrlog("TEST! Param : " .. p) 
 end
 
 ftable["setPart"] = function(p)
@@ -49,6 +49,7 @@ extensions.blrflags.set("garageSafeMode", true)	-- shared flag for vlua and gelu
 extensions.customGuiStream.toggleAdvancedRepairUI(false) -- force close advanced repair UI to avoid exploits
 extensions.blrglobals.blrFlagSet("imToggle", false) -- 1.16.9 fix, toggle off IMGUI buttons in safe mode
 extensions.customGuiStream.towingUIToggle(false) -- 1.16.9 fix, close towing UI to prevent towing in safe mode
+extensions.blrglobals.blrFlagSet("safeModeExitReady", false) -- 1.20.2 fix, prevents exiting safe mode until postedit fg is done
 end
 
 --1.13 advanced vehicle building edits																				
@@ -76,14 +77,14 @@ extensions.blrpartmgmt.addToInventory(p["item"])
 extensions.blrglobals.setProjectVariable("playerMoney", money - p["price"])
 extensions.blrutils.playSFX("event:>UI>Career>Buy_01")
 
-print("PART BUYING DATA")
-print("ITEM: " .. p["item"])
-print("USED: " .. tostring(p["used"]))
-print("PRICE: " .. p["price"])
+blrlog("PART BUYING DATA")
+blrlog("ITEM: " .. p["item"])
+blrlog("USED: " .. tostring(p["used"]))
+blrlog("PRICE: " .. p["price"])
 
 -- 1.16 advanced inventory implementation
 if p["used"] then 
-print("ODO: " .. p["odo"])
+blrlog("ODO: " .. p["odo"])
 extensions.blrPartInventory.add(p["item"], p["odo"], 1.0, false)
 extensions.blrPartInventory.onUsedPartPurchased(p["item"], p["shopID"]) -- for used part shop day data
 else
@@ -346,7 +347,7 @@ end
 
 ftable["uiinit"] = function(p)
 extensions.blrglobals.blrFlagSet("uiInitRequest", true)
-print("UI Init Request Received")
+blrlog("UI Init Request Received")
 end
 
 ftable["setTune"] = function(p)
@@ -973,9 +974,9 @@ cid = tonumber(csplit[1])
 extensions.blrPartInventory.remove(cid)
 ilinks[v] = nil
 done[v] = true -- 1.16.3 fix, mark part as done so it doesn't bug if trying to remove again
-print("REMOVED DAMAGED PARENT FROM INVENTORY: ID=" .. cid .. " NAME=" .. v)
+blrlog("REMOVED DAMAGED PARENT FROM INVENTORY: ID=" .. cid .. " NAME=" .. v)
 else
-print("WOULD HAVE REMOVED ALREADY REMOVED PART: " .. v)
+blrlog("WOULD HAVE REMOVED ALREADY REMOVED PART: " .. v)
 end
 
 cchilds = childmap[v]
@@ -990,9 +991,9 @@ cid = tonumber(csplit[1])
 extensions.blrPartInventory.setPartUsed(cid, false)
 ilinks[part] = nil
 done[part] = true -- 1.16.3 fix, mark part as done so it doesn't bug if trying to remove again
-print("ADDED UNDAMAGED CHILD TO INVENTORY: ID=" .. cid .. " NAME=" .. part)
+blrlog("ADDED UNDAMAGED CHILD TO INVENTORY: ID=" .. cid .. " NAME=" .. part)
 else
-print("WOULD HAVE REMOVED ALREADY REMOVED PART: " .. part)
+blrlog("WOULD HAVE REMOVED ALREADY REMOVED PART: " .. part)
 end
 end
 
@@ -1005,9 +1006,9 @@ cid = tonumber(csplit[1])
 extensions.blrPartInventory.remove(cid)
 ilinks[part] = nil
 done[part] = true -- 1.16.3 fix, mark part as done so it doesn't bug if trying to remove again
-print("REMOVED DAMAGED CHILD FROM INVENTORY: ID=" .. cid .. " NAME=" .. part)
+blrlog("REMOVED DAMAGED CHILD FROM INVENTORY: ID=" .. cid .. " NAME=" .. part)
 else
-print("WOULD HAVE REMOVED ALREADY REMOVED PART: " .. part)
+blrlog("WOULD HAVE REMOVED ALREADY REMOVED PART: " .. part)
 end
 end
 
@@ -1021,6 +1022,7 @@ extensions.blrflags.set("garageSafeMode", true)	-- shared flag for vlua and gelu
 extensions.customGuiStream.toggleAdvancedRepairUI(false) -- force close advanced repair UI to avoid exploits
 extensions.blrglobals.blrFlagSet("imToggle", false) -- 1.16.9 fix, toggle off IMGUI buttons in safe mode
 extensions.customGuiStream.towingUIToggle(false) -- 1.16.9 fix, close towing UI to prevent towing in safe mode
+extensions.blrglobals.blrFlagSet("safeModeExitReady", false) -- 1.20.2 fix, prevents exiting safe mode until postedit fg is done
 end
 
 -- 1.17.5 spent money tracking
@@ -1081,6 +1083,7 @@ extensions.blrflags.set("garageSafeMode", true)	-- shared flag for vlua and gelu
 extensions.customGuiStream.toggleAdvancedRepairUI(false) -- force close advanced repair UI to avoid exploits
 extensions.blrglobals.blrFlagSet("imToggle", false) -- 1.16.9 fix, toggle off IMGUI buttons in safe mode
 extensions.customGuiStream.towingUIToggle(false) -- 1.16.9 fix, close towing UI to prevent towing in safe mode
+extensions.blrglobals.blrFlagSet("safeModeExitReady", false) -- 1.20.2 fix, prevents exiting safe mode until postedit fg is done
 end
 
 -- 1.17.5 spent money tracking
@@ -1287,6 +1290,7 @@ extensions.blrflags.set("garageSafeMode", true)	-- shared flag for vlua and gelu
 extensions.customGuiStream.toggleAdvancedRepairUI(false) -- force close advanced repair UI to avoid exploits
 extensions.blrglobals.blrFlagSet("imToggle", false) -- 1.16.9 fix, toggle off IMGUI buttons in safe mode
 extensions.customGuiStream.towingUIToggle(false) -- 1.16.9 fix, close towing UI to prevent towing in safe mode
+extensions.blrglobals.blrFlagSet("safeModeExitReady", false) -- 1.20.2 fix, prevents exiting safe mode until postedit fg is done
 end
 
 extensions.blrpartmgmt.toggleAdvancedVehicleBuilding(true)
@@ -1349,8 +1353,8 @@ local data = {}
 data["missing"] = missing
 data["replacements"] = replacements
 
-print("REPLACEMENTS:")
-dump(replacements)
+blrlog("REPLACEMENTS:")
+blrlog(replacements)
 
 extensions.customGuiStream.sendTemplateFixData(data)
 end
@@ -1361,13 +1365,13 @@ local cpart = ""
 local tdata = jsonReadFile(fullpath)
 local ilinks = tdata["ilinks"]
 
-print("FIXING TEMPLATE AT PATH " .. fullpath)
+blrlog("FIXING TEMPLATE AT PATH " .. fullpath)
 
 for k,v in pairs(p) do
 if string.find(k, "fix_") then
 cpart = k:sub(5)
 ilinks[cpart] = v .. ",1234567890" -- odo doesnt matter, will be updated when template loads
-print("SHOULD HAVE FIXED PART " .. cpart .. " WITH ID " .. v)
+blrlog("SHOULD HAVE FIXED PART " .. cpart .. " WITH ID " .. v)
 end
 end
 
@@ -1480,7 +1484,7 @@ end
 ftable["pui2_addToCart"] = function(p)
 local part = p["part"]
 local used = p["used"]
-print("addToCart callback")
+blrlog("addToCart callback")
 extensions.blrpartmgmt.pui2_addToCart(part,used)
 end
 
@@ -1546,11 +1550,26 @@ local volumes = {}
 for k,v in pairs(uidata) do
 volumes[k] = (v / 100.0) * 5.0
 extensions.blrutils.blrvarSet("sfxvol/" .. k, volumes[k])
---print("Setting volume from UI for " .. k .. " to " .. volumes[k])
+--blrlog("Setting volume from UI for " .. k .. " to " .. volumes[k])
 end
 local otable = extensions.blrutils.loadDataTable("beamLR/options")
 otable["sfxvol"] = jsonEncode(volumes)
 extensions.blrutils.saveDataTable("beamLR/options", otable)
+end
+
+ftable["setLogLevel"] = function(p)
+local otable = extensions.blrutils.loadDataTable("beamLR/options")
+otable["loglevel"] = p
+extensions.blrutils.saveDataTable("beamLR/options", otable)
+
+-- reload option value on extension for immediate change
+extensions.blrlogs.onExtensionLoaded()
+
+-- do the same for all vehicles by queueing the vlua command
+for _,veh in pairs(getAllVehicles()) do
+if veh and veh.queueLuaCommand then veh:queueLuaCommand('extensions.blrlogs.onExtensionLoaded()') end
+end
+
 end
 
 

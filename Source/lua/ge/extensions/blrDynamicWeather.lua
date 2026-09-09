@@ -161,10 +161,10 @@ local t = getTOD()
 
 if cacheID ~= extensions.blrutils.getDailySeed() then
 generateWeatherFrames()
---print("GENERATED WEATHER FRAMES USING SEED " .. extensions.blrutils.getDailySeed())
+--blrlog("GENERATED WEATHER FRAMES USING SEED " .. extensions.blrutils.getDailySeed())
 else
 if t > 0.9999 or t < 0.0001 then 
---print("WAITING FOR DAY CHANGE...")
+--blrlog("WAITING FOR DAY CHANGE...")
 return 
 end 
 end
@@ -179,13 +179,13 @@ lerpval = ((t - 0.5) / 0.5)
 end
 
 
---print("MAIN LERP: " .. lerpval)
+--blrlog("MAIN LERP: " .. lerpval)
 
 local cloudCover = lerp(cloudCoverFrames[sframe], cloudCoverFrames[eframe], lerpval)
 local windSpeed = lerp(windSpeedFrames[sframe], windSpeedFrames[eframe], lerpval)
 local fogDensity = lerp(fogDensityFrames[sframe], fogDensityFrames[eframe], lerpval)
 
---print("LERP VALS: " .. cloudCover .. "\t" .. windSpeed .. "\t" .. fogDensity)
+--blrlog("LERP VALS: " .. cloudCover .. "\t" .. windSpeed .. "\t" .. fogDensity)
 
 -- fetch current variability values
 ccvar_current = extensions.blrutils.blrvarGet("ccvar") or 0
@@ -237,7 +237,7 @@ state.month = newdate.month
 state.year = newdate.year
 end
 
---print("TRIED TO SENT ENV DATE TO " .. state.day .. "/" .. state.month .. "/" .. state.year)
+--blrlog("TRIED TO SENT ENV DATE TO " .. state.day .. "/" .. state.month .. "/" .. state.year)
 
 env.setState(state)
 end

@@ -115,7 +115,7 @@ end
 if not skip then skip = not foundreq end
 
 if skip then
-print("Skipped file: " .. file)
+blrlog("Skipped file: " .. file, lvl_warn)
 else
 
 
@@ -140,7 +140,7 @@ skmap[cdescription] = tdkey
 tdata = tdata .. ' "' .. tdkey .. '" : "' .. cdescription .. '",\n'
 else
 tdkey = skmap[cdescription]
-print("Reusing existing translation key (" .. tdkey .. ") for string (" .. cdescription .. ") in file" .. file)
+blrlog("Reusing existing translation key (" .. tdkey .. ") for string (" .. cdescription .. ") in file" .. file)
 end
 else
 tdkey = tdprefix .. cfilename
@@ -170,12 +170,12 @@ writeFile("mtgen_output", tdata)
 end
 
 local function onUiChangedState(to,from)
---print("UI CHANGED STATE FROM " .. from .. " TO " .. to)
+--blrlog("UI CHANGED STATE FROM " .. from .. " TO " .. to)
 --if not reloadRequest then return end
 --if to == "play" then
 --reloadRequest = false
 --reloadUI()
---print("SHOULD HAVE RELOADED UI AFTER TRANSLATIONS LOADED")
+--blrlog("SHOULD HAVE RELOADED UI AFTER TRANSLATIONS LOADED")
 --end
 end
 

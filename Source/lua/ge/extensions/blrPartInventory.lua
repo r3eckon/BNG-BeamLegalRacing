@@ -61,7 +61,7 @@ edit(id, current + val)
 end
 
 local function setPartIntegrity(id, val)
-print("SHOULD HAVE SET INTEGRITY FOR " .. id .. " TO " .. val)
+--blrlog("SHOULD HAVE SET INTEGRITY FOR " .. id .. " TO " .. val)
 edit(id, nil, val)
 end
 
@@ -102,7 +102,9 @@ end
 end
 
 local function debugDump()
-for k,v in pairs(inventory) do print(k .. " = " .. dumps(v)) end
+local toprint = ""
+for k,v in pairs(inventory) do toprint = toprint .. k .. " = " .. dumps(v) .. "\n" end
+blrlog(toprint)
 end
 
 local function getPartCounts()

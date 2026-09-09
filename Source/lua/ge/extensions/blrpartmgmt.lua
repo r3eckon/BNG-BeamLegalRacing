@@ -192,7 +192,21 @@ return slotMap
 end
 
 
+-- returns a table no matter what
+-- if input is a table it returns that table
+-- if input is something else it returns it inside of a single item table
+-- just so we can immediately for loop on a value that may or may not be a table
+local function totable(input)
+if type(input) == "table" then return input
+else return {input} end
+end
+
+
+
 -- BeamNG 0.39 replacement for getSlotMap, works with slots2 format
+-- 1.20.2 fixed for missing slots, specifically slots with a single
+-- allowType that's different from the slot itself
+-- also optimized by removing a loop and using pairings to avoid dupes
 local function getSlotMapV2(ioctx, vehid)
 
 if not ioctx then ioctx = ioCtx() end
@@ -210,38 +224,41 @@ local cslotDef = ""
 local compatible = {}
 local incompatible = {}
 
-local toAdd = {} -- to avoid duplicates in part list, store parts as keys then loop over them to insert
-
+local pairings = {} -- 1.20.2 using pairings to avoid dupes, avoids an extra loop
 
 for part,pdata in pairs(avail) do
 
 	cpart = jbeamIO.getPart(ioctx, part)
 	cslots = cpart.slots2 or part.slots
 	
-	if cslots then
+	-- 1.20.2 fix for parts not being added to map for actual slotType they belong to
+	-- this caused issues with single allowType slots that had different type than the
+	-- type of the slot itself (ex: barstow_grille_L_highbeam_bulb > sealedBeam_tungsten_50W)
+	if cpart.slotType then
+		for _,slotType in pairs(totable(cpart.slotType)) do
+			if not toRet[slotType] then toRet[slotType] = {} end
+			if not pairings[slotType .. ">" .. part] then
+				table.insert(toRet[slotType], part)
+				pairings[slotType .. ">" .. part] = true
+			end
+		end
+	end
 	
+	-- now looping over child slots of current part
+	if cslots then
 		for _,slotDef in pairs(cslots) do
 			compatible, incompatible = jbeamIO.getCompatiblePartNamesForSlot(ioctx, slotDef, slotMap)
-			
 			if not toRet[slotDef.name] then toRet[slotDef.name] = {} end
-			if not toAdd[slotDef.name] then toAdd[slotDef.name] = {} end
-				
 			for _,compatiblePart in pairs(compatible) do
-				toAdd[slotDef.name][compatiblePart] = true
+				if not pairings[slotDef.name .. ">" .. compatiblePart] then
+					table.insert(toRet[slotDef.name], compatiblePart)
+					pairings[slotDef.name .. ">" .. compatiblePart] = true
+				end
 			end
-			
 		end
-	
 	end
 
 end
-
-for slot,addList in pairs(toAdd) do
-for add,_ in pairs(addList) do
-table.insert(toRet[slot], add)
-end
-end
-
 
 return toRet
 end
@@ -320,16 +337,16 @@ for slot,part in pairs(current) do	-- Fix for search function not finding curren
 if part ~= "" and slots[slot] ~= "main" then
 
 if not toRet[slot] then 
-print("getGarageUIData error happened, toRet[slot] was nil")
-print("slot:" .. slot)
-print("current parts table dump")
-dump(current)
-print("toRet table dump")
-dump(toRet)
-print("avail table dump")
-dump(avail)
-print("slots table dump")
-dump(slots)
+blrlog("getGarageUIData error happened, toRet[slot] was nil", lvl_err)
+blrlog("slot:" .. slot, lvl_err)
+blrlog("current parts table blrlog", lvl_err)
+blrlog(current, lvl_err)
+blrlog("toRet table blrlog", lvl_err)
+blrlog(toRet, lvl_err)
+blrlog("avail table blrlog", lvl_err)
+blrlog(avail, lvl_err)
+blrlog("slots table blrlog", lvl_err)
+blrlog(slots, lvl_err)
 toRet[slot] = {} 
 end
 
@@ -443,8 +460,8 @@ end
 local favoritesData = {}
 local function loadFavorites()
 favoritesData = loadTableFromFile("beamLR/slotFavorites", false)
-print("loaded favorites dump")
-dump(favoritesData)
+blrlog("loaded favorites blrlog")
+blrlog(favoritesData)
 end
 
 
@@ -710,12 +727,12 @@ for k,v in pairs(allParts) do
 cpart = getPartJbeam(k, vehid)
 
 if not cpart then
-blrlog("cpart WAS NIL for:")
-blrlog(k)
-blrlog("USING VEHID:")
-blrlog(vehid)
-blrlog("IOCTX:")
-blrlog(dumps(ioCtx(vehid)))
+blrlog("cpart WAS NIL for:", lvl_err)
+blrlog(k, lvl_err)
+blrlog("USING VEHID:", lvl_err)
+blrlog(vehid, lvl_err)
+blrlog("IOCTX:", lvl_err)
+blrlog(dumps(ioCtx(vehid)), lvl_err)
 end
 
 ctype = cpart["slotType"]
@@ -805,7 +822,7 @@ toRet[v.type or v.name] = v
 end
 end
 else
-print("getNameKeyedJbeamSlots error, no jbeam data for part: " .. part)
+blrlog("getNameKeyedJbeamSlots error, no jbeam data for part: " .. part,  lvl_err)
 end
 
 return toRet
@@ -914,13 +931,44 @@ local function invalidateMergedSlotsMapsCache()
 mergedSlotMapsCacheValid = false
 end
 
+-- TODO: BRING BACK PREVIOUS VERSION OF THIS FUNCTION AND TEST IF THIS NEW VERSION CONTAINS
+-- EVERY SLOT AND PART RETURNED BY PREVIOUS VERSION, THEN TRY THE POTENTIAL OPTIMIZATION I
+-- THINK MIGHT WORK TO USE ONLY THE LAST LOOP (MARKED "might only need this loop") AND SEE
+-- IF THAT GIVES US THE SAME RESULT
+
+-- used in 1.20.2 fix of getMergedSlotMaps
+-- takes list of all available parts from getAllAvailableParts
+-- and builds a slotmap using the jbeam found slotType(s) 
+local function buildAllPartsSlotMap(allParts)
+local cjbeam = {}
+local toRet = {}
+local pairings = {}
+
+for part,pdata in pairs(allParts) do
+	cjbeam = getPartJbeam(part)
+	for _,slot in pairs(totable(cjbeam.slotType)) do
+		if not toRet[slot] then toRet[slot] = {} end
+		if not pairings[slot .. ">" .. part] then
+			table.insert(toRet[slot], part)
+			pairings[slot .. ">" .. part] = true
+		end
+	end
+end
+
+return toRet
+end
+
+
 
 -- 1.18 fix for some universal parts no longer showing up in shops, like GPS
-local function getMergedSlotMaps(vehid) -- Should give player access to all vehicle parts except wheels which are too numerous to give good UX
+-- 1.20.2 fix for some more missing parts issues
+-- DEPRECATED VERSION, KEEPING IN CASE NEW VERSION DOESN'T WORK IN SOME CASES
+local function getMergedSlotMaps_OLD(vehid) -- Should give player access to all vehicle parts except wheels which are too numerous to give good UX
 
-if mergedSlotMapsCacheValid then
-return mergedSlotMapsCache
-end
+-- DISABLING CACHE FEATURE SO DEPRECATED FUNCTION CAN BE TESTED PROPERLY
+--if mergedSlotMapsCacheValid then
+--return mergedSlotMapsCache
+--end
 
 local slotMap = getAvailablePartList(vehid)
 local fullMap = getFullSlotMap(vehid)
@@ -931,6 +979,7 @@ local cjbeam = {}
 local ctype = ""
 local pairings = {}
 local allowTypePaths, allowTypeIDs = getSlotAllowTypes(vehid)
+local allPartsSlotMap = buildAllPartsSlotMap(allParts) -- this one is used in the 1.20.2 fix
 
 local toRet = {}
 local toRetFinal = {}
@@ -977,19 +1026,21 @@ for part,pdata in pairs(allParts) do
 			end
 		end
 	else
-		print("getMergedSlotMaps error, Couldn't load jbeam file for part: " .. tostring(part))
+		blrlog("getMergedSlotMaps error, Couldn't load jbeam file for part: " .. tostring(part),  lvl_err)
 	end
 end
 
 -- 1.18.1 fixes, adding parts that fit in an allowType of an installed slot 
 -- into table for that slot and removing the allowType slot from the shop list
 for k,v in pairs(toRet) do
-toRetFinal[k] = tableValuesToKeys(v)
+toRetFinal[k] = v
 end
 
-
 local cpath = ""
-for k,v in pairs(toRet) do
+-- 1.20.2 updated this loop to fix missing parts (was missing bulbs in headlights)
+-- now looping over slots and checking parts in a slotmap built using all available parts
+-- and allowTypes to now hopefully actually get every single part that can fit in each slot
+for k,v in pairs(vehSlots) do 
 	
 	if idkslots[k] then
 		
@@ -999,9 +1050,13 @@ for k,v in pairs(toRet) do
 				
 				for _,allowType in pairs(allowTypeIDs[cpath]) do
 					
-					if allowType ~= k and fullMap[allowType] then
-						for _,part in pairs(fullMap[allowType]) do
-							toRetFinal[k][part] = true
+					if allowType ~= k and allPartsSlotMap[allowType] then
+						for _,part in pairs(allPartsSlotMap[allowType]) do
+							if not toRetFinal[k] then toRetFinal[k] = {} end
+							if not pairings[k .. ">" .. part] then
+								table.insert(toRetFinal[k], part)
+								pairings[k .. ">" .. part] = true
+							end
 						end
 						
 						toRetFinal[allowType] = nil
@@ -1012,15 +1067,136 @@ for k,v in pairs(toRet) do
 		end
 	
 	end
-	if toRetFinal[k] then -- skip slots that were removed during process
-		toRetFinal[k] = tableKeysToValues(toRetFinal[k])
+	-- 1.20.2 improvement, now using pairings for duplicate check in previous loop as well
+	-- so no longer need to convert from keys to values
+	--if toRetFinal[k] then -- skip slots that were removed during process
+	--	toRetFinal[k] = tableKeysToValues(toRetFinal[k])
+	--end
+end
+
+-- DISABLED CACHING SO OLD FUNCTION CAN BE TESTED PROPERLY
+--mergedSlotMapsCacheValid = true
+--mergedSlotMapsCache = toRetFinal
+return toRetFinal
+end
+
+
+
+-- 1.20.2 optimized version of the _OLD deprecated version of the function
+-- in testing shown to give the exact same part list with no missing parts
+-- but runs 4x faster due to less table looping, could be some cases where
+-- parts are missing i'm not sure yet so keeping old version in for now
+local function getMergedSlotMaps(vehid) -- Should give player access to all vehicle parts except wheels which are too numerous to give good UX
+
+if mergedSlotMapsCacheValid then
+return mergedSlotMapsCache
+end
+
+
+local allParts = getAllAvailableParts(false, vehid) -- contains non veh specific parts
+local vehSlots = getVehicleSlotIDsList(vehid)
+local fullMap = getFullSlotMap(vehid) -- only contains vehicle specific parts
+local idkslots = getIDKeyedSlots(vehid)
+local pairings = {}
+local allowTypePaths, allowTypeIDs = getSlotAllowTypes(vehid)
+local allPartsSlotMap = buildAllPartsSlotMap(allParts) -- this one is used in the 1.20.2 fix
+
+local toRetFinal = {}
+
+-- first loop, check for vehicle specific parts obtained in getFullSlotMap
+for k,v in pairs(fullMap) do
+toRetFinal[k] = v
+for _,p in pairs(v) do				
+pairings[k .. ">" .. p] = true -- to avoid adding same part twice to same slots
+end
+end
+
+
+local cpath = ""
+-- 1.20.2 updated this loop to fix missing parts (was missing bulbs in headlights)
+-- now looping over slots and checking parts in a slotmap built using all available parts
+-- and allowTypes to now hopefully actually get every single part that can fit in each slot
+for k,v in pairs(vehSlots) do 
+	-- check directly for slot type on vehicle
+	if allPartsSlotMap[k] then
+		for _,part in pairs(allPartsSlotMap[k]) do
+			if not toRetFinal[k] then toRetFinal[k] = {} end
+			if not pairings[k .. ">" .. part] then
+				table.insert(toRetFinal[k], part)
+				pairings[k .. ">" .. part] = true
+			end
+		end
+	end
+	
+	-- now checking for compatible allowTypes on parts
+	if idkslots[k] then
+		
+		for _,cpath in pairs(idkslots[k]) do
+			
+			if allowTypeIDs[cpath] then
+				
+				for _,allowType in pairs(allowTypeIDs[cpath]) do
+					
+					if allPartsSlotMap[allowType] then
+						for _,part in pairs(allPartsSlotMap[allowType]) do
+							if not toRetFinal[k] then toRetFinal[k] = {} end
+							if not pairings[k .. ">" .. part] then
+								table.insert(toRetFinal[k], part)
+								pairings[k .. ">" .. part] = true
+							end
+						end
+						
+						--toRetFinal[allowType] = nil
+					end
+				end
+			end
+		
+		end
+	
 	end
 end
 
 mergedSlotMapsCacheValid = true
 mergedSlotMapsCache = toRetFinal
+
 return toRetFinal
 end
+
+-- purely for test to compare between version of getMergedSlotMaps
+-- checks if old has stuff that doesn't appear in new
+local function compareTables(new, old)
+local mapNew = {}
+local mapOld = {}
+
+local result = true
+
+for k,v in pairs(old) do
+mapOld[k] = tableValuesToKeys(v)
+end
+for k,v in pairs(new) do
+mapNew[k] = tableValuesToKeys(v)
+end
+
+
+for slot,parts in pairs(mapOld) do
+	if not mapNew[slot] then 
+		result = false
+		blrlog("NEW TABLE MISSING SLOT: " .. slot)
+	else
+		for part,_ in pairs(parts) do
+			if not mapNew[slot][part] then 
+				blrlog("NEW TABLE MISSING PART: " .. part)
+				result = false 
+			end
+		end
+	end
+end
+
+return result
+end
+
+M.compareTables = compareTables
+
 
 local function getFullPartPrices(vehid) -- This is the new function to send part prices to UI
 local avail = getMergedSlotMaps(vehid)
@@ -1116,7 +1292,7 @@ for k,v in pairs(filters) do
 		-- slot doesn't actually exist (missing in part editor and slotMap) this should
 		-- prevent issue without having to remove item from random slots which means
 		-- if devs add underglow slot to bx it should be allowed to spawn on used cars
-		print("getFilteredSlotMap missing item (" .. v .. ") from filters. Check slotMap for missing random slot.")
+		blrlog("getFilteredSlotMap missing item (" .. v .. ") from filters. Check slotMap for missing random slot.", lvl_warn)
 		end
 	else
 		toRet[v] = fullmap[v]
@@ -1646,7 +1822,7 @@ local delayedSlotSet = {}
 local function setSlotDelayed(slot, part, partID)
 local currentParts = getVehicleParts()
 
-print("SET SLOT DELAYED CALLED WITH PARAMS: " .. (slot or "null") .. "," .. (part or "null") .. "," .. (partID or 0))
+blrlog("SET SLOT DELAYED CALLED WITH PARAMS: " .. (slot or "null") .. "," .. (part or "null") .. "," .. (partID or 0))
 
 -- 1.16 additions for part specific odometer
 loadConfigFileData(extensions.blrutils.blrvarGet("playerCurrentCarGarageID"))
@@ -1689,15 +1865,15 @@ extensions.blrPartInventory.setPartOdometer(removedID, removedINVODO + (vehicleC
 extensions.blrPartInventory.setPartUsed(removedID, false)
 -- Remove from ilinks
 ilinksCache[removedPartPath] = nil
-print("SHOULD HAVE UPDATED PART ID " .. removedID .. " ODOMETER VALUE TO " .. (removedINVODO + (vehicleCurrentOdometer - removedILODO)))
-print("SHOULD HAVE REMOVED PART ID " .. removedID .. " FROM ilinks")
+blrlog("SHOULD HAVE UPDATED PART ID " .. removedID .. " ODOMETER VALUE TO " .. (removedINVODO + (vehicleCurrentOdometer - removedILODO)))
+blrlog("SHOULD HAVE REMOVED PART ID " .. removedID .. " FROM ilinks")
 end
 
 if addedPart then -- for added part just set part used flag in inventory and add to ilinks
 addedPartPath = slot .. addedPart
 extensions.blrPartInventory.setPartUsed(partID, true)
 ilinksCache[addedPartPath] = partID .. "," .. vehicleCurrentOdometer
-print("SHOULD HAVE ADDED PART ID " .. partID .. " TO ILINKS WITH DATA [" .. partID .. "," .. vehicleCurrentOdometer .. "]")
+blrlog("SHOULD HAVE ADDED PART ID " .. partID .. " TO ILINKS WITH DATA [" .. partID .. "," .. vehicleCurrentOdometer .. "]")
 end
 
 -- 1.16
@@ -1728,7 +1904,7 @@ else
 cnode["partPath"] = path .. part
 end
 cnode["chosenPartName"] = part
-print("Should have set part for slot " .. cnode.id .. " to: " .. part)
+blrlog("Should have set part for slot " .. cnode.id .. " to: " .. part)
 end
 
 require("jbeam/io").finishLoading() -- clearing jbeam cache ADDED 1.18.2
@@ -2015,18 +2191,18 @@ for slot,avail in pairs(map) do
 					callow = allowTypeIDs[slotPath][1]
 					
 					if map[callow] then -- to skip allowType slots that aren't present in slot part map
-						print("Found slot with single allowType different from main slot ID: " .. slot .. " VS " .. callow)
+						blrlog("Found slot with single allowType different from main slot ID: " .. slot .. " VS " .. callow)
 						for _,allowPart in pairs(map[callow]) do
 							if not toRet[allowPart] then toRet[allowPart] = {} end
 							table.insert(toRet[allowPart], slotPath)
 						end
 					else
-						print("allowType " .. callow .. " did not exist in slot part map, skipping.")
+						blrlog("allowType " .. callow .. " did not exist in slot part map, skipping.")
 					end
 				-- 1.18.1 fix, adding parts for slots with extra allowTypes to pksmap
 				elseif allowTypeIDs[slotPath] and #allowTypeIDs[slotPath] > 1 then
 				
-					print("Found slot with extra allowTypes: " .. slotPath)
+					blrlog("Found slot with extra allowTypes: " .. slotPath)
 				
 					for _,allowType in pairs(allowTypeIDs[slotPath]) do
 
@@ -2042,7 +2218,7 @@ for slot,avail in pairs(map) do
 							
 							else
 							
-								print("allowType " .. allowType .. " did no exist in slot part map, skipping.")
+								blrlog("allowType " .. allowType .. " did no exist in slot part map, skipping.")
 								
 							end
 							
@@ -2101,8 +2277,8 @@ local sortedOdos = getValueSortedKeys(odo)
 local nkso = {}
 local final = {}
 
---dump(name)
---dump(odo)
+--blrlog(name)
+--blrlog(odo)
 
 local cname = ""
 for _,id in ipairs(sortedOdos) do
@@ -2187,8 +2363,8 @@ for slot,tab in pairs(unsorted) do
 		codos[id] = inventory[id][2]
 		end
 	end
-	--dump(cnames)
-	--dump(codos)
+	--blrlog(cnames)
+	--blrlog(codos)
 	sorted[slot] = getNOST(cnames, codos)
 end
 
@@ -2196,7 +2372,8 @@ return sorted
 end
 
 -- returns list of inventory part IDs currently used on vehicle 
-local function getUsedPartInventoryIDs(vehid)
+-- 1.20.2 DEPRECATED, NEW VERSION BELOW
+local function getUsedPartInventoryIDs_OLD(vehid)
 local toRet = {}
 local csplit = {}
 local cid = -1
@@ -2235,12 +2412,55 @@ end
 
 else
 
-print("getUsedPartInventoryIDs failed due to missing ilinks for vehicle with GID " .. gid)
+blrlog("getUsedPartInventoryIDs failed due to missing ilinks for vehicle with GID " .. gid, lvl_err)
 
 end
 
 return toRet
 end
+
+-- 1.20.2 version, removed code causing issues when part fits in
+-- multiple slots causing the function to return the same part id for
+-- different slots even though different parts are used in each slot
+local function getUsedPartInventoryIDs(vehid)
+local toRet = {}
+local csplit = {}
+local cid = -1
+local main = getMainPartName(vehid)
+
+if main == "unicycle" then return {} end -- 1.18.5 fix for infinite sell glitch
+
+local gid = extensions.blrutils.blrvarGet("playerCurrentCarGarageID")
+local cstart = nil
+local ckey = ""
+loadConfigFileData(gid)
+
+if configDataCache["ilinks"] then
+
+for k,v in pairs(configDataCache["ilinks"]) do
+	if k ~= main then
+		cstart = string.find(k,"[^/]+$", 1, false) -- finds the end of the slot part of path
+		if cstart then
+			ckey = string.sub(k, 1, cstart-1)
+			csplit = extensions.blrutils.ssplit(v, ",")
+			cid = tonumber(csplit[1])
+			toRet[ckey] = cid
+		else
+			blrlog("getUsedPartInventoryIDs failed to extract slot part of path: " .. tostring(k), lvl_err)
+		end
+	end
+end
+
+else
+
+blrlog("getUsedPartInventoryIDs failed due to missing ilinks for vehicle with GID " .. gid, lvl_err)
+
+end
+
+return toRet
+end
+
+
 
 -- EDITED IN 1.18 TO WORK WITH BEAMNG 0.36 SLOT/PART PATH SYSTEM
 local function initVehicleInventoryLinks()
@@ -2251,7 +2471,7 @@ local odometer = configFile["odometer"]
 local cpath = ""
 local mainPartChild = getMainPartChild()
 if not configFile["ilinks"] then
-print("Detected new vehicle with GID" .. gid .. ", creating inventory links!")
+blrlog("Detected new vehicle with GID" .. gid .. ", creating inventory links!")
 local cid = -1
 
 configFile["ilinks"] = {}
@@ -2548,7 +2768,7 @@ local gcintercount = 1000
 local function gcinterval(interval)
 gciteration = gciteration + 1
 if (gciteration % interval) == 0 then 
-print("GC RUNNING, CURRENT MEM USAGE " .. collectgarbage("count") .. " KB")
+blrlog("GC RUNNING, CURRENT MEM USAGE " .. collectgarbage("count") .. " KB")
 collectgarbage()
 end
 end
@@ -2598,7 +2818,7 @@ if not jbeamFileMap[p] then jbeamFileMapCount = jbeamFileMapCount + 1 end -- DEB
 jbeamFileMap[p] = v
 end
 else
-print("BEAMLR JBEAM CACHING AVOIDED BROKEN JBEAM FILE: " .. v)
+blrlog("BEAMLR JBEAM CACHING AVOIDED BROKEN JBEAM FILE: " .. v, lvl_warn)
 end
 
 gcinterval(gcintercount)
@@ -2635,8 +2855,8 @@ fullPartNameLibrary[k] = jsonEncode(fullPartNameLibrary[k])
 end
 
 else
-print("Jbeam part name caching error, missing jbeam file or information table or name data for part: " .. k)
-print("This is most likely caused by incorrectly formatted jbeam file")
+blrlog("Jbeam part name caching error, missing jbeam file or information table or name data for part: " .. k, lvl_warn)
+blrlog("This is most likely caused by incorrectly formatted jbeam file", lvl_warn)
 fullPartNameLibrary[k] = k
 end
 gcinterval(gcintercount)
@@ -2671,7 +2891,7 @@ elseif cjbeam and cjbeam["slots"] then
 newfmt = false
 cslotdata = parseJbeamSlotsTable(cjbeam["slots"])
 elseif not cjbeam then
-print("Missing jbeam file for " .. k)
+blrlog("Missing jbeam file for " .. k, lvl_warn)
 end
 
 if cslotdata then
@@ -2696,7 +2916,7 @@ end
 
 
 else
-print("Missing slot name/type data for " .. i .. ", slot data dump: " .. dumps(slot))
+blrlog("Missing slot name/type data for " .. i .. ", slot data blrlog: " .. dumps(slot), lvl_warn)
 end
 end
 end
@@ -2765,7 +2985,7 @@ cachedMods["cached_game_version"] = beamng_versiond
 
 extensions.blrutils.saveDataTableOptimized("beamLR/cache/cachedMods", cachedMods, gcintercount)
 
-print("SHOULD HAVE CACHED MODS CORRECTLY FOR GAME VERSION: " .. beamng_versiond)
+blrlog("SHOULD HAVE CACHED MODS CORRECTLY FOR GAME VERSION: " .. beamng_versiond)
 
 end
 
@@ -2863,13 +3083,13 @@ jbcsmap = {}
 jbcsconfig = config
 end
 
---print("part=" .. part)
+--blrlog("part=" .. part)
 
 local cfile = jbeamFileMap[part]
 
 if not cfile or not FS:fileExists(cfile) then
-print("JBEAM FILE WAS MISSING FOR PART " .. part)
-if cfile then print("RETURNED FILE PATH WAS " .. cfile) else print("RETURNED FILE PATH WAS NIL") end
+blrlog("JBEAM FILE WAS MISSING FOR PART " .. part, lvl_warn)
+if cfile then blrlog("RETURNED FILE PATH WAS " .. cfile, lvl_warn) else blrlog("RETURNED FILE PATH WAS NIL", lvl_warn) end
 return
 end
 
@@ -2899,17 +3119,17 @@ for k,v in pairs(cslots) do
 
 cpart = jbcsconfig["parts"][v["type"]]
 
---print(v["type"])
+--blrlog(v["type"])
 
 if cpart and cpart ~= "" and cpart ~= "none" then
---print("cpart=" .. cpart)
+--blrlog("cpart=" .. cpart)
 buildJbeamChildSlotMap(cpart)
 end
 
 end
 
---dump("DUMPING JBEAM CHILD SLOT MAP FOR PART: " .. part)
---dump(jbcsmap)
+--blrlog("DUMPING JBEAM CHILD SLOT MAP FOR PART: " .. part)
+--blrlog(jbcsmap)
 
 end
 
@@ -2979,7 +3199,7 @@ end
 
 
 
-dump("Spawning defective vehicle, removed part: " .. pick)
+blrlog("Spawning defective vehicle, removed part: " .. pick)
 
 for k,v in pairs(toRet["parts"]) do
 
@@ -3023,7 +3243,7 @@ local ctype = ""
 for k,v in pairs(slots) do
 ctype = v.type or v.name -- 1.18.1 fix for slot2 format using "name" instead of "type" for slod id
 if ctype == nil then
-print("getSortedJbeamSlotsTable error, ctype was nil for slot: " .. k .. " dump data: " .. dumps(v))
+blrlog("getSortedJbeamSlotsTable error, ctype was nil for slot: " .. k .. " blrlog data: " .. dumps(v), lvl_err)
 else
 sknv[ctype] = extensions.blrlocales.translate(fullSlotNameLibrary[ctype]) -- BeamNG 0.39 translated names support
 end
@@ -3096,7 +3316,7 @@ sendPartUI2Cart()
 end
 
 local function pui2_removeFromCart(index)
-print("removing cart item at index: " .. index)
+blrlog("removing cart item at index: " .. index)
 if pui2_cart[index].used then
 pui2_usedmap[pui2_cart[index].part] = nil
 end
@@ -3119,12 +3339,12 @@ extensions.blrutils.playSFX("event:>UI>Career>Buy_01")
 -- adding individual parts in cart to inventory
 for pid,pdata in ipairs(cartdata.items) do
 --extensions.blrpartmgmt.addToInventory(pdata.part) -- old inventory code, no longer needed
---print("PART BUYING DATA")
---print("ITEM: " .. pdata.part)
---print("USED: " .. tostring(pdata.used))
---print("PRICE: " .. pdata.price)
+blrlog("PART BUYING DATA")
+blrlog("ITEM: " .. pdata.part)
+blrlog("USED: " .. tostring(pdata.used))
+blrlog("PRICE: " .. pdata.price)
 if pdata.used then
---print("ODOMETER: " .. pdata.odometer)
+blrlog("ODOMETER: " .. pdata.odometer)
 extensions.blrPartInventory.add(pdata.part, pdata.odometer, 1.0, false)
 extensions.blrPartInventory.onUsedPartPurchased(pdata.part, cartdata.shopid) -- for used part shop day data
 else
@@ -3206,7 +3426,7 @@ end
 sendPartUI2Cart()
 end
 
-
+M.buildAllPartsSlotMap = buildAllPartsSlotMap
 M.getSlotMapV2 = getSlotMapV2
 M.toggleAdvancedVehicleBuilding = toggleAdvancedVehicleBuilding
 M.getVehicleModel = getVehicleModel

@@ -32,7 +32,7 @@ end
 
 local function fadeToBlack(duration)
 if state == "off" then
-print("Fading to black in " .. duration .. " seconds")
+blrlog("Fading to black in " .. duration .. " seconds")
 setState("to")
 ui_fadeScreen.start(duration or 1)
 end
@@ -40,7 +40,7 @@ end
 
 local function fadeFromBlack(duration)
 if state == "on" then
-print("Fading from black in " .. duration .. " seconds")
+blrlog("Fading from black in " .. duration .. " seconds")
 setState("from")
 ui_fadeScreen.stop(duration or 1)
 end

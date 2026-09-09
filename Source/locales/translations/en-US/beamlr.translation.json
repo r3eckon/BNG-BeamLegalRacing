@@ -174,6 +174,7 @@
 	"beamlr.generic.term.in_lc" : "in",
 	"beamlr.generic.term.status" : "Status",
 	"beamlr.generic.term.damage" : "Damage",
+	"beamlr.generic.term.difficulty" : "Difficulty",
 	
 	
 		//Title
@@ -333,6 +334,9 @@
 	"beamlr.mainui.page.options.setting.manualcachedetails" : "Manual Cache Update will force update the jbeam file caches. Use this to update jbeam cache when you add jbeam files that aren't stored in a mod zip.",
 	"beamlr.mainui.page.options.setting.manualcache" : "Manual Cache Update",
 	"beamlr.mainui.page.options.setting.manualcacheexec" : "Execute",
+	"beamlr.mainui.page.options.setting.logginglevels" : "Log level toggles control which BeamLR related logs are shown in console & log files.",
+	"beamlr.mainui.page.options.setting.loggingblrlog" : "Use BeamLR Log toggles log replication to the BeamLR specific log file.",
+	"beamlr.mainui.page.options.setting.loggingdetails" : "Turning off log levels and BeamLR log replication can improve performance if the userfolder is on a slower drive but it isn't recommended as it may result in lack of relevant information for bug reports.",
 	
 		//Part Buying page
 	"beamlr.mainui.page.partbuy.title" : "Buy Parts ",
@@ -1268,7 +1272,7 @@
 	 "beamlr.imgui.challenges.type.jump" : "Jump",
 	 "beamlr.imgui.challenges.type.speed" : "Speed Trap",
 	 "beamlr.imgui.challenges.type.time" : "Time Attack",
-	 "beamlr.imgui.challenges.prefix.targetspeed" : "Target Speed",
+	 "beamlr.imgui.challenges.prefix.targetspeed" : "Target",
 	 "beamlr.imgui.challenges.prefix.driftpts" : "Drift Points",
 	 "beamlr.imgui.challenges.prefix.trafficon" : "Traffic: Enabled",
 	 "beamlr.imgui.challenges.prefix.trafficoff" : "Traffic: Disabled",
@@ -1308,6 +1312,7 @@
 		//Repair Garage
 	 "beamlr.imgui.repair.waitingfordata" : "Waiting for trigger data...",
 	 "beamlr.imgui.repair.safemodemsg" : "Part edit safe mode enabled. Exit safe mode to access garage and unfreeze vehicle.",
+	 "beamlr.imgui.repair.safemodewalkmsg" : "You must be in your car to exit safe mode.",
 	 "beamlr.imgui.repair.exitsafemode" : "Exit Safe Mode",
 	 "beamlr.imgui.repair.mustbeinveh" : "Must be in vehicle",
 	 "beamlr.imgui.repair.costprefix" : "Repair Cost : $",

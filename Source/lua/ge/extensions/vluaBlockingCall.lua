@@ -19,7 +19,7 @@ unblocked[id] = false
 if veh then
 veh:queueLuaCommand("extensions.vluaBlockingCall.exec('" .. f .. "','" .. p .. "'," .. id .. ")")
 else
-print("vlua blocking call error, veh was nil. vehid: " .. vehid)
+blrlog("vlua blocking call error, veh was nil. vehid: " .. vehid, lvl_err)
 end
 end
 
@@ -37,7 +37,7 @@ end
 else
 cmd = "extensions.vluaBlockingCall.setParam('" .. p .. "'," .. v .. ")"
 end
-if veh then veh:queueLuaCommand(cmd) else print("vlua blocking call error, veh was nil. vehid: " .. vehid) end
+if veh then veh:queueLuaCommand(cmd) else blrlog("vlua blocking call error, veh was nil. vehid: " .. vehid, lvl_err) end
 end
 
 local function setParamTableValue(vehid, t, p, v)
@@ -54,7 +54,7 @@ end
 else
 cmd = "extensions.vluaBlockingCall.setParamTableValue('" .. t .. "','" .. p .. "'," .. v .. ")"
 end
-if veh then veh:queueLuaCommand(cmd) else print("vlua blocking call error, veh was nil. vehid: " .. vehid) end
+if veh then veh:queueLuaCommand(cmd) else blrlog("vlua blocking call error, veh was nil. vehid: " .. vehid, lvl_err) end
 end
 
 local function reset()

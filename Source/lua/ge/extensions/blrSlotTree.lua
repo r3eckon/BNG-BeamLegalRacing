@@ -63,7 +63,7 @@ local function treedump(n, d)
     cout = cout .. "   "
   end
   cout = cout .. n.id .. "=" .. (extensions.blrpartmgmt.getFullSlotNameLibrary()[extensions.blrpartmgmt.getSlotIDFromPath(n.id)] or "!!! NO UI NAME !!!")
-  blrlog(cout)
+  print(cout)
   for k,v in ipairs(n.children) do
     treedump(v, depth+1)
   end
@@ -76,7 +76,7 @@ for i=1,depth do
 cout = cout .. "-"
 end
 cout = cout .. n.id .. "=" .. (extensions.blrpartmgmt.getFullSlotNameLibrary()[n.id] or "!!! NO UI NAME !!!")
-blrlog(cout)
+print(cout)
 for k,v in ipairs(n.children) do
 parttreedump(tnodedict[v], depth+1)
 end
@@ -106,17 +106,17 @@ local tcheckpath = ""
 -- matters, ignore other slots the part could fit in, this shouldn't affect the same part fitting
 -- in other slots because path will be different
 if type(stdata) == "table" then
-	--print("JBEAM FIELD slotType IS A TABLE CONTAINING: " .. dumps(stdata))
+	--blrlog("JBEAM FIELD slotType IS A TABLE CONTAINING: " .. dumps(stdata))
 	for _,t in pairs(stdata) do
 		tcheckpath = n .. t .. "/"
 		if config[tcheckpath] then 
-			--print("FOUND SLOT " .. tcheckpath .. " IN CONFIG, IGNORING OTHER SLOTS FROM slotType TABLE")
+			--blrlog("FOUND SLOT " .. tcheckpath .. " IN CONFIG, IGNORING OTHER SLOTS FROM slotType TABLE")
 			cstype = t
 			break
 		end
 	end
 	if cstype == "" then -- 1.18.1 fix for empty slot in part tree
-		--print("DIDN'T FIND ANY SLOTS FROM slotType TABLE IN CONFIG (LIKELY CAUSED BY allowType TABLE)")
+		--blrlog("DIDN'T FIND ANY SLOTS FROM slotType TABLE IN CONFIG (LIKELY CAUSED BY allowType TABLE)")
 		return
 	end
 else
@@ -124,7 +124,7 @@ else
 end
 
 if not cstype then -- 1.18.1, just adding a check to make sure process doesn't crash due to jbeam error
-	--print("PART DID NOT HAVE A slotType DEFINED (LIKELY CAUSED BY INCORRECT JBEAM)")
+	blrlog("PART DID NOT HAVE A slotType DEFINED (LIKELY CAUSED BY INCORRECT JBEAM)", lvl_warn)
 	return
 end
 
@@ -135,7 +135,7 @@ else
 cspath = n .. cstype .. "/"
 end
 
---print("CSPATH: " .. cspath)
+--blrlog("CSPATH: " .. cspath)
 
 -- create node for current slot (should only happen for first slot)
 if not nodedict[cspath] then
@@ -145,7 +145,7 @@ end
 
 -- find child slots for currently attached part
 if not cslots then 
---print("NO CHILD SLOTS FOUND FOR " .. p)
+--blrlog("NO CHILD SLOTS FOUND FOR " .. p)
 return 
 end -- no child slots for part
 
@@ -168,7 +168,7 @@ slotPath = string.gsub(slotPath, "/main", "")
 
 -- find part attached to child slot
 cpart = config[slotPath] or ""
---print("CPART FOR " .. slotPath .. " = " .. cpart)
+--blrlog("CPART FOR " .. slotPath .. " = " .. cpart)
 if cpart ~= "" and cpart ~= "none" then
 recursiveChildLookup(cpart, cspath)
 end
@@ -291,7 +291,7 @@ model = extensions.blrpartmgmt.getMainPartName(true,vid) -- 1.19 fix, here still
 end
 
 if model == shopTreeCachedModel then
-print("Part shop tree generation skipped, already generated for this model")
+blrlog("Part shop tree generation skipped, already generated for this model")
 return
 end
 
@@ -351,7 +351,7 @@ for _,folder in pairs(folders) do
 			end
 		
 		else
-			print("buildPartShopTreeFromJbeam ERROR, NO VALID JBEAM DATA FOUND IN FILE: " .. tostring(file))
+			blrlog("buildPartShopTreeFromJbeam ERROR, NO VALID JBEAM DATA FOUND IN FILE: " .. tostring(file), lvl_err)
 		end
 	end
 end
@@ -388,7 +388,7 @@ local firstLayerC2 = node:new("layer1C", "layer1C2")
 treedump(rootNode)
 
 for k,v in pairs(nodedict) do
-  print(k .. "=" .. v.id) 
+  blrlog(k .. "=" .. v.id) 
 end
 
 

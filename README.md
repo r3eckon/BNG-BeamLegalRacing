@@ -1,9 +1,10 @@
 
 
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.20.1/beamLegalRacing1.20.1.zip
+
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.20.2/beamLegalRacing1.20.2.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.20.1
+# Beam Legal Racing 1.20.2
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -147,6 +148,8 @@ Version 1.19.2 brings compatibility for BeamNG version 0.38 to the mod and imple
 Version 1.19.3 upgrades the backup system into a save system that allows multiple save files. Creating a new save file will use the last backup state of the currently loaded save file, meaning it will not include progress made since the last time you abandoned the scenario. Save files can be managed through the options menu. Note that old backups should automatically be migrated to this new system but you should still backup your career files somewhere before updating to ensure you don't lose progress. For brand new players a save file will only be created after you first stop the scenario.
 
 Version 1.20 brings compatibility for BeamNG version 0.39 to the mod and adds new content from the game update such as the Cherrier Ardente and various map changes. This update adds two new night only drag race clubs to West Coast USA to make use of the new night lighting.
+
+Version 1.20.2 adds toggleable log levels to the advanced options menu. Turning off log levels as well as replication to the beamlr.log file may improve performance on systems where the userfolder is on a slower drive. However it isn't recommended to do so as missing log entries will result in missing information for bug reports. Only turn off log entries if you aren't planning on reporting bugs you encounter. If you do encounter bugs with log levels turned off, turn all of them back on and try to replicate the issue before sending a bug report.
 
 ## Getting started
 BeamLR is loaded as a freeroam mission. Use the following spawn point depending on map choice:
@@ -1158,3 +1161,17 @@ Cause: Engine jbeam is missing torque data. Data is moved to other subparts. Thi
 * Fixed scrap car button bug due to car being removed before walk mode is entered
 * Fixed blrlocales.lua trying to index nil key passed to translate function
 * Fixed various car shop walk mode issues (should now hopefully work properly on all systems)
+
+### 1.20.2
+* Added debug logging level toggles to advanced options
+* Fixed traffic toggling not working (both automatic from races and manual from option menu)
+* Fixed certain parts & slots missing from part edit & buy menu 
+* Fixed installed part data sometimes showing same part used on different slots
+* Fixed incorrect home towing and reset spawn point on West Coast USA
+* Fixed Belasco City Garage menu disappearing due to ticking enabled on trigger
+* Improved logging system with log levels and optional replication to beamlr.log file
+* Fixed oil & coolant leak ratio update before conditions ready throwing error in console
+* Disabled exiting safe mode before postedit flowgraph finished running (caused odometer reset)
+* Disabled exiting safe mode while walking (caused frozen vehicle softlock)
+* Fixed broken AI race path on West Coast USA Service Station Race Club
+* Daredevil challenges now show their X/10 difficulty scaling (doesn't apply to jump challenges)

@@ -164,7 +164,7 @@ finishState[racer] = true	 -- set racer finish state
 finishTime[racer] = (blrtime - startTime) + (pentimes[racer] or 0)  -- set finish time, now with penalty time added
 if bossmode and finishCount == 1 then points[idtable[racer] or racer] = 1 end
 if idtable[racer] == 1 then -- player finished
---print("PLAYER FINISHED, TRIGGERING HOOK!")
+--blrlog("PLAYER FINISHED, TRIGGERING HOOK!")
 guihooks.trigger("BeamLRRaceFinished")
 end
 end

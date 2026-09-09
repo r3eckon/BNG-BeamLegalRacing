@@ -50,8 +50,8 @@ local oilLeakReady = false
 local function receiveLeakNodes(serialized)
 leakNodes = deserialize(serialized)
 oilLeakReady = true
-print("blrdecals received leak nodes:")
-dump(leakNodes)
+blrlog("blrdecals received leak nodes:")
+blrlog(leakNodes)
 end
 
 local function getLeakNodePosition(vehid)
@@ -62,7 +62,7 @@ local veh = scenetree.findObjectById(vehid)
 if not veh or not veh.getNodeAbsPosition then return end
 
 if count == 0 then
---print("Leak node error: didn't find any leak nodes, can't spawn decals")
+--blrlog("Leak node error: didn't find any leak nodes, can't spawn decals", lvl_warn)
 return
 end
 
@@ -161,7 +161,7 @@ local py = pos.y
 local cx = math.floor(px / csx)
 local cy = math.floor(py / csy)
 
---print("getChunkFromPos returning " .. cx .. "," .. cy)
+--blrlog("getChunkFromPos returning " .. cx .. "," .. cy)
 
 return cx,cy
 end
@@ -170,18 +170,18 @@ local function getChunkCenterPos(cx,cy)
 local x = (cx * csx) + (csx / 2)
 local y = (cy * csy) + (csy / 2)
 
---print("getChunkCenterPos returning " .. x .. "," .. y)
+--blrlog("getChunkCenterPos returning " .. x .. "," .. y)
 
 return x,y
 end
 
 local function getDecalForChunk(cx,cy)
 if chunkedDecals[cx] then
---print("getDecalForChunk data:")
---dump(chunkedDecals[cx][cy])
+--blrlog("getDecalForChunk data:")
+--blrlog(chunkedDecals[cx][cy])
 return chunkedDecals[cx][cy]
 else
---print("getDecalForChunk returning nil")
+--blrlog("getDecalForChunk returning nil")
 end
 end
 
@@ -219,10 +219,10 @@ local pfile = puddles[ppick]
 local roffsetx = math.random(-25,25)/100.0
 local roffsety = math.random(-25,25)/100.0
 
---print("Raycast result:")
---dump(raycastResult)
---print("Raycast object name: " ..  raycastResult.obj:getName())
---print("Raycast object class: " .. raycastResult.obj:getClassName())
+--blrlog("Raycast result:")
+--blrlog(raycastResult)
+--blrlog("Raycast object name: " ..  raycastResult.obj:getName())
+--blrlog("Raycast object class: " .. raycastResult.obj:getClassName())
 
 local centerz = raycastResult.pt.z
 local cdecal = getDecalForChunk(chunkx,chunky)
@@ -239,14 +239,14 @@ local color = {0,0,0,0.8}
 if not cdecal then
 nextID() -- increment id value
 cid = cdid
---print("Chunk did not contain any exising decals, new id value is " .. cid)
+--blrlog("Chunk did not contain any exising decals, new id value is " .. cid)
 
 -- last check if active decal exists with this ID that hasn't been removed smoothly yet
 -- just remove it instantly to avoid keeping old decal data on chunks
 if activeDecals[cdid] then
---print("Removed existing decal using same ID before it was faded out due to hard decal limit reached")
---print("Removed decal data:")
---print(dumps(activeDecals[cdid]))
+--blrlog("Removed existing decal using same ID before it was faded out due to hard decal limit reached")
+--blrlog("Removed decal data:")
+--blrlog(dumps(activeDecals[cdid]))
 chunkedDecals[activeDecals[cdid].chunk.x][activeDecals[cdid].chunk.y] = nil
 activeDecals[cdid] = nil
 end
@@ -257,7 +257,7 @@ cdecal = cdecal
 cid = cdecal.id
 cscale = cdecal.scale.x
 carea = cdecal.puddle_area
---print("Chunk contained exising decals, existing cid value is " .. cid)
+--blrlog("Chunk contained exising decals, existing cid value is " .. cid)
 -- linearly grow area of puddle rather than radius to have a more realistic increase in size
 carea = carea + 0.025
 cscale = (math.sqrt(carea) / math.pi) * 2.0
@@ -266,7 +266,7 @@ end
 
 
 
---print("New scale value for decal: " .. cscale)
+--blrlog("New scale value for decal: " .. cscale)
 
 
 
@@ -276,7 +276,7 @@ end
 -- spawn decal
 local ndecal = spawnOilLeakDecal(cid, pfile, vec3(centerx+roffsetx, centery+roffsety, centerz), rot, vec3(cscale, cscale, 1.0), color, gnorm, nil, nil, carea, vec3(chunkx,chunky,0))
 setDecalForChunk(chunkx,chunky, ndecal)
---print("Should have spawned decal")
+--blrlog("Should have spawned decal")
 end
 
 local lastoilval = -1
@@ -305,7 +305,7 @@ local scaledLast = math.floor(lastoilval * 100.0)
 
 if scaledCurrent < scaledLast then
 addChunkedOilLeakDecal(vehid)
---print("Spawned oil decal due to vehicle oil value dropping from " .. (scaledLast/100.0) .. " to " ..  (scaledCurrent/100.0))
+--blrlog("Spawned oil decal due to vehicle oil value dropping from " .. (scaledLast/100.0) .. " to " ..  (scaledCurrent/100.0))
 lastoilval = oilval
 end 
 
@@ -331,10 +331,10 @@ end
 
 local function removeChunkedOilLeakDecal(decal)
 
---print("Should have removed from activeDecals table at id: " .. decal.id)
---print("Should have removed from chunkedDecals table at x,y: " .. decal.chunk.x .. "," .. decal.chunk.y)
---print("Previous decal for that chunk:")
---print(dumps(chunkedDecals[decal.chunk.x][decal.chunk.y]))
+--blrlog("Should have removed from activeDecals table at id: " .. decal.id)
+--blrlog("Should have removed from chunkedDecals table at x,y: " .. decal.chunk.x .. "," .. decal.chunk.y)
+--blrlog("Previous decal for that chunk:")
+--blrlog(dumps(chunkedDecals[decal.chunk.x][decal.chunk.y]))
 
 activeDecals[decal.id] = nil
 chunkedDecals[decal.chunk.x][decal.chunk.y] = nil
@@ -351,7 +351,7 @@ local toRemove = {}
 for k,v in pairs(activeDecals) do
 	if not inBuffer(v.id) then
 		v.color.a = math.max(0,v.color.a - (0.1 * dtSim))
-		--print("Fading out decal id " .. v.id .. " in preparation for removal, current alpha value: " .. v.color.a)
+		--blrlog("Fading out decal id " .. v.id .. " in preparation for removal, current alpha value: " .. v.color.a)
 		if v.color.a <= 0 then 
 			table.insert(toRemove, v)
 		else	
@@ -373,17 +373,17 @@ end
 local function setBufferSize(size)
 buffer = size
 range = size + 200
---print("New buffer params: " .. buffer .. " / " .. range)
+--blrlog("New buffer params: " .. buffer .. " / " .. range)
 end
 
 local function toggleOilLeakDecals(toggle)
 if toggle then
 enabled = true
---print("Oil leak decals have been toggled on")
+--blrlog("Oil leak decals have been toggled on")
 else
 enabled = false
 clearDecals()
---print("Oil leak decals have been toggled off")
+--blrlog("Oil leak decals have been toggled off")
 end
 end
 

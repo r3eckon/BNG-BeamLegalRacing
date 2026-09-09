@@ -20,12 +20,12 @@ end
 local function couplerAttached(objId1, objId2, nodeId, obj2nodeId)
 couplings[objId1] = objId2
 couplings[objId2] = objId1
-print(objId1 .. " coupled with " .. objId2)
+blrlog(objId1 .. " coupled with " .. objId2)
 end
 local function couplerDetached(objId1, objId2, nodeId, obj2nodeId)
 couplings[objId1] = nil
 couplings[objId2] = nil
-print(objId1 .. " decoupled from " .. objId2)
+blrlog(objId1 .. " decoupled from " .. objId2)
 end
 
 local function towhitchCheck()

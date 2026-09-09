@@ -103,7 +103,7 @@ function C:countdown()
 	ccount = math.abs(math.ceil(self.timer))
 	if self.timer <= 3 and extensions.blrutils.blrvarGet("dragLightSync") ~= ccount then
 	extensions.blrdragdisplay.countdown("" .. ccount)
-	print("BEAMLR DRAG LIGHT COUNTDOWN SYNC: " .. ccount)
+	blrlog("BEAMLR DRAG LIGHT COUNTDOWN SYNC: " .. ccount)
 	end
 	end
   

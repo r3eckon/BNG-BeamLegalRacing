@@ -160,12 +160,12 @@ params["cfile"] = cfile
 params["vehOdoOverride"] = vehOdoOverride
 extensions.blrglobals.blrFlagSet("integrityLoadingQueued", true)
 extensions.blrutils.blrvarSet("integrityLoadingData", params)
-print("Config at path (" .. cfile .. ") missing ilinks, skipping integrity loading!")
+blrlog("Config at path (" .. cfile .. ") missing ilinks, skipping integrity loading!")
 return
 end
 
 if extensions.blrglobals.blrFlagGet("integrityLoadingQueued") then
-print("Executing delayed integrity loading.")
+blrlog("Executing delayed integrity loading.")
 extensions.blrglobals.blrFlagSet("integrityLoadingQueued", false)
 end
 
@@ -186,7 +186,7 @@ local totalodo = 0
 
 local cparams = ""
 
-print("LOAD ADVANCED INTEGRITY DATA DEBUG BEGIN")
+blrlog("LOAD ADVANCED INTEGRITY DATA DEBUG BEGIN")
 
 
 -- 1.18 edit, set integrity for main part first
@@ -200,9 +200,9 @@ cpath = k .. v
 cilink = ilinks[cpath]
 csplit = extensions.blrutils.ssplit(cilink, ",")
 ilinkid = tonumber(csplit[1])
---print("ILINK ID: " .. ilinkid)
+--blrlog("ILINK ID: " .. ilinkid)
 ilinkodo = tonumber(csplit[2])
---print("ILINK ODO: " .. ilinkodo)
+--blrlog("ILINK ODO: " .. ilinkodo)
 invodo = inventory[ilinkid][2]
 invint = inventory[ilinkid][3]
 
@@ -310,7 +310,7 @@ for k,v in pairs(ptclues["part"]) do
 ptclues["slot"][k] = pkslots[v]
 end
 else
-print("Can't load powertrain clues due to missing data.\nThis is normal if vehicle has no powertrain parts.")
+blrlog("Can't load powertrain clues due to missing data.\nThis is normal if vehicle has no powertrain parts.", lvl_warn)
 end
 
 end

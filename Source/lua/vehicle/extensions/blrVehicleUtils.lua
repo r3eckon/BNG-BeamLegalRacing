@@ -322,9 +322,9 @@ smoothFuelAllowed = allowed or 999999
 smoothFuelStart = getFuelTotal()
 smoothFuelTier = tier or "regular"
 smoothFuelType = fueltype or "gasoline"
---print("Smooth fuel start: " .. smoothFuelStart)
+--blrlog("Smooth fuel start: " .. smoothFuelStart)
 else 
---print("Refuel Stopped! Total added: " .. smoothFuelTotal .. "L") 
+--blrlog("Refuel Stopped! Total added: " .. smoothFuelTotal .. "L") 
 obj:queueGameEngineLua("extensions.blrutils.smoothFuelCharge(" .. smoothFuelTotal .. ")")
 end
 end
@@ -336,16 +336,16 @@ if current >= capacity - addval then
 addFuel(addval * 2,smoothFuelType, smoothFuelTier) -- makes sure to top off tank in final tick
 smoothFuelTotal = capacity - smoothFuelStart
 smoothRefuelToggle(false)
---print("Finish car fuel: " .. smoothFuelStart + smoothFuelTotal)
+--blrlog("Finish car fuel: " .. smoothFuelStart + smoothFuelTotal)
 elseif smoothFuelTotal >= smoothFuelAllowed then
 setFuel(smoothFuelStart + smoothFuelAllowed,smoothFuelType, ratio_regular, ratio_midgrade, ratio_premium)
 smoothFuelTotal = smoothFuelAllowed
 smoothRefuelToggle(false)
---print("Finish car fuel: " .. smoothFuelStart + smoothFuelAllowed)
+--blrlog("Finish car fuel: " .. smoothFuelStart + smoothFuelAllowed)
 elseif ct - smoothFuelLast >= delay then
 smoothFuelTotal = smoothFuelTotal + (addval - addFuel(addval,smoothFuelType, smoothFuelTier))
 smoothFuelLast = ct
---print(getFuelTotal())
+--blrlog(getFuelTotal())
 end
 end
 
@@ -663,13 +663,13 @@ breakBeamCount[k] = getBreakableBeamCount(cpart)
 deformBeamCount[k] = getDeformableBeamCount(cpart)
 partPrices[k] = customPrices[cpart] or beamData[k].value 
 
---print("BEAM COUNT DEBUG FOR PART: " .. k .. "," .. breakBeamCount[k] .. "," .. deformBeamCount[k] .. "," .. partPrices[k])
+--blrlog("BEAM COUNT DEBUG FOR PART: " .. k .. "," .. breakBeamCount[k] .. "," .. deformBeamCount[k] .. "," .. partPrices[k])
 
 end
 
---dump(breakBeamCount)
---dump(deformBeamCount)
---dump(partPrices)
+--blrlog(breakBeamCount)
+--blrlog(deformBeamCount)
+--blrlog(partPrices)
 
 end
 
@@ -706,7 +706,7 @@ local cbcount = 0 -- breakable count
 
 local codo = 0 -- 1.17.5 part odometer value scaling
 
-if dbg then print("ADVANCED DAMAGE DEBUG") end
+if dbg then blrlog("ADVANCED DAMAGE DEBUG") end
 
 for k,v in pairs(beamData) do
 cbroken = v["beamsBroken"] or 0
@@ -736,7 +736,7 @@ ctdmg = 0
 end
 if ctdmg > 0 then
 toRet = toRet + getScaledPartPrice(partPrices[k],codo) * (ctdmg*ctdmg*ctdmg)
-if dbg then print(k .. "\tCBCOUNT=" .. cbcount .. "\tCBROKEN=" .. cbroken  .. "\tCDCOUNT=" .. cdcount  .. "\tCDEFORMED=" .. cdeformed  .. "\tCTDMG=" .. ctdmg  .. "\tVALUE=" .. partPrices[k]  .. "\tTOTAL=" .. toRet) end
+if dbg then blrlog(k .. "\tCBCOUNT=" .. cbcount .. "\tCBROKEN=" .. cbroken  .. "\tCDCOUNT=" .. cdcount  .. "\tCDEFORMED=" .. cdeformed  .. "\tCTDMG=" .. ctdmg  .. "\tVALUE=" .. partPrices[k]  .. "\tTOTAL=" .. toRet) end
 end
 end
 
@@ -856,7 +856,7 @@ local function setGearboxSynchroWear(wear)
 local gearbox = powertrain.getDevice("gearbox")
 
 if not gearbox then
-print("setGearboxSynchroWear did not find gearbox device on vehicle, skipping.")
+blrlog("setGearboxSynchroWear did not find gearbox device on vehicle, skipping.")
 return
 end
 
@@ -1023,7 +1023,7 @@ if powertrain and powertrain.getDevice("mainEngine") then
 local current = powertrain.getDevice("mainEngine").thermals.fluidLeakRates.oil.oilpan --math.max so if oilpan is damaged odometer leak doesn't reset it
 powertrain.getDevice("mainEngine").thermals.fluidLeakRates.oil.oilpan = math.max(rate, current)
 else
-print("setOilLeak didn't find mainEngine device, skipping.\nThis is normal if vehicle has no engine.")
+blrlog("setOilLeak didn't find mainEngine device, skipping.\nThis is normal if vehicle has no engine.")
 end
 end
 
@@ -1031,7 +1031,7 @@ local function getOilLeak()
 if powertrain and powertrain.getDevice("mainEngine") then
 return powertrain.getDevice("mainEngine").thermals.fluidLeakRates.oil.oilpan
 else
-print("getOilLeak didn't find mainEngine device, using 0 as fallback.\nThis is normal if vehicle has no engine.")
+blrlog("getOilLeak didn't find mainEngine device, using 0 as fallback.\nThis is normal if vehicle has no engine.")
 return 0
 end
 end
@@ -1046,7 +1046,7 @@ if powertrain and powertrain.getDevice("mainEngine") then
 return powertrain.getDevice("mainEngine").thermals.fluidReservoirs.oil.currentMass * 1.1
 else
 if not oilCurrentWarn then
-print("getOilVolumeCurrent didn't find mainEngine device, using 0 as fallback.\nThis is normal if vehicle has no engine.")
+blrlog("getOilVolumeCurrent didn't find mainEngine device, using 0 as fallback.\nThis is normal if vehicle has no engine.")
 oilCurrentWarn = true
 end
 return 0
@@ -1059,7 +1059,7 @@ if powertrain and powertrain.getDevice("mainEngine") then
 return powertrain.getDevice("mainEngine").thermals.fluidReservoirs.oil.initialMass * 1.1
 else
 if not oilInitialWarn then
-print("getOilVolumeInitial didn't find mainEngine device, using 0 as fallback.\nThis is normal if vehicle has no engine.")
+blrlog("getOilVolumeInitial didn't find mainEngine device, using 0 as fallback.\nThis is normal if vehicle has no engine.")
 oilInitialWarn = true
 end
 return 0
@@ -1073,7 +1073,7 @@ end
 if powertrain and powertrain.getDevice("mainEngine") then
 powertrain.getDevice("mainEngine").thermals.fluidReservoirs.oil.currentMass = (liters / 1.1)
 else
-print("setOilVolume didn't find mainEngine device, skipping.\nThis is normal if vehicle has no engine.")
+blrlog("setOilVolume didn't find mainEngine device, skipping.\nThis is normal if vehicle has no engine.")
 end
 end
 
@@ -1093,7 +1093,7 @@ local remain = refillOil(quantity)
 local used = quantity-remain
 obj:queueGameEngineLua("extensions.blrVehicleCallbacks.usedOilBottle('" .. itemkey .. "'," .. used .. ")")
 else
-print("Couldn't use oil bottle, unable find mainEngine powertrain device!")
+blrlog("Couldn't use oil bottle, unable find mainEngine powertrain device!")
 end
 end
 
@@ -1103,7 +1103,7 @@ if powertrain and powertrain.getDevice("mainEngine") then
 local current = powertrain.getDevice("mainEngine").thermals.fluidLeakRates.coolant.radiator --math.max so if radiator is damaged odometer leak doesn't reset it
 powertrain.getDevice("mainEngine").thermals.fluidLeakRates.coolant.radiator = math.max(rate, current)
 else
-print("getCoolantLeak didn't find mainEngine device, skipping.\nThis is normal if vehicle has no engine.")
+blrlog("getCoolantLeak didn't find mainEngine device, skipping.\nThis is normal if vehicle has no engine.")
 end
 end
 
@@ -1111,7 +1111,7 @@ local function getCoolantLeak()
 if powertrain and powertrain.getDevice("mainEngine") then
 return powertrain.getDevice("mainEngine").thermals.fluidLeakRates.coolant.radiator
 else
-print("getCoolantLeak didn't find mainEngine device, using 0 as fallback.\nThis is normal if vehicle has no engine.")
+blrlog("getCoolantLeak didn't find mainEngine device, using 0 as fallback.\nThis is normal if vehicle has no engine.")
 return 0
 end
 end
@@ -1140,7 +1140,7 @@ end
 if powertrain and powertrain.getDevice("mainEngine") then
 powertrain.getDevice("mainEngine").thermals.fluidReservoirs.coolant.currentMass = liters
 else
-print("setCoolantVolume didn't find mainEngine device, skipping.\nThis is normal if vehicle has no engine.")
+blrlog("setCoolantVolume didn't find mainEngine device, skipping.\nThis is normal if vehicle has no engine.")
 end
 end
 
@@ -1159,7 +1159,7 @@ local remain = refillCoolant(quantity)
 local used = quantity-remain
 obj:queueGameEngineLua("extensions.blrVehicleCallbacks.usedCoolantBottle('" .. itemkey .. "'," .. used .. ")")
 else
-print("Couldn't use coolant bottle, unable find mainEngine powertrain device!")
+blrlog("Couldn't use coolant bottle, unable find mainEngine powertrain device!")
 end
 end
 
@@ -1185,14 +1185,14 @@ else
 advancedPartConditions[part].integrityValue = integrity - getIntegrityOffset(odometer) -- decrease integrity for high odometer parts
 end
 advancedPartConditions[part].visualValue = "a" -- if visual value is a number paint bug happens, using string to disable paint integrity
---print("Set part condition for " .. part .. " to " .. odometer .. " odometer and " .. integrity .. " integrity")
+--blrlog("Set part condition for " .. part .. " to " .. odometer .. " odometer and " .. integrity .. " integrity")
 end
 
 local function applyAdvancedPartConditions()
 partCondition.reset()
 partCondition.initConditions(advancedPartConditions, 0.0, 1.0, "a", nil)
 advancedPartConditions = {}
-print("Should have applied part conditions!")
+blrlog("Should have applied part conditions!")
 end
 
 
@@ -1201,7 +1201,7 @@ local integrityUpdateQueue = {}
 
 local function queueIntegrityUpdate(id, part)
 integrityUpdateQueue[id] = part
---print("QUEUED INTEGRITY UPDATE FOR ID " .. id .. " PART NAME " .. part)
+--blrlog("QUEUED INTEGRITY UPDATE FOR ID " .. id .. " PART NAME " .. part)
 end
 
 
@@ -1211,7 +1211,7 @@ local integrity = 0
 
 if (not conditions) or (type(conditions) ~= "table") then
 partCondition.initConditions(nil, 0.0, 1.0, "a", nil)
-print("PART CONDITIONS TABLE WAS MISSING OR RETURNED false! Calling initConditions with 0 odo, 1 integrity.\nThis shouldn't happen, likely caused by broken save files.")
+blrlog("PART CONDITIONS TABLE WAS MISSING OR RETURNED false! Calling initConditions with 0 odo, 1 integrity.\nThis shouldn't happen, likely caused by broken save files.")
 end
 
 -- key is is inventory id, value is part name
@@ -1219,10 +1219,10 @@ for k,v in pairs(integrityUpdateQueue) do
 	if conditions[v] then
 		-- math.min to avoid cases where increased odometer would restore more integrity than was removed
 		integrity = math.min(1.0, conditions[v].integrityValue + getIntegrityOffset(conditions[v].odometer))
-		--print("PART CONDITION FOR " .. v .. "=" .. integrity)
+		--blrlog("PART CONDITION FOR " .. v .. "=" .. integrity)
 	else
 		integrity = 1
-		print("MISSING PART CONDITION FOR " .. v)
+		blrlog("MISSING PART CONDITION FOR " .. v)
 	end
 obj:queueGameEngineLua("extensions.blrPartInventory.setPartIntegrity(" .. k .. "," .. integrity .. ")")
 end
@@ -1238,8 +1238,9 @@ local function getOilLeakRatio()
 local clues = extensions.blrPowertrainClues.getClues()
 local conditions = partCondition.getConditions()
 
+-- 1.20.2 fix for error thrown in console by leak trying to update before conditions are ready
 if not conditions or type(conditions) ~= "table" then
-return
+return 0,0
 end
 
 local oilpanPart = clues["oilpan"]
@@ -1253,7 +1254,7 @@ if enginePart and conditions and conditions[enginePart] then
 engineOdo = conditions[enginePart].odometer
 else
 engineOdo = 0
-print("getOilLeakRatio had no condition or clue data for the engine, odo set to 0 as fallback.\nThis is normal if vehicle has no engine.")
+blrlog("getOilLeakRatio had no condition or clue data for the engine, odo set to 0 as fallback.\nThis is normal if vehicle has no engine.")
 end
 
 
@@ -1273,7 +1274,7 @@ else -- oilpan is separate from engine
 			oilpanOdo = conditions[oilpanPart].odometer
 		else
 			oilpanOdo = 0
-			print("getOilLeakRatio had no condition data for the oilpan, odo set to 0 as fallback.\n This shouldn't happen.")
+			blrlog("getOilLeakRatio had no condition data for the oilpan, odo set to 0 as fallback.\n This shouldn't happen.")
 		end
 
 		engineRatio = math.min(engineOdo / 200000000.0, 2.0) * 0.3 -- 30% of oil leak from engine
@@ -1305,8 +1306,9 @@ local function getCoolantLeakRatio()
 local clues = extensions.blrPowertrainClues.getClues()
 local conditions = partCondition.getConditions()
 
+-- 1.20.2 fix for error thrown in console by leak trying to update before conditions are ready
 if not conditions or type(conditions) ~= "table" then
-return
+return 0
 end
 
 local radiatorPart = clues["radiator"]
@@ -1316,7 +1318,7 @@ local radiatorRatio = 0
 if radiatorPart and conditions and conditions[radiatorPart] then
 radiatorOdo = conditions[radiatorPart].odometer
 else
-print("getCoolantLeakRatio has no conditions or clues data for radiator, setting odometer to 0 as fallback.\nThis is normal if vehicle has no radiator.")
+blrlog("getCoolantLeakRatio has no conditions or clues data for radiator, setting odometer to 0 as fallback.\nThis is normal if vehicle has no radiator.")
 end
 
 if radiatorPart then
@@ -1336,7 +1338,7 @@ local ratio = getCoolantLeakRatio()
 local baserate = getCoolantVolumeInitial() / 3600.0 -- base rate leaks all coolant in 1 hour
 local leak = ratio * baserate
 setCoolantLeak(leak)
-print("Should have set coolant leak to a value of " .. leak)
+blrlog("Should have set coolant leak to a value of " .. leak)
 obj:queueGameEngineLua("extensions.mechDamageLoader.coolantLeakMessage(" .. ratio .. ")")
 end
 
@@ -1517,9 +1519,9 @@ inventoryData[pid] = {inv_type,inv_odo,inv_int,inv_use}
 inventoryLinksData[inv_type] = {pid, link_odo}
 end
 
-local function dumpInventoryData()
-dump(inventoryData)
-dump(inventoryLinksData)
+local function blrlogInventoryData()
+blrlog(inventoryData)
+blrlog(inventoryLinksData)
 end
 
 
@@ -1535,7 +1537,7 @@ M.updateCoolantLeakRate = updateCoolantLeakRate
 M.getVehicleParts = getVehicleParts
 M.getLegacyCertifications = getLegacyCertifications
 M.getScaledPartPrice = getScaledPartPrice
-M.dumpInventoryData = dumpInventoryData
+M.blrlogInventoryData = blrlogInventoryData
 M.resetInventoryData = resetInventoryData
 M.receiveInventoryData = receiveInventoryData
 M.getIntegrityOffset = getIntegrityOffset
