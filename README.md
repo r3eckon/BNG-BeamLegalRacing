@@ -1175,3 +1175,4 @@ Cause: Engine jbeam is missing torque data. Data is moved to other subparts. Thi
 * Disabled exiting safe mode while walking (caused frozen vehicle softlock)
 * Fixed broken AI race path on West Coast USA Service Station Race Club
 * Daredevil challenges now show their X/10 difficulty scaling (doesn't apply to jump challenges)
+* Time scale value now set to 12 by default (2 hours real life for a full in game day)
