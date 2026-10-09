@@ -1,4 +1,8 @@
 name=Civetta Scintilla (GTs Spyder,DCT)
+brand=Civetta
+model=Scintilla
+trim=GTs Spyder
+transmission=DCT
 type=scintilla
 config=vehicles/scintilla/gts_spider.pc
 baseprice=220000

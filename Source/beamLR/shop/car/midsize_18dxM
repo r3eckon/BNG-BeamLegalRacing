@@ -1,4 +1,8 @@
 name=Ibishu Pessima (1.8DX,Manual)
+brand=Ibishu
+model=Pessima
+trim=1.8DX
+transmission=Manual
 type=midsize
 config=vehicles/midsize/DX_M.pc
 baseprice=3000,5000

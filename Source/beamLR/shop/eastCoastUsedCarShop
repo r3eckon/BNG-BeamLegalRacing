@@ -1,5 +1,8 @@
 name=TJ's Offroad World
+type=used
 hours=8,17
+trademin=0
+cansell=1
 slots=4
 chance=0.9
 dchance=0.5

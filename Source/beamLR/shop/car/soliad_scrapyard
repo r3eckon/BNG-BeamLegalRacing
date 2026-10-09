@@ -1,4 +1,8 @@
 name=Soliad Wendover
+brand=Soliad
+model=Wendover
+trim=NA
+transmission=NA
 type=wendover
 config=vehicles/wendover/blr_scrapyard.pc
 baseprice=400,600

@@ -1,5 +1,8 @@
 name=Belasco Auto
+type=used
 hours=9,20
+trademin=0
+cansell=1
 slots=7
 chance=0.8
 dchance=0.5

@@ -1,4 +1,8 @@
 name=Civetta Bolide 390 GT (Manual, USDM, Barn Find)
+brand=Civetta
+model=Bolide
+trim=390 GT
+transmission=Manual
 type=bolide
 config=vehicles/bolide/blr_barnfind.pc
 baseprice=50000,80000

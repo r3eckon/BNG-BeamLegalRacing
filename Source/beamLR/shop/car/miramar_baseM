@@ -1,4 +1,8 @@
 name=Ibishu Miramar (Base,Manual)
+brand=Ibishu
+model=Miramar
+trim=Base
+transmission=Manual
 type=miramar
 config=vehicles/miramar/base_M.pc
 baseprice=500,5000

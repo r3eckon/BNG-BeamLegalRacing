@@ -1,4 +1,8 @@
 name=Burnside Special (V8,Manual)
+brand=Burnside
+model=Special
+trim=V8
+transmission=Manual
 type=burnside
 config=vehicles/burnside/2door_utility_early_3M.pc
 baseprice=500,3500

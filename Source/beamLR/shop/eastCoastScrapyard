@@ -1,5 +1,8 @@
 name=Firwood Garage Scrapyard
+type=scrap
 hours=7,17
+trademin=-1
+cansell=0
 slots=3
 chance=0.8
 dchance=0

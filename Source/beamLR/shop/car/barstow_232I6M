@@ -1,4 +1,8 @@
 name=Gavril Barstow (232 I6,Manual)
+brand=Gavril
+model=Barstow
+trim=232 I6
+transmission=Manual
 type=barstow
 config=vehicles/barstow/i6m.pc
 baseprice=3500,9000

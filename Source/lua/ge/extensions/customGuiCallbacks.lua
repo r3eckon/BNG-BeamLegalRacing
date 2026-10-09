@@ -362,6 +362,10 @@ extensions.blrglobals.blrFlagSet("partEditLocked", true)
 -- 1.17 fix for players using pause while editing parts
 simTimeAuthority.pause(false)
 
+blrlog("setTune called with the following UI data:")
+blrlog(p)
+
+
 local dtable = extensions.blrpartmgmt.tuningTableFromUIData(p, false)
 extensions.blrglobals.gmSetVal("pgas", extensions.blrglobals.gmGetVal("cgas")) 	-- Gets current gas value and stores it for after tune apply
 extensions.blrglobals.gmSetVal("podo", extensions.blrglobals.gmGetVal("codo"))	-- do same thing with odometer
@@ -376,6 +380,9 @@ extensions.blrhooks.linkHook("vehReset", "postedit")							-- Link to post edit 
 -- 1.16.9 fix, apparently setting tune is like vehicle reload so need AVB flag turned on
 extensions.blrpartmgmt.toggleAdvancedVehicleBuilding(true)
 require("jbeam/io").finishLoading() -- clearing jbeam cache before edit
+
+blrlog("setTune processed UI data into this table:")
+blrlog(dtable)
 
 extensions.blrpartmgmt.applyTuningData(dtable)
 end
@@ -1573,6 +1580,66 @@ end
 end
 
 
+ftable["buyVehfaxReport"] = function(p)
+local shopfile = p.shopfile
+local slot = p.slot
+local daydata = extensions.blrutils.loadDataTable("beamLR/shop/daydata/" .. shopfile)
+
+local money = extensions.blrglobals.getProjectVariable("playerMoney")
+
+if money >= 100.0 then
+	extensions.blrglobals.setProjectVariable("playerMoney", money - 100.0)
+	extensions.blrutils.playSFX("event:>UI>Career>Buy_01")
+	
+	if daydata["vehfax"] == "none" then daydata["vehfax"] = "" end
+	daydata["vehfax"] = daydata["vehfax"] .. slot .. ","
+	extensions.blrutils.saveDataTable("beamLR/shop/daydata/" .. shopfile, daydata)
+	
+	extensions.customGuiStream.dealershipUIDayDataUpdate(daydata)
+	extensions.customGuiStream.dealershipUIPlayerMoneyUpdate(money - 100.0)
+end
+
+end
+
+ftable["dealershipPurchaseRequest"] = function(p)
+extensions.blrutils.blrvarSet("dealershipPurchaseRequestData", p)
+extensions.blrglobals.blrFlagSet("dealershipPurchaseRequest", true)
+end
+
+ftable["dealershipUICacheUpdate"] = function(p)
+extensions.customGuiStream.dealershipUICacheUpdate(p)
+end
+
+ftable["setDealershipStatsWindowCollapse"] = function(p)
+local dtable = {}
+dtable["dstatshide"] = p
+extensions.blrutils.updateDataTable("beamLR/options", dtable)
+extensions.blrglobals.blrFlagSet("dealershipUICollapseStatsWindow", p == 1)
+end
+
+
+
+local fabc_flags = {}
+local fabc_flags_data = {}
+
+-- 1.20.3 flowgraph reflection of ui app button presses
+-- pretty much only used for dealership ui for now
+local function flowgraphAppButtonCallback(id, data)
+blrlog("flowgraphAppButtonCallback called with id: " .. id)
+blrlog("flowgraphAppButtonCallback data: ")
+blrlog(data)
+fabc_flags[id] = true
+fabc_flags_data[id] = data
+end
+
+local function getFABCFlag(id)
+if fabc_flags[id] then
+fabc_flags[id] = false
+return true, fabc_flags_data[id]
+end
+return false, nil
+end
+
 
 local ptable = {}
 local rtable = {}
@@ -1603,6 +1670,8 @@ local function getReturnValue(f)
 return rtable[f] or "nil"
 end
 
+M.getFABCFlag = getFABCFlag
+M.flowgraphAppButtonCallback = flowgraphAppButtonCallback
 
 M.setParamTableValue = setParamTableValue
 M.setParam = setParam

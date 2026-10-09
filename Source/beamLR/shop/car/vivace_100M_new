@@ -1,4 +1,8 @@
 name=Cherrier FCV (Vivace 110,Manual)
+brand=Cherrier
+model=FCV
+trim=Vivace 110
+transmission=Manual
 type=vivace
 config=vehicles/vivace/vivace_110_M.pc
 baseprice=15000

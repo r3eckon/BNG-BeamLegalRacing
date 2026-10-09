@@ -1,4 +1,8 @@
 name=Soliad Lansdale
+brand=Soliad
+model=Lansdale
+trim=NA
+transmission=NA
 type=lansdale
 config=vehicles/lansdale/blr_scrapyard.pc
 baseprice=400,600

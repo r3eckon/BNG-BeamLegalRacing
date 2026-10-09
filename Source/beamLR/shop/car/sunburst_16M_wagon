@@ -1,4 +1,8 @@
 name=Hirochi Sunburst (1.6,Manual)
+brand=Hirochi
+model=Sunburst
+trim=1.6
+transmission=Manual
 type=sunburst2
 config=vehicles/sunburst2/base_EU_wagon_M.pc
 baseprice=2000,8000

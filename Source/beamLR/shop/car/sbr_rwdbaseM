@@ -1,4 +1,8 @@
 name=Hirochi SBR4 (RWD Base,Manual)
+brand=Hirochi
+model=SBR4
+trim=RWD Base
+transmission=Manual
 type=sbr
 config=vehicles/sbr/base_RWD_M.pc
 baseprice=80000

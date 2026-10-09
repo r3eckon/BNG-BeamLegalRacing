@@ -1,5 +1,8 @@
 name=Claudio Motors
+type=new
 hours=10,20
+trademin=10000
+cansell=0
 slots=6
 chance=0.7
 dchance=0

@@ -1,4 +1,8 @@
 name=ETK K-Series (kc4 250,Manual)
+brand=ETK
+model=K-Series
+trim=kc4 250
+transmission=Manual
 type=etkc
 config=vehicles/etkc/kc4_250_M.pc
 baseprice=50000

@@ -1,4 +1,8 @@
 name=Hirochi Sunburst
+brand=Hirochi
+model=Sunburst
+trim=NA
+transmission=NA
 type=sunburst2
 config=vehicles/sunburst2/blr_scrapyard_wagon.pc
 baseprice=400,600

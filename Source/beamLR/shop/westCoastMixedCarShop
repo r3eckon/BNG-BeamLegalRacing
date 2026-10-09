@@ -1,5 +1,8 @@
 name=Jefferson Motors
+type=mixed
 hours=8,19
+trademin=0
+cansell=1
 slots=7
 chance=0.8
 dchance=0.3

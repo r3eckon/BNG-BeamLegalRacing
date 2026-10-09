@@ -1,4 +1,8 @@
 name=Soliad Lansdale (2.5,Automatic)
+brand=Soliad
+model=Lansdale
+trim=2.5
+transmission=Automatic
 type=lansdale
 config=vehicles/lansdale/25_base_A.pc
 baseprice=2000,5000

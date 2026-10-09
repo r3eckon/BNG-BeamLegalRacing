@@ -1,4 +1,8 @@
 name=Cherrier Ardente (S 310, Manual)
+brand=Cherrier
+model=Ardente
+trim=S 310
+transmission=Manual
 type=vivace
 config=vehicles/vivace/ardente_S_310_M.pc
 baseprice=35000,45000

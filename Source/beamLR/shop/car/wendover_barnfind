@@ -1,4 +1,8 @@
 name=Soliad Wendover Sport SE 4400 V8 (Automatic, Barn Find)
+brand=Soliad
+model=Wendover
+trim=Sport SE 4400 V8
+transmission=Automatic
 type=wendover
 config=vehicles/wendover/blr_barnfind.pc
 baseprice=7000,30000

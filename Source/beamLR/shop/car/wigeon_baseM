@@ -1,4 +1,8 @@
 name=Ibishu Wigeon (Base,Manual)
+brand=Ibishu
+model=Wigeon
+trim=Base
+transmission=manual
 type=wigeon
 config=vehicles/wigeon/base.pc
 baseprice=500,1200

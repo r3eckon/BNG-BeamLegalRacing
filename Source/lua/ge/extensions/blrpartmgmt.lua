@@ -60,7 +60,8 @@ end
 
 -- 1.19 fix should hopefully stop modded cars with inconsistent naming causing issues
 local function getVehicleModel(vehid)
-return getVehicleData(vehid).vdata.model
+local veh = getVehicleData(vehid) or {vdata = {}} -- 1.20.3 return nil model instead of erroring 
+return veh.vdata.model
 end
 
 local function ioCtx(vehid)
@@ -603,7 +604,7 @@ cvalRange = v["max"] - v["min"]
 disRange = v["maxDis"] - v["minDis"]
 
 -- 1.19.4 fix, avoid items without tuning range
-if cvalRange > 0 and disRange > 0 then
+if cvalRange ~= 0 and disRange ~= 0 then
 relVal = (cval - v["min"]) / cvalRange
 disVal = (relVal * disRange) + v["minDis"] 
 toRet[ckey] = disVal
@@ -1301,6 +1302,75 @@ end
 return toRet
 end
 
+-- 1.20.3 addition
+-- generateConfigVariant slot name based (string.find) random slot avoidance list
+-- used to either force keep or force remove the original part to a matched slot
+-- basically added just to remove rollcages because they're a money exploit
+local gcv_avoidMode_forceRemove = 0
+local gcv_avoidMode_forceKeep = 1
+local gcv_avoidList = {rollcage = 0, roll_cage = 0}
+
+local function gcv_avoidMatch(slot)
+for tofind,mode in pairs(gcv_avoidList) do
+--blrlog("gcv_avoidMatch testing string " .. tofind .. " in slot " .. slot)
+if string.find(slot, tofind) then
+--blrlog("gcv_avoidMatch found avoid string " .. tofind .. " in slot " .. slot)
+return true, mode
+end
+end
+return false
+end
+
+-- 1.20.3 addition
+-- function used on stock cars to remove the same parts (mostly needed for derby configs with rollcages)
+-- for randomized and defective cars this same process happens directly in the generateConfigVariant function
+local function processForceRemovedParts(config)
+local toRet = {}
+
+-- turn config file into table (code copied from generateConfigVariant function)
+local baseConfig = jsonReadFile(config)
+local originalParts = jsonReadFile(config)["parts"] or jsonReadFile(config)
+if not baseConfig["parts"] then -- Detected old config format, build format 2 config
+toRet["format"] = 2
+toRet["parts"] = baseConfig
+toRet["vars"] = {}
+else
+toRet = baseConfig	-- format 2 config, can use base config table
+toRet["paints"] = nil -- 1.18.3, remove paint from config data to allow random paints to work
+end
+
+-- main force removal process start
+local gcv_avoid
+local gcv_avoidMode
+local cid = ""
+local csplit = {}
+for k,v in pairs(originalParts) do
+-- fetch slot ID from path
+csplit = extensions.blrutils.ssplit(k, "/")
+if #csplit > 1 then
+cid = csplit[#csplit-1]
+else
+cid = csplit[1]
+end
+
+-- apply original part in all slots
+toRet["parts"][k] = v 
+
+-- match slots and perform forced removal
+gcv_avoid,gcv_avoidMode = gcv_avoidMatch(cid)
+if gcv_avoid then 
+if gcv_avoidMode == gcv_avoidMode_forceRemove then 
+blrlog("gcvAvoid (on stock car) force removed part " .. v .. " from slot " .. k)
+toRet["parts"][k] = ""
+end
+end
+
+end
+
+return toRet
+end
+
+
 
 local function generateConfigVariant(baseFile, fmap, seed)
 math.randomseed(seed)
@@ -1332,17 +1402,35 @@ end
 pathToIdMap[k] = cid
 end
 
+local gcv_avoid
+local gcv_avoidMode
 local cpick = 0		
 for k,v in pairs(originalParts) do
 cid = pathToIdMap[k]
-if fmap[cid] then
-cpick = math.random(0,#fmap[cid])	-- If random picks 0 the slot will be empty to allow removed part
-if cpick == 0 then 
-toRet["parts"][k] = ""
+-- 1.20.3 avoid list, either force keeps or removes a part that would otherwise be randomized
+gcv_avoid,gcv_avoidMode = gcv_avoidMatch(cid)
+if gcv_avoid then
+	if gcv_avoidMode == gcv_avoidMode_forceRemove then
+		blrlog("gcvAvoid force removed part " .. v .. " from slot " .. k)
+		toRet["parts"][k] = ""
+	elseif gcv_avoidMode == gcv_avoidMode_forceKeep then
+	    blrlog("gcvAvoid force kept part " .. v .. " on slot " .. k)
+		toRet["parts"][k] = v
+	else
+		blrlog("gcvAvoid error, unknown mode: " .. tostring(gcv_avoidMode), lvl_warn)
+	end
 else
-toRet["parts"][k] = fmap[cid][cpick]
+	if fmap[cid] then
+		cpick = math.random(0,#fmap[cid])	-- If random picks 0 the slot will be empty to allow removed part
+		if cpick == 0 then 
+			toRet["parts"][k] = ""
+		else
+			toRet["parts"][k] = fmap[cid][cpick]
+		end
+	end
 end
-end
+
+
 end
 return toRet
 end
@@ -2485,7 +2573,13 @@ end
 end
 
 jsonWriteFile(configPathCache, configFile, true)
+
+-- 1.20.3 add inventory saving after ilinks init to help prevent 
+-- save file corruption if game crashes before saving new entries
+extensions.blrPartInventory.save()
 end
+
+
 
 loadConfigFileData(gid) -- reload config file data to get ilinks into cache
 end
@@ -3426,6 +3520,7 @@ end
 sendPartUI2Cart()
 end
 
+M.processForceRemovedParts = processForceRemovedParts
 M.buildAllPartsSlotMap = buildAllPartsSlotMap
 M.getSlotMapV2 = getSlotMapV2
 M.toggleAdvancedVehicleBuilding = toggleAdvancedVehicleBuilding

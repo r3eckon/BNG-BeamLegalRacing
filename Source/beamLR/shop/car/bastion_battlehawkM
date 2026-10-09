@@ -1,4 +1,8 @@
 name=Bruckell Bastion (Battlehawk,Manual)
+brand=Bruckell
+model=Bastion
+trim=Battlehawk
+transmission=Manual
 type=bastion
 config=vehicles/bastion/battlehawk_M.pc
 baseprice=75000

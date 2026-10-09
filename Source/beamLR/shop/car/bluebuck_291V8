@@ -1,4 +1,8 @@
 name=Gavril Bluebuck (291 V8,Manual)
+brand=Gavril
+model=Bluebuck
+trim=291 V8
+transmission=Manual
 type=bluebuck
 config=vehicles/bluebuck/291m_4door.pc
 baseprice=4000,6000

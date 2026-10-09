@@ -1,5 +1,8 @@
 name=West Rock Motors
+type=used
 hours=8,20
+trademin=0
+cansell=1
 chance=0.9
 rpchance=0.4
 dchance=0.4

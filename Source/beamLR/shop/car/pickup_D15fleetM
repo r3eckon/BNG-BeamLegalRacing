@@ -1,4 +1,8 @@
 name=Gavril D-Series (D15 Fleet,Manual)
+brand=Gavril
+model=D-Series
+trim=D15 Fleet
+transmission=Manual
 type=pickup
 config=vehicles/pickup/d15_fleet_M_facelift.pc
 baseprice=1000,3000

@@ -1,4 +1,8 @@
 name=Ibishu BX-Series (Coupe)
+brand=Ibishu
+model=BX-Series
+trim=Diana
+transmission=Manual
 type=bx
 config=vehicles/bx/blr_200bx_old_B.pc
 baseprice=500,3000

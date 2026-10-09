@@ -1,4 +1,8 @@
 name=ETK 800-Series (844 150,Manual)
+brand=ETK
+model=800-Series
+trim=844 150
+transmission=Manual
 type=etk800
 config=vehicles/etk800/844_150_M.pc
 baseprice=31000

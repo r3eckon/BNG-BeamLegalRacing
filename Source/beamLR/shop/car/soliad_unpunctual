@@ -1,4 +1,8 @@
 name=Soliad Wendover
+brand=Soliad
+model=Wendover
+trim=NA
+transmission=Manual
 type=wendover
 config=vehicles/wendover/derby.pc
 baseprice=500,1000

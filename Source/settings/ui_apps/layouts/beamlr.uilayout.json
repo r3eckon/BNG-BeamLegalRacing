@@ -263,6 +263,19 @@
         "top":0,
         "width":"1200px"
       }
+    },
+    {
+      "appName":"beamlrdealershipui",
+      "placement":{
+        "bottom":"",
+        "height":"53.13em",
+        "left":"1.06em",
+        "position":"absolute",
+        "right":"",
+        "top":"3.1em",
+        "width":"26.51em"
+      },
+      "settings":{}
     }
   ],
   "description":"BeamLR UI Layout",

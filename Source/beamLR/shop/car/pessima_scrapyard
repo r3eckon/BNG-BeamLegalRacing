@@ -1,4 +1,8 @@
 name=Ibishu Pessima
+brand=Ibishu
+model=Pessima
+trim=NA
+transmission=NA
 type=pessima
 config=vehicles/pessima/blr_scrapyard.pc
 baseprice=400,600

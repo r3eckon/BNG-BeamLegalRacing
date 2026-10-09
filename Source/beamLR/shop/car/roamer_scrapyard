@@ -1,4 +1,8 @@
 name=Gavril Roamer
+brand=Gavril
+model=Roamer
+trim=NA
+transmission=NA
 type=roamer
 config=vehicles/roamer/blr_scrapyard.pc
 baseprice=400,600

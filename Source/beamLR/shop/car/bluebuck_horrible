@@ -1,4 +1,8 @@
 name=Gavril Bluebuck
+brand=Gavril
+model=Bluebuck
+trim=NA
+transmission=Manual
 type=bluebuck
 config=vehicles/bluebuck/horrible.pc
 baseprice=500,1000

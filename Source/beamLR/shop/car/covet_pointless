@@ -1,4 +1,8 @@
 name=Ibishu Covet
+brand=Ibishu
+model=Covet
+trim=NA
+transmission=Manual
 type=covet
 config=vehicles/covet/pointless.pc
 baseprice=500,1000

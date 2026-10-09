@@ -1,4 +1,8 @@
 name=Bruckell Moonhawk
+brand=Bruckell
+model=Moonhawk
+trim=NA
+transmission=Manual
 type=moonhawk
 config=vehicles/moonhawk/terrible.pc
 baseprice=500,1000

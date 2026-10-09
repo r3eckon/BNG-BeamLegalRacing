@@ -1,4 +1,8 @@
 name=Soliad Lansdale
+brand=Soliad
+model=Lansdale
+trim=NA
+transmission=Manual
 type=lansdale
 config=vehicles/lansdale/33_derby_late_M.pc
 baseprice=500,1000

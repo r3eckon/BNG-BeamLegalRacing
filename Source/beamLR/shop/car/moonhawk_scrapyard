@@ -1,4 +1,8 @@
 name=Bruckell Moonhawk
+brand=Bruckell
+model=Moonhawk
+trim=NA
+transmission=NA
 type=moonhawk
 config=vehicles/moonhawk/blr_scrapyard.pc
 baseprice=400,600

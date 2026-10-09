@@ -1,4 +1,8 @@
 name=Ibishu Hopper (XT-4,Automatic)
+brand=Ibishu
+model=Hopper
+trim=XT-4
+transmission=Automatic
 type=hopper
 config=vehicles/hopper/xt4_A.pc
 baseprice=1000,5000

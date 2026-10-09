@@ -1,5 +1,8 @@
 name=Canyon Auto
+type=new
 hours=8,18
+trademin=10000
+cansell=0
 slots=5
 chance=0.7
 dchance=0

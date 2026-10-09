@@ -11,8 +11,9 @@ local flag = {}		-- Value edit flag, tells the Flowgraph to load
 local blrflags = {} -- Custom flags used for easier state update requests (traffic disable/enable)
 					-- UNRELATED TO FG/BLR VARIABLE SYNC
 
-
-
+local onceflags = {} -- once mode flags, resets to false first time it is read as true
+local onceflags_extra = {} -- optional extra data attached to onceflags
+ 
 local function fgSetVal(k,v) -- Saves a value into the FLOWGRAPH table to give to BLRGlobals Table
 fgtable[k] = v
 end
@@ -68,6 +69,8 @@ return blrflags[name]
 end
 
 local function blrFlagsInit()
+onceflags = {}
+onceflags_extra = {}
 blrflags = {}
 end
 
@@ -91,6 +94,23 @@ local function setProjectVariable(var, val)
 manager.variables.variables[var].value = val
 end
 
+local function onceFlagSet(name, extra)
+onceflags[name] = true
+if extra then onceflags_extra[name] = extra end
+end
+
+local function onceFlagGet(name)
+if onceflags[name] then
+blrlog("onceFlagGet ON SET FLAG CALLED: " .. name)
+--blrlog(debug.traceback())
+onceflags[name] = false
+return true, onceflags_extra[name] 
+end
+return false
+end
+
+M.onceFlagSet = onceFlagSet
+M.onceFlagGet = onceFlagGet
 
 M.setManager = setManager
 M.getManager = getManager

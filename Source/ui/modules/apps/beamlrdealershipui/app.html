@@ -1,0 +1,211 @@
+<div class="bngApp beamlrdealershipui" style="background-color:transparent; height:100%; position:relative; transform:translate(2px,-2px);" >
+
+<style>
+/* Disables fully white background when clicking on option */
+md-select-menu md-option:focus:not([selected]){
+	background:inherit;
+}
+
+/* Forces dropdown to ignore selected item centering */
+.md-select-menu-container.md-active{
+	top:260px !important;
+}
+
+/* Custom background color for warning tooltips */
+md-tooltip#tooltip-warning .md-background {
+    background-color: rgba(0,0,0,0.85);
+}
+
+</style>
+
+
+<!-- Header title and buttons -->
+<div ng-if="enabled==true" style="height:100%; font-size:20px; background-color:rgba(0,0,0,0.65); position:relative;">
+
+<table style="table-layout:fixed; width:100%; text-align:center;">
+<tr>
+<td style="width:10%;">
+</td>
+<td style="width:80%;">
+<p style="width:95%; margin-top:10px; text-align:center; margin:auto; font-weight:bold; font-size:25px;">{{extradata.dealershipName}}</p>
+<p style="width:95%; margin-top:10px; text-align:center; margin:auto; ">{{"beamlr.dealership.type." + extradata.dealershipType | blrtranslate}}</p>
+</td>
+<td style="width:10%; vertical-align:top; font-size:25px; font-weight:bold;">
+<div ng-click="exit()" style="height:50%;">
+<span>
+X
+</span>
+<md-tooltip>{{"beamlr.dealershipui.leavetooltip" | blrtranslate}}</md-tooltip>
+</div>
+
+</td>
+</tr>
+</table>
+
+<!-- Main page -->
+
+<div ng-if="page==0" style="height:100%; width:100%;">
+
+<div style="width:95%; margin:auto; margin-top:10px; text-align:center;">
+<button style="margin-right:20px;" ng-click="selectPreviousSlot()">&lt;</button>
+<span style="width:50%; font-weight:bold; font-size:20px;">{{"beamlr.dealershipui.selectedvehicle" | blrtranslate}} {{selectedSlot + 1}}/{{slotCount}}</span>
+<button style="margin-left:20px;" ng-click="selectNextSlot()">&gt;</button>
+</div>
+
+<div ng-if="vehdata[selectedSlot].empty != true"style="width:100%;">
+<div style="width:95%; margin:auto; margin-top:10px; text-align:left;">
+<span style="width:50%; font-weight:bold; font-size:23px;">{{"beamlr.dealershipui.vehicleinformation" | blrtranslate}}</span>
+</div>
+
+<div style="width:95%; margin:auto; margin-left:20px; text-align:left;">
+<table style="table-layout:fixed; vertical-align:top; width:100%;">
+<tr style="height:0px;"><td style="font-weight:bold;">{{"beamlr.dealershipui.brandprefix" | blrtranslate}}</td><td>{{vehdata[selectedSlot].brand}}</td></tr>
+<tr style="height:0px;"><td style="font-weight:bold">{{"beamlr.dealershipui.modelprefix" | blrtranslate}}</td><td>{{vehdata[selectedSlot].model}}</td></tr>
+<tr style="height:0px;"><td style="font-weight:bold">{{"beamlr.dealershipui.trimprefix" | blrtranslate}}</td><td>{{vehdata[selectedSlot].trim}}</td></tr>
+<tr style="height:0px;"><td style="font-weight:bold">{{"beamlr.dealershipui.transmissionprefix" | blrtranslate}}</td><td>{{"beamlr.dealershipui.transmission." + vehdata[selectedSlot].transmission | blrtranslate}}</td></tr>
+<tr style="height:0px;"><td style="font-weight:bold">{{"beamlr.dealershipui.odometerprefix" | blrtranslate}}</td><td>{{getUnitConvertedValue(vehdata[selectedSlot].odometer) / 1000.0 | number:1}} {{extradata.unitsSuffix}}</td></tr>
+<tr style="height:0px;"><td style="font-weight:bold">{{"beamlr.dealershipui.costprefix" | blrtranslate}}</td><td>${{vehdata[selectedSlot].baseprice | number:2}}</td></tr>
+</table>
+</div>
+
+<div style="width:95%; margin:auto; margin-top:10px; display:flex; height:40px;">
+<div style="width:55%; display:inline-block; vertical-align:top; height:50px;">
+<span style="font-weight:bold; font-size:23px;">{{"beamlr.dealershipui.vehfaxreport" | blrtranslate}}</span>
+<span style="display:inline-block; text-align:center; width:30px; border:2px solid white; border-radius:30px; font-weight:bold;"ng-mouseenter="toggleVehFaxHelp(true)" ng-mouseleave="toggleVehFaxHelp(false)">
+&nbsp?&nbsp
+</span>
+</div>
+<div ng-if="showvehfaxhelp == true" style="width:53%; display:inline-block; vertical-align:top; height:50px; ">
+<div style="white-space:pre-wrap; text-align:center; font-size:13px; line-height:15px; background-color:black; border-radius:5px; position:relative; z-index:100; padding:3px;">{{"beamlr.dealershipui.vehfaxhelp" | blrtranslate}}</div>
+</div>
+</div>
+
+
+<div ng-if="vehfax[selectedSlot].available != true" style="width:100%">
+<p style="width:95%; margin:auto; text-align:left;">{{"beamlr.dealershipui.vehfaxnohistory" | blrtranslate}}</p>
+</div>
+
+<div ng-if="vehfax[selectedSlot].available == true" style="width:100%;">
+
+<div ng-if="!vehfaxOwned(selectedSlot)" style="width:65%; text-align:center; margin:auto; margin-top:10px; ">
+<button style="text-align:center;" ng-click="buyVehfaxReport()">{{"beamlr.dealershipui.vehfaxbuy" | blrtranslate}} ($100)</button>
+</div>
+
+<div ng-if="vehfaxOwned(selectedSlot)" style="width:95%; font-size:14px; text-align:center; margin:auto; margin-left:20px; margin-top:0px; ">
+<p style="text-align:left; font-size:17px; margin-top:0px; margin-bottom:5px;">This vehicle:</p>
+<p style="text-align:left; font-size:15px; margin-top:5px; margin-bottom:5px;">- {{vehfax[selectedSlot].text.drivers}}</p>
+<p style="text-align:left; font-size:15px; margin-top:5px; margin-bottom:5px;">- {{vehfax[selectedSlot].text.accidents}}</p>
+<p ng-if="vehfax[selectedSlot].text.oldracecar == null" style="text-align:left; font-size:15px; margin-top:5px; margin-bottom:5px;">- {{vehfax[selectedSlot].text.maintenance}}</p>
+<p ng-if="vehfax[selectedSlot].text.oldracecar == null" style="text-align:left; font-size:15px; margin-top:5px; margin-bottom:5px;">- {{vehfax[selectedSlot].text.risk}}</p>
+<p ng-if="vehfax[selectedSlot].text.oldracecar == null" style="text-align:left; font-size:15px; margin-top:5px; margin-bottom:5px;">- {{vehfax[selectedSlot].text.style}}</p>
+<p ng-if="vehfax[selectedSlot].text.oldracecar != null" style="text-align:left; font-size:15px; margin-top:5px; margin-bottom:5px;">- {{vehfax[selectedSlot].text.oldracecar}}</p>
+<p style="text-align:left; font-size:17px; margin-top:10px; margin-bottom:5px;">{{vehfax[selectedSlot].text.odochange}}<span style="font-weight:bold" ng-style="vehfax[selectedSlot].data.odogain > 0 && {'color':'red'} || {'color':'lime'}"> {{getUnitConvertedValue(abs(vehfax[selectedSlot].data.odogain)) | number:1}} {{extradata.unitsSuffix}}</span></p>
+<p style="text-align:left; font-size:17px; margin-top:5px; margin-bottom:5px;">{{vehfax[selectedSlot].text.odototal}}<span style="font-weight:bold"> {{getUnitConvertedValue(max(vehfax[selectedSlot].data.odogain + vehdata[selectedSlot].odometer / 1000.0, 0)) | number:1}} {{extradata.unitsSuffix}}</span></p>
+</div>
+</div>
+
+
+
+<!-- VEHFAX END -->
+
+<div style="width:95%; text-align:center; margin:auto; margin-top:10px; ">
+<p style="text-align:left; margin:auto; margin-top:0px; margin-bottom:0px; font-weight:bold; font-size:23px;">{{"beamlr.dealershipui.buyvehicle" | blrtranslate}}</p>
+
+
+<div style="width:95%; margin:0; margin-bottom:10px; margin-left:20px; margin-top:5px; text-align:left;">
+<table style="table-layout:fixed; vertical-align:top; width:100%;">
+<tr style="height:0px;"><td style="font-weight:bold">{{"beamlr.dealershipui.moneyprefix" | blrtranslate}}</td><td>${{extradata.playerMoney | number:2}}</td></tr>
+<tr ng-if="extradata.limitedSlots == true" style="height:0px;"><td style="font-weight:bold">{{"beamlr.dealershipui.slotsprefix" | blrtranslate}}</td><td>{{extradata.garageSlots - extradata.ownedCars}} / {{extradata.garageSlots}}</td></tr>
+<tr ng-if="extradata.limitedSlots != true" style="height:0px;"><td style="font-weight:bold">{{"beamlr.dealershipui.slotsprefix" | blrtranslate}}</td><td>&infin;</td></tr>
+</table>
+</div>
+
+<button style="margin-top:20px; "ng-click="setPage(1)">{{"beamlr.dealershipui.viewbuyoptions" | blrtranslate}}</button>
+
+</div>
+
+</div>
+<div ng-if="vehdata[selectedSlot].empty == true;" style="width:100%; margin-top:20px;">
+<p style="text-align:center;">{{"beamlr.dealershipui.emptyslots" | blrtranslate}}</p>
+</div>
+
+</div>
+
+
+<!-- Buy page -->
+<div ng-if="page==1">
+
+<div style="width:95%; margin:auto; margin-top:20px; text-align:left;">
+<span style="width:50%; font-weight:bold; font-size:23px;">{{"beamlr.dealershipui.buypage_title" | blrtranslate}}</span>
+</div>
+
+<div style="width:100%; margin-top:10px;">
+<table style="width:90%; margin:auto; table-layout:fixed;">
+<tr>
+<td style="width:50%;">{{"beamlr.dealershipui.buypage_tradein" | blrtranslate}}</td>
+<td style="width:50%;">
+	<div style="width:30px;">
+		<md-checkbox style="width:30px;" ng-change="onTradeinToggleChanged()" ng-disabled="extradata.nocar == true || extradata.eventRestricted == true || tradeAllowed() == false" ng-model="buyoptions.tradein">
+		</md-checkbox>
+		<md-tooltip ng-if="tradeDisallowedTooltipShow() == true" id="tooltip-warning" style="font-weight:bold; font-size: 15px; color:yellow;">{{tradeDisallowedTooltip()}}</md-tooltip>
+	</div>
+</td>
+</tr>
+<tr>
+<td style="width:50%;">{{"beamlr.dealershipui.buypage_deliverymethod" | blrtranslate}}</td>
+<td style="width:50%;">
+<md-select style="width:150px; margin:0;" ng-model="buyoptions.delivery" ng-change="onDeliveryMethodChanged()">
+<md-option value="delivery">{{"beamlr.dealershipui.buypage_deliverymethod_delivery" | blrtranslate}}</md-option>
+<md-option value="driveout">{{"beamlr.dealershipui.buypage_deliverymethod_driveout" | blrtranslate}}</md-option>
+</md-select>
+</td>
+</tr>
+</table>
+<div>
+
+<div style="width:95%; margin:auto; margin-top:20px; text-align:left;">
+<span style="width:50%; font-weight:bold; font-size:23px;">{{"beamlr.dealershipui.buypage_transactionsummary" | blrtranslate}}</span>
+</div>
+
+<div style="margin-top:10px;">
+<table style="width:90%; margin:auto; table-layout:fixed;">
+<tr><td style="width:50%;">{{"beamlr.dealershipui.buypage_vehiclecost" | blrtranslate}}</td><td style="width:50%; text-align:right;">${{vehdata[selectedSlot].baseprice | number:2}}</td></tr>
+<tr ng-if="buyoptions.tradein == true"><td>{{"beamlr.dealershipui.buypage_tradecredit" | blrtranslate}}</td><td style="width:50%; text-align:right;">${{extradata.tradeinval | number:2}}</td></tr>
+<tr ng-if="buyoptions.delivery == 'delivery'"><td>{{"beamlr.dealershipui.buypage_deliveryfee" | blrtranslate}}</td><td style="width:50%; text-align:right;">$50.00</td></tr>
+<tr ng-if="buyoptions.delivery == 'driveout' && (buyoptions.tradein != true && extradata.nocar != true)"><td>{{"beamlr.dealershipui.buypage_towingfee" | blrtranslate}}</td><td style="width:50%; text-align:right;">$50.00</td></tr>
+<tr><td>&nbsp</td><td></td></tr>
+<tr style="font-weight:bold;"><td style="font-weight:bold; font-size:23px;">{{"beamlr.generic.term.total" | blrtranslate}} <span ng-if="getTransactionTotal() < 0">({{"beamlr.generic.term.credit" | blrtranslate}})</span></td><td style="width:50%; text-align:right; font-size:23px;" ng-style="getTransactionTotalColor()">${{abs(getTransactionTotal()) | number:2}}</td></tr>
+</table>
+</div>
+
+<div style="margin-top:30px;">
+
+<table style="table-layout:fixed; width:90%; margin:auto;">
+<tr>
+<td style="width:90%; text-align:left; font-size:13px;">{{"beamlr.dealershipui.buypage_disclaimer" | blrtranslate}}</td>
+<td style="width:20%; text-align:center;"><md-checkbox ng-change="onBuyConfirmToggleChanged()" ng-model="buyoptions.confirm" style="width:30px; margin:auto;"></md-checkbox></td>
+</tr>
+</table>
+
+<div ng-if="moneyCheck(getTransactionTotal()) != true || slotsCheck() != true" style="width:95%; margin:auto; margin-top:10px; text-align:center;">
+<p ng-if="moneyCheck(getTransactionTotal()) != true" style="margin:auto; margin-top:5px; margin-bottom:5px; font-size:17px; font-weight:bold; color:yellow;">{{"beamlr.dealershipui.buypage_notenoughmoney" | blrtranslate}}</p>
+<p ng-if="slotsCheck() != true" style="margin:auto; margin-top:5px; margin-bottom:5px; font-size:17px; font-weight:bold; color:yellow;">{{"beamlr.dealershipui.buypage_notenoughslots" | blrtranslate}}</p>
+</div>
+
+
+<table style="width:90%; margin:auto; margin-top:20px; text-align:center;">
+<tr>
+<td style="width:50%;"><button ng-click="setPage(0)">{{"beamlr.generic.button.cancel" | blrtranslate}}</button></td>
+<td style="width:50%;"><button ng-click="sendBuyRequest()" ng-disabled="moneyCheck(getTransactionTotal()) != true || slotsCheck() != true || buyoptions.confirm != true">{{"beamlr.generic.button.buyvehicle" | blrtranslate}}</button></td>
+</tr>
+</table>
+</div>
+
+
+
+
+</div>
+
+</div>
+
+</div>

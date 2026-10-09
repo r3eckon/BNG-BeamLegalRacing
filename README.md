@@ -1,15 +1,12 @@
-
-
-
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.20.2/beamLegalRacing1.20.2.zip
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.20.3/beamLegalRacing1.20.3.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.20.2
+# Beam Legal Racing 1.20.3
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
 
-## Quick Links
+# Quick Links
 ### More Info | [Forum thread](https://www.beamng.com/threads/87394/) 
 
 ### Career Maps | [Utah](utahmap.md) | [East Coast](eastcoastmap.md) | [Italy](italymap.md) | [West Coast](westcoastmap.md) | [Valo City](valocitymap.md)
@@ -26,7 +23,7 @@ Perform missions, races and challenges to earn money to buy vehicles and parts. 
 
 
 
-## Install Instructions ([Video](https://www.youtube.com/watch?v=iKZckDVPjR4))
+# Install Instructions ([Video](https://www.youtube.com/watch?v=iKZckDVPjR4))
 **BeamLR cannot be installed like a normal mod due to data persistence issues when zipped**. 
 
 Carefully follow the instructions to ensure all features are working properly:
@@ -41,7 +38,7 @@ Carefully follow the instructions to ensure all features are working properly:
 **Installing BeamLR may overwrite custom changes made to levels.** 
 Modders should back up the userfolder before installing.
 
-## Update Instructions ([Video](https://www.youtube.com/watch?v=iKZckDVPjR4))
+# Update Instructions ([Video](https://www.youtube.com/watch?v=iKZckDVPjR4))
 **BEFORE UPDATING**:  Back up the userfolder/beamLR folder to archive your career
 
 **IMPORTANT NOTE**: Version 1.20 and above are not compatible with previous version backups
@@ -59,7 +56,7 @@ If the backup system fails to work properly you can manually replace the files/f
 
 If you are experiencing issues after updating the mod, try a **clean** userfolder install and copy over your backup.
 
-## BeamNG Major Updates
+# BeamNG Major Updates
 ### The mod will most likely not be compatible with a new major version of BeamNG. 
 ### Do not create issues telling me to update the mod during major version updates. 
 
@@ -73,7 +70,7 @@ With major updates to BeamNG a new userfolder is created. Not all BeamLR files a
 The game will give you a chance to view the contents of your old userfolder containing career files on first launch after updating so don't worry about steam update deleting your save. The BeamLR folder will not be migrated to the new userfolder so your career files will be kept in the old userfolder.
 
 
-## Read Before Playing
+# Read Before Playing
 
 **IMPORTANT**: **Do not change the settings shown below while playing BeamLR**. The settings should be automatically restored to your previous values when you abandon the scenario. Keep in mind game crashes and other forceful exit from the scenario may prevent your old setting from being restored.
 
@@ -87,7 +84,7 @@ The game will give you a chance to view the contents of your old userfolder cont
 
 The "BeamLR" layout will be loaded on scenario start. Any changes made to this UI layout will be reflected when playing BeamLR in case the default layout doesn't fit on your screen.
 
-## Major Feature Update Overview
+# Major Feature Update Details
 
 Version 1.6 adds N2O tank persistence. Garage files from previous versions are missing this value and will default to empty N2O tanks. Nitrous tanks can be refilled at the repair shop.
 
@@ -151,7 +148,9 @@ Version 1.20 brings compatibility for BeamNG version 0.39 to the mod and adds ne
 
 Version 1.20.2 adds toggleable log levels to the advanced options menu. Turning off log levels as well as replication to the beamlr.log file may improve performance on systems where the userfolder is on a slower drive. However it isn't recommended to do so as missing log entries will result in missing information for bug reports. Only turn off log entries if you aren't planning on reporting bugs you encounter. If you do encounter bugs with log levels turned off, turn all of them back on and try to replicate the issue before sending a bug report.
 
-## Getting started
+Version 1.20.3 adds a new dealership UI app to improve the user experience when buying cars. This new UI not only displays information in an easier to understand manner but it also allows two new options when buying cars: **trade-ins** and **driving off with the new car**. For trade-ins, certain dealerships have a minimum value to accept your vehicle as a trade while others simply do not accept trades. When choosing to drive off with your new car, if you came to the dealership with a car and do not want to trade it in, a towing fee will apply to get the that car back to your garage. Likewise, if you choose to have the new car delivered, a delivery fee applies. 
+
+# Getting started
 BeamLR is loaded as a freeroam mission. Use the following spawn point depending on map choice:
 
 * Utah: **Auto Repair Zone**
@@ -253,10 +252,10 @@ This system will be used in a future version to create a final boss type race li
 
 As of version 1.12 mod levels are now supported for track events. Events for maps you do not have installed will not be offered in the browser. You must also install the **addon** for a specific map otherwise events will not work properly.
 
-### The Race of Heroes
+## The Race of Heroes
 Version 1.15 adds a SLRR "Race of Champions" inspired endgame track event called "The Race of Heroes". This event takes place on the Johnson Valley  map and requires the player to have completed every other race club in the game (completion means "Hero" league has been reached). The race is point based unlike time based events and is against the same opponent using a different vehicle each round. Winning this event basically means the player has beat the mod and rewards a large sum of money, rep as well as a supercar.
 
-
+# Major Features Overview
 ## Advanced Vehicle Building
 ### NOTE: As of version 1.14 advanced vehicle building is enabled by default.
 Added in version 1.13, advanced vehicle building (AVB) allows for a more realistic or SLRR-like vehicle building experience. Jbeam loading scripts have been modified to remove all slot defaults, which for instance makes it so  wheels spawn without tires, pickup bed spawns without tailgate, taillights or bed accessory. Sub-parts must therefore be purchased and added manually. 
@@ -347,14 +346,11 @@ Added in version 1.19, barn finds are new hidden interactive areas that spawn ol
 
 Barn find areas are unique in the sense that they will only spawn one vehicle per career per map. If you see an interesting car that you can't afford yet that car will not change from day to day and will remain until you purchase it, after which the area no longer spawns any car. Only one these areas per map will spawn a car and the area that contains a car as well as the car it will contain is randomized based on career seed.
 
-## WIP Notice
-This mod is a work in progress. At this stage it is a decent vertical slice of the gameplay the project is trying to achieve with some bugs and quirks remaining that should get better as BeamNG and the mod are updated. That being said a lot of content is missing and reward values may be unbalanced relative to part prices.
+# WIP Notice
+This mod is a work in progress. Make frequent manual backups of your career files to avoid losing progress! If files get corrupted, please make an issue report and include all of your files so I can find out what happened and potentially fix them manually if possible. 
 
-Due to the nature of BeamNG some features available to players may break the experience when playing BeamLR, such as the circular menu, world editor and other UI apps. If playing seriously (not actively trying to break stuff) try avoiding features that aren't directly offered in UI menus from the mod. While I still appreciate bug reports related to said features, some of them simply can't be disabled and related issues won't be prioritized.
 
-Beamstate is a very experimental BeamNG feature being used by this project for damage saving. If a vehicle suddenly breaks after being stored in good condition, the beamstate file got corrupted. Flowgraph has been added to detect and fix this, however it may not always work properly. You can fix this two ways: move your vehicle using the F11 world editor (will force a vehicle reset) or delete the vehicle beamstate file before launching the scenario to force a fresh vehicle beamstate. Beamstate also breaks Covet "advanced hinges" and may cause game crashes with the Scintilla.
-
-## Final Word
+# Final Word
 Feedback and bug reports are appreciated! 
 
 Thank you for playing BeamLR!
@@ -389,7 +385,7 @@ Thank you for playing BeamLR!
 * Abdullah Alsnani
 
 
-## Known Issues 
+# Known Issues 
 
 * As of BeamNG version 0.28 beamstate loading is broken. This is listed in known issues for the game and should hopefully be fixed soon.
 * Some tuning configurations can cause unfair damage when a vehicle is loaded. A workaround is implemented but may fail to work in certain situations.
@@ -409,7 +405,7 @@ Cause: Both mods make changes to the same level files. BeamNG has no way to merg
 ### RK's Highly Customizable Engines
 Cause: Engine jbeam is missing torque data. Data is moved to other subparts. This is fine in vanilla BeamNG since engine spawns with default parts attached. In BeamLR engines spawn without default parts, so torque data is missing which breaks the powertrain and other vehicle scripts.
 
-## Changelog
+# Changelog
 
 ### 1.0 
 * Initial Release
@@ -1176,3 +1172,15 @@ Cause: Engine jbeam is missing torque data. Data is moved to other subparts. Thi
 * Fixed broken AI race path on West Coast USA Service Station Race Club
 * Daredevil challenges now show their X/10 difficulty scaling (doesn't apply to jump challenges)
 * Time scale value now set to 12 by default (2 hours real life for a full in game day)
+
+### 1.20.3 
+* Added new car dealership UI app (replaces old imgui buy mode menu)
+* Updated car dealership system (can now trade in current car, drive off with bought car & more)
+* Car dealerships now have parameters for whether selling is allowed & minimum trade in value
+* Fixed some tuning UI values always showing minimum (affected values with negative internal ranges)
+* Fixed blrlog error when trying to print nil value (now just prints "nil" in log)
+* Fixed dealership generating data for an extra unused vehicle
+* Dealerships no longer spawn cars with rollcages (rollcages were too valuable vs buy price)
+* Dealerships no longer want to buy back cars they sold to player (must sell to another dealership)
+* Updated en-US translation file with new entries for dealership UI
+* Dealership car files now have make/model/trim/transmission information split into individual items

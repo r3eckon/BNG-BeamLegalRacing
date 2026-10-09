@@ -1,4 +1,8 @@
 name=Gavril Grand Marshal (V8,Automatic)
+brand=Gavril
+model=Grand Marshal
+trim=V8
+transmission=Automatic
 type=fullsize
 config=vehicles/fullsize/stock.pc
 baseprice=4000,6000

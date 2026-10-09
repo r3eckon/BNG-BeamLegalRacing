@@ -1,4 +1,8 @@
 name=Autobello Piccolina
+brand=Autobello
+model=Piccolina
+trim=NA
+transmission=Manual
 type=autobello
 config=vehicles/autobello/110_m.pc
 baseprice=500,3000

@@ -1,4 +1,8 @@
 name=Hirochi Sunburst (2.0 Sport S,Manual)
+brand=Hirochi
+model=Sunburst
+trim=2.0 Sport S
+transmission=Manual
 type=sunburst2
 config=vehicles/sunburst2/sport_S_wagon_M.pc
 baseprice=30000

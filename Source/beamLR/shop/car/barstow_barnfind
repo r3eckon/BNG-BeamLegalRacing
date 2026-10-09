@@ -1,4 +1,8 @@
 name=Gavril Barstow Kingsnake (Manual, Barn Find)
+brand=Gavril
+model=Barstow
+trim=Kingsnake
+transmission=Manual
 type=barstow
 config=vehicles/barstow/blr_barnfind.pc
 baseprice=8000,30000

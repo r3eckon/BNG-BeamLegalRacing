@@ -429,6 +429,102 @@ local function showPartShopV2()
 guihooks.trigger("beamlrPartShopV2Show", true)
 end
 
+
+
+
+
+local function toggleDealershipUI(toggle)
+lastdata["dealership_toggle"] = toggle
+guihooks.trigger("beamlrDealershipUIToggle", toggle)
+end
+
+local function sendDealershipUIVehicleData(data)
+lastdata["dealership_vehdata"] = data
+guihooks.trigger("beamlrDealershipUIVehicleData", data)
+end
+
+local function sendDealershipUIVehfaxData(data)
+lastdata["dealership_vehfax"] = data
+guihooks.trigger("beamlrDealershipUIVehfaxData", data)
+end
+
+local function sendDealershipUIExtraData(data)
+lastdata["dealership_extra"] = data
+guihooks.trigger("beamlrDealershipUIExtraData", data)
+end
+
+local function sendDealershipUISelectedSlot(slot)
+lastdata["dealership_selected"] = slot
+guihooks.trigger("beamlrDealershipUISelectedSlot", slot)
+end
+
+local function sendDealershipUIPage(page)
+lastdata["dealership_page"] = page
+guihooks.trigger("beamlrDealershipUIPage", page)
+end
+
+local dealershipUICache = {}
+local function dealershipUICacheUpdate(p)
+dealershipUICache = p
+end
+
+local function dealershipUICacheRefresh()
+guihooks.trigger("beamlrDealershipUICacheRefresh", dealershipUICache)
+end
+
+local function dealershipUIInit()
+guihooks.trigger("beamlrDealershipUIToggle", lastdata["dealership_toggle"])
+guihooks.trigger("beamlrDealershipUIVehicleData", lastdata["dealership_vehdata"])
+guihooks.trigger("beamlrDealershipUIVehfaxData", lastdata["dealership_vehfax"])
+guihooks.trigger("beamlrDealershipUIExtraData", lastdata["dealership_extra"])
+guihooks.trigger("beamlrDealershipUISelectedSlot", lastdata["dealership_selected"])
+guihooks.trigger("beamlrDealershipUIPage", lastdata["dealership_page"])
+dealershipUICacheRefresh()
+end
+
+local function dealershipUIDayDataUpdate(daydata)
+local tosend = {}
+
+if daydata.pslots == "none" then 
+tosend.pslots = "none"
+else
+tosend.pslots = {}
+for k,v in pairs(extensions.blrutils.ssplit(daydata.pslots, ",")) do
+tosend.pslots["slot" .. v] = true
+end
+end
+
+if daydata.vehfax == "none" then 
+tosend.vehfax = "none"
+else
+tosend.vehfax = {}
+for k,v in pairs(extensions.blrutils.ssplit(daydata.vehfax, ",")) do
+tosend.vehfax["slot" .. v] = true
+end
+end
+
+lastdata["dealership_extra"].daydata = tosend
+
+guihooks.trigger("beamlrDealershipUIDayDataUpdate", tosend)
+end
+
+local function dealershipUIPlayerMoneyUpdate(money)
+lastdata["dealership_extra"].playerMoney = money
+guihooks.trigger("beamlrDealershipUIPlayerMoneyUpdate", money)
+end
+
+
+M.dealershipUICacheRefresh = dealershipUICacheRefresh
+M.dealershipUICacheUpdate = dealershipUICacheUpdate
+M.sendDealershipUIPage = sendDealershipUIPage
+M.dealershipUIPlayerMoneyUpdate = dealershipUIPlayerMoneyUpdate
+M.dealershipUIDayDataUpdate = dealershipUIDayDataUpdate
+M.dealershipUIInit = dealershipUIInit
+M.sendDealershipUISelectedSlot = sendDealershipUISelectedSlot
+M.sendDealershipUIVehfaxData = sendDealershipUIVehfaxData
+M.sendDealershipUIExtraData = sendDealershipUIExtraData
+M.sendDealershipUIVehicleData = sendDealershipUIVehicleData
+M.toggleDealershipUI = toggleDealershipUI
 M.showPartShopV2 = showPartShopV2
 M.sendRepairUIParentSelect = sendRepairUIParentSelect
 M.togglePastEventViewer = togglePastEventViewer

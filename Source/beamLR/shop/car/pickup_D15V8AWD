@@ -1,4 +1,8 @@
-name=Gavril D-Series (D15 V8 AWD,Automatic)
+name=Gavril D-Series (D15 V8 4WD,Automatic)
+brand=Gavril
+model=D-Series
+trim=D15 V8 4WD
+transmission=Automatic
 type=pickup
 config=vehicles/pickup/d15_4wd_A.pc
 baseprice=3000,6000

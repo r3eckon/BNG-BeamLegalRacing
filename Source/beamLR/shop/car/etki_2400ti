@@ -1,4 +1,8 @@
 name=ETK I-Series (2400ti, Manual)
+brand=ETK
+model=I-Series
+trim=2400ti
+transmission=Manual
 type=etki
 config=vehicles/etki/2400ti_sport_M.pc
 baseprice=5000,15000

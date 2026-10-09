@@ -1,5 +1,8 @@
 name=Bianco Auto Scrapyard
+type=scrap
 hours=7,19
+trademin=-1
+cansell=0
 slots=5
 chance=0.8
 dchance=0

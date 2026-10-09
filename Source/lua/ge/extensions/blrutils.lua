@@ -610,7 +610,7 @@ return toRet
 end
 
 local function processCarShopRandoms(dtable, seed, defective)
-local toRet = {}
+local toRet = deepcopy(dtable)
 local baseprice = ssplit(dtable["baseprice"], ",")
 local odometer = ssplit(dtable["odometer"], ",")
 math.randomseed(seed)	-- Load spawn seed
@@ -1622,20 +1622,20 @@ local classData = {}
 toRet["models"] = {}
 toRet["configs"] = {}
 if configData:match("class:") then
-csplit = extensions.blrutils.ssplit(configData, ":")
+csplit = ssplit(configData, ":")
 class = csplit[2]
-classData = extensions.blrutils.loadDataFile("beamLR/performanceClass/" .. class)
+classData = loadDataFile("beamLR/performanceClass/" .. class)
 for k,v in pairs(classData) do
 cconfig = v
-cmodel = extensions.blrutils.modelFromConfig(cconfig)
+cmodel = modelFromConfig(cconfig)
 toRet["models"][k] = cmodel
 toRet["configs"][k] = cconfig
 end
 else
-csplit = extensions.blrutils.ssplit(configData, ",")
+csplit = ssplit(configData, ",")
 for k,v in pairs(csplit) do
 cconfig = v
-cmodel = extensions.blrutils.modelFromConfig(cconfig)
+cmodel = modelFromConfig(cconfig)
 toRet["models"][k] = cmodel
 toRet["configs"][k] = cconfig
 end
@@ -1828,7 +1828,7 @@ filedata = filedata .. "impoundval=0\n"
 filedata = filedata .. "nos=0\n"
 writeFile(filename, filedata)
 
-extensions.blrutils.copyFile(config, "beamLR/garage/config/car" .. (count))
+copyFile(config, "beamLR/garage/config/car" .. (count))
 
 local ifile = "odometer=0"
 writeFile("beamLR/beamstate/integrity/car" .. (count), ifile)
@@ -2034,14 +2034,14 @@ partchance = tonumber(partsplit[1])
 end
 
 
-local moneysplit = extensions.blrutils.ssplit(edata["moneyreward"], ",")
+local moneysplit = ssplit(edata["moneyreward"], ",")
 local moneyrange = {}
 local moneydata = ""
 moneyrange[1] = ssplitnum(moneysplit[1], ":")
 moneyrange[2] = ssplitnum(moneysplit[2], ":")
 moneyrange[3] = ssplitnum(moneysplit[3], ":")
 
-local repsplit = extensions.blrutils.ssplit(edata["repreward"], ",")
+local repsplit = ssplit(edata["repreward"], ",")
 local reprange = {}
 local repdata = ""
 reprange[1] = ssplitnum(repsplit[1], ":")
@@ -2258,7 +2258,7 @@ end
 
 local function performanceUIData()
 local perfdata = getFetchedVehicleUtilsData()["perfdata"]
-local perfsplit = extensions.blrutils.ssplit(perfdata, ",")
+local perfsplit = ssplit(perfdata, ",")
 local perftable = {}
 perftable["power"] = perfsplit[1]
 perftable["torque"] = perfsplit[2]
@@ -2383,7 +2383,7 @@ local cdata = getCurrentEventData()
 extensions.customGuiStream.sendDataToUI("currentTrackEvent", cdata)
 extensions.customGuiStream.sendEventBrowserCurrentEventData(cdata)
 -- Refresh event list to get updated join state
-local elist = extensions.blrutils.eventBrowserGetList()
+local elist = eventBrowserGetList()
 extensions.customGuiStream.sendEventBrowserList(elist)
 
 -- Charge player for event joining
@@ -3060,7 +3060,7 @@ end
 
 local function getGPSDistance()
 local dest = blrvarGet("gpswaypoint")
-local units = extensions.blrutils.getSettingValue("uiUnits")
+local units = getSettingValue("uiUnits")
 -- not using GPS route distance, groundmarkers distance is more accurate & stable
 local dist = 0
 if core_groundMarkers.routePlanner.path and core_groundMarkers.routePlanner.path[1] then
@@ -3163,7 +3163,7 @@ return toRet
 end
 
 local function getGasStationByID(id)
-local stations = extensions.freeroam_facilities.getFacilities(extensions.blrutils.getLevelName()).gasStations
+local stations = extensions.freeroam_facilities.getFacilities(getLevelName()).gasStations
 local toRet = {}
 for k,v in pairs(stations) do
 if v.id==id then toRet = v end
@@ -3437,9 +3437,9 @@ end
 
 
 locals["checkMissingConfigs"] = function()
-for k,v in pairs(extensions.blrutils.missingConfigFinder("beamLR/races", false, "enemyConfig")) do blrlog(v) end
-for k,v in pairs(extensions.blrutils.missingConfigFinder("beamLR/performanceClass", true, "enemyConfig")) do blrlog(v) end
-for k,v in pairs(extensions.blrutils.missingConfigFinder("beamLR/shop/car", false, "config")) do blrlog(v) end
+for k,v in pairs(locals["missingConfigFinder"]("beamLR/races", false, "enemyConfig")) do blrlog(v) end
+for k,v in pairs(locals["missingConfigFinder"]("beamLR/performanceClass", true, "enemyConfig")) do blrlog(v) end
+for k,v in pairs(locals["missingConfigFinder"]("beamLR/shop/car", false, "config")) do blrlog(v) end
 end
 
 -- added for 0.33 to rebuild simple traffic spawngroups after cars got put under a same simple_traffic model
@@ -3688,11 +3688,13 @@ dtable["tsbias"] = "0.8"
 dtable["trisk"] = "0.2"
 dtable["tsrate"] = "0.1"
 dtable["lrestrict"] = "1"
-dtable["sseed"] = "123"
-dtable["nseed"] = "123"
+dtable["sseed"] = "37"
+dtable["nseed"] = "37"
 dtable["odbufsize"] = "250"
 dtable["odtoggle"] = "1"
 dtable["loglevel"] = "15"
+dtable["timescale"] = "12"
+dtable["dstatshide"] = "1"
 saveDataTable("beamLR/options", dtable)
 
 -- next doing mainData
@@ -3749,37 +3751,43 @@ local maintenance = {"professional", "good", "average", "subpar", "none"}
 if positive then
 
 toRet["accidents"] = 0
-toRet["powner_count"] = 1
-toRet["powner_driverisk"] = 1
-toRet["powner_drivestyle"] = 1
+toRet["drivers"] = 1
+toRet["risk"] = 1
+toRet["style"] = 1
 toRet["oldracecar"] = false
 toRet["maintenance"] = math.random(1, 3)
 
 else
 
 toRet["accidents"] = math.random(0,3)
-toRet["powner_count"] = math.random(1,5)
-toRet["powner_driverisk"] = math.random(2, #risk)
-toRet["powner_drivestyle"] = math.random(2, #style)
-toRet["oldracecar"] = toRet["powner_driverisk"] > 3 and toRet["powner_drivestyle"] > 3 and math.random() > 0.5
-
-if toRet["oldracecar"] then -- with racecar modifier give pro level maintenance
-toRet["maintenance"] = 1
-else
+toRet["drivers"] = math.random(1,5)
+toRet["risk"] = math.random(2, #risk)
+toRet["style"] = math.random(2, #style)
+toRet["oldracecar"] = toRet["risk"] > 3 and toRet["style"] > 3 and math.random() > 0.5
 toRet["maintenance"] = math.random(1, #maintenance)
+
+if toRet["oldracecar"] then -- with racecar modifier give pro level maintenance but highest risk and fast style
+toRet["maintenance"] = 1
+toRet["risk"] = 5
+toRet["style"] = 5
 end
 
 end
 
+																					-- abs delta ( max / min )
+toRet["odogain"] = toRet["accidents"] * 10000 										-- 50,000 (50000 / 0)
+toRet["odogain"] = toRet["odogain"] + (toRet["drivers"] - 1) * 2000			-- 10,000 (60,000 / 0)
+toRet["odogain"] = toRet["odogain"] + (toRet["risk"]) * 5000 - 15000	-- 10,000 (70,000 / -10,000)
+toRet["odogain"] = toRet["odogain"] + (toRet["style"]) * 10000 - 30000	-- 20,000 (90,000 / -30,000)
+toRet["odogain"] = toRet["odogain"] + (toRet["maintenance"]) * 20000 - 60000		-- 40,000 (130,000 / - 70,000)
 
-toRet["odogain"] = toRet["accidents"] * 10000 										-- 50,000 
-toRet["odogain"] = toRet["odogain"] + (toRet["powner_count"] - 1) * 2000			-- 10,000 (60,000)
-toRet["odogain"] = toRet["odogain"] + (toRet["powner_driverisk"]) * 10000 - 30000	-- 20,000 (80,000)
-toRet["odogain"] = toRet["odogain"] + (toRet["powner_drivestyle"]) * 15000 - 45000	-- 30,000 (110,000)
-toRet["odogain"] = toRet["odogain"] + (toRet["maintenance"]) * 20000 - 60000		-- 40,000 (150,000)
+if toRet["oldracecar"] then -- with racecar modifier give a 15,000km bonus for extra careful maintenance
+toRet["odogain"] = toRet["odogain"] - 15000
+end
 
-toRet["powner_driverisk"] = risk[toRet["powner_driverisk"]]
-toRet["powner_drivestyle"] = style[toRet["powner_drivestyle"]]
+
+toRet["risk"] = risk[toRet["risk"]]
+toRet["style"] = style[toRet["style"]]
 toRet["maintenance"] = maintenance[toRet["maintenance"]]
 
 
@@ -3952,6 +3960,173 @@ end
 M.toMainMenu = function()
 endActiveGameMode()
 end
+
+
+M.generateVehfaxHistoryDescription = function(history, odoval)
+local units = getSettingValue("uiUnits")
+local toRet = {}
+
+if history then
+
+local odogain = history.odogain
+
+local accidents_txt = ""
+local drivers_txt = ""
+local risk_txt = ""
+local style_txt = ""
+local maintenance_txt = ""
+local oldracecar_txt = nil -- default nil for conditional html display
+local odochange_txt = ""
+local odototal_txt = ""
+
+accidents_txt = string.format(extensions.blrlocales.translate("beamlr.vehfax.report.line2"), history.accidents)
+drivers_txt = string.format(extensions.blrlocales.translate("beamlr.vehfax.report.line3"), history.drivers)
+risk_txt = string.format(extensions.blrlocales.translate("beamlr.vehfax.report.line4"), extensions.blrlocales.translate("beamlr.vehfax.riskdef." .. history.risk))
+style_txt = string.format(extensions.blrlocales.translate("beamlr.vehfax.report.line5"), extensions.blrlocales.translate("beamlr.vehfax.styledef." .. history.style))
+maintenance_txt = string.format(extensions.blrlocales.translate("beamlr.vehfax.report.line6"), extensions.blrlocales.translate("beamlr.vehfax.maintdef." .. history.maintenance))
+
+
+if history.oldracecar then 
+oldracecar_txt = extensions.blrlocales.translate("beamlr.vehfax.report.line7")
+end
+
+
+
+local odounits = (units == "metric" and "km") or "mi"
+local unitmult = 1
+if units ~= "metric" then unitmult = 1.609344 end
+
+-- cap negative odo gain at odometer value of car so it adds up to at least 0
+if odogain < 0 and math.abs(odogain / unitmult) > odoval then
+odogain = -odoval * unitmult
+end
+
+local realodo = math.max(0,odoval + odogain / unitmult)
+local odochangedir = odogain > 0 and extensions.blrlocales.translate("beamlr.generic.term.increase_lc") or extensions.blrlocales.translate("beamlr.generic.term.decrease_lc")
+
+
+odototal_txt = extensions.blrlocales.translate("beamlr.vehfax.report.odototal")
+if odogain ~= 0 then
+odochange_txt = string.format(extensions.blrlocales.translate("beamlr.vehfax.report.odochg"), odochangedir) 
+else
+odototal_txt = odototal_txt .. extensions.blrlocales.translate("beamlr.generic.term.unchanged_lc")
+end
+
+toRet.accidents = accidents_txt
+toRet.drivers = drivers_txt
+toRet.risk = risk_txt
+toRet.style = style_txt
+toRet.maintenance = maintenance_txt
+toRet.oldracecar = oldracecar_txt
+toRet.odochange = odochange_txt
+toRet.odototal = odototal_txt
+end
+
+return toRet
+end
+
+
+M.queueGarageRequest = function(s,l,smode,sgid,svid,lmode,lgid,lpos,lrot)
+local req_save = s
+local req_load = l
+local req_data = {}
+
+req_data.save_mode = smode or "normal"
+req_data.save_gid = sgid
+req_data.save_vid = svid
+
+req_data.load_mode = lmode or "normal"
+req_data.load_gid = lgid
+req_data.load_pos = lpos
+req_data.load_rot = lrot
+
+if req_save then extensions.blrglobals.blrFlagSet("saveCarRequest", true) end
+if req_load then extensions.blrglobals.blrFlagSet("loadCarRequest", true) end
+blrvarSet("garageRequestData", req_data)
+
+blrlog("queued garage request data:")
+blrlog("req_save: " .. tostring(req_save))
+blrlog("req_load: " .. tostring(req_load))
+blrlog("req_data: " .. dumps(req_data))
+end
+
+
+-- removes a car from garage and handles moving car ids 
+M.deleteGarageCar = function(id, count)
+local cevent = loadDataTable("beamLR/currentTrackEvent")
+local ctemplates = {}
+
+-- 1.16, remove all attached parts from inventory
+local ilinks = jsonReadFile("beamLR/garage/config/car" .. id)["ilinks"]
+local csplit = {}
+local cid = 0
+for k,v in pairs(ilinks) do
+csplit = ssplit(v, ",")
+cid = tonumber(csplit[1])
+extensions.blrPartInventory.remove(cid)
+end
+
+-- Delete files related to this car
+deleteFile("beamLR/garage/car" .. id)
+deleteFile("beamLR/garage/config/car" .. id)
+deleteFile("beamLR/beamstate/car" .. id .. ".save.json")
+deleteFile("beamLR/beamstate/mech/car" .. id)
+deleteFile("beamLR/beamstate/integrity/car" .. id)
+
+-- Clearing removed car templates from folder
+ctemplates = FS:findFiles("beamLR/garage/config/template/car" .. id, "*", 0)
+for _,file in pairs(ctemplates) do
+deleteFile(file)
+end
+
+-- Delete template folder for that car
+FS:directoryRemove("beamLR/garage/config/template/car" .. id)
+
+-- Now moving remaining car files
+for v=id+1,count-1 do 
+moveFile("beamLR/garage/car" .. v, "beamLR/garage/car" .. v-1)
+moveFile("beamLR/garage/config/car" .. v, "beamLR/garage/config/car" .. v-1)
+moveFile("beamLR/beamstate/car" .. v .. ".save.json","beamLR/beamstate/car" .. v-1 .. ".save.json")
+moveFile("beamLR/beamstate/mech/car" .. v,"beamLR/beamstate/mech/car" .. v-1)
+moveFile("beamLR/beamstate/integrity/car" .. v,"beamLR/beamstate/integrity/car" .. v-1)
+
+-- For current event, check status then edit carid to reflect new ID
+if cevent['status'] ~= "over" then
+if tonumber(cevent['carid']) == v then -- Found car registered to event
+cevent['carid'] = v-1
+updateDataTable("beamLR/currentTrackEvent", cevent)
+end
+end
+
+-- For templates, use blrutils.moveFile, first directory is already empty so move can proceed
+ctemplates = FS:findFiles("beamLR/garage/config/template/car" .. v, "*", 0)
+for _,file in pairs(ctemplates) do
+moveFile(file, file:gsub("beamLR/garage/config/template/car" .. v, "beamLR/garage/config/template/car" .. v-1))
+end
+-- Remove last directory which is now empty
+if v==count-1 then
+FS:directoryRemove("beamLR/garage/config/template/car" .. v)
+end
+
+
+end
+
+
+
+
+end
+
+
+M.onBLRVehicleSaved = function(requestID)
+blrlog("onBLRVehicleSaved HOOK CALLED WITH REQUESTID: " .. requestID)
+extensions.blrglobals.onceFlagSet("onBLRVehicleSaved", requestID)
+end
+
+M.onBLRVehicleLoaded = function(requestID)
+blrlog("onBLRVehicleLoaded HOOK CALLED WITH REQUESTID: " .. requestID)
+extensions.blrglobals.onceFlagSet("onBLRVehicleLoaded", requestID)
+end
+
 
 M.onVehicleSpawned = onVehicleSpawned
 

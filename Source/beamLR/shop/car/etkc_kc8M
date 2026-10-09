@@ -1,4 +1,8 @@
 name=ETK K-Series (kc8 ttSport,DCT)
+brand=ETK
+model=K-Series
+trim=kc8 ttSport
+transmission=DCT
 type=etkc
 config=vehicles/etkc/kc8_ttsport_DCT.pc
 baseprice=120000

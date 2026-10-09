@@ -1,4 +1,8 @@
 name=Bruckell Moonhawk (I6,Manual)
+brand=Bruckell
+model=Moonhawk
+trim=I6
+transmission=Manual
 type=moonhawk
 config=vehicles/moonhawk/i6m.pc
 baseprice=3000,8000

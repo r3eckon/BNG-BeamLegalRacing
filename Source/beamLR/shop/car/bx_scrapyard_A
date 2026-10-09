@@ -1,4 +1,8 @@
 name=Ibishu BX-Series (Liftback)
+brand=Ibishu
+model=BX-Series
+trim=200BX
+transmission=NA
 type=bx
 config=vehicles/bx/blr_200bx_scrapyard_A.pc
 baseprice=400,600

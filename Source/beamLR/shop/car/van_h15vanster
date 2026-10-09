@@ -1,4 +1,8 @@
 name=Gavril H-Series (H15 Vanster,Automatic)
+brand=Gavril
+model=H-Series
+trim=H15 Vanster
+transmission=Automatic
 type=van
 config=vehicles/van/h15_vanster.pc
 baseprice=2000,4000

@@ -1,4 +1,8 @@
 name=Ibishu BX-Series (Diana Type LS,Manual)
+brand=Ibishu
+model=BX-Series
+trim=Diana Type LS
+transmission=Manual
 type=bx
 config=vehicles/bx/diana_type_ls_M.pc
 baseprice=5000,7000

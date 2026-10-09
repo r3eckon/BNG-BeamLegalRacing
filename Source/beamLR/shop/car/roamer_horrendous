@@ -1,4 +1,8 @@
 name=Gavril Roamer
+brand=Gavril
+model=Roamer
+trim=NA
+transmission=Automatic
 type=roamer
 config=vehicles/roamer/derby.pc
 baseprice=500,1000

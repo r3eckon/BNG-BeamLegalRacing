@@ -1,4 +1,8 @@
 name=Gavril H-Series
+brand=Gavril
+model=H-Series
+trim=NA
+transmission=NA
 type=van
 config=vehicles/van/derby.pc
 baseprice=500,1000

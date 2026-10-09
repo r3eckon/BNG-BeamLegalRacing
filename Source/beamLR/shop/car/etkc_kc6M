@@ -1,4 +1,8 @@
 name=ETK K-Series (kc6 360,Manual)
+brand=ETK
+model=K-Series
+trim=kc6 360
+transmission=Manual
 type=etkc
 config=vehicles/etkc/kc6_360_M.pc
 baseprice=71000

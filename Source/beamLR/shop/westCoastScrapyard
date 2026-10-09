@@ -1,5 +1,8 @@
-name=Trusted Auto Sales Scrapyard
+name=Trusted Auto Sales
+type=scrap
 hours=7,16
+trademin=-1
+cansell=0
 slots=4
 chance=0.8
 dchance=0

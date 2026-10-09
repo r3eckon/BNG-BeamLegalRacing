@@ -3,6 +3,7 @@
 -- file, You can obtain one at http://beamng.com/bCDDL-1.1.txt
 -- BEAMLR EDITED VERSION FOR IMGUI LAYOUT LOADING
 -- BEAMLR 1.19 FURTHER EDITED FOR TITLE TRANSLATION
+-- BEAMLR 1.20.3 FURTHER EDITED FOR PIN SET IMGUI WINDOW ID VALUE
 
 local im  = ui_imgui
 
@@ -25,6 +26,7 @@ C.pinSchema = {
     { dir = 'in', type = 'number', name = 'posX', hidden = true, default = 100, hardcoded = true, description = 'Defines the x-position of the window.' },
     { dir = 'in', type = 'number', name = 'posY', hidden = true, default = 100, hardcoded = true, description = 'Defines the y-position of the window.' },
     { dir = 'in', type = 'string', name = 'anchor', hidden = true, default = "TL", hardcoded = true, description = 'Defines the anchor for the window. Can be TL (Top-Left), TR (Top-Right), BL (Bottom-Left) or BR (Bottom-Right).' },
+    { dir = 'in', type = 'number', name = 'id', hidden = true, default = nil, hardcoded = true, description = '(BeamLR) Defines the IMGUI ID of the window' },
 }
 
 C.tags = {'imgui'}				  
@@ -80,7 +82,7 @@ function C:work()
   if not self.pinIn.title.value then
     flags = im.WindowFlags_NoTitleBar
   end
-  im.Begin((extensions.blrlocales.translate(self.pinIn.title.value) or "Title") ..'##'.. tostring(self.id), bPtr, flags)
+  im.Begin((extensions.blrlocales.translate(self.pinIn.title.value) or "Title") ..'##'.. tostring(self.pinIn.id.value or self.id), bPtr, flags)
   self.pinOut.wasClosed.value = not bPtr[0]
   extensions.blrutils.IMGUILayoutInit(self.pinIn.title.value or "Title")
 end

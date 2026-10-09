@@ -1,5 +1,8 @@
-name=Scrapyard
+name=Airstrip Scrapyard
+type=scrap
 hours=9,19
+trademin=-1
+cansell=0
 slots=3
 chance=0.8
 dchance=0

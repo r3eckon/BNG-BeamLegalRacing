@@ -1,4 +1,8 @@
 name=Ibishu Pessima 2.7 LX V6 Sport GTz (Manual, Barn Find)
+brand=Ibishu
+model=Pessima
+trim=2.7 LX V6 Sport GTz
+transmission=Manual
 type=midsize
 config=vehicles/midsize/blr_barnfind.pc
 baseprice=8000,30000

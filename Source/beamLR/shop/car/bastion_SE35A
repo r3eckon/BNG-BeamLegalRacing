@@ -1,4 +1,8 @@
 name=Bruckell Bastion (SE 3.5,Automatic)
+brand=Bruckell
+model=Bastion
+trim=SE 3.5
+transmission=Automatic
 type=bastion
 config=vehicles/bastion/base_v6_A.pc
 baseprice=50000

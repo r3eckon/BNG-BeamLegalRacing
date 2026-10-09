@@ -1,4 +1,8 @@
 name=Gavril D-Series
+brand=Gavril
+model=D-Series
+trim=NA
+transmission=NA
 type=pickup
 config=vehicles/pickup/blr_scrapyard.pc
 baseprice=400,600

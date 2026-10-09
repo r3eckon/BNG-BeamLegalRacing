@@ -1,4 +1,8 @@
 name=Ibishu BX-Series (Coupe)
+brand=Ibishu
+model=BX-Series
+trim=Diana
+transmission=NA
 type=bx
 config=vehicles/bx/blr_200bx_scrapyard_C.pc
 baseprice=400,600

@@ -1,5 +1,8 @@
 name=Temeraria Auto
+type=used
 hours=8,18
+trademin=0
+cansell=1
 slots=6
 chance=0.9
 dchance=0.3

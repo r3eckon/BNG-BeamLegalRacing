@@ -1,4 +1,8 @@
 name=Gavril D-Series D35, Extended Cab, Dually (Diesel V8, Manual)
+brand=Gavril
+model=D-Series
+trim=D35 Diesel V8 Extended Cab Dually
+transmission=Manual
 type=pickup
 config=vehicles/pickup/d35_ext_diesel_dually_M.pc
 baseprice=8000,40000

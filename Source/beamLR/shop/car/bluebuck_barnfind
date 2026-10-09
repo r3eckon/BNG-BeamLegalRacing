@@ -1,4 +1,8 @@
 name=Gavril Bluebuck V8 Custom (Manual, Barn Find)
+brand=Gavril
+model=Bluebuck
+trim=V8 Custom
+transmission=Manual
 type=bluebuck
 config=vehicles/bluebuck/blr_barnfind.pc
 baseprice=10000,30000

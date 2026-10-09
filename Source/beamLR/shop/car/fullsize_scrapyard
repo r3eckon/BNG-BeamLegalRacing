@@ -1,4 +1,8 @@
 name=Gavril Grand Marshal
+brand=Gavril
+model=Grand Marshal
+trim=NA
+transmission=NA
 type=fullsize
 config=vehicles/fullsize/blr_scrapyard.pc
 baseprice=400,600

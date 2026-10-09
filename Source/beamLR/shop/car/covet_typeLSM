@@ -1,4 +1,8 @@
 name=Ibishu Covet (Type LS,Manual)
+brand=Ibishu
+model=Covet
+trim=Type LS
+transmission=Manual
 type=covet
 config=vehicles/covet/type_LS_M.pc
 baseprice=6000,10000

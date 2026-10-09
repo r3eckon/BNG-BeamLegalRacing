@@ -331,6 +331,7 @@ angular.module('beamng.apps')
 		  scope.inputData['tsbias'] = data['tsbias']
 		  scope.inputData['odbufsize'] = data['odbufsize']
 		  scope.inputData['odtoggle'] = data['odtoggle']
+		  scope.inputData['dstatshide'] = data['dstatshide']
 		  
 		  scope.inputData['sfxvol'] = JSON.parse(data['sfxvol'])
 		  for(let key in scope.inputData['sfxvol'])
@@ -1552,6 +1553,13 @@ angular.module('beamng.apps')
 		  loglevel = (scope.logtoggles.blrlog) ? loglevel + 8: loglevel;
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("loglevel", ${loglevel})`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setLogLevel", "loglevel")`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);  
+	  }
+	  
+	  scope.toggleDealershipStatsWindowCollapse = function(toggle)
+	  {
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParam("dstatshide", ${toggle})`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("setDealershipStatsWindowCollapse", "dstatshide")`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.exec("optionsUIReload")`);  
 	  }
     }

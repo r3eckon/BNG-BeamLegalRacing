@@ -65,6 +65,7 @@
 	"beamlr.generic.button.leave" : "Leave",
 	"beamlr.generic.button.create" : "Create",
 	"beamlr.generic.button.delete" : "Delete",
+	"beamlr.generic.button.buyvehicle" : "Buy Vehicle",
 	
 		//Generic Terms
 	"beamlr.generic.term.value" : "Value",
@@ -175,6 +176,7 @@
 	"beamlr.generic.term.status" : "Status",
 	"beamlr.generic.term.damage" : "Damage",
 	"beamlr.generic.term.difficulty" : "Difficulty",
+	"beamlr.generic.term.credit" : "Credit",
 	
 	
 		//Title
@@ -261,6 +263,12 @@
 	"beamlr.mainui.page.options.setting.resetcareer" : "Reset Career (WARNING: PERMANENT)",
 	"beamlr.mainui.page.options.setting.resetbutton" : "Reset Career",
 	"beamlr.mainui.page.options.setting.resetconfirm" : "Confirm Reset?",
+	"beamlr.mainui.page.options.setting.savestitle" : "Load & Manage Saves (Backups)",
+	"beamlr.mainui.page.options.setting.savescurrent" : "Current Save:",
+	"beamlr.mainui.page.options.setting.savesdetails" : "Note: creating a new save will clone the last saved state of your current save (when you last stopped the scenario). ",
+	"beamlr.mainui.page.options.setting.nosavestip" : "No existing save file found. The first save file will be created when you stop the scenario, which will then allow you to create extra saves.",
+	
+		//UI Options
 	"beamlr.mainui.page.options.setting.imscaledetails" : "IMGUI scale parameter can be used to increase interactive menu sizes when playing at high resolution.\nUI app scaling can be changed from the BeamNG options menu.",
 	"beamlr.mainui.page.options.setting.imscale" : "IMGUI Scale",
 	"beamlr.mainui.page.options.setting.imlayoutdetails" : "IMGUI layout will store menu positions, sizes and docking states. Remember to save the layout immediately after making changes.\nThis feature is especially useful when using a custom IMGUI scale.",
@@ -276,6 +284,9 @@
 	"beamlr.mainui.page.options.setting.partedittree" : "Tree View",
 	"beamlr.mainui.page.options.setting.shopincompatibledetails" : "Part Shop Show Incompatible turned on will show currently incompatible slots in yellow with a warning label. Off will ignore such slots.",
 	"beamlr.mainui.page.options.setting.shopincompatible" : "Part Shop Show Incompatible",
+	"beamlr.mainui.page.options.setting.dstatshide" : "Automatically show/hide stats UI when entering/exiting dealership",
+	
+		//Traffic Options
 	"beamlr.mainui.page.options.setting.trafficcountdetails" : "Changing traffic amounts & parameters requires scenario restart to take effect",
 	"beamlr.mainui.page.options.setting.trafficcountcivilian" : "Civilian Count",
 	"beamlr.mainui.page.options.setting.trafficcountpolice" : "Police Count",
@@ -295,10 +306,7 @@
 	"beamlr.mainui.page.options.setting.instanttraffic" : "Instant Toggle Traffic",
 	"beamlr.mainui.page.options.setting.manualtrafficdetails" : "Use this setting to manually toggle traffic for debug or testing purposes. Can be used to spawn new variants if Instant Toggle Traffic is off.",
 	"beamlr.mainui.page.options.setting.manualtraffic" : "Manual Traffic Toggle",
-	"beamlr.mainui.page.options.setting.savestitle" : "Load & Manage Saves (Backups)",
-	"beamlr.mainui.page.options.setting.savescurrent" : "Current Save:",
-	"beamlr.mainui.page.options.setting.savesdetails" : "Note: creating a new save will clone the last saved state of your current save (when you last stopped the scenario). ",
-	"beamlr.mainui.page.options.setting.nosavestip" : "No existing save file found. The first save file will be created when you stop the scenario, which will then allow you to create extra saves.",
+	
 	
 	
 		//Environment options
@@ -503,6 +511,50 @@
 	 "beamlr.partshopui.pricescale" : "Shop Price Scale",
 	 "beamlr.partshopui.mustbeatgarage" : "Must be at a part shop or garage to use",
 	 "beamlr.partshopui.shoppingcart" : "Shopping Cart",
+	 
+		//Dealership UI
+	 "beamlr.dealershipui.leavetooltip" : "Leave dealership",
+	 "beamlr.dealershipui.selectedvehicle" : "Selected Vehicle",
+	 "beamlr.dealershipui.vehicleinformation" : "Vehicle Information",
+	 "beamlr.dealershipui.brandprefix" : "Brand",
+	 "beamlr.dealershipui.modelprefix" : "Model",
+	 "beamlr.dealershipui.trimprefix" : "Trim",
+	 "beamlr.dealershipui.transmissionprefix" : "Transmission",
+	 "beamlr.dealershipui.transmission.Manual" : "Manual",
+	 "beamlr.dealershipui.transmission.Automatic" : "Automatic",
+	 "beamlr.dealershipui.transmission.SQ" : "Sequential",
+	 "beamlr.dealershipui.transmission.SQ" : "Transmission",
+	 "beamlr.dealershipui.odometerprefix" : "Odometer",
+	 "beamlr.dealershipui.costprefix" : "Cost",
+	 "beamlr.dealershipui.moneyprefix" : "Your Money",
+	 "beamlr.dealershipui.slotsprefix" : "Available Slots",
+	 "beamlr.dealershipui.vehfaxreport" : "VehFax Report",
+	 "beamlr.dealershipui.vehfaxhelp" : "VehFax reports give you more information on this vehicle's history, such as past owners, accidents, maintenance, etc.\n and will reveal the effective odometer value of the vehicle.",
+	 "beamlr.dealershipui.vehfaxnohistory" : "No vehicle history data available",
+	 "beamlr.dealershipui.vehfaxbuy" : "Buy VehFax Report",
+	 "beamlr.dealershipui.buyvehicle" : "Buy Vehicle",
+	 "beamlr.dealershipui.viewbuyoptions" : "View Buying Options",
+	 "beamlr.dealershipui.emptyslots" : "This slot is empty",
+	 "beamlr.dealershipui.buypage_title" : "Buying Options",
+	 "beamlr.dealershipui.buypage_tradein" : "Trade in vehicle",
+	 "beamlr.dealershipui.buypage_tradetooltip1" : "Can't trade in event registered car",
+	 "beamlr.dealershipui.buypage_tradetooltip2" : "No car to trade in",
+	 "beamlr.dealershipui.buypage_tradetooltip3" : "Dealership sold you this car and doesn't want to buy it back",
+	 "beamlr.dealershipui.buypage_tradetooltip4" : "Dealership doesn't accept trade-ins",
+	 "beamlr.dealershipui.buypage_tradetooltip5" : "Car below trade in minimum",
+	 "beamlr.dealershipui.buypage_deliverymethod" : "Delivery method",
+	 "beamlr.dealershipui.buypage_deliverymethod_delivery" : "Delivery",
+	 "beamlr.dealershipui.buypage_deliverymethod_driveout" : "Drive Out",
+	 "beamlr.dealershipui.buypage_transactionsummary" : "Transaction Summary",
+	 "beamlr.dealershipui.buypage_vehiclecost" : "Vehicle Cost",
+	 "beamlr.dealershipui.buypage_tradecredit" : "Trade-in Credit",
+	 "beamlr.dealershipui.buypage_deliveryfee" : "Delivery Fee",
+	 "beamlr.dealershipui.buypage_towingfee" : "Towing Fee",
+	 "beamlr.dealershipui.buypage_disclaimer" : "Dealership disclaimer: this vehicle is sold as-is with no legal warranty. No refunds! Check this box to proceed.",
+	 "beamlr.dealershipui.buypage_notenoughmoney" : "You don't have enough money to buy this car",
+	 "beamlr.dealershipui.buypage_notenoughslots" : "You don't have any free slots in your garage",
+	 
+	 
 	 
 		//Delivery Missions
 		//Utah
@@ -1401,15 +1453,15 @@
 	 "beamlr.vehfax.maintdef.average" : "average",
 	 "beamlr.vehfax.maintdef.subpar" : "subpar",
 	 "beamlr.vehfax.maintdef.none" : "little to no",
-	 "beamlr.vehfax.report.line1" : "~~ Start of report ~~\n\nThis vehicle:\n",
-	 "beamlr.vehfax.report.line2" : "- Has been involved in %d accident(s).\n",
-	 "beamlr.vehfax.report.line3" : "- Has had %d previous owner(s).\n",
-	 "beamlr.vehfax.report.line4" : "- Appears to have been driven by %s driver.\n",
-	 "beamlr.vehfax.report.line5" : "- Appears to have been driven in %s manner.\n",
-	 "beamlr.vehfax.report.line6" : "- Has had %s maintenance done.\n",
-	 "beamlr.vehfax.report.line7" : "- Appears to have once been used in races and has therefore been maintained extremely well despite having been driven very hard.\n",
-	 "beamlr.vehfax.report.odochg" : "\nDue to the above factors this vehicle has an effective odometer %s of %s\n",
-	 "beamlr.vehfax.report.odototal" : "\nThe total effective odometer value of this vehicle is ",
+	 "beamlr.vehfax.report.line1" : "This vehicle:",
+	 "beamlr.vehfax.report.line2" : "Has been involved in %d accident(s).",
+	 "beamlr.vehfax.report.line3" : "Has had %d previous owner(s).",
+	 "beamlr.vehfax.report.line4" : "Appears to have been driven by %s driver.",
+	 "beamlr.vehfax.report.line5" : "Appears to have been driven in %s manner.",
+	 "beamlr.vehfax.report.line6" : "Has had %s maintenance done.",
+	 "beamlr.vehfax.report.line7" : "Appears to have once been used in races and has therefore been maintained extremely well despite having been driven very hard.",
+	 "beamlr.vehfax.report.odochg" : "Due to the above factors this vehicle has an effective odometer %s of",
+	 "beamlr.vehfax.report.odototal" : "The real odometer of this vehicle is",
 	 "beamlr.vehfax.report.end" : "~~ End of report ~~",
 	 "beamlr.vehfax.report.noreport" : "No existing VehFax report!",
 	 "beamlr.vehfax.report.vfreport" : "VehFax Report",
@@ -1515,5 +1567,11 @@
 	 "gasoline" : "gasoline",
 	 "diesel" : "diesel",
 	 "regular" : "regular",
+	 
+		//Dealership UI
+	 "beamlr.dealership.type.used" : "Used Vehicle Dealership",
+	 "beamlr.dealership.type.new" : "New Vehicle Dealership",
+	 "beamlr.dealership.type.mixed" : "New & Used Vehicle Dealership",
+	 "beamlr.dealership.type.scrap" : "Scrapyard",
 
 }

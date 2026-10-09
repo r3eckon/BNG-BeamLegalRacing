@@ -1,4 +1,8 @@
 name=Gavril Grand Marshal
+brand=Gavril
+model=Grand Marshal
+trim=NA
+transmission=Automatic
 type=fullsize
 config=vehicles/fullsize/miserable.pc
 baseprice=500,1500

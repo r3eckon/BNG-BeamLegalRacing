@@ -1,5 +1,8 @@
 name=Quarryside Auto Sales
+type=used
 hours=8,18
+trademin=0
+cansell=1
 slots=7
 chance=0.8
 dchance=0.4

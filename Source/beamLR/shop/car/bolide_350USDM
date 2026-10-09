@@ -1,4 +1,8 @@
 name=Civetta Bolide (350 USDM,Manual)
+brand=Civetta
+model=Bolide
+trim=350 USDM
+transmission=Manual
 type=bolide
 config=vehicles/bolide/350_us.pc
 baseprice=100000

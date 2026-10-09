@@ -1,4 +1,8 @@
 name=Gavril Roamer V8 Roadsport (Manual, Barn Find)
+brand=Gavril
+model=Roamer
+trim=V8 Roadsport
+transmission=Manual
 type=roamer
 config=vehicles/roamer/blr_barnfind.pc
 baseprice=5000,30000

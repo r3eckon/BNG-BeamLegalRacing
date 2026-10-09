@@ -1,4 +1,8 @@
 name=ETK I-Series 3000IX (Manual, Barn Find)
+brand=ETK
+model=I-Series
+trim=3000IX
+transmission=Manual
 type=etki
 config=vehicles/etki/blr_barnfind.pc
 baseprice=7000,40000

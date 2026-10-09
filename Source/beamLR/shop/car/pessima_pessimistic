@@ -1,4 +1,8 @@
 name=Ibishu Pessima
+brand=Ibishu
+model=Pessima
+trim=NA
+transmission=Manual
 type=pessima
 config=vehicles/pessima/derby.pc
 baseprice=500,1000

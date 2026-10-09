@@ -1,4 +1,8 @@
 name=Bruckell Moonhawk 448 V8 Special (Manual, Barn Find)
+brand=Bruckell
+model=Moonhawk
+trim=448 V8 Special
+transmission=Manual
 type=moonhawk
 config=vehicles/moonhawk/blr_barnfind.pc
 baseprice=8000,30000

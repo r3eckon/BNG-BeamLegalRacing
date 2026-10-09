@@ -1,4 +1,8 @@
 name=ETK I-Series (3000ix,Manual)
+brand=ETK
+model=I-Series
+trim=3000ix
+transmission=Manual
 type=etki
 config=vehicles/etki/3000ix_M.pc
 baseprice=7000,15000

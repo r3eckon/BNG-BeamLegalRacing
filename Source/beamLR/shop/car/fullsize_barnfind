@@ -1,4 +1,8 @@
 name=Gavril Grand Marshal V8 Roadsport (Automatic, Barn Find)
+brand=Gavril 
+model=Grand Marshal
+trim=V8 Roadsport
+transmission=Automatic
 type=fullsize
 config=vehicles/fullsize/blr_barnfind.pc
 baseprice=8000,30000

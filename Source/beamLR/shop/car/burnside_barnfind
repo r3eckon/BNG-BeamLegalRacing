@@ -1,4 +1,8 @@
 name=Burnside Special 313 V8 (Manual, Barn Find)
+brand=Burnside 
+model=Special
+trim=313 V8
+transmission=Manual
 type=burnside
 config=vehicles/burnside/ratrod.pc
 baseprice=8000,30000

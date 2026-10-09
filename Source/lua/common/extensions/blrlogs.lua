@@ -69,9 +69,13 @@ f:close()
 end
 
 
-function blrlog(txt, level)
-local lvl = level or 4
+function blrlog(t, level)
 if not beamlr_debug then return end
+
+local txt = t
+if type(t) == "nil" then txt = "nil" end
+
+local lvl = level or 4
 
 -- check if log has to be printed to regular console/beamng log file
 if beamlr_debug_bnglog then

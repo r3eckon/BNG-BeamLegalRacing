@@ -1,4 +1,8 @@
 name=Gavril Barstow
+brand=Gavril
+model=Barstow
+trim=NA
+transmission=Manual
 type=barstow
 config=vehicles/barstow/awful.pc
 baseprice=500,1000

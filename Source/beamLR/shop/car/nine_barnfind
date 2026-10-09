@@ -1,4 +1,8 @@
 name=Bruckell Nine Hot Rod (Automatic, Barn Find)
+brand=Bruckell
+model=Nine
+trim=Hot Rod
+transmission=Automatic
 type=nine
 config=vehicles/nine/blr_barnfind.pc
 baseprice=8000,30000

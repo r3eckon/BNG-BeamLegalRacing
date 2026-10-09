@@ -1,4 +1,8 @@
 name=Bruckell LeGran V6 AWD Sport (Manual, Barn Find)
+brand=Bruckell
+model=LeGran
+trim=V6 AWD Sport
+transmission=Manual
 type=legran
 config=vehicles/legran/blr_barnfind.pc
 baseprice=8000,30000

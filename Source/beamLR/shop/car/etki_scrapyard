@@ -1,4 +1,8 @@
 name=ETK I-Series
+brand=ETK
+model=I-Series
+trim=NA
+transmission=NA
 type=etki
 config=vehicles/etki/blr_scrapyard.pc
 baseprice=400,600

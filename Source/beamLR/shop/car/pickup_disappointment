@@ -1,4 +1,8 @@
 name=Gavril D-Series
+brand=Gavril
+model=D-Series
+trim=NA
+transmission=Automatic
 type=pickup
 config=vehicles/pickup/d35_disappointment_A.pc
 baseprice=500,1000

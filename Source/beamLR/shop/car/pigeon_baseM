@@ -1,4 +1,8 @@
 name=Ibishu Pigeon
+brand=Ibishu
+model=Pigeon
+trim=NA
+transmission=Manual
 type=pigeon
 config=vehicles/pigeon/base.pc
 baseprice=300,1000

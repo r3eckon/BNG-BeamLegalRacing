@@ -1,4 +1,8 @@
 name=Gavril D-Series D15 432 Sport (Automatic, Barn Find)
+brand=Gavril
+model=D-Series
+trim=D15 432 Sport
+transmission=Automatic
 type=pickup
 config=vehicles/pickup/blr_barnfind.pc
 baseprice=8000,30000

@@ -1,4 +1,8 @@
 name=Ibishu BX-Series V-Special GTz Turbo (Manual, Barn Find)
+brand=Ibishu
+model=BX-Series
+trim=V-Special GTz Turbo
+transmission=Manual
 type=bx
 config=vehicles/bx/blr_barnfind.pc
 baseprice=9000,35000

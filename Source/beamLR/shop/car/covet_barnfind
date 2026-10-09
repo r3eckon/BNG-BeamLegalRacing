@@ -1,4 +1,8 @@
 name=Ibishu Covet MR Turbo Evolution (Manual, Barn Find)
+brand=Ibishu
+model=Covet
+trim=MR Turbo Evolution
+transmission=Manual
 type=covet
 config=vehicles/covet/blr_barnfind.pc
 baseprice=8000,30000

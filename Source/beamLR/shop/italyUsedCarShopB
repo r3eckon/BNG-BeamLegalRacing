@@ -1,5 +1,8 @@
 name=Garage Usato Garantito
+type=used
 hours=9,18
+trademin=0
+cansell=1
 slots=5
 chance=0.9
 dchance=0.4

@@ -1,4 +1,8 @@
 name=Ibishu BX-Series (Liftback)
+brand=Ibishu
+model=BX-Series
+trim=200BX
+transmission=Manual
 type=bx
 config=vehicles/bx/blr_200bx_old_D.pc
 baseprice=500,3000

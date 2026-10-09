@@ -1,4 +1,8 @@
 name=Cherrier Ardente
+brand=Cherrier
+model=Ardente
+trim=NA
+transmission=NA
 type=vivace
 config=vehicles/vivace/blr_scrapyard_ardente.pc
 baseprice=400,600

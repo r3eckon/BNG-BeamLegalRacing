@@ -1,4 +1,12 @@
 name=Cherrier Ardente (Pure 190d, Manual)
+brand=Cherrier
+model=Ardente
+trim=Pure 190d
+transmission=Manual
+brand=Cherrier
+model=Ardente
+trim=Pure 190d
+transmission=Manual
 type=vivace
 config=vehicles/vivace/ardente_190d_M.pc
 baseprice=5000,20000

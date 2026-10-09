@@ -1,4 +1,8 @@
 name=Ibishu Miramar Custom Pickup (Manual, Barn Find)
+brand=Ibishu 
+model=Miramar
+trim=Custom Pickup
+transmission=Manual
 type=miramar
 config=vehicles/miramar/blr_barnfind.pc
 baseprice=5000,25000

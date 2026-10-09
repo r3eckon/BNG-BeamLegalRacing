@@ -1,4 +1,8 @@
 name=Bruckell Nine
+brand=Bruckell
+model=Nine
+trim=NA
+transmission=Manual
 type=nine
 config=vehicles/nine/blr_starter.pc
 baseprice=500,3000

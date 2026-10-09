@@ -1,4 +1,8 @@
 name=Autobello Piccolina 150 Corse (Manual, Barn Find)
+brand=Autobello
+model=Piccolina
+trim=150 Corse
+transmission=Manual
 type=autobello
 config=vehicles/autobello/blr_barnfind.pc
 baseprice=6000,25000

@@ -1,5 +1,8 @@
 name=Rich's Motor Company
+type=new
 hours=9,18
+trademin=-1
+cansell=0
 slots=6
 chance=0.8
 dchance=0
