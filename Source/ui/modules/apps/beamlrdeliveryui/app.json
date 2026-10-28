@@ -2,7 +2,7 @@
   "domElement": "<beamlrdeliveryui></beamlrdeliveryui>",
   "name": "BeamLR Delivery UI",
   "types": [
-    "ui.apps.categories.vehicle_info"
+    "BeamLR"
   ],
   "description": "Delivery UI for Beam Legal Racing Mod",
   "css": {

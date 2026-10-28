@@ -64,3 +64,5 @@ This addon is currently built for map version **0.79**.
 ### BeamLR 1.20.3
 * Updated dealership files to work with new dealership UI
 * Updated mission file
+### BeamLR 1.20.4
+* Updated mission file

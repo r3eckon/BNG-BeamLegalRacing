@@ -13,31 +13,6 @@
       }
     },
     {
-      "appName":"raceLaps",
-      "placement":{
-        "bottom":"",
-        "height":"80px",
-        "left":"0px",
-        "position":"absolute",
-        "right":"",
-        "top":"0px",
-        "width":"150px"
-      }
-    },
-    {
-      "appName":"raceCheckpoints",
-      "placement":{
-        "bottom":"",
-        "height":"40px",
-        "left":0,
-        "margin":"auto",
-        "position":"absolute",
-        "right":0,
-        "top":"0px",
-        "width":"330px"
-      }
-    },
-    {
       "appName":"tacho2",
       "placement":{
         "bottom":"20px",
@@ -149,6 +124,19 @@
         "top":"0px",
         "width":"200px"
       }
+    },
+    {
+      "appName":"beamlrraceui",
+      "placement":{
+        "bottom":"",
+        "height":"5.32em",
+        "left":"109.75em",
+        "position":"absolute",
+        "right":"",
+        "top":"6em",
+        "width":"10.25em"
+      },
+      "settings":{}
     }
   ],
   "description":"BeamLR Track Event UI Layout",

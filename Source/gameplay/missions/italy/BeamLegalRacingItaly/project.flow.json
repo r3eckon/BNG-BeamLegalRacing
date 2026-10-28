@@ -2,7 +2,7 @@
   "activeGraphId":1,
   "authors":"BeamLR",
   "currentGraphID":1,
-  "date":1791536381,
+  "date":1793069852,
   "debugEnabled":false,
   "description":"Beam Legal Racing Career",
   "difficulty":100,
@@ -18,6 +18,7 @@
     "node_10185":1719898672,
     "node_10257":1698480690,
     "node_1062":1715721509,
+    "node_1063":1792986749,
     "node_1088":1758357641,
     "node_1105":1714596324,
     "node_121":1790662727,
@@ -166,15 +167,15 @@
           false
         ],
         [
-          60,
-          "flow",
+          57,
+          "false",
           18,
           "flow",
           false
         ],
         [
-          57,
-          "false",
+          60,
+          "flow",
           18,
           "flow",
           false
@@ -306,14 +307,14 @@
           false
         ],
         [
-          1778,
+          494,
           "flow",
           30,
           "flow",
           false
         ],
         [
-          494,
+          1778,
           "flow",
           30,
           "flow",
@@ -369,14 +370,14 @@
           true
         ],
         [
-          1521,
+          1522,
           "flow",
           34,
           "flow",
           false
         ],
         [
-          1522,
+          1521,
           "flow",
           34,
           "flow",
@@ -397,13 +398,6 @@
           false
         ],
         [
-          1389,
-          "down",
-          37,
-          "flow",
-          false
-        ],
-        [
           27,
           "down",
           37,
@@ -412,6 +406,13 @@
         ],
         [
           899,
+          "down",
+          37,
+          "flow",
+          false
+        ],
+        [
+          1389,
           "down",
           37,
           "flow",
@@ -579,14 +580,14 @@
           false
         ],
         [
-          880,
+          1389,
           "flow",
           50,
           "flow",
           false
         ],
         [
-          1389,
+          880,
           "flow",
           50,
           "flow",
@@ -853,14 +854,14 @@
         ],
         [
           99,
-          "match_2",
+          "match_3",
           76,
           "flow_1",
           false
         ],
         [
           99,
-          "match_3",
+          "match_2",
           76,
           "flow_1",
           false
@@ -873,13 +874,6 @@
           false
         ],
         [
-          613,
-          "flow",
-          77,
-          "flow",
-          false
-        ],
-        [
           471,
           "False",
           77,
@@ -889,6 +883,13 @@
         [
           585,
           "false",
+          77,
+          "flow",
+          false
+        ],
+        [
+          613,
+          "flow",
           77,
           "flow",
           false
@@ -1139,28 +1140,7 @@
           false
         ],
         [
-          943,
-          "true",
-          95,
-          "flow",
-          false
-        ],
-        [
-          327,
-          "flow",
-          95,
-          "flow",
-          false
-        ],
-        [
           1543,
-          "flow",
-          95,
-          "flow",
-          false
-        ],
-        [
-          1251,
           "flow",
           95,
           "flow",
@@ -1174,7 +1154,28 @@
           false
         ],
         [
+          1251,
+          "flow",
+          95,
+          "flow",
+          false
+        ],
+        [
+          943,
+          "true",
+          95,
+          "flow",
+          false
+        ],
+        [
           109,
+          "flow",
+          95,
+          "flow",
+          false
+        ],
+        [
+          327,
           "flow",
           95,
           "flow",
@@ -1321,15 +1322,15 @@
           false
         ],
         [
-          262,
-          "True",
+          643,
+          "flow",
           103,
           "on",
           false
         ],
         [
-          643,
-          "flow",
+          262,
+          "True",
           103,
           "on",
           false
@@ -1384,8 +1385,8 @@
           false
         ],
         [
-          18,
-          "false",
+          10130,
+          "flow",
           109,
           "flow",
           false
@@ -1398,8 +1399,8 @@
           false
         ],
         [
-          10130,
-          "flow",
+          18,
+          "false",
           109,
           "flow",
           false
@@ -1433,15 +1434,15 @@
           false
         ],
         [
-          418,
-          "flow",
+          515,
+          "true",
           114,
           "flow",
           false
         ],
         [
-          515,
-          "true",
+          418,
+          "flow",
           114,
           "flow",
           false
@@ -1692,7 +1693,7 @@
           true
         ],
         [
-          9884,
+          9879,
           "flow",
           123,
           "flow",
@@ -1706,7 +1707,7 @@
           false
         ],
         [
-          9879,
+          9884,
           "flow",
           123,
           "flow",
@@ -2267,14 +2268,14 @@
         ],
         [
           233,
-          "execute",
+          "fflow_save",
           166,
           "reset",
           false
         ],
         [
           233,
-          "fflow_save",
+          "execute",
           166,
           "reset",
           false
@@ -2386,42 +2387,21 @@
         ],
         [
           233,
-          "execute",
-          174,
-          "reset",
-          false
-        ],
-        [
-          233,
           "fflow_save",
           174,
           "reset",
           false
         ],
         [
-          357,
-          "False",
-          175,
-          "flow",
+          233,
+          "execute",
+          174,
+          "reset",
           false
         ],
         [
-          1320,
+          1175,
           "flow",
-          175,
-          "flow",
-          false
-        ],
-        [
-          1254,
-          "flow",
-          175,
-          "flow",
-          false
-        ],
-        [
-          949,
-          "false",
           175,
           "flow",
           false
@@ -2441,7 +2421,28 @@
           false
         ],
         [
-          1175,
+          949,
+          "false",
+          175,
+          "flow",
+          false
+        ],
+        [
+          357,
+          "False",
+          175,
+          "flow",
+          false
+        ],
+        [
+          1254,
+          "flow",
+          175,
+          "flow",
+          false
+        ],
+        [
+          1320,
           "flow",
           175,
           "flow",
@@ -2469,14 +2470,14 @@
           false
         ],
         [
-          206,
+          878,
           "flow",
           178,
           "flow",
           false
         ],
         [
-          878,
+          206,
           "flow",
           178,
           "flow",
@@ -2637,8 +2638,15 @@
           false
         ],
         [
-          1094,
+          1096,
           "False",
+          194,
+          "flow",
+          false
+        ],
+        [
+          1095,
+          "flow",
           194,
           "flow",
           false
@@ -2658,14 +2666,7 @@
           false
         ],
         [
-          1095,
-          "flow",
-          194,
-          "flow",
-          false
-        ],
-        [
-          1096,
+          1094,
           "False",
           194,
           "flow",
@@ -2903,13 +2904,6 @@
           false
         ],
         [
-          1575,
-          "flow",
-          212,
-          "flow",
-          false
-        ],
-        [
           220,
           "pressed",
           212,
@@ -2926,6 +2920,13 @@
         [
           1175,
           "down",
+          212,
+          "flow",
+          false
+        ],
+        [
+          1575,
+          "flow",
           212,
           "flow",
           false
@@ -3036,13 +3037,6 @@
           false
         ],
         [
-          1621,
-          "True",
-          222,
-          "flow",
-          false
-        ],
-        [
           233,
           "fflow_load",
           222,
@@ -3051,6 +3045,13 @@
         ],
         [
           547,
+          "True",
+          222,
+          "flow",
+          false
+        ],
+        [
+          1621,
           "True",
           222,
           "flow",
@@ -3400,15 +3401,15 @@
           false
         ],
         [
-          1276,
-          "flow",
+          1661,
+          "outflow",
           249,
           "flow",
           false
         ],
         [
-          1661,
-          "outflow",
+          1276,
+          "flow",
           249,
           "flow",
           false
@@ -3611,14 +3612,14 @@
         ],
         [
           233,
-          "fflow_save",
+          "execute",
           268,
           "reset",
           false
         ],
         [
           233,
-          "execute",
+          "fflow_save",
           268,
           "reset",
           false
@@ -3729,6 +3730,13 @@
           false
         ],
         [
+          509,
+          "false",
+          276,
+          "flow",
+          false
+        ],
+        [
           10217,
           "false",
           276,
@@ -3738,13 +3746,6 @@
         [
           762,
           "flow",
-          276,
-          "flow",
-          false
-        ],
-        [
-          509,
-          "false",
           276,
           "flow",
           false
@@ -4394,15 +4395,15 @@
           false
         ],
         [
-          1115,
-          "True",
+          1670,
+          "out",
           328,
           "clear",
           false
         ],
         [
-          1670,
-          "out",
+          1115,
+          "True",
           328,
           "clear",
           false
@@ -5136,21 +5137,7 @@
           false
         ],
         [
-          961,
-          "flow",
-          378,
-          "flow",
-          false
-        ],
-        [
-          1182,
-          "flow",
-          378,
-          "flow",
-          false
-        ],
-        [
-          1674,
+          966,
           "flow",
           378,
           "flow",
@@ -5164,21 +5151,7 @@
           false
         ],
         [
-          966,
-          "flow",
-          378,
-          "flow",
-          false
-        ],
-        [
           10017,
-          "flow",
-          378,
-          "flow",
-          false
-        ],
-        [
-          10011,
           "flow",
           378,
           "flow",
@@ -5187,6 +5160,34 @@
         [
           1332,
           "False",
+          378,
+          "flow",
+          false
+        ],
+        [
+          1182,
+          "flow",
+          378,
+          "flow",
+          false
+        ],
+        [
+          961,
+          "flow",
+          378,
+          "flow",
+          false
+        ],
+        [
+          1674,
+          "flow",
+          378,
+          "flow",
+          false
+        ],
+        [
+          10011,
+          "flow",
           378,
           "flow",
           false
@@ -5591,15 +5592,15 @@
           false
         ],
         [
-          1482,
-          "out",
+          24,
+          "true",
           402,
           "flow",
           false
         ],
         [
-          24,
-          "true",
+          1482,
+          "out",
           402,
           "flow",
           false
@@ -6725,15 +6726,15 @@
           false
         ],
         [
-          923,
-          "False",
+          924,
+          "flow",
           499,
           "flow",
           false
         ],
         [
-          924,
-          "flow",
+          923,
+          "False",
           499,
           "flow",
           false
@@ -7334,15 +7335,15 @@
           true
         ],
         [
-          1298,
-          "flow",
+          167,
+          "true",
           540,
           "flow",
           false
         ],
         [
-          167,
-          "true",
+          1298,
+          "flow",
           540,
           "flow",
           false
@@ -8174,15 +8175,15 @@
           false
         ],
         [
-          48,
-          "false",
+          153,
+          "activated",
           607,
           "on",
           false
         ],
         [
-          153,
-          "activated",
+          48,
+          "false",
           607,
           "on",
           false
@@ -8342,13 +8343,6 @@
           true
         ],
         [
-          1551,
-          "false",
-          613,
-          "flow",
-          false
-        ],
-        [
           594,
           "False",
           613,
@@ -8358,6 +8352,13 @@
         [
           553,
           "flow",
+          613,
+          "flow",
+          false
+        ],
+        [
+          1551,
+          "false",
           613,
           "flow",
           false
@@ -8699,15 +8700,15 @@
           false
         ],
         [
-          1583,
-          "flow",
+          1582,
+          "False",
           643,
           "flow",
           false
         ],
         [
-          1582,
-          "False",
+          1583,
+          "flow",
           643,
           "flow",
           false
@@ -9735,15 +9736,15 @@
           false
         ],
         [
-          24,
-          "true",
+          1482,
+          "out",
           713,
           "reset",
           false
         ],
         [
-          1482,
-          "out",
+          24,
+          "true",
           713,
           "reset",
           false
@@ -9798,13 +9799,6 @@
           false
         ],
         [
-          1516,
-          "flow",
-          717,
-          "on",
-          false
-        ],
-        [
           591,
           "true",
           717,
@@ -9812,11 +9806,11 @@
           true
         ],
         [
-          591,
-          "false",
+          1516,
+          "flow",
           717,
-          "off",
-          true
+          "on",
+          false
         ],
         [
           1514,
@@ -9824,6 +9818,13 @@
           717,
           "off",
           false
+        ],
+        [
+          591,
+          "false",
+          717,
+          "off",
+          true
         ],
         [
           591,
@@ -10344,13 +10345,6 @@
           false
         ],
         [
-          1259,
-          "flow",
-          761,
-          "flow",
-          false
-        ],
-        [
           1258,
           "flow",
           761,
@@ -10359,6 +10353,13 @@
         ],
         [
           1388,
+          "flow",
+          761,
+          "flow",
+          false
+        ],
+        [
+          1259,
           "flow",
           761,
           "flow",
@@ -10435,15 +10436,15 @@
           false
         ],
         [
-          728,
-          "false",
+          758,
+          "flow",
           766,
           "flow",
           false
         ],
         [
-          758,
-          "flow",
+          728,
+          "false",
           766,
           "flow",
           false
@@ -10463,15 +10464,15 @@
           false
         ],
         [
-          760,
-          "flow",
+          656,
+          "false",
           768,
           "flow",
           false
         ],
         [
-          656,
-          "false",
+          760,
+          "flow",
           768,
           "flow",
           false
@@ -10512,15 +10513,15 @@
           false
         ],
         [
-          269,
-          "false",
+          10022,
+          "flow",
           773,
           "flow",
           false
         ],
         [
-          10022,
-          "flow",
+          269,
+          "false",
           773,
           "flow",
           false
@@ -10799,15 +10800,15 @@
           false
         ],
         [
-          815,
-          "flow",
+          438,
+          "enter",
           798,
           "flow",
           false
         ],
         [
-          438,
-          "enter",
+          815,
+          "flow",
           798,
           "flow",
           false
@@ -10834,15 +10835,15 @@
           false
         ],
         [
-          1007,
-          "flow",
+          1005,
+          "False",
           801,
           "flow",
           false
         ],
         [
-          1005,
-          "False",
+          1007,
+          "flow",
           801,
           "flow",
           false
@@ -10876,13 +10877,6 @@
           false
         ],
         [
-          10245,
-          "down",
-          803,
-          "reset",
-          false
-        ],
-        [
           843,
           "down",
           803,
@@ -10892,6 +10886,13 @@
         [
           800,
           "True",
+          803,
+          "reset",
+          false
+        ],
+        [
+          10245,
+          "down",
           803,
           "reset",
           false
@@ -11177,14 +11178,7 @@
           false
         ],
         [
-          1149,
-          "flow",
-          823,
-          "flow",
-          false
-        ],
-        [
-          828,
+          843,
           "flow",
           823,
           "flow",
@@ -11198,7 +11192,14 @@
           false
         ],
         [
-          843,
+          828,
+          "flow",
+          823,
+          "flow",
+          false
+        ],
+        [
+          1149,
           "flow",
           823,
           "flow",
@@ -11520,15 +11521,15 @@
           false
         ],
         [
-          7,
-          "enterState",
+          996,
+          "flow",
           846,
           "flow",
           false
         ],
         [
-          996,
-          "flow",
+          7,
+          "enterState",
           846,
           "flow",
           false
@@ -11688,6 +11689,13 @@
           false
         ],
         [
+          1061,
+          "flow",
+          863,
+          "flow",
+          false
+        ],
+        [
           1460,
           "True",
           865,
@@ -11702,15 +11710,15 @@
           false
         ],
         [
-          812,
-          "flow",
+          843,
+          "down",
           867,
           "flow",
           false
         ],
         [
-          843,
-          "down",
+          812,
+          "flow",
           867,
           "flow",
           false
@@ -11779,6 +11787,13 @@
           false
         ],
         [
+          206,
+          "down",
+          873,
+          "flow",
+          false
+        ],
+        [
           878,
           "down",
           873,
@@ -11787,13 +11802,6 @@
         ],
         [
           9876,
-          "down",
-          873,
-          "flow",
-          false
-        ],
-        [
-          206,
           "down",
           873,
           "flow",
@@ -11856,15 +11864,15 @@
           false
         ],
         [
-          833,
-          "false",
+          10116,
+          "activated",
           876,
           "on",
           false
         ],
         [
-          10116,
-          "activated",
+          833,
+          "false",
           876,
           "on",
           false
@@ -11905,6 +11913,13 @@
           false
         ],
         [
+          1382,
+          "none",
+          879,
+          "flow",
+          false
+        ],
+        [
           1385,
           "True",
           879,
@@ -11919,14 +11934,7 @@
           false
         ],
         [
-          1382,
-          "none",
-          879,
-          "flow",
-          false
-        ],
-        [
-          879,
+          1257,
           "flow",
           880,
           "flow",
@@ -11940,7 +11948,7 @@
           false
         ],
         [
-          1257,
+          879,
           "flow",
           880,
           "flow",
@@ -12136,7 +12144,7 @@
           false
         ],
         [
-          1438,
+          1307,
           "true",
           897,
           "flow",
@@ -12150,7 +12158,7 @@
           false
         ],
         [
-          1307,
+          1438,
           "true",
           897,
           "flow",
@@ -12493,14 +12501,14 @@
           false
         ],
         [
-          1478,
+          1634,
           "flow",
           925,
           "flow",
           false
         ],
         [
-          1634,
+          1478,
           "flow",
           925,
           "flow",
@@ -12689,15 +12697,15 @@
           false
         ],
         [
-          1508,
-          "flow",
+          912,
+          "True",
           938,
           "flow",
           false
         ],
         [
-          912,
-          "True",
+          1508,
+          "flow",
           938,
           "flow",
           false
@@ -13515,8 +13523,8 @@
           false
         ],
         [
-          1023,
-          "flow",
+          1825,
+          "out",
           1014,
           "flow",
           false
@@ -13641,7 +13649,7 @@
           false
         ],
         [
-          1134,
+          1175,
           "down",
           1026,
           "flow",
@@ -13655,7 +13663,7 @@
           false
         ],
         [
-          1175,
+          1134,
           "down",
           1026,
           "flow",
@@ -13676,14 +13684,14 @@
           false
         ],
         [
-          10245,
+          843,
           "down",
           1028,
           "on",
           false
         ],
         [
-          843,
+          10245,
           "down",
           1028,
           "on",
@@ -13760,8 +13768,8 @@
           false
         ],
         [
-          1033,
-          "False",
+          10245,
+          "down",
           1032,
           "reset",
           false
@@ -13774,8 +13782,8 @@
           false
         ],
         [
-          10245,
-          "down",
+          1033,
+          "False",
           1032,
           "reset",
           false
@@ -14033,14 +14041,14 @@
           false
         ],
         [
-          450,
+          10022,
           "flow",
           1058,
           "flow",
           false
         ],
         [
-          10022,
+          450,
           "flow",
           1058,
           "flow",
@@ -14124,8 +14132,8 @@
           false
         ],
         [
-          1061,
-          "flow",
+          863,
+          "out",
           1064,
           "flow",
           false
@@ -14460,14 +14468,14 @@
           false
         ],
         [
-          1473,
+          271,
           "flow",
           1094,
           "flow",
           false
         ],
         [
-          271,
+          1473,
           "flow",
           1094,
           "flow",
@@ -14670,15 +14678,15 @@
           false
         ],
         [
-          1559,
-          "True",
+          1105,
+          "flow",
           1106,
           "flow",
           false
         ],
         [
-          1105,
-          "flow",
+          1559,
+          "True",
           1106,
           "flow",
           false
@@ -14775,15 +14783,15 @@
           false
         ],
         [
-          526,
-          "flow",
+          10017,
+          "down",
           1119,
           "flow",
           false
         ],
         [
-          10017,
-          "down",
+          526,
+          "flow",
           1119,
           "flow",
           false
@@ -14810,7 +14818,14 @@
           true
         ],
         [
-          1112,
+          1131,
+          "flow",
+          1122,
+          "flow",
+          false
+        ],
+        [
+          1677,
           "flow",
           1122,
           "flow",
@@ -14831,14 +14846,7 @@
           false
         ],
         [
-          1131,
-          "flow",
-          1122,
-          "flow",
-          false
-        ],
-        [
-          1677,
+          1112,
           "flow",
           1122,
           "flow",
@@ -15174,15 +15182,15 @@
           false
         ],
         [
-          840,
-          "false",
+          825,
+          "flow",
           1149,
           "flow",
           false
         ],
         [
-          825,
-          "flow",
+          840,
+          "false",
           1149,
           "flow",
           false
@@ -15384,14 +15392,14 @@
           false
         ],
         [
-          10245,
+          843,
           "down",
           1168,
           "flow",
           false
         ],
         [
-          843,
+          10245,
           "down",
           1168,
           "flow",
@@ -15538,13 +15546,6 @@
           false
         ],
         [
-          10169,
-          "flow",
-          1183,
-          "flow",
-          false
-        ],
-        [
           10021,
           "flow",
           1184,
@@ -15559,14 +15560,14 @@
           false
         ],
         [
-          10128,
+          368,
           "flow",
           1185,
           "reset",
           false
         ],
         [
-          368,
+          10128,
           "flow",
           1185,
           "reset",
@@ -15580,14 +15581,14 @@
           false
         ],
         [
-          368,
+          10128,
           "flow",
           1186,
           "reset",
           false
         ],
         [
-          10128,
+          368,
           "flow",
           1186,
           "reset",
@@ -15650,14 +15651,14 @@
           false
         ],
         [
-          867,
+          1375,
           "flow",
           1192,
           "flow",
           false
         ],
         [
-          1375,
+          867,
           "flow",
           1192,
           "flow",
@@ -16344,14 +16345,14 @@
         ],
         [
           1383,
-          "match_1",
+          "match_2",
           1269,
           "flow",
           false
         ],
         [
           1383,
-          "match_2",
+          "match_1",
           1269,
           "flow",
           false
@@ -16582,14 +16583,14 @@
         ],
         [
           99,
-          "match_5",
+          "match_3",
           1285,
           "flow",
           false
         ],
         [
           99,
-          "match_3",
+          "match_5",
           1285,
           "flow",
           false
@@ -16729,14 +16730,14 @@
         ],
         [
           861,
-          "match_1",
+          "match_2",
           1294,
           "flow",
           false
         ],
         [
           861,
-          "match_2",
+          "match_1",
           1294,
           "flow",
           false
@@ -16924,14 +16925,14 @@
           false
         ],
         [
-          1447,
+          1445,
           "flow",
           1312,
           "flow",
           false
         ],
         [
-          1445,
+          1447,
           "flow",
           1312,
           "flow",
@@ -16994,14 +16995,14 @@
           false
         ],
         [
-          210,
+          9876,
           "down",
           1317,
           "flow",
           false
         ],
         [
-          9876,
+          210,
           "down",
           1317,
           "flow",
@@ -17568,6 +17569,13 @@
           false
         ],
         [
+          10156,
+          "flow",
+          1376,
+          "flow",
+          false
+        ],
+        [
           292,
           "outflow",
           1379,
@@ -17974,15 +17982,15 @@
           false
         ],
         [
-          220,
-          "pressed",
+          1575,
+          "flow",
           1422,
           "flow",
           false
         ],
         [
-          1575,
-          "flow",
+          220,
+          "pressed",
           1422,
           "flow",
           false
@@ -18262,14 +18270,14 @@
         ],
         [
           1383,
-          "match_1",
+          "match_2",
           1446,
           "flow",
           false
         ],
         [
           1383,
-          "match_2",
+          "match_1",
           1446,
           "flow",
           false
@@ -18605,14 +18613,14 @@
         ],
         [
           4986,
-          "match_2",
+          "match_4",
           1481,
           "flow",
           false
         ],
         [
           4986,
-          "match_4",
+          "match_2",
           1481,
           "flow",
           false
@@ -19018,14 +19026,14 @@
         ],
         [
           1514,
-          "True",
+          "False",
           1517,
           "flow",
           false
         ],
         [
           1514,
-          "False",
+          "True",
           1517,
           "flow",
           false
@@ -19080,21 +19088,14 @@
           false
         ],
         [
+          1525,
+          "flow",
+          1521,
+          "flow",
+          false
+        ],
+        [
           1523,
-          "flow",
-          1521,
-          "flow",
-          false
-        ],
-        [
-          1525,
-          "flow",
-          1521,
-          "flow",
-          false
-        ],
-        [
-          1525,
           "flow",
           1521,
           "flow",
@@ -19109,6 +19110,13 @@
         ],
         [
           1523,
+          "flow",
+          1521,
+          "flow",
+          false
+        ],
+        [
+          1525,
           "flow",
           1521,
           "flow",
@@ -19927,15 +19935,15 @@
           false
         ],
         [
-          150,
-          "complete",
+          1337,
+          "skip",
           1593,
           "flow",
           false
         ],
         [
-          1337,
-          "skip",
+          150,
+          "complete",
           1593,
           "flow",
           false
@@ -20431,15 +20439,15 @@
           false
         ],
         [
-          10317,
-          "flow",
+          1617,
+          "False",
           1630,
           "flow",
           false
         ],
         [
-          1617,
-          "False",
+          10317,
+          "flow",
           1630,
           "flow",
           false
@@ -20456,6 +20464,20 @@
           "exitMethod",
           1630,
           "value",
+          false
+        ],
+        [
+          10316,
+          "flow",
+          1631,
+          "flow",
+          false
+        ],
+        [
+          1797,
+          "time",
+          1631,
+          "time",
           false
         ],
         [
@@ -21166,15 +21188,15 @@
           false
         ],
         [
-          1709,
-          "flow",
+          1708,
+          "False",
           1693,
           "flow",
           false
         ],
         [
-          1708,
-          "False",
+          1709,
+          "flow",
           1693,
           "flow",
           false
@@ -22223,14 +22245,14 @@
           false
         ],
         [
-          1783,
+          1805,
           "flow",
           1784,
           "flow",
           false
         ],
         [
-          1805,
+          1783,
           "flow",
           1784,
           "flow",
@@ -22398,13 +22420,6 @@
           false
         ],
         [
-          1782,
-          "none",
-          1798,
-          "flow",
-          false
-        ],
-        [
           1784,
           "flow",
           1798,
@@ -22414,6 +22429,13 @@
         [
           513,
           "False",
+          1798,
+          "flow",
+          false
+        ],
+        [
+          1782,
+          "none",
           1798,
           "flow",
           false
@@ -22440,6 +22462,13 @@
           false
         ],
         [
+          10021,
+          "flow",
+          1800,
+          "flow",
+          false
+        ],
+        [
           1676,
           "flow",
           1801,
@@ -22454,15 +22483,15 @@
           false
         ],
         [
-          1827,
-          "flow",
+          1784,
+          "down",
           1802,
           "flow",
           false
         ],
         [
-          1784,
-          "down",
+          1827,
+          "flow",
           1802,
           "flow",
           false
@@ -22496,6 +22525,13 @@
           false
         ],
         [
+          10323,
+          "flow",
+          1804,
+          "flow",
+          false
+        ],
+        [
           1795,
           "False",
           1805,
@@ -22510,8 +22546,8 @@
           false
         ],
         [
-          1274,
-          "B",
+          1801,
+          "flow",
           1807,
           "flow",
           false
@@ -22524,8 +22560,8 @@
           false
         ],
         [
-          1801,
-          "flow",
+          1274,
+          "B",
           1807,
           "flow",
           false
@@ -22629,13 +22665,6 @@
           false
         ],
         [
-          1179,
-          "False",
-          1812,
-          "flow",
-          false
-        ],
-        [
           1400,
           "flow",
           1812,
@@ -22652,6 +22681,13 @@
         [
           1578,
           "flow",
+          1812,
+          "flow",
+          false
+        ],
+        [
+          1179,
+          "False",
           1812,
           "flow",
           false
@@ -22699,6 +22735,13 @@
           false
         ],
         [
+          10169,
+          "flow",
+          1821,
+          "flow",
+          false
+        ],
+        [
           1812,
           "flow",
           1822,
@@ -22717,6 +22760,13 @@
           "vehid",
           1823,
           "id",
+          false
+        ],
+        [
+          1023,
+          "flow",
+          1825,
+          "flow",
           false
         ],
         [
@@ -22944,15 +22994,15 @@
           false
         ],
         [
-          374,
-          "True",
+          233,
+          "fflow_save",
           9909,
           "flow",
           false
         ],
         [
-          233,
-          "fflow_save",
+          374,
+          "True",
           9909,
           "flow",
           false
@@ -23056,15 +23106,15 @@
           false
         ],
         [
-          44,
-          "flow",
+          440,
+          "true",
           10136,
           "flow",
           false
         ],
         [
-          440,
-          "true",
+          44,
+          "flow",
           10136,
           "flow",
           false
@@ -23169,14 +23219,14 @@
         ],
         [
           204,
-          "False",
+          "True",
           10107,
           "flow",
           false
         ],
         [
           204,
-          "True",
+          "False",
           10107,
           "flow",
           false
@@ -23686,14 +23736,14 @@
           false
         ],
         [
-          639,
+          766,
           "flow",
           10088,
           "flow",
           false
         ],
         [
-          766,
+          639,
           "flow",
           10088,
           "flow",
@@ -23903,14 +23953,14 @@
           false
         ],
         [
-          623,
+          579,
           "flow",
           10125,
           "flow",
           false
         ],
         [
-          579,
+          623,
           "flow",
           10125,
           "flow",
@@ -23952,15 +24002,15 @@
           false
         ],
         [
-          187,
-          "flow",
+          1278,
+          "False",
           10311,
           "flow",
           false
         ],
         [
-          1278,
-          "False",
+          187,
+          "flow",
           10311,
           "flow",
           false
@@ -24162,10 +24212,24 @@
           false
         ],
         [
-          1181,
-          "down",
-          10034,
+          819,
           "flow",
+          10251,
+          "flow",
+          false
+        ],
+        [
+          819,
+          "Y",
+          10251,
+          "X",
+          false
+        ],
+        [
+          829,
+          "wager",
+          10251,
+          "DX",
           false
         ],
         [
@@ -24372,10 +24436,17 @@
           false
         ],
         [
-          10240,
+          10026,
           "flow",
-          10255,
+          10038,
           "flow",
+          false
+        ],
+        [
+          275,
+          "opModel",
+          10038,
+          "val",
           false
         ],
         [
@@ -24408,14 +24479,14 @@
         ],
         [
           689,
-          "garage",
+          "repair",
           10007,
           "flow",
           false
         ],
         [
           689,
-          "repair",
+          "garage",
           10007,
           "flow",
           false
@@ -24491,6 +24562,13 @@
           false
         ],
         [
+          1821,
+          "flow",
+          10323,
+          "flow",
+          false
+        ],
+        [
           10105,
           "flow",
           10106,
@@ -24554,15 +24632,15 @@
           false
         ],
         [
-          247,
-          "False",
+          1181,
+          "flow",
           10011,
           "flow",
           false
         ],
         [
-          1181,
-          "flow",
+          247,
+          "False",
           10011,
           "flow",
           false
@@ -24687,14 +24765,14 @@
           false
         ],
         [
-          1679,
+          1677,
           "down",
           10296,
           "flow",
           false
         ],
         [
-          1677,
+          1679,
           "down",
           10296,
           "flow",
@@ -25121,17 +25199,31 @@
           false
         ],
         [
-          1630,
-          "match_2",
-          10321,
+          875,
+          "flow",
+          10259,
           "flow",
           false
         ],
         [
-          355,
-          "spawnids",
-          10321,
-          "idtable",
+          591,
+          "false",
+          10259,
+          "reset",
+          false
+        ],
+        [
+          875,
+          "data",
+          10259,
+          "group",
+          false
+        ],
+        [
+          846,
+          "trucks",
+          10259,
+          "quantity",
           false
         ],
         [
@@ -25177,10 +25269,45 @@
           false
         ],
         [
-          240,
+          4994,
           "flow",
-          5002,
+          5006,
           "flow",
+          false
+        ],
+        [
+          1697,
+          "flow",
+          10302,
+          "flow",
+          false
+        ],
+        [
+          1687,
+          "allvehs",
+          10302,
+          "idtable",
+          false
+        ],
+        [
+          799,
+          "flow",
+          10244,
+          "flow",
+          false
+        ],
+        [
+          1630,
+          "match_2",
+          10321,
+          "flow",
+          false
+        ],
+        [
+          355,
+          "spawnids",
+          10321,
+          "idtable",
           false
         ],
         [
@@ -25198,43 +25325,15 @@
           false
         ],
         [
-          799,
-          "flow",
-          10244,
-          "flow",
-          false
-        ],
-        [
-          872,
-          "flow",
-          10257,
-          "flow",
-          false
-        ],
-        [
-          157,
-          "gmwp",
-          10257,
-          "val",
-          false
-        ],
-        [
-          9876,
-          "flow",
-          9877,
+          24,
+          "true",
+          10188,
           "flow",
           false
         ],
         [
           1482,
           "out",
-          10188,
-          "flow",
-          false
-        ],
-        [
-          24,
-          "true",
           10188,
           "flow",
           false
@@ -25254,45 +25353,31 @@
           false
         ],
         [
-          875,
+          1193,
           "flow",
-          10259,
-          "flow",
-          false
-        ],
-        [
-          591,
-          "false",
-          10259,
-          "reset",
-          false
-        ],
-        [
-          875,
-          "data",
-          10259,
-          "group",
-          false
-        ],
-        [
-          846,
-          "trucks",
-          10259,
-          "quantity",
-          false
-        ],
-        [
-          1723,
-          "False",
-          10317,
+          10258,
           "flow",
           false
         ],
         [
-          10320,
-          "carid",
-          10317,
-          "vehId",
+          829,
+          "gmwp",
+          10258,
+          "val",
+          false
+        ],
+        [
+          872,
+          "flow",
+          10257,
+          "flow",
+          false
+        ],
+        [
+          157,
+          "gmwp",
+          10257,
+          "val",
           false
         ],
         [
@@ -25324,6 +25409,20 @@
           false
         ],
         [
+          10028,
+          "flow",
+          10027,
+          "flow",
+          false
+        ],
+        [
+          275,
+          "slips",
+          10027,
+          "val",
+          false
+        ],
+        [
           124,
           "flow",
           10312,
@@ -25345,31 +25444,17 @@
           false
         ],
         [
-          10026,
-          "flow",
-          10038,
-          "flow",
-          false
-        ],
-        [
-          275,
-          "opModel",
-          10038,
-          "val",
-          false
-        ],
-        [
-          10028,
-          "flow",
-          10027,
+          1723,
+          "False",
+          10317,
           "flow",
           false
         ],
         [
-          275,
-          "slips",
-          10027,
-          "val",
+          10320,
+          "carid",
+          10317,
+          "vehId",
           false
         ],
         [
@@ -25387,23 +25472,16 @@
           false
         ],
         [
-          10242,
-          "flow",
-          10243,
+          1181,
+          "down",
+          10034,
           "flow",
           false
         ],
         [
-          809,
-          "True",
-          10243,
-          "reset",
-          false
-        ],
-        [
-          1686,
-          "flow",
-          10297,
+          269,
+          "true",
+          10022,
           "flow",
           false
         ],
@@ -25415,16 +25493,16 @@
           false
         ],
         [
-          296,
+          1686,
           "flow",
-          10029,
+          10297,
           "flow",
           false
         ],
         [
-          269,
-          "true",
-          10022,
+          296,
+          "flow",
+          10029,
           "flow",
           false
         ],
@@ -25471,24 +25549,17 @@
           false
         ],
         [
-          10251,
+          10242,
           "flow",
-          10252,
+          10243,
           "flow",
           false
         ],
         [
-          10250,
-          "val",
-          10252,
-          "X",
-          false
-        ],
-        [
-          829,
-          "reputation",
-          10252,
-          "DX",
+          809,
+          "True",
+          10243,
+          "reset",
           false
         ],
         [
@@ -25500,14 +25571,14 @@
         ],
         [
           1017,
-          "match_2",
+          "match_1",
           10279,
           "flow",
           false
         ],
         [
           1017,
-          "match_1",
+          "match_2",
           10279,
           "flow",
           false
@@ -25527,31 +25598,24 @@
           false
         ],
         [
-          1697,
+          799,
           "flow",
-          10302,
-          "flow",
-          false
-        ],
-        [
-          1687,
-          "allvehs",
-          10302,
-          "idtable",
-          false
-        ],
-        [
-          868,
-          "false",
-          10256,
+          10242,
           "flow",
           false
         ],
         [
-          869,
-          "num",
-          10256,
-          "val",
+          809,
+          "True",
+          10242,
+          "on",
+          false
+        ],
+        [
+          10240,
+          "flow",
+          10255,
+          "flow",
           false
         ],
         [
@@ -25569,17 +25633,10 @@
           false
         ],
         [
-          799,
+          10015,
           "flow",
-          10242,
+          10024,
           "flow",
-          false
-        ],
-        [
-          809,
-          "True",
-          10242,
-          "on",
           false
         ],
         [
@@ -25590,9 +25647,9 @@
           false
         ],
         [
-          10015,
+          10237,
           "flow",
-          10024,
+          10298,
           "flow",
           false
         ],
@@ -25653,31 +25710,31 @@
           false
         ],
         [
-          819,
+          9876,
           "flow",
-          10251,
+          9877,
           "flow",
           false
         ],
         [
-          819,
-          "Y",
           10251,
+          "flow",
+          10252,
+          "flow",
+          false
+        ],
+        [
+          10250,
+          "val",
+          10252,
           "X",
           false
         ],
         [
           829,
-          "wager",
-          10251,
+          "reputation",
+          10252,
           "DX",
-          false
-        ],
-        [
-          10237,
-          "flow",
-          10298,
-          "flow",
           false
         ],
         [
@@ -25695,30 +25752,30 @@
           false
         ],
         [
-          1193,
-          "flow",
-          10258,
+          868,
+          "false",
+          10256,
           "flow",
           false
         ],
         [
-          829,
-          "gmwp",
-          10258,
+          869,
+          "num",
+          10256,
           "val",
-          false
-        ],
-        [
-          4994,
-          "flow",
-          5006,
-          "flow",
           false
         ],
         [
           880,
           "down",
           5001,
+          "flow",
+          false
+        ],
+        [
+          240,
+          "flow",
+          5002,
           "flow",
           false
         ],
@@ -26072,7 +26129,7 @@
           "type":"util/customLua"
         },
         "16":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -26148,7 +26205,7 @@
           "type":"logic/compare"
         },
         "19":{
-          "alpha":0.75000000000000144329,
+          "alpha":0.75000000000000199840,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -27755,7 +27812,7 @@
           "type":"types/genericValue"
         },
         "62":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -27791,7 +27848,7 @@
           "type":"debug/comment"
         },
         "63":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -28099,7 +28156,7 @@
           "type":"ui/imgui/elemental/imEnd"
         },
         "70":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -28135,7 +28192,7 @@
           "type":"debug/comment"
         },
         "71":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -28279,7 +28336,7 @@
           "type":"util/customLua"
         },
         "73":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -28688,7 +28745,7 @@
           "type":"logic/switchcase"
         },
         "86":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -28743,7 +28800,7 @@
           "type":"types/number"
         },
         "88":{
-          "alpha":0.75000000000000133227,
+          "alpha":0.75000000000000188738,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -29382,7 +29439,7 @@
           "type":"ui/imgui/elemental/imEnd"
         },
         "101":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -29780,7 +29837,7 @@
           "type":"types/genericValue"
         },
         "113":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -30484,7 +30541,7 @@
           "type":"util/customLua"
         },
         "120":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -31217,7 +31274,7 @@
           "type":"util/customLua"
         },
         "134":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -31578,7 +31635,7 @@
           "type":"logic/once"
         },
         "141":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -31714,7 +31771,7 @@
           "type":"util/customLua"
         },
         "144":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -31871,7 +31928,7 @@
           "type":"util/customLua"
         },
         "147":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -32055,7 +32112,7 @@
           "hardcodedPins":{
             "duration":{
               "type":"number",
-              "value":0.75000000000000166533
+              "value":0.75000000000000222045
             }
           },
           "hiddenPins":{
@@ -32156,7 +32213,7 @@
           "type":"gameplay/traffic/trafficActivate"
         },
         "154":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -32491,7 +32548,7 @@
           "type":"util/customLua"
         },
         "162":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -32719,7 +32776,7 @@
           "type":"types/genericValue"
         },
         "170":{
-          "alpha":0.75000000000000055511,
+          "alpha":0.75000000000000111022,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -33019,7 +33076,7 @@
           "type":"ui/imgui/elemental/imEnd"
         },
         "179":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -33137,7 +33194,7 @@
           "type":"util/customLua"
         },
         "181":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -33301,7 +33358,7 @@
           },
           "pos":[
             -1060,
-            -917
+            -832
           ],
           "type":"logic/branch"
         },
@@ -34115,7 +34172,7 @@
           "type":"util/customLua"
         },
         "202":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -35215,7 +35272,7 @@
           "type":"types/genericValue"
         },
         "225":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -35511,7 +35568,7 @@
           "type":"types/genericValue"
         },
         "231":{
-          "alpha":0.75000000000000055511,
+          "alpha":0.75000000000000111022,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -35963,7 +36020,7 @@
           "type":"util/customLua"
         },
         "239":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -36984,7 +37041,7 @@
           "type":"logic/rateLimit"
         },
         "258":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -37037,7 +37094,7 @@
           "type":"logic/bundle"
         },
         "260":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -37239,7 +37296,7 @@
           "type":"logic/branch"
         },
         "263":{
-          "alpha":0.75000000000000066613,
+          "alpha":0.75000000000000122125,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -38049,7 +38106,7 @@
           "type":"logic/once"
         },
         "277":{
-          "alpha":0.75000000000000133227,
+          "alpha":0.75000000000000188738,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -38703,7 +38760,7 @@
           "type":"util/customLua"
         },
         "287":{
-          "alpha":0.75000000000000144329,
+          "alpha":0.75000000000000199840,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -38841,8 +38898,8 @@
             }
           },
           "pos":[
-            -2986,
-            190
+            -3020,
+            176
           ],
           "type":"types/genericValue"
         },
@@ -39537,7 +39594,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nlocal v = self.pinIn.vehid.value\nlocal vec = self.pinIn.rot.value\nextensions.core_camera.getCameraDataById(v)[\"orbit\"]:setDefaultRotation(vec3(vec[1], vec[2], vec[3]))\nextensions.core_camera.getCameraDataById(v)[\"orbit\"]:reset()\ncam = extensions.core_camera.getCameraDataById(v)[\"orbit\"]\ncamData = { veh = scenetree.findObjectById(v), vid = v, dtSim = 0.0001, dtReal = 0.0001, dtRaw = 0.0001, dt = 0.0001, speed = 0, pos=cam.camLastPos, prevPos=cam.camLastPos2, vel=cam.camVel, prevVel=cam.camVel, res = {pos = cam.camLastPos, targetPos = cam.camLastTargetPos, rot = quat(), fov = 60, nearClip = scenetree.theLevelInfo.nearClip} }\nextensions.core_camera.getCameraDataById(v)[\"orbit\"]:update(camData)"
+            "work":"local extensions = require(\"extensions\")\nlocal v = self.pinIn.vehid.value\nlocal vec = self.pinIn.rot.value\nextensions.core_camera.getCameraDataById(v)[\"orbit\"]:setDefaultRotation(vec3(vec[1], vec[2], vec[3]))\nextensions.core_camera.getCameraDataById(v)[\"orbit\"]:reset()\nlocal cam = extensions.core_camera.getCameraDataById(v)[\"orbit\"]\nlocal camData = { veh = scenetree.findObjectById(v), vid = v, dtSim = 0.0001, dtReal = 0.0001, dtRaw = 0.0001, dt = 0.0001, speed = 0, pos=cam.camLastPos, prevPos=cam.camLastPos2, vel=vec3(0,0,0), res = {pos = cam.camLastPos, targetPos = cam.camLastTargetPos, rot = quat(), fov = 60, nearClip = scenetree.theLevelInfo.nearClip} }\nextensions.core_camera.getCameraDataById(v)[\"orbit\"]:update(camData)"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -40662,7 +40719,7 @@
           "type":"logic/compare"
         },
         "326":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -40730,7 +40787,7 @@
             "color_in":{
               "type":"color",
               "value":[
-                0.49865675000000031503,
+                0,
                 1,
                 0,
                 1
@@ -41124,7 +41181,7 @@
           "type":"util/customLua"
         },
         "338":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000011102,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -41132,9 +41189,9 @@
             0.50000000000000000000
           ],
           "borderColor":[
-            0.80000001190000002982,
-            0.80000001190000002982,
-            0.80000001190000002982,
+            0.80000001192092884406,
+            0.80000001192092884406,
+            0.80000001192092884406,
             1
           ],
           "commentSize":[
@@ -42326,7 +42383,7 @@
           "type":"types/genericValue"
         },
         "359":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -42366,7 +42423,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nlocal vec = self.pinIn.rot.value\nfor k,v in pairs(self.pinIn.idtable.value) do\nlocal cam = {}\nlocal camData = {}\nif v ~= -1 then\nextensions.core_camera.getCameraDataById(v)[\"orbit\"]:setDefaultRotation(vec3(vec[1], vec[2], vec[3]))\nextensions.core_camera.getCameraDataById(v)[\"orbit\"]:reset()\ncam = extensions.core_camera.getCameraDataById(v)[\"orbit\"]\ncamData = { veh = scenetree.findObjectById(v), vid = v, dtSim = 0.0001, dtReal = 0.0001, dtRaw = 0.0001, dt = 0.0001, speed = 0, pos=cam.camLastPos, prevPos=cam.camLastPos2, vel=cam.camVel, prevVel=cam.camVel, res = {pos = cam.camLastPos, targetPos = cam.camLastTargetPos, rot = quat(), fov = 60, nearClip = scenetree.theLevelInfo.nearClip} }\nextensions.core_camera.getCameraDataById(v)[\"orbit\"]:update(camData)\nend\nend"
+            "work":"local extensions = require(\"extensions\")\nlocal vec = self.pinIn.rot.value\nfor k,v in pairs(self.pinIn.idtable.value) do\nlocal cam = {}\nlocal camData = {}\nif v ~= -1 then\nextensions.core_camera.getCameraDataById(v)[\"orbit\"]:setDefaultRotation(vec3(vec[1], vec[2], vec[3]))\nextensions.core_camera.getCameraDataById(v)[\"orbit\"]:reset()\ncam = extensions.core_camera.getCameraDataById(v)[\"orbit\"]\ncamData = { veh = scenetree.findObjectById(v), vid = v, dtSim = 0.0001, dtReal = 0.0001, dtRaw = 0.0001, dt = 0.0001, speed = 0, pos=cam.camLastPos, prevPos=cam.camLastPos2, vel=vec3(0,0,0), res = {pos = cam.camLastPos, targetPos = cam.camLastTargetPos, rot = quat(), fov = 60, nearClip = scenetree.theLevelInfo.nearClip} }\nextensions.core_camera.getCameraDataById(v)[\"orbit\"]:update(camData)\nend\nend"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -42424,7 +42481,7 @@
             ]
           ],
           "pos":[
-            2264,
+            2258,
             -3072
           ],
           "type":"util/customLua"
@@ -42785,7 +42842,7 @@
           "type":"logic/bundle"
         },
         "370":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000000000,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -42793,9 +42850,9 @@
             0.50000000000000000000
           ],
           "borderColor":[
-            0.80000001190000002982,
-            0.80000001190000002982,
-            0.80000001190000002982,
+            0.80000001192092895508,
+            0.80000001192092895508,
+            0.80000001192092895508,
             1
           ],
           "commentSize":[
@@ -44070,8 +44127,8 @@
             }
           },
           "pos":[
-            -1460,
-            -678
+            -1494,
+            -636
           ],
           "type":"ui/imgui/elemental/imTextBLR"
         },
@@ -44609,7 +44666,7 @@
           "type":"util/customLua"
         },
         "408":{
-          "alpha":0.75000000000000144329,
+          "alpha":0.75000000000000199840,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -44827,7 +44884,7 @@
           "type":"util/customLua"
         },
         "412":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -46111,7 +46168,7 @@
           "type":"util/customLua"
         },
         "439":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000011102,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -46119,9 +46176,9 @@
             0.50000000000000000000
           ],
           "borderColor":[
-            0.80000001190000002982,
-            0.80000001190000002982,
-            0.80000001190000002982,
+            0.80000001192092884406,
+            0.80000001192092884406,
+            0.80000001192092884406,
             1
           ],
           "commentSize":[
@@ -46164,7 +46221,7 @@
           },
           "opSymbol":"==",
           "pos":[
-            -3000,
+            -3014,
             36
           ],
           "type":"logic/compare"
@@ -46188,7 +46245,7 @@
           "type":"logic/once"
         },
         "442":{
-          "alpha":0.75000000000000022204,
+          "alpha":0.75000000000000077716,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -46196,9 +46253,9 @@
             0.50000000000000000000
           ],
           "borderColor":[
-            0.80000001192092873303,
-            0.80000001192092873303,
-            0.80000001192092873303,
+            0.80000001192092851099,
+            0.80000001192092851099,
+            0.80000001192092851099,
             1
           ],
           "commentSize":[
@@ -46790,7 +46847,7 @@
           "type":"util/customLua"
         },
         "449":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -47687,7 +47744,7 @@
           "type":"util/customLua"
         },
         "468":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -47723,7 +47780,7 @@
           "type":"debug/comment"
         },
         "469":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -47884,7 +47941,7 @@
           "type":"logic/frameDelay"
         },
         "475":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -48509,7 +48566,7 @@
           "type":"logic/frameDelay"
         },
         "489":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -49360,7 +49417,7 @@
           "type":"scene/camera/returnToVehicle"
         },
         "511":{
-          "alpha":0.75000000000000133227,
+          "alpha":0.75000000000000188738,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -49439,7 +49496,7 @@
           "type":"logic/branch"
         },
         "514":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -50111,7 +50168,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nlocal vdata = extensions.blrutils.getVehicleData()\nlocal ctrig = self.pinIn.ctrig.value\nlocal ccp = self.pinIn.ccp.value\nlocal type = self.pinIn.type.value\nlocal triggers = self.pinIn.triggers.value\nlocal tcount = #triggers\nself.pinOut.tcount.value = tcount\nlocal ttrig = triggers[ccp]\nlocal startTime = self.pinIn.startTime.value\nlocal ttime = self.pinIn.targetTime.value\nlocal ctime = extensions.blrutils.getRaceTime()\nlocal ctimeFormat = extensions.blrutils.msTimeFormat(ctime - startTime)\n\nlocal tdrift = self.pinIn.driftPoints.value\nlocal cdrift = extensions.blrutils.getDriftCombined() -- 1.12 change, now checks for current drift + total\n\n\nif tcount < 2 then\nself.pinOut.showbm.value = false\nend\n\nif ccp == -1 then\nself.pinOut.nextcp.value = 1\nself.pinOut.nexttrigid.value = scenetree.findObject(triggers[1]):getID()\nself.pinOut.cpsound.value = false\nself.pinOut.finished.value = false\nself.pinOut.failed.value = false\nself.pinOut.timerReady.value = false\nself.pinOut.setStartTime.value = false\nself.pinOut.useExtraText.value = type == \"time\"\n\nif tcount > 1 then\nself.pinOut.showbm.value = true\nself.pinOut.bmid.value = scenetree.findObject(triggers[2]):getID()\nend\n\nelseif self.pinIn.completed.value == 1 then\nself.pinOut.finished.value = true\nself.pinOut.nextcp.value = ccp\nself.pinOut.nexttrigid.value = scenetree.findObject(triggers[ccp]):getID()\nself.pinOut.cpsound.value = false\nself.pinOut.failed.value = false\n\nelse\n\nif type == \"jump\" then\nself.pinOut.finished.value = ctrig == ttrig\nself.pinOut.nextcp.value = ccp\nself.pinOut.nexttrigid.value = scenetree.findObject(triggers[ccp]):getID()\nself.pinOut.cpsound.value = false\nself.pinOut.failed.value = false\nself.pinOut.useExtraText.value = false\nself.pinOut.timerReady.value = false\nself.pinOut.setStartTime.value = false\nself.pinOut.endTime.value = -1\nend\n\nif type == \"speed\" then\nself.pinOut.finished.value = (ctrig == ttrig) and (vdata[\"velocity\"] >= self.pinIn.targetSpd.value)\nself.pinOut.nextcp.value = ccp\nself.pinOut.nexttrigid.value = scenetree.findObject(triggers[ccp]):getID()\nself.pinOut.cpsound.value = false\nself.pinOut.failed.value = false\nself.pinOut.useExtraText.value = false\nself.pinOut.timerReady.value = false\nself.pinOut.setStartTime.value = false\nself.pinOut.endTime.value = -1\nend\n\nif type == \"time\" then\nself.pinOut.useExtraText.value = true\n\nif ctrig == ttrig and self.pinIn.failed.value == 0 then\n\nif ccp == tcount then\nself.pinOut.finished.value = true\nself.pinOut.nextcp.value = ccp\nself.pinOut.nexttrigid.value = scenetree.findObject(triggers[ccp]):getID()\nself.pinOut.cpsound.value = false\nself.pinOut.setStartTime.value = false\nself.pinOut.startTime.value = self.pinIn.startTime.value\nself.pinOut.failed.value = false\nself.pinOut.timerReady.value = true\nself.pinOut.endTime.value = ctime\nself.pinOut.showbm.value = false\nself.pinOut.bmid.value = -1\nelseif ccp == 1 then\nself.pinOut.nextcp.value = ccp + 1\nself.pinOut.nexttrigid.value = scenetree.findObject(triggers[ccp + 1]):getID()\nself.pinOut.cpsound.value = true\nself.pinOut.finished.value = false\nself.pinOut.setStartTime.value = true\nself.pinOut.startTime.value = extensions.blrutils.getRaceTime()\nself.pinOut.failed.value = false\nself.pinOut.timerReady.value = true\nself.pinOut.endTime.value = -1\nself.pinOut.showbm.value = tcount > 1 and ccp + 2 <= tcount\nif tcount > 1 and ccp + 2 <= tcount then\nself.pinOut.bmid.value = scenetree.findObject(triggers[ccp + 2]):getID()\nend\nelse\nself.pinOut.nextcp.value = ccp + 1\nself.pinOut.nexttrigid.value = scenetree.findObject(triggers[ccp + 1]):getID()\nself.pinOut.cpsound.value = true\nself.pinOut.finished.value = false\nself.pinOut.setStartTime.value = false\nself.pinOut.startTime.value = self.pinIn.startTime.value\nself.pinOut.timerReady.value = true\nself.pinOut.endTime.value = -1\nself.pinOut.showbm.value = tcount > 1 and ccp + 2 <= tcount\nif tcount > 1 and ccp + 2 <= tcount then\nself.pinOut.bmid.value = scenetree.findObject(triggers[ccp + 2]):getID()\nend\nend\nelse\nself.pinOut.cpsound.value = false\nend\nend\n\nif type == \"drift\" then\nself.pinOut.useExtraText.value = true\n\nif ctrig == ttrig and self.pinIn.failed.value == 0 then\n\nif ccp == tcount then \nif cdrift >= tdrift then -- Only allow finishing challenge if drift point target is reached\nself.pinOut.finished.value = true\nself.pinOut.nextcp.value = ccp\nself.pinOut.nexttrigid.value = scenetree.findObject(triggers[ccp]):getID()\nself.pinOut.cpsound.value = false\nself.pinOut.setStartTime.value = false\nself.pinOut.startTime.value = self.pinIn.startTime.value\nself.pinOut.failed.value = false\nself.pinOut.timerReady.value = true\nself.pinOut.endTime.value = ctime\nself.pinOut.showbm.value = false\nself.pinOut.bmid.value = -1\nextensions.blrglobals.blrFlagSet(\"updateDriftScore\", false) -- Stop updating drift score\nextensions.customGuiStream.sendCurrentDrift(0) -- Last message to drift UI after finish\nextensions.customGuiStream.sendTotalDrift(cdrift) -- adds current drift to total drift\nend\nelseif ccp == 1 then\nself.pinOut.nextcp.value = ccp + 1\nself.pinOut.nexttrigid.value = scenetree.findObject(triggers[ccp + 1]):getID()\nself.pinOut.cpsound.value = true\nself.pinOut.finished.value = false\nself.pinOut.setStartTime.value = true\nself.pinOut.startTime.value = extensions.blrutils.getRaceTime()\nself.pinOut.failed.value = false\nself.pinOut.timerReady.value = true\nself.pinOut.endTime.value = -1\nself.pinOut.showbm.value = tcount > 1 and ccp + 2 <= tcount\nextensions.blrglobals.blrFlagSet(\"updateDriftScore\", true) -- Start updating drift score\nif tcount > 1 and ccp + 2 <= tcount then\nself.pinOut.bmid.value = scenetree.findObject(triggers[ccp + 2]):getID()\nend\nelse\nself.pinOut.nextcp.value = ccp + 1\nself.pinOut.nexttrigid.value = scenetree.findObject(triggers[ccp + 1]):getID()\nself.pinOut.cpsound.value = true\nself.pinOut.finished.value = false\nself.pinOut.setStartTime.value = false\nself.pinOut.startTime.value = self.pinIn.startTime.value\nself.pinOut.timerReady.value = true\nself.pinOut.endTime.value = -1\nself.pinOut.showbm.value = tcount > 1 and ccp + 2 <= tcount\nif tcount > 1 and ccp + 2 <= tcount then\nself.pinOut.bmid.value = scenetree.findObject(triggers[ccp + 2]):getID()\nend\nend\nelse\nself.pinOut.cpsound.value = false\nend\nend\n\n\nend\n\n\n"
+            "work":"local extensions = require(\"extensions\")\nlocal vdata = extensions.blrutils.getVehicleData()\nlocal ctrig = self.pinIn.ctrig.value\nlocal ccp = self.pinIn.ccp.value\nlocal type = self.pinIn.type.value\nlocal triggers = self.pinIn.triggers.value\nlocal tcount = #triggers\nself.pinOut.tcount.value = tcount\nlocal ttrig = triggers[ccp]\nlocal startTime = self.pinIn.startTime.value\nlocal ttime = self.pinIn.targetTime.value\nlocal ctime = extensions.blrutils.getRaceTime()\nlocal ctimeFormat = extensions.blrutils.msTimeFormat(ctime - startTime)\n\nlocal tdrift = self.pinIn.driftPoints.value\nlocal cdrift = extensions.blrutils.getDriftCombined() -- 1.12 change, now checks for current drift + total\n\n\nif tcount < 2 then\nself.pinOut.showbm.value = false\nend\n\nif ccp == -1 then\nself.pinOut.nextcp.value = 1\nself.pinOut.nexttrigid.value = scenetree.findObject(triggers[1]):getID()\nself.pinOut.cpsound.value = false\nself.pinOut.finished.value = false\nself.pinOut.failed.value = false\nself.pinOut.timerReady.value = false\nself.pinOut.setStartTime.value = false\nself.pinOut.useExtraText.value = type == \"time\"\n\nif tcount > 1 then\nself.pinOut.showbm.value = true\nself.pinOut.bmid.value = scenetree.findObject(triggers[2]):getID()\nend\n\nelseif self.pinIn.completed.value == 1 then\nself.pinOut.finished.value = true\nself.pinOut.nextcp.value = ccp\nself.pinOut.nexttrigid.value = scenetree.findObject(triggers[ccp]):getID()\nself.pinOut.cpsound.value = false\nself.pinOut.failed.value = false\n\nelse\n\nif type == \"jump\" then\nself.pinOut.finished.value = ctrig == ttrig\nself.pinOut.nextcp.value = ccp\nself.pinOut.nexttrigid.value = scenetree.findObject(triggers[ccp]):getID()\nself.pinOut.cpsound.value = false\nself.pinOut.failed.value = false\nself.pinOut.useExtraText.value = false\nself.pinOut.timerReady.value = false\nself.pinOut.setStartTime.value = false\nself.pinOut.endTime.value = -1\nend\n\nif type == \"speed\" then\nself.pinOut.finished.value = (ctrig == ttrig) and (vdata[\"velocity\"] >= self.pinIn.targetSpd.value)\nself.pinOut.nextcp.value = ccp\nself.pinOut.nexttrigid.value = scenetree.findObject(triggers[ccp]):getID()\nself.pinOut.cpsound.value = false\nself.pinOut.failed.value = false\nself.pinOut.useExtraText.value = false\nself.pinOut.timerReady.value = false\nself.pinOut.setStartTime.value = false\nself.pinOut.endTime.value = -1\nend\n\nif type == \"time\" then\nself.pinOut.useExtraText.value = true\n\nif ctrig == ttrig and self.pinIn.failed.value == 0 then\n\nif ccp == tcount then\nself.pinOut.finished.value = true\nself.pinOut.nextcp.value = ccp\nself.pinOut.nexttrigid.value = scenetree.findObject(triggers[ccp]):getID()\nself.pinOut.cpsound.value = false\nself.pinOut.setStartTime.value = false\nself.pinOut.startTime.value = self.pinIn.startTime.value\nself.pinOut.failed.value = false\nself.pinOut.timerReady.value = true\nself.pinOut.endTime.value = ctime\nself.pinOut.showbm.value = false\nself.pinOut.bmid.value = -1\nelseif ccp == 1 then\nself.pinOut.nextcp.value = ccp + 1\nself.pinOut.nexttrigid.value = scenetree.findObject(triggers[ccp + 1]):getID()\nself.pinOut.cpsound.value = true\nself.pinOut.finished.value = false\nself.pinOut.setStartTime.value = true\nself.pinOut.startTime.value = extensions.blrutils.getRaceTime()\nself.pinOut.failed.value = false\nself.pinOut.timerReady.value = true\nself.pinOut.endTime.value = -1\nself.pinOut.showbm.value = tcount > 1 and ccp + 2 <= tcount\nif tcount > 1 and ccp + 2 <= tcount then\nself.pinOut.bmid.value = scenetree.findObject(triggers[ccp + 2]):getID()\nend\nelse\nself.pinOut.nextcp.value = ccp + 1\nself.pinOut.nexttrigid.value = scenetree.findObject(triggers[ccp + 1]):getID()\nself.pinOut.cpsound.value = true\nself.pinOut.finished.value = false\nself.pinOut.setStartTime.value = false\nself.pinOut.startTime.value = self.pinIn.startTime.value\nself.pinOut.timerReady.value = true\nself.pinOut.endTime.value = -1\nself.pinOut.showbm.value = tcount > 1 and ccp + 2 <= tcount\nif tcount > 1 and ccp + 2 <= tcount then\nself.pinOut.bmid.value = scenetree.findObject(triggers[ccp + 2]):getID()\nend\nend\nelse\nself.pinOut.cpsound.value = false\nend\nend\n\nif type == \"drift\" then\nself.pinOut.useExtraText.value = true\n\nif ctrig == ttrig and self.pinIn.failed.value == 0 then\n\nif ccp == tcount then \nif cdrift >= tdrift then -- Only allow finishing challenge if drift point target is reached\nself.pinOut.finished.value = true\nself.pinOut.nextcp.value = ccp\nself.pinOut.nexttrigid.value = scenetree.findObject(triggers[ccp]):getID()\nself.pinOut.cpsound.value = false\nself.pinOut.setStartTime.value = false\nself.pinOut.startTime.value = self.pinIn.startTime.value\nself.pinOut.failed.value = false\nself.pinOut.timerReady.value = true\nself.pinOut.endTime.value = ctime\nself.pinOut.showbm.value = false\nself.pinOut.bmid.value = -1\nextensions.blrglobals.blrFlagSet(\"updateDriftScore\", false) -- Stop updating drift score\nextensions.customGuiStream.sendCurrentDrift(0) -- Last message to drift UI after finish\nextensions.customGuiStream.sendTotalDrift(cdrift) -- adds current drift to total drift\nend\nelseif ccp == 1 then\nself.pinOut.nextcp.value = ccp + 1\nself.pinOut.nexttrigid.value = scenetree.findObject(triggers[ccp + 1]):getID()\nself.pinOut.cpsound.value = true\nself.pinOut.finished.value = false\nself.pinOut.setStartTime.value = true\nself.pinOut.startTime.value = extensions.blrutils.getRaceTime()\nself.pinOut.failed.value = false\nself.pinOut.timerReady.value = true\nself.pinOut.endTime.value = -1\nself.pinOut.showbm.value = tcount > 1 and ccp + 2 <= tcount\nextensions.blrglobals.blrFlagSet(\"updateDriftScore\", true) -- Start updating drift score\nif tcount > 1 and ccp + 2 <= tcount then\nself.pinOut.bmid.value = scenetree.findObject(triggers[ccp + 2]):getID()\nend\nelse\nself.pinOut.nextcp.value = ccp + 1\nself.pinOut.nexttrigid.value = scenetree.findObject(triggers[ccp + 1]):getID()\nself.pinOut.cpsound.value = true\nself.pinOut.finished.value = false\nself.pinOut.setStartTime.value = false\nself.pinOut.startTime.value = self.pinIn.startTime.value\nself.pinOut.timerReady.value = true\nself.pinOut.endTime.value = -1\nself.pinOut.showbm.value = tcount > 1 and ccp + 2 <= tcount\nif tcount > 1 and ccp + 2 <= tcount then\nself.pinOut.bmid.value = scenetree.findObject(triggers[ccp + 2]):getID()\nend\nend\nelse\nself.pinOut.cpsound.value = false\nend\nend\n\n\nend\n\nextensions.blrglobals.blrFlagSet(\"updateRaceUI\", true)\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -51326,7 +51383,7 @@
           "type":"util/customLua"
         },
         "556":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -51704,7 +51761,7 @@
           "type":"util/customLua"
         },
         "565":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -52698,7 +52755,7 @@
           "type":"logic/compare"
         },
         "592":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -52786,7 +52843,7 @@
           "type":"logic/branch"
         },
         "595":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -54028,7 +54085,7 @@
           "type":"logic/compare"
         },
         "621":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -54578,7 +54635,7 @@
         },
         "633":{
           "data":{
-            "name":""
+            "name":"BeamNGTrigger_TopShopFinish"
           },
           "dynamicMode":"repeat",
           "hiddenPins":{
@@ -54946,7 +55003,7 @@
           "type":"logic/once"
         },
         "646":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -55264,7 +55321,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"local extensions = require(\"extensions\")\nlocal trigs = self.pinIn.trigs.value\nlocal ways = self.pinIn.wps.value\nlocal cid = self.pinIn.current.value\nlocal lap = self.pinIn.clap.value\nlocal count = self.pinIn.cpc.value\nlocal laps = self.pinIn.laps.value\nlocal ttable = extensions.blrutils.ssplit(trigs, \",\")\nlocal wtable = extensions.blrutils.ssplit(ways, \",\")\nlocal ntg = \"\"\nlocal nwa = \"\"\nlocal nid = 0\nlocal nla = 0\nlocal finish = false\nlocal ftid = 0\nlocal followtrig = \"\"\nlocal showfollow = false\nlocal pstatus = self.pinIn.status.value or 0\nlocal lstrig = extensions.blrutils.blrvarGet(\"racelstrig\")\nlocal vid = self.pinIn.vid.value\nlocal ftime = 0\nlocal fspeed = 0\n\nif pstatus == -1 then\nnid = 1\nntg = ttable[nid]\nnla = 1\nfinish = false\nshowfollow = count > 1\nif showfollow then\nfollowtrig = ttable[2]\nend\n\nelse\n\nif cid == count then\nif lstrig > 0 then\nnid = lstrig\nelse\nnid = 1\nend\nntg = ttable[nid]\nnwa = wtable[nid]\nnla = lap + 1\nfinish = (laps == lap)\nif finish then\nif extensions.blrglobals.blrFlagGet(\"raceDragLights\") and (not extensions.blrdragdisplay.getFinished(\"right\")) then\nftime = extensions.blrutils.blrvarGet(\"raceElapsedTime\")\nfspeed = extensions.blrutils.getVehicleData(vid)[\"velocity\"]\nextensions.blrdragdisplay.setTime(\"right\", ftime)\nextensions.blrdragdisplay.setSpeed(\"right\", fspeed)\nextensions.blrdragdisplay.setFinished(\"right\")\nextensions.blrdragdisplay.finishCamera(5)\n\n-- 1.20 addition, winner lights above time board and next to track\nif self.mgr.variables.variables[\"raceWinner\"].value == 0 then\nextensions.blrdragdisplay.toggleWinnerLights(\"right\", true)\nend\n\nend\nend\nelse\nnid = cid + 1\nntg = ttable[nid]\nnwa = wtable[nid]\nnla = lap\nend\n\nif count <= 1 then\nshowfollow = false\nfollowtrig = \"none\"\nftid = -1\nelseif nid == count then\nif lstrig > 0 then\nftid = lstrig\nelse\nftid = 1\nend\nfollowtrig = ttable[ftid]\nshowfollow = (lap < laps)\nelse\nftid = nid + 1\nfollowtrig = ttable[ftid]\nshowfollow = true\nend\n\nend\n\nself.pinOut.nextTrig.value = ntg\nself.pinOut.nextWp.value = nwa\nself.pinOut.nextId.value = nid\nself.pinOut.newLap.value = nla\nself.pinOut.finished.value = finish\nself.pinOut.ftrig.value = followtrig\nself.pinOut.showft.value = showfollow\n"
+            "work":"local extensions = require(\"extensions\")\nlocal trigs = self.pinIn.trigs.value\nlocal ways = self.pinIn.wps.value\nlocal cid = self.pinIn.current.value\nlocal lap = self.pinIn.clap.value\nlocal count = self.pinIn.cpc.value\nlocal laps = self.pinIn.laps.value\nlocal ttable = extensions.blrutils.ssplit(trigs, \",\")\nlocal wtable = extensions.blrutils.ssplit(ways, \",\")\nlocal ntg = \"\"\nlocal nwa = \"\"\nlocal nid = 0\nlocal nla = 0\nlocal finish = false\nlocal ftid = 0\nlocal followtrig = \"\"\nlocal showfollow = false\nlocal pstatus = self.pinIn.status.value or 0\nlocal lstrig = extensions.blrutils.blrvarGet(\"racelstrig\")\nlocal vid = self.pinIn.vid.value\nlocal ftime = 0\nlocal fspeed = 0\n\nif pstatus == -1 then\nnid = 1\nntg = ttable[nid]\nnla = 1\nfinish = false\nshowfollow = count > 1\nif showfollow then\nfollowtrig = ttable[2]\nend\n\nelse\n\nif cid == count then\nif lstrig > 0 then\nnid = lstrig\nelse\nnid = 1\nend\nntg = ttable[nid]\nnwa = wtable[nid]\nnla = lap + 1\nfinish = (laps == lap)\nif finish then\nif extensions.blrglobals.blrFlagGet(\"raceDragLights\") and (not extensions.blrdragdisplay.getFinished(\"right\")) then\nftime = extensions.blrutils.blrvarGet(\"raceElapsedTime\")\nfspeed = extensions.blrutils.getVehicleData(vid)[\"velocity\"]\nextensions.blrdragdisplay.setTime(\"right\", ftime)\nextensions.blrdragdisplay.setSpeed(\"right\", fspeed)\nextensions.blrdragdisplay.setFinished(\"right\")\nextensions.blrdragdisplay.finishCamera(5)\n\n-- 1.20 addition, winner lights above time board and next to track\nif self.mgr.variables.variables[\"raceWinner\"].value == 0 then\nextensions.blrdragdisplay.toggleWinnerLights(\"right\", true)\nend\n\nend\nend\nelse\nnid = cid + 1\nntg = ttable[nid]\nnwa = wtable[nid]\nnla = lap\nend\n\nif count <= 1 then\nshowfollow = false\nfollowtrig = \"none\"\nftid = -1\nelseif nid == count then\nif lstrig > 0 then\nftid = lstrig\nelse\nftid = 1\nend\nfollowtrig = ttable[ftid]\nshowfollow = (lap < laps)\nelse\nftid = nid + 1\nfollowtrig = ttable[ftid]\nshowfollow = true\nend\n\nend\n\n-- 1.20.4 optimization for race UI constantly updating during races\nextensions.blrglobals.blrFlagSet(\"updateRaceUI\", true)\n\nself.pinOut.nextTrig.value = ntg\nself.pinOut.nextWp.value = nwa\nself.pinOut.nextId.value = nid\nself.pinOut.newLap.value = nla\nself.pinOut.finished.value = finish\nself.pinOut.ftrig.value = followtrig\nself.pinOut.showft.value = showfollow\n"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -55416,7 +55473,7 @@
             ]
           ],
           "pos":[
-            -2608,
+            -2614,
             22
           ],
           "type":"util/customLua"
@@ -55840,7 +55897,7 @@
           "type":"util/customLua"
         },
         "667":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -56107,7 +56164,7 @@
           "type":"types/genericValue"
         },
         "674":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -57517,7 +57574,7 @@
           "type":"types/genericValue"
         },
         "705":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -59655,7 +59712,7 @@
           "type":"util/customLua"
         },
         "751":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -60543,7 +60600,7 @@
           "type":"util/customLua"
         },
         "771":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -60602,7 +60659,7 @@
           "hardcodedPins":{
             "checkVelocity":{
               "type":"number",
-              "value":0.01000000000000003143
+              "value":0.01000000000000003664
             }
           },
           "hiddenPins":{
@@ -61362,7 +61419,7 @@
           "type":"util/customLua"
         },
         "792":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -61565,8 +61622,8 @@
             }
           },
           "pos":[
-            -3434,
-            -3758
+            -3616,
+            -3772
           ],
           "type":"types/genericValue"
         },
@@ -61703,7 +61760,7 @@
               "value":[
                 1,
                 0,
-                0.00006008148190000031,
+                0.00006008148190000041,
                 1
               ]
             },
@@ -64536,8 +64593,96 @@
           ],
           "type":"logic/once"
         },
+        "863":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal flag = self.pinIn.flag.value\nlocal onceMode = self.pinIn.onceMode.value\nlocal state = extensions.blrglobals.blrFlagGet(flag)\nlocal notMode = self.pinIn.notMode.value\n\nif notMode then\nstate = not state\nend\n\n\nlocal outflow = state\nif state and onceMode then extensions.blrglobals.blrFlagSet(flag, false) end\nself.pinOut.out.value = outflow and self.pinIn.flow.value"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "flag":{
+              "type":"string",
+              "value":"updateRaceUI"
+            },
+            "notMode":{
+              "type":"bool",
+              "value":false
+            },
+            "onceMode":{
+              "type":"bool",
+              "value":true
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flag":true,
+              "flow":false,
+              "notMode":true,
+              "onceMode":true
+            },
+            "p_out":{
+              "flow":true,
+              "out":false
+            }
+          },
+          "name":"BLR Flag Flow",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "out",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "string",
+              "flag",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "bool",
+              "onceMode",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "bool",
+              "notMode",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -2412,
+            680
+          ],
+          "type":"util/customLua"
+        },
         "864":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -66406,7 +66551,7 @@
           "type":"ui/imgui/elemental/imButtonBLR"
         },
         "900":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -66784,7 +66929,7 @@
           "type":"util/customLua"
         },
         "907":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -68113,7 +68258,7 @@
           "type":"util/customLua"
         },
         "929":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -69653,7 +69798,7 @@
           "type":"scene/getPlayerVehicle"
         },
         "970":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -71454,7 +71599,7 @@
             ]
           ],
           "pos":[
-            -3574,
+            -3510,
             -3408
           ],
           "type":"util/customLua"
@@ -71464,7 +71609,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"-- 0.32 fixed for new hook format\nguihooks.trigger(\"WayPointChange\", {label=\"CP\", current=self.pinIn.ccp.value, count=self.pinIn.cpc.value})"
+            "work":"-- 0.32 fixed for new hook format\nguihooks.trigger(\"WayPointChange\", {label=\"CP\", current=self.pinIn.ccp.value, count=self.pinIn.cpc.value})\nguihooks.trigger(\"RaceLapChange\", {current=1, count=1})"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -71512,8 +71657,8 @@
             ]
           ],
           "pos":[
-            -2880,
-            -3044
+            -2846,
+            -3002
           ],
           "type":"util/customLua"
         },
@@ -71962,8 +72107,8 @@
             }
           },
           "pos":[
-            -3132,
-            -3002
+            -3336,
+            -2988
           ],
           "type":"ui/cornerTimerBLR"
         },
@@ -71972,7 +72117,7 @@
             "_executionStarted":"",
             "_executionStopped":"",
             "onPreRender":"",
-            "work":"if self.pinIn.resetCP.value then\nguihooks.trigger('WayPointReset')\nend\n\nif self.pinIn.resetLaps.value then\nguihooks.trigger('RaceLapClear')\nend"
+            "work":"if self.pinIn.resetCP.value then\nguihooks.trigger('WayPointChange')\nend\n\nif self.pinIn.resetLaps.value then\nguihooks.trigger('RaceLapChange')\nend"
           },
           "data":{},
           "dynamicMode":"repeat",
@@ -71983,7 +72128,7 @@
             },
             "resetLaps":{
               "type":"bool",
-              "value":false
+              "value":true
             }
           },
           "hiddenPins":{
@@ -72314,8 +72459,8 @@
             }
           },
           "pos":[
-            -3546,
-            -3002
+            -3566,
+            -3044
           ],
           "type":"logic/once"
         },
@@ -72443,7 +72588,7 @@
             ]
           ],
           "pos":[
-            -3350,
+            -3552,
             -2988
           ],
           "type":"util/customLua"
@@ -72788,7 +72933,7 @@
             ]
           ],
           "pos":[
-            -2552,
+            -2544,
             -3968
           ],
           "type":"util/customLua"
@@ -72862,7 +73007,7 @@
           "type":"util/customLua"
         },
         "1043":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000011102,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -72870,9 +73015,9 @@
             0.50000000000000000000
           ],
           "borderColor":[
-            0.80000001190000002982,
-            0.80000001190000002982,
-            0.80000001190000002982,
+            0.80000001192092884406,
+            0.80000001192092884406,
+            0.80000001192092884406,
             1
           ],
           "commentSize":[
@@ -73641,8 +73786,8 @@
             ]
           ],
           "pos":[
-            -2454,
-            778
+            -2446,
+            792
           ],
           "type":"util/customLua"
         },
@@ -73699,8 +73844,8 @@
             ]
           ],
           "pos":[
-            -2272,
-            778
+            -2236,
+            792
           ],
           "type":"util/customLua"
         },
@@ -73727,7 +73872,7 @@
             }
           },
           "pos":[
-            -2314,
+            -2194,
             666
           ],
           "type":"types/genericValue"
@@ -73755,8 +73900,8 @@
             }
           },
           "pos":[
-            -2146,
-            666
+            -2194,
+            694
           ],
           "type":"types/genericValue"
         },
@@ -73889,7 +74034,7 @@
           "type":"util/customLua"
         },
         "1069":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -75871,7 +76016,7 @@
           "type":"ui/imgui/elemental/imTextBLR"
         },
         "1113":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.00000099999999750000,
             0.00000099998999300000,
@@ -76949,7 +77094,7 @@
           "type":"logic/once"
         },
         "1136":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -77615,7 +77760,7 @@
           "type":"util/customLua"
         },
         "1151":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -80468,7 +80613,7 @@
           "type":"util/customLua"
         },
         "1205":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -80842,7 +80987,7 @@
           "type":"logic/flowSwitch"
         },
         "1215":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -81040,7 +81185,7 @@
           "type":"scene/getPlayerVehicle"
         },
         "1220":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -81076,7 +81221,7 @@
           "type":"debug/comment"
         },
         "1221":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000000000,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -81084,9 +81229,9 @@
             0.50000000000000000000
           ],
           "borderColor":[
-            0.80000001190000002982,
-            0.80000001190000002982,
-            0.80000001190000002982,
+            0.80000001192092895508,
+            0.80000001192092895508,
+            0.80000001192092895508,
             1
           ],
           "commentSize":[
@@ -81770,7 +81915,7 @@
           "type":"util/customLua"
         },
         "1233":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -82154,7 +82299,7 @@
           "type":"util/customLua"
         },
         "1242":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -86046,7 +86191,7 @@
           "type":"logic/compare"
         },
         "1336":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -87060,7 +87205,7 @@
           "type":"logic/compare"
         },
         "1361":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -87789,6 +87934,74 @@
           ],
           "type":"util/customLua"
         },
+        "1376":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(self.pinIn.name.value, self.pinIn.flag.value)\n"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "flag":{
+              "type":"bool",
+              "value":true
+            },
+            "name":{
+              "type":"string",
+              "value":"updateRaceUI"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flag":true,
+              "flow":false,
+              "name":true
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"BLR Flag Set",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "string",
+              "name",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "bool",
+              "flag",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -3664,
+            -314
+          ],
+          "type":"util/customLua"
+        },
         "1377":{
           "data":{},
           "dynamicMode":"repeat",
@@ -88225,7 +88438,7 @@
           "type":"ui/imgui/elemental/imButtonBLR"
         },
         "1390":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -88634,7 +88847,7 @@
           "type":"scene/camera/returnToVehicle"
         },
         "1401":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -90110,7 +90323,7 @@
           "type":"util/customLua"
         },
         "1434":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -91596,7 +91809,7 @@
           "type":"util/customLua"
         },
         "1465":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -93625,7 +93838,7 @@
           "hardcodedPins":{
             "B":{
               "type":"number",
-              "value":0.00999999977600006355
+              "value":0.00999999977600008610
             }
           },
           "hiddenPins":{
@@ -94711,7 +94924,7 @@
           "type":"util/customLua"
         },
         "1527":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -96265,7 +96478,7 @@
           "type":"vehicle/freeze"
         },
         "1558":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000044409,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -96273,9 +96486,9 @@
             0.50000000000000000000
           ],
           "borderColor":[
-            0.80000001190000002982,
-            0.80000001190000002982,
-            0.80000001190000002982,
+            0.80000001192092851099,
+            0.80000001192092851099,
+            0.80000001192092851099,
             1
           ],
           "commentSize":[
@@ -96321,7 +96534,7 @@
           "type":"logic/branch"
         },
         "1560":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -97349,7 +97562,7 @@
           "type":"util/customLua"
         },
         "1585":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -99353,7 +99566,7 @@
           "type":"util/customLua"
         },
         "1626":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -99544,6 +99757,49 @@
           ],
           "type":"logic/switchcase"
         },
+        "1631":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "work":"-- used for final mainData saving when scenario stops, fetches\n-- all needed vars directly from fg mgr var table\n\nlocal extensions = require(\"extensions\")\nlocal tod = self.pinIn.time.value\nlocal mdata = extensions.blrutils.loadDataTable(\"beamLR/mainData\")\nmdata.time = tod\n\n-- key=mainData key     val=fg var name\nlocal toSave = {} \ntoSave[\"money\"] = \"playerMoney\"\ntoSave[\"rep\"] = \"playerRep\"\ntoSave[\"carCount\"] = \"playerCarCount\"\ntoSave[\"carUsed\"] = \"playerCurrentCar\"\ntoSave[\"health\"] = \"playerHealth\"\ntoSave[\"gslots\"] = \"playerGarageSlots\"\n\nfor k,v in pairs(toSave) do\nmdata[k] = self.mgr.variables.variables[v].value\nend\n\nextensions.blrutils.saveDataTable(\"beamLR/mainData\", mdata)"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "time":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Update Main Data V2",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow"
+            ],
+            [
+              "out",
+              "flow",
+              "flow"
+            ],
+            [
+              "in",
+              "number",
+              "time",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            3658,
+            -3758
+          ],
+          "type":"util/customLua"
+        },
         "1632":{
           "code":{
             "_executionStarted":"",
@@ -99733,8 +99989,8 @@
             ]
           ],
           "pos":[
-            -1054,
-            -1000
+            -1026,
+            -972
           ],
           "type":"util/customLua"
         },
@@ -100871,7 +101127,7 @@
           "type":"logic/once"
         },
         "1663":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -100907,7 +101163,7 @@
           "type":"debug/comment"
         },
         "1664":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -100943,7 +101199,7 @@
           "type":"debug/comment"
         },
         "1665":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -101021,7 +101277,7 @@
           "type":"util/customLua"
         },
         "1667":{
-          "alpha":0.75000000000000033307,
+          "alpha":0.75000000000000088818,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -101029,9 +101285,9 @@
             0.50000000000000000000
           ],
           "borderColor":[
-            0.80000001192092862201,
-            0.80000001192092862201,
-            0.80000001192092862201,
+            0.80000001192092851099,
+            0.80000001192092851099,
+            0.80000001192092851099,
             1
           ],
           "commentSize":[
@@ -101220,7 +101476,7 @@
           ],
           "pos":[
             -3658,
-            -300
+            -230
           ],
           "type":"util/customLua"
         },
@@ -102461,7 +102717,7 @@
           "type":"vehicle/freeze"
         },
         "1700":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -103114,7 +103370,7 @@
           "type":"util/customLua"
         },
         "1716":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -103844,7 +104100,7 @@
           "type":"types/genericValue"
         },
         "1731":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -104364,7 +104620,7 @@
           "type":"util/customLua"
         },
         "1742":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -104609,7 +104865,7 @@
           },
           "pos":[
             -606,
-            -555
+            -482
           ],
           "type":"vehicle/freeze"
         },
@@ -105530,7 +105786,7 @@
           "type":"scene/getPlayerVehicle"
         },
         "1768":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -106058,7 +106314,7 @@
           "type":"util/customLua"
         },
         "1776":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -106094,7 +106350,7 @@
           "type":"debug/comment"
         },
         "1777":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -107406,6 +107662,22 @@
           ],
           "type":"ui/imgui/elemental/imTextBLR"
         },
+        "1797":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{},
+            "p_out":{
+              "dayLength":false,
+              "time":false
+            }
+          },
+          "pos":[
+            3657,
+            -3744
+          ],
+          "type":"environment/getTimeOfDay"
+        },
         "1798":{
           "data":{},
           "dynamicMode":"repeat",
@@ -107440,6 +107712,48 @@
             -4977
           ],
           "type":"ui/imgui/elemental/imTextBLR"
+        },
+        "1800":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"guihooks.trigger(\"WayPointChange\")\nguihooks.trigger(\"RaceLapChange\")"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Race UI Reset",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ]
+          ],
+          "pos":[
+            -606,
+            -524
+          ],
+          "type":"util/customLua"
         },
         "1801":{
           "data":{},
@@ -107557,6 +107871,74 @@
           "pos":[
             4560,
             -4657
+          ],
+          "type":"util/customLua"
+        },
+        "1804":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nextensions.blrglobals.blrFlagSet(self.pinIn.name.value, self.pinIn.flag.value)\n"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "flag":{
+              "type":"bool",
+              "value":true
+            },
+            "name":{
+              "type":"string",
+              "value":"updateRaceUI"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flag":true,
+              "flow":false,
+              "name":true
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"BLR Flag Set",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "string",
+              "name",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "bool",
+              "flag",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -612,
+            -580
           ],
           "type":"util/customLua"
         },
@@ -108126,6 +108508,38 @@
           ],
           "type":"scene/getPlayerVehicle"
         },
+        "1821":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "getter":false,
+          "global":true,
+          "hardcodedPins":{
+            "val":{
+              "type":"number",
+              "value":0
+            },
+            "varName":{
+              "type":"string",
+              "value":"racePlayerCPID"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "suffix":true,
+              "val":true,
+              "varName":true
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -626,
+            -706
+          ],
+          "type":"types/genericValue"
+        },
         "1822":{
           "code":{
             "_executionStarted":"",
@@ -108241,6 +108655,94 @@
           "pos":[
             4302,
             -4852
+          ],
+          "type":"util/customLua"
+        },
+        "1825":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal flag = self.pinIn.flag.value\nlocal onceMode = self.pinIn.onceMode.value\nlocal state = extensions.blrglobals.blrFlagGet(flag)\nlocal notMode = self.pinIn.notMode.value\n\nif notMode then\nstate = not state\nend\n\n\nlocal outflow = state\nif state and onceMode then extensions.blrglobals.blrFlagSet(flag, false) end\nself.pinOut.out.value = outflow and self.pinIn.flow.value"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "flag":{
+              "type":"string",
+              "value":"updateRaceUI"
+            },
+            "notMode":{
+              "type":"bool",
+              "value":false
+            },
+            "onceMode":{
+              "type":"bool",
+              "value":true
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flag":true,
+              "flow":false,
+              "notMode":true,
+              "onceMode":true
+            },
+            "p_out":{
+              "flow":true,
+              "out":false
+            }
+          },
+          "name":"BLR Flag Flow",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "out",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "string",
+              "flag",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "bool",
+              "onceMode",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "bool",
+              "notMode",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            -3062,
+            -2974
           ],
           "type":"util/customLua"
         },
@@ -108886,7 +109388,7 @@
           "type":"types/genericValue"
         },
         "9886":{
-          "alpha":0.75000000000000166533,
+          "alpha":0.75000000000000222045,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -109667,8 +110169,8 @@
             }
           },
           "pos":[
-            -662,
-            -846
+            -634,
+            -930
           ],
           "type":"types/genericValue"
         },
@@ -109731,8 +110233,8 @@
             }
           },
           "pos":[
-            -500,
-            -846
+            -634,
+            -874
           ],
           "type":"types/genericValue"
         },
@@ -109763,7 +110265,7 @@
             }
           },
           "pos":[
-            -1082,
+            -1074,
             -776
           ],
           "type":"types/genericValue"
@@ -109790,7 +110292,7 @@
             }
           },
           "pos":[
-            -1278,
+            -1306,
             -776
           ],
           "type":"ui/imgui/elemental/imButtonBLR"
@@ -109822,8 +110324,8 @@
             }
           },
           "pos":[
-            -1068,
-            -720
+            -1074,
+            -706
           ],
           "type":"types/genericValue"
         },
@@ -109914,8 +110416,8 @@
             }
           },
           "pos":[
-            -654,
-            -944
+            -634,
+            -818
           ],
           "type":"types/genericValue"
         },
@@ -112173,7 +112675,7 @@
             }
           },
           "pos":[
-            -2790,
+            -2832,
             22
           ],
           "type":"types/genericValue"
@@ -112201,8 +112703,8 @@
             }
           },
           "pos":[
-            -2790,
-            106
+            -2832,
+            78
           ],
           "type":"types/genericValue"
         },
@@ -112613,7 +113115,7 @@
         },
         "10149":{
           "data":{
-            "name":""
+            "name":"BeamNGTrigger_TopShopFinish"
           },
           "dynamicMode":"repeat",
           "hiddenPins":{
@@ -112832,7 +113334,7 @@
           },
           "pos":[
             -3672,
-            -482
+            -468
           ],
           "type":"types/genericValue"
         },
@@ -112864,7 +113366,7 @@
           },
           "pos":[
             -3672,
-            -412
+            -384
           ],
           "type":"types/genericValue"
         },
@@ -113109,7 +113611,7 @@
         },
         "10165":{
           "data":{
-            "name":""
+            "name":"BeamNGTrigger_HighwayExit"
           },
           "dynamicMode":"repeat",
           "hiddenPins":{
@@ -113207,8 +113709,8 @@
             }
           },
           "pos":[
-            -2790,
-            204
+            -2832,
+            148
           ],
           "type":"types/genericValue"
         },
@@ -113271,8 +113773,8 @@
             }
           },
           "pos":[
-            -486,
-            -944
+            -634,
+            -762
           ],
           "type":"types/genericValue"
         },
@@ -115536,8 +116038,8 @@
             }
           },
           "pos":[
-            -3406,
-            -3576
+            -3580,
+            -3618
           ],
           "type":"types/genericValue"
         },
@@ -115783,8 +116285,8 @@
             }
           },
           "pos":[
-            -3434,
-            -3660
+            -3602,
+            -3688
           ],
           "type":"types/genericValue"
         },
@@ -115829,8 +116331,8 @@
             }
           },
           "pos":[
-            -3406,
-            -3478
+            -3462,
+            -3520
           ],
           "type":"types/genericValue"
         },
@@ -117403,6 +117905,38 @@
             -1966
           ],
           "type":"util/customLua"
+        },
+        "10323":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "getter":false,
+          "global":true,
+          "hardcodedPins":{
+            "val":{
+              "type":"number",
+              "value":0
+            },
+            "varName":{
+              "type":"string",
+              "value":"racePlayerLap"
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "suffix":true,
+              "val":true,
+              "varName":true
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "pos":[
+            -620,
+            -636
+          ],
+          "type":"types/genericValue"
         }
       },
       "showTab":true,
@@ -117412,10 +117946,10 @@
         "list":{}
       },
       "viewPos":[
-        1182.89599609375000000000,
-        -2412.16699218750000000000
+        -663.87841796875000000000,
+        -1260.85717773437500000000
       ],
-      "viewZoom":0.75000000000000000000
+      "viewZoom":0.50000000000000000000
     },
     "3":{
       "description":"This is the description for graph States",
@@ -117431,14 +117965,14 @@
         ],
         [
           4,
-          "success",
+          "fail",
           6,
           "flow",
           false
         ],
         [
           4,
-          "fail",
+          "success",
           6,
           "flow",
           false
@@ -117539,7 +118073,7 @@
         364.11547851562500000000,
         -1859.39880371093750000000
       ],
-      "viewZoom":0.41047251224517838919
+      "viewZoom":0.41047251224517827817
     }
   },
   "isScenario":true,

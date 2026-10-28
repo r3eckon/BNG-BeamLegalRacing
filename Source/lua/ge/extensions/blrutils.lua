@@ -3269,6 +3269,8 @@ end
 end
 end
 
+
+
 -- Util function to check for missing or unreachable waypoints
 locals["validateWaypoints"] = function(club, league, ignore)
 local dtable = {}
@@ -3277,6 +3279,7 @@ local cwp = ""
 local pwp = ""
 local nwp = ""
 local basepath = "/beamLR/races/" .. club .. "/" .. league .. "/"
+local found = false
 if not FS:directoryExists(basepath) then
 blrlog("Waypoint validation error, invalid base path. Check club and league.", lvl_warn)
 return
@@ -3297,15 +3300,45 @@ cwp = waypoints[i]
 if i > 1 then pwp = waypoints[i-1] else pwp = "START" end
 if i < #waypoints then nwp = waypoints[i+1] else nwp = "FINISH" end
 if not scenetree.findObject(cwp) then -- Found waypoint missing from map entirely (removed by game update)
-blrlog("MISSING " .. cwp .. " (BETWEEN " .. pwp .. " & " .. nwp .. ") IN FILE " .. v:gsub(basepath, ""))
+blrlog("MISSING " .. cwp .. " (BETWEEN " .. pwp .. " & " .. nwp .. ") IN FILE " .. v:gsub(basepath, ""), lvl_warn)
+found = true
 elseif pwp ~= "START" then 
 if #map.getPath(pwp, cwp) < 1 then -- Found existing waypoint with no path between itself and previous waypoint
-blrlog("NO PATH BETWEEN " .. pwp .. " AND " .. cwp .. " IN FILE " .. v:gsub(basepath, ""))
+blrlog("NO PATH BETWEEN " .. pwp .. " AND " .. cwp .. " IN FILE " .. v:gsub(basepath, ""), lvl_warn)
+found = true
 end
 end
 end
 end
 end
+
+if not found then blrlog("All waypoints have been validated") end
+
+end
+
+
+-- 1.20.4 addition, can't use actual level (ie "east_coast_usa") gotta use "eastCoast" like
+-- race club folder uses
+locals["validateWaypointsForLevel"] = function(level, checkAllLeagues)
+local csplit = {}
+local cclub = ""
+for _,club in pairs(FS:findFiles("beamLR/races", "*", 0, true, true)) do 
+csplit = ssplit(club, "/")
+cclub = csplit[#csplit]
+if cclub ~= "integrity" and string.find(string.upper(club), string.upper(level)) then
+blrlog("Validating waypoints for club " .. cclub .. " (bronze league)")
+locals["validateWaypoints"](cclub, "bronze")
+if checkAllLeagues then
+blrlog("Validating waypoints for club " .. cclub .. " (silver league)")
+locals["validateWaypoints"](cclub, "silver")
+blrlog("Validating waypoints for club " .. cclub .. " (gold league)")
+locals["validateWaypoints"](cclub, "gold")
+blrlog("Validating waypoints for club " .. cclub .. " (hero league)")
+locals["validateWaypoints"](cclub, "hero")
+end
+end
+end
+
 end
 
 -- Util function to check for missing or unreachable waypoints, this one for track events
@@ -3316,7 +3349,7 @@ local cwp = ""
 local pwp = ""
 local nwp = ""
 local epath = "/beamLR/trackEvents/" .. efile
-
+local found = false
 
 dtable = loadDataTable(epath)
 waypoints = ssplit(dtable["waypoints"], ",")
@@ -3325,23 +3358,46 @@ cwp = waypoints[i]
 if i > 1 then pwp = waypoints[i-1] else pwp = "START" end
 if i < #waypoints then nwp = waypoints[i+1] else nwp = "FINISH" end
 if not scenetree.findObject(cwp) then -- Found waypoint missing from map entirely (removed by game update)
-blrlog("MISSING " .. cwp .. " (BETWEEN " .. pwp .. " & " .. nwp .. ")")
+blrlog("MISSING " .. cwp .. " (BETWEEN " .. pwp .. " & " .. nwp .. ")", lvl_warn)
+found = true
 elseif pwp ~= "START" then 
 if #map.getPath(pwp, cwp) < 1 then -- Found existing waypoint with no path between itself and previous waypoint
-blrlog("NO PATH BETWEEN " .. pwp .. " AND " .. cwp)
+blrlog("NO PATH BETWEEN " .. pwp .. " AND " .. cwp, lvl_warn)
+found = true
+end
+end
+end
+
+if not found then blrlog("All waypoints have been validated") end
+
+end
+
+locals["validateLevelEventWaypoints"] = function()
+local files = FS:findFiles("/beamLR/trackEvents/", "*", 1)
+local cdata = {}
+local lvl = getLevelName()
+local csplit = {}
+local cfile = ""
+blrlog("Validating all event waypoints for level " .. lvl)
+for _,v in pairs(files) do
+cdata = loadDataTable(v)
+if cdata.map == lvl then
+csplit = ssplit(v, "/")
+cfile = csplit[#csplit]
+blrlog("Checking file " .. cfile)
+locals["validateEventWaypoints"](cfile)
 end
 end
 end
 
 
-end
 
 locals["validateMatchingEventWaypoints"] = function(keyword)
 local files = FS:findFiles("/beamLR/trackEvents/", "*", 1)
 local csplit = {}
 local cfile = ""
 for k,v in pairs(files) do
-if string.find(v, keyword) then
+if string.find(string.upper(v), string.upper(keyword)) then
 csplit = ssplit(v, "/")
 cfile = csplit[#csplit]
 blrlog("Checking file " .. cfile)
@@ -4127,9 +4183,9 @@ blrlog("onBLRVehicleLoaded HOOK CALLED WITH REQUESTID: " .. requestID)
 extensions.blrglobals.onceFlagSet("onBLRVehicleLoaded", requestID)
 end
 
-
+M.validateLevelEventWaypoints = locals["validateLevelEventWaypoints"]
+M.validateWaypointsForLevel = locals["validateWaypointsForLevel"]
 M.onVehicleSpawned = onVehicleSpawned
-
 M.deleteSaveFile = locals["deleteSaveFile"]
 M.createSaveFile = locals["createSaveFile"]
 M.detectOldBackup = locals["detectOldBackup"]
@@ -4137,13 +4193,10 @@ M.migrateOldBackup = locals["migrateOldBackup"]
 M.setCurrentSaveFile = locals["setCurrentSaveFile"]
 M.getCurrentSaveFile = locals["getCurrentSaveFile"]
 M.getSaveFiles = locals["getSaveFiles"]
-
 M.toggleAutoMissionReload = locals["toggleAutoMissionReload"]
 M.onFilesChanged = locals["onFilesChanged"]
 M.reloadMissions = locals["reloadMissions"]
-
 M.getStartSeed = function() return startSeed end
-
 M.getTrafficOffenseCosts = locals["getTrafficOffenseCosts"]
 M.getDataTableKeys = locals["getDataTableKeys"]
 M.createRandomCarHistory = locals["createRandomCarHistory"]

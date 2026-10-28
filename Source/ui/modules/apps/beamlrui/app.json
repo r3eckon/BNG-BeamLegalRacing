@@ -2,7 +2,7 @@
   "domElement": "<beamlrui></beamlrui>",
   "name": "BeamLR UI",
   "types": [
-    "ui.apps.categories.vehicle_info"
+    "BeamLR"
   ],
   "description": "UI for Beam Legal Racing Mod",
   "css": {

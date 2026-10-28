@@ -49,3 +49,5 @@ This addon is currently built for map version **v20231124_v2** (ks_nord_v2023112
 * Updated mission file
 ### BeamLR 1.20
 * Updated mission file
+### BeamLR 1.20.4
+* Updated mission file

@@ -2,7 +2,7 @@
   "domElement": "<beamlrtrackeventui></beamlrtrackeventui>",
   "name": "BeamLR Track Event UI",
   "types": [
-    "ui.apps.categories.vehicle_info"
+    "BeamLR"
   ],
   "description": "Track Event UI for Beam Legal Racing Mod",
   "css": {

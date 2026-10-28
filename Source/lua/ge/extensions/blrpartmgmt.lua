@@ -221,16 +221,20 @@ local cpart = ""
 local cslot = ""
 local cslots = ""
 local cslotDef = ""
+local cname = ""
 
 local compatible = {}
 local incompatible = {}
 
 local pairings = {} -- 1.20.2 using pairings to avoid dupes, avoids an extra loop
 
+
+
 for part,pdata in pairs(avail) do
 
 	cpart = jbeamIO.getPart(ioctx, part)
-	cslots = cpart.slots2 or part.slots
+	
+	cslots = cpart.slots2 or cpart.slots
 	
 	-- 1.20.2 fix for parts not being added to map for actual slotType they belong to
 	-- this caused issues with single allowType slots that had different type than the
@@ -249,11 +253,16 @@ for part,pdata in pairs(avail) do
 	if cslots then
 		for _,slotDef in pairs(cslots) do
 			compatible, incompatible = jbeamIO.getCompatiblePartNamesForSlot(ioctx, slotDef, slotMap)
-			if not toRet[slotDef.name] then toRet[slotDef.name] = {} end
+
+			-- 1.20.4 fix for old format using "type" instead of "name"
+			cname = slotDef.name or slotDef.type
+			
+			if not toRet[cname] then toRet[cname] = {} end
+
 			for _,compatiblePart in pairs(compatible) do
-				if not pairings[slotDef.name .. ">" .. compatiblePart] then
-					table.insert(toRet[slotDef.name], compatiblePart)
-					pairings[slotDef.name .. ">" .. compatiblePart] = true
+				if not pairings[cname .. ">" .. compatiblePart] then
+					table.insert(toRet[cname], compatiblePart)
+					pairings[cname .. ">" .. compatiblePart] = true
 				end
 			end
 		end

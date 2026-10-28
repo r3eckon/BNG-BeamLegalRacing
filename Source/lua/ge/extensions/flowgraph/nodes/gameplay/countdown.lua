@@ -70,7 +70,7 @@ end
 
 function C:startTimer()
   self.duration = self.pinIn.duration.value or 3
-  self.timer = self.duration
+  self.timer = core_flowgraphManager.skipCountdowns and 0 or self.duration
   self.running = true
   self.msg = self.pinIn.finishMsg.value or "ui.scenarios.go"
   guihooks.trigger('ScenarioFlashMessageClear')

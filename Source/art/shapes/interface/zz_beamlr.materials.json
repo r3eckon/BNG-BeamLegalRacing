@@ -1,0 +1,62 @@
+{
+  "position_marker": {
+    "name": "position_marker",
+    "mapTo": "position_marker",
+    "class": "Material",
+    "persistentId": "78bf9580-9c0d-47d7-91c2-ecc377d8ea79",
+    "Stages": [
+      {
+        "baseColorFactor": [
+          0.992156982,
+          0.992156982,
+          0.992156982,
+          0.537
+        ],
+        "detailScale": [
+          10,
+          10
+        ],
+        "emissive": true,
+        "emissiveFactor": [
+          1,
+          1,
+          1
+        ],
+        "emissiveIgnoreExposure": true,
+        "emissiveIntensityNits": 5,
+        "instanceDiffuse": true,
+		"instanceEmissive": true
+      },
+      {
+        "baseColorFactor": null,
+        "detailScale": null,
+        "emissive": null,
+        "emissiveFactor": null,
+        "emissiveIntensityNits": null,
+        "instanceDiffuse": null
+      },
+      {
+        "baseColorFactor": null,
+        "detailScale": null,
+        "emissive": null,
+        "emissiveFactor": null,
+        "emissiveIntensityNits": null,
+        "instanceDiffuse": null
+      },
+      {
+        "baseColorFactor": null,
+        "detailScale": null,
+        "emissive": null,
+        "emissiveFactor": null,
+        "emissiveIntensityNits": null,
+        "instanceDiffuse": null
+      }
+    ],
+    "alphaRef": 245,
+    "doubleSided": true,
+    "materialTag0": "beamng",
+    "specularStrength0": "5",
+    "translucent": true,
+    "version": 1.5
+  },
+}

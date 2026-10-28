@@ -2,7 +2,7 @@
   "domElement": "<beamlrgpsui></beamlrgpsui>",
   "name": "BeamLR GPS UI",
   "types": [
-    "ui.apps.categories.vehicle_info"
+    "BeamLR"
   ],
   "description": "Performance Class UI for Beam Legal Racing Mod",
   "css": {

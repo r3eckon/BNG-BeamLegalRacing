@@ -43,10 +43,10 @@
 {"name":"dragTunnel","class":"SimGroup","__parent":"MissionGroup"}
 {"name":"raceTrackParkingLotGrandStands","class":"SimGroup","__parent":"MissionGroup"}
 {"name":"skidpadTestTrack","class":"SimGroup","__parent":"MissionGroup"}
+{"name":"west_coast_infinite_plane","class":"GroundPlane","__parent":"MissionGroup","material":"m_terrain_dirt","scaleU":10,"scaleV":10,"squareSize":213}
 {"name":"skidpadWP1","class":"BeamNGWaypoint","__parent":"MissionGroup","position":[407.55658,-60.9128342,145.044159],"rotationMatrix":[-0.000852346304,0.999999523,0,-0.99993062,-0.000852197234,-0.0117333187,-0.0117332889,-1.00136531e-05,0.999930918]}
 {"name":"skidpadWP2","class":"BeamNGWaypoint","__parent":"MissionGroup","position":[381.004944,-101.403893,144.770889],"rotationMatrix":[0.447065532,0.89450103,-2.98023188e-08,-0.894424021,0.447026998,-0.0131171001,-0.0117331902,0.0058643003,0.999913752]}
 {"name":"skidpadWP3","class":"BeamNGWaypoint","__parent":"MissionGroup","position":[413.540039,-122.672554,145.095764],"rotationMatrix":[-0.44736141,0.894353032,-2.98023188e-08,-0.894276083,-0.447322905,-0.0131188286,-0.0117329219,-0.00586883025,0.999913752]}
 {"name":"skidpadWP4","class":"BeamNGWaypoint","__parent":"MissionGroup","position":[441.489929,-90.0654068,145.4832],"rotationMatrix":[5.96046377e-08,0.999999821,0,-0.99984479,-5.21080312e-15,-0.0176059846,-0.017605925,5.96046341e-08,0.99984479]}
 {"name":"nightlights","class":"SimGroup","__parent":"MissionGroup"}
-{"name":"west_coast_map_limits","class":"SimGroup","__parent":"MissionGroup"}
 {"name":"BeamLR","class":"SimGroup","persistentId":"2d4de71e-7c9b-4033-a09b-abc131dbb8ef","__parent":"MissionGroup"}

@@ -2,7 +2,7 @@
   "domElement": "<beamlrtowui></beamlrtowui>",
   "name": "BeamLR Towing UI",
   "types": [
-    "ui.apps.categories.vehicle_info"
+    "BeamLR"
   ],
   "description": "Towing UI for Beam Legal Racing Mod",
   "css": {

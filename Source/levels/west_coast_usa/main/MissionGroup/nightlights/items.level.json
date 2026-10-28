@@ -1,3 +1,5 @@
+{"class":"TSStatic","__parent":"nightlights","position":[-865.821411,293.316315,159.702652],"child":"SpotLight_110111751127301971","instanceColor":[0,0,0,1],"isRenderEnabled":false,"nightEmissive":"1","rotationMatrix":[0.00270271301,0.401360154,0.915916681,-0.999996662,0.00108456612,0.00247579813,0,-0.915920019,0.401361287],"shapeName":"/assets/meshes/props/urban/lighting/s_floodlight_100W.dae","useInstanceRenderData":true}
+{"class":"TSStatic","__parent":"nightlights","position":[-865.821411,293.316315,159.702652],"isRenderEnabled":false,"rotationMatrix":[-8.74227695e-08,0.999999881,-3.90816682e-15,-0.999999881,-8.74227695e-08,-4.47042154e-08,-4.47042154e-08,0,0.999999881],"shapeName":"/assets/meshes/props/urban/lighting/s_floodlight_100W_mount.dae","useInstanceRenderData":true}
 {"name":"polelighting2","class":"SimGroup","__parent":"nightlights"}
 {"name":"polelighting1","class":"SimGroup","__parent":"nightlights"}
 {"name":"polelightbridge","class":"SimGroup","__parent":"nightlights"}

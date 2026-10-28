@@ -144,7 +144,7 @@ local function updateGrinding(device, dt)
     local hasReachedMaximumDamage = device.synchroWear[wornGearIndex] >= 1 and (device.synchroWear[wornGearIndex] - device.previouslyReportedSynchroWear[wornGearIndex]) > 0
     local doDisplayDamageMessage = isFirstDamage or isSignificantlyMoreDamage or hasReachedMaximumDamage
     if doDisplayDamageMessage then
-      guihooks.message({txt = string.format("Synchronizer damage (Gear %g): %d%%", wornGearIndex, clamp(device.synchroWear[wornGearIndex] * 100, 1, 100)), context = {}}, 5, "vehicle.damage.synchros")
+      guihooks.messageForSeatedPlayers({txt = string.format("Synchronizer damage (Gear %g): %d%%", wornGearIndex, clamp(device.synchroWear[wornGearIndex] * 100, 1, 100)), context = {}}, 5, "vehicle.damage.synchros")
       device.previouslyReportedSynchroWear[wornGearIndex] = device.synchroWear[wornGearIndex]
     end
 

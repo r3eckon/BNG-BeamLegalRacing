@@ -30,6 +30,7 @@ M.debugData = {}
 
 M.exhaustEndNodes = {}
 
+M.additionalCoolantEnergyPerStep = 0								
 local energyCoef = {
   engineBlock = nil,
   cylinderWall = nil,
@@ -795,12 +796,16 @@ local function updateWaterCoolingGFX(dt)
   local fireTemperature, fireDistance = fire.getClosestHotNodeTempDistance(parentEngine.engineNodeID)
   local energyFireToBlock = max((fireTemperature - M.engineBlockTemperature) * 50 * max(10 - fireDistance, 1), 0)
 
+  local coolantEnergyThisUpdate = (energyCylinderWallToCoolant - energyCoolantToAir - energyCoolantToBlock) * dt + M.additionalCoolantEnergyPerStep
+
   --Step 2: The integrator
   M.cylinderWallTemperature = max(M.cylinderWallTemperature + (energyToCylinderWall - (energyCylinderWallToOil + energyCylinderWallToCoolant + energyCylinderWallToBlock) * dt) * energyCoef.cylinderWall, tEnv)
-  M.coolantTemperature = min(max(M.coolantTemperature + (energyCylinderWallToCoolant - energyCoolantToAir - energyCoolantToBlock) * energyCoef.coolant * dt, tEnv), constants.maxCoolantTemperature)
+  M.coolantTemperature = min(max(M.coolantTemperature + coolantEnergyThisUpdate * energyCoef.coolant, tEnv), constants.maxCoolantTemperature)
   M.oilTemperature = max(M.oilTemperature + (energyToOil + (energyCylinderWallToOil - energyOilToAir - energyOilSumpToAir - energyOilToBlock) * dt) * energyCoef.oil, tEnv)
   M.engineBlockTemperature = max(M.engineBlockTemperature + (energyCoolantToBlock + energyCylinderWallToBlock - energyBlockToAir + energyOilToBlock + energyFireToBlock) * energyCoef.engineBlock * dt, tEnv)
   M.exhaustTemperature = max(M.exhaustTemperature + (energyToExhaust - energyExhaustToAir * dt) * energyCoef.exhaust, tEnv)
+
+  M.additionalCoolantEnergyPerStep = 0 --reset additional load
 
   local particleAirspeed = electrics.values.airspeed
   local engineRunning = (parentEngine.isDisabled or parentEngine.isStalled or parentEngine.ignitionCoef < 1) and 0 or 1
@@ -1351,11 +1356,22 @@ local function requestExhaustTreeData()
   end
 
   table.sort(data.graph.roots)
-  table.sort(data.graph.nodes, function(a, b) return a.cid < b.cid end)
-  table.sort(data.graph.edges, function(a, b) return a.from == b.from and a.to < b.to or a.from < b.from end)
-
+  table.sort(
+    data.graph.nodes,
+    function(a, b)
+      return a.cid < b.cid
+    end
+  )
+  table.sort(
+    data.graph.edges,
+    function(a, b)
+      return a.from == b.from and a.to < b.to or a.from < b.from
+    end
+  )
+  
   guihooks.trigger("ExhaustTreeDataChanged", data)
 end
+
 local function buildExhaustTree()
   exhaustStartNodes = {}
   exhaustBeams = {}
@@ -1491,7 +1507,7 @@ local function beamBroke(id)
 
     if not damageTracker.getDamage("engine", "exhaustBroken") then
       damageTracker.setDamage("engine", "exhaustBroken", true)
-      guihooks.message("vehicle.combustionEngine.exhaustDamaged", 4, "vehicle.damage.exhaust")
+      guihooks.messageForSeatedPlayers("vehicle.combustionEngine.exhaustDamaged", 4, "vehicle.damage.exhaust")
     end
   end
 end
@@ -1513,6 +1529,7 @@ local function resetExhaustTree(exhaustTree)
 end
 
 local function reset(jbeamData)
+  M.additionalCoolantEnergyPerStep = 0								  
   tEnv = obj:getEnvTemperature() + conversion.kelvinToCelsius
   --default temperatures, can be adjusted to fit whatever our goal is (starting up with cold vs warm car)
   local startingTemperature = startPreHeated and constants.preHeatTemperature or tEnv

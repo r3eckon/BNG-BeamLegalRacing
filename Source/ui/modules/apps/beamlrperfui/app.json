@@ -2,7 +2,7 @@
   "domElement": "<beamlrperfui></beamlrperfui>",
   "name": "BeamLR Performance Class UI",
   "types": [
-    "ui.apps.categories.vehicle_info"
+    "BeamLR"
   ],
   "description": "Performance Class UI for Beam Legal Racing Mod",
   "css": {

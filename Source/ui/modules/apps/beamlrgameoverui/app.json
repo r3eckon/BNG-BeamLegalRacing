@@ -2,7 +2,7 @@
   "domElement": "<beamlrgameoverui></beamlrgameoverui>",
   "name": "BeamLR Game Over UI",
   "types": [
-    "ui.apps.categories.vehicle_info"
+    "BeamLR"
   ],
   "description": "Game Over UI for Beam Legal Racing Mod",
   "css": {

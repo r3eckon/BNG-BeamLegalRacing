@@ -13,30 +13,6 @@
       }
     },
     {
-      "appName":"raceLaps",
-      "placement":{
-        "bottom":"",
-        "height":"40px",
-        "left":"",
-        "position":"absolute",
-        "right":"0px",
-        "top":"135px",
-        "width":"150px"
-      }
-    },
-    {
-      "appName":"raceCheckpoints",
-      "placement":{
-        "bottom":"",
-        "height":"40px",
-        "left":"",
-        "position":"absolute",
-        "right":"0px",
-        "top":"95px",
-        "width":"150px"
-      }
-    },
-    {
       "appName":"tacho2",
       "placement":{
         "bottom":"20px",
@@ -231,12 +207,12 @@
       "appName":"beamlrtimer",
       "placement":{
         "bottom":"",
-        "height":"99px",
+        "height":"6.19em",
         "left":"",
         "position":"absolute",
-        "right":"0px",
-        "top":"0px",
-        "width":"200px"
+        "right":"0em",
+        "top":"0em",
+        "width":"12.5em"
       }
     },
     {
@@ -274,6 +250,19 @@
         "right":"",
         "top":"3.1em",
         "width":"26.51em"
+      },
+      "settings":{}
+    },
+    {
+      "appName":"beamlrraceui",
+      "placement":{
+        "bottom":"",
+        "height":"5.32em",
+        "left":"109.75em",
+        "position":"absolute",
+        "right":"",
+        "top":"6em",
+        "width":"10.25em"
       },
       "settings":{}
     }

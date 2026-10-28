@@ -2,7 +2,7 @@
   "domElement": "<beamlrtracktuner></beamlrtracktuner>",
   "name": "BeamLR Track Tuner UI",
   "types": [
-    "ui.apps.categories.vehicle_info"
+    "BeamLR"
   ],
   "description": "Track Tuner UI for Beam Legal Racing Mod",
   "css": {

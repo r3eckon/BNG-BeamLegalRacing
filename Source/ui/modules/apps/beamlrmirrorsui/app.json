@@ -2,7 +2,7 @@
   "domElement": "<beamlrmirrorsui></beamlrmirrorsui>",
   "name": "BeamLR Mirrors UI",
   "types": [
-    "ui.apps.categories.vehicle_info"
+    "BeamLR"
   ],
   "description": "Mirrors UI for Beam Legal Racing Mod",
   "css": {

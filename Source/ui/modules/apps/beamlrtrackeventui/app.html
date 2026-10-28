@@ -45,11 +45,11 @@
 <td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">{{"beamlr.eventui.reprewards" | blrtranslate}}</td>
 <td style="text-align:right; font-size:20px; font-weight:bold; width:50%;">{{eventdata['repreward']}}</td>
 </tr>
-<tr>
+<tr ng-if="eventdata['partreward'] != 'none'">
 <td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">{{"beamlr.eventui.partsreward" | blrtranslate}}</td>
 <td style="text-align:right; font-size:20px; font-weight:bold; width:50%;">{{eventdata['partreward']}}</td>
 </tr>
-<tr>
+<tr ng-if="eventdata['carreward'] != 'none'">
 <td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">{{"beamlr.eventui.vehreward" | blrtranslate}}</td>
 <td style="text-align:right; font-size:20px; font-weight:bold; width:50%;">{{eventdata['carreward']}}</td>
 </tr>
@@ -70,11 +70,11 @@
 <td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">{{"beamlr.generic.term.reputation" | blrtranslate}}</td>
 <td style="text-align:right; font-size:20px; font-weight:bold; width:50%;">{{rewards['repreward']}}</td>
 </tr>
-<tr>
+<tr ng-if="rewards['partreward'] != 'none'">
 <td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">{{"beamlr.generic.term.parts" | blrtranslate}}</td>
 <td style="text-align:right; font-size:20px; font-weight:bold; width:50%;">{{rewards['partreward']}}</td>
 </tr>
-<tr>
+<tr ng-if="rewards['carreward'] != 'none'">
 <td style="text-align:left; font-size:20px; font-weight:bold; width:30%;">{{"beamlr.generic.term.vehicle" | blrtranslate}}</td>
 <td style="text-align:right; font-size:20px; font-weight:bold; width:50%;">{{rewards['carreward']}}</td>
 </tr>

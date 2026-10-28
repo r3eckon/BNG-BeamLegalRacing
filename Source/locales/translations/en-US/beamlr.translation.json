@@ -499,7 +499,7 @@
 	 "beamlr.eventui.moneyrewards" : "Money (1st, 2nd, 3rd)",
 	 "beamlr.eventui.reprewards" : "Reputation (1st, 2nd, 3rd)",
 	 "beamlr.eventui.partsreward" : "Parts (1st)",
-	 "beamlr.eventui.vehreward" : "Parts (1st)",
+	 "beamlr.eventui.vehreward" : "Vehicle (1st)",
 	 "beamlr.eventui.yourrewards" : "Your Rewards",
 	 
 		//Track Tuner UI

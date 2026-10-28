@@ -325,20 +325,80 @@ local function processWheels(vehicle)
 
       local wobj = obj:getWheel(wid)
       if wobj then
+        local numRays = checkNum(wheel.numRays, 10)
+        local totalHubNodeWeight = 2 * numRays * checkNum(wheel.hubNodeWeight, 0)
+        local treadNodeWeight = checkNum(wheel.nodeWeight, 0)
+        local heatCapacityNode = checkNum(wheel.specificHeatCapacityNode) * treadNodeWeight
+        local heatCapacityCore = checkNum(wheel.specificHeatCapacityCore) * totalHubNodeWeight
+        local numNodes = 4 * numRays  -- TODO: should be 2 later
+
+        local heatCoefNodeEnv = 0
+        local heatCoefNodeCore = 0
+        local heatCoefCoreOut = 0
+        local heatCoefNodeSurface = 0
+        local heatCoefFriction = 0
+        local heatCoefStrain = 0
+
+        if heatCapacityNode > 0 and heatCapacityCore > 0 then
+          local minResistance = 1e-6
+          local thermalResistanceNodeEnv = math.max(checkNum(wheel.thermalResistanceNodeEnv), minResistance)
+          local thermalResistanceNodeCore = math.max(checkNum(wheel.thermalResistanceNodeCore), minResistance)
+          local thermalResistanceNodeSurface = math.max(checkNum(wheel.thermalResistanceNodeSurface), minResistance)
+          heatCoefNodeEnv = 1 / (heatCapacityNode * thermalResistanceNodeEnv)
+          heatCoefNodeCore = 1 / (heatCapacityNode * thermalResistanceNodeCore)
+          heatCoefCoreOut = numNodes / (heatCapacityCore * thermalResistanceNodeCore)
+          heatCoefNodeSurface = 1 / (heatCapacityNode * thermalResistanceNodeSurface)
+          heatCoefFriction = 1 / heatCapacityNode
+          heatCoefStrain = math.max(checkNum(wheel.strainHeatForce), 0) / heatCapacityNode
+        end
+
+        local heatCoefFlashFriction = checkNum(wheel.heatCoefFlashFriction)
+        local heatNodeEnvVel0 = checkNum(wheel.convectionStationaryFactor, 0.4)
+        local heatNodeEnvTerminalVel = checkNum(wheel.convectionTerminalSpeed, 20)
+        local smokingTemp = checkNum(wheel.smokingTemp, 1e18)
+        local meltingTemp = checkNum(wheel.meltingTemp, 1e19)
+        local heatAffectsPressure = type(wheel.heatAffectsPressure) == 'boolean' and wheel.heatAffectsPressure or false
+
         wobj:setThermal(
-          checkNum(wheel.heatCoefNodeToEnv), checkNum(wheel.heatCoefEnvMultStationary, 0.4),
-          checkNum(wheel.heatCoefEnvTerminalSpeed, 20), checkNum(wheel.heatCoefNodeToCore),
-          checkNum(wheel.heatCoefCoreToNodes), checkNum(wheel.heatCoefNodeToSurface),
-          checkNum(wheel.heatCoefFriction), checkNum(wheel.heatCoefFlashFriction),
-          checkNum(wheel.heatCoefStrain), checkNum(wheel.smokingTemp, 1e18), checkNum(wheel.meltingTemp, 1e19),
-          type(wheel.heatAffectsPressure) == 'boolean' and wheel.heatAffectsPressure or false
+          heatCoefNodeEnv, -- k_E (at v_terminal)
+          heatNodeEnvVel0, -- f_0
+          heatNodeEnvTerminalVel, -- v_terminal
+          heatCoefNodeCore, -- k_T
+          heatCoefCoreOut, -- (n * k_C)
+          heatCoefNodeSurface, -- k_G
+          heatCoefFriction, -- 1/C_T
+          heatCoefFlashFriction, -- c_flash
+          heatCoefStrain, -- (F_strain/C_T)
+          smokingTemp,
+          meltingTemp,
+          heatAffectsPressure
         )
 
+        local thermalFrictionPeakTemp = 350
+        local thermalFrictionRiseRange = 1e7
+        local thermalFrictionFallRange = 1e7
+        local thermalFrictionRiseShape = 0
+        local thermalFrictionFallShape = 0
+        local thermalFrictionBaseCoef = 1
+        local thermalFrictionPeakCoef = 1
+        if wheel.enableThermalFriction == true then
+          thermalFrictionPeakTemp = checkNum(wheel.thermalFrictionPeakTemp, thermalFrictionPeakTemp)
+          thermalFrictionRiseRange = checkNum(wheel.thermalFrictionRiseRange, thermalFrictionRiseRange)
+          thermalFrictionFallRange = checkNum(wheel.thermalFrictionFallRange, thermalFrictionFallRange)
+          thermalFrictionRiseShape = checkNum(wheel.thermalFrictionRiseShape, thermalFrictionRiseShape)
+          thermalFrictionFallShape = checkNum(wheel.thermalFrictionFallShape, thermalFrictionFallShape)
+          thermalFrictionBaseCoef = 0
+          thermalFrictionPeakCoef = 1
+        end
         wobj:setFrictionThermalSensitivity(
-          checkNum(wheel.frictionLowTemp, -300), checkNum(wheel.frictionHighTemp, 1e7),
-          checkNum(wheel.frictionLowSlope, 1e-10), checkNum(wheel.frictionHighSlope, 1e-10),
-          checkNum(wheel.frictionSlopeSmoothCoef, 10), checkNum(wheel.frictionCoefLow, 1),
-          checkNum(wheel.frictionCoefMiddle, 1), checkNum(wheel.frictionCoefHigh, 1)
+          checkNum(wheel.frictionLowTemp, -300),
+          checkNum(wheel.frictionHighTemp, 1e7),
+          checkNum(wheel.frictionLowSlope, 1e-10),
+          checkNum(wheel.frictionHighSlope, 1e-10),
+          checkNum(wheel.frictionSlopeSmoothCoef, 10),
+          checkNum(wheel.frictionCoefLow, 1),
+          checkNum(wheel.frictionCoefMiddle, 1),
+          checkNum(wheel.frictionCoefHigh, 1)
         )
       end
     end

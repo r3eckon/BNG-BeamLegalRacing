@@ -3,6 +3,9 @@
 -- file, You can obtain one at http://beamng.com/bCDDL-1.1.txt
 
 -- BEAMLR EDITED
+-- MIGHT BE ABLE TO REMOVE THIS ONE... SEEMS LIKE MY FUNCTION
+-- IS USELESS SINCE THE TABLE IT RETURNS CAN NOW ALSO BE RETURNED
+-- USING A VANILLA FUNCTION... GONNA HAVE TO TEST TO MAKE SURE
 
 local M = {}
 
@@ -24,7 +27,9 @@ M.tagBeamMap = {}
 M.linkTagBeamMap = {}
 
 local partDamageData
+local partSignalNameToPath = {}
 local lastDisplayedDamage = 0
+local bodyZones = { 'FL', 'FR', 'ML', 'MR', 'RL', 'RR' }							
 
 local delayedPrecompBeams
 local delayedPrecompTorsionbar
@@ -38,6 +43,7 @@ local beamDamageTracker = {}
 local beamDamageTrackerDirty = false
 
 local breakGroupCache = {}
+local occupantDetachedGroups = {} -- breakgroups for occupants that get detached from their original place in the vehicle																														 
 local triangleBreakGroupCache = {}
 local couplerBreakGroupCache = {}
 local couplerBreakGroupCacheOrig = {}
@@ -83,10 +89,10 @@ local function setPartCondition(partId, partTypeData, odometer, integrity, visua
   -- end
 
   -- local breakGroupCount = #partBreakGroups
-  -- local numberOfbrokenBreakGroups = breakGroupCount * (1 - integrityValue)
-  -- local wholeNumberOfM.brokenBreakGroups = floor(numberOfM.brokenBreakGroups)
+  -- local numberOfBrokenBreakGroups = breakGroupCount * (1 - integrityValue)
+  -- local wholeNumberOfBrokenBreakGroups = floor(numberOfBrokenBreakGroups)
   -- local shuffledBreakGroups = arrayShuffle(partBreakGroups)
-  -- for i = 1, wholeNumberOfM.brokenBreakGroups do
+  -- for i = 1, wholeNumberOfBrokenBreakGroups do
   --   table.insert(integrity.jbeam.brokenBreakGroups, shuffledBreakGroups[i])
   -- end
   end
@@ -170,6 +176,10 @@ local function breakBreakGroup(g)
     return
   end
 
+  if occupantDetachedGroups[g] then
+    occupantDetachedGroups[g] = nil
+    obj:queueGameEngineLua(string.format("core_camera.vehicleCamerasFunction(%d, 'onOccupantDetached', %q)", objectId, g))
+  end
   M.brokenBreakGroups[g] = true
 
   -- hide props if they use
@@ -539,7 +549,7 @@ local function deflateTire(wheelid)
     if wheels.wheels[wheelid] then
       wheels.wheels[wheelid].isTireDeflated = true
     end
-    guihooks.message({txt = "vehicle.beamstate.tireDeflated", context = {wheelName = wheel.name}}, 5, "vehicle.damage.deflated." .. wheel.name)
+    guihooks.messageForSeatedPlayers({txt = "vehicle.beamstate.tireDeflated", context = {wheelName = wheel.name}}, 5, "vehicle.damage.deflated." .. wheel.name)
     damageTracker.setDamage("wheels", "tire" .. wheel.name, true)
     extensions.hook("onTireDeflated", wheelid)
 
@@ -787,8 +797,7 @@ local function torsionBarBroken(id, energy)
           if breakGroupCache[g] then
             props.hidePropsInBreakGroup(g)
 
-            -- breakGroupType = 0 breaks the group
-            -- breakGroupType = 1 does not break the group but will be broken by the group
+            -- breakGroupType: 0 breaks the group, 1 doesn't break the group
             if torsionbar.breakGroupType == 0 or torsionbar.breakGroupType == nil then
               breakBreakGroup(g)
             end
@@ -1013,6 +1022,35 @@ local function registerQuickAccessMenu()
   end
 end
 
+-- must be declared before init(): init() calls rebuildPartSignalNameMap()
+local function buildPartSignalKey(partPath, used)
+  local short = partPath:match("([^/]+)$") or partPath
+  if used[short] then
+    local key = partPath:gsub("/", "_")
+    used[key] = true
+    return key
+  end
+  used[short] = true
+  return short
+end
+
+local function rebuildPartSignalNameMap()
+  table.clear(partSignalNameToPath)
+  if not partDamageData then
+    return
+  end
+  local paths = {}
+  for partPath, _ in pairs(partDamageData) do
+    paths[#paths + 1] = partPath
+  end
+  table.sort(paths)
+  local used = {}
+  for i = 1, #paths do
+    local partPath = paths[i]
+    partSignalNameToPath[buildPartSignalKey(partPath, used)] = partPath
+  end																	   
+end
+
 local function init()
   M.damage = 0
   M.damageExt = 0
@@ -1052,6 +1090,7 @@ local function init()
   end
 
   breakGroupCache = {}
+  table.clear(occupantDetachedGroups)				  
   M.brokenBreakGroups = {}
   M.deformGroupDamage = {}
   table.clear(M.deformGroupsTriggerBeam)
@@ -1206,6 +1245,7 @@ local function init()
         for _, g in pairs(breakGroups) do
           if not breakGroupCache[g] then
             breakGroupCache[g] = table.new(2, 0)
+			if string.startswith(g, "ocpAttach") then occupantDetachedGroups[g] = true end -- optimize occupant detach checks									
           end
           table.insert(breakGroupCache[g], b.cid)
         end
@@ -1265,6 +1305,7 @@ local function init()
     damageTracker.setDamage("body", k, 0)
   end
 
+  rebuildPartSignalNameMap()
   registerQuickAccessMenu()
 end
 
@@ -1515,17 +1556,77 @@ local function getVehicleState(...)
   return vehicleState, ...
 end
 
+local function partDamageScore(partData)
+  local brokenCoef = clamp(partData.beamsBroken / partData.brokenBeamsThreshold, 0, 1)
+  local deformedCoef = clamp(partData.beamsDeformed / partData.deformedBeamsThreshold, 0, 1)
+  return max(brokenCoef, deformedCoef)
+end
+
 local function getPartDamageData()
   local damageData = {}
   for partName, partData in pairs(partDamageData) do
-    local brokenCoef = clamp(partData.beamsBroken / partData.brokenBeamsThreshold, 0, 1)
-    local deformedCoef = (clamp(partData.beamsDeformed / partData.deformedBeamsThreshold, 0, 1))
-    local damageScore = max(brokenCoef, deformedCoef)
+    local damageScore = partDamageScore(partData)												 
     if damageScore > 0 then
       damageData[partName] = {name = partData.name, damage = damageScore}
     end
   end
   return damageData
+end
+
+-- Flat map of signal-name -> damage score for all parts (including 0).
+local function getPartDamageScores()
+  local scores = {}
+  for name, partPath in pairs(partSignalNameToPath) do
+    local partData = partDamageData and partDamageData[partPath]
+    scores[name] = partData and partDamageScore(partData) or 0
+  end
+  return scores
+end
+
+local function getPartDamageBySignalName(name)
+  local partPath = partSignalNameToPath[name]
+  if not partPath or not partDamageData then
+    return nil
+  end
+  local partData = partDamageData[partPath]
+  if not partData then
+    return nil
+  end
+  return partDamageScore(partData)
+end
+
+local function getPartDamageSignalList()
+  local namesSorted = {}
+  for name, _ in pairs(partSignalNameToPath) do
+    namesSorted[#namesSorted + 1] = name
+  end
+  table.sort(namesSorted)
+  local list = {}
+  for i = 1, #namesSorted do
+    list[i] = { name = namesSorted[i], type = 'number' }
+  end
+  return list
+end
+
+local function getBodyZoneDamageValue(zone)
+  if not bodyPartDamageTracker or not invBodyPartBeamCount then
+    return 0
+  end
+  local inv = invBodyPartBeamCount[zone]
+  local tr = bodyPartDamageTracker[zone]
+  if not tr or type(inv) ~= 'number' or inv ~= inv or inv == 0 or inv == math.huge then
+    return 0
+  end
+  return tr * inv
+end
+
+local function getBodyZoneDamage()
+  local out = {}
+  for i = 1, #bodyZones do
+    local z = bodyZones[i]
+    out[z] = getBodyZoneDamageValue(z)
+  end
+  return out
 end
 
 local function exportPartDamageData()
@@ -1594,6 +1695,11 @@ M.setPlanets = setPlanets
 
 M.getVehicleState = getVehicleState
 M.getPartDamageData = getPartDamageData
+M.getPartDamageScores = getPartDamageScores
+M.getPartDamageBySignalName = getPartDamageBySignalName
+M.getPartDamageSignalList = getPartDamageSignalList
+M.getBodyZoneDamage = getBodyZoneDamage
+M.getBodyZoneDamageValue = getBodyZoneDamageValue
 M.exportPartDamageData = exportPartDamageData
 M.isPhysicsStepUsed = isPhysicsStepUsed
 M.deformedBeams = beamDamageTracker

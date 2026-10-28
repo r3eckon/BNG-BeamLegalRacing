@@ -2,7 +2,7 @@
   "domElement": "<beamlrrepairui></beamlrrepairui>",
   "name": "BeamLR Repair UI",
   "types": [
-    "ui.apps.categories.vehicle_info"
+    "BeamLR"
   ],
   "description": "Repair UI for Beam Legal Racing Mod",
   "css": {

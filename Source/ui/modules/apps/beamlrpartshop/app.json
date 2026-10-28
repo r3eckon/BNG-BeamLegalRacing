@@ -2,7 +2,7 @@
   "domElement": "<beamlrpartshop></beamlrpartshop>",
   "name": "BeamLR Part Shop UI",
   "types": [
-    "ui.apps.categories.vehicle_info"
+    "BeamLR"
   ],
   "description": "Part Shop UI for Beam Legal Racing Mod",
   "css": {

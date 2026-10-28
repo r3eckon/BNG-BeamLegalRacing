@@ -9,9 +9,12 @@ local locales = {}
 local fallbackLanguage = "en-US" -- Using this for forced translations, make sure it stays "en-US" 
 local language = nil
 local localePath = "/locales/translations/"
+local unitSpacingPoliciesPath = "/locales/unit_spacing_policies.json"
 local logTag = "core_locales"
 
 local translateCache = {}
+local unitSpacingPolicies = nil
+local recognizedUnits = {}
 local scrambleTranslationDebugEnabled = false
 local scrambleTranslationDebugSuffix = "✓"
 
@@ -148,6 +151,14 @@ local function translate(key, fallback, dontProcessNestedTrans, forceFallback)
   return translated
 end
 
+local function translateWithPrefixFallback(name, prefix, forceFallback)
+  if prefix then
+    local translation = translate(prefix .. name, "", nil, forceFallback)
+    if translation ~= "" then return translation end
+  end
+  return translate(name, nil, nil, forceFallback)
+end
+
 local function contextTranslate(key, varsTable, forceFallback)
   return (translate(key, key, true, forceFallback):gsub("{{(.-)}}", function(varName)
     varName = varName:match("^%s*(.-)%s*$")
@@ -156,11 +167,19 @@ local function contextTranslate(key, varsTable, forceFallback)
     varName = varName:match("^::%s*'(.-)'$") or varName:match("^'(.-)'$") or varName
     local val = varsTable[varName]
     if val == nil then return "" end
-    if type(val) == 'table' and val.txt then
-      if val.ctx and type(val.ctx) == 'table' then
-        return contextTranslate(val.txt, val.ctx, forceFallback)
+    if type(val) == 'table' then
+      if val.prefix and val.txt then
+        return translateWithPrefixFallback(tostring(val.txt), val.prefix, forceFallback)
       end
-      return translate(tostring(val.txt), nil, nil, forceFallback)
+      if val.txt then
+        if val.ctx and type(val.ctx) == 'table' then
+          return contextTranslate(val.txt, val.ctx, forceFallback)
+        end
+        if val.context and type(val.context) == 'table' then
+          return contextTranslate(val.txt, val.context, forceFallback)
+        end
+        return translate(tostring(val.txt), nil, nil, forceFallback)
+      end
     end
     return translate(tostring(val), nil, nil, forceFallback)
   end))
@@ -168,6 +187,9 @@ end
 
 local function translateWithOrWithoutContext(data, forceFallback)
   if type(data) == 'table' and data.txt then
+    if data.prefix then
+      return translateWithPrefixFallback(data.txt, data.prefix, forceFallback)
+    end
     return
          data.ctx and contextTranslate(data.txt, data.ctx, forceFallback)
       or data.context and contextTranslate(data.txt, data.context, forceFallback)
@@ -178,20 +200,18 @@ local function translateWithOrWithoutContext(data, forceFallback)
   return ""
 end
 
-local function translateWithPrefixFallback(name, prefix)
-  if prefix then
-    local translation = translate(prefix .. name, "", nil, forceFallback)
-    if translation ~= "" then return translation end
-  end
-  return translate(name, nil, nil, forceFallback)
-end
-
 local function loadLocaleFile(filename)
   local localeData = jsonReadFile(filename)
   if type(localeData) == "table" then
     return {filename = filename, data = localeData}
   end
   return nil
+end
+
+local function isTranslationFile(filename)
+  local lower = string.lower(filename)
+  return lower:match("%.translation%.json$") ~= nil
+    or lower:match("%.translations%.json$") ~= nil
 end
 
 local function loadLocaleFiles(id)
@@ -201,7 +221,13 @@ local function loadLocaleFiles(id)
     return {}
   end
 
-  local localeFiles = FS:findFiles(localeDir, "*.json", -1, true, false) or {}
+  local discoveredFiles = FS:findFiles(localeDir, "*.json", -1, true, false) or {}
+  local localeFiles = {}
+  for _, localeFile in ipairs(discoveredFiles) do
+    if isTranslationFile(localeFile) then
+      table.insert(localeFiles, localeFile)
+    end
+  end
   if #localeFiles == 0 then
     log("E", logTag, "No locale files found in: " .. localeDir)
     return {}
@@ -236,7 +262,7 @@ local function getLocale(id)
     return {}
   end
   local localeData = loadLocale(id)
-  -- Merge localeData files from last to first (later files take precedence)
+  -- Merge from last to first so lexicographically earlier files take precedence.
   local merged = {}
   for i = #localeData, 1, -1 do
     local dataTbl = localeData[i].data
@@ -261,6 +287,44 @@ local function getAvailableLanguages()
   end)
 
   return result
+end
+
+local function getLanguage()
+  return language or (Lua and Lua.getSelectedLanguage and Lua:getSelectedLanguage()) or fallbackLanguage
+end
+
+local function loadUnitSpacingPolicies()
+  if unitSpacingPolicies then return unitSpacingPolicies end
+
+  local loadedPolicies = jsonReadFile(unitSpacingPoliciesPath)
+  unitSpacingPolicies = type(loadedPolicies) == "table" and loadedPolicies or {}
+  recognizedUnits = {}
+  for _, unit in ipairs(unitSpacingPolicies.recognizedUnits or {}) do
+    recognizedUnits[unit] = true
+  end
+  return unitSpacingPolicies
+end
+
+local function getUnitSpacingPolicy(unit, locale)
+  local policies = loadUnitSpacingPolicies()
+  local defaultPolicy = policies.default or {}
+  local localePolicy = (policies.locales or {})[locale or getLanguage()] or {}
+  local policy = (localePolicy.units or {})[unit] or (defaultPolicy.units or {})[unit]
+
+  if policy then return policy end
+  if not recognizedUnits[unit] then return "preserve" end
+  return localePolicy.default or defaultPolicy.default or "preserve"
+end
+
+local function getUnitSeparator(unit, locale)
+  local policy = getUnitSpacingPolicy(unit, locale)
+  if policy == "space" then return " " end
+  if policy == "nbsp" then return "\194\160" end
+  return ""
+end
+
+local function withUnit(formattedValue, unit, locale)
+  return formattedValue .. getUnitSeparator(unit, locale) .. unit
 end
 
 local function clearTranslateCache()
@@ -292,7 +356,9 @@ local function onExtensionLoaded()
   _tr = translate
 end
 
-local function onFilesChanged(files)
+local filechangeTimeout
+local changedLocaleFiles = {}
+local function reloadChangedFiles(files)
   local reloadedAny = false
   for _, v in pairs(files) do
     if string.startswith(v.filename, localePath) and string.endswith(v.filename, ".json") then
@@ -330,6 +396,30 @@ local function onFilesChanged(files)
   end
 end
 
+local function onFilesChanged(files)
+  for _, v in pairs(files) do
+    if v.filename == unitSpacingPoliciesPath then
+      unitSpacingPolicies = nil
+      recognizedUnits = {}
+    end
+    if string.startswith(v.filename, localePath) and string.endswith(v.filename, ".json") then
+      changedLocaleFiles[v.filename] = v
+      filechangeTimeout = 0.1
+    end
+  end
+end
+
+local function onUpdate(_, _, dtRaw)
+  if filechangeTimeout then
+    filechangeTimeout = filechangeTimeout - dtRaw
+    if filechangeTimeout <= 0 then
+      reloadChangedFiles(changedLocaleFiles)
+      table.clear(changedLocaleFiles)
+      filechangeTimeout = nil
+    end
+  end
+end
+
 local function onSettingsChanged()
   local newLanguage = Lua:getSelectedLanguage()
   loadLocale(newLanguage)
@@ -340,19 +430,39 @@ local function onSettingsChanged()
   end
 end
 
+local function selfTest(lang)
+  --lang = true  -- checks all languages
+  --lang = "en-US"  -- checks only english
+  --lang = "fr_FR"  -- checks only french
+  if not lang then return end
+  if not FS:fileExists("/lua/ge/extensions/test/locales/run.lua") then return end
+  local success, result = xpcall(function() return extensions.test_locales_run.run(lang) end, debug.traceback)
+  extensions.unload("test_locales_run")
+  if not success then
+    log("E", logTag, "Locale self-test failed:\n" .. tostring(result))
+    result = nil
+  end
+  return result
+end
+
 M.translate = translate
 M.contextTranslate = contextTranslate
 M.translateWithPrefixFallback = translateWithPrefixFallback
 M.translateWithOrWithoutContext = translateWithOrWithoutContext
 M.getLocale = getLocale
 M.getAvailableLanguages = getAvailableLanguages
+M.getLanguage = getLanguage
+M.getUnitSeparator = getUnitSeparator
+M.withUnit = withUnit
 M.clearTranslateCache = clearTranslateCache
 M.getScrambleTranslationDebugEnabled = isTranslationScrambleDebugEnabled
 M.setScrambleTranslationDebugEnabled = setTranslationScrambleDebugEnabled
+M.selfTest = selfTest
 
 M.onExtensionLoaded = onExtensionLoaded
 M.onSettingsChanged = onSettingsChanged
 M.onFilesChanged = onFilesChanged
+M.onUpdate = onUpdate
 
 M.onSerialize = function()
   return {
