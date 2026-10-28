@@ -1,7 +1,8 @@
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.20.3/beamLegalRacing1.20.3.zip
+
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.20.4/beamLegalRacing1.20.4.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.20.3
+# Beam Legal Racing 1.20.4
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -1184,3 +1185,15 @@ Cause: Engine jbeam is missing torque data. Data is moved to other subparts. Thi
 * Dealerships no longer want to buy back cars they sold to player (must sell to another dealership)
 * Updated en-US translation file with new entries for dealership UI
 * Dealership car files now have make/model/trim/transmission information split into individual items
+### 1.20.4
+* (0.40) Updated modified vanilla scripts that changed since last version
+* (0.40) Removed patched extensions.lua script (vanilla script has been fixed)
+* (0.40) Fixed dealership default camera angle no longer applied
+* (0.40) Fixed parking markers used in race start, deliveries and car meets no longer being colored
+* (0.40) Fixed broken race and track event waypoints on some maps
+* Fixed blrpartmgmt.lua error when trying to load parts list on slots using old format
+* Updated app selector banner image and BeamLR UI apps now stored under their own category
+* Now using custom race checkpoint & laps UI app (also optimized lap & checkpoint change hook calls)
+* Fixed track event UI using incorrect translation for car reward prefix
+* Track event UI now hiding reward lines if there is no reward (instead of 'none')
+* Removed useless 'background' and 'transparent' image files from UI apps
