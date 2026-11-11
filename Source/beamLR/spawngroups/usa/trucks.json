@@ -1,35 +1,7 @@
 {
   "data":[
-	{
-      "config":"t75_mixer",
-      "model":"us_semi"
-    },
     {
       "config":"t82_base",
-      "model":"us_semi"
-    },
-    {
-      "config":"t82_custom",
-      "model":"us_semi"
-    },
-    {
-      "config":"t83s_cargobox",
-      "model":"us_semi"
-    },
-    {
-      "config":"t83s_dump",
-      "model":"us_semi"
-    },
-    {
-      "config":"t83s_flatbed",
-      "model":"us_semi"
-    },
-    {
-      "config":"t83s_rollback",
-      "model":"us_semi"
-    },
-    {
-      "config":"t83s_tanker",
       "model":"us_semi"
     },
     {
@@ -41,15 +13,47 @@
       "model":"us_semi"
     },
     {
-      "config":"t83_longhaul",
+      "config":"tc83_ext",
       "model":"us_semi"
     },
     {
-      "config":"t83_longhaul_custom",
+      "config":"t83s_dump",
       "model":"us_semi"
     },
     {
-      "config":"t83_longhaul_special",
+      "config":"tc82_base",
+      "model":"us_semi"
+    },
+    {
+      "config":"tc83_base",
+      "model":"us_semi"
+    },
+    {
+      "config":"tc83_long",
+      "model":"us_semi"
+    },
+    {
+      "config":"t82_custom",
+      "model":"us_semi"
+    },
+    {
+      "config":"t83_custom",
+      "model":"us_semi"
+    },
+    {
+      "config":"t83s_mixer",
+      "model":"us_semi"
+    },
+    {
+      "config":"tc83s_dump",
+      "model":"us_semi"
+    },
+    {
+      "config":"tc84s_dump",
+      "model":"us_semi"
+    },
+    {
+      "config":"t82_ramplow",
       "model":"us_semi"
     },
     {
@@ -57,11 +61,63 @@
       "model":"us_semi"
     },
     {
-      "config":"t83_sleeper_alt",
+      "config":"t83_stretch",
       "model":"us_semi"
     },
     {
-      "config":"t83_stretch",
+      "config":"t83s_tanker",
+      "model":"us_semi"
+    },
+    {
+      "config":"tc82_custom",
+      "model":"us_semi"
+    },
+    {
+      "config":"tc84s_mixer",
+      "model":"us_semi"
+    },
+    {
+      "config":"t83_longhaul",
+      "model":"us_semi"
+    },
+    {
+      "config":"t83s_flatbed",
+      "model":"us_semi"
+    },
+    {
+      "config":"t83s_logging",
+      "model":"us_semi"
+    },
+    {
+      "config":"tc83_special",
+      "model":"us_semi"
+    },
+    {
+      "config":"tc83s_tanker",
+      "model":"us_semi"
+    },
+    {
+      "config":"t83s_cargobox",
+      "model":"us_semi"
+    },
+    {
+      "config":"t83s_rollback",
+      "model":"us_semi"
+    },
+    {
+      "config":"tc83_longhaul",
+      "model":"us_semi"
+    },
+    {
+      "config":"tc83s_flatbed",
+      "model":"us_semi"
+    },
+    {
+      "config":"tc83s_logging",
+      "model":"us_semi"
+    },
+    {
+      "config":"tc84_tridrive",
       "model":"us_semi"
     },
     {
@@ -73,46 +129,158 @@
       "model":"us_semi"
     },
     {
-      "config":"tc82_base",
+      "config":"t83_sleeper_alt",
       "model":"us_semi"
     },
     {
-      "config":"tc82_custom",
+      "config":"t83_longhaul_custom",
       "model":"us_semi"
     },
     {
-      "config":"tc83s_dump",
+      "config":"t83_longhaul_special",
       "model":"us_semi"
     },
     {
-      "config":"tc83s_flatbed",
+      "config":"t83_base_shuffleboard",
       "model":"us_semi"
     },
     {
-      "config":"tc83s_tanker",
+      "config":"t83s_logging_unloaded",
       "model":"us_semi"
     },
     {
-      "config":"tc83_base",
+      "config":"tc82_base_shuffleboard",
       "model":"us_semi"
     },
     {
-      "config":"tc83_ext",
+      "config":"tc83s_logging_unloaded",
       "model":"us_semi"
     },
     {
-      "config":"tc83_long",
+      "config":"tc83s_tanker_shuffleboard",
       "model":"us_semi"
     },
     {
-      "config":"tc83_longhaul",
-      "model":"us_semi"
+      "config":"md_70_dump",
+      "model":"md_series"
     },
     {
-      "config":"tc83_special",
-      "model":"us_semi"
+      "config":"md_60_drift",
+      "model":"md_series"
+    },
+    {
+      "config":"md_60_tanker",
+      "model":"md_series"
+    },
+    {
+      "config":"md_60_towrig",
+      "model":"md_series"
+    },
+    {
+      "config":"md_70_pickup",
+      "model":"md_series"
+    },
+    {
+      "config":"md_60_crewcab",
+      "model":"md_series"
+    },
+    {
+      "config":"md_60_flatbed",
+      "model":"md_series"
+    },
+    {
+      "config":"md_70_logging",
+      "model":"md_series"
+    },
+    {
+      "config":"md_60_cargobox",
+      "model":"md_series"
+    },
+    {
+      "config":"md_70_derbybus",
+      "model":"md_series"
+    },
+    {
+      "config":"md_60_ambulance",
+      "model":"md_series"
+    },
+    {
+      "config":"md_60_prisonbus",
+      "model":"md_series"
+    },
+    {
+      "config":"md_60_schoolbus",
+      "model":"md_series"
+    },
+    {
+      "config":"md_70_dump_crew",
+      "model":"md_series"
+    },
+    {
+      "config":"md_70_prisonbus",
+      "model":"md_series"
+    },
+    {
+      "config":"md_70_schoolbus",
+      "model":"md_series"
+    },
+    {
+      "config":"md_60_pickup_4wd",
+      "model":"md_series"
+    },
+    {
+      "config":"md_70_fifthwheel",
+      "model":"md_series"
+    },
+    {
+      "config":"md_70_tanker_4wd",
+      "model":"md_series"
+    },
+    {
+      "config":"md_70_pickup_crew",
+      "model":"md_series"
+    },
+    {
+      "config":"md_70_regular_cab",
+      "model":"md_series"
+    },
+    {
+      "config":"md_70_armored_bank",
+      "model":"md_series"
+    },
+    {
+      "config":"md_70_ambulance_4wd",
+      "model":"md_series"
+    },
+    {
+      "config":"md_60_armored_police",
+      "model":"md_series"
+    },
+    {
+      "config":"md_70_logging_unloaded",
+      "model":"md_series"
+    },
+    {
+      "config":"md_70_cargobox_facelift",
+      "model":"md_series"
+    },
+    {
+      "config":"md_70_pickup_crew_special",
+      "model":"md_series"
+    },
+    {
+      "config":"base",
+      "model":"citybus"
+    },
+    {
+      "config":"city",
+      "model":"citybus"
+    },
+    {
+      "config":"highway",
+      "model":"citybus"
     }
   ],
-  "name":"Trucks",
+  "name":"BeamLR Traffic",
   "type":"custom"
 }

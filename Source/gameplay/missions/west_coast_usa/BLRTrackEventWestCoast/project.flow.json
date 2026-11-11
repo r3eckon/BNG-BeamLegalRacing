@@ -2,7 +2,7 @@
   "activeGraphId":1,
   "authors":"BeamLR",
   "currentGraphID":1,
-  "date":1788156354,
+  "date":1794411978,
   "debugEnabled":false,
   "description":"Beam Legal Racing Track Event",
   "difficulty":100,
@@ -33,14 +33,14 @@
         ],
         [
           78,
-          "match_2",
+          "match_1",
           9,
           "flow",
           false
         ],
         [
           78,
-          "match_1",
+          "match_2",
           9,
           "flow",
           false
@@ -186,15 +186,8 @@
           false
         ],
         [
-          86,
-          "flow",
-          16,
-          "flow",
-          false
-        ],
-        [
-          54,
-          "flow",
+          126,
+          "False",
           16,
           "flow",
           false
@@ -207,15 +200,22 @@
           false
         ],
         [
-          126,
+          100,
           "False",
           16,
           "flow",
           false
         ],
         [
-          100,
-          "False",
+          86,
+          "flow",
+          16,
+          "flow",
+          false
+        ],
+        [
+          54,
+          "flow",
           16,
           "flow",
           false
@@ -439,14 +439,14 @@
         ],
         [
           78,
-          "match_2",
+          "match_1",
           31,
           "reset",
           false
         ],
         [
           78,
-          "match_1",
+          "match_2",
           31,
           "reset",
           false
@@ -676,15 +676,15 @@
           false
         ],
         [
-          33,
-          "match_1",
+          37,
+          "down",
           51,
           "reset",
           false
         ],
         [
-          37,
-          "down",
+          33,
+          "match_1",
           51,
           "reset",
           false
@@ -851,15 +851,15 @@
           false
         ],
         [
-          231,
-          "true",
+          54,
+          "down",
           63,
           "flow",
           false
         ],
         [
-          54,
-          "down",
+          231,
+          "true",
           63,
           "flow",
           false
@@ -949,15 +949,15 @@
           false
         ],
         [
-          75,
-          "False",
+          33,
+          "match_1",
           69,
           "reset",
           false
         ],
         [
-          33,
-          "match_1",
+          75,
+          "False",
           69,
           "reset",
           false
@@ -970,15 +970,15 @@
           false
         ],
         [
-          69,
-          "flow",
+          75,
+          "False",
           70,
           "flow",
           false
         ],
         [
-          75,
-          "False",
+          69,
+          "flow",
           70,
           "flow",
           false
@@ -1145,15 +1145,15 @@
           false
         ],
         [
-          86,
-          "down",
+          79,
+          "flow",
           80,
           "flow",
           false
         ],
         [
-          79,
-          "flow",
+          86,
+          "down",
           80,
           "flow",
           false
@@ -1208,6 +1208,13 @@
           false
         ],
         [
+          82,
+          "True",
+          85,
+          "reset",
+          false
+        ],
+        [
           33,
           "match_3",
           85,
@@ -1217,13 +1224,6 @@
         [
           33,
           "match_2",
-          85,
-          "reset",
-          false
-        ],
-        [
-          82,
-          "True",
           85,
           "reset",
           false
@@ -1279,14 +1279,14 @@
         ],
         [
           78,
-          "match_2",
+          "match_1",
           91,
           "flow",
           false
         ],
         [
           78,
-          "match_1",
+          "match_2",
           91,
           "flow",
           false
@@ -1810,15 +1810,15 @@
           false
         ],
         [
-          223,
-          "flow",
+          136,
+          "False",
           126,
           "flow",
           false
         ],
         [
-          136,
-          "False",
+          223,
+          "flow",
           126,
           "flow",
           false
@@ -1964,15 +1964,15 @@
           false
         ],
         [
-          76,
-          "False",
+          88,
+          "flow",
           136,
           "flow",
           false
         ],
         [
-          88,
-          "flow",
+          76,
+          "False",
           136,
           "flow",
           false
@@ -3154,6 +3154,20 @@
           false
         ],
         [
+          249,
+          "flow",
+          251,
+          "flow",
+          false
+        ],
+        [
+          62,
+          "spawnids",
+          251,
+          "idtable",
+          false
+        ],
+        [
           233,
           "flow",
           253,
@@ -3172,6 +3186,27 @@
           "flow",
           259,
           "flow",
+          false
+        ],
+        [
+          2,
+          "enterState",
+          262,
+          "flow",
+          false
+        ],
+        [
+          2,
+          "enterState",
+          262,
+          "reset",
+          false
+        ],
+        [
+          264,
+          "vehId",
+          262,
+          "idToIgnore_1",
           false
         ]
       ],
@@ -3412,8 +3447,8 @@
             ]
           ],
           "pos":[
-            1410,
-            -230
+            1242,
+            -244
           ],
           "type":"util/customLua"
         },
@@ -3476,8 +3511,8 @@
             ]
           ],
           "pos":[
-            1200,
-            -118
+            1362,
+            -370
           ],
           "type":"util/customLua"
         },
@@ -3710,7 +3745,7 @@
             },
             "posY":{
               "type":"number",
-              "value":80
+              "value":10
             },
             "title":{
               "type":"string",
@@ -3726,6 +3761,7 @@
               "anchor":true,
               "flow":false,
               "height":true,
+              "id":true,
               "posX":true,
               "posY":true,
               "title":false,
@@ -4965,7 +5001,7 @@
             },
             "posY":{
               "type":"number",
-              "value":260
+              "value":200
             },
             "title":{
               "type":"string",
@@ -4981,6 +5017,7 @@
               "anchor":true,
               "flow":false,
               "height":true,
+              "id":true,
               "posX":true,
               "posY":true,
               "title":false,
@@ -5006,7 +5043,7 @@
             "color_in":{
               "type":"color",
               "value":[
-                0.44597768800000753275,
+                0.44597768800000775480,
                 1,
                 0,
                 1
@@ -5182,8 +5219,8 @@
             ]
           ],
           "pos":[
-            1718,
-            -76
+            1698,
+            8
           ],
           "type":"util/customLua"
         },
@@ -6318,8 +6355,8 @@
             ]
           ],
           "pos":[
-            1858,
-            -258
+            1564,
+            -244
           ],
           "type":"util/customLua"
         },
@@ -10818,7 +10855,7 @@
           "type":"util/customLua"
         },
         "166":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000099920,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -11104,8 +11141,8 @@
             ]
           ],
           "pos":[
-            1676,
-            -258
+            1544,
+            -132
           ],
           "type":"util/customLua"
         },
@@ -11500,7 +11537,7 @@
           "hardcodedPins":{
             "dx":{
               "type":"number",
-              "value":0.05000000074505902420
+              "value":0.05000000074505906583
             },
             "mn":{
               "type":"number",
@@ -11588,7 +11625,7 @@
           "hardcodedPins":{
             "dx":{
               "type":"number",
-              "value":0.05000000074505902420
+              "value":0.05000000074505906583
             },
             "mn":{
               "type":"number",
@@ -13252,7 +13289,7 @@
           "type":"ui/cornerTimerBLR"
         },
         "238":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000099920,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -13547,7 +13584,7 @@
           "type":"util/customLua"
         },
         "246":{
-          "alpha":0.75000000000000077716,
+          "alpha":0.75000000000000099920,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -13745,8 +13782,8 @@
             ]
           ],
           "pos":[
-            2076,
-            -245
+            1564,
+            -342
           ],
           "type":"util/customLua"
         },
@@ -13789,6 +13826,70 @@
           "pos":[
             -388,
             -105
+          ],
+          "type":"util/customLua"
+        },
+        "251":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal occupy = self.pinIn.occupy.value\nlocal idtable = self.pinIn.idtable.value\n\nlocal dseat = \"\"\nlocal occupant = {name=\"Driver\"}\n\nfor _,id in pairs(idtable) do\ndseat = extensions.blrVehicleUtilsGE.getDriverSeatID(id)\nif dseat then\nextensions.blrVehicleUtilsGE.setSeatOccupant(id, dseat, (occupy and occupant))\nend\nend"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "occupy":{
+              "type":"bool",
+              "value":true
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "idtable":false,
+              "occupy":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Mass Set Driver Seat Occupant",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "table",
+              "idtable",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "bool",
+              "occupy",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            1824,
+            -342
           ],
           "type":"util/customLua"
         },
@@ -13925,6 +14026,44 @@
             -21
           ],
           "type":"util/customLua"
+        },
+        "262":{
+          "count":1,
+          "data":{},
+          "dynamicMode":"once",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "idToIgnore_1":false,
+              "reset":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "onlyDrivableVehs":false,
+          "onlyFlowgraphVehs":false,
+          "pos":[
+            -1536,
+            78
+          ],
+          "type":"gameplay/removeOtherVehicles"
+        },
+        "264":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{},
+            "p_out":{
+              "exist":true,
+              "vehId":false
+            }
+          },
+          "pos":[
+            -1530,
+            204
+          ],
+          "type":"scene/getPlayerVehicle"
         }
       },
       "showTab":true,
@@ -13934,10 +14073,10 @@
         "list":{}
       },
       "viewPos":[
-        -1269.62329101562500000000,
-        -27.13454818725585937500
+        -520.73559570312500000000,
+        -486.13427734375000000000
       ],
-      "viewZoom":0.74999994039535522461
+      "viewZoom":0.74999988079071044922
     },
     "3":{
       "description":"This is the description for graph States",
@@ -14061,7 +14200,7 @@
         -127.90475463867187500000,
         -1000.50683593750000000000
       ],
-      "viewZoom":0.75000000000000022204
+      "viewZoom":0.75000000000000044409
     }
   },
   "isScenario":true,

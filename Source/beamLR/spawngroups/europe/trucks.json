@@ -1,118 +1,214 @@
 {
   "data":[
     {
-      "config":"t75_mixer",
-      "model":"us_semi"
+      "config":"s310_4x2_box_A",
+      "model":"percheron"
     },
     {
-      "config":"t82_base",
-      "model":"us_semi"
+      "config":"xl500_6x4_box_M",
+      "model":"percheron"
     },
     {
-      "config":"t82_custom",
-      "model":"us_semi"
+      "config":"s310_6x6_mixer_A",
+      "model":"percheron"
     },
     {
-      "config":"t83s_cargobox",
-      "model":"us_semi"
+      "config":"s370_6x4_mixer_M",
+      "model":"percheron"
     },
     {
-      "config":"t83s_dump",
-      "model":"us_semi"
+      "config":"s310_fifthwheel_m",
+      "model":"percheron"
     },
     {
-      "config":"t83s_flatbed",
-      "model":"us_semi"
+      "config":"s370_6x6_tanker_A",
+      "model":"percheron"
     },
     {
-      "config":"t83s_rollback",
-      "model":"us_semi"
+      "config":"s410_6x4_tanker_M",
+      "model":"percheron"
     },
     {
-      "config":"t83s_tanker",
-      "model":"us_semi"
+      "config":"l310_6x4_flatbed_M",
+      "model":"percheron"
     },
     {
-      "config":"t83_base",
-      "model":"us_semi"
+      "config":"l370_6x2_tag_box_M",
+      "model":"percheron"
     },
     {
-      "config":"t83_long",
-      "model":"us_semi"
+      "config":"s310_4x2_flatbed_M",
+      "model":"percheron"
     },
     {
-      "config":"t83_longhaul",
-      "model":"us_semi"
+      "config":"s450_8x8_flatbed_A",
+      "model":"percheron"
     },
     {
-      "config":"t83_longhaul_custom",
-      "model":"us_semi"
+      "config":"s410_4x2_box_cola_A",
+      "model":"percheron"
     },
     {
-      "config":"t83_longhaul_special",
-      "model":"us_semi"
+      "config":"xl450_6x2_tag_box_M",
+      "model":"percheron"
     },
     {
-      "config":"t83_sleeper",
-      "model":"us_semi"
+      "config":"l450_4x4_fiftwheel_A",
+      "model":"percheron"
     },
     {
-      "config":"t83_sleeper_alt",
-      "model":"us_semi"
+      "config":"l370_4x2_fifthwheel_A",
+      "model":"percheron"
     },
     {
-      "config":"t83_stretch",
-      "model":"us_semi"
+      "config":"l410_6x2_tag_tanker_M",
+      "model":"percheron"
     },
     {
-      "config":"tc82s_cargobox",
-      "model":"us_semi"
+      "config":"l450_6x6_tankerMilk_M",
+      "model":"percheron"
     },
     {
-      "config":"tc82s_rollback",
-      "model":"us_semi"
+      "config":"xl450_4x2_fifthwheel_M",
+      "model":"percheron"
     },
     {
-      "config":"tc82_base",
-      "model":"us_semi"
+      "config":"xl500_6x4_fifthwheel_m",
+      "model":"percheron"
     },
     {
-      "config":"tc82_custom",
-      "model":"us_semi"
+      "config":"s450hd_6x4_fifthwheel_M",
+      "model":"percheron"
     },
     {
-      "config":"tc83s_dump",
-      "model":"us_semi"
+      "config":"xl450_4x2_6_fifthwheel_m",
+      "model":"percheron"
     },
     {
-      "config":"tc83s_flatbed",
-      "model":"us_semi"
+      "config":"s410_6x2_tag_tankerMilk_A",
+      "model":"percheron"
     },
     {
-      "config":"tc83s_tanker",
-      "model":"us_semi"
+      "config":"md_70_dump",
+      "model":"md_series"
     },
     {
-      "config":"tc83_base",
-      "model":"us_semi"
+      "config":"md_60_drift",
+      "model":"md_series"
     },
     {
-      "config":"tc83_ext",
-      "model":"us_semi"
+      "config":"md_60_tanker",
+      "model":"md_series"
     },
     {
-      "config":"tc83_long",
-      "model":"us_semi"
+      "config":"md_60_towrig",
+      "model":"md_series"
     },
     {
-      "config":"tc83_longhaul",
-      "model":"us_semi"
+      "config":"md_70_pickup",
+      "model":"md_series"
     },
     {
-      "config":"tc83_special",
-      "model":"us_semi"
+      "config":"md_60_crewcab",
+      "model":"md_series"
+    },
+    {
+      "config":"md_60_flatbed",
+      "model":"md_series"
+    },
+    {
+      "config":"md_70_logging",
+      "model":"md_series"
+    },
+    {
+      "config":"md_60_cargobox",
+      "model":"md_series"
+    },
+    {
+      "config":"md_70_derbybus",
+      "model":"md_series"
+    },
+    {
+      "config":"md_60_ambulance",
+      "model":"md_series"
+    },
+    {
+      "config":"md_60_prisonbus",
+      "model":"md_series"
+    },
+    {
+      "config":"md_60_schoolbus",
+      "model":"md_series"
+    },
+    {
+      "config":"md_70_dump_crew",
+      "model":"md_series"
+    },
+    {
+      "config":"md_70_prisonbus",
+      "model":"md_series"
+    },
+    {
+      "config":"md_70_schoolbus",
+      "model":"md_series"
+    },
+    {
+      "config":"md_60_pickup_4wd",
+      "model":"md_series"
+    },
+    {
+      "config":"md_70_fifthwheel",
+      "model":"md_series"
+    },
+    {
+      "config":"md_70_tanker_4wd",
+      "model":"md_series"
+    },
+    {
+      "config":"md_70_pickup_crew",
+      "model":"md_series"
+    },
+    {
+      "config":"md_70_regular_cab",
+      "model":"md_series"
+    },
+    {
+      "config":"md_70_armored_bank",
+      "model":"md_series"
+    },
+    {
+      "config":"md_70_ambulance_4wd",
+      "model":"md_series"
+    },
+    {
+      "config":"md_60_armored_police",
+      "model":"md_series"
+    },
+    {
+      "config":"md_70_logging_unloaded",
+      "model":"md_series"
+    },
+    {
+      "config":"md_70_cargobox_facelift",
+      "model":"md_series"
+    },
+    {
+      "config":"md_70_pickup_crew_special",
+      "model":"md_series"
+    },
+    {
+      "config":"base",
+      "model":"citybus"
+    },
+    {
+      "config":"city",
+      "model":"citybus"
+    },
+    {
+      "config":"highway",
+      "model":"citybus"
     }
   ],
-  "name":"Trucks",
+  "name":"BeamLR EU Trucks",
   "type":"custom"
 }

@@ -77,6 +77,8 @@ angular.module('beamng.apps')
 	  scope.buyoptions.delivery	= "delivery"
 	  scope.buyoptions.tradein = false
 	  scope.buyoptions.confirm = false
+	  scope.buyoptions.customplate = false
+	  scope.buyoptions.customplatetext = ""
 	  scope.showvehfax = true
 	  scope.showvehfaxhelp = false
 	  
@@ -275,6 +277,18 @@ angular.module('beamng.apps')
 		  return (scope.extradata.garageSlots - scope.extradata.ownedCars) > 0
 	  }
 	  
+	  scope.customPlateCheck = function()
+	  {
+		  if(scope.buyoptions.customplate == false)
+			  return true
+		  
+		  if(scope.buyoptions.customplatetext.length < 3)
+			  return false
+		  
+		  return true
+	  }
+	  
+	  
 	  scope.setPage = function(p)
 	  {
 		  scope.page = p
@@ -285,6 +299,8 @@ angular.module('beamng.apps')
 			  scope.buyoptions.confirm = false
 			  scope.buyoptions.delivery = "delivery"
 			  scope.buyoptions.tradein = false
+			  scope.buyoptions.customplate = false
+			  scope.buyoptions.customplatetext = ""
 		  }
 		  
 		  scope.cache()
@@ -296,6 +312,11 @@ angular.module('beamng.apps')
 	  }
 	  
 	  scope.onTradeinToggleChanged = function()
+	  {
+		  scope.cache()
+	  }
+	  
+	  scope.onCustomPlateToggleChanged = function()
 	  {
 		  scope.cache()
 	  }
@@ -315,6 +336,9 @@ angular.module('beamng.apps')
 		  //Add delivery/towing fee when applicable
 		  if(scope.buyoptions.delivery == 'delivery' || (scope.buyoptions.delivery == 'driveout' && scope.buyoptions.tradein != true && scope.extradata.nocar != true))
 			total += 50
+		
+		  if(scope.buyoptions.customplate)
+			total += 100
 		
 		  return total
 	  }
@@ -349,6 +373,8 @@ angular.module('beamng.apps')
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue('buyreq', 'slot', ${scope.selectedSlot})`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue('buyreq', 'tradein', ${scope.buyoptions.tradein})`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue('buyreq', 'delivery', '${scope.buyoptions.delivery}')`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue('buyreq', 'customplate', ${scope.buyoptions.customplate})`)
+		  bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue('buyreq', 'customplatetext', '${scope.buyoptions.customplatetext}')`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue('buyreq', 'moneyChange', ${moneyChange})`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue('buyreq', 'slotsChange', ${slotsChange})`)
 		  bngApi.engineLua(`extensions.customGuiCallbacks.setParamTableValue('buyreq', 'nocar', ${scope.extradata.nocar})`)
@@ -358,6 +384,8 @@ angular.module('beamng.apps')
 		  scope.buyoptions.tradein = false
 		  scope.buyoptions.delivery = "delivery"
 		  scope.buyoptions.confirm = false
+		  scope.buyoptions.customplate = false
+		  scope.buyoptions.customplatetext = ""
 		  scope.showvehfax = false
 		  scope.showvehfaxhelp = false
 		  scope.page = 0
@@ -422,6 +450,22 @@ angular.module('beamng.apps')
 		  }
 		  return input
 	  }
+	  
+	  scope.buyAllowedFinalCheck = function()
+	  {
+		  if(scope.moneyCheck(scope.getTransactionTotal()) != true)
+			  return false
+		  
+		  if(scope.slotsCheck() != true)
+			  return false
+		  
+		  if(scope.customPlateCheck() != true)
+			  return false
+		  
+		  return true
+	  }
+	  
+	  
 	  
 	  
     }

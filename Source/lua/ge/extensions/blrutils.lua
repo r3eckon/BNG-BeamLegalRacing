@@ -2519,14 +2519,41 @@ end
 
 local function processMissionRandoms(mdata, mtype)
 local toRet = {}
+local basereward = tonumber(mdata["reward"])
+local treward = extensions.blrlocales.translate("beamlr.generic.term.reward")
+local tmaxforce = extensions.blrlocales.translate("beamlr.imgui.delivery.maxforce")
+math.randomseed(os.clock()*1000) -- No complex seeding for mission system
+
+-- 1.20.5 new passenger mission type
+if mtype == "passengers" then
+local seats = extensions.blrVehicleUtilsGE.getAvailableSeats()
+local scount = math.max(1, #seats - 1)
+local pcount = math.random(1, scount)
+
+toRet["passengers"] = pcount
+toRet["reward"] = basereward + (basereward * 0.1 * pcount)
+
+if pcount <= 1 then -- single passenger will show "a passenger" otherwise "X passengers"
+toRet["itemname"] = extensions.blrlocales.translate("beamlr.generic.term.apassenger_lc")
+else
+toRet["itemname"] = pcount .. " " .. extensions.blrlocales.translate("beamlr.generic.term.passengers_lc")
+end
+
+toRet["failg"] = 10 -- static 10g fail point for now, could have different passenger types with lower fail points
+
+toRet["desc"] = extensions.blrlocales.translate(mdata["desc"])
+toRet["desc"] = toRet["desc"]:gsub("$item", toRet["itemname"]) .. "\n"
+toRet["desc"] = toRet["desc"]:gsub("Deliver", "Drive") -- replace "Deliver" with "Drive" for passenger missions
+toRet["desc"] = toRet["desc"] .. treward .. ": $" .. toRet["reward"] .. "\n"
+toRet["desc"] = toRet["desc"] .. tmaxforce .. ": " .. toRet["failg"] .. " Gs\n"
+
+else -- item/trailer/gooseneck delivery missions
+
 local items = loadDataFile("beamLR/missions/items/" .. mtype .. "/" .. mdata["items"]) -- Now uses list files
 local ipick = ""
 local idata = {}
 local difficulty = 0
-local basereward = tonumber(mdata["reward"])
 local weightscale = 0
-math.randomseed(os.clock()*1000) -- No complex seeding for mission system
-
 
 if #items > 1 then
 ipick = items[math.random(1, #items)]
@@ -2562,6 +2589,7 @@ toRet["desc"] = toRet["desc"] .. ttaskb
 end
 
 toRet["tconfig"] = idata["trailer"]
+end
 
 return toRet
 end
@@ -3499,7 +3527,7 @@ for k,v in pairs(locals["missingConfigFinder"]("beamLR/shop/car", false, "config
 end
 
 -- added for 0.33 to rebuild simple traffic spawngroups after cars got put under a same simple_traffic model
-locals["spawngroupGenerator"] = function(output)
+locals["simpleTrafficSpawngroupGenerator"] = function(output)
 local data = {}
 data.data = {}
 
@@ -3520,6 +3548,34 @@ data.name = "BeamLR Traffic"
 
 jsonWriteFile(output, data, true)
 end
+
+-- same as above except uses a list of models to generate a spawngroup
+locals["spawngroupGenerator"] = function(output, models)
+
+local data = {}
+data.data = {}
+
+local configs = {}
+local toadd = ""
+
+for _,model in pairs(models) do
+configs = FS:findFiles("vehicles/" .. model .. "/", "*.pc", -1)
+for _,config in pairs(configs) do
+if not string.find(config, "parked") then
+toadd = config 
+toadd = toadd:gsub("/vehicles/" .. model .. "/", "")
+toadd = toadd:gsub(".pc", "")
+table.insert(data.data, {model=model, config=toadd})
+end
+end
+end
+
+data.type = "custom"
+data.name = "BeamLR Traffic"
+
+jsonWriteFile(output, data, true)
+end
+
 
 
 locals["loadCarShopList"] = function(baselist)
@@ -4217,6 +4273,7 @@ M.setPause = locals["setPause"]
 M.imButton = locals["imButton"]
 M.loadCarShopList = locals["loadCarShopList"]
 M.validateEventWaypoints = locals["validateEventWaypoints"]
+M.simpleTrafficSpawngroupGenerator = locals["simpleTrafficSpawngroupGenerator"]
 M.spawngroupGenerator = locals["spawngroupGenerator"]
 M.setDriftCombo = locals["setDriftCombo"]
 M.getDriftCombo = locals["getDriftCombo"]

@@ -1,8 +1,9 @@
 
-[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.20.4/beamLegalRacing1.20.4.zip
+
+[latest]: https://github.com/r3eckon/BNG-BeamLegalRacing/releases/download/1.20.5/beamLegalRacing1.20.5.zip
 [userfolder]: https://documentation.beamng.com/support/userfolder/
 
-# Beam Legal Racing 1.20.4
+# Beam Legal Racing 1.20.5
 BeamLR is a persistent career BeamNG mod inspired by SLRR aiming to bring hardcore game mechanics to BeamNG such as external and mechanical damage persistence, money, paying for repairs, player health and injuries with fatal crashes resetting your save file, etc. The mod adds interaction to the sandbox with gas stations, repair shops, in world vehicle store system, dynamic race events, enabled traffic and more to achieve a sandbox career experience. 
 
 Perform missions, races and challenges to earn money to buy vehicles and parts. Drive carefully as repairs can be quite costly and a hard enough crash could mean game over!
@@ -150,6 +151,8 @@ Version 1.20 brings compatibility for BeamNG version 0.39 to the mod and adds ne
 Version 1.20.2 adds toggleable log levels to the advanced options menu. Turning off log levels as well as replication to the beamlr.log file may improve performance on systems where the userfolder is on a slower drive. However it isn't recommended to do so as missing log entries will result in missing information for bug reports. Only turn off log entries if you aren't planning on reporting bugs you encounter. If you do encounter bugs with log levels turned off, turn all of them back on and try to replicate the issue before sending a bug report.
 
 Version 1.20.3 adds a new dealership UI app to improve the user experience when buying cars. This new UI not only displays information in an easier to understand manner but it also allows two new options when buying cars: **trade-ins** and **driving off with the new car**. For trade-ins, certain dealerships have a minimum value to accept your vehicle as a trade while others simply do not accept trades. When choosing to drive off with your new car, if you came to the dealership with a car and do not want to trade it in, a towing fee will apply to get the that car back to your garage. Likewise, if you choose to have the new car delivered, a delivery fee applies. 
+
+Version 1.20.5 implements content from BeamNG 0.40 udpate, most notably the seat occupant system has been used to add occupants in the driver seat of race opponents (both during career races and track events) which also adds the same weight as your occupant adds to your car. This update also adds passenger missions, these use the same destinations as small item deliveries and instead spawn occupants in your car that you must drive to a destination. The amount of seats in your car determines the amount of passengers you can drive, more passengers means a higher reward.
 
 # Getting started
 BeamLR is loaded as a freeroam mission. Use the following spawn point depending on map choice:
@@ -1197,3 +1200,9 @@ Cause: Engine jbeam is missing torque data. Data is moved to other subparts. Thi
 * Fixed track event UI using incorrect translation for car reward prefix
 * Track event UI now hiding reward lines if there is no reward (instead of 'none')
 * Removed useless 'background' and 'transparent' image files from UI apps
+### 1.20.5
+* Added new configs to US and Europe truck spawngroups
+* Added passenger driving missions (more passengers means higher reward)
+* Added ability to buy custom license plates for vehicles
+* Race opponents now spawn dummy occupants in driver seat (both career races and track events) 
+* Fixed track events not removing previously existing vehicles on levels

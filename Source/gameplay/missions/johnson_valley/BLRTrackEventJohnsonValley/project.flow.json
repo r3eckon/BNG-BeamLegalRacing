@@ -2,7 +2,7 @@
   "activeGraphId":1,
   "authors":"BeamLR",
   "currentGraphID":1,
-  "date":1793168167,
+  "date":1794411960,
   "debugEnabled":false,
   "description":"Beam Legal Racing Track Event",
   "difficulty":100,
@@ -186,21 +186,14 @@
           false
         ],
         [
+          126,
+          "False",
+          16,
+          "flow",
+          false
+        ],
+        [
           37,
-          "flow",
-          16,
-          "flow",
-          false
-        ],
-        [
-          54,
-          "flow",
-          16,
-          "flow",
-          false
-        ],
-        [
-          86,
           "flow",
           16,
           "flow",
@@ -214,8 +207,15 @@
           false
         ],
         [
-          126,
-          "False",
+          86,
+          "flow",
+          16,
+          "flow",
+          false
+        ],
+        [
+          54,
+          "flow",
           16,
           "flow",
           false
@@ -439,14 +439,14 @@
         ],
         [
           78,
-          "match_2",
+          "match_1",
           31,
           "reset",
           false
         ],
         [
           78,
-          "match_1",
+          "match_2",
           31,
           "reset",
           false
@@ -676,13 +676,6 @@
           false
         ],
         [
-          33,
-          "match_1",
-          51,
-          "reset",
-          false
-        ],
-        [
           37,
           "down",
           51,
@@ -691,14 +684,21 @@
         ],
         [
           33,
-          "match_3",
+          "match_1",
+          51,
+          "reset",
+          false
+        ],
+        [
+          33,
+          "match_1",
           52,
           "flow",
           false
         ],
         [
           33,
-          "match_1",
+          "match_3",
           52,
           "flow",
           false
@@ -1181,14 +1181,14 @@
         ],
         [
           78,
-          "match_1",
+          "match_2",
           83,
           "flow",
           false
         ],
         [
           78,
-          "match_2",
+          "match_1",
           83,
           "flow",
           false
@@ -1279,14 +1279,14 @@
         ],
         [
           78,
-          "match_2",
+          "match_1",
           91,
           "flow",
           false
         ],
         [
           78,
-          "match_1",
+          "match_2",
           91,
           "flow",
           false
@@ -1964,15 +1964,15 @@
           false
         ],
         [
-          76,
-          "False",
+          88,
+          "flow",
           136,
           "flow",
           false
         ],
         [
-          88,
-          "flow",
+          76,
+          "False",
           136,
           "flow",
           false
@@ -2293,14 +2293,14 @@
           false
         ],
         [
-          138,
+          110,
           "flow",
           161,
           "flow",
           false
         ],
         [
-          110,
+          138,
           "flow",
           161,
           "flow",
@@ -3028,15 +3028,15 @@
           false
         ],
         [
-          255,
-          "skip",
+          159,
+          "complete",
           234,
           "flow",
           false
         ],
         [
-          159,
-          "complete",
+          255,
+          "skip",
           234,
           "flow",
           false
@@ -3154,6 +3154,20 @@
           false
         ],
         [
+          249,
+          "flow",
+          251,
+          "flow",
+          false
+        ],
+        [
+          62,
+          "spawnids",
+          251,
+          "idtable",
+          false
+        ],
+        [
           233,
           "flow",
           253,
@@ -3172,6 +3186,27 @@
           "flow",
           259,
           "flow",
+          false
+        ],
+        [
+          2,
+          "enterState",
+          262,
+          "flow",
+          false
+        ],
+        [
+          2,
+          "enterState",
+          262,
+          "reset",
+          false
+        ],
+        [
+          264,
+          "vehId",
+          262,
+          "idToIgnore_1",
           false
         ]
       ],
@@ -3412,8 +3447,8 @@
             ]
           ],
           "pos":[
-            1410,
-            -230
+            1242,
+            -244
           ],
           "type":"util/customLua"
         },
@@ -3476,8 +3511,8 @@
             ]
           ],
           "pos":[
-            1200,
-            -118
+            1362,
+            -370
           ],
           "type":"util/customLua"
         },
@@ -5008,7 +5043,7 @@
             "color_in":{
               "type":"color",
               "value":[
-                0.44597768800000764378,
+                0.44597768800000775480,
                 1,
                 0,
                 1
@@ -5184,8 +5219,8 @@
             ]
           ],
           "pos":[
-            1718,
-            -76
+            1698,
+            8
           ],
           "type":"util/customLua"
         },
@@ -6320,8 +6355,8 @@
             ]
           ],
           "pos":[
-            1858,
-            -258
+            1564,
+            -244
           ],
           "type":"util/customLua"
         },
@@ -10820,7 +10855,7 @@
           "type":"util/customLua"
         },
         "166":{
-          "alpha":0.75000000000000088818,
+          "alpha":0.75000000000000099920,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -11106,8 +11141,8 @@
             ]
           ],
           "pos":[
-            1676,
-            -258
+            1544,
+            -132
           ],
           "type":"util/customLua"
         },
@@ -11502,7 +11537,7 @@
           "hardcodedPins":{
             "dx":{
               "type":"number",
-              "value":0.05000000074505904502
+              "value":0.05000000074505906583
             },
             "mn":{
               "type":"number",
@@ -11590,7 +11625,7 @@
           "hardcodedPins":{
             "dx":{
               "type":"number",
-              "value":0.05000000074505904502
+              "value":0.05000000074505906583
             },
             "mn":{
               "type":"number",
@@ -13254,7 +13289,7 @@
           "type":"ui/cornerTimerBLR"
         },
         "238":{
-          "alpha":0.75000000000000088818,
+          "alpha":0.75000000000000099920,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -13549,7 +13584,7 @@
           "type":"util/customLua"
         },
         "246":{
-          "alpha":0.75000000000000088818,
+          "alpha":0.75000000000000099920,
           "backgroundColor":[
             0.50000000000000000000,
             0.50000000000000000000,
@@ -13747,8 +13782,8 @@
             ]
           ],
           "pos":[
-            2076,
-            -245
+            1564,
+            -342
           ],
           "type":"util/customLua"
         },
@@ -13791,6 +13826,70 @@
           "pos":[
             -388,
             -105
+          ],
+          "type":"util/customLua"
+        },
+        "251":{
+          "code":{
+            "_executionStarted":"",
+            "_executionStopped":"",
+            "onPreRender":"",
+            "work":"local extensions = require(\"extensions\")\nlocal occupy = self.pinIn.occupy.value\nlocal idtable = self.pinIn.idtable.value\n\nlocal dseat = \"\"\nlocal occupant = {name=\"Driver\"}\n\nfor _,id in pairs(idtable) do\ndseat = extensions.blrVehicleUtilsGE.getDriverSeatID(id)\nif dseat then\nextensions.blrVehicleUtilsGE.setSeatOccupant(id, dseat, (occupy and occupant))\nend\nend"
+          },
+          "data":{},
+          "dynamicMode":"repeat",
+          "hardcodedPins":{
+            "occupy":{
+              "type":"bool",
+              "value":true
+            }
+          },
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "idtable":false,
+              "occupy":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "name":"Mass Set Driver Seat Occupant",
+          "pins":[
+            [
+              "in",
+              "flow",
+              "flow",
+              null,
+              "Inflow for this node.",
+              true
+            ],
+            [
+              "out",
+              "flow",
+              "flow",
+              null,
+              "Outflow for this node.",
+              true
+            ],
+            [
+              "in",
+              "table",
+              "idtable",
+              null,
+              ""
+            ],
+            [
+              "in",
+              "bool",
+              "occupy",
+              null,
+              ""
+            ]
+          ],
+          "pos":[
+            1824,
+            -342
           ],
           "type":"util/customLua"
         },
@@ -13927,6 +14026,44 @@
             -21
           ],
           "type":"util/customLua"
+        },
+        "262":{
+          "count":1,
+          "data":{},
+          "dynamicMode":"once",
+          "hiddenPins":{
+            "p_in":{
+              "flow":false,
+              "idToIgnore_1":false,
+              "reset":false
+            },
+            "p_out":{
+              "flow":false
+            }
+          },
+          "onlyDrivableVehs":false,
+          "onlyFlowgraphVehs":false,
+          "pos":[
+            -1536,
+            78
+          ],
+          "type":"gameplay/removeOtherVehicles"
+        },
+        "264":{
+          "data":{},
+          "dynamicMode":"repeat",
+          "hiddenPins":{
+            "p_in":{},
+            "p_out":{
+              "exist":true,
+              "vehId":false
+            }
+          },
+          "pos":[
+            -1530,
+            204
+          ],
+          "type":"scene/getPlayerVehicle"
         }
       },
       "showTab":true,
@@ -13936,8 +14073,8 @@
         "list":{}
       },
       "viewPos":[
-        1263.31433105468750000000,
-        -147.67355346679687500000
+        -520.73559570312500000000,
+        -486.13427734375000000000
       ],
       "viewZoom":0.74999988079071044922
     },
@@ -13955,14 +14092,14 @@
         ],
         [
           4,
-          "success",
+          "fail",
           6,
           "flow",
           false
         ],
         [
           4,
-          "fail",
+          "success",
           6,
           "flow",
           false
@@ -14063,7 +14200,7 @@
         -127.90475463867187500000,
         -1000.50683593750000000000
       ],
-      "viewZoom":0.75000000000000033307
+      "viewZoom":0.75000000000000044409
     }
   },
   "isScenario":true,

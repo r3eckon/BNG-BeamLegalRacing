@@ -92,7 +92,7 @@ X
 </div>
 
 <div ng-if="vehfaxOwned(selectedSlot)" style="width:95%; font-size:14px; text-align:center; margin:auto; margin-left:20px; margin-top:0px; ">
-<p style="text-align:left; font-size:17px; margin-top:0px; margin-bottom:5px;">This vehicle:</p>
+<p style="text-align:left; font-size:17px; margin-top:0px; margin-bottom:5px;">{{"beamlr.dealershipui.vehfaxthisveh" | blrtranslate}}</p>
 <p style="text-align:left; font-size:15px; margin-top:5px; margin-bottom:5px;">- {{vehfax[selectedSlot].text.drivers}}</p>
 <p style="text-align:left; font-size:15px; margin-top:5px; margin-bottom:5px;">- {{vehfax[selectedSlot].text.accidents}}</p>
 <p ng-if="vehfax[selectedSlot].text.oldracecar == null" style="text-align:left; font-size:15px; margin-top:5px; margin-bottom:5px;">- {{vehfax[selectedSlot].text.maintenance}}</p>
@@ -160,6 +160,19 @@ X
 </md-select>
 </td>
 </tr>
+<tr>
+<td style="width:50%;">{{"beamlr.dealershipui.buypage_customplate" | blrtranslate}}</td>
+<td style="width:50%; vertical-align:center;">
+	<div style="width:30px; display:inline-block; margin-right:10px;">
+		<md-checkbox style="width:30px;" ng-change="onCustomPlateToggleChanged()" ng-model="buyoptions.customplate">
+		</md-checkbox>
+	</div>
+	<md-input-container style="display:inline-block; width:105px; height:30px; padding:0px; background-color:rgba(0,0,0,0.3);">
+		<input oninput="this.value = this.value.replace(/[^a-zA-Z0-9]/g, '')" ng-model="buyoptions.customplatetext" ng-disabled="buyoptions.customplate != true" type="text" maxlength=8 style="width:100%; height:100%; text-transform:uppercase;"></input>
+	</md-input-container>
+</td>
+</tr>
+
 </table>
 <div>
 
@@ -173,6 +186,7 @@ X
 <tr ng-if="buyoptions.tradein == true"><td>{{"beamlr.dealershipui.buypage_tradecredit" | blrtranslate}}</td><td style="width:50%; text-align:right;">${{extradata.tradeinval | number:2}}</td></tr>
 <tr ng-if="buyoptions.delivery == 'delivery'"><td>{{"beamlr.dealershipui.buypage_deliveryfee" | blrtranslate}}</td><td style="width:50%; text-align:right;">$50.00</td></tr>
 <tr ng-if="buyoptions.delivery == 'driveout' && (buyoptions.tradein != true && extradata.nocar != true)"><td>{{"beamlr.dealershipui.buypage_towingfee" | blrtranslate}}</td><td style="width:50%; text-align:right;">$50.00</td></tr>
+<tr ng-if="buyoptions.customplate == true"><td>{{"beamlr.dealershipui.buypage_customplatefee" | blrtranslate}}</td><td style="width:50%; text-align:right;">$100.00</td></tr>
 <tr><td>&nbsp</td><td></td></tr>
 <tr style="font-weight:bold;"><td style="font-weight:bold; font-size:23px;">{{"beamlr.generic.term.total" | blrtranslate}} <span ng-if="getTransactionTotal() < 0">({{"beamlr.generic.term.credit" | blrtranslate}})</span></td><td style="width:50%; text-align:right; font-size:23px;" ng-style="getTransactionTotalColor()">${{abs(getTransactionTotal()) | number:2}}</td></tr>
 </table>
@@ -187,16 +201,17 @@ X
 </tr>
 </table>
 
-<div ng-if="moneyCheck(getTransactionTotal()) != true || slotsCheck() != true" style="width:95%; margin:auto; margin-top:10px; text-align:center;">
+<div ng-if="moneyCheck(getTransactionTotal()) != true || slotsCheck() != true || customPlateCheck() != true" style="width:95%; margin:auto; margin-top:10px; text-align:center;">
 <p ng-if="moneyCheck(getTransactionTotal()) != true" style="margin:auto; margin-top:5px; margin-bottom:5px; font-size:17px; font-weight:bold; color:yellow;">{{"beamlr.dealershipui.buypage_notenoughmoney" | blrtranslate}}</p>
 <p ng-if="slotsCheck() != true" style="margin:auto; margin-top:5px; margin-bottom:5px; font-size:17px; font-weight:bold; color:yellow;">{{"beamlr.dealershipui.buypage_notenoughslots" | blrtranslate}}</p>
+<p ng-if="customPlateCheck() != true" style="margin:auto; margin-top:5px; margin-bottom:5px; font-size:17px; font-weight:bold; color:yellow;">{{"beamlr.dealershipui.buypage_customplatebadmsg" | blrtranslate}}</p>
 </div>
 
 
 <table style="width:90%; margin:auto; margin-top:20px; text-align:center;">
 <tr>
 <td style="width:50%;"><button ng-click="setPage(0)">{{"beamlr.generic.button.cancel" | blrtranslate}}</button></td>
-<td style="width:50%;"><button ng-click="sendBuyRequest()" ng-disabled="moneyCheck(getTransactionTotal()) != true || slotsCheck() != true || buyoptions.confirm != true">{{"beamlr.generic.button.buyvehicle" | blrtranslate}}</button></td>
+<td style="width:50%;"><button ng-click="sendBuyRequest()" ng-disabled="buyAllowedFinalCheck() != true || buyoptions.confirm != true">{{"beamlr.generic.button.buyvehicle" | blrtranslate}}</button></td>
 </tr>
 </table>
 </div>
